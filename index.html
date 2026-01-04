@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Guía interactiva del viaje a Japón 2026 - Centro de Mando">
+    <title>Japón 2026 | Centro de Mando</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Botón toggle para navegación móvil -->
+    <button class="mobile-nav-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" id="mobile-nav-toggle">
+        <i class="fa-solid fa-bars"></i> Menú
+    </button>
+
+    <nav class="sidebar" id="sidebar" aria-label="Navegación principal">
+        <div class="logo">
+            <i class="fa-solid fa-torii-gate"></i> 
+            <span>JAPÓN 2026</span>
+        </div>
+        <div id="day-list" role="list"></div>
+    </nav>
+
+    <div class="center-stage">
+        <video id="intro-video" class="intro-video" autoplay loop muted playsinline>
+            <source src="video/videoplayback.mp4" type="video/mp4">
+        </video>
+        <div id="map"></div>
+        
+        <div id="visual-card" class="visual-card">
+            </div>
+    </div>
+
+    <aside class="right-panel" aria-label="Información del día">
+        <div id="info-content">
+        </div>
+    </aside>
+
+    <div id="hover-preview" class="hover-preview">
+        <div id="preview-map-container"></div> <div class="preview-title" id="preview-title">Día X</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
