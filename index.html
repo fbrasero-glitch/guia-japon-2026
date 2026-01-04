@@ -15,9 +15,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Overlay para cerrar menú móvil -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    
     <!-- Botón toggle para navegación móvil -->
     <button class="mobile-nav-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" id="mobile-nav-toggle">
-        <i class="fa-solid fa-bars"></i> Menú
+        <i class="fa-solid fa-bars" id="menu-icon"></i> <span id="menu-text">Menú</span>
     </button>
 
     <nav class="sidebar" id="sidebar" aria-label="Navegación principal">

@@ -1534,3 +1534,563 @@ body:not(.day-selected) .right-panel {
         padding: 15px 20px;
     }
 }
+
+/* ==========================================
+   ESTILOS MÓVIL COMPLETOS (max-width: 767px)
+   Diseño optimizado para smartphones
+   ========================================== */
+
+@media (max-width: 767px) {
+    /* --- VARIABLES MÓVILES --- */
+    :root {
+        --font-h1: 1.75rem;
+        --font-h2: 1.5rem;
+        --font-h3: 1.25rem;
+        --spacing-lg: 16px;
+        --spacing-xl: 24px;
+    }
+    
+    /* --- LAYOUT PRINCIPAL MÓVIL --- */
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+    
+    /* Botón de menú móvil - Más visible */
+    .mobile-nav-toggle {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        position: fixed;
+        top: 12px;
+        left: 12px;
+        z-index: 200;
+        background: rgba(15, 23, 42, 0.95);
+        border: 2px solid var(--accent);
+        color: var(--text-primary);
+        padding: 12px 18px;
+        border-radius: 25px;
+        font-size: 0.9rem;
+        font-weight: 700;
+        cursor: pointer;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5),
+                    0 0 15px rgba(249, 115, 22, 0.3);
+        transition: all 0.2s ease;
+    }
+    
+    .mobile-nav-toggle i {
+        font-size: 1.1rem;
+    }
+    
+    .mobile-nav-toggle:active {
+        transform: scale(0.95);
+        background: var(--accent);
+        color: var(--bg-900);
+    }
+    
+    /* Sidebar móvil - Panel deslizante */
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 85%;
+        max-width: 320px;
+        height: 100vh;
+        background: rgba(15, 23, 42, 0.98);
+        backdrop-filter: blur(20px);
+        border-right: 2px solid var(--accent);
+        padding: 70px 20px 20px 20px;
+        z-index: 150;
+        transform: translateX(-100%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow-y: auto;
+        box-shadow: 5px 0 30px rgba(0, 0, 0, 0.8);
+    }
+    
+    .sidebar.open {
+        transform: translateX(0);
+    }
+    
+    /* Overlay cuando el menú está abierto */
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 140;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .sidebar-overlay.active {
+        display: block;
+        opacity: 1;
+    }
+    
+    /* Logo en móvil */
+    .logo {
+        font-size: 1rem;
+        padding: 12px;
+        margin-bottom: 20px;
+    }
+    
+    /* Botones de días en móvil */
+    .day-btn {
+        padding: 14px 16px;
+        font-size: 0.9rem;
+        border-radius: 10px;
+        margin-bottom: 8px;
+        touch-action: manipulation;
+    }
+    
+    .day-btn strong {
+        font-size: 0.95rem;
+    }
+    
+    /* --- CENTRO PRINCIPAL MÓVIL --- */
+    .center-stage {
+        width: 100%;
+        min-height: 100vh;
+        padding: 70px 12px 20px 12px;
+        position: relative;
+    }
+    
+    .center-stage::before {
+        background: rgba(10, 14, 26, 0.75);
+        backdrop-filter: blur(2px);
+    }
+    
+    /* Video de portada en móvil */
+    .intro-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        z-index: 0;
+    }
+    
+    /* Mapa en móvil */
+    #map {
+        opacity: 0.4;
+    }
+    
+    /* Visual Card - Contenido principal */
+    .visual-card {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        z-index: 20;
+    }
+    
+    /* --- IMAGEN PRINCIPAL MÓVIL --- */
+    .cinema-mode-img {
+        height: 200px;
+        border-radius: 12px;
+        margin-bottom: 16px;
+    }
+    
+    /* Location header en móvil */
+    .location-header h1 {
+        font-size: 2rem;
+        letter-spacing: 3px;
+    }
+    
+    /* --- CONTENEDOR DE HISTORIA MÓVIL --- */
+    .story-container {
+        padding: 20px 16px;
+        border-radius: 12px;
+        margin-bottom: 20px;
+    }
+    
+    .story-container h1 {
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+    }
+    
+    .story-container h2 {
+        font-size: 1.2rem;
+        margin-top: 20px;
+    }
+    
+    .story-container h3 {
+        font-size: 1.05rem;
+        margin-top: 18px;
+    }
+    
+    .story-container p {
+        font-size: 0.95rem;
+        margin-bottom: 14px;
+        line-height: 1.7;
+    }
+    
+    /* Reto Iván en móvil */
+    .ivan-challenge-box {
+        padding: 18px;
+        margin: 20px 0;
+        border-radius: 10px;
+    }
+    
+    /* --- PANEL DERECHO MÓVIL (COMO SECCIÓN INFERIOR) --- */
+    .right-panel {
+        display: block !important;
+        position: relative;
+        width: 100%;
+        height: auto;
+        background: rgba(15, 23, 42, 0.95);
+        border-left: none;
+        border-top: 2px solid var(--accent);
+        padding: 20px 16px;
+        margin-top: 20px;
+        border-radius: 16px 16px 0 0;
+        z-index: 30;
+    }
+    
+    /* En portada, ocultar el panel derecho en móvil */
+    body:not(.day-selected) .right-panel {
+        display: none !important;
+    }
+    
+    /* --- COUNTDOWN MÓVIL --- */
+    .countdown-container {
+        padding: 30px 16px;
+        margin-top: 30px;
+        border-radius: 16px;
+    }
+    
+    .countdown-title i {
+        font-size: 2rem;
+    }
+    
+    .countdown-title h2 {
+        font-size: 1rem;
+        letter-spacing: 2px;
+    }
+    
+    .countdown-number {
+        font-size: 4rem;
+    }
+    
+    .countdown-label {
+        font-size: 1.1rem;
+        letter-spacing: 3px;
+    }
+    
+    .countdown-subtitle {
+        font-size: 0.9rem;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+    
+    .countdown-date {
+        font-size: 1.1rem;
+    }
+    
+    /* --- CAJAS DE INFORMACIÓN MÓVIL --- */
+    .logistics-box,
+    .additions-box,
+    .prices-box {
+        padding: 14px;
+        margin-bottom: 16px;
+        border-radius: 0 10px 10px 0;
+    }
+    
+    .logistics-title,
+    .additions-title,
+    .prices-title {
+        font-size: 0.8rem;
+    }
+    
+    .logistics-item,
+    .additions-item,
+    .prices-item {
+        font-size: 0.85rem;
+        line-height: 1.6;
+    }
+    
+    /* --- TIMELINE MÓVIL --- */
+    .timeline-container {
+        padding-left: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .timeline-item {
+        margin-bottom: 18px;
+    }
+    
+    .timeline-item::before {
+        left: -24px;
+        width: 10px;
+        height: 10px;
+    }
+    
+    .time-tag {
+        font-size: 0.8rem;
+    }
+    
+    .timeline-title {
+        font-size: 0.95rem;
+    }
+    
+    .timeline-desc {
+        font-size: 0.85rem;
+    }
+    
+    /* --- BOTONES DE OPCIÓN MÓVIL --- */
+    .option-btn {
+        padding: 16px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        font-size: 0.95rem;
+    }
+    
+    .option-btn small {
+        font-size: 0.8rem;
+    }
+    
+    /* --- GRID DE EXCURSIONES MÓVIL --- */
+    .excursions-grid,
+    .excursions-grid-3,
+    .excursions-grid-4,
+    .excursions-grid-5 {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 20px;
+        padding: 10px 0;
+    }
+    
+    /* Tarjetas de excursión en móvil */
+    .excursion-card {
+        border-radius: 12px;
+    }
+    
+    .excursion-thumb {
+        height: 150px;
+    }
+    
+    .excursion-card-content {
+        padding: 16px;
+    }
+    
+    .excursion-id {
+        font-size: 0.8rem;
+        padding: 3px 10px;
+    }
+    
+    .excursion-title {
+        font-size: 1.05rem;
+    }
+    
+    .excursion-summary {
+        font-size: 0.85rem;
+    }
+    
+    /* --- HEADER DE EXCURSIÓN MÓVIL --- */
+    .excursion-page-header {
+        flex-direction: column;
+        gap: 16px;
+        padding-bottom: 16px;
+    }
+    
+    .header-left,
+    .header-right {
+        width: 100%;
+    }
+    
+    .hotel-info-section {
+        flex-direction: column;
+        padding: 16px;
+        gap: 14px;
+    }
+    
+    .hotel-image,
+    .hotel-image-placeholder {
+        width: 100%;
+        height: 160px;
+    }
+    
+    .hotel-name {
+        font-size: 1.1rem;
+    }
+    
+    .hotel-google-link {
+        font-size: 0.85rem;
+        padding: 10px 14px;
+    }
+    
+    .location-badge {
+        font-size: 1.1rem;
+        padding: 12px 18px;
+        gap: 10px;
+    }
+    
+    .location-badge i {
+        font-size: 1.3rem;
+    }
+    
+    .day-info-section {
+        padding: 12px 16px;
+    }
+    
+    .day-name {
+        font-size: 1.2rem;
+    }
+    
+    .day-activity {
+        font-size: 0.9rem;
+    }
+    
+    /* --- HOVER PREVIEW OCULTO EN MÓVIL --- */
+    .hover-preview {
+        display: none !important;
+    }
+    
+    /* --- EMPTY STATE MÓVIL --- */
+    .empty-state {
+        margin-top: 60px;
+        padding: 30px 20px;
+    }
+    
+    .empty-state i {
+        font-size: 3rem;
+    }
+    
+    .empty-state h2 {
+        font-size: 1.3rem;
+    }
+    
+    /* --- PREPARACIÓN MÓVIL --- */
+    .preparation-container {
+        padding: 16px;
+    }
+    
+    .preparation-header h1 {
+        font-size: 1.6rem;
+    }
+    
+    .preparation-section-header {
+        padding: 14px 16px;
+    }
+    
+    .preparation-section-header i {
+        font-size: 1.4rem;
+    }
+    
+    .preparation-section-header h2 {
+        font-size: 1.2rem;
+    }
+    
+    .preparation-items {
+        padding: 14px 16px;
+    }
+    
+    .preparation-item {
+        padding: 16px;
+    }
+    
+    .preparation-item-header h3 {
+        font-size: 1rem;
+    }
+    
+    .preparation-item-content {
+        margin-left: 0;
+        margin-top: 12px;
+    }
+    
+    .preparation-desc {
+        font-size: 0.9rem;
+    }
+    
+    .preparation-sidebar {
+        padding: 16px;
+    }
+    
+    .preparation-sidebar h3 {
+        font-size: 1.1rem;
+    }
+    
+    /* --- VIDEOS DE YOUTUBE MÓVIL --- */
+    .video-links {
+        margin-top: 20px !important;
+        padding-top: 16px !important;
+    }
+    
+    .video-links h4 {
+        font-size: 0.9rem !important;
+        margin-bottom: 12px !important;
+    }
+    
+    .video-links a {
+        font-size: 0.9rem !important;
+        display: block;
+        padding: 10px 0;
+    }
+    
+    /* --- SCROLLBAR MÓVIL --- */
+    ::-webkit-scrollbar {
+        width: 4px;
+    }
+    
+    /* --- MEJORAS TÁCTILES --- */
+    button,
+    .day-btn,
+    .option-btn,
+    .excursion-card,
+    a {
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+    }
+    
+    /* Prevenir zoom accidental */
+    input,
+    select,
+    textarea {
+        font-size: 16px;
+    }
+}
+
+/* ==========================================
+   ESTILOS TABLETS (768px - 1023px)
+   ========================================== */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .sidebar {
+        width: 200px;
+    }
+    
+    .right-panel {
+        width: 280px;
+    }
+    
+    .cinema-mode-img {
+        height: 280px;
+    }
+    
+    .excursions-grid-3,
+    .excursions-grid-5 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .location-header h1 {
+        font-size: 2.5rem;
+        letter-spacing: 5px;
+    }
+    
+    .hotel-image,
+    .hotel-image-placeholder {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .location-badge {
+        font-size: 1.3rem;
+        padding: 14px 20px;
+    }
+}

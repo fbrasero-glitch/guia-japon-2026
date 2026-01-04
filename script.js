@@ -329,8 +329,8 @@ const travelData = [
              summary: "Castillo + Shinsekai + Umeda Sky",
              image: "images/dia3-castillo.jpg", // Foto Castillo
              price: "Transporte: 800 JPY | Entradas: 600 JPY (Castillo) + 1.500 JPY (Umeda Sky) | Comida: 3.500 JPY | Total: ~6.400 JPY (40€)",
-             
-fullDesc: `
+
+             fullDesc: `
                 <h3><i class="fa-solid fa-chess-rook"></i> 1. Castillo de Osaka (10:30)</h3>
                 <p><strong>Transporte:</strong> Metro Línea Tanimachi hasta Tanimachi 4-chome.</p>
                 <p><strong>Historia:</strong> Construido en 1583 por Toyotomi Hideyoshi para unificar Japón. Fue la fortaleza más inexpugnable de su tiempo. Aunque la torre es reconstrucción (1931), las murallas y puertas son originales.</p>
@@ -358,8 +358,8 @@ fullDesc: `
              id: "B", name: "Opción B: Bahía",
              summary: "Acuario Kaiyukan + Crucero",
              image: "images/dia3-acuario.jpg", // Foto Acuario
-             
-fullDesc: `
+
+             fullDesc: `
                 <h3><i class="fa-solid fa-fish"></i> 1. Acuario Kaiyukan (10:30)</h3>
                 <p><strong>Transporte:</strong> Metro Línea Chuo hasta Osakako.</p>
                 <p>Diseño vertical espectacular: bajas en espiral desde la superficie hasta el fondo del mar. Lo mejor es el tanque central con el <strong>Tiburón Ballena</strong>.</p>
@@ -382,8 +382,8 @@ fullDesc: `
              id: "C", name: "Opción C: Alturas",
              summary: "Abeno Harukas + Templos",
              image: "images/dia3-abeno.jpg", // Foto Vistas
-             
-fullDesc: `
+
+             fullDesc: `
                 <h3><i class="fa-solid fa-cloud"></i> 1. Abeno Harukas (10:00)</h3>
                 <p><strong>Transporte:</strong> Metro Línea Midosuji hasta Tennoji.</p>
                 <p>Subida al mirador 'Harukas 300' (300m de altura). Las vistas son superiores a Umeda, se ve hasta Kioto y el mar.</p>
@@ -445,8 +445,8 @@ fullDesc: `
              summary: "Ciervos + Gran Buda (Imprescindible)",
              image: "images/dia4-nara.jpg", // Foto Nara con ciervos
              price: "Transporte: 1.600 JPY (Ida/vuelta) | Entradas: 1.000 JPY | Comida: 3.000 JPY | Total: ~5.600 JPY (35€)",
-             
-fullDesc: `
+
+             fullDesc: `
                 <h3><i class="fa-solid fa-train"></i> Transporte (09:30)</h3>
                 <p>Tren <strong>JR Yamatoji Rapid Service</strong> directo desde Osaka Station. Trayecto 50 min hasta JR Nara.</p>
                 
@@ -551,8 +551,8 @@ fullDesc: `
              summary: "Torii Flotante + Historia (Día Largo)",
              image: "images/dia5-miyajima.jpg", // Foto Torii flotante
              price: "Transporte: ~22.000 JPY (Shinkansen I/V - Es caro) | Entradas/Comida: 4.000 JPY | Total: ~26.000 JPY (160€) - Es la excursión más cara del viaje",
-             
-fullDesc: `
+
+             fullDesc: `
                 <h3><i class="fa-solid fa-train"></i> Transporte (07:30)</h3>
                 <p>Shinkansen (Sakura/Nozomi) desde Shin-Osaka a Hiroshima (1h 25m).</p>
                 
@@ -580,8 +580,8 @@ fullDesc: `
              summary: "Super Nintendo World + Harry Potter",
              image: "images/dia5-usj.jpg", // Foto USJ Nintendo World
              price: "Transporte: ~800 JPY | Entradas: ~12.000 JPY (Studio Pass + Express Pass) | Comida: ~5.000 JPY | Total: ~17.800 JPY (110€)",
-             
-fullDesc: `
+
+             fullDesc: `
                 <h3><i class="fa-solid fa-train"></i> Transporte (07:30)</h3>
                 <p>Tren JR Loop Line + Yumesaki Line a Universal City.</p>
                 
@@ -2826,14 +2826,54 @@ function init() {
  // 0. Toggle móvil para navegación
  const mobileToggle = document.getElementById('mobile-nav-toggle');
  const sidebar = document.getElementById('sidebar');
+ const sidebarOverlay = document.getElementById('sidebar-overlay');
+ const menuIcon = document.getElementById('menu-icon');
+ const menuText = document.getElementById('menu-text');
+ 
+ // Función para abrir/cerrar menú
+ function toggleMobileMenu(forceClose = false) {
+     if (!sidebar) return;
+     
+     const shouldClose = forceClose || sidebar.classList.contains('open');
+     
+     if (shouldClose) {
+         sidebar.classList.remove('open');
+         if (sidebarOverlay) sidebarOverlay.classList.remove('active');
+         if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'false');
+         if (menuIcon) {
+             menuIcon.classList.remove('fa-times');
+             menuIcon.classList.add('fa-bars');
+         }
+         if (menuText) menuText.textContent = 'Menú';
+         document.body.style.overflow = '';
+     } else {
+         sidebar.classList.add('open');
+         if (sidebarOverlay) sidebarOverlay.classList.add('active');
+         if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'true');
+         if (menuIcon) {
+             menuIcon.classList.remove('fa-bars');
+             menuIcon.classList.add('fa-times');
+         }
+         if (menuText) menuText.textContent = 'Cerrar';
+         // Prevenir scroll del body cuando el menú está abierto
+         if (window.innerWidth < 768) {
+             document.body.style.overflow = 'hidden';
+         }
+     }
+ }
+ 
  if (mobileToggle && sidebar) {
-     mobileToggle.addEventListener('click', () => {
-         const isOpen = sidebar.classList.toggle('open');
-         mobileToggle.setAttribute('aria-expanded', isOpen);
-         mobileToggle.innerHTML = isOpen ? 
-             '<i class="fa-solid fa-times"></i> Cerrar' : 
-             '<i class="fa-solid fa-bars"></i> Menú';
+     mobileToggle.addEventListener('click', (e) => {
+         e.stopPropagation();
+         toggleMobileMenu();
      });
+     
+     // Cerrar al hacer click en overlay
+     if (sidebarOverlay) {
+         sidebarOverlay.addEventListener('click', () => {
+             toggleMobileMenu(true);
+         });
+     }
      
      // Cerrar sidebar al hacer clic fuera en móvil
      document.addEventListener('click', (e) => {
@@ -2841,12 +2881,20 @@ function init() {
              sidebar.classList.contains('open') && 
              !sidebar.contains(e.target) && 
              !mobileToggle.contains(e.target)) {
-             sidebar.classList.remove('open');
-             mobileToggle.setAttribute('aria-expanded', 'false');
-             mobileToggle.innerHTML = '<i class="fa-solid fa-bars"></i> Menú';
+             toggleMobileMenu(true);
+         }
+     });
+     
+     // Cerrar menú al cambiar orientación o tamaño
+     window.addEventListener('resize', () => {
+         if (window.innerWidth >= 768 && sidebar.classList.contains('open')) {
+             toggleMobileMenu(true);
          }
      });
  }
+ 
+ // Exponer función para cerrar menú desde otros lugares
+ window.closeMobileMenu = () => toggleMobileMenu(true);
  
  // 1. Video de portada
  introVideo = document.getElementById('intro-video');
@@ -2944,6 +2992,11 @@ function init() {
              introVideo.pause();
          }
          loadDay(i);
+         
+         // Cerrar menú móvil después de seleccionar
+         if (window.innerWidth < 768 && window.closeMobileMenu) {
+             window.closeMobileMenu();
+         }
      };
 
      // --- AQUÍ ESTÁ EL CAMBIO ---
@@ -3425,14 +3478,8 @@ function selectExcursionFromCard(dayIndex, optionId, cardElement) {
      renderCenterVisual(data, 'option', option);
      
      // Cerrar sidebar en móvil después de seleccionar
-     if (window.innerWidth < 768) {
-         const sidebar = document.getElementById('sidebar');
-         const mobileToggle = document.getElementById('mobile-nav-toggle');
-         if (sidebar && mobileToggle) {
-             sidebar.classList.remove('open');
-             mobileToggle.setAttribute('aria-expanded', 'false');
-             mobileToggle.innerHTML = '<i class="fa-solid fa-bars"></i> Menú';
-         }
+     if (window.innerWidth < 768 && window.closeMobileMenu) {
+         window.closeMobileMenu();
      }
  }
 }
