@@ -325,22 +325,29 @@ const travelData = [
      hasOptions: true,
      options: [
          {
-             id: "A", name: "Opción A: Clásica",
-             summary: "Castillo + Shinsekai + Umeda Sky",
+             id: "A", name: "Opción A: El Clásico Imprescindible",
+             summary: "Castillo de Osaka + Shinsekai + Umeda Sky Building",
              image: "images/dia3-castillo.jpg", // Foto Castillo
              price: "Transporte: 800 JPY | Entradas: 600 JPY (Castillo) + 1.500 JPY (Umeda Sky) | Comida: 3.500 JPY | Total: ~6.400 JPY (40€)",
 
              fullDesc: `
+                <h3><i class="fa-solid fa-route"></i> Ruta Detallada</h3>
+                <p><strong>09:45 - Salida:</strong> Caminad 8 min hasta la estación de metro Higashi-Umeda.</p>
+                <p><strong>10:00 - Transporte:</strong> Metro Línea Tanimachi (Morada) hacia Yaominami. Bajad en Tanimachi 4-chome (Salida 1-B o 9). Tiempo: 10 min.</p>
+
                 <h3><i class="fa-solid fa-chess-rook"></i> 1. Castillo de Osaka (10:30)</h3>
-                <p><strong>Transporte:</strong> Metro Línea Tanimachi hasta Tanimachi 4-chome.</p>
-                <p><strong>Historia:</strong> Construido en 1583 por Toyotomi Hideyoshi para unificar Japón. Fue la fortaleza más inexpugnable de su tiempo. Aunque la torre es reconstrucción (1931), las murallas y puertas son originales.</p>
-                
-                <h3><i class="fa-solid fa-utensils"></i> 2. Barrio Shinsekai (13:00)</h3>
-                <p><strong>Transporte:</strong> Metro a Ebisucho.</p>
-                <p>Barrio 'retro-futurista' de 1912. Aquí se come <strong>Kushikatsu</strong> (brochetas fritas) en el restaurante 'Daruma' (el de la cara del dueño enfadado).</p>
-                
+                <p><strong>Caminata:</strong> 15 min cruzando el parque y los impresionantes fosos.</p>
+                <p><strong>Historia:</strong> Construido en 1583 por Toyotomi Hideyoshi con la intención de ser el centro de un Japón nuevo y unificado bajo su mando. Fue la fortaleza más inexpugnable de su tiempo.</p>
+                <p><strong>Lo más interesante:</strong> Aunque la torre principal es una reconstrucción de 1931 (por dentro es un museo moderno con ascensor), las murallas ciclópeas y las puertas Otemon son originales.</p>
+
+                <h3><i class="fa-solid fa-utensils"></i> 2. Barrio de Shinsekai (13:00)</h3>
+                <p><strong>Transporte:</strong> Metro desde Tanimachi 4-chome (Línea Chuo) hasta Sakaisuji-Hommachi, transbordo a Línea Sakaisuji hasta Ebisucho.</p>
+                <p><strong>Comida:</strong> Probad el Kushikatsu (brochetas fritas de carne, verdura, queso) en el restaurante Daruma (famoso por la cara del dueño enfadado en la fachada).</p>
+                <p><strong>Contexto:</strong> Barrio creado en 1912 imitando a París (zona norte) y Nueva York (zona sur). Hoy es una cápsula del tiempo "retro-futurista". Subid o admirad desde abajo la torre Tsutenkaku.</p>
+
                 <h3><i class="fa-solid fa-building"></i> 3. Umeda Sky Building (17:30)</h3>
-                <p>Subida al 'Jardín Flotante' al atardecer. Las escaleras mecánicas cruzan el vacío como un puente al cielo.</p>
+                <p><strong>Transporte:</strong> Metro de vuelta a Umeda. Caminad 10 min cruzando el paso subterráneo hacia el edificio.</p>
+                <p><strong>La experiencia:</strong> Subid al "Jardín Flotante" (observatorio al aire libre). Es uno de los edificios más singulares del mundo. Las escaleras mecánicas cruzan el vacío entre las dos torres como un puente al cielo. Id al atardecer.</p>
                 
                 <div class="video-links" style="margin-top:25px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
                     <h4 style="color:var(--danger); margin-bottom:15px;"><i class="fa-brands fa-youtube"></i> Videos de Referencia</h4>
@@ -355,17 +362,26 @@ const travelData = [
              ivanChallenge: "En las murallas del castillo: Fíjate en las piedras gigantescas. ¿Cómo las movieron sin grúas? Busca una persona al lado para comparar la escala."
          },
          {
-             id: "B", name: "Opción B: Bahía",
-             summary: "Acuario Kaiyukan + Crucero",
+             id: "B", name: "Opción B: Bahía y Relax",
+             summary: "Acuario Kaiyukan + Marketplace Tempozan + Crucero",
              image: "images/dia3-acuario.jpg", // Foto Acuario
 
              fullDesc: `
+                <h3><i class="fa-solid fa-route"></i> Ruta Detallada (Menos caminar)</h3>
+
                 <h3><i class="fa-solid fa-fish"></i> 1. Acuario Kaiyukan (10:30)</h3>
-                <p><strong>Transporte:</strong> Metro Línea Chuo hasta Osakako.</p>
-                <p>Diseño vertical espectacular: bajas en espiral desde la superficie hasta el fondo del mar. Lo mejor es el tanque central con el <strong>Tiburón Ballena</strong>.</p>
-                
-                <h3><i class="fa-solid fa-ship"></i> 2. Tarde en la Bahía</h3>
-                <p>Comida en 'Naniwa Kuishinbo Yokocho' (parque temático de comida antigua) en Tempozan Marketplace. Después, crucero en el barco Santa María (45 min)  y subida a la Noria de Tempozan para ver el puerto industrial.</p>
+                <p><strong>Transporte:</strong> Metro Línea Chuo desde Hommachi hasta Osakako.</p>
+                <p><strong>La experiencia:</strong> Es uno de los acuarios más espectaculares del mundo por su diseño vertical (empiezas en la superficie y vas bajando en espiral hacia las profundidades).</p>
+                <p><strong>Lo mejor:</strong> El tanque central con el Tiburón Ballena.</p>
+
+                <h3><i class="fa-solid fa-utensils"></i> 2. Marketplace Tempozan (13:30)</h3>
+                <p>Comida en el centro comercial anexo. Hay un "parque temático de comida" antigua llamado Naniwa Kuishinbo Yokocho.</p>
+
+                <h3><i class="fa-solid fa-ship"></i> 3. Crucero Santa María (15:30)</h3>
+                <p>Barco turístico que recorre la bahía (45 min).</p>
+
+                <h3><i class="fa-solid fa-ferris-wheel"></i> 4. Noria de Tempozan (17:00)</h3>
+                <p>Vistas de toda la bahía y el puerto industrial.</p>
                 
                 <div class="video-links" style="margin-top:25px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
                     <h4 style="color:var(--danger); margin-bottom:15px;"><i class="fa-brands fa-youtube"></i> Videos de Referencia</h4>
@@ -379,20 +395,24 @@ const travelData = [
              ivanChallenge: "Encuentra el pez luna o las medusas gigantes."
          },
          {
-             id: "C", name: "Opción C: Alturas",
-             summary: "Abeno Harukas + Templos",
+             id: "C", name: "Opción C: Cultura Profunda y Alturas",
+             summary: "Abeno Harukas + Templo Shitennoji + Santuario Sumiyoshi",
              image: "images/dia3-abeno.jpg", // Foto Vistas
 
              fullDesc: `
+                <h3><i class="fa-solid fa-route"></i> Ruta Detallada</h3>
+
                 <h3><i class="fa-solid fa-cloud"></i> 1. Abeno Harukas (10:00)</h3>
                 <p><strong>Transporte:</strong> Metro Línea Midosuji hasta Tennoji.</p>
-                <p>Subida al mirador 'Harukas 300' (300m de altura). Las vistas son superiores a Umeda, se ve hasta Kioto y el mar.</p>
-                
-                <h3><i class="fa-solid fa-gopuram"></i> 2. Templo Shitennoji</h3>
-                <p>El primer templo budista oficial de Japón, fundado en el 593 por el Príncipe Shotoku.</p>
-                
-                <h3><i class="fa-solid fa-torii-gate"></i> 3. Sumiyoshi Taisha</h3>
-                <p>Arquitectura puramente japonesa (anterior a influencia china). Famoso por su puente rojo súper arqueado (Sorihashi).</p>
+                <p><strong>La experiencia:</strong> Subid al mirador "Harukas 300". Es el rascacielos más alto de Japón (300m). Las vistas son superiores a las de Umeda, se ve hasta Kioto y el mar.</p>
+
+                <h3><i class="fa-solid fa-gopuram"></i> 2. Templo Shitennoji (12:30)</h3>
+                <p><strong>Caminata:</strong> 10 min desde Tennoji.</p>
+                <p><strong>Contexto:</strong> Fundado en el 593 por el Príncipe Shotoku, es el primer templo budista oficial del estado japonés.</p>
+
+                <h3><i class="fa-solid fa-torii-gate"></i> 3. Santuario Sumiyoshi Taisha (15:00)</h3>
+                <p><strong>Transporte:</strong> Tranvía Hankai desde Tennoji.</p>
+                <p><strong>Contexto:</strong> Arquitectura puramente japonesa (Sumiyoshi-zukuri), anterior a la influencia china. Famoso por su puente rojo súper arqueado (Sorihashi).</p>
                 
                 <div class="video-links" style="margin-top:25px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
                     <h4 style="color:var(--danger); margin-bottom:15px;"><i class="fa-brands fa-youtube"></i> Videos de Referencia</h4>
@@ -441,23 +461,33 @@ const travelData = [
      hasOptions: true,
      options: [
          {
-             id: "A", name: "Opción A: Nara",
-             summary: "Ciervos + Gran Buda (Imprescindible)",
+             id: "A", name: "Opción A: Nara: La Primera Capital",
+             summary: "Parque de Nara + Templo Todai-ji + Santuario Kasuga",
              image: "images/dia4-nara.jpg", // Foto Nara con ciervos
              price: "Transporte: 1.600 JPY (Ida/vuelta) | Entradas: 1.000 JPY | Comida: 3.000 JPY | Total: ~5.600 JPY (35€)",
 
              fullDesc: `
-                <h3><i class="fa-solid fa-train"></i> Transporte (09:30)</h3>
-                <p>Tren <strong>JR Yamatoji Rapid Service</strong> directo desde Osaka Station. Trayecto 50 min hasta JR Nara.</p>
-                
-                <h3><i class="fa-solid fa-paw"></i> 1. Parque de Nara</h3>
-                <p>Capital de Japón entre 710-784. Los ciervos Sika son mensajeros divinos y tesoro nacional. Son libres y descarados.</p>
-                
-                <h3><i class="fa-solid fa-monument"></i> 2. Templo Tōdai-ji</h3>
-                <p>El edificio de madera más grande del mundo. Alberga el Gran Buda de bronce (15 metros).</p>
-                
-                <h3><i class="fa-solid fa-utensils"></i> 3. Comida en Naramachi</h3>
-                <p>Probad el <strong>Kakinoha-zushi</strong> (sushi de caballa/salmón envuelto en hoja de caqui).</p>
+                <h3><i class="fa-solid fa-route"></i> Ruta Detallada</h3>
+                <p><strong>09:00 - Salida:</strong> Caminad a JR Osaka Station.</p>
+                <p><strong>09:30 - Transporte:</strong> Tren JR Yamatoji Rapid Service (Directo). Tiempo: 50 min. Llegada: JR Nara Station.</p>
+
+                <h3><i class="fa-solid fa-paw"></i> 1. Parque de Nara y Ciervos (10:30)</h3>
+                <p><strong>Caminata:</strong> 20 min subiendo por la calle Sanjo-dori (llena de tiendas de souvenirs y mochi).</p>
+                <p><strong>Contexto:</strong> Nara fue la capital de 710 a 784. Los ciervos Sika se consideran mensajeros divinos del santuario Kasuga y están protegidos como tesoro nacional. Son libres y descarados (cuidado con los mapas, ¡se los comen!).</p>
+
+                <h3><i class="fa-solid fa-monument"></i> 2. Templo Tōdai-ji (11:30)</h3>
+                <p><strong>El monumento:</strong> El edificio de madera más grande del mundo. Alberga el Gran Buda (Daibutsu) de bronce, de 15 metros de altura.</p>
+                <p><strong>Reto para Iván:</strong> Dentro del templo hay una columna de madera con un agujero en la base. Se dice que el agujero tiene el mismo tamaño que la fosa nasal del Buda. Si consigues pasar a través de él, tendrás iluminación (y buena suerte en los estudios) en tu próxima vida.</p>
+
+                <h3><i class="fa-solid fa-utensils"></i> 3. Comida en Naramachi (13:30)</h3>
+                <p>Zona de Naramachi (barrio antiguo de comerciantes). Probad el Kakinoha-zushi (sushi de caballa/salmón envuelto en hoja de caqui, típico de aquí).</p>
+
+                <h3><i class="fa-solid fa-torii-gate"></i> 4. Santuario Kasuga Taisha (15:30)</h3>
+                <p><strong>Caminata:</strong> Paseo por el bosque primigenio.</p>
+                <p><strong>Qué ver:</strong> Famoso por sus 3.000 linternas de piedra (en el camino) y de bronce (colgantes).</p>
+
+                <h3><i class="fa-solid fa-train"></i> 5. Regreso (17:30)</h3>
+                <p>Tren JR de vuelta a Osaka. Tarde libre en Umeda (Yodobashi Camera para ver electrónica).</p>
                 
                 <div class="video-links" style="margin-top:25px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
                     <h4 style="color:var(--danger); margin-bottom:15px;"><i class="fa-brands fa-youtube"></i> Videos de Referencia</h4>
@@ -472,40 +502,49 @@ const travelData = [
             ivanChallenge: "<strong>EL AGUJERO DEL BUDA:</strong> En el Todai-ji hay una columna con un agujero en la base (tamaño de la fosa nasal del Buda). Si consigues pasar a través, tendrás iluminación y suerte en los estudios."
          },
          {
-             id: "B", name: "Opción B: Kobe",
-             summary: "Carne + Puerto + Teleférico",
+             id: "B", name: "Opción B: Kobe: Puerto y Elegancia",
+             summary: "Kitano-cho + Carne de Kobe + Teleférico Shin-Kobe",
              image: "images/dia4-kobe.jpg", // Foto Carne de Kobe
              price: "Transporte: ~1.200 JPY | Entradas: ~1.500 JPY (Teleférico) | Comida: ~8.000 JPY (Carne de Kobe es cara) | Total: ~10.700 JPY (66€)",
              
              fullDesc: `
-                 <h3><i class="fa-solid fa-train"></i> Transporte (10:00)</h3>
-                 <p>Tren <strong>JR Special Rapid</strong> desde Osaka a Sannomiya (25 min).</p>
-                 
-                 <h3><i class="fa-solid fa-drumstick-bite"></i> Carne de Kobe (13:00)</h3>
-                 <p>Comida en 'Steakland Kobe' o 'Mouriya'. Veréis cocinar la carne en plancha Teppanyaki delante de vosotros.</p>
-                 
-                 <h3><i class="fa-solid fa-leaf"></i> Vistas y Puerto</h3>
-                 <p>Barrio Kitano-cho (casas occidentales s. XIX)  y subida al teleférico Shin-Kobe Ropeway. Terminar en Harborland viendo la Torre de Kobe roja.</p>
-             `,
+                <h3><i class="fa-solid fa-route"></i> Ruta Detallada</h3>
+                <p><strong>10:00 - Transporte:</strong> Tren JR Special Rapid desde Osaka a Sannomiya (25 min).</p>
+
+                <h3><i class="fa-solid fa-building"></i> 1. Zona Kitano-cho (11:00)</h3>
+                <p>Barrio de casas antiguas de comerciantes extranjeros. Arquitectura occidental del s. XIX.</p>
+
+                <h3><i class="fa-solid fa-drumstick-bite"></i> 2. Comida (Carne de Kobe) (13:00)</h3>
+                <p><strong>Recomendación:</strong> Restaurante Steakland Kobe (turístico pero asequible) o Mouriya (más nivel). Veréis cómo cocinan la carne delante de vosotros en plancha teppanyaki.</p>
+
+                <h3><i class="fa-solid fa-mountain"></i> 3. Teleférico Shin-Kobe Ropeway (15:30)</h3>
+                <p>Sube a los jardines de hierbas Nunobiki. Vistas espectaculares de la ciudad encajonada entre montaña y mar.</p>
+
+                <h3><i class="fa-solid fa-anchor"></i> 4. Harborland (18:00)</h3>
+                <p>Zona del puerto iluminada. Torre de Kobe (roja).</p>
+            `,
              photoSpot: "El chef cocinando la carne con fuego.",
              ivanChallenge: "Encuentra la estatua del Saxofón en el puerto."
          },
          {
-             id: "C", name: "Opción C: Minoh",
-             summary: "Naturaleza + Cascada",
+             id: "C", name: "Opción C: Naturaleza Cercana",
+             summary: "Parque Minoh + Cascada + Momiji Tempura",
              image: "images/dia4-minoh.jpg", // Foto Cascada de Minoh
              price: "Transporte: ~600 JPY | Entradas: Gratis | Comida: ~2.000 JPY (Momiji Tempura) | Total: ~2.600 JPY (16€)",
              
              fullDesc: `
-                 <h3><i class="fa-solid fa-train"></i> Transporte (09:30)</h3>
-                 <p>Tren Hankyu desde Umeda a Minoh Station (30 min).</p>
-                 
-                 <h3><i class="fa-solid fa-tree"></i> Caminata</h3>
-                 <p>Senderismo suave (asfaltado, 3km) remontando el río hasta la cascada.</p>
-                 
-                 <h3><i class="fa-solid fa-cookie"></i> Snack Curioso</h3>
-                 <p>Aquí es típico comer <strong>Momiji Tempura</strong>: Hojas de arce fritas en masa dulce. ¡Pruébalas! </p>
-             `,
+                <h3><i class="fa-solid fa-route"></i> Ruta Detallada</h3>
+                <p><strong>09:30 - Transporte:</strong> Tren Hankyu desde Umeda a Minoh Station (30 min).</p>
+
+                <h3><i class="fa-solid fa-tree"></i> 1. La Actividad (Caminata)</h3>
+                <p>Es una caminata de senderismo suave (asfaltada, 3km, 45 min) remontando un río hasta una cascada preciosa.</p>
+
+                <h3><i class="fa-solid fa-cookie"></i> 2. Snack Curioso (Momiji Tempura)</h3>
+                <p>Aquí es típico comer "hojas de arce fritas en tempura" (Momiji Tempura). Es un snack dulce y crujiente típico.</p>
+
+                <h3><i class="fa-solid fa-building"></i> 3. Tarde</h3>
+                <p>Regreso a Osaka y visita al barrio de Namba/Dotonbori de día para ver los carteles gigantes.</p>
+            `,
              photoSpot: "La Cascada de Minoh.",
              ivanChallenge: "Sácate una foto comiendo una hoja de arce frita."
          }
@@ -548,22 +587,27 @@ const travelData = [
      options: [
          {
              id: "A", name: "Opción A: Hiroshima y Miyajima",
-             summary: "Torii Flotante + Historia (Día Largo)",
+             summary: "Miyajima + Hiroshima + Museo de la Paz",
              image: "images/dia5-miyajima.jpg", // Foto Torii flotante
              price: "Transporte: ~22.000 JPY (Shinkansen I/V - Es caro) | Entradas/Comida: 4.000 JPY | Total: ~26.000 JPY (160€) - Es la excursión más cara del viaje",
 
              fullDesc: `
-                <h3><i class="fa-solid fa-train"></i> Transporte (07:30)</h3>
-                <p>Shinkansen (Sakura/Nozomi) desde Shin-Osaka a Hiroshima (1h 25m).</p>
-                
-                <h3><i class="fa-solid fa-torii-gate"></i> 1. Miyajima (10:00)</h3>
-                <p>Isla sagrada. El Gran Torii del santuario Itsukushima flota sobre el agua cuando sube la marea. Los ciervos también son libres aquí.</p>
-                
-                <h3><i class="fa-solid fa-utensils"></i> Comida</h3>
-                <p>Ostras a la parrilla (especialidad) y Momiji Manju (dulces con forma de hoja).</p>
-                
-                <h3><i class="fa-solid fa-monument"></i> 2. Hiroshima (14:30)</h3>
-                <p>Cúpula de la Bomba Atómica (Genbaku Dome) y Museo de la Paz. Impactante pero educativo.</p>
+                <h3><i class="fa-solid fa-route"></i> Ruta Detallada (Día Largo)</h3>
+                <p><strong>Nota:</strong> Esta excursión es cara en transporte si no tenéis JR Pass, pero es impactante.</p>
+                <p><strong>07:30 - Transporte:</strong> Tren Bala Shinkansen (Sakura o Nozomi) desde Shin-Osaka a Hiroshima. (1h 25m).</p>
+
+                <h3><i class="fa-solid fa-torii-gate"></i> 1. Miyajima (La Isla de los Dioses) (10:00)</h3>
+                <p><strong>Transporte:</strong> Desde la estación de Hiroshima, tren local al puerto + Ferry (JR o Matsudai).</p>
+                <p><strong>Qué ver:</strong> El Gran Torii Flotante del santuario Itsukushima. Cuando sube la marea parece que flota. Los ciervos aquí también son libres.</p>
+                <p><strong>Comida:</strong> Ostras a la parrilla (especialidad local) y Momiji Manju (dulces con forma de hoja).</p>
+
+                <h3><i class="fa-solid fa-monument"></i> 2. Hiroshima Ciudad (14:30)</h3>
+                <p><strong>Vuelta:</strong> En ferry+tren al centro.</p>
+                <p><strong>Cúpula de la Bomba Atómica (Genbaku Dome):</strong> El único edificio que quedó en pie cerca del hipocentro. Estremece verlo.</p>
+                <p><strong>Museo de la Paz:</strong> Explica la tragedia del 6 de agosto de 1945. Es duro, pero educativo para Iván.</p>
+
+                <h3><i class="fa-solid fa-train"></i> 3. Regreso (18:30)</h3>
+                <p>Shinkansen de vuelta a Osaka.</p>
                 
                 <div class="video-links" style="margin-top:25px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
                     <h4 style="color:var(--danger); margin-bottom:15px;"><i class="fa-brands fa-youtube"></i> Videos de Referencia</h4>
@@ -576,23 +620,26 @@ const travelData = [
             ivanChallenge: "En el Museo de la Paz: Reflexiona sobre la importancia de la paz mundial. Es un lugar duro pero necesario de visitar."
          },
          {
-             id: "B", name: "Opción B: Universal Studios",
-             summary: "Super Nintendo World + Harry Potter",
+             id: "B", name: "Opción B: Universal Studios Japan",
+             summary: "Super Nintendo World + Harry Potter + Adrenalina",
              image: "images/dia5-usj.jpg", // Foto USJ Nintendo World
              price: "Transporte: ~800 JPY | Entradas: ~12.000 JPY (Studio Pass + Express Pass) | Comida: ~5.000 JPY | Total: ~17.800 JPY (110€)",
 
              fullDesc: `
-                <h3><i class="fa-solid fa-train"></i> Transporte (07:30)</h3>
-                <p>Tren JR Loop Line + Yumesaki Line a Universal City.</p>
-                
+                <h3><i class="fa-solid fa-route"></i> Ruta Detallada (Adrenalina)</h3>
+                <p><strong>07:30 - Transporte:</strong> Tren JR Loop Line + Yumesaki Line a Universal City.</p>
+
                 <h3><i class="fa-solid fa-gamepad"></i> Super Nintendo World</h3>
                 <p>Entraréis en un videojuego real. Pulseras interactivas, Mario Kart en realidad aumentada.</p>
-                
+
                 <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Harry Potter</h3>
                 <p>El castillo de Hogwarts y la cerveza de mantequilla.</p>
-                
+
                 <h3><i class="fa-solid fa-exclamation-triangle"></i> Importante</h3>
-                <p>Necesitáis comprar Studio Pass y Express Pass con 2 meses de antelación o no entraréis a Nintendo.</p>
+                <p>Necesitáis comprar Studio Pass y Express Pass con 2 meses de antelación o no entraréis a Nintendo. En verano las plazas para Super Nintendo World se agotan; si queréis entrar a Mario Kart necesitáis reservar fecha/hora o el pase rápido para todos.</p>
+
+                <h3><i class="fa-solid fa-utensils"></i> Cena</h3>
+                <p>En el CityWalk fuera del parque (Hard Rock Cafe, etc.).</p>
                 
                 <div class="video-links" style="margin-top:25px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
                     <h4 style="color:var(--danger); margin-bottom:15px;"><i class="fa-brands fa-youtube"></i> Videos de Referencia</h4>
@@ -606,19 +653,24 @@ const travelData = [
          },
          {
              id: "C", name: "Opción C: Osaka Profundo",
-             summary: "Mercado Kuromon + Denden Town",
+             summary: "Mercado Kuromon Ichiba + Denden Town + Shinsaibashi",
              image: "images/dia5-kuromon.jpg", // Foto Mercado Kuromon
              price: "Transporte: ~600 JPY | Entradas: Gratis | Comida: ~5.000 JPY (picoteo en mercado) | Total: ~5.600 JPY (35€)",
              
-fullDesc: `
-                <h3><i class="fa-solid fa-fish"></i> 1. Mercado Kuromon (10:00)</h3>
-                <p>"La cocina de Osaka". Puestos de marisco fresco (erizos, vieiras, atún toro) que te cocinan al momento.</p>
-                
-                <h3><i class="fa-solid fa-robot"></i> 2. Denden Town (12:00)</h3>
+             fullDesc: `
+                <h3><i class="fa-solid fa-route"></i> Ruta Detallada</h3>
+
+                <h3><i class="fa-solid fa-fish"></i> 1. Mercado Kuromon Ichiba (10:00)</h3>
+                <p>"La cocina de Osaka". Puestos de marisco fresco (erizos, vieiras, atún toro) que te cocinan al momento. Desayuno-Almuerzo de picoteo.</p>
+
+                <h3><i class="fa-solid fa-robot"></i> 2. Denden Town (Nipponbashi) (12:00)</h3>
                 <p>El "Akihabara de Osaka". Tiendas de anime, figuras y electrónica de segunda mano a mejor precio que en Tokio.</p>
-                
-                <h3><i class="fa-solid fa-shopping-bag"></i> 3. Shinsaibashi y America-mura</h3>
-                <p>Galería comercial infinita y barrio de moda alternativa con farolas con forma de robots.</p>
+
+                <h3><i class="fa-solid fa-shopping-bag"></i> 3. Shinsaibashi Suji (15:00)</h3>
+                <p>Galería comercial cubierta infinita (shopping).</p>
+
+                <h3><i class="fa-solid fa-building"></i> 4. America-mura (17:00)</h3>
+                <p>El barrio de la moda joven y alternativa. Farolas con forma de robots.</p>
                 
                 <div class="video-links" style="margin-top:25px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
                     <h4 style="color:var(--danger); margin-bottom:15px;"><i class="fa-brands fa-youtube"></i> Videos de Referencia</h4>
