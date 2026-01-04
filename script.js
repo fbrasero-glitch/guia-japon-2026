@@ -352,9 +352,9 @@ const travelData = [
                 <div class="video-links" style="margin-top:25px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
                     <h4 style="color:var(--danger); margin-bottom:15px;"><i class="fa-brands fa-youtube"></i> Videos de Referencia</h4>
                     <ul style="list-style:none; padding:0;">
-                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=F0vV2NOf8m8" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Castillo de Osaka (Parque y Museo)</a></li>
-                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=R_Qp-r_QitY" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Barrio de Shinsekai y Torre Tsutenkaku</a></li>
-                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=GAnXitV7-qY" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Umeda Sky Building</a></li>
+                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=cheNivXFOYU" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Castillo de Osaka (Parque y Museo)</a></li>
+                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=799uPYsvfl0" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Barrio de Shinsekai y Torre Tsutenkaku</a></li>
+                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=ao2-xtmzD4U" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Umeda Sky Building</a></li>
                     </ul>
                 </div>
             `,
@@ -386,8 +386,8 @@ const travelData = [
                 <div class="video-links" style="margin-top:25px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
                     <h4 style="color:var(--danger); margin-bottom:15px;"><i class="fa-brands fa-youtube"></i> Videos de Referencia</h4>
                     <ul style="list-style:none; padding:0;">
-                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=e_sYvXyTf1U" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Acuario Kaiyukan (Puerto de Osaka)</a></li>
-                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=Y_6DqO60o1M" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Noria de Tempozan y Market Place</a></li>
+                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=GE9j5dS7KjE" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Acuario Kaiyukan (Puerto de Osaka)</a></li>
+                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=zW5HLsm5agg" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Noria de Tempozan y Market Place</a></li>
                     </ul>
                 </div>
             `,
@@ -492,9 +492,9 @@ const travelData = [
                 <div class="video-links" style="margin-top:25px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
                     <h4 style="color:var(--danger); margin-bottom:15px;"><i class="fa-brands fa-youtube"></i> Videos de Referencia</h4>
                     <ul style="list-style:none; padding:0;">
-                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=RAnr0SgU6_c" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Templo Todai-ji (Gran Buda de Nara)</a></li>
-                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=2Y7XfN0O_No" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Parque de Nara (Encuentro con Ciervos)</a></li>
-                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=f_VpP-pMlvQ" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Santuario Kasuga Taisha</a></li>
+                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=Y5GGrPcvwJ0" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Templo Todai-ji (Gran Buda de Nara)</a></li>
+                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=4ndYj_Kk8N8" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Parque de Nara (Encuentro con Ciervos)</a></li>
+                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=v2nsrvLrqBM" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Santuario Kasuga Taisha</a></li>
                     </ul>
                 </div>
             `,
@@ -644,7 +644,7 @@ const travelData = [
                 <div class="video-links" style="margin-top:25px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
                     <h4 style="color:var(--danger); margin-bottom:15px;"><i class="fa-brands fa-youtube"></i> Videos de Referencia</h4>
                     <ul style="list-style:none; padding:0;">
-                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=p4v3L0qS1D8" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Universal Studios Japan (Super Nintendo World & Harry Potter)</a></li>
+                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=O51qi89GRGs" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Universal Studios Japan (Super Nintendo World & Harry Potter)</a></li>
                     </ul>
                 </div>
             `,
@@ -745,7 +745,7 @@ fullDesc: `
                 <div class="video-links" style="margin-top:25px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
                     <h4 style="color:var(--danger); margin-bottom:15px;"><i class="fa-brands fa-youtube"></i> Videos de Referencia</h4>
                     <ul style="list-style:none; padding:0;">
-                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=680_M_G75OQ" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Santuario Fushimi Inari-taisha (Ruta de los Mil Toriis)</a></li>
+                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=j2uv3BS4a9E" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Santuario Fushimi Inari-taisha (Ruta de los Mil Toriis)</a></li>
                     </ul>
                 </div>
             `,
@@ -862,9 +862,9 @@ fullDesc: `
                 <div class="video-links" style="margin-top:25px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
                     <h4 style="color:var(--danger); margin-bottom:15px;"><i class="fa-brands fa-youtube"></i> Videos de Referencia</h4>
                     <ul style="list-style:none; padding:0;">
-                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=kYv9z5uT-9Y" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Templo Kiyomizu-dera</a></li>
-                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=CqYFz_S_gIs" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Cuestas de Sannenzaka y Ninenzaka</a></li>
-                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=r0fN3u_q18A" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Barrio de Gion y Pontocho</a></li>
+                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=RTt2dr5v92s" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Templo Kiyomizu-dera</a></li>
+                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=9TCdW1IRLhs" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Cuestas de Sannenzaka y Ninenzaka</a></li>
+                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=OA_ZrgQQJr4" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Barrio de Gion y Pontocho</a></li>
                     </ul>
                 </div>
             `,
@@ -927,7 +927,7 @@ fullDesc: `
                 <div class="video-links" style="margin-top:25px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
                     <h4 style="color:var(--danger); margin-bottom:15px;"><i class="fa-brands fa-youtube"></i> Videos de Referencia</h4>
                     <ul style="list-style:none; padding:0;">
-                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=1F9h7uO2h2U" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Castillo de Nijo (Suelos de Ruiseñor)</a></li>
+                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=FxyrjUCh7sM" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Castillo de Nijo (Suelos de Ruiseñor)</a></li>
                     </ul>
                 </div>
             `,
@@ -996,7 +996,7 @@ fullDesc: `
                 <div class="video-links" style="margin-top:25px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
                     <h4 style="color:var(--danger); margin-bottom:15px;"><i class="fa-brands fa-youtube"></i> Videos de Referencia</h4>
                     <ul style="list-style:none; padding:0;">
-                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=l_8_Ksc-p8c" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Arashiyama: Bosque de Bambú y Templo Tenryu-ji</a></li>
+                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=6MPRrtYeOl8" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Arashiyama: Bosque de Bambú y Templo Tenryu-ji</a></li>
                         <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=y3_S5K4_jlo" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Puente Togetsukyo y Parque de los Monos</a></li>
                     </ul>
                 </div>
@@ -1209,7 +1209,7 @@ fullDesc: `
                 <div class="video-links" style="margin-top:25px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
                     <h4 style="color:var(--danger); margin-bottom:15px;"><i class="fa-brands fa-youtube"></i> Videos de Referencia</h4>
                     <ul style="list-style:none; padding:0;">
-                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=Xh1C9H2fFf0" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Mercado de Nishiki (La despensa de Kioto)</a></li>
+                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=8weM5zapLMc" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Mercado de Nishiki (La despensa de Kioto)</a></li>
                     </ul>
                 </div>
                  
@@ -1345,7 +1345,7 @@ fullDesc: `
                 <div class="video-links" style="margin-top:25px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
                     <h4 style="color:var(--danger); margin-bottom:15px;"><i class="fa-brands fa-youtube"></i> Videos de Referencia</h4>
                     <ul style="list-style:none; padding:0;">
-                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=Q768v3f3e-U" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Teleférico de Shin-Hotaka (Mirador Doble en los Alpes)</a></li>
+                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=Z-Bxsrh3K74" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Teleférico de Shin-Hotaka (Mirador Doble en los Alpes)</a></li>
                     </ul>
                 </div>
             `,
@@ -1415,7 +1415,7 @@ fullDesc: `
                 <div class="video-links" style="margin-top:25px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
                     <h4 style="color:var(--danger); margin-bottom:15px;"><i class="fa-brands fa-youtube"></i> Videos de Referencia</h4>
                     <ul style="list-style:none; padding:0;">
-                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=mC1v8D3-WfA" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Takayama: Barrio Histórico Sanmachi Suji</a></li>
+                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=7D4LHbOAd5I" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Takayama: Barrio Histórico Sanmachi Suji</a></li>
                     </ul>
                 </div>
             `,
@@ -1551,7 +1551,7 @@ fullDesc: `
                 <div class="video-links" style="margin-top:25px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
                     <h4 style="color:var(--danger); margin-bottom:15px;"><i class="fa-brands fa-youtube"></i> Videos de Referencia</h4>
                     <ul style="list-style:none; padding:0;">
-                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=r_r52p6GndY" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Pagoda Chureito (Arakurayama Sengen Park)</a></li>
+                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=ZNSLvQI3qzw" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Pagoda Chureito (Arakurayama Sengen Park)</a></li>
                     </ul>
                 </div>
             `,
@@ -1577,7 +1577,7 @@ fullDesc: `
                 <div class="video-links" style="margin-top:25px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
                     <h4 style="color:var(--danger); margin-bottom:15px;"><i class="fa-brands fa-youtube"></i> Videos de Referencia</h4>
                     <ul style="list-style:none; padding:0;">
-                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=TzOInV-EaH8" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Oshino Hakkai (Pueblo de los 8 manantiales)</a></li>
+                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=IlkdAB4Q05w" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Oshino Hakkai (Pueblo de los 8 manantiales)</a></li>
                     </ul>
                 </div>
             `,
@@ -1789,7 +1789,7 @@ fullDesc: `
                 <div class="video-links" style="margin-top:25px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
                     <h4 style="color:var(--danger); margin-bottom:15px;"><i class="fa-brands fa-youtube"></i> Videos de Referencia</h4>
                     <ul style="list-style:none; padding:0;">
-                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=Xitv_uNAs7c" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Cuevas de Viento de Fugaku y Hielo de Narusawa</a></li>
+                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=2rEmuSVRHv0" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Cuevas de Viento de Fugaku y Hielo de Narusawa</a></li>
                     </ul>
                 </div>
             `,
@@ -1937,8 +1937,8 @@ fullDesc: `
                 <div class="video-links" style="margin-top:25px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
                     <h4 style="color:var(--danger); margin-bottom:15px;"><i class="fa-brands fa-youtube"></i> Videos de Referencia</h4>
                     <ul style="list-style:none; padding:0;">
-                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=s97D4Gcl-oA" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Templo Senso-ji y Calle Nakamise (Asakusa)</a></li>
-                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=f-B6_W_V-I4" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Tokyo Skytree (Vistas Panorámicas)</a></li>
+                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=BjLVSfRIUiw" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Templo Senso-ji y Calle Nakamise (Asakusa)</a></li>
+                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=YpTcCp-xjDA" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Tokyo Skytree (Vistas Panorámicas)</a></li>
                     </ul>
                 </div>
             `,
@@ -2083,9 +2083,9 @@ fullDesc: `
                 <div class="video-links" style="margin-top:25px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
                     <h4 style="color:var(--danger); margin-bottom:15px;"><i class="fa-brands fa-youtube"></i> Videos de Referencia</h4>
                     <ul style="list-style:none; padding:0;">
-                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=9_nO90Rov-A" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Santuario Meiji Jingu (Parque Yoyogi)</a></li>
-                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=A3D-OQp-0lI" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Calle Takeshita y Harajuku</a></li>
-                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=3-D2L0lO4vM" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Cruce de Shibuya y Estatua de Hachiko</a></li>
+                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=-0bqne7MFfU" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Santuario Meiji Jingu (Parque Yoyogi)</a></li>
+                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=t5v3ylsJDPk" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Calle Takeshita y Harajuku</a></li>
+                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=zSNa6OCTLWU" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Cruce de Shibuya y Estatua de Hachiko</a></li>
                     </ul>
                 </div>
             `,
@@ -2130,7 +2130,7 @@ fullDesc: `
                 <div class="video-links" style="margin-top:25px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
                     <h4 style="color:var(--danger); margin-bottom:15px;"><i class="fa-brands fa-youtube"></i> Videos de Referencia</h4>
                     <ul style="list-style:none; padding:0;">
-                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=yYf-Wc_O-5Y" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Shinjuku: Edificio del Gobierno y Kabukicho</a></li>
+                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=esxATRtasuU" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Shinjuku: Edificio del Gobierno y Kabukicho</a></li>
                     </ul>
                 </div>
             `,
@@ -2229,7 +2229,7 @@ fullDesc: `
                 <div class="video-links" style="margin-top:25px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
                     <h4 style="color:var(--danger); margin-bottom:15px;"><i class="fa-brands fa-youtube"></i> Videos de Referencia</h4>
                     <ul style="list-style:none; padding:0;">
-                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=rL_pAsEIs6Y" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Barrio de Akihabara (Electric Town y Cultura Otaku)</a></li>
+                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=39z6HQsnRnc" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Barrio de Akihabara (Electric Town y Cultura Otaku)</a></li>
                     </ul>
                 </div>
             `,
@@ -2274,7 +2274,7 @@ fullDesc: `
                 <div class="video-links" style="margin-top:25px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
                     <h4 style="color:var(--danger); margin-bottom:15px;"><i class="fa-brands fa-youtube"></i> Videos de Referencia</h4>
                     <ul style="list-style:none; padding:0;">
-                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=x9XzRskQnS8" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Mercado de Pescado de Tsukiji (Outer Market)</a></li>
+                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=Qr4pCch8WqE" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Mercado de Pescado de Tsukiji (Outer Market)</a></li>
                     </ul>
                 </div>
             `,
@@ -2381,8 +2381,8 @@ fullDesc: `
                 <div class="video-links" style="margin-top:25px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
                     <h4 style="color:var(--danger); margin-bottom:15px;"><i class="fa-brands fa-youtube"></i> Videos de Referencia</h4>
                     <ul style="list-style:none; padding:0;">
-                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=OisX_O0h3bQ" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> TeamLab Planets TOKYO (Arte Digital)</a></li>
-                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=U_nB1v3Ibe0" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Odaiba: Gundam Gigante y Paseo Marítimo</a></li>
+                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=md5C3Bi9BYM" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> TeamLab Planets TOKYO (Arte Digital)</a></li>
+                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=dtfd2vW-2UQ" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Odaiba: Gundam Gigante y Paseo Marítimo</a></li>
                     </ul>
                 </div>
             `,
@@ -2579,7 +2579,7 @@ fullDesc: `
                 <div class="video-links" style="margin-top:25px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
                     <h4 style="color:var(--danger); margin-bottom:15px;"><i class="fa-brands fa-youtube"></i> Videos de Referencia</h4>
                     <ul style="list-style:none; padding:0;">
-                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=u61yF7H-zxs" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Museo Ghibli en Mitaka</a></li>
+                        <li style="margin-bottom:10px;"><a href="https://www.youtube.com/watch?v=Q4tBHDupFQw" target="_blank" style="color:var(--accent); text-decoration:none;"><i class="fa-solid fa-play-circle"></i> Museo Ghibli en Mitaka</a></li>
                     </ul>
                 </div>
             `,
@@ -3395,10 +3395,10 @@ function renderCenterVisual(data, mode, optData = null) {
              const imgHTML = optImg ? `<img src="${optImg}" class="excursion-thumb" onerror="this.style.display='none'">` : '<div class="excursion-thumb-placeholder"><i class="fa-solid fa-image"></i></div>';
              
              optionsHTML += `
-                 <button class="excursion-card" 
-                         data-option-id="${opt.id}" 
-                         onclick="selectExcursionFromCard(${data.day - 1}, '${opt.id}', this)"
-                         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectExcursionFromCard(${data.day - 1}, '${opt.id}', this);}"
+                <button class="excursion-card"
+                        data-option-id="${opt.id}"
+                        onclick="selectExcursionFromCard(${data.day}, '${opt.id}', this)"
+                        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectExcursionFromCard(${data.day}, '${opt.id}', this);}"
                          aria-label="${opt.name}: ${opt.summary}"
                          aria-pressed="false"
                          role="button"
