@@ -178,8 +178,8 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(10, 14, 26, 0.6);
-    backdrop-filter: blur(1px);
+    background: rgba(10, 14, 26, 0.4);
+    backdrop-filter: blur(0.5px);
     z-index: 1;
     pointer-events: none;
 }
@@ -375,10 +375,15 @@ body:not(.day-selected) .day-btn:hover {
     width: 100vw; /* Ancho completo de la ventana */
     height: 100vh; /* Alto completo de la ventana */
     object-fit: cover;
-    z-index: 1; /* Detrás de los paneles pero visible */
+    z-index: 2; /* Aumentado para estar por encima de overlays */
     opacity: 1;
     transition: opacity 0.5s ease;
     pointer-events: none;
+    /* Mejorar calidad del video */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    transform: translateZ(0); /* Forzar aceleración por hardware */
+    will-change: opacity; /* Optimizar animaciones */
 }
 
 .intro-video.hidden {
@@ -1661,8 +1666,8 @@ body:not(.day-selected) .right-panel {
     }
     
     .center-stage::before {
-        background: rgba(10, 14, 26, 0.75);
-        backdrop-filter: blur(2px);
+        background: rgba(10, 14, 26, 0.5);
+        backdrop-filter: blur(1px);
     }
     
     /* Video de portada en móvil */
@@ -1673,7 +1678,7 @@ body:not(.day-selected) .right-panel {
         width: 100vw;
         height: 100vh;
         object-fit: cover;
-        z-index: 0;
+        z-index: 2; /* Aumentado para estar por encima de overlays */
         /* Mejorar calidad del video */
         image-rendering: -webkit-optimize-contrast;
         image-rendering: crisp-edges;
@@ -1796,8 +1801,8 @@ body:not(.day-selected) .right-panel {
 
     /* Mejorar el mapa en móvil para no interferir tanto */
     #map {
-        opacity: 0.3 !important; /* Reducir más la opacidad en móvil */
-        filter: grayscale(60%) brightness(0.6) contrast(1.1) blur(0.5px);
+        opacity: 0.2 !important; /* Reducir aún más la opacidad en móvil */
+        filter: grayscale(70%) brightness(0.4) contrast(1.2); /* Sin blur para mejor legibilidad */
     }
     
     .countdown-title i {
