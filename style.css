@@ -1773,19 +1773,24 @@ body:not(.day-selected) .right-panel {
         border-radius: 16px;
     }
 
-    /* Cuenta atrás específica para móvil */
+    /* Cuenta atrás específica para móvil - MÁS COMPACTA */
     .countdown-mobile {
         position: relative;
         z-index: 25;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        background: rgba(15, 23, 42, 0.9) !important;
-        backdrop-filter: blur(10px) !important;
-        border: 2px solid rgba(168, 85, 247, 0.8) !important;
-        box-shadow: 0 8px 32px rgba(168, 85, 247, 0.4),
-                    0 4px 16px rgba(0, 243, 255, 0.3),
-                    inset 0 0 20px rgba(168, 85, 247, 0.2) !important;
-        animation: countdownFadeIn 0.8s ease-out;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        padding: 15px 12px !important; /* Reducido de 30px */
+        background: rgba(15, 23, 42, 0.85) !important; /* Más transparente */
+        backdrop-filter: blur(8px) !important;
+        border: 1px solid rgba(168, 85, 247, 0.6) !important; /* Borde más fino */
+        border-radius: 12px !important; /* Más pequeño */
+        box-shadow: 0 4px 16px rgba(168, 85, 247, 0.3),
+                    0 2px 8px rgba(0, 243, 255, 0.2),
+                    inset 0 0 10px rgba(168, 85, 247, 0.1) !important;
+        width: fit-content; /* Solo ocupar el espacio necesario */
+        margin-left: auto;
+        margin-right: auto; /* Centrado horizontal */
+        animation: countdownFadeIn 0.6s ease-out;
     }
 
     @keyframes countdownFadeIn {
@@ -1803,6 +1808,49 @@ body:not(.day-selected) .right-panel {
     #map {
         opacity: 0.2 !important; /* Reducir aún más la opacidad en móvil */
         filter: grayscale(70%) brightness(0.4) contrast(1.2); /* Sin blur para mejor legibilidad */
+    }
+
+    /* Elementos internos más pequeños en móvil */
+    .countdown-mobile .countdown-title {
+        margin-bottom: 12px !important;
+    }
+
+    .countdown-mobile .countdown-title i {
+        font-size: 1.5rem !important;
+    }
+
+    .countdown-mobile .countdown-title h2 {
+        font-size: 0.9rem !important;
+        letter-spacing: 1px !important;
+    }
+
+    .countdown-mobile .countdown-display {
+        margin: 20px 0 !important;
+    }
+
+    .countdown-mobile .countdown-number {
+        font-size: 3rem !important; /* Reducido de 4rem */
+    }
+
+    .countdown-mobile .countdown-label {
+        font-size: 0.9rem !important;
+        letter-spacing: 2px !important;
+    }
+
+    .countdown-mobile .countdown-subtitle {
+        margin-top: 15px !important;
+        font-size: 0.8rem !important;
+    }
+
+    .countdown-mobile .countdown-subtitle i {
+        font-size: 0.9rem !important;
+    }
+
+    .countdown-mobile .countdown-date {
+        margin-top: 10px !important;
+        font-size: 0.9rem !important;
+        border-top: 1px solid rgba(168, 85, 247, 0.3) !important;
+        padding-top: 10px !important;
     }
     
     .countdown-title i {
