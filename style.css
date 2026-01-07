@@ -1674,6 +1674,10 @@ body:not(.day-selected) .right-panel {
         height: 100vh;
         object-fit: cover;
         z-index: 0;
+        /* Mejorar calidad del video */
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+        transform: translateZ(0); /* Forzar aceleración por hardware */
     }
     
     /* Mapa en móvil */
@@ -1762,6 +1766,38 @@ body:not(.day-selected) .right-panel {
         padding: 30px 16px;
         margin-top: 30px;
         border-radius: 16px;
+    }
+
+    /* Cuenta atrás específica para móvil */
+    .countdown-mobile {
+        position: relative;
+        z-index: 25;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background: rgba(15, 23, 42, 0.9) !important;
+        backdrop-filter: blur(10px) !important;
+        border: 2px solid rgba(168, 85, 247, 0.8) !important;
+        box-shadow: 0 8px 32px rgba(168, 85, 247, 0.4),
+                    0 4px 16px rgba(0, 243, 255, 0.3),
+                    inset 0 0 20px rgba(168, 85, 247, 0.2) !important;
+        animation: countdownFadeIn 0.8s ease-out;
+    }
+
+    @keyframes countdownFadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Mejorar el mapa en móvil para no interferir tanto */
+    #map {
+        opacity: 0.3 !important; /* Reducir más la opacidad en móvil */
+        filter: grayscale(60%) brightness(0.6) contrast(1.1) blur(0.5px);
     }
     
     .countdown-title i {

@@ -2980,10 +2980,16 @@ function init() {
      const now = new Date();
      const diffTime = targetDate - now;
      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-     
+
      const container = document.getElementById('info-content');
-     container.innerHTML = `
-         <div class="countdown-container">
+     const visualCard = document.getElementById('visual-card');
+
+     // En móvil, mostrar la cuenta atrás directamente en el visual-card
+     const isMobile = window.innerWidth <= 767;
+     const targetContainer = isMobile ? visualCard : container;
+
+     const countdownHTML = `
+         <div class="countdown-container ${isMobile ? 'countdown-mobile' : ''}">
              <div class="countdown-title">
                  <i class="fa-solid fa-rocket"></i>
                  <h2>CUENTA ATRÁS</h2>
@@ -3001,6 +3007,16 @@ function init() {
              </div>
          </div>
      `;
+
+     if (isMobile) {
+         // En móvil, agregar al visual-card y limpiar el info-content
+         container.innerHTML = '';
+         visualCard.innerHTML = countdownHTML;
+     } else {
+         // En desktop/tablet, usar el comportamiento normal
+         container.innerHTML = countdownHTML;
+         visualCard.innerHTML = '';
+     }
      
      // Actualizar cada día
      if (diffDays > 0) {
