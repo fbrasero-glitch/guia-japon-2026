@@ -526,6 +526,16 @@ function renderRightPanel(data) {
                         ${transitContent}
                     </div>
                 `;
+            } else if (item.type === 'gap') {
+                html += `
+                    <div class="transport-point" style="display:flex; align-items:center; margin-bottom:15px; opacity: 0.8;">
+                        <span style="color:rgba(255,255,255,0.4); font-weight:bold; min-width:55px; font-family:monospace;">${item.time}</span>
+                        <div style="background:rgba(255,255,255,0.03); padding:8px 12px; border-radius:8px; border:1px dashed rgba(255,255,255,0.15); display:flex; align-items:center; flex:1;">
+                            <i class="${item.icon}" style="color:rgba(255,255,255,0.4); margin-right:10px;"></i>
+                            <span style="color:rgba(255,255,255,0.5); font-size:0.85rem; font-style:italic;">${item.title}</span>
+                        </div>
+                    </div>
+                `;
             }
         });
         html += `</div>`;
@@ -595,9 +605,18 @@ function renderCenterVisual(data, mode, optData = null) {
              `;
         }
 
-        // Pin de ubicación (Arriba derecha)
-        const locationBadgeHTML = location ?
-            `<div class="location-badge"><i class="fa-solid fa-map-marker-alt"></i> ${location}</div>` : '';
+        // Pin de ubicación (Arriba derecha) + Descargas si es Osaka
+        let locationBadgeHTML = location ?
+            `<div class="location-badge">
+                <i class="fa-solid fa-map-marker-alt"></i> ${location}
+                ${location.toLowerCase().includes('osaka') ? `
+                    <div class="pdf-downloads">
+                        <a href="pdf/metro osaka.pdf" download title="Mapa Metro Osaka" class="pdf-download-link"><i class="fa-solid fa-train-subway"></i></a>
+                        <a href="pdf/map_osaka jr.pdf" download title="Mapa JR Osaka" class="pdf-download-link"><i class="fa-solid fa-train"></i></a>
+                        <a href="pdf/station_osaka.pdf" download title="Guía Estación Osaka" class="pdf-download-link"><i class="fa-solid fa-compass"></i></a>
+                    </div>
+                ` : ''}
+            </div>` : '';
 
         // Banner de ciudad en Neón (Bajo el hotel)
         const cityBannerHTML = location ?
@@ -959,6 +978,44 @@ function renderCenterVisual(data, mode, optData = null) {
                         </a>
                     </div>
                  ` : ''}
+
+                  ${optData.tacticalOptions ? `
+                    <div style="margin-top:30px; border-top:1px solid rgba(0, 243, 255, 0.2); padding-top:20px;">
+                        <h3 style="color:var(--neon-blue); margin-bottom:15px;"><i class="fa-solid fa-route"></i> OPCIONES DE DESPLIEGUE TÁCTICO</h3>
+                        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
+                            ${optData.tacticalOptions.map(opt => `
+                                <div class="datapad-container" style="padding:15px; border-color:var(--accent);">
+                                    <div style="font-size:0.7rem; color:var(--accent); font-weight:800; margin-bottom:5px;">[ ${opt.time} ]</div>
+                                    <h4 style="color:white; font-size:0.9rem; margin-bottom:10px;">${opt.title}</h4>
+                                    <p style="font-size:0.8rem; opacity:0.8; margin-bottom:12px;">${opt.description}</p>
+                                    
+                                    ${opt.schedule ? `
+                                        <div style="margin-bottom:15px; padding:10px; background:rgba(255,255,255,0.05); border-radius:6px; border-left:2px solid var(--accent);">
+                                            <div style="font-size:0.65rem; color:var(--accent); margin-bottom:8px; letter-spacing:1px;">CRONOGRAMA_SCHEMATIC:</div>
+                                            ${opt.schedule.map(s => `
+                                                <div style="display:flex; justify-content:space-between; font-family:monospace; font-size:0.75rem; margin-bottom:3px; color:rgba(255,255,255,0.9);">
+                                                    <span style="color:var(--accent);">${s.time}</span>
+                                                    <span>${s.event}</span>
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                    ` : ''}
+
+                                    <div style="display:flex; gap:10px;">
+                                        <a href="${opt.link}" target="_blank" class="tactical-btn" 
+                                           style="flex:1; text-align:center; padding:8px; font-size:0.65rem; border-radius:4px; text-decoration:none; background:rgba(0,243,255,0.1); border:1px solid var(--neon-blue); color:var(--neon-blue); font-weight:bold; display:flex; align-items:center; justify-content:center; gap:5px;">
+                                            <i class="fa-solid fa-map-location-dot"></i> MAPS
+                                        </a>
+                                        <button onclick="renderTacticalMission('${opt.tacticalGuideId}', ${travelData.indexOf(data)})" class="tactical-btn" 
+                                                style="flex:1; text-align:center; padding:8px; font-size:0.65rem; border-radius:4px; background:rgba(249,115,22,0.1); border:1px solid var(--accent); color:var(--accent); font-weight:bold; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:5px;">
+                                            <i class="fa-solid fa-file-contract"></i> GUÍA
+                                        </button>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                  ` : ''}
              </div>
          `;
     }
@@ -1104,6 +1161,407 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                     
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission03') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: 03</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    
+                    <h1 class="datapad-title">> MISIÓ_03: INCURSIÓN GASTRONÓMICA EN DOTONBORI</h1>
+                    
+                    <div class="holographic-schema">
+                        <svg viewBox="0 0 400 120" class="schema-svg">
+                            <circle cx="50" cy="60" r="8" class="schema-point" />
+                            <text x="35" y="40" class="schema-label">ESTACIÓN UMEDA</text>
+                            
+                            <line x1="58" y1="60" x2="342" y2="60" class="schema-line" style="stroke:#ef4444; filter:drop-shadow(0 0 5px #ef4444);" />
+                            <text x="150" y="80" class="schema-meta">MIDOSUJI LINE (Red Line)</text>
+                            
+                            <circle cx="350" cy="60" r="8" class="schema-point-target" />
+                            <text x="310" y="40" class="schema-label">ESTACIÓN NAMBA</text>
+                        </svg>
+                    </div>
+
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-map-pin"></i> PROCEDIMIENTO:</div>
+                            <ul class="data-list">
+                                <li><strong>DESPLAZAMIENTO:</strong> Caminar desde Umeda Sky a Est. Umeda</li>
+                                <li><strong>LÍNEA:</strong> Midosuji Line (Roja)</li>
+                                <li><strong>DIRECCIÓN:</strong> "For Nakamozu / Tennoji"</li>
+                                <li><strong>BAJAR:</strong> Estación Namba (Salida 14)</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-lightbulb"></i> OBJETIVO:</div>
+                            <div class="status-box">DOTONBORI_LOCALIZED</div>
+                        </div>
+                    </div>
+                    
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission04') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: 04</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    
+                    <h1 class="datapad-title">> MISIÓ_04: EXTRACCIÓN AL CUARTEL GENERAL (HOTEL)</h1>
+                    
+                    <div class="holographic-schema">
+                        <svg viewBox="0 0 400 160" class="schema-svg">
+                            <circle cx="50" cy="120" r="8" class="schema-point" />
+                            <text x="35" y="105" class="schema-label">ESTACIÓN NAMBA</text>
+                            
+                            <line x1="58" y1="120" x2="342" y2="40" class="schema-line" style="stroke:#ef4444; filter:drop-shadow(0 0 5px #ef4444);" />
+                            <text x="130" y="70" class="schema-meta" transform="rotate(-15 130 70)">MIDOSUJI LINE (Red)</text>
+                            
+                            <circle cx="350" cy="40" r="8" class="schema-point" />
+                            <text x="310" y="25" class="schema-label">ESTACIÓN UMEDA</text>
+                            
+                            <path d="M 350 48 Q 380 90 350 140" class="schema-line-dotted" fill="none" stroke-dasharray="4,4" />
+                            <text x="310" y="155" class="schema-meta">WALK TO HQ (10 MIN)</text>
+                            
+                            <circle cx="350" cy="140" r="8" class="schema-point-target" />
+                            <text x="300" y="130" class="schema-label">HOTEL_HQ</text>
+                        </svg>
+                    </div>
+
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-door-open"></i> EXTRACCIÓN:</div>
+                            <ul class="data-list">
+                                <li><strong>INICIO:</strong> Caminar a Est. Namba</li>
+                                <li><strong>LÍNEA:</strong> Midosuji Line (Roja)</li>
+                                <li><strong>DIRECCIÓN:</strong> "For Umeda / Senri-Chuo"</li>
+                                <li><strong>BAJAR:</strong> Estación Umeda</li>
+                                <li><strong>FINAL:</strong> Caminar 10 min al Hotel</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-bed"></i> ESTADO DE MISIÓN:</div>
+                            <div class="status-box">OBJECTIVE_COMPLETE</div>
+                        </div>
+                    </div>
+                    
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission05') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: 05</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    
+                    <h1 class="datapad-title">> MISIÓ_05: PROTOCOLO BARRIO RETRO</h1>
+                    
+                    <div class="holographic-schema">
+                        <svg viewBox="0 0 400 120" class="schema-svg">
+                            <circle cx="50" cy="60" r="6" class="schema-point" />
+                            <text x="35" y="45" class="schema-label">UMEDA (HQ)</text>
+                            
+                            <line x1="56" y1="60" x2="344" y2="60" class="schema-line transit-midosuji" stroke="#e60012" stroke-width="4" />
+                            <text x="150" y="80" class="schema-meta">LINE_MIDOSUJI (RED)</text>
+                            
+                            <circle cx="350" cy="60" r="8" class="schema-point-target" />
+                            <text x="310" y="45" class="schema-label">SHINSEKAI (EBISUCHO)</text>
+                        </svg>
+                    </div>
+
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-clipboard-list"></i> PROCEDIMIENTO:</div>
+                            <ul class="data-list">
+                                <li><strong>INICIO:</strong> Nishi-Umeda o Umeda Station</li>
+                                <li><strong>LÍNEA:</strong> Midosuji (Roja) hacia Dobutsuen-mae</li>
+                                <li><strong>BAJAR:</strong> Dobutsuen-mae (M22) o Ebisucho</li>
+                                <li><strong>FINAL:</strong> Salida hacia Tsutenkaku Tower</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-radar"></i> ESTADO DEL OBJETIVO:</div>
+                            <div class="status-box">ZONA_RETRO_IDENTIFIED</div>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_aquarium') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: AQUA</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    
+                    <h1 class="datapad-title">> MISIÓ_AQUA: INFILTRACIÓN PUERTO</h1>
+                    
+                    <div class="holographic-schema">
+                        <svg viewBox="0 0 400 120" class="schema-svg">
+                            <circle cx="50" cy="60" r="6" class="schema-point" />
+                            <text x="35" y="45" class="schema-label">UMEDA (HQ)</text>
+                            
+                            <line x1="56" y1="60" x2="194" y2="60" class="schema-line transit-midosuji" stroke="#e60012" stroke-width="4" />
+                            <circle cx="200" cy="60" r="6" class="schema-point" />
+                            <text x="175" y="45" class="schema-label">HOMMACHI</text>
+                            
+                            <line x1="206" y1="60" x2="344" y2="60" class="schema-line transit-chuo" stroke="#009944" stroke-width="4" />
+                            <circle cx="350" cy="60" r="8" class="schema-point-target" />
+                            <text x="310" y="45" class="schema-label">OSAKAKO (AQUARIUM)</text>
+                        </svg>
+                    </div>
+
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-clipboard-list"></i> PROCEDIMIENTO:</div>
+                            <ul class="data-list">
+                                <li><strong>TRASLADO 1:</strong> Línea Midosuji (Roja) a Hommachi</li>
+                                <li><strong>TRANSBORDO:</strong> Línea Chuo (Verde) dir. Cosmosquare</li>
+                                <li><strong>BAJAR:</strong> Estación Osakako (C11)</li>
+                                <li><strong>TIEMPO:</strong> ~45 min | <strong>PRECIO:</strong> ~290 JPY</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-utensils"></i> RECOMENDACIÓN RANCHO:</div>
+                            <div class="status-box" style="font-size: 0.8rem; line-height: 1.2; text-align: left;">
+                                <strong>TEMPOZAN MARKETPLACE:</strong> Naniwa Kuishinbo Yokocho (Callejón años 60).<br>
+                                <strong>QUÉ BUSCAR:</strong> Takoyaki (Aizu-ya), Okonomiyaki o Arroz Curry (Jiyuken).
+                            </div>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission06') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: 06</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    
+                    <h1 class="datapad-title">> MISIÓ_06: ENLACE MERCADO NEGRO</h1>
+                    
+                    <div class="holographic-schema">
+                        <svg viewBox="0 0 400 120" class="schema-svg">
+                            <circle cx="50" cy="60" r="6" class="schema-point" />
+                            <text x="35" y="45" class="schema-label">SHINSEKAI</text>
+                            
+                            <line x1="56" y1="60" x2="344" y2="60" class="schema-line transit-sakaisuji" stroke="#8b4513" stroke-width="4" />
+                            <text x="150" y="80" class="schema-meta">LINE_SAKAISUJI (BROWN)</text>
+                            
+                            <circle cx="350" cy="60" r="8" class="schema-point-target" />
+                            <text x="310" y="45" class="schema-label">NIPPOMBASHI (KUROMON)</text>
+                        </svg>
+                    </div>
+
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-clipboard-list"></i> PROCEDIMIENTO:</div>
+                            <ul class="data-list">
+                                <li><strong>INICIO:</strong> Ebisucho Station (K18)</li>
+                                <li><strong>LÍNEA:</strong> Sakaisuji (Marrón) hacia Nippombashi</li>
+                                <li><strong>BAJAR EN:</strong> Nippombashi (K17)</li>
+                                <li><strong>OBJETIVO:</strong> Mercado Kuromon (Salida 10)</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-radar"></i> SEGURIDAD:</div>
+                            <div class="status-box warning">POS_ZONA_TURÍSTICA_ALTA</div>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission07') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: 07</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    
+                    <h1 class="datapad-title">> MISIÓ_07: ZONA DE COMPROBACIÓN (SHOPPING)</h1>
+                    
+                    <div class="holographic-schema">
+                        <svg viewBox="0 0 400 120" class="schema-svg">
+                            <circle cx="50" cy="60" r="6" class="schema-point" />
+                            <text x="35" y="45" class="schema-label">KUROMON</text>
+                            
+                            <path d="M 50 60 L 200 60 L 350 60" class="schema-line-dotted transit-walk" fill="none" stroke="#00f3ff" stroke-width="2" stroke-dasharray="5,5" />
+                            <text x="150" y="80" class="schema-meta">CAMINATA_SENNICHIMAE_ST</text>
+                            
+                            <circle cx="350" cy="60" r="8" class="schema-point-target" />
+                            <text x="310" y="45" class="schema-label">SHINSAIBASHI-SUJI</text>
+                        </svg>
+                    </div>
+
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-clipboard-list"></i> RECONOCIMIENTO:</div>
+                            <ul class="data-list">
+                                <li><strong>RUTA:</strong> Caminata directa por Sennichimae hacia Namba</li>
+                                <li><strong>TIEMPO:</strong> ~15 min de aproximación</li>
+                                <li><strong>ZONA:</strong> Galerías techadas (Souvenirs, Don Quijote)</li>
+                                <li><strong>REAGRUPAR:</strong> Área de Dotonbori para cena</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-credit-card"></i> LOGÍSTICA:</div>
+                            <div class="status-box">PRESUPUESTO_FLEXIBLE</div>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission08') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: 08</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    
+                    <h1 class="datapad-title">> MISIÓ_08: EXTRACCIÓN FINAL (BASE RETURN)</h1>
+                    
+                    <div class="holographic-schema">
+                        <svg viewBox="0 0 400 120" class="schema-svg">
+                            <circle cx="50" cy="60" r="6" class="schema-point" />
+                            <text x="35" y="40" class="schema-label">NAMBA / SHINSAIBASHI</text>
+                            
+                            <line x1="56" y1="60" x2="344" y2="60" class="schema-line transit-midosuji" stroke="#e60012" stroke-width="4" />
+                            <text x="150" y="80" class="schema-meta">LINE_MIDOSUJI (RED)</text>
+                            
+                            <circle cx="350" cy="60" r="8" class="schema-point-target" />
+                            <text x="310" y="40" class="schema-label">UMEDA (HQ)</text>
+                        </svg>
+                    </div>
+
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-clipboard-list"></i> EXTRACCIÓN:</div>
+                            <ul class="data-list">
+                                <li><strong>METRO:</strong> Namba Station (M24)</li>
+                                <li><strong>LÍNEA:</strong> Midosuji (Roja) hacia Umeda/Shin-Osaka</li>
+                                <li><strong>DESTINO:</strong> Umeda (4ª parada)</li>
+                                <li><strong>DESCANSO:</strong> Cuartel General de Osaka</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-moon"></i> ESTADO CUERPO:</div>
+                            <div class="status-box danger">AGOTAMIENTO_MAX_DETECTED</div>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_shinsekai_a') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: SHINSEKAI_A</div>
+                        <button onclick="selectExcursionFromCard(${dayIndex}, 'c1')" class="datapad-close">
+                            <i class="fa-solid fa-chevron-left"></i> BACK_TO_INTEL
+                        </button>
+                    </div>
+                    
+                    <h1 class="datapad-title">> RUTA TÁCTICA A: SHINSEKAI (PREFERENCIA: CALMA)</h1>
+                    
+                    <div class="holographic-schema">
+                        <svg viewBox="0 0 400 120" class="schema-svg">
+                            <circle cx="50" cy="60" r="8" class="schema-point" />
+                            <text x="25" y="40" class="schema-label">SALIDA: CASTILLO (11:30)</text>
+                            
+                            <line x1="58" y1="60" x2="342" y2="60" class="schema-line" style="stroke:#ef4444; filter:drop-shadow(0 0 5px #ef4444);" />
+                            <text x="140" y="80" class="schema-meta">TRANSIT: JR LOOP LINE</text>
+                            
+                            <circle cx="350" cy="60" r="8" class="schema-point-target" />
+                            <text x="310" y="40" class="schema-label">LLEGADA: SHINSEKAI (12:00)</text>
+                        </svg>
+                    </div>
+
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-clock"></i> CRONOGRAMA DETALLADO:</div>
+                            <ul class="data-list">
+                                <li><strong>11:30:</strong> Salida Castillo (Tras 2h visita)</li>
+                                <li><strong>11:45:</strong> Abordar JR Loop Line (Pista 1)</li>
+                                <li><strong>12:00:</strong> LLEGADA: Est. Tennoji</li>
+                                <li><strong>15:30:</strong> SALIDA: Hacia Umeda Sky</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-heart"></i> PRIORIDAD:</div>
+                            <p style="font-size:0.85rem; opacity:0.8; line-height:1.4;">PREFERENCIA: <strong>Comer tranquilo</strong> (Kushikatsu Daruma) y asegurar llegada a Umeda con margen para el atardecer (16:30).</p>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_shinsekai_b') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: SHINSEKAI_B</div>
+                        <button onclick="selectExcursionFromCard(${dayIndex}, 'c1')" class="datapad-close">
+                            <i class="fa-solid fa-chevron-left"></i> BACK_TO_INTEL
+                        </button>
+                    </div>
+                    
+                    <h1 class="datapad-title">> RUTA TÁCTICA B: SHINSEKAI (FOTOS NOCTURNAS)</h1>
+                    
+                    <div class="holographic-schema">
+                        <svg viewBox="0 0 400 120" class="schema-svg">
+                            <circle cx="50" cy="60" r="8" class="schema-point" />
+                            <text x="35" y="40" class="schema-label">SALIDA: UMEDA (18:30)</text>
+                            
+                            <line x1="58" y1="60" x2="342" y2="60" class="schema-line" style="stroke:#ef4444; filter:drop-shadow(0 0 5px #ef4444);" />
+                            <text x="140" y="80" class="schema-meta">TRANSIT: MIDOSUJI LINE</text>
+                            
+                            <circle cx="350" cy="60" r="8" class="schema-point-target" />
+                            <text x="280" y="40" class="schema-label">LLEGADA: SHINSEKAI (19:00)</text>
+                        </svg>
+                    </div>
+
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-clock"></i> CRONOGRAMA DETALLADO:</div>
+                            <ul class="data-list">
+                                <li><strong>18:30:</strong> Salida Umeda Sky (Tras 2h visita)</li>
+                                <li><strong>18:45:</strong> Abordar Línea Midosuji (Roja)</li>
+                                <li><strong>19:00:</strong> LLEGADA: Est. Dobutsuen-mae</li>
+                                <li><strong>20:10:</strong> SALIDA: Hacia Dotonbori (Cena tarde)</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-camera"></i> ADVERTENCIA:</div>
+                            <p style="font-size:0.85rem; opacity:0.8; line-height:1.4;">FOTOS NOCTURNAS: <strong>Máximo impacto visual</strong> con neones. Menos tiempo en el barrio y la jornada acabará más tarde de lo previsto.</p>
+                        </div>
+                    </div>
                     <div class="scanline-overlay"></div>
                 </div>
             `;

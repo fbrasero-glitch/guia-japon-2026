@@ -340,7 +340,26 @@ const travelData = [
                 tacticalGuideId: "mission02"
             },
             { time: "16:30", type: "point", title: "Llegada Umeda Sky", icon: "fa-solid fa-building" },
-            { time: "20:00", type: "point", title: "Cena", icon: "fa-solid fa-utensils" }
+            {
+                time: "",
+                type: "transit",
+                title: "Línea Midosuji (Umeda → Namba)",
+                price: "230 JPY",
+                timeLabel: "~15 min tren",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Umeda+Sky+Building&destination=Dotonbori&travelmode=transit",
+                tacticalGuideId: "mission03"
+            },
+            { time: "20:00", type: "point", title: "Cena en Dotonbori", icon: "fa-solid fa-utensils" },
+            {
+                time: "",
+                type: "transit",
+                title: "Línea Midosuji (Namba → Umeda) + Caminata",
+                price: "230 JPY",
+                timeLabel: "~20 min total",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Dotonbori&destination=Hotel+Wing+International+Select+Osaka+Umeda&travelmode=transit",
+                tacticalGuideId: "mission04"
+            },
+            { time: "22:00", type: "point", title: "Retorno al Hotel", icon: "fa-solid fa-bed" }
         ],
 
         isFlexible: true,
@@ -361,8 +380,24 @@ const travelData = [
                     time: "16:30",
                     title: "Umeda Sky Building",
                     description: "Edificio con observatorio flotante. Vistas espectaculares.",
-                    image: "images/dia3-abeno.jpg",
+                    image: "images/umeda.png",
                     price: "1.500 JPY"
+                },
+                {
+                    id: "b3",
+                    time: "20:00",
+                    title: "Cena en Dotonbori",
+                    description: "Ver el cartel de Glico iluminado. Gastronomía local (Takoyaki, Kushikatsu).",
+                    image: "images/dotonbori.png",
+                    price: "~3.000 JPY"
+                },
+                {
+                    id: "b4",
+                    time: "22:00",
+                    title: "Retorno al Hotel",
+                    description: "Fin de la jornada. Descanso en el Cuartel General.",
+                    image: "images/hotel-wing-osaka.jpg",
+                    price: "Gratis"
                 }
             ]
         },
@@ -370,21 +405,38 @@ const travelData = [
             {
                 id: "c1",
                 title: "Barrio Shinsekai y Torre Tsūtenkaku",
-                time: "12:30",
+                time: "Flex: 12:00 / 19:00",
                 description: "Barrio retro, comida callejera (Kushikatsu).",
                 price: "~2.000 JPY",
                 image: "images/dia3-castillo.jpg",
-                recommended: true
+                recommended: true,
+                tacticalOptions: [
+                    {
+                        title: "RUTA A: POST-CASTILLO (Comida)",
+                        time: "11:30 - 15:30",
+                        description: "PREFERENCIA: Comer tranquilo y asegurar Umeda con margen. Salida del Castillo tras 2h de visita.",
+                        schedule: [
+                            { time: "11:30", event: "Salida Castillo" },
+                            { time: "12:00", event: "Llegada Shinsekai" },
+                            { time: "15:30", event: "Salida hacia Umeda Sky" }
+                        ],
+                        link: "https://www.google.com/maps/dir/?api=1&origin=Osakajokoen+Station&destination=Tsutenkaku+Tower&travelmode=transit",
+                        tacticalGuideId: "mission_shinsekai_a"
+                    },
+                    {
+                        title: "RUTA B: POST-UMEDA SKY (Atardecer)",
+                        time: "18:30 - 20:00",
+                        description: "FOTOS NOCTURNAS: Menos tiempo en barrio pero mejores luces. Se acabará más tarde.",
+                        schedule: [
+                            { time: "18:30", event: "Salida Umeda Sky" },
+                            { time: "19:00", event: "Llegada Shinsekai" },
+                            { time: "20:10", event: "Salida hacia Dotonbori" }
+                        ],
+                        link: "https://www.google.com/maps/dir/?api=1&origin=Umeda+Station&destination=Tsutenkaku+Tower&travelmode=transit",
+                        tacticalGuideId: "mission_shinsekai_b"
+                    }
+                ]
             },
-            {
-                id: "c2",
-                title: "Cena en Dotonbori",
-                time: "19:30",
-                description: "Ver el cartel de Glico iluminado. Gastronomía local.",
-                price: "~3.000 JPY",
-                image: "images/dia3-portada.jpg"
-            },
-
         ]
     },
 
@@ -403,8 +455,53 @@ const travelData = [
             { title: "Comida", text: "Kuromon Market cierra sobre las 17:00, id a comer." }
         ],
 
+        transportTimeline: [
+            { time: "09:00", type: "point", title: "Hotel Wing (Umeda)", icon: "fa-solid fa-hotel" },
+            {
+                time: "",
+                type: "transit",
+                title: "Línea Midosuji (Umeda → Shinsekai)",
+                price: "240 JPY",
+                timeLabel: "~20 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Umeda+Station&destination=Tsutenkaku+Tower&travelmode=transit",
+                tacticalGuideId: "mission05"
+            },
+            { time: "09:30", type: "point", title: "Shinsekai & Tsutenkaku", icon: "fa-solid fa-tower-observation" },
+            {
+                time: "12:00",
+                type: "gap",
+                title: "Tiempo Libre / Almuerzo (Opcional: Mercado Kuromon)",
+                icon: "fa-solid fa-utensils"
+            },
+            {
+                time: "",
+                type: "transit",
+                title: "Caminata / Metro a Shinsaibashi",
+                price: "Variable",
+                timeLabel: "~15-20 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Tsutenkaku+Tower&destination=Shinsaibashi-suji+Shopping+Arcade&travelmode=transit",
+                tacticalGuideId: "mission07"
+            },
+            { time: "15:30", type: "point", title: "Shinsaibashi-suji", icon: "fa-solid fa-bag-shopping" },
+            { time: "20:00", type: "point", title: "Cena Comilona de Carnaca", icon: "fa-solid fa-drumstick-bite" },
+            {
+                time: "",
+                type: "transit",
+                title: "Línea Midosuji (Namba → Umeda)",
+                price: "240 JPY",
+                timeLabel: "~15 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Namba+Station&destination=Umeda+Station&travelmode=transit",
+                tacticalGuideId: "mission08"
+            },
+            { time: "22:00", type: "point", title: "Retorno al Hotel Wing (Umeda)", icon: "fa-solid fa-bed" }
+        ],
+
         timeline: [
-            { time: "20:00", title: "Cena Comilona de Carnaca", desc: "Evento fijo de la ruta (Yakiniku)." }
+            { time: "09:30", title: "Shinsekai & Tsutenkaku", desc: "Barrio retro y torre icónica." },
+            { time: "12:00", title: "Tiempo Libre", desc: "Almuerzo opcional (Kuromon recomendado)." },
+            { time: "15:30", title: "Compras Shinsaibashi", desc: "Galería comercial kilométrica." },
+            { time: "20:00", title: "Cena Comilona de Carnaca", desc: "Evento fijo: Yakiniku." },
+            { time: "22:00", title: "Retorno al Hotel", desc: "Fin de la jornada." }
         ],
 
         prices: {
@@ -417,19 +514,51 @@ const travelData = [
         isFlexible: true,
         base: {
             title: "Itinerario Base",
-            description: "Día flexible enfocado en la gran cena nocturna.",
+            description: "Día de contrastes: el Osaka retro y el shopping moderno.",
             events: [
                 {
+                    id: "b_shinsekai",
                     time: "09:30",
-                    title: "Mañana Libre",
-                    description: "Espacio para visitar el Acuario o descansar.",
-                    type: "gap"
+                    title: "Shinsekai & Tsutenkaku",
+                    description: "Barrio retro congelado en el tiempo. Probad las brochetas Kushikatsu.",
+                    image: "images/dia3-shinsekai.jpg",
+                    price: "~1.500 JPY (Torre)",
+                    tacticalOptions: [
+                        {
+                            title: "DESPLIEGUE: ZONA RETRO",
+                            time: "09:30 - 13:00",
+                            description: "Exploración de Tsutenkaku y callejones. Recomendado: Comer Kushikatsu.",
+                            schedule: [
+                                { time: "09:00", event: "Salida Hotel (Umeda)" },
+                                { time: "09:30", event: "Llegada Shinsekai" },
+                                { time: "12:00", event: "Inicio Tiempo Libre / Almuerzo" }
+                            ],
+                            link: "https://www.google.com/maps/dir/?api=1&origin=Umeda+Station&destination=Tsutenkaku+Tower&travelmode=transit",
+                            tacticalGuideId: "mission05"
+                        }
+                    ]
                 },
                 {
-                    time: "13:00",
-                    title: "Tiempo de Almuerzo / Compras",
-                    description: "Sugerencia: Mercado Kuromon o Shinsaibashi.",
-                    type: "gap"
+                    id: "b_shinsaibashi",
+                    time: "15:30",
+                    title: "Shinsaibashi-suji",
+                    description: "Tarde libre o compras en la galería comercial kilométrica.",
+                    image: "images/shinsaibashi.png",
+                    price: "Gratis",
+                    tacticalOptions: [
+                        {
+                            title: "INFILTRACIÓN: SHOPPING PROTOCOL",
+                            time: "15:30 - 19:30",
+                            description: "Galería comercial infinita. Ideal para souvenirs y electrónica.",
+                            schedule: [
+                                { time: "15:30", event: "Entrada Shinsaibashi" },
+                                { time: "18:00", event: "Exploración Libre" },
+                                { time: "20:00", event: "Extracción Cena Carnaca" }
+                            ],
+                            link: "https://www.google.com/maps/dir/?api=1&origin=Tsutenkaku+Tower&destination=Shinsaibashi-suji+Shopping+Arcade&travelmode=walking",
+                            tacticalGuideId: "mission07"
+                        }
+                    ]
                 },
                 {
                     id: "b1",
@@ -464,15 +593,44 @@ const travelData = [
                         <li><i class="fa-solid fa-ticket"></i> <strong>Entrada:</strong> ~2.700 JPY.</li>
                     </ul>
                 `,
-                video: "https://www.youtube.com/watch?v=1uPcdj8V_8g"
+                video: "https://www.youtube.com/watch?v=1uPcdj8V_8g",
+                tacticalOptions: [
+                    {
+                        title: "OPERACIÓN AQUA: DESPLIEGUE",
+                        time: "09:00 - 15:30",
+                        description: "Infiltración en el Puerto de Osaka. Incluye almuerzo en zona temática de los 60.",
+                        schedule: [
+                            { time: "09:00", event: "Salida Hotel Wing (Umeda)" },
+                            { time: "09:45", event: "Llegada Acuario Kaiyukan" },
+                            { time: "13:00", event: "Almuerzo: Naniwa Kuishinbo Yokocho" },
+                            { time: "14:45", event: "Extracción hacia Shinsaibashi" }
+                        ],
+                        link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Wing+International+Select+Osaka+Umeda&destination=Osaka+Aquarium+Kaiyukan&travelmode=transit",
+                        tacticalGuideId: "mission_aquarium"
+                    }
+                ]
             },
             {
                 id: "c2",
                 title: "Mercado Kuromon",
                 time: "13:00",
-                description: "'La cocina de Osaka'. Comer marisco fresco y Wagyu.",
+                description: "'La cocina de Osaka'. Recomendado por cercanía (A solo 15 min de Shinsekai).",
                 price: "Variable",
-                image: "images/dia3-portada.jpg"
+                image: "images/dia5-kuromon.jpg",
+                tacticalOptions: [
+                    {
+                        title: "INFILTRACIÓN: LOGÍSTICA KUROMON",
+                        time: "12:30 - 15:30",
+                        description: "Comida en mercado. Cuidado con los horarios de cierre (17:00).",
+                        schedule: [
+                            { time: "12:30", event: "Salida Shinsekai" },
+                            { time: "13:00", event: "Llegada Nippombashi" },
+                            { time: "15:30", event: "Movimiento a Shinsaibashi" }
+                        ],
+                        link: "https://www.google.com/maps/dir/?api=1&origin=Tsutenkaku+Tower&destination=Kuromon+Ichiba+Market&travelmode=transit",
+                        tacticalGuideId: "mission06"
+                    }
+                ]
             },
             {
                 id: "c3",
@@ -480,7 +638,21 @@ const travelData = [
                 time: "15:30",
                 description: "Galería comercial techada para compras.",
                 price: "Gratis",
-                image: "images/dia3-portada.jpg"
+                image: "images/dia3-portada.jpg",
+                tacticalOptions: [
+                    {
+                        title: "PROTOCOLO: SHOPPING ZONE",
+                        time: "15:30 - 19:30",
+                        description: "Zona de compras intensa. Punto de encuentro final cerca de Namba.",
+                        schedule: [
+                            { time: "15:30", event: "Entrada Shinsaibashi" },
+                            { time: "18:00", event: "Exploración Libre" },
+                            { time: "19:45", event: "Reagrupamiento Cena" }
+                        ],
+                        link: "https://www.google.com/maps/dir/?api=1&origin=Kuromon+Ichiba+Market&destination=Shinsaibashi-suji+Shopping+Arcade&travelmode=walking",
+                        tacticalGuideId: "mission07"
+                    }
+                ]
             }
         ]
     },
