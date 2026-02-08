@@ -1375,6 +1375,182 @@ function renderTacticalMission(missionId, dayIndex) {
                     <div class="scanline-overlay"></div>
                 </div>
             `;
+        } else if (missionId === 'mission_usj') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: USJ</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    
+                    <h1 class="datapad-title">> MISIÓ_USJ: NINTENDO_PROTOCOLO</h1>
+                    
+                    <div class="holographic-schema">
+                        <svg viewBox="0 0 400 120" class="schema-svg">
+                            <circle cx="50" cy="60" r="6" class="schema-point" />
+                            <text x="35" y="45" class="schema-label">UMEDA (HQ)</text>
+                            
+                            <line x1="56" y1="60" x2="194" y2="60" class="schema-line transit-loop" stroke="#e60012" stroke-width="4" />
+                            <circle cx="200" cy="60" r="6" class="schema-point" />
+                            <text x="175" y="45" class="schema-label">NISHIKUJO</text>
+                            
+                            <line x1="206" y1="60" x2="344" y2="60" class="schema-line transit-yumesaki" stroke="#0091d2" stroke-width="4" />
+                            <circle cx="350" cy="60" r="8" class="schema-point-target" />
+                            <text x="310" y="45" class="schema-label">UNIVERSAL CITY</text>
+                        </svg>
+                    </div>
+
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-clipboard-list"></i> PROCEDIMIENTO:</div>
+                            <ul class="data-list">
+                                <li><strong>TRASLADO 1:</strong> JR Loop Line a Nishikujo</li>
+                                <li><strong>ENLACE:</strong> JR Yumesaki (Sakurajima Line)</li>
+                                <li><strong>BAJAR:</strong> Universal City Station</li>
+                                <li><strong>TIEMPO:</strong> ~25 min | <strong>PRECIO:</strong> ~190 JPY</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-warning"></i> NOTA DE CAMPO:</div>
+                            <div class="status-box warning" style="font-size: 0.7rem;">
+                                REQUERIDA ENTRADA TIMED-ENTRY PARA SUPER NINTENDO WORLD
+                            </div>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_nara') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: NARA</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    
+                    <h1 class="datapad-title">> MISIÓ_NARA: PROTOCOLO CIERVO</h1>
+                    
+                    <div class="holographic-schema">
+                        <svg viewBox="0 0 400 120" class="schema-svg">
+                            <circle cx="50" cy="60" r="6" class="schema-point" />
+                            <text x="35" y="45" class="schema-label">OSAKA (HQ)</text>
+                            
+                            <line x1="56" y1="60" x2="344" y2="60" class="schema-line transit-yamatoji" stroke="#31b131" stroke-width="4" />
+                            <text x="150" y="80" class="schema-meta">JR YAMATOJI RAPID</text>
+                            
+                            <circle cx="350" cy="60" r="8" class="schema-point-target" />
+                            <text x="310" y="45" class="schema-label">JR NARA STATION</text>
+                        </svg>
+                    </div>
+
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-clipboard-list"></i> PROCEDIMIENTO:</div>
+                            <ul class="data-list">
+                                <li><strong>INICIO:</strong> Estación JR Osaka (Andenes 1 o 2)</li>
+                                <li><strong>SERVICIO:</strong> Yamatoji Rapid Service</li>
+                                <li><strong>BAJAR:</strong> Estación JR Nara (Final de línea)</li>
+                                <li><strong>TRANSPORTE:</strong> ~50 min | <strong>PRECIO:</strong> ~820 JPY</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-shield-dog"></i> SEGURIDAD:</div>
+                            <div class="status-box warning">CUIDADO_CON_LOS_CIERVOS</div>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_fushimi') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: INARI</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    
+                    <h1 class="datapad-title">> MISIÓ_INARI: INFILTRACIÓN TORII</h1>
+                    
+                    <div class="holographic-schema">
+                        <svg viewBox="0 0 400 120" class="schema-svg">
+                            <circle cx="50" cy="60" r="6" class="schema-point" />
+                            <text x="35" y="45" class="schema-label">OSAKA (HQ)</text>
+                            
+                            <line x1="56" y1="60" x2="344" y2="60" class="schema-line transit-inari" stroke="#ff4500" stroke-width="4" />
+                            <text x="150" y="80" class="schema-meta">JR SPECIAL RAPID + LOCAL</text>
+                            
+                            <circle cx="350" cy="60" r="8" class="schema-point-target" />
+                            <text x="310" y="45" class="schema-label">INARI STATION</text>
+                        </svg>
+                    </div>
+
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-clipboard-list"></i> PROCEDIMIENTO:</div>
+                            <ul class="data-list">
+                                <li><strong>SALIDA:</strong> 07:00 (Recomendado)</li>
+                                <li><strong>TRANSBORDO:</strong> Kyoto Station a Línea Nara (Local)</li>
+                                <li><strong>BAJAR EN:</strong> Estación Inari</li>
+                                <li><strong>ESTRATEGIA:</strong> Evitar masa crítica de turistas</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-mountain"></i> OBJETIVO:</div>
+                            <div class="status-box">RECON_YOTSUTSUJI_MIRADOR</div>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_kyoto_transfer') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: KYOTO_MOVE</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    
+                    <h1 class="datapad-title">> MISIÓ_KIOTO: DESPLIEGUE</h1>
+                    
+                    <div class="holographic-schema">
+                        <svg viewBox="0 0 400 120" class="schema-svg">
+                            <circle cx="50" cy="60" r="6" class="schema-point" />
+                            <text x="35" y="45" class="schema-label">OSAKA STATION</text>
+                            
+                            <line x1="56" y1="60" x2="344" y2="60" class="schema-line transit-kyoto" stroke="#0052ad" stroke-width="4" />
+                            <text x="150" y="80" class="schema-meta">JR SPECIAL RAPID SERVICE</text>
+                            
+                            <circle cx="350" cy="60" r="8" class="schema-point-target" />
+                            <text x="310" y="45" class="schema-label">KYOTO STATION</text>
+                        </svg>
+                    </div>
+
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-clipboard-list"></i> PROCEDIMIENTO:</div>
+                            <ul class="data-list">
+                                <li><strong>INICIO:</strong> Estación JR Osaka (Andenes 7, 8 o 9)</li>
+                                <li><strong>SERVICIO:</strong> Special Rapid Service (Línea Azul)</li>
+                                <li><strong>BAJAR EN:</strong> Estación de Kioto (Final de trayecto)</li>
+                                <li><strong>TIEMPO:</strong> 29 min | <strong>PRECIO:</strong> 570 JPY</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-suitcase"></i> LOGÍSTICA:</div>
+                            <div class="status-box">MALETAS_RECEPCIÓN_CHECKIN_15:00</div>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
         } else if (missionId === 'mission06') {
             missionHTML = `
                 <div class="datapad-container animate-fade-in">

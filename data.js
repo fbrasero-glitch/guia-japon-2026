@@ -658,185 +658,283 @@ const travelData = [
     },
 
     // --- DÍA 5: OSAKA (OPCIONES) ---
-    // --- DÍA 5: NARA y SUR (ESTRUCTURA BASE + COMPLEMENTOS) ---
+    // --- DÍA 5: UNIVERSAL STUDIOS Y AVENTURA ---
     {
         day: 5, type: "stay",
-        date: "Vie, 31 Julio", title: "🦌 Nara: Ciervos y Tradición",
-        coords: [34.685, 135.805], zoom: 13,
+        date: "Vie, 31 Julio", title: "🎢 Osaka: Aventura y Píxeles",
+        coords: [34.665, 135.432], zoom: 13,
         hotel: "Hotel Wing International Select Osaka Umeda",
         hotelImage: "images/hotel-wing-osaka.jpg",
         hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Hotel+Wing+International+Select+Osaka+Umeda",
-        image: "images/dia4-portada.jpg", // Foto Nara
+        image: "images/dia5-usj.jpg",
 
         logistics: [
-            { title: "Transporte", text: "Tren JR Yamatoji Line desde Osaka." },
-            { title: "Ciervos", text: "Cuidado con los mapas y comida, muerden." }
+            { title: "Entradas", text: "Studio Pass + Express Pass (Nintendo World) recomendables." },
+            { title: "Transporte", text: "JR Yumesaki Line hasta Universal City Station." }
         ],
 
-        timeline: [
-            { time: "08:30", title: "Fushimi Inari Taisha", desc: "Parada estratégica de camino. Subir al mirador. (Base)" },
-            { time: "11:00", title: "Nara Park y Todai-ji", desc: "Gran Buda y ciervos sagrados. (Base)" }
+        transportTimeline: [
+            {
+                time: "07:30",
+                type: "point",
+                title: "Salida Hotel Wing (Umeda)",
+                icon: "fa-solid fa-hotel"
+            },
+            {
+                type: "transit",
+                title: "Línea JR Loop + Yumesaki Line",
+                price: "190 JPY",
+                timeLabel: "25-30 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Wing+International+Select+Osaka+Umeda&destination=Universal+Studios+Japan&travelmode=transit",
+                tacticalGuideId: "mission_usj"
+            },
+            {
+                time: "08:15",
+                type: "point",
+                title: "Apertura USJ / Nintendo World",
+                icon: "fa-solid fa-gamepad"
+            },
+            {
+                time: "13:00",
+                type: "gap",
+                title: "Almuerzo en el Parque / CityWalk",
+                icon: "fa-solid fa-utensils"
+            },
+            {
+                time: "20:00",
+                type: "point",
+                title: "Cierre / Extracción CityWalk",
+                icon: "fa-solid fa-door-closed"
+            }
         ],
 
         prices: {
-            transport: "~1.000 JPY",
-            entrances: "600 JPY (Todai-ji) + 600 JPY (Byodo-in Opcional)",
-            food: "~3.000 JPY",
-            total: "~4.600 JPY (Base)"
+            transport: "~380 JPY",
+            entrances: "~8.600 JPY (USJ - Varía según día)",
+            food: "~4.000 JPY",
+            total: "~13.000 JPY (USJ Base)"
         },
 
         isFlexible: true,
         base: {
-            title: "Itinerario Base",
-            description: "Ruta clásica por la primera capital y el santuario infinito.",
+            title: "Universal Studios Japan",
+            description: "Día de inmersión en cine y videojuegos (Super Nintendo World).",
             events: [
                 {
                     id: "b1",
                     time: "08:30",
-                    title: "Fushimi Inari Taisha",
-                    description: "Santuario de las 10.000 puertas torii. Subida al mirador Yotsutsuji.",
-                    image: "images/dia6-fushimi.jpg",
-                    price: "Gratis",
+                    title: "Super Nintendo World",
+                    description: "Entra en el reino de Mario Kart y Bowser. (Requiere reserva horaria).",
+                    image: "images/dia5-usj.jpg",
+                    price: "Incluido",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-torii-gate"></i> Fushimi Inari</h3>
-                        <p>Famoso por sus miles de toriis rojos que serpentean por el monte Inari.</p>
+                        <h3><i class="fa-solid fa-coins"></i> Super Nintendo World</h3>
+                        <p>Totalmente interactivo. Usa la Power-Up Band para recolectar monedas digitales.</p>
                         <ul>
-                            <li><i class="fa-regular fa-clock"></i> <strong>Visita:</strong> Subiremos hasta el mirador Yotsutsuji para ver Kioto desde arriba (sin llegar a la cima para ahorrar tiempo/energía).</li>
+                            <li><strong>Mario Kart:</strong> Desafío de Bowser en realidad aumentada.</li>
+                            <li><strong>Yoshi's Adventure:</strong> Recorrido panorámico por el reino.</li>
                         </ul>
-                    `,
-                    video: "https://www.youtube.com/watch?v=fXfS6_0D6iU"
-                },
-                {
-                    time: "10:30",
-                    title: "Traslado a Nara",
-                    description: "Tren JR hacia Nara Park.",
-                    type: "gap"
+                    `
                 },
                 {
                     id: "b2",
-                    time: "11:00",
-                    title: "Nara Park y Templo Todai-ji",
-                    description: "Parque con ciervos libres y el Buda de bronce más grande del mundo.",
-                    image: "images/dia4-nara.jpg",
-                    price: "600 JPY",
+                    time: "11:30",
+                    title: "The Wizarding World of Harry Potter",
+                    description: "Hogwarts, Hogsmeade y los vuelos prohibidos.",
+                    image: "images/dia5-usj.jpg",
+                    price: "Incluido",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-landmark"></i> Templo Todai-ji</h3>
-                        <p>Hogar del 'Daibutsu' (Gran Buda). Es la construcción de madera más grande del mundo.</p>
-                        <p><strong>Nara Park:</strong> Podrás alimentar a los ciervos sagrados con galletas Shika-senbei.</p>
-                    `,
-                    video: "https://www.youtube.com/watch?v=JmYIun1I780",
-                    ivanChallenge: "Atraviesa el agujero del 'Pilar de la Nariz de Buda' en el Todai-ji. ¡Dicen que otorga iluminación en la próxima vida!"
-                },
-                {
-                    time: "13:30",
-                    title: "Tarde Libre / Opcionales",
-                    description: "Espacio para Kasuga Taisha o traslado a Uji.",
-                    type: "gap"
+                        <h3><i class="fa-solid fa-wand-sparkles"></i> Harry Potter</h3>
+                        <p>No te pierdas Forbidden Journey dentro del castillo. Cerveza de mantequilla disponible.</p>
+                    `
                 }
             ]
         },
         complements: [
             {
                 id: "c1",
-                title: "Santuario Kasuga Taisha",
-                time: "13:30",
-                description: "Templo de los faroles de piedra (dentro del parque Nara).",
-                price: "500 JPY",
-                image: "images/dia4-nara.jpg"
+                title: "Osaka Profundo (Alternativa)",
+                time: "10:00",
+                description: "Denden Town (Electronics) y America-mura.",
+                price: "Gratis",
+                image: "images/dia5-kuromon.jpg",
+                tacticalOptions: [
+                    {
+                        title: "RUTA: PIXEL & TECH",
+                        time: "10:00 - 18:00",
+                        description: "Incursión en el Akihabara de Osaka.",
+                        schedule: [
+                            { time: "10:00", event: "Denden Town (Figuritas/Retro)" },
+                            { time: "13:00", event: "Almuerzo: Mercado Kuromon" },
+                            { time: "15:00", event: "America-mura (Moda/Robots)" }
+                        ],
+                        link: "https://www.google.com/maps/dir/?api=1&origin=Den+Den+Town&destination=America-mura&travelmode=walking"
+                    }
+                ]
             },
             {
                 id: "c2",
-                title: "Parada en Uji (Byodo-in)",
-                time: "16:00",
-                description: "A la vuelta. Templo de la moneda de 10 yenes y té matcha.",
-                price: "600 JPY",
-                image: "images/dia4-nara.jpg"
+                title: "Hiroshima / Miyajima",
+                time: "07:30",
+                description: "La excursión más lejana e impactante (Shinkansen).",
+                price: "~22.000 JPY",
+                image: "images/dia5-miyajima.jpg",
+                tacticalOptions: [
+                    {
+                        title: "OPERACIÓN: ASHES & WATER",
+                        time: "07:30 - 20:30",
+                        description: "Traslado en Tren Bala a la isla del Torii flotante.",
+                        schedule: [
+                            { time: "07:30", event: "Salida Shin-Osaka (Shinkansen)" },
+                            { time: "10:00", event: "Miyajima (Itsukushima)" },
+                            { time: "15:00", event: "Memorial de la Paz de Hiroshima" }
+                        ],
+                        link: "https://www.google.com/maps/dir/?api=1&origin=Shin-Osaka+Station&destination=Miyajimaguchi+Station&travelmode=transit"
+                    }
+                ]
             }
         ]
     },
 
-    // --- DÍA 6: TRASLADO A KIOTO (ESTRUCTURA BASE + COMPLEMENTOS) ---
+    // --- DÍA 6: NARA Y EL BOSQUE SAGRADO ---
     {
-        day: 6, type: "travel",
-        date: "Sáb, 1 Agosto", title: "👘 Kioto: Llegada y Gion",
-        coords: [34.985, 135.758], zoom: 13,
-        hotel: "Kyoto Tower Hotel Annex",
-        hotelImage: "images/hotel-kyoto-tower.jpg",
-        hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Kyoto+Tower+Hotel+Annex",
-        image: "images/dia6-portada.jpg",
+        day: 6, type: "stay",
+        date: "Sáb, 1 Agosto", title: "🦌 Nara: El Bosque de los Dioses",
+        coords: [34.685, 135.805], zoom: 13,
+        hotel: "Hotel Wing International Select Osaka Umeda",
+        hotelImage: "images/hotel-wing-osaka.jpg",
+        hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Hotel+Wing+International+Select+Osaka+Umeda",
+        image: "images/dia4-portada.jpg",
 
         logistics: [
-            { title: "Maletas", text: "Dejadlas en el hotel antes del check-in (15:00)." },
-            { title: "Transporte", text: "Tren JR Special Rapid desde Osaka (29 min)." }
+            { title: "Transporte", text: "JR Yamatoji Line (Rapid) desde Osaka Station." },
+            { title: "Retorno", text: "Regreso a Osaka para descansar antes del traslado a Kioto." }
         ],
 
-        timeline: [
-            { time: "10:00", title: "Check-out Osaka y Tren", desc: "Traslado a la antigua capital. (Base)" },
-            { time: "17:00", title: "Gion y Pontocho", desc: "Paseo buscando Geishas y cena junto al río. (Base)" }
+        transportTimeline: [
+            {
+                time: "09:00",
+                type: "point",
+                title: "Salida Hotel Wing (Umeda)",
+                icon: "fa-solid fa-hotel"
+            },
+            {
+                type: "transit",
+                title: "JR Yamatoji Line (Rapid)",
+                price: "820 JPY",
+                timeLabel: "50 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Wing+International+Select+Osaka+Umeda&destination=Nara+Park&travelmode=transit",
+                tacticalGuideId: "mission_nara"
+            },
+            {
+                time: "10:30",
+                type: "point",
+                title: "Llegada Nara Park / Ciervos",
+                icon: "fa-solid fa-leaf"
+            },
+            {
+                time: "11:30",
+                type: "point",
+                title: "Templo Todai-ji (Gran Buda)",
+                icon: "fa-solid fa-gopuram"
+            },
+            {
+                time: "13:30",
+                type: "gap",
+                title: "Almuerzo en Naramachi",
+                icon: "fa-solid fa-utensils"
+            },
+            {
+                time: "15:30",
+                type: "point",
+                title: "Santuario Kasuga Taisha",
+                icon: "fa-solid fa-torii-gate"
+            },
+            {
+                time: "17:30",
+                type: "transit",
+                title: "Regreso a Osaka",
+                price: "820 JPY",
+                timeLabel: "50 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Nara+Station&destination=Hotel+Wing+International+Select+Osaka+Umeda&travelmode=transit"
+            },
+            {
+                time: "18:30",
+                type: "point",
+                title: "Extracción al Hotel Umeda",
+                icon: "fa-solid fa-bed"
+            }
         ],
 
         prices: {
-            transport: "570 JPY",
-            entrances: "Gratis",
-            food: "~3.500 JPY",
-            total: "~4.100 JPY (Base)"
+            transport: "~1.640 JPY",
+            entrances: "600 JPY (Todai-ji) + 500 JPY (Kasuga Taisha)",
+            food: "~3.000 JPY",
+            total: "~5.800 JPY"
         },
 
         isFlexible: true,
         base: {
-            title: "Itinerario Base",
-            description: "Llegada a Kioto y primera toma de contacto nocturna.",
+            title: "Nara Tradicional",
+            description: "La primera capital permanente de Japón y sus ciervos sagrados.",
             events: [
                 {
                     id: "b1",
-                    time: "10:00",
-                    title: "Check-out y Tren a Kioto",
-                    description: "Traslado en JR Special Rapid. Dejar maletas en hotel.",
-                    image: "images/dia2-osaka.jpg",
-                    price: "570 JPY",
-                    fullDesc: `
-                        <h3><i class="fa-solid fa-train"></i> Traslado a Kioto</h3>
-                        <p>Daremos el salto a la capital cultural de Japón. El trayecto dura menos de 30 minutos.</p>
-                    `
-                },
-                {
                     time: "11:30",
-                    title: "Tiempo para Almorzar",
-                    description: "Recomendamos el Mercado Nishiki o la Estación de Kioto.",
-                    type: "gap"
+                    title: "Templo Tōdai-ji",
+                    description: "El Gran Buda y el edificio de madera más grande del mundo.",
+                    image: "images/dia4-buda.jpg",
+                    price: "600 JPY",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-landmark"></i> Todai-ji</h3>
+                        <p>Hogar del Daibutsu. No olvides el reto de Iván en el pilar con el agujero.</p>
+                    `,
+                    video: "https://www.youtube.com/watch?v=JmYIun1I780"
                 },
                 {
                     id: "b2",
-                    time: "17:00",
-                    title: "Gion y Pontocho",
-                    description: "Distrito de las Geishas y callejón gastronómico tradicional.",
-                    image: "images/dia6-portada.jpg",
-                    price: "Gratis",
+                    time: "15:30",
+                    title: "Kasuga Taisha",
+                    description: "Santuario famoso por sus miles de linternas colgantes.",
+                    image: "images/dia4-nara.jpg",
+                    price: "500 JPY",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-person-dress-fairy"></i> Distrito de Gion</h3>
-                        <p>Paseo al atardecer por Hanami-koji. Cruzaremos el puente Shijo hacia Pontocho para cenar frente al río Kamo.</p>
-                    `,
-                    video: "https://www.youtube.com/watch?v=S0T-X1CAnmI"
+                        <h3><i class="fa-solid fa-lightbulb"></i> Kasuga Taisha</h3>
+                        <p>Paseo por el bosque de linternas de piedra. Inmersión total en el sintoísmo antiguo.</p>
+                    `
                 }
             ]
         },
         complements: [
             {
                 id: "c1",
-                title: "Mercado de Nishiki",
-                time: "12:30",
-                description: "Almuerzo en el mercado tradicional del centro de Kioto.",
-                price: "Variable",
-                image: "images/dia6-portada.jpg"
+                title: "Fushimi Inari (A primera hora)",
+                time: "07:30",
+                description: "OPCIONAL: Madrugar para ver las toriis antes que nadie de camino a Nara.",
+                price: "Gratis",
+                image: "images/dia6-fushimi.jpg",
+                tacticalOptions: [
+                    {
+                        title: "OPERACIÓN: MADRUGADOR INARI",
+                        time: "07:00 - 10:30",
+                        description: "Salida extra-temprana para evitar las multitudes en las 10.000 toriis.",
+                        schedule: [
+                            { time: "07:00", event: "Salida Osaka (JR Special Rapid)" },
+                            { time: "07:45", event: "Infiltración Fushimi Inari" },
+                            { time: "10:00", event: "Enlace Tren Local hacia Nara" }
+                        ],
+                        link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Wing+International+Select+Osaka+Umeda&destination=Fushimi+Inari+Taisha&travelmode=transit",
+                        tacticalGuideId: "mission_fushimi"
+                    }
+                ]
             }
         ]
     },
 
-    // --- DÍA 7: KIOTO HIGASHIYAMA ---
-    // --- DÍA 7: HIGASHIYAMA (ESTRUCTURA BASE + COMPLEMENTOS) ---
+    // --- DÍA 7: TRASLADO A KIOTO Y HIGASHIYAMA ---
     {
-        day: 7, type: "stay",
-        date: "Dom, 2 Agosto", title: "🌸 Kioto Clásico: Templos y Geishas",
+        day: 7, type: "travel",
+        date: "Dom, 2 Agosto", title: "👘 Kioto: Despliegue en la Capital",
         coords: [34.995, 135.785], zoom: 13,
         hotel: "Kyoto Tower Hotel Annex",
         hotelImage: "images/hotel-kyoto-tower.jpg",
@@ -844,13 +942,54 @@ const travelData = [
         image: "images/dia7-portada.jpg",
 
         logistics: [
-            { title: "Transporte", text: "Taxi a Kiyomizu (recomendado 8 personas)." },
-            { title: "Caminata", text: "Día de mucho andar por cuestas empedradas." }
+            { title: "Traslado", text: "JR Special Rapid (29 min). Dejar maletas en recepción." },
+            { title: "Hack", text: "Taxi a Kiyomizu-dera (10 min) ahorra 40 min de subida." }
+        ],
+
+        transportTimeline: [
+            {
+                time: "09:30",
+                type: "point",
+                title: "Check-out Osaka / Tren Kyoto",
+                icon: "fa-solid fa-train"
+            },
+            {
+                type: "transit",
+                title: "JR Special Rapid",
+                price: "570 JPY",
+                timeLabel: "29 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Osaka+Station&destination=Kyoto+Station&travelmode=transit",
+                tacticalGuideId: "mission_kyoto_transfer"
+            },
+            {
+                time: "10:30",
+                type: "point",
+                title: "Llegada Kyoto Station / Maletas",
+                icon: "fa-solid fa-suitcase"
+            },
+            {
+                time: "12:00",
+                type: "gap",
+                title: "Almuerzo: Kyoto Ramen Koji (Estación)",
+                icon: "fa-solid fa-bowl-food"
+            },
+            {
+                time: "14:00",
+                type: "point",
+                title: "Despliegue: Kiyomizu-dera",
+                icon: "fa-solid fa-pagoda"
+            },
+            {
+                time: "18:00",
+                type: "point",
+                title: "Gion / Pontocho (Anochecer)",
+                icon: "fa-solid fa-person-dress-fairy"
+            }
         ],
 
         timeline: [
-            { time: "09:00", title: "Kiyomizu-dera", desc: "Templo del agua pura y terraza de madera. (Base)" },
-            { time: "11:00", title: "Sannenzaka y Ninenzaka", desc: "Calles tradicionales preservadas. (Base)" }
+            { time: "14:00", title: "Kiyomizu-dera", desc: "Templo del agua pura y terraza de madera. (Base)" },
+            { time: "16:00", title: "Sannenzaka y Ninenzaka", desc: "Calles tradicionales preservadas. (Base)" }
         ],
 
         prices: {
@@ -863,11 +1002,11 @@ const travelData = [
         isFlexible: true,
         base: {
             title: "Itinerario Base",
-            description: "El corazón histórico y turístico de Kioto.",
+            description: "Despliegue inicial en la capital milenaria.",
             events: [
                 {
                     id: "b1",
-                    time: "09:00",
+                    time: "14:00",
                     title: "Kiyomizu-dera",
                     description: "Templo colgado de la montaña. Terraza sin clavos.",
                     image: "images/dia7-kiyomizu.jpg",
@@ -876,15 +1015,15 @@ const travelData = [
                         <h3><i class="fa-solid fa-water"></i> Templo Kiyomizu-dera</h3>
                         <p>Fundado en 778. Su terraza de madera ofrece las vistas más icónicas de Kioto. Se construyó sin usar un solo clavo.</p>
                         <ul>
-                            <li><i class="fa-solid fa-heart"></i> <strong>Iván Reto:</strong> Busca las 'Piedras del Amor'. Camina de una a otra con los ojos cerrados para tener suerte.</li>
-                            <li><i class="fa-solid fa-faucet"></i> <strong>Fuente Otowa:</strong> Bebe de un solo chorro (Salud, Amor o Éxito). ¡No de los tres!</li>
+                            <li><i class="fa-solid fa-heart"></i> <strong>Iván Reto:</strong> Piedras del Amor (caminar con ojos cerrados).</li>
+                            <li><i class="fa-solid fa-faucet"></i> <strong>Fuente Otowa:</strong> Salud, Amor o Éxito.</li>
                         </ul>
                     `,
                     video: "https://www.youtube.com/watch?v=wX-yP_XwT7Y"
                 },
                 {
                     id: "b2",
-                    time: "11:00",
+                    time: "16:00",
                     title: "Sannenzaka y Ninenzaka",
                     description: "Cuestas empedradas con casas tradicionales de madera.",
                     image: "images/dia7-kiyomizu.jpg",
@@ -892,13 +1031,12 @@ const travelData = [
                     fullDesc: `
                         <h3><i class="fa-solid fa-person-walking"></i> Cuestas de Higashiyama</h3>
                         <p>El Kioto de postal. Tiendas de artesanía, cerámica y dulces.</p>
-                        <p><strong>Advertencia:</strong> La leyenda dice que si caes en Sannenzaka, morirás en 3 años. ¡Pisa con cuidado!</p>
                     `
                 },
                 {
-                    time: "13:00",
-                    title: "Almuerzo en Gion",
-                    description: "Tiempo para comer y descansar antes de los opcionales.",
+                    time: "18:00",
+                    title: "Cena en Pontocho",
+                    description: "Callejón gastronómico junto al río Kamo.",
                     type: "gap"
                 }
             ]
