@@ -4,63 +4,81 @@
 
 :root {
     /* Paleta de colores - Fondo nocturno profundo */
-    --bg-900: #0a0e1a;           /* Fondo más oscuro */
-    --bg-800: #111827;            /* Fondo secundario */
-    --panel-bg: rgba(17, 24, 39, 0.95); /* Panel semisólido */
-    
+    --bg-900: #0a0e1a;
+    /* Fondo más oscuro */
+    --bg-800: #111827;
+    /* Fondo secundario */
+    --panel-bg: rgba(17, 24, 39, 0.95);
+    /* Panel semisólido */
+
     /* Texto */
-    --text-primary: #f1f5f9;      /* Texto principal (contraste 4.5:1+) */
-    --text-secondary: #cbd5e1;    /* Texto secundario */
-    
+    --text-primary: #f1f5f9;
+    /* Texto principal (contraste 4.5:1+) */
+    --text-secondary: #cbd5e1;
+    /* Texto secundario */
+
     /* Acento (rojo/naranja) - Solo para CTAs y estados activos */
-    --accent: #f97316;            /* Naranja vibrante */
-    --accent-hover: #ea580c;      /* Naranja más oscuro */
+    --accent: #f97316;
+    /* Naranja vibrante */
+    --accent-hover: #ea580c;
+    /* Naranja más oscuro */
     --accent-light: rgba(249, 115, 22, 0.1);
-    
+
     /* Colores Neon (para efectos especiales) */
-    --neon-blue: #00f3ff;         /* Cyan neón brillante */
-    --neon-purple: #a855f7;       /* Púrpura neón */
-    
+    --neon-blue: #00f3ff;
+    /* Cyan neón brillante */
+    --neon-purple: #a855f7;
+    /* Púrpura neón */
+
     /* Colores adicionales */
-    --gold: #fbbf24;              /* Dorado para avisos */
-    --danger: #ef4444;            /* Rojo para retos */
-    --success: #10b981;           /* Verde para completado */
-    
+    --gold: #fbbf24;
+    /* Dorado para avisos */
+    --danger: #ef4444;
+    /* Rojo para retos */
+    --success: #10b981;
+    /* Verde para completado */
+
     /* Tipografía - Escala modular */
     --font-base: 16px;
-    --font-small: 0.875rem;       /* 14px */
-    --font-body: 1rem;             /* 16px */
-    --font-subtitle: 1.25rem;     /* 20px */
-    --font-h3: 1.5rem;             /* 24px */
-    --font-h2: 2rem;              /* 32px */
-    --font-h1: 2.5rem;            /* 40px */
-    
+    --font-small: 0.875rem;
+    /* 14px */
+    --font-body: 1rem;
+    /* 16px */
+    --font-subtitle: 1.25rem;
+    /* 20px */
+    --font-h3: 1.5rem;
+    /* 24px */
+    --font-h2: 2rem;
+    /* 32px */
+    --font-h1: 2.5rem;
+    /* 40px */
+
     /* Line heights */
     --line-tight: 1.4;
     --line-normal: 1.5;
     --line-relaxed: 1.6;
-    
+
     /* Espaciado */
     --spacing-xs: 8px;
     --spacing-sm: 12px;
     --spacing-md: 16px;
     --spacing-lg: 24px;
     --spacing-xl: 32px;
-    
+
     /* Bordes */
     --radius-sm: 8px;
     --radius-md: 12px;
     --radius-lg: 16px;
-    
+
     /* Transiciones */
     --transition-fast: 0.15s ease;
     --transition-normal: 0.2s ease;
 }
 
-* { 
-    box-sizing: border-box; 
-    margin: 0; 
-    padding: 0; 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
@@ -68,27 +86,40 @@ html {
     scroll-behavior: smooth;
 }
 
-body { 
+body {
     font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: var(--font-body);
     line-height: var(--line-normal);
-    background: var(--bg-900); 
-    color: var(--text-primary); 
+    background: var(--bg-900);
+    color: var(--text-primary);
     min-height: 100vh;
     overflow-x: hidden;
 }
 
 /* Tipografía - Display para títulos */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     line-height: var(--line-tight);
     color: var(--text-primary);
 }
 
-h1 { font-size: var(--font-h1); }
-h2 { font-size: var(--font-h2); }
-h3 { font-size: var(--font-h3); }
+h1 {
+    font-size: var(--font-h1);
+}
+
+h2 {
+    font-size: var(--font-h2);
+}
+
+h3 {
+    font-size: var(--font-h3);
+}
 
 /* Focus visible para accesibilidad */
 *:focus-visible {
@@ -147,9 +178,9 @@ body {
     background: var(--panel-bg);
     backdrop-filter: blur(10px);
     border-right: 1px solid rgba(249, 115, 22, 0.2);
-    display: flex; 
+    display: flex;
     flex-direction: column;
-    padding: var(--spacing-lg); 
+    padding: var(--spacing-lg);
     z-index: 90;
     transform: translateX(-100%);
     transition: transform var(--transition-normal);
@@ -167,7 +198,8 @@ body {
     min-height: 100vh;
     position: relative;
     padding: var(--spacing-lg);
-    padding-top: 80px; /* Espacio para nav móvil */
+    padding-top: 80px;
+    /* Espacio para nav móvil */
 }
 
 /* Overlay del mapa para mejor legibilidad */
@@ -202,11 +234,11 @@ body {
     body {
         flex-direction: row;
     }
-    
+
     .mobile-nav-toggle {
         display: none;
     }
-    
+
     .sidebar {
         position: relative;
         transform: translateX(0);
@@ -215,7 +247,7 @@ body {
         z-index: 100;
         flex-shrink: 0;
     }
-    
+
     .center-stage {
         flex: 1;
         padding: var(--spacing-xl);
@@ -223,7 +255,7 @@ body {
         position: relative;
         z-index: 10;
     }
-    
+
     .right-panel {
         display: block;
         width: 320px;
@@ -237,7 +269,7 @@ body {
     .sidebar {
         width: 240px;
     }
-    
+
     .right-panel {
         width: 360px;
     }
@@ -251,15 +283,15 @@ body {
     }
 }
 
-.logo { 
-    font-weight: 800; 
-    color: white; 
-    margin-bottom: 25px; 
-    display: flex; 
-    align-items: center; 
-    gap: 10px; 
+.logo {
+    font-weight: 800;
+    color: white;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-size: 1.1rem;
-    padding-bottom: 15px; 
+    padding-bottom: 15px;
     border-bottom: 1px solid var(--accent);
     background: rgba(56, 189, 248, 0.1);
     backdrop-filter: blur(5px);
@@ -273,117 +305,129 @@ body:not(.day-selected) .logo {
     backdrop-filter: blur(2px) !important;
     border-bottom: 2px solid var(--neon-blue) !important;
     box-shadow: 0 4px 15px rgba(0, 243, 255, 0.4),
-                0 2px 8px rgba(168, 85, 247, 0.3) !important;
+        0 2px 8px rgba(168, 85, 247, 0.3) !important;
     color: #ffffff !important;
     text-shadow: 0 0 15px rgba(0, 243, 255, 0.9),
-                 0 0 8px rgba(168, 85, 247, 0.6),
-                 2px 2px 6px rgba(0, 0, 0, 0.9) !important;
+        0 0 8px rgba(168, 85, 247, 0.6),
+        2px 2px 6px rgba(0, 0, 0, 0.9) !important;
     font-weight: 900 !important;
 }
 
 body:not(.day-selected) .logo i {
     color: var(--neon-blue) !important;
     text-shadow: 0 0 20px rgba(0, 243, 255, 1),
-                 0 0 10px rgba(168, 85, 247, 0.8) !important;
+        0 0 10px rgba(168, 85, 247, 0.8) !important;
     filter: drop-shadow(0 0 8px rgba(0, 243, 255, 0.8)) !important;
 }
 
 #day-list {
     display: flex;
-    flex-direction: column; /* BOTONES UNO DEBAJO DE OTRO */
+    flex-direction: column;
+    /* BOTONES UNO DEBAJO DE OTRO */
     gap: 10px;
-    overflow-y: auto; /* Scroll si hay muchos días */
+    overflow-y: auto;
+    /* Scroll si hay muchos días */
 }
 
 .day-btn {
-    background: rgba(255,255,255,0.08); 
+    background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(5px);
-    color: #94a3b8; 
-    padding: 15px; 
+    color: #94a3b8;
+    padding: 15px;
     border: 1px solid rgba(0, 243, 255, 0.3);
-    border-radius: 8px; 
-    cursor: pointer; 
-    text-align: left; 
-    transition: all 0.3s ease; 
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s ease;
     width: 100%;
     box-shadow: 0 0 10px rgba(0, 243, 255, 0.1),
-                0 0 5px rgba(168, 85, 247, 0.1);
+        0 0 5px rgba(168, 85, 247, 0.1);
 }
 
 /* Cuando el video está visible (portada), hacer los botones más transparentes pero con texto y bordes más visibles */
 body:not(.day-selected) .day-btn {
-    background: rgba(255,255,255,0.01) !important; 
+    background: rgba(255, 255, 255, 0.01) !important;
     backdrop-filter: blur(2px) !important;
-    border: 2px solid rgba(0, 243, 255, 0.6) !important; /* Borde más visible */
+    border: 2px solid rgba(0, 243, 255, 0.6) !important;
+    /* Borde más visible */
     box-shadow: 0 0 10px rgba(0, 243, 255, 0.4),
-                0 0 5px rgba(168, 85, 247, 0.3),
-                inset 0 0 5px rgba(0, 243, 255, 0.1) !important;
-    color: #e2e8f0 !important; /* Texto más claro */
+        0 0 5px rgba(168, 85, 247, 0.3),
+        inset 0 0 5px rgba(0, 243, 255, 0.1) !important;
+    color: #e2e8f0 !important;
+    /* Texto más claro */
     text-shadow: 0 0 8px rgba(0, 243, 255, 0.6),
-                 0 0 4px rgba(168, 85, 247, 0.4),
-                 2px 2px 4px rgba(0, 0, 0, 0.8) !important; /* Sombra de texto para contraste */
+        0 0 4px rgba(168, 85, 247, 0.4),
+        2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+    /* Sombra de texto para contraste */
     font-weight: 600 !important;
 }
 
 body:not(.day-selected) .day-btn strong {
     color: var(--neon-blue) !important;
     text-shadow: 0 0 12px rgba(0, 243, 255, 0.9),
-                 0 0 6px rgba(168, 85, 247, 0.6),
-                 2px 2px 6px rgba(0, 0, 0, 0.9) !important;
+        0 0 6px rgba(168, 85, 247, 0.6),
+        2px 2px 6px rgba(0, 0, 0, 0.9) !important;
     font-weight: 800 !important;
 }
 
 body:not(.day-selected) .day-btn:hover {
-    background: rgba(255,255,255,0.05) !important; 
+    background: rgba(255, 255, 255, 0.05) !important;
     backdrop-filter: blur(3px) !important;
-    border: 2px solid var(--neon-blue) !important; /* Borde neón brillante al hover */
+    border: 2px solid var(--neon-blue) !important;
+    /* Borde neón brillante al hover */
     box-shadow: 0 0 20px rgba(0, 243, 255, 0.7),
-                0 0 15px rgba(168, 85, 247, 0.5),
-                inset 0 0 10px rgba(0, 243, 255, 0.2) !important;
+        0 0 15px rgba(168, 85, 247, 0.5),
+        inset 0 0 10px rgba(0, 243, 255, 0.2) !important;
     color: #ffffff !important;
     text-shadow: 0 0 12px rgba(0, 243, 255, 0.8),
-                 0 0 6px rgba(168, 85, 247, 0.6),
-                 2px 2px 6px rgba(0, 0, 0, 0.9) !important;
+        0 0 6px rgba(168, 85, 247, 0.6),
+        2px 2px 6px rgba(0, 0, 0, 0.9) !important;
     transform: translateX(5px) !important;
 }
 
 .day-btn:hover,
-.day-btn:focus-visible { 
-    background: var(--bg-800); 
-    color: var(--text-primary); 
+.day-btn:focus-visible {
+    background: var(--bg-800);
+    color: var(--text-primary);
     border-color: var(--accent);
     box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
     transform: translateX(3px);
 }
 
-.day-btn.active { 
-    background: var(--accent); 
-    color: var(--bg-900); 
-    font-weight: 700; 
+.day-btn.active {
+    background: var(--accent);
+    color: var(--bg-900);
+    font-weight: 700;
     border-color: var(--accent);
-    box-shadow: 0 4px 16px rgba(249, 115, 22, 0.4);
-                inset 0 0 15px rgba(0, 243, 255, 0.2);
+    box-shadow: 0 4px 16px rgba(249, 115, 22, 0.4),
+        inset 0 0 15px rgba(0, 243, 255, 0.2);
 }
 
 /* Los estilos de center-stage ya están definidos arriba en la sección mobile-first */
 
 /* VIDEO DE PORTADA */
 .intro-video {
-    position: fixed; /* Cambiado a fixed para cubrir toda la pantalla */
+    position: fixed;
+    /* Cambiado a fixed para cubrir toda la pantalla */
     top: 0;
     left: 0;
-    width: 100vw; /* Ancho completo de la ventana */
-    height: 100vh; /* Alto completo de la ventana */
+    width: 100vw;
+    /* Ancho completo de la ventana */
+    height: 100vh;
+    /* Alto completo de la ventana */
     object-fit: cover;
-    z-index: 2; /* Aumentado para estar por encima de overlays */
+    z-index: 2;
+    /* Aumentado para estar por encima de overlays */
     opacity: 1;
     transition: opacity 0.5s ease;
     pointer-events: none;
     /* Mejorar calidad del video */
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
-    transform: translateZ(0); /* Forzar aceleración por hardware */
-    will-change: opacity; /* Optimizar animaciones */
+    transform: translateZ(0);
+    /* Forzar aceleración por hardware */
+    will-change: opacity;
+    /* Optimizar animaciones */
 }
 
 .intro-video.hidden {
@@ -392,17 +436,23 @@ body:not(.day-selected) .day-btn:hover {
     pointer-events: none;
 }
 
-#map { 
-    position: absolute; top:0; left:0; width:100%; height:100%; 
-    z-index: 0; 
-    opacity: 0.6; /* Mayor visibilidad del mapa */
-    filter: grayscale(50%) brightness(0.8) contrast(1.3); /* Mejor contraste para ver nombres de ciudades */
+#map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.6;
+    /* Mayor visibilidad del mapa */
+    filter: grayscale(50%) brightness(0.8) contrast(1.3);
+    /* Mejor contraste para ver nombres de ciudades */
 }
 
 .visual-card {
-    position: relative; 
+    position: relative;
     z-index: 15;
-    width: 100%; 
+    width: 100%;
     max-width: 100%;
     display: flex;
     flex-direction: column;
@@ -418,18 +468,19 @@ body:not(.day-selected) .day-btn:hover {
 
 /* FOTO GRANDE (MODO CINE) */
 .cinema-mode-img {
-    width: 100%; 
-    height: 380px; 
+    width: 100%;
+    height: 380px;
     object-fit: cover;
     border-radius: 20px;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
     margin-bottom: 30px;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* CONTENEDOR DE LA HISTORIA (SIN CAJA RÍGIDA) */
 .story-container {
-    background: rgba(15, 23, 42, 0.85); /* Fondo para lectura clara */
+    background: rgba(15, 23, 42, 0.85);
+    /* Fondo para lectura clara */
     backdrop-filter: blur(10px);
     padding: 40px;
     border-radius: 20px;
@@ -437,17 +488,38 @@ body:not(.day-selected) .day-btn:hover {
     color: #cbd5e1;
 }
 
-.story-container h1 { color: white; font-size: 2.2rem; margin-bottom: 10px; }
-.story-container h2 { color: var(--accent); font-size: 1.5rem; margin-top: 30px; margin-bottom: 15px; }
-.story-container h3 { color: var(--accent); margin-top: 25px; font-size: 1.2rem; border-bottom: 1px solid rgba(56, 189, 248, 0.2); padding-bottom: 5px; }
-.story-container p { margin-bottom: 20px; font-size: 1.1rem; }
+.story-container h1 {
+    color: white;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.story-container h2 {
+    color: var(--accent);
+    font-size: 1.5rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.story-container h3 {
+    color: var(--accent);
+    margin-top: 25px;
+    font-size: 1.2rem;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+    padding-bottom: 5px;
+}
+
+.story-container p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
 
 /* RETO IVÁN - ESTILO DESTACO */
 .ivan-challenge-box {
     background: rgba(244, 63, 94, 0.1);
     border: 2px solid var(--danger);
-    padding: 25px; 
-    border-radius: 15px; 
+    padding: 25px;
+    border-radius: 15px;
     margin: 30px 0;
 }
 
@@ -467,11 +539,8 @@ body:not(.day-selected) .day-btn:hover {
     background-clip: text;
     text-transform: uppercase;
     letter-spacing: 8px;
-    text-shadow: 0 0 40px rgba(0, 243, 255, 0.8),
-                 0 0 30px rgba(168, 85, 247, 0.6);
-    filter: drop-shadow(0 0 30px rgba(0, 243, 255, 0.9))
-            drop-shadow(0 0 20px rgba(168, 85, 247, 0.7))
-            drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.9));
+    text-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff;
+    filter: drop-shadow(0 0 10px rgba(0, 243, 255, 0.4)) drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.9));
     margin: 0;
     animation: glow 2s ease-in-out infinite alternate;
 }
@@ -483,21 +552,28 @@ body:not(.day-selected) .day-btn:hover {
     padding: 40px;
     color: #64748b;
 }
-.empty-state i { font-size: 4rem; color: var(--gold); margin-bottom: 20px; display: block; }
+
+.empty-state i {
+    font-size: 4rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: block;
+}
 
 /* --- 3. COLUMNA DERECHA (DATOS Y CONTROL) --- */
 /* Estos estilos se aplican encima de los estilos base de .right-panel */
 @media (min-width: 768px) {
     .right-panel {
-        width: 400px; 
-        background: rgba(15, 23, 42, 0.85); /* Fondo semi-opaco para legibilidad */
+        width: 400px;
+        background: rgba(15, 23, 42, 0.85);
+        /* Fondo semi-opaco para legibilidad */
         backdrop-filter: blur(8px);
         border-left: 2px solid var(--neon-purple);
         box-shadow: -4px 0 20px rgba(168, 85, 247, 0.3),
-                    0 0 30px rgba(0, 243, 255, 0.2);
-        padding: 25px; 
+            0 0 30px rgba(0, 243, 255, 0.2);
+        padding: 25px;
         overflow-y: auto;
-        z-index: 100; 
+        z-index: 100;
         flex-shrink: 0;
     }
 }
@@ -508,131 +584,139 @@ body:not(.day-selected) .right-panel {
     backdrop-filter: blur(10px) !important;
 }
 
-/* CAJA DE LOGÍSTICA (AMARILLA) */
+/* CAJA DE LOGÍSTICA (GRIS OSCURO) */
 .logistics-box {
-    background: var(--panel-bg);
+    background: #252a3a;
     border-left: 4px solid var(--gold);
-    padding: var(--spacing-md); 
+    padding: var(--spacing-md);
     margin-bottom: var(--spacing-lg);
     border-radius: 0 var(--radius-md) var(--radius-md) 0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-.logistics-title { 
-    color: var(--gold); 
-    font-weight: 800; 
-    font-size: var(--font-small); 
-    text-transform: uppercase; 
-    margin-bottom: var(--spacing-sm); 
+.logistics-title {
+    color: var(--gold);
+    font-weight: 800;
+    font-size: var(--font-small);
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-sm);
     letter-spacing: 1px;
     display: flex;
     align-items: center;
     gap: var(--spacing-xs);
 }
 
-.logistics-item { 
-    font-size: var(--font-small); 
-    margin-bottom: var(--spacing-sm); 
+.logistics-item {
+    font-size: var(--font-small);
+    margin-bottom: var(--spacing-sm);
     line-height: var(--line-normal);
-    color: var(--text-primary);
+    color: #f0f0f0;
 }
 
 /* LÍNEA DE TIEMPO (TIMELINE) */
-.timeline-container { 
-    border-left: 2px solid rgba(249, 115, 22, 0.3); 
-    padding-left: var(--spacing-lg); 
+.timeline-container {
+    border-left: 2px solid rgba(249, 115, 22, 0.3);
+    padding-left: var(--spacing-lg);
     margin-bottom: var(--spacing-xl);
 }
 
-.timeline-item { 
-    position: relative; 
+.timeline-item {
+    position: relative;
     margin-bottom: var(--spacing-lg);
     padding-bottom: var(--spacing-md);
 }
 
 .timeline-item::before {
-    content: ''; 
-    position: absolute; 
-    left: calc(-1 * var(--spacing-lg) - 6px); 
+    content: '';
+    position: absolute;
+    left: calc(-1 * var(--spacing-lg) - 6px);
     top: 6px;
-    width: 12px; 
-    height: 12px; 
+    width: 12px;
+    height: 12px;
     background: var(--accent);
-    border: 2px solid var(--bg-900); 
+    border: 2px solid var(--bg-900);
     border-radius: 50%;
     box-shadow: 0 0 8px rgba(249, 115, 22, 0.5);
 }
 
-.time-tag { 
-    color: var(--accent); 
-    font-weight: 700; 
+.time-tag {
+    color: var(--accent);
+    font-weight: 700;
     font-size: var(--font-small);
     display: block;
     margin-bottom: var(--spacing-xs);
 }
 
-.timeline-title { 
-    display: block; 
-    font-weight: 600; 
+.timeline-title {
+    display: block;
+    font-weight: 600;
     margin: var(--spacing-xs) 0;
     color: var(--text-primary);
     font-size: var(--font-body);
 }
 
-.timeline-desc { 
-    font-size: var(--font-small); 
+.timeline-desc {
+    font-size: var(--font-small);
     color: var(--text-secondary);
     line-height: var(--line-normal);
 }
 
 /* BOTONES DE MISIÓN (A, B, C) */
 .option-btn {
-    background: #1e293b; 
+    background: #1e293b;
     border: 1px solid rgba(0, 243, 255, 0.4);
-    padding: 18px; 
-    margin-bottom: 12px; 
+    padding: 18px;
+    margin-bottom: 12px;
     border-radius: 12px;
-    cursor: pointer; 
-    transition: all 0.3s ease; 
+    cursor: pointer;
+    transition: all 0.3s ease;
     width: 100%;
     box-shadow: 0 0 10px rgba(0, 243, 255, 0.15),
-                0 0 5px rgba(168, 85, 247, 0.1);
+        0 0 5px rgba(168, 85, 247, 0.1);
 }
-.option-btn:hover { 
+
+.option-btn:hover {
     border-color: var(--neon-blue);
     border-width: 2px;
     transform: translateX(5px);
     box-shadow: 0 0 20px rgba(0, 243, 255, 0.4),
-                0 0 15px rgba(168, 85, 247, 0.3),
-                inset 0 0 10px rgba(0, 243, 255, 0.1);
+        0 0 15px rgba(168, 85, 247, 0.3),
+        inset 0 0 10px rgba(0, 243, 255, 0.1);
 }
-.option-btn.active { 
-    background: var(--accent); 
-    color: #0f172a; 
-    font-weight: 800; 
+
+.option-btn.active {
+    background: var(--accent);
+    color: #0f172a;
+    font-weight: 800;
     border: 2px solid var(--neon-purple);
     box-shadow: 0 0 25px rgba(168, 85, 247, 0.5),
-                0 0 15px rgba(0, 243, 255, 0.3),
-                inset 0 0 15px rgba(168, 85, 247, 0.2);
+        0 0 15px rgba(0, 243, 255, 0.3),
+        inset 0 0 15px rgba(168, 85, 247, 0.2);
 }
-.option-btn small { display: block; opacity: 0.7; margin-top: 4px; font-weight: 400; }
+
+.option-btn small {
+    display: block;
+    opacity: 0.7;
+    margin-top: 4px;
+    font-weight: 400;
+}
 
 /* CAJA DE ADICIONES/CONSEJOS */
 .additions-box {
     background: var(--panel-bg);
     border-left: 4px solid var(--accent);
-    padding: var(--spacing-md); 
+    padding: var(--spacing-md);
     margin-bottom: var(--spacing-lg);
     border-radius: 0 var(--radius-md) var(--radius-md) 0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .additions-title {
-    color: var(--accent); 
-    font-weight: 700; 
-    font-size: var(--font-small); 
-    text-transform: uppercase; 
-    margin-bottom: var(--spacing-sm); 
+    color: var(--accent);
+    font-weight: 700;
+    font-size: var(--font-small);
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-sm);
     letter-spacing: 1px;
     display: flex;
     align-items: center;
@@ -640,8 +724,8 @@ body:not(.day-selected) .right-panel {
 }
 
 .additions-item {
-    font-size: var(--font-body); 
-    margin-bottom: var(--spacing-sm); 
+    font-size: var(--font-body);
+    margin-bottom: var(--spacing-sm);
     line-height: var(--line-normal);
     color: var(--text-primary);
 }
@@ -650,7 +734,7 @@ body:not(.day-selected) .right-panel {
 .prices-box {
     background: var(--panel-bg);
     border-left: 4px solid var(--gold);
-    padding: var(--spacing-md); 
+    padding: var(--spacing-md);
     margin-top: var(--spacing-lg);
     margin-bottom: var(--spacing-lg);
     border-radius: 0 var(--radius-md) var(--radius-md) 0;
@@ -658,11 +742,11 @@ body:not(.day-selected) .right-panel {
 }
 
 .prices-title {
-    color: var(--gold); 
-    font-weight: 700; 
-    font-size: var(--font-small); 
-    text-transform: uppercase; 
-    margin-bottom: var(--spacing-sm); 
+    color: var(--gold);
+    font-weight: 700;
+    font-size: var(--font-small);
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-sm);
     letter-spacing: 1px;
     display: flex;
     align-items: center;
@@ -670,8 +754,8 @@ body:not(.day-selected) .right-panel {
 }
 
 .prices-item {
-    font-size: var(--font-small); 
-    margin-bottom: var(--spacing-xs); 
+    font-size: var(--font-small);
+    margin-bottom: var(--spacing-xs);
     line-height: var(--line-normal);
     color: var(--text-primary);
 }
@@ -706,17 +790,19 @@ body:not(.day-selected) .right-panel {
 
 /* Ajuste para pantallas más pequeñas */
 @media (max-width: 1200px) {
+
     .excursions-grid-3,
     .excursions-grid-5 {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .excursions-grid-5 .excursion-card:nth-child(5) {
         grid-column: span 2;
     }
 }
 
 @media (max-width: 768px) {
+
     .excursions-grid-3,
     .excursions-grid-4,
     .excursions-grid-5 {
@@ -735,10 +821,7 @@ body:not(.day-selected) .right-panel {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     text-align: left;
     width: 100%;
-    padding: 0;
-    font-family: inherit;
-    color: var(--text-primary);
-    position: relative;
+    padding: 20px;
 }
 
 .excursion-card:hover {
@@ -911,6 +994,22 @@ body:not(.day-selected) .right-panel {
     font-size: 1rem;
 }
 
+/* Estilos para eventos de base cliqueables */
+.clickable-event {
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.clickable-event:hover {
+    background-color: rgba(0, 243, 255, 0.05) !important;
+    transform: translateX(5px);
+}
+
+.clickable-event:hover .timeline-title {
+    color: var(--accent);
+}
+
 /* Location Badge (arriba derecha) - DESTACADO */
 .location-badge {
     background: linear-gradient(135deg, rgba(56, 189, 248, 0.3), rgba(168, 85, 247, 0.3));
@@ -924,10 +1023,10 @@ body:not(.day-selected) .right-panel {
     align-items: center;
     gap: 15px;
     box-shadow: 0 6px 25px rgba(56, 189, 248, 0.5),
-                0 0 30px rgba(168, 85, 247, 0.3),
-                inset 0 0 20px rgba(56, 189, 248, 0.2);
+        0 0 30px rgba(168, 85, 247, 0.3),
+        inset 0 0 20px rgba(56, 189, 248, 0.2);
     text-shadow: 0 0 15px rgba(56, 189, 248, 0.8),
-                 0 2px 4px rgba(0, 0, 0, 0.5);
+        0 2px 4px rgba(0, 0, 0, 0.5);
     letter-spacing: 1px;
     text-transform: uppercase;
     animation: locationPulse 3s ease-in-out infinite;
@@ -940,15 +1039,18 @@ body:not(.day-selected) .right-panel {
 }
 
 @keyframes locationPulse {
-    0%, 100% {
+
+    0%,
+    100% {
         box-shadow: 0 6px 25px rgba(56, 189, 248, 0.5),
-                    0 0 30px rgba(168, 85, 247, 0.3),
-                    inset 0 0 20px rgba(56, 189, 248, 0.2);
+            0 0 30px rgba(168, 85, 247, 0.3),
+            inset 0 0 20px rgba(56, 189, 248, 0.2);
     }
+
     50% {
         box-shadow: 0 6px 35px rgba(56, 189, 248, 0.7),
-                    0 0 40px rgba(168, 85, 247, 0.5),
-                    inset 0 0 25px rgba(56, 189, 248, 0.3);
+            0 0 40px rgba(168, 85, 247, 0.5),
+            inset 0 0 25px rgba(56, 189, 248, 0.3);
     }
 }
 
@@ -986,16 +1088,16 @@ body:not(.day-selected) .right-panel {
         flex-direction: column;
         gap: 20px;
     }
-    
+
     .header-right {
         width: 100%;
         justify-content: flex-start;
     }
-    
+
     .hotel-info-section {
         flex-direction: column;
     }
-    
+
     .hotel-image,
     .hotel-image-placeholder {
         width: 100%;
@@ -1007,16 +1109,16 @@ body:not(.day-selected) .right-panel {
     .hotel-info-section {
         padding: 15px;
     }
-    
+
     .hotel-name {
         font-size: 1.1rem;
     }
-    
+
     .location-badge {
         font-size: 1rem;
         padding: 10px 15px;
     }
-    
+
     .day-name {
         font-size: 1.3rem;
     }
@@ -1030,52 +1132,72 @@ body:not(.day-selected) .right-panel {
 }
 
 /* SCROLLBARS */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 10px;
+}
+
 /* --- VENTANA ESPÍA (HOVER - POSICIÓN DINÁMICA) --- */
 .hover-preview {
-    position: fixed; /* Se posiciona relativo a la ventana */
+    position: fixed;
+    /* Se posiciona relativo a la ventana */
     /* El TOP se calculará con JS automáticamente */
-    left: 20px; /* Pegado a la izquierda (con el mismo margen que el menú) */
-    width: 300px; /* Un poco más ancho que la barra lateral para que destaque */
-    height: 250px; /* Altura más compacta */
-    
+    left: 20px;
+    /* Pegado a la izquierda (con el mismo margen que el menú) */
+    width: 300px;
+    /* Un poco más ancho que la barra lateral para que destaque */
+    height: 250px;
+    /* Altura más compacta */
+
     background: #0f172a;
     border: 2px solid var(--neon-blue);
     border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.9),
-                0 0 30px rgba(0, 243, 255, 0.4),
-                0 0 20px rgba(168, 85, 247, 0.3);
-    z-index: 1000; /* Por encima de todo */
-    
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9),
+        0 0 30px rgba(0, 243, 255, 0.4),
+        0 0 20px rgba(168, 85, 247, 0.3);
+    z-index: 1000;
+    /* Por encima de todo */
+
     /* Estado inicial */
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-10px); /* Efecto de caída suave */
+    transform: translateY(-10px);
+    /* Efecto de caída suave */
     transition: all 0.2s ease;
-    
+
     /* CRUCIAL: Esto permite que el ratón "atraviese" el mapa 
        y puedas seguir bajando a los botones de los días siguientes */
-    pointer-events: none; 
+    pointer-events: none;
     overflow: hidden;
 }
 
 .hover-preview.active {
     opacity: 1;
     visibility: visible;
-    transform: translateY(10px); /* Un pequeño margen hacia abajo del botón */
+    transform: translateY(10px);
+    /* Un pequeño margen hacia abajo del botón */
 }
 
 #preview-map-container {
-    width: 100%; height: 100%; opacity: 0.8;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
 }
 
 .preview-title {
-    position: absolute; bottom: 0; left: 0; width: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
     color: var(--accent);
     padding: 10px 15px;
-    font-size: 0.9rem; font-weight: 700;
+    font-size: 0.9rem;
+    font-weight: 700;
 }
 
 /* CONTADOR DE DÍAS (PORTADA) */
@@ -1085,10 +1207,12 @@ body:not(.day-selected) .right-panel {
     background: rgba(15, 23, 42, 0.15) !important;
     backdrop-filter: blur(4px) !important;
     border-radius: 20px;
-    border: 3px solid rgba(168, 85, 247, 0.7) !important; /* Borde más visible */
+    border: 3px solid rgba(168, 85, 247, 0.7) !important;
+    /* Borde más visible */
     box-shadow: 0 0 30px rgba(168, 85, 247, 0.5),
-                0 0 20px rgba(0, 243, 255, 0.4),
-                inset 0 0 20px rgba(168, 85, 247, 0.15) !important; /* Sombras más fuertes */
+        0 0 20px rgba(0, 243, 255, 0.4),
+        inset 0 0 20px rgba(168, 85, 247, 0.15) !important;
+    /* Sombras más fuertes */
     margin-top: 50px;
 }
 
@@ -1102,10 +1226,11 @@ body:not(.day-selected) .right-panel {
     display: block;
     margin-bottom: 10px;
     text-shadow: 0 0 25px rgba(0, 243, 255, 1),
-                 0 0 15px rgba(168, 85, 247, 0.8),
-                 0 0 8px rgba(0, 243, 255, 0.6) !important;
+        0 0 15px rgba(168, 85, 247, 0.8),
+        0 0 8px rgba(0, 243, 255, 0.6) !important;
     animation: pulse 2s ease-in-out infinite;
-    opacity: 1 !important; /* Totalmente visible */
+    opacity: 1 !important;
+    /* Totalmente visible */
     filter: drop-shadow(0 0 10px rgba(0, 243, 255, 0.9)) !important;
 }
 
@@ -1116,10 +1241,11 @@ body:not(.day-selected) .right-panel {
     text-transform: uppercase;
     letter-spacing: 3px;
     text-shadow: 0 0 20px rgba(168, 85, 247, 1),
-                 0 0 12px rgba(0, 243, 255, 0.6),
-                 2px 2px 6px rgba(0, 0, 0, 0.9) !important;
+        0 0 12px rgba(0, 243, 255, 0.6),
+        2px 2px 6px rgba(0, 0, 0, 0.9) !important;
     margin: 0;
-    opacity: 1 !important; /* Totalmente visible */
+    opacity: 1 !important;
+    /* Totalmente visible */
 }
 
 .countdown-display {
@@ -1137,10 +1263,9 @@ body:not(.day-selected) .right-panel {
     margin-bottom: 10px;
     animation: glow 2s ease-in-out infinite alternate;
     position: relative;
-    filter: drop-shadow(0 0 40px rgba(0, 243, 255, 1))
-            drop-shadow(0 0 25px rgba(168, 85, 247, 0.8))
-            drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.9)) !important;
-    opacity: 1 !important; /* Totalmente visible */
+    filter: drop-shadow(0 0 40px rgba(0, 243, 255, 1)) drop-shadow(0 0 25px rgba(168, 85, 247, 0.8)) drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.9)) !important;
+    opacity: 1 !important;
+    /* Totalmente visible */
 }
 
 .countdown-label {
@@ -1150,9 +1275,10 @@ body:not(.day-selected) .right-panel {
     text-transform: uppercase;
     letter-spacing: 5px;
     text-shadow: 0 0 20px rgba(0, 243, 255, 1),
-                 0 0 12px rgba(168, 85, 247, 0.7),
-                 2px 2px 6px rgba(0, 0, 0, 0.9) !important;
-    opacity: 1 !important; /* Totalmente visible */
+        0 0 12px rgba(168, 85, 247, 0.7),
+        2px 2px 6px rgba(0, 0, 0, 0.9) !important;
+    opacity: 1 !important;
+    /* Totalmente visible */
 }
 
 .countdown-subtitle {
@@ -1163,16 +1289,17 @@ body:not(.day-selected) .right-panel {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    opacity: 1 !important; /* Totalmente visible */
+    opacity: 1 !important;
+    /* Totalmente visible */
     text-shadow: 0 0 8px rgba(0, 243, 255, 0.5),
-                 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+        2px 2px 4px rgba(0, 0, 0, 0.8) !important;
     font-weight: 600;
 }
 
 .countdown-subtitle i {
     color: var(--neon-purple);
     text-shadow: 0 0 15px rgba(168, 85, 247, 0.9),
-                 0 0 8px rgba(0, 243, 255, 0.5) !important;
+        0 0 8px rgba(0, 243, 255, 0.5) !important;
     filter: drop-shadow(0 0 6px rgba(168, 85, 247, 0.7)) !important;
 }
 
@@ -1182,18 +1309,22 @@ body:not(.day-selected) .right-panel {
     color: var(--gold);
     font-weight: 800;
     text-shadow: 0 0 20px rgba(251, 191, 36, 0.9),
-                 0 0 12px rgba(251, 191, 36, 0.6),
-                 2px 2px 6px rgba(0, 0, 0, 0.9) !important;
+        0 0 12px rgba(251, 191, 36, 0.6),
+        2px 2px 6px rgba(0, 0, 0, 0.9) !important;
     border-top: 2px solid rgba(168, 85, 247, 0.5) !important;
     padding-top: 20px;
-    opacity: 1 !important; /* Totalmente visible */
+    opacity: 1 !important;
+    /* Totalmente visible */
 }
 
 @keyframes pulse {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1);
         opacity: 1;
     }
+
     50% {
         transform: scale(1.1);
         opacity: 0.8;
@@ -1204,6 +1335,7 @@ body:not(.day-selected) .right-panel {
     from {
         filter: drop-shadow(0 0 20px rgba(0, 243, 255, 0.6));
     }
+
     to {
         filter: drop-shadow(0 0 40px rgba(168, 85, 247, 0.8));
     }
@@ -1526,15 +1658,15 @@ body:not(.day-selected) .right-panel {
     .preparation-container {
         padding: 20px;
     }
-    
+
     .preparation-header h1 {
         font-size: 2rem;
     }
-    
+
     .preparation-section-header {
         padding: 15px 20px;
     }
-    
+
     .preparation-items {
         padding: 15px 20px;
     }
@@ -1546,6 +1678,7 @@ body:not(.day-selected) .right-panel {
    ========================================== */
 
 @media (max-width: 767px) {
+
     /* --- VARIABLES MÓVILES --- */
     :root {
         --font-h1: 1.75rem;
@@ -1554,7 +1687,7 @@ body:not(.day-selected) .right-panel {
         --spacing-lg: 16px;
         --spacing-xl: 24px;
     }
-    
+
     /* --- LAYOUT PRINCIPAL MÓVIL --- */
     body {
         display: flex;
@@ -1562,7 +1695,7 @@ body:not(.day-selected) .right-panel {
         min-height: 100vh;
         overflow-x: hidden;
     }
-    
+
     /* Botón de menú móvil - Más visible */
     .mobile-nav-toggle {
         display: flex;
@@ -1581,20 +1714,20 @@ body:not(.day-selected) .right-panel {
         font-weight: 700;
         cursor: pointer;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5),
-                    0 0 15px rgba(249, 115, 22, 0.3);
+            0 0 15px rgba(249, 115, 22, 0.3);
         transition: all 0.2s ease;
     }
-    
+
     .mobile-nav-toggle i {
         font-size: 1.1rem;
     }
-    
+
     .mobile-nav-toggle:active {
         transform: scale(0.95);
         background: var(--accent);
         color: var(--bg-900);
     }
-    
+
     /* Sidebar móvil - Panel deslizante */
     .sidebar {
         position: fixed;
@@ -1613,11 +1746,11 @@ body:not(.day-selected) .right-panel {
         overflow-y: auto;
         box-shadow: 5px 0 30px rgba(0, 0, 0, 0.8);
     }
-    
+
     .sidebar.open {
         transform: translateX(0);
     }
-    
+
     /* Overlay cuando el menú está abierto */
     .sidebar-overlay {
         display: none;
@@ -1631,19 +1764,19 @@ body:not(.day-selected) .right-panel {
         opacity: 0;
         transition: opacity 0.3s ease;
     }
-    
+
     .sidebar-overlay.active {
         display: block;
         opacity: 1;
     }
-    
+
     /* Logo en móvil */
     .logo {
         font-size: 1rem;
         padding: 12px;
         margin-bottom: 20px;
     }
-    
+
     /* Botones de días en móvil */
     .day-btn {
         padding: 14px 16px;
@@ -1652,11 +1785,11 @@ body:not(.day-selected) .right-panel {
         margin-bottom: 8px;
         touch-action: manipulation;
     }
-    
+
     .day-btn strong {
         font-size: 0.95rem;
     }
-    
+
     /* --- CENTRO PRINCIPAL MÓVIL --- */
     .center-stage {
         width: 100%;
@@ -1664,12 +1797,12 @@ body:not(.day-selected) .right-panel {
         padding: 70px 12px 20px 12px;
         position: relative;
     }
-    
+
     .center-stage::before {
         background: rgba(10, 14, 26, 0.5);
         backdrop-filter: blur(1px);
     }
-    
+
     /* Video de portada en móvil */
     .intro-video {
         position: fixed;
@@ -1678,18 +1811,20 @@ body:not(.day-selected) .right-panel {
         width: 100vw;
         height: 100vh;
         object-fit: cover;
-        z-index: 2; /* Aumentado para estar por encima de overlays */
+        z-index: 2;
+        /* Aumentado para estar por encima de overlays */
         /* Mejorar calidad del video */
         image-rendering: -webkit-optimize-contrast;
         image-rendering: crisp-edges;
-        transform: translateZ(0); /* Forzar aceleración por hardware */
+        transform: translateZ(0);
+        /* Forzar aceleración por hardware */
     }
-    
+
     /* Mapa en móvil */
     #map {
         opacity: 0.4;
     }
-    
+
     /* Visual Card - Contenido principal */
     .visual-card {
         width: 100%;
@@ -1697,55 +1832,55 @@ body:not(.day-selected) .right-panel {
         margin: 0;
         z-index: 20;
     }
-    
+
     /* --- IMAGEN PRINCIPAL MÓVIL --- */
     .cinema-mode-img {
         height: 200px;
         border-radius: 12px;
         margin-bottom: 16px;
     }
-    
+
     /* Location header en móvil */
     .location-header h1 {
         font-size: 2rem;
         letter-spacing: 3px;
     }
-    
+
     /* --- CONTENEDOR DE HISTORIA MÓVIL --- */
     .story-container {
         padding: 20px 16px;
         border-radius: 12px;
         margin-bottom: 20px;
     }
-    
+
     .story-container h1 {
         font-size: 1.5rem;
         margin-bottom: 8px;
     }
-    
+
     .story-container h2 {
         font-size: 1.2rem;
         margin-top: 20px;
     }
-    
+
     .story-container h3 {
         font-size: 1.05rem;
         margin-top: 18px;
     }
-    
+
     .story-container p {
         font-size: 0.95rem;
         margin-bottom: 14px;
         line-height: 1.7;
     }
-    
+
     /* Reto Iván en móvil */
     .ivan-challenge-box {
         padding: 18px;
         margin: 20px 0;
         border-radius: 10px;
     }
-    
+
     /* --- PANEL DERECHO MÓVIL (COMO SECCIÓN INFERIOR) --- */
     .right-panel {
         display: block !important;
@@ -1760,12 +1895,12 @@ body:not(.day-selected) .right-panel {
         border-radius: 16px 16px 0 0;
         z-index: 30;
     }
-    
+
     /* En portada, ocultar el panel derecho en móvil */
     body:not(.day-selected) .right-panel {
         display: none !important;
     }
-    
+
     /* --- COUNTDOWN MÓVIL --- */
     .countdown-container {
         padding: 30px 16px;
@@ -1779,17 +1914,23 @@ body:not(.day-selected) .right-panel {
         z-index: 25;
         margin-top: 15px;
         margin-bottom: 15px;
-        padding: 15px 12px !important; /* Reducido de 30px */
-        background: rgba(15, 23, 42, 0.85) !important; /* Más transparente */
+        padding: 15px 12px !important;
+        /* Reducido de 30px */
+        background: rgba(15, 23, 42, 0.85) !important;
+        /* Más transparente */
         backdrop-filter: blur(8px) !important;
-        border: 1px solid rgba(168, 85, 247, 0.6) !important; /* Borde más fino */
-        border-radius: 12px !important; /* Más pequeño */
+        border: 1px solid rgba(168, 85, 247, 0.6) !important;
+        /* Borde más fino */
+        border-radius: 12px !important;
+        /* Más pequeño */
         box-shadow: 0 4px 16px rgba(168, 85, 247, 0.3),
-                    0 2px 8px rgba(0, 243, 255, 0.2),
-                    inset 0 0 10px rgba(168, 85, 247, 0.1) !important;
-        width: fit-content; /* Solo ocupar el espacio necesario */
+            0 2px 8px rgba(0, 243, 255, 0.2),
+            inset 0 0 10px rgba(168, 85, 247, 0.1) !important;
+        width: fit-content;
+        /* Solo ocupar el espacio necesario */
         margin-left: auto;
-        margin-right: auto; /* Centrado horizontal */
+        margin-right: auto;
+        /* Centrado horizontal */
         animation: countdownFadeIn 0.6s ease-out;
     }
 
@@ -1798,6 +1939,7 @@ body:not(.day-selected) .right-panel {
             opacity: 0;
             transform: translateY(20px);
         }
+
         to {
             opacity: 1;
             transform: translateY(0);
@@ -1806,8 +1948,10 @@ body:not(.day-selected) .right-panel {
 
     /* Mejorar el mapa en móvil para no interferir tanto */
     #map {
-        opacity: 0.2 !important; /* Reducir aún más la opacidad en móvil */
-        filter: grayscale(70%) brightness(0.4) contrast(1.2); /* Sin blur para mejor legibilidad */
+        opacity: 0.2 !important;
+        /* Reducir aún más la opacidad en móvil */
+        filter: grayscale(70%) brightness(0.4) contrast(1.2);
+        /* Sin blur para mejor legibilidad */
     }
 
     /* Elementos internos más pequeños en móvil */
@@ -1829,7 +1973,8 @@ body:not(.day-selected) .right-panel {
     }
 
     .countdown-mobile .countdown-number {
-        font-size: 3rem !important; /* Reducido de 4rem */
+        font-size: 3rem !important;
+        /* Reducido de 4rem */
     }
 
     .countdown-mobile .countdown-label {
@@ -1852,35 +1997,35 @@ body:not(.day-selected) .right-panel {
         border-top: 1px solid rgba(168, 85, 247, 0.3) !important;
         padding-top: 10px !important;
     }
-    
+
     .countdown-title i {
         font-size: 2rem;
     }
-    
+
     .countdown-title h2 {
         font-size: 1rem;
         letter-spacing: 2px;
     }
-    
+
     .countdown-number {
         font-size: 4rem;
     }
-    
+
     .countdown-label {
         font-size: 1.1rem;
         letter-spacing: 3px;
     }
-    
+
     .countdown-subtitle {
         font-size: 0.9rem;
         flex-wrap: wrap;
         text-align: center;
     }
-    
+
     .countdown-date {
         font-size: 1.1rem;
     }
-    
+
     /* --- CAJAS DE INFORMACIÓN MÓVIL --- */
     .logistics-box,
     .additions-box,
@@ -1889,48 +2034,48 @@ body:not(.day-selected) .right-panel {
         margin-bottom: 16px;
         border-radius: 0 10px 10px 0;
     }
-    
+
     .logistics-title,
     .additions-title,
     .prices-title {
         font-size: 0.8rem;
     }
-    
+
     .logistics-item,
     .additions-item,
     .prices-item {
         font-size: 0.85rem;
         line-height: 1.6;
     }
-    
+
     /* --- TIMELINE MÓVIL --- */
     .timeline-container {
         padding-left: 20px;
         margin-bottom: 20px;
     }
-    
+
     .timeline-item {
         margin-bottom: 18px;
     }
-    
+
     .timeline-item::before {
         left: -24px;
         width: 10px;
         height: 10px;
     }
-    
+
     .time-tag {
         font-size: 0.8rem;
     }
-    
+
     .timeline-title {
         font-size: 0.95rem;
     }
-    
+
     .timeline-desc {
         font-size: 0.85rem;
     }
-    
+
     /* --- BOTONES DE OPCIÓN MÓVIL --- */
     .option-btn {
         padding: 16px;
@@ -1938,11 +2083,11 @@ body:not(.day-selected) .right-panel {
         border-radius: 10px;
         font-size: 0.95rem;
     }
-    
+
     .option-btn small {
         font-size: 0.8rem;
     }
-    
+
     /* --- GRID DE EXCURSIONES MÓVIL --- */
     .excursions-grid,
     .excursions-grid-3,
@@ -1954,179 +2099,179 @@ body:not(.day-selected) .right-panel {
         margin-top: 20px;
         padding: 10px 0;
     }
-    
+
     /* Tarjetas de excursión en móvil */
     .excursion-card {
         border-radius: 12px;
     }
-    
+
     .excursion-thumb {
         height: 150px;
     }
-    
+
     .excursion-card-content {
         padding: 16px;
     }
-    
+
     .excursion-id {
         font-size: 0.8rem;
         padding: 3px 10px;
     }
-    
+
     .excursion-title {
         font-size: 1.05rem;
     }
-    
+
     .excursion-summary {
         font-size: 0.85rem;
     }
-    
+
     /* --- HEADER DE EXCURSIÓN MÓVIL --- */
     .excursion-page-header {
         flex-direction: column;
         gap: 16px;
         padding-bottom: 16px;
     }
-    
+
     .header-left,
     .header-right {
         width: 100%;
     }
-    
+
     .hotel-info-section {
         flex-direction: column;
         padding: 16px;
         gap: 14px;
     }
-    
+
     .hotel-image,
     .hotel-image-placeholder {
         width: 100%;
         height: 160px;
     }
-    
+
     .hotel-name {
         font-size: 1.1rem;
     }
-    
+
     .hotel-google-link {
         font-size: 0.85rem;
         padding: 10px 14px;
     }
-    
+
     .location-badge {
         font-size: 1.1rem;
         padding: 12px 18px;
         gap: 10px;
     }
-    
+
     .location-badge i {
         font-size: 1.3rem;
     }
-    
+
     .day-info-section {
         padding: 12px 16px;
     }
-    
+
     .day-name {
         font-size: 1.2rem;
     }
-    
+
     .day-activity {
         font-size: 0.9rem;
     }
-    
+
     /* --- HOVER PREVIEW OCULTO EN MÓVIL --- */
     .hover-preview {
         display: none !important;
     }
-    
+
     /* --- EMPTY STATE MÓVIL --- */
     .empty-state {
         margin-top: 60px;
         padding: 30px 20px;
     }
-    
+
     .empty-state i {
         font-size: 3rem;
     }
-    
+
     .empty-state h2 {
         font-size: 1.3rem;
     }
-    
+
     /* --- PREPARACIÓN MÓVIL --- */
     .preparation-container {
         padding: 16px;
     }
-    
+
     .preparation-header h1 {
         font-size: 1.6rem;
     }
-    
+
     .preparation-section-header {
         padding: 14px 16px;
     }
-    
+
     .preparation-section-header i {
         font-size: 1.4rem;
     }
-    
+
     .preparation-section-header h2 {
         font-size: 1.2rem;
     }
-    
+
     .preparation-items {
         padding: 14px 16px;
     }
-    
+
     .preparation-item {
         padding: 16px;
     }
-    
+
     .preparation-item-header h3 {
         font-size: 1rem;
     }
-    
+
     .preparation-item-content {
         margin-left: 0;
         margin-top: 12px;
     }
-    
+
     .preparation-desc {
         font-size: 0.9rem;
     }
-    
+
     .preparation-sidebar {
         padding: 16px;
     }
-    
+
     .preparation-sidebar h3 {
         font-size: 1.1rem;
     }
-    
+
     /* --- VIDEOS DE YOUTUBE MÓVIL --- */
     .video-links {
         margin-top: 20px !important;
         padding-top: 16px !important;
     }
-    
+
     .video-links h4 {
         font-size: 0.9rem !important;
         margin-bottom: 12px !important;
     }
-    
+
     .video-links a {
         font-size: 0.9rem !important;
         display: block;
         padding: 10px 0;
     }
-    
+
     /* --- SCROLLBAR MÓVIL --- */
     ::-webkit-scrollbar {
         width: 4px;
     }
-    
+
     /* --- MEJORAS TÁCTILES --- */
     button,
     .day-btn,
@@ -2136,7 +2281,7 @@ body:not(.day-selected) .right-panel {
         -webkit-tap-highlight-color: transparent;
         touch-action: manipulation;
     }
-    
+
     /* Prevenir zoom accidental */
     input,
     select,
@@ -2153,33 +2298,482 @@ body:not(.day-selected) .right-panel {
     .sidebar {
         width: 200px;
     }
-    
+
     .right-panel {
         width: 280px;
     }
-    
+
     .cinema-mode-img {
         height: 280px;
     }
-    
+
     .excursions-grid-3,
     .excursions-grid-5 {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .location-header h1 {
         font-size: 2.5rem;
         letter-spacing: 5px;
     }
-    
+
     .hotel-image,
     .hotel-image-placeholder {
         width: 120px;
         height: 120px;
     }
-    
+
     .location-badge {
         font-size: 1.3rem;
         padding: 14px 20px;
+    }
+}
+
+/* ==========================================
+   ITINERARIO BASE & COMPLEMENTOS
+   ========================================== */
+
+/* Header - Hotel & Location */
+.hotel-info-section {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hotel-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.hotel-image-placeholder {
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    margin-right: 15px;
+}
+
+.hotel-details {
+    flex: 1;
+}
+
+.hotel-name {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 5px;
+}
+
+.hotel-google-link {
+    font-size: 0.9rem;
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.hotel-google-link:hover {
+    text-decoration: underline;
+}
+
+.location-badge {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Base Event Items */
+.base-event-item {
+    background: rgba(15, 23, 42, 0.4);
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 3px solid var(--neon-blue);
+    transition: transform 0.2s ease;
+    display: flex;
+    /* Ensure flex layout */
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.base-event-item:hover {
+    transform: translateX(5px);
+    background: rgba(15, 23, 42, 0.6);
+}
+
+.base-event-thumb {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+.base-event-content {
+    flex: 1;
+}
+
+.time-tag {
+    background: var(--bg-900);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: var(--neon-blue);
+    font-weight: bold;
+    min-width: 60px;
+    margin-right: 15px;
+}
+
+.base-price {
+    color: var(--gold);
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+
+/* Complements Grid */
+.complements-section {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.excursions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.complement-card {
+    background: rgba(30, 41, 59, 0.6);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.complement-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5),
+        0 0 15px rgba(168, 85, 247, 0.3);
+    /* Purple glow */
+    border-color: var(--neon-purple);
+}
+
+.complement-card.selected {
+    border-color: var(--success);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+}
+
+.excursion-thumb {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.excursion-thumb-placeholder {
+    width: 100%;
+    height: 160px;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--text-secondary);
+}
+
+.excursion-card-content {
+    padding: 20px;
+}
+
+.excursion-title {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: var(--text-primary);
+}
+
+.complement-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Estilos para tarjetas de transporte cliqueables */
+.clickable-transit {
+    transition: all 0.2s ease;
+    border-radius: 8px;
+}
+
+.clickable-transit:hover {
+    background: rgba(0, 243, 255, 0.05);
+    border-left: 2px solid var(--neon-blue) !important;
+    transform: translateX(5px);
+}
+
+.clickable-transit:hover i.fa-solid.fa-arrow-down {
+    color: var(--neon-blue) !important;
+}
+
+/* ==========================================
+   INTERFACE TÁCTICA (DATAPAD / HUD)
+   ========================================== */
+
+.datapad-container {
+    background: #0d1117;
+    border: 2px solid var(--neon-blue);
+    border-radius: 12px;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+    color: #f0f0f0;
+    font-family: 'Montserrat', monospace;
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.2), inset 0 0 15px rgba(0, 243, 255, 0.1);
+}
+
+.datapad-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 243, 255, 0.3);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+.datapad-mission-id {
+    color: var(--accent);
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+}
+
+.datapad-close {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid var(--danger);
+    color: var(--danger);
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.datapad-close:hover {
+    background: var(--danger);
+    color: white;
+}
+
+.datapad-title {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px black;
+}
+
+/* Esquema Holográfico SVG */
+.holographic-schema {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.schema-svg {
+    width: 100%;
+    height: auto;
+}
+
+.schema-line {
+    stroke-width: 4;
+    stroke-linecap: round;
+}
+
+.schema-line.loop-line {
+    stroke: #ef4444;
+    /* Color de la línea JR Loop */
+    filter: drop-shadow(0 0 5px #ef4444);
+}
+
+.schema-line-dotted {
+    stroke: var(--neon-blue);
+    stroke-width: 3;
+    stroke-dasharray: 6 4;
+}
+
+.schema-point {
+    fill: #22c55e;
+    stroke: white;
+    stroke-width: 2;
+}
+
+.schema-point-target {
+    fill: var(--accent);
+    stroke: white;
+    stroke-width: 3;
+    animation: pulse-target 1.5s infinite;
+}
+
+.schema-label {
+    fill: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.schema-meta {
+    fill: rgba(255, 255, 255, 0.6);
+    font-size: 10px;
+    font-style: italic;
+}
+
+/* Grilla de Datos Tácticos */
+.tactical-data-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.data-block {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 3px solid var(--neon-blue);
+}
+
+.data-label {
+    font-size: 0.75rem;
+    color: var(--neon-blue);
+    font-weight: 800;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.data-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.data-list li {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    position: relative;
+    line-height: 1.4;
+}
+
+.data-list li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+}
+
+.status-box {
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid #22c55e;
+    color: #22c55e;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+/* Efecto Scanline */
+.scanline-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            transparent 50%,
+            rgba(0, 243, 255, 0.05) 50%);
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0.3;
+}
+
+/* Botones Tácticos Sidebar */
+.tactical-btn {
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.tactical-btn:hover {
+    filter: brightness(1.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.tactical-btn:active {
+    transform: scale(0.95);
+}
+
+/* Animaciones */
+@keyframes pulse-target {
+    0% {
+        r: 8;
+        opacity: 1;
+    }
+
+    50% {
+        r: 12;
+        opacity: 0.7;
+    }
+
+    100% {
+        r: 8;
+        opacity: 1;
+    }
+}
+
+.animate-fade-in {
+    animation: slideUpFade 0.5s ease-out forwards;
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividad para móviles */
+@media (max-width: 600px) {
+    .tactical-data-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .schema-label {
+        font-size: 10px;
     }
 }

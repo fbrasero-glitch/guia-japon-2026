@@ -1,0 +1,13 @@
+# Documentos y Binarios
+*.docx
+*.pdf
+*.pptx
+*.xlsx
+
+# Notas y archivos temporales
+base.txt
+base.md
+
+# OS files
+.DS_Store
+Thumbs.db
