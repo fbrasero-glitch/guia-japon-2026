@@ -103,6 +103,31 @@ function init() {
         });
     }
 
+    // 0.1 Toggle móvil para HUD táctico
+    const hudToggle = document.getElementById('mobile-hud-toggle');
+    const rightPanel = document.querySelector('.right-panel');
+    const labelVisual = document.getElementById('label-visual');
+    const labelHud = document.getElementById('label-hud');
+
+    if (hudToggle && rightPanel) {
+        hudToggle.addEventListener('click', () => {
+            const isHudActive = rightPanel.classList.toggle('mobile-active');
+            hudToggle.classList.toggle('hud-active', isHudActive);
+
+            if (labelVisual && labelHud) {
+                labelVisual.classList.toggle('active', !isHudActive);
+                labelHud.classList.toggle('active', isHudActive);
+            }
+
+            // Si abrimos el HUD, ocultamos el scroll del body
+            if (isHudActive) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+    }
+
     // Exponer función para cerrar menú desde otros lugares
     window.closeMobileMenu = () => toggleMobileMenu(true);
 
