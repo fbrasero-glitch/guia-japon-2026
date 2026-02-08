@@ -326,7 +326,7 @@ const travelData = [
                 title: "Tren: JR Osaka Loop Line (Rojo)",
                 price: "180 JPY",
                 timeLabel: "~25 min total",
-                link: "https://www.google.com/maps/dir/?api=1&destination=Osakajokoen+Station&travelmode=transit",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Wing+International+Select+Osaka+Umeda&destination=Osakajokoen+Station&travelmode=transit",
                 tacticalGuideId: "mission01"
             },
             { time: "09:30", type: "point", title: "Llegada a Castillo Osaka", icon: "fa-solid fa-fort-awesome" },
