@@ -1026,15 +1026,22 @@ function renderCenterVisual(data, mode, optData = null) {
                                         </div>
                                     ` : ''}
 
-                                    <div style="display:flex; gap:10px;">
-                                        <a href="${opt.link}" target="_blank" class="tactical-btn" 
-                                           style="flex:1; text-align:center; padding:8px; font-size:0.65rem; border-radius:4px; text-decoration:none; background:rgba(0,243,255,0.1); border:1px solid var(--neon-blue); color:var(--neon-blue); font-weight:bold; display:flex; align-items:center; justify-content:center; gap:5px;">
-                                            <i class="fa-solid fa-map-location-dot"></i> MAPS
-                                        </a>
-                                        <button onclick="renderTacticalMission('${opt.tacticalGuideId}', ${travelData.indexOf(data)})" class="tactical-btn" 
-                                                style="flex:1; text-align:center; padding:8px; font-size:0.65rem; border-radius:4px; background:rgba(249,115,22,0.1); border:1px solid var(--accent); color:var(--accent); font-weight:bold; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:5px;">
-                                            <i class="fa-solid fa-file-contract"></i> GUÍA
-                                        </button>
+                                    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                                        ${opt.buttons ? opt.buttons.map(btn => `
+                                            <a href="${btn.link}" target="_blank" class="tactical-btn" 
+                                               style="flex:1; text-align:center; padding:8px; font-size:0.65rem; border-radius:4px; text-decoration:none; background:rgba(0,243,255,0.1); border:1px solid var(--neon-blue); color:var(--neon-blue); font-weight:bold; display:flex; align-items:center; justify-content:center; gap:5px; min-width:140px;">
+                                                <i class="fa-solid fa-map-location-dot"></i> ${btn.text}
+                                            </a>
+                                        `).join('') : `
+                                            <a href="${opt.link}" target="_blank" class="tactical-btn" 
+                                               style="flex:1; text-align:center; padding:8px; font-size:0.65rem; border-radius:4px; text-decoration:none; background:rgba(0,243,255,0.1); border:1px solid var(--neon-blue); color:var(--neon-blue); font-weight:bold; display:flex; align-items:center; justify-content:center; gap:5px;">
+                                                <i class="fa-solid fa-map-location-dot"></i> MAPS
+                                            </a>
+                                            <button onclick="renderTacticalMission('${opt.tacticalGuideId}', ${travelData.indexOf(data)})" class="tactical-btn" 
+                                                    style="flex:1; text-align:center; padding:8px; font-size:0.65rem; border-radius:4px; background:rgba(249,115,22,0.1); border:1px solid var(--accent); color:var(--accent); font-weight:bold; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:5px;">
+                                                <i class="fa-solid fa-file-contract"></i> GUÍA
+                                            </button>
+                                        `}
                                     </div>
                                 </div>
                             `).join('')}
@@ -1551,6 +1558,309 @@ function renderTacticalMission(missionId, dayIndex) {
                     <div class="scanline-overlay"></div>
                 </div>
             `;
+        } else if (missionId === 'mission_nijo') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: NIJO_CASTLE</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    
+                    <h1 class="datapad-title">> MISIÓ_NIJO: EL PALACIO DEL SHOGUN</h1>
+                    
+                    <div class="holographic-schema">
+                        <svg viewBox="0 0 400 120" class="schema-svg">
+                            <circle cx="50" cy="60" r="6" class="schema-point" />
+                            <text x="35" y="45" class="schema-label">KYOTO STATION</text>
+                            
+                            <line x1="56" y1="60" x2="344" y2="60" class="schema-line transit-nijo" stroke="#ffd700" stroke-width="4" />
+                            <text x="150" y="80" class="schema-meta">BUS 9 / 50 / 101 / SUBWAY</text>
+                            
+                            <circle cx="350" cy="60" r="8" class="schema-point-target" />
+                            <text x="310" y="45" class="schema-label">NIJO-JO MAE</text>
+                        </svg>
+                    </div>
+
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-clipboard-list"></i> PROCEDIMIENTO:</div>
+                            <ul class="data-list">
+                                <li><strong>TRANSPORTE:</strong> Bus 9, 50 o 101 desde central gate.</li>
+                                <li><strong>METRO:</strong> Karasuma Line ➔ Nijojo-mae (vía Karasuma-Oike).</li>
+                                <li><strong>ALERTA:</strong> Los suelos chirrían (Nightingale floors).</li>
+                                <li><strong>TIEMPO:</strong> ~15-20 min desde estación.</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-user-ninja"></i> ESTRATEGIA:</div>
+                            <div class="status-box">DETECCIÓN_SILENCIOSA_ACTIVA</div>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_toji') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: TOJI_INFILTRATION</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    
+                    <h1 class="datapad-title">> MISIÓ_TOJI: LA PAGODA DE MADERA</h1>
+                    
+                    <div class="holographic-schema">
+                        <svg viewBox="0 0 400 120" class="schema-svg">
+                            <circle cx="50" cy="60" r="6" class="schema-point" />
+                            <text x="35" y="45" class="schema-label">HOTEL (HQ)</text>
+                            
+                            <line x1="56" y1="60" x2="344" y2="60" class="schema-line transit-toji" stroke="#8a2be2" stroke-width="2" stroke-dasharray="2,2" />
+                            <text x="150" y="80" class="schema-meta">15 MIN WALKING</text>
+                            
+                            <circle cx="350" cy="60" r="8" class="schema-point-target" />
+                            <text x="310" y="45" class="schema-label">TO-JI TEMPLE</text>
+                        </svg>
+                    </div>
+
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-clipboard-list"></i> PROCEDIMIENTO:</div>
+                            <ul class="data-list">
+                                <li><strong>INICIO:</strong> Kyoto Tower Hotel Annex.</li>
+                                <li><strong>ESTRATEGIA:</strong> Infiltración a pie al sur de la estación.</li>
+                                <li><strong>OBJETIVO:</strong> Pagoda Heian (55m). Símbolo de Kioto.</li>
+                                <li><strong>EXTRACCIÓN:</strong> Regreso para almuerzo en Ramen Koji.</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-tower-observation"></i> VIGILANCIA:</div>
+                            <div class="status-box">PUNTO_DE_REFERENCIA_SUR</div>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_kyoto_return') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: KYOTO_RETURN</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    
+                    <h1 class="datapad-title">> EXTRACCIÓN: REGRESO AL HQ</h1>
+                    
+                    <div class="holographic-schema">
+                        <svg viewBox="0 0 400 120" class="schema-svg">
+                            <circle cx="50" cy="60" r="6" class="schema-point" />
+                            <text x="35" y="45" class="schema-label">NIJO / TOJI</text>
+                            
+                            <line x1="56" y1="60" x2="344" y2="60" class="schema-line transit-return" stroke="#00f3ff" stroke-width="2" stroke-dasharray="5,5" />
+                            <text x="150" y="80" class="schema-meta">ANY_BUS_TO_KYOTO_STATION</text>
+                            
+                            <circle cx="350" cy="60" r="8" class="schema-point-target" />
+                            <text x="310" y="45" class="schema-label">HOTEL (KYOTO TOWER)</text>
+                        </svg>
+                    </div>
+
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-person-walking-arrow-right"></i> RETIRADA:</div>
+                            <ul class="data-list">
+                                <li>Desde Nijo: Metro Karasuma o Bus 9 / 50.</li>
+                                <li>Desde To-ji: Caminando (15 min) o Bus 16 / 19.</li>
+                                <li><strong>DESTINO:</strong> Kyoto Tower Hotel Annex.</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-house-chimney-user"></i> HQ:</div>
+                            <div class="status-box">ZONA_SEGURA_RECUPERACIÓN</div>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_higashiyama') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: HIGASHIYAMA_WALK</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    
+                    <h1 class="datapad-title">> RUTA_TRADICIONAL: HIGASHIYAMA</h1>
+                    
+                    <div class="holographic-schema">
+                        <svg viewBox="0 0 400 120" class="schema-svg">
+                            <circle cx="50" cy="30" r="5" class="schema-point" />
+                            <text x="35" y="20" class="schema-label">KIYOMIZU-DERA</text>
+                            
+                            <path d="M 50 35 L 50 80 L 350 80 L 350 35" fill="none" stroke="#00f3ff" stroke-width="2" stroke-dasharray="4,4" class="schema-path-walk" />
+                            <text x="150" y="100" class="schema-meta">RUTA LINEAL CAMINANDO</text>
+                            
+                            <circle cx="350" cy="30" r="5" class="schema-point" />
+                            <text x="310" y="20" class="schema-label">YASAKA SHRINE</text>
+                        </svg>
+                    </div>
+
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-person-walking"></i> TRAYECTO:</div>
+                            <ul class="data-list">
+                                <li><strong>INICIO:</strong> Kiyomizu-dera (Lo alto de la colina).</li>
+                                <li><strong>TRÁNSITO:</strong> Sannenzaka y Ninenzaka (Bajada).</li>
+                                <li><strong>HITO:</strong> Templo Kodai-ji y Parque Maruyama.</li>
+                                <li><strong>FINAL:</strong> Santuario Yasaka (Distrito Gion).</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-camera"></i> VISUAL:</div>
+                            <div class="status-box">ZONA_ALTA_POSTAL_JAPÓN</div>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_arashiyama_transfer') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: ARASHIYAMA_LINK</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    
+                    <h1 class="datapad-title">> TRASLADO: HOTEL ➔ ARASHIYAMA</h1>
+                    
+                    <div class="holographic-schema">
+                        <svg viewBox="0 0 400 120" class="schema-svg">
+                            <circle cx="50" cy="60" r="6" class="schema-point" />
+                            <text x="35" y="45" class="schema-label">HOTEL (KYOTO ST)</text>
+                            
+                            <line x1="56" y1="60" x2="344" y2="60" class="schema-line transit-jr" stroke="#8b4513" stroke-width="4" />
+                            <text x="150" y="80" class="schema-meta">JR SAGANO LINE (PLAT 31-33)</text>
+                            
+                            <circle cx="350" cy="60" r="8" class="schema-point-target" />
+                            <text x="310" y="45" class="schema-label">SAGA-ARASHIYAMA</text>
+                        </svg>
+                    </div>
+
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-train"></i> LOGÍSTICA DE ACCESO:</div>
+                            <ul class="data-list">
+                                <li><strong>PLATAFORMAS:</strong> 31, 32 o 33 en Kyoto Station.</li>
+                                <li><strong>DESTINO:</strong> Saga-Arashiyama (6 paradas).</li>
+                                <li><strong>TIEMPO:</strong> 17-20 min dependiendo del tren.</li>
+                                <li><strong>BAMBÚ:</strong> Al salir de la estación, seguid los carteles hacia el norte/oeste (10 min).</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-ticket"></i> ESTADO DE CARGA:</div>
+                            <div class="status-box">IC_CARD_DISPONIBLE / 240 JPY</div>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_ryoanji_transit') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: RANDEN_CONNECTION</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    
+                    <h1 class="datapad-title">> TRANVÍA: ARASHIYAMA ➔ RYOAN-JI</h1>
+                    
+                    <div class="holographic-schema">
+                        <svg viewBox="0 0 400 120" class="schema-svg">
+                            <circle cx="50" cy="60" r="6" class="schema-point" />
+                            <text x="35" y="45" class="schema-label">ARASHIYAMA (RANDEN)</text>
+                            
+                            <line x1="56" y1="60" x2="194" y2="60" class="schema-line transit-randen" stroke="#9333ea" stroke-width="4" />
+                            <circle cx="200" cy="60" r="4" class="schema-point" />
+                            <text x="175" y="80" class="schema-meta">KATABIRANO-TSUJI (TRANSB)</text>
+                            
+                            <line x1="206" y1="60" x2="344" y2="60" class="schema-line transit-randen" stroke="#9333ea" stroke-width="4" stroke-dasharray="4,2" />
+                            
+                            <circle cx="350" cy="60" r="8" class="schema-point-target" />
+                            <text x="310" y="45" class="schema-label">RYOAN-JI-MICHI</text>
+                        </svg>
+                    </div>
+
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-tram"></i> RUTA RANDEN:</div>
+                            <ul class="data-list">
+                                <li><strong>PASO 1:</strong> Línea Arashiyama hasta Katabirano-tsuji.</li>
+                                <li><strong>PASO 2:</strong> Línea Kitano hasta Ryoan-ji-michi.</li>
+                                <li><strong>PRECIO:</strong> 250 JPY (Abono único).</li>
+                                <li><strong>EXPERIENCIA:</strong> Tranvía histórico de una sola cabina.</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-clock"></i> TIEMPO ESTIMADO:</div>
+                            <div class="status-box warning">APROX_20_MIN_CON_ENLACE</div>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_otagi') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: OTAGI_NENBUTSU</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    
+                    <h1 class="datapad-title">> SECRETO_ZEN: OTAGI NENBUTSU-JI</h1>
+                    
+                    <div class="holographic-schema">
+                        <svg viewBox="0 0 400 120" class="schema-svg">
+                            <circle cx="50" cy="60" r="6" class="schema-point" />
+                            <text x="35" y="45" class="schema-label">ARASHIYAMA</text>
+                            
+                            <line x1="56" y1="60" x2="344" y2="60" class="schema-line transit-bus" stroke="#ff8c00" stroke-width="3" stroke-dasharray="4,4" />
+                            <text x="150" y="81" class="schema-meta">BUS 94 / 64 / 74 (10 MIN)</text>
+                            
+                            <circle cx="350" cy="60" r="8" class="schema-point-target" />
+                            <text x="310" y="45" class="schema-label">OTAGI-TERA MAE</text>
+                        </svg>
+                    </div>
+
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-masks-theater"></i> EL TEMPLO DE LAS 1200 CARAS:</div>
+                            <ul class="data-list">
+                                <li><strong>INICIO:</strong> Parada Arashiyama-Tenryuji-mae.</li>
+                                <li><strong>TRÁNSITO:</strong> Bus hacia Kiyotaki (Poco frecuente, mirad horarios).</li>
+                                <li><strong>OBJETIVO:</strong> 1200 estatuas RAKAN esculpidas por fieles.</li>
+                                <li><strong>ATMÓSFERA:</strong> Única y menos saturada que el centro.</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-face-smile-wink"></i> DETECCIÓN:</div>
+                            <div class="status-box warning">ZONA_ALTA_CREATIVIDAD_ESPIRITUAL</div>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
         } else if (missionId === 'mission06') {
             missionHTML = `
                 <div class="datapad-container animate-fade-in">
@@ -1761,6 +2071,266 @@ function renderTacticalMission(missionId, dayIndex) {
                         <div class="data-block">
                             <div class="data-label"><i class="fa-solid fa-camera"></i> ADVERTENCIA:</div>
                             <p style="font-size:0.85rem; opacity:0.8; line-height:1.4;">FOTOS NOCTURNAS: <strong>Máximo impacto visual</strong> con neones. Menos tiempo en el barrio y la jornada acabará más tarde de lo previsto.</p>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_kyoto_center_link') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: CENTER_LINK</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    
+                    <h1 class="datapad-title">> TRASLADO: INARI ➔ SHIJO (NISHIKI)</h1>
+                    
+                    <div class="holographic-schema">
+                        <svg viewBox="0 0 400 120" class="schema-svg">
+                            <circle cx="50" cy="60" r="6" class="schema-point" />
+                            <text x="35" y="45" class="schema-label">INARI (JR)</text>
+                            
+                            <line x1="56" y1="60" x2="194" y2="60" class="schema-line transit-jr" stroke="#8b4513" stroke-width="4" />
+                            <circle cx="200" cy="60" r="4" class="schema-point" />
+                            <text x="175" y="80" class="schema-meta">KYOTO ST (TRANSB)</text>
+                            
+                            <line x1="206" y1="60" x2="344" y2="60" class="schema-line transit-metro" stroke="#00ac4a" stroke-width="4" />
+                            
+                            <circle cx="350" cy="60" r="8" class="schema-point-target" />
+                            <text x="310" y="45" class="schema-label">SHIJO (METRO)</text>
+                        </svg>
+                    </div>
+
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-train-subway"></i> PROTOCOLO:</div>
+                            <ul class="data-list">
+                                <li><strong>INARI:</strong> JR Nara Line (Plat 2) a Kyoto St.</li>
+                                <li><strong>KYOTO ST:</strong> Transbordo a Metro Karasuma (Línea Verde).</li>
+                                <li><strong>BAJAR EN:</strong> Shijo Station (2 paradas).</li>
+                                <li><strong>DESTINO:</strong> Mercado Nishiki a 5 min caminando al este.</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-receipt"></i> COSTES:</div>
+                            <div class="status-box">150 JPY (JR) + 220 JPY (METRO)</div>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_kinkakuji_bus') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: GOLDEN_BUS</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    
+                    <h1 class="datapad-title">> SALTO: NISHIKI ➔ KINKAKU-JI</h1>
+                    
+                    <div class="holographic-schema">
+                        <svg viewBox="0 0 400 120" class="schema-svg">
+                            <circle cx="50" cy="60" r="6" class="schema-point" />
+                            <text x="35" y="45" class="schema-label">SHIJO-KARASUMA</text>
+                            
+                            <line x1="56" y1="60" x2="344" y2="60" class="schema-line transit-bus" stroke="#ff8c00" stroke-width="3" stroke-dasharray="4,4" />
+                            <text x="150" y="81" class="schema-meta">BUS 12 (35 MIN)</text>
+                            
+                            <circle cx="350" cy="60" r="8" class="schema-point-target" />
+                            <text x="310" y="45" class="schema-label">KINKAKUJI-MICHI</text>
+                        </svg>
+                    </div>
+
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-bus"></i> TRANSPORTE URBANO:</div>
+                            <ul class="data-list">
+                                <li><strong>PARADA:</strong> Shijo Karasuma (Cerca de la salida del metro).</li>
+                                <li><strong>LÍNEA:</strong> Bus 12 (Dirección Kinkakuji).</li>
+                                <li><strong>PAGO:</strong> 230 JPY (Se paga al bajar).</li>
+                                <li><strong>TÁCTICO:</strong> El bus 12 atraviesa gran parte de Kioto.</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-map-location-dot"></i> DETECCIÓN:</div>
+                            <div class="status-box warning">ZONA_NORTE_KIOTO_DETECTED</div>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_ohara_bus') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: OHARA_EXPEDITION</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    
+                    <h1 class="datapad-title">> EXCURSIÓN: HOTEL ➔ OHARA (NORTE)</h1>
+                    
+                    <div class="holographic-schema">
+                        <svg viewBox="0 0 400 120" class="schema-svg">
+                            <circle cx="50" cy="60" r="6" class="schema-point" />
+                            <text x="35" y="45" class="schema-label">KYOTO STATION</text>
+                            
+                            <line x1="56" y1="60" x2="344" y2="60" class="schema-line transit-bus" stroke="#00ff7f" stroke-width="3" stroke-dasharray="4,4" />
+                            <text x="150" y="81" class="schema-meta">BUS 17/18 (60 MIN)</text>
+                            
+                            <circle cx="350" cy="60" r="8" class="schema-point-target" />
+                            <text x="310" y="45" class="schema-label">OHARA (SANZEN-IN)</text>
+                        </svg>
+                    </div>
+
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-bus"></i> PROTOCOLO DE BUS:</div>
+                            <ul class="data-list">
+                                <li><strong>PARADA:</strong> Kyoto Station (Salida Norte, Parada C3).</li>
+                                <li><strong>LÍNEA:</strong> Bus 17 o 18 (Dirección Ohara).</li>
+                                <li><strong>DURACIÓN:</strong> 60 min (580 JPY ida/vuelta).</li>
+                                <li><strong>DESTINO:</strong> Bajar en "Ohara" y caminar 10 min al templo.</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-leaf"></i> OBJETIVO:</div>
+                            <div class="status-box success">JARDINES_ZEN_DETECTED</div>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_kyoto_tower') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: TOWER_OBSERVATION</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    
+                    <h1 class="datapad-title">> OBSERVACIÓN: TORRE DE KIOTO</h1>
+                    
+                    <div class="holographic-schema">
+                        <svg viewBox="0 0 400 120" class="schema-svg">
+                            <circle cx="50" cy="60" r="6" class="schema-point" />
+                            <text x="35" y="45" class="schema-label">HOTEL ANNEX</text>
+                            
+                            <path d="M 50 60 L 350 60" fill="none" stroke="#00bfff" stroke-width="2" stroke-dasharray="4,4" class="schema-path-walk" />
+                            <text x="150" y="81" class="schema-meta">5 MIN ANDANDO</text>
+                            
+                            <circle cx="350" cy="60" r="8" class="schema-point-target" />
+                            <text x="310" y="45" class="schema-label">KYOTO TOWER</text>
+                        </svg>
+                    </div>
+
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-tower-observation"></i> ACCESO:</div>
+                            <ul class="data-list">
+                                <li><strong>DISTANCIA:</strong> 5 min andando desde el hotel.</li>
+                                <li><strong>ENTRADA:</strong> 900 JPY (adulto).</li>
+                                <li><strong>ALTURA:</strong> 100 metros (vistas 360°).</li>
+                                <li><strong>HORARIO:</strong> 10:00-21:00 (último acceso 20:40).</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-binoculars"></i> VISIBILIDAD:</div>
+                            <div class="status-box">PANORAMA_COMPLETO_KYOTO</div>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_nishiki_shopping') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: FINAL_SHOPPING</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    
+                    <h1 class="datapad-title">> COMPRAS: MERCADO NISHIKI</h1>
+                    
+                    <div class="holographic-schema">
+                        <svg viewBox="0 0 400 120" class="schema-svg">
+                            <circle cx="50" cy="60" r="6" class="schema-point" />
+                            <text x="35" y="45" class="schema-label">KYOTO STATION</text>
+                            
+                            <line x1="56" y1="60" x2="344" y2="60" class="schema-line transit-metro" stroke="#ffd700" stroke-width="4" />
+                            <text x="150" y="81" class="schema-meta">METRO KARASUMA (15 MIN)</text>
+                            
+                            <circle cx="350" cy="60" r="8" class="schema-point-target" />
+                            <text x="310" y="45" class="schema-label">SHIJO (NISHIKI)</text>
+                        </svg>
+                    </div>
+
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-subway"></i> TRANSPORTE:</div>
+                            <ul class="data-list">
+                                <li><strong>LÍNEA:</strong> Metro Karasuma (Verde) a Shijo.</li>
+                                <li><strong>DURACIÓN:</strong> 15 min (230 JPY).</li>
+                                <li><strong>DESTINO:</strong> Mercado Nishiki a 5 min andando.</li>
+                                <li><strong>HORARIO:</strong> Mercado abierto 10:00-18:00.</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-shopping-bag"></i> COMPRAS:</div>
+                            <div class="status-box warning">TSUKEMONO_TÉ_DULCES</div>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_kyoto_return') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: EXTRACTION_PROTOCOL</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    
+                    <h1 class="datapad-title">> PROTOCOLO: REGRESO AL CUARTEL</h1>
+                    
+                    <div class="holographic-schema">
+                        <svg viewBox="0 0 400 120" class="schema-svg">
+                            <circle cx="50" cy="60" r="6" class="schema-point" />
+                            <text x="35" y="45" class="schema-label">ZONA_OPERATIVA</text>
+                            
+                            <line x1="56" y1="60" x2="344" y2="60" class="schema-line transit-return" stroke="#00f3ff" stroke-width="3" stroke-dasharray="8,4" />
+                            <text x="150" y="81" class="schema-meta">CONEXIÓN DIRECTA A KYOTO ST</text>
+                            
+                            <circle cx="350" cy="60" r="8" class="schema-point-target hotel-point" />
+                            <text x="310" y="45" class="schema-label">HOTEL (KYOTO TOWER)</text>
+                        </svg>
+                    </div>
+
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-house-chimney-user"></i> EXTRACCIÓN FINAL:</div>
+                            <ul class="data-list">
+                                <li><strong>DESTINO:</strong> Kyoto Tower Hotel Annex.</li>
+                                <li><strong>TRANSPORTE:</strong> JR Sagano Line / Bus / Taxi según ubicación.</li>
+                                <li><strong>PLAN B:</strong> Cena en los alrededores de la estación si es tarde.</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-battery-half"></i> ESTADO DE ENERGÍA:</div>
+                            <div class="status-box warning">RECARGA_REQUERIDA_PARA_MAÑANA</div>
                         </div>
                     </div>
                     <div class="scanline-overlay"></div>
