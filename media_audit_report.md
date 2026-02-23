@@ -1,0 +1,135 @@
+# 📷 Auditoría Global de Medios y Enlaces
+
+## 1. Imágenes Faltantes en `images/`
+Se encontraron **33** imágenes referenciadas en `data.js` que no existen en la carpeta local:
+
+- `images/dia12-higashiyama.jpg`
+- `images/dia12-jinya.jpg`
+- `images/dia12-yatai.jpg`
+- `images/dia13-chureito.jpg`
+- `images/dia13-oshino.jpg`
+- `images/dia13-portada.jpg`
+- `images/dia13-saiko.jpg`
+- `images/dia14-honcho.jpg`
+- `images/dia14-sengen.jpg`
+- `images/dia14-shiraito.jpg`
+- `images/dia15-fuji.jpg`
+- `images/dia15-iyashi.jpg`
+- `images/dia15-portada.jpg`
+- `images/dia15-ryugatake.jpg`
+- `images/dia16-coche.jpg`
+- `images/dia16-kagurazaka.jpg`
+- `images/dia17-skytree.jpg`
+- `images/dia17-sumida.jpg`
+- `images/dia18-harajuku.jpg`
+- `images/dia18-meiji.jpg`
+- `images/dia18-sky.jpg`
+- `images/dia19-ginza.jpg`
+- `images/dia19-maid.jpg`
+- `images/dia20-joypolis.jpg`
+- `images/dia20-monorail.jpg`
+- `images/dia20-odaiba.jpg`
+- `images/dia21-kegon.jpg`
+- `images/dia21-nikko.jpg`
+- `images/dia22-enoshima.jpg`
+- `images/dia22-toyosu.jpg`
+- `images/dia23-portada.jpg`
+- `images/dia24-home.jpg`
+- `images/dia3-portada.jpg`
+
+## 2. Excursiones sin enlace a YouTube
+Actualmente **ninguna** excursión tiene la propiedad `youtubeId` o `video` en `data.js`. A continuación se listan las **93** excursiones principales y complementos que requerirán un enlace visual:
+
+- Castillo de Osaka
+- Umeda Sky Building
+- Cena en Dotonbori
+- Retorno al Hotel
+- Barrio Shinsekai y Torre Tsūtenkaku
+- Cena Comilona de Carnaca
+- Acuario Kaiyukan
+- Mercado Kuromon
+- Shinsaibashi-suji
+- Templo Tōdai-ji
+- Kasuga Taisha
+- Fushimi Inari (A primera hora)
+- Traslado: Osaka ➔ Kioto
+- Castillo de Nijo
+- Templo Tō-ji (Mañana)
+- Templo Kiyomizu-dera
+- Gion & Pontocho
+- Opción Tarde: El Pabellón Dorado
+- Bosque de Bambú
+- Templo Tenryu-ji
+- Puente Togetsukyo
+- Parque Iwatayama
+- Opción A: Ryoan-ji (Jardín Zen)
+- Opción B: Otagi Nenbutsu-ji
+- Fushimi Inari-taisha
+- Mercado de Nishiki
+- Kinkaku-ji
+- Templo Ryoan-ji
+- Check-out y Takkyubin
+- Almuerzo en Kioto
+- Cena de Despedida
+- Ohara (Sanzen-in)
+- Torre de Kioto
+- Mercado Nishiki
+- Llegada al Ryokan
+- Cena Kaiseki
+- Shinhotaka-no-yu
+- Teleférico Shinhotaka
+- Almuerzo: Ternera de Hida
+- Barrio Sanmachi Suji
+- Takayama Jinya
+- Yatai Kaikan
+- Higashiyama Walk
+- Viaje a la falda del Volcán
+- Recogida de Coche (Budget)
+- Pagoda Chureito
+- Lago Saiko (Pueblo Iyashi)
+- Oshino Hakkai
+- Aproximación al Fuji
+- Trekking Ryugatake
+- 5ª Estación Fuji
+- Kitaguchi Hongu Sengen Jinja
+- Hoto Noodles
+- Cascada Shiraito
+- Iyashi no Sato
+- Honcho Street
+- Devolución Vehículo y Gasolinera
+- Tren a Shinjuku (Tokio)
+- El Barrio Geisha (Kagurazaka)
+- Vistas Tocho (Ayuntamiento Tokio)
+- Templo Senso-ji y Calle Nakamise
+- Ribera del Río Sumida
+- Tokyo Skytree
+- Akihabara: Electric Town
+- Calle Kappabashi (Cocineros)
+- Experiencia Maid Café (Akihabara)
+- Santuario Meiji Jingu
+- El Cruce de Shibuya y Hachiko
+- Shibuya Sky
+- Harajuku (Takeshita Street)
+- Avenida Omotesando
+- El Tren Monorraíl Yurikamome
+- Odaiba:🗽 y 🤖
+- TeamLab Planets TOKYO
+- DisneySea (Día Completo Alternativo)
+- Joypolis Tokyo
+- Parque Ueno y Estanque Shinobazu
+- Mercado Ameyoko
+- Yanaka Ginza (Barrio Gato)
+- Nakano Broadway (Cultura Retro)
+- Museo Nacional de Tokio (Ueno)
+- Opción A: El Esplendor de Nikko
+- Opción B: La Tranquilidad Costera de Kamakura
+- Enoshima (Si elegís Kamakura)
+- Cascadas Kegon o Lago Chuzenji (Si elegís Nikko)
+- Toyosu Senkyaku Banrai
+- La Avenida Principal de Ginza (Chuo Dori)
+- Roppongi Hills y Torre de Tokio
+- Mercado Tsukiji (Exterior)
+- Teatro Kabuki-za (Desde fuera)
+- Compras Finales (Don Quijote o Akihabara)
+- Operación Traslado: Taxis a Haneda
+- Terminal 3 (Internacional) Haneda

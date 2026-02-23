@@ -2666,10 +2666,10 @@ const travelData = [
         ]
     },
 
-    // --- DÍA 17: ASAKUSA (Tradición) ---
+    // --- DÍA 17: ASAKUSA, SKYTREE Y AKIHABARA ---
     {
         day: 17, type: "stay",
-        date: "Mié, 12 Agosto", title: "🗼 Asakusa y Skytree",
+        date: "Mié, 12 Agosto", title: "🗼 Asakusa, Skytree y Akihabara",
         coords: [35.710, 139.810], zoom: 13,
         hotel: "Hotel Metropolitan Edmont Tokyo",
         hotelImage: "images/hotel-metropolitan-tokio.jpg",
@@ -2678,7 +2678,7 @@ const travelData = [
 
         logistics: [
             { title: "Transporte", text: "Tarjeta Suica/Pasmo en Apple Wallet para el metro. Línea Tozai desde Iidabashi." },
-            { title: "Multitudes", text: "🔥🔥🔥 ALTO. Especialmente en la calle Nakamise y el Templo Senso-ji. Madrugar es clave." },
+            { title: "Multitudes", text: "🔥🔥🔥 ALTO. Madrugad para el Templo Senso-ji. Akihabara se llena por la tarde." },
             { title: "Reservas", text: "Si subís al Skytree, comprad el ticket online días antes para evitar colas de 1 hora." }
         ],
 
@@ -2702,33 +2702,43 @@ const travelData = [
                 timeLabel: "15 min a pie",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Senso-ji&destination=Sumida+Park&travelmode=walking"
             },
-            { time: "12:00", type: "point", title: "Vistas y fotos rascacielos/Skytree", icon: "fa-solid fa-camera" },
             {
-                time: "13:30",
+                time: "13:00",
                 type: "transit",
-                title: "Metro/Tren a Ueno o Kappabashi",
-                price: "Suica",
-                timeLabel: "Variable",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Asakusa&destination=Ueno"
+                title: "Línea Tobu o Caminata al Skytree",
+                price: "Suica (~160 JPY)",
+                timeLabel: "10 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Asakusa+Station&destination=Tokyo+Skytree",
+                tacticalGuideId: "mission_skytree"
             },
-            { time: "14:00", type: "point", title: "Almuerzo y Exploración Libre", icon: "fa-solid fa-utensils" }
+            { time: "13:30", type: "point", title: "Tokyo Skytree y Solamachi", icon: "fa-solid fa-tower-broadcast" },
+            {
+                time: "16:00",
+                type: "transit",
+                title: "Tren hacia Akihabara",
+                price: "Suica",
+                timeLabel: "20 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Tokyo+Skytree&destination=Akihabara+Station"
+            },
+            { time: "16:30", type: "point", title: "Locura Akihabara (Electric Town)", icon: "fa-solid fa-gamepad" }
         ],
 
         timeline: [
-            { time: "09:30", title: "Senso-ji", desc: "Templo más antiguo. Linterna roja Kaminarimon. (Base)" },
+            { time: "09:30", title: "Senso-ji", desc: "Templo antiguo y linterna roja Kaminarimon. (Base)" },
             { time: "11:30", title: "Río Sumida", desc: "Paseo fluvial con vistas al skyline. (Base)" },
-            { time: "12:30", title: "Opciones Tarde", desc: "Skytree, Ueno, o Kappabashi. (Opcionales)" }
+            { time: "13:30", title: "Tokyo Skytree", desc: "Mirador de 634m o centro comercial Solamachi. (Base)" },
+            { time: "16:30", title: "Akihabara", desc: "Neon, anime, retro-gaming y compras otakus. (Base)" }
         ],
 
         prices: {
-            transport: "Metro (~500 JPY/día)",
+            transport: "Metro/Tren (~800 JPY/día)",
             total: "Base +"
         },
 
         isFlexible: true,
         base: {
             title: "Itinerario Base",
-            description: "El Tokio antiguo en Asakusa, templos enormes, multitudes y las impresionantes vistas modernas del río Sumida.",
+            description: "Día intensísimo que mezcla el Tokio más antiguo (Asakusa), cruza el río hacia el futuro de altura (Skytree) y termina en la capital mundial del frikismo japonés (Akihabara).",
             events: [
                 {
                     id: "b1",
@@ -2759,71 +2769,65 @@ const travelData = [
                     `
                 },
                 {
-                    time: "13:00",
-                    title: "Tiempo de Almuerzo Flexible",
-                    description: "Elegid opciones de comida por Asakusa: okonomiyaki, soba o tempura.",
-                    type: "gap"
+                    id: "b3",
+                    time: "13:30",
+                    title: "Tokyo Skytree",
+                    description: "La estructura más alta de Japón (634m). Vistas que demuestran que Tokio no tiene fin.",
+                    image: "images/dia17-skytree.jpg",
+                    price: "Opcional 2.100 JPY",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-tower-broadcast"></i> La Torre hacia el Cielo</h3>
+                        <p>Ascenso vertical fulgurante a 350 metros. Aunque no subáis, el macro centro comercial de su base (Tokyo Solamachi) está repleto de restaurantes para almorzar y tiendas frikis de Ghibli o Pokémon.</p>
+                    `
+                },
+                {
+                    id: "b4",
+                    time: "16:30",
+                    title: "Akihabara: Electric Town",
+                    description: "El paraíso geek. Edificios enteros de neón dedicados a un solo tema: cartas, robótica, retro-gaming o figuritas.",
+                    image: "images/dia19-akihabara.jpg",
+                    price: "Gratis / Gastos compras",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-robot"></i> La Meca Otaku</h3>
+                        <p>Llegar al atardecer cuando los neones se encienden es mágico. Recomendados: <strong>Radio Kaikan</strong> (un centro comercial entero de coleccionables), <strong>Super Potato</strong> (peregrinación para retro consolas) o el mega-almacén tecnológico de <strong>Yodobashi Camera</strong>.</p>
+                        <p><strong>Iván y Fran:</strong> Entrad a una de los míticos salones recreativos (GiGO), subid plantas, cambiar 500 yenes a monedas sueltas y jugad a locuras rítmicas japonesas.</p>
+                    `
                 }
             ]
         },
         complements: [
             {
                 id: "c1",
-                title: "Tokyo Skytree",
-                time: "14:30",
-                description: "La estructura más alta de Japón (634m). Vistas que demuestran que Tokio no tiene fin.",
-                price: "2.100 JPY",
-                image: "images/dia17-skytree.jpg",
-                recommended: true,
-                fullDesc: `
-                    <h3><i class="fa-solid fa-tower-broadcast"></i> La Torre hacia el Cielo</h3>
-                    <p>Ascenso vertical fulgurante a 350 metros. Recomendable ir hacia el atardecer (golden hour) para ver cómo se encienden los 30 millones de luces de la metrópolis. Si el día está muy claro se llega a ver la silueta del monte Fuji a lo lejos.</p>
-                `,
-                tacticalOptions: [
-                    {
-                        title: "CRUZANDO A SKYTREE",
-                        time: "14:00 - 14:30",
-                        description: "Cruzad el río Sumida a pie por el puente o tomad la línea Tobu Skytree un par de paradas.",
-                        link: "https://www.google.com/maps/dir/?api=1&origin=Asakusa+Station&destination=Tokyo+Skytree",
-                        tacticalGuideId: "mission_skytree"
-                    }
-                ]
-            },
-            {
-                id: "c2",
                 title: "Calle Kappabashi (Cocineros)",
-                time: "15:00",
+                time: "Flexible Mañana",
                 description: "El barrio de suministros para restaurantes. Cuchillos forjados a mano y comida de plástico.",
                 price: "Gratis",
                 image: "images/dia17-kappabashi.jpg",
                 fullDesc: `
                     <h3><i class="fa-solid fa-kitchen-set"></i> Kappabashi Dogu-gai</h3>
-                    <p>Una calle entera dedicada al 'hardware' culinario japonés. Podréis comprar los mejores cuchillos del mundo (os los graban con vuestro nombre), palillos preciosos y admirar las increíbles réplicas hiperrealistas de comida en cera/plástico que los restaurantes usan en sus escaparates.</p>
+                    <p>Una calle entera dedicada al 'hardware' culinario japonés muy cerca de Asakusa. Podréis comprar los mejores cuchillos del mundo (os los graban con vuestro nombre), palillos preciosos y admirar las increíbles réplicas hiperrealistas de comida en plástico que los restaurantes usan en sus escaparates.</p>
                 `
             },
             {
-                id: "c3",
-                title: "Parque y Museos de Ueno",
-                time: "14:00",
-                description: "Gran parque que alberga multitud de museos, un zoo y el mercado callejero Ameyoko.",
-                price: "Accesos gratis (Museos ~1000 JPY)",
-                image: "images/dia17-ueno.jpg",
+                id: "c2",
+                title: "Experiencia Maid Café (Akihabara)",
+                time: "Flexible Tarde",
+                description: "Cafeterías en Akihabara donde camareras disfrazadas os llaman 'amo' e infunden magia en los helados.",
+                price: "~2.500 JPY",
+                image: "images/dia19-maid.jpg",
                 fullDesc: `
-                    <h3><i class="fa-solid fa-masks-theater"></i> Ueno y Ameyoko</h3>
-                    <p>Si queréis un respiro verde podéis pasear por el Estanque Shinobazu. Si queréis locura, adentraos bajo las vías del tren en Ameyoko, un antiguo mercado negro post-guerra que hoy es un bullicioso mercado de zapatillas, comida y souvenirs baratos a grito pelado.</p>
-                `
-            },
-            {
-                id: "c4",
-                title: "Hoppy Street (Asakusa Noche)",
-                time: "19:00",
-                description: "Cena de 'tapas' japonesas (Izakayas) al aire libre en la calle más canalla y nostálgica de Asakusa.",
-                price: "~3.000 JPY",
-                image: "images/dia17-hoppy.jpg",
-                fullDesc: `
-                    <h3><i class="fa-solid fa-beer-mug-empty"></i> Cerveza e Izakayas</h3>
-                    <p>Por la noche Asakusa vacía las grandes avenidas y llena esta calle lateral. Hombres de negocios aflojándose la corbata y jóvenes bebiendo 'Hoppy' (una bebida casi sin alcohol que se mezcla con Soju) y comiendo estofado de carne. Puro ambiente Showa.</p>
-                `
+                    <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Surrealismo Kawaii Extremo</h3>
+                    <p>Cadenas como "Maidreamin" u "At Home Café" ofrecen algo que no sabréis si amar o enterrar bajo tierra. Las maids os obligarán a hacer corazones con las manos para bendecir vuestro capuchino ("Moe Moe Kyun!"). Una inmersión en una moda nipona difícil de explicar a la abuela en España.</p>
+                `,
+                tacticalOptions: [
+                    {
+                        title: "ELEGIR MAID CAFÉ",
+                        time: "Atardecer",
+                        description: "En las aceras principales de Akihabara habrá docenas de chicas repartiendo flyers.",
+                        link: "https://www.google.com/maps/search/Maidreamin+Akihabara",
+                        tacticalGuideId: "mission_maid"
+                    }
+                ]
             }
         ]
     },
@@ -2980,164 +2984,10 @@ const travelData = [
         ]
     },
 
-    // --- DÍA 19: AKIHABARA Y GINZA ---
+    // --- DÍA 19: TEAMLAB Y ODAIBA ---
     {
         day: 19, type: "stay",
-        date: "Vie, 14 Agosto", title: "🎮 Akihabara y Lujo Ginza",
-        coords: [35.698, 139.773], zoom: 13,
-        hotel: "Hotel Metropolitan Edmont Tokyo",
-        hotelImage: "images/hotel-metropolitan-tokio.jpg",
-        hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Hotel+Metropolitan+Edmont+Tokyo",
-        image: "images/akihabara.png",
-
-        logistics: [
-            { title: "Horarios", text: "Importante: Las tiendas frikis de Akihabara abren algo tarde el fin de semana, en torno a las 11:00." },
-            { title: "Compras", text: "Llevad el pasaporte físico original encima si planeáis comprar merchandising o electrónica en Yodobashi o Akiba (Duty Free Tax-free aplicable encima de 5.000 JPY)." },
-            { title: "Etiqueta", text: "Ginza es el barrio caro y formal de Japón; aunque sois turistas, vestid un poquito casual-elegante si entráis a grandes tiendas por respeto." }
-        ],
-
-        transportTimeline: [
-            { time: "09:45", type: "point", title: "Salida Hotel Edmont", icon: "fa-solid fa-hotel" },
-            {
-                time: "10:00",
-                type: "transit",
-                title: "Tren JR Sobu a Akihabara",
-                price: "Suica/JR Pass (~160 JPY)",
-                timeLabel: "10 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Metropolitan+Edmont+Tokyo&destination=Akihabara+Station&travelmode=transit",
-                tacticalGuideId: "mission_akihabara_jr"
-            },
-            { time: "10:15", type: "point", title: "Locura Akihabara y Arcades", icon: "fa-solid fa-gamepad" },
-            { time: "13:00", type: "point", title: "Almuerzo en restaurante temático/Wagyu", icon: "fa-solid fa-bowl-rice" },
-            {
-                time: "15:00",
-                type: "transit",
-                title: "Metro Línea Ginza",
-                price: "Suica (~180 JPY)",
-                timeLabel: "15 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Akihabara&destination=Ginza&travelmode=transit"
-            },
-            { time: "15:30", type: "point", title: "Paseo por Milla de Oro (Ginza)", icon: "fa-solid fa-gem" },
-            { time: "18:00", type: "point", title: "Teatro Kabukiza al Atardecer", icon: "fa-solid fa-masks-theater" }
-        ],
-
-        timeline: [
-            { time: "10:15", title: "Akihabara", desc: "Electric Town. Capital mundial del Anime y tecnología. (Base)" },
-            { time: "13:30", title: "Almuerzo Carne", desc: "Roast Beef Ohno u otras opciones de wagyu. (Base)" },
-            { time: "15:30", title: "Ginza Luxury", desc: "Contraste brutal: alta costura y showrooms futuristas (Sony/Nissan). (Base)" },
-            { time: "18:00", title: "Teatro Kabuki-za", desc: "Veréis la increíble fachada clásica iluminada rodeada de edificios. (Base)" }
-        ],
-
-        prices: {
-            transport: "Metros (~400 JPY)",
-            food: "Comida Especial (~2.500 JPY)",
-            total: "Base +"
-        },
-
-        isFlexible: true,
-        base: {
-            title: "Itinerario Base",
-            description: "Día de contrastes radicales en el este de la red de trenes: empezamos empapándonos de la subcultura otaku extrema para terminar en el recato elitista y acristalado de la gran milla de oro.",
-            events: [
-                {
-                    id: "b1",
-                    time: "10:15",
-                    title: "Akihabara: Electric Town",
-                    description: "El paraíso geek. Edificios enteros de neón dedicados a un solo tema: cartas, robótica, retro-gaming o figuritas.",
-                    image: "images/dia19-akihabara.jpg",
-                    price: "Gratis / Gastos compras",
-                    fullDesc: `
-                        <h3><i class="fa-solid fa-robot"></i> La Meca Otaku</h3>
-                        <p>Simplemente hay que salir por la puerta Electric Town Exit y dejarse cegar por edificios repletos de anime. Recomendados: <strong>Radio Kaikan</strong> (un centro comercial entero de coleccionables), <strong>Super Potato</strong> (peregrinación para encontrar juegos o consolas descatalogadas) o el mega-almacén tecnológico de <strong>Yodobashi Camera</strong>. Escucharéis música pop a todo volumen.</p>
-                        <p><strong>Iván y Fran:</strong> Entrad a una de los míticos salones recreativos multicéntricos, subid plantas, cambiar 500 yenes a monedas sueltas y jugad a locuras que no importan nunca a occidente o un buen Street Fighter/Taiko no Tatsujin contra un japonés concentrado (SPOILER: vais a perder muy rápido).</p>
-                    `
-                },
-                {
-                    id: "b2",
-                    time: "13:30",
-                    title: "Banquete Carnívoro: Roast Beef Ohno",
-                    description: "Recomendación top para comer carne premium espectacular a precio accesible.",
-                    image: "images/dia19-akihabara.jpg", // CONSIDER UPDATING WITH MEAT PHOTO IF POSSIBLE
-                    price: "~2.000 JPY",
-                    fullDesc: `
-                        <h3><i class="fa-solid fa-utensils"></i> El Volcán de Wagyu</h3>
-                        <p>Uno de los mejores restaurantes de Akihabara. Sirven grandes boles de arroz coronados con capas y capas superpuestas de lonchas finas de jugoso Roast Beef coronadas con una yema de huevo cruda local, mayonesa casera y rábano a modo de montaña humeante. Siempre hay cola bajando las escaleras del local (paciencia).</p>
-                    `
-                },
-                {
-                    time: "15:00",
-                    title: "Cambio de Chip: Tren hacia el Lujo",
-                    description: "Escapar del bullicio electrónico para visitar el Tokio más pulcro.",
-                    type: "gap"
-                },
-                {
-                    id: "b3",
-                    time: "15:30",
-                    title: "La Avenida Principal de Ginza (Chuo Dori)",
-                    description: "Los domingos y sábados al mediodía las grandes avenidas de Ginza cierran al tráfico para ser un gran paseo peatonal.",
-                    image: "images/dia19-ginza.jpg",
-                    price: "Gratis",
-                    fullDesc: `
-                        <h3><i class="fa-solid fa-gem"></i> La Milla de Diamantes</h3>
-                        <p>Elegancia pura extrema. A parte de las flagship stores de alta costura, merece la pena entrar al macro complejo de marcas <strong>Ginza Six</strong> con sus espectaculares bóvedas artísticas interiores y su terraza de relax gratuita, o los showrooms experimentales gratuitos de tecnología punta de <strong>Nissan Crossing</strong> o Sony Park.</p>
-                    `
-                },
-                {
-                    id: "b4",
-                    time: "18:00",
-                    title: "Teatro Kabuki-za de Noche",
-                    description: "La joya arquitectónica del teatro clásico sobreviviendo entre torres modernas.",
-                    image: "images/dia19-ginza.jpg",
-                    price: "Gratis (Visual)",
-                    fullDesc: `
-                        <h3><i class="fa-solid fa-masks-theater"></i> Reflejos Feudales</h3>
-                        <p>Reconstruido varias veces, es el teatro principal donde se ejecuta hoy en día el arte dramático tradicional Kabuki de Japón (actuado sólo por varones sobre grandes maquillajes y escenarios giratorios). Llegando la noche, su estilizada e inmensa techumbre al uso de los castillos feudales se ilumina hermosamente, un spot fotográfico magnífico para cerrar Ginza.</p>
-                    `
-                }
-            ]
-        },
-        complements: [
-            {
-                id: "c1",
-                title: "Experiencia Maid Café",
-                time: "12:00",
-                description: "Cafeterías en Akihabara donde camareras disfrazadas os llaman 'amo' e infunden magia en los helados.",
-                price: "~2.500 JPY",
-                image: "images/dia19-maid.jpg",
-                fullDesc: `
-                    <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Surrealismo Kawaii Extremo</h3>
-                    <p>Cadenas como "Maidreamin" u "At Home Café" ofrecen algo que no sabréis si amar o enterrar bajo tierra. Las maids os obligarán a hacer corazones con las manos para bendecir vuestro capuchino ("Moe Moe Kyun!") con orejas de gato frente al resto de clientela. Una inmersión en una moda nipona difícil de explicar a la abuela en España.</p>
-                `,
-                tacticalOptions: [
-                    {
-                        title: "ELEGIR MAID CAFÉ",
-                        time: "Flexible Mediodía",
-                        description: "En las aceras principales de Akihabara (Chuo Dori) habrá docenas de chicas repartiendo flyers. Elegid uno limpio y de red conocida.",
-                        link: "https://www.google.com/maps/search/Maidreamin+Akihabara",
-                        tacticalGuideId: "mission_maid"
-                    }
-                ]
-            },
-            {
-                id: "c2",
-                title: "Mercado Tsukiji (Exterior)",
-                time: "08:30",
-                description: "Para los paladares atrevidos, desayunad en los caóticos callejones pesqueros pegados a Ginza.",
-                price: "Variable / Sushi Caro",
-                image: "images/dia19-tsukiji.jpg",
-                fullDesc: `
-                    <h3><i class="fa-solid fa-fish-fins"></i> El Desayuno del Mar</h3>
-                    <p>Aunque la lonja mayorista atunera se mudó a Toyosu, el laberíntico 'Outer Market' de Tsukiji sigue vibrando de turismo y chefs y está a poca distancia de Ginza. Pinchos marineros ahumándose en la vía, tortilla dulce recién hecha y bares minúsculos que te cortan el sushi del día más hiper fresco que podáis imaginar. Muy concurrido y caro eso sí.</p>
-                `
-            }
-        ]
-    },
-
-
-    // --- DÍA 20: TEAMLAB Y ODAIBA ---
-    {
-        day: 20, type: "stay",
-        date: "Sáb, 15 Agosto", title: "🌊 TeamLab y Odaiba",
+        date: "Vie, 14 Agosto", title: "🌊 TeamLab y Odaiba",
         coords: [35.630, 139.776], zoom: 13,
         hotel: "Hotel Metropolitan Edmont Tokyo",
         hotelImage: "images/hotel-metropolitan-tokio.jpg",
@@ -3280,256 +3130,388 @@ const travelData = [
         ]
     },
 
-    // --- DÍA 21: NAKANO (Cultura) ---
+
+    // --- DÍA 20: UENO, YANAKA Y NAKANO ---
     {
-        day: 21, type: "stay",
-        date: "Dom, 16 Agosto", title: "🎯 Nakano Rretro",
-        coords: [35.710, 139.666], zoom: 13,
+        day: 20, type: "stay",
+        date: "Sáb, 15 Agosto", title: "🍃 Ueno, Yanaka y Nakano",
+        coords: [35.711, 139.773], zoom: 12,
         hotel: "Hotel Metropolitan Edmont Tokyo",
         hotelImage: "images/hotel-metropolitan-tokio.jpg",
         hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Hotel+Metropolitan+Edmont+Tokyo",
-        image: "images/nakano_broadway.png",
+        image: "images/dia17-ueno.jpg",
 
         logistics: [
-            { title: "Transporte", text: "Línea Tozai de Metro directa desde Iidabashi hasta Nakano sin transbordos (15 minutos)." },
-            { title: "Horarios", text: "Al igual que Akihabara, las tiendas especializadas del centro comercial Nakano Broadway abren tarde (11:00 am)." }
+            { title: "Transporte", text: "Día completo de moverse en tren. JR Yamanote es la clave para conectar todo." },
+            { title: "Horarios", text: "Ameyoko y Yanaka cierran sus puestos pronto (sobre las 18:00). Nakano Broadway abre a las 11:00." },
+            { title: "Multitudes", text: "🔥🔥 ALTO. Ueno el sábado por la mañana rebosa de gente." }
         ],
 
         transportTimeline: [
-            { time: "10:00", type: "point", title: "Salida Hotel Edmont", icon: "fa-solid fa-hotel" },
+            { time: "09:00", type: "point", title: "Salida Hotel Edmont", icon: "fa-solid fa-hotel" },
             {
-                time: "10:15",
+                time: "09:15",
                 type: "transit",
-                title: "Metro Tozai a Nakano",
-                price: "Suica (~200 JPY)",
+                title: "Tren hacia Ueno (vía Akihabara/Ochanomizu)",
+                price: "Suica (~160 JPY)",
                 timeLabel: "15 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Metropolitan+Edmont+Tokyo&destination=Nakano+Station&travelmode=transit"
+                link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Metropolitan+Edmont+Tokyo&destination=Ueno+Station&travelmode=transit"
             },
-            { time: "10:45", type: "point", title: "Calle cubierta Sun Mall", icon: "fa-solid fa-store" },
-            { time: "11:00", type: "point", title: "Edificio Nakano Broadway", icon: "fa-solid fa-box-open" },
+            { time: "09:30", type: "point", title: "Parque Ueno y Estanque Shinobazu", icon: "fa-solid fa-tree" },
+            {
+                time: "11:00",
+                type: "transit",
+                title: "Caminar por mercado Ameyoko",
+                price: "Gratis",
+                timeLabel: "30 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Ueno+Park&destination=Ameya-Yokocho&travelmode=walking"
+            },
+            {
+                time: "12:30",
+                type: "transit",
+                title: "Tren Yamanote a Nippori (Para Yanaka)",
+                price: "Suica (~150 JPY)",
+                timeLabel: "10 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Ueno+Station&destination=Nippori+Station&travelmode=transit"
+            },
+            { time: "12:45", type: "point", title: "Yanaka Ginza (Tokio Retro)", icon: "fa-solid fa-cat" },
             {
                 time: "15:00",
                 type: "transit",
-                title: "Tren JR hacia Shinjuku",
-                price: "Suica/JR Pass (~160 JPY)",
-                timeLabel: "5 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Nakano+Station&destination=Shinjuku+Station&travelmode=transit"
-            }
+                title: "Tren JR hacia Nakano (vía Shinjuku)",
+                price: "Suica (~220 JPY)",
+                timeLabel: "25 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Nippori+Station&destination=Nakano+Station&travelmode=transit"
+            },
+            { time: "15:30", type: "point", title: "Nakano Broadway", icon: "fa-solid fa-box-open" }
         ],
 
         timeline: [
-            { time: "10:45", title: "Kitsune Sun Mall", desc: "Calle comercial cubierta llena de comida rápida japonesa. (Base)" },
-            { time: "11:00", title: "Nakano Broadway", desc: "El gran edificio de las reliquias. Complejo Mandarake. (Base)" },
-            { time: "13:30", title: "Helado Coloso", desc: "Daily Chico en el sótano subterráneo. (Base)" },
-            { time: "15:00", title: "Complemento Shinjuku", desc: "Tren a Shinjuku para ver al gato 3D o compras. (Complementos)" }
+            { time: "09:30", title: "Parque Ueno", desc: "El gran parque cultural y el templo flotante. (Base)" },
+            { time: "11:00", title: "Mercado Ameyoko", desc: "Mercado negro postguerra bullicioso. (Base)" },
+            { time: "13:00", title: "Yanaka Ginza", desc: "Barrio gato de la época Showa. Almuerzo callejero. (Base)" },
+            { time: "15:30", title: "Nakano Broadway", desc: "Coleccionismo retro y figuras. (Complemento recomendado)" }
         ],
 
         prices: {
-            transport: "Metro (~500 JPY)",
+            transport: "Tren JR (~800 JPY)",
             total: "Base +"
         },
 
         isFlexible: true,
         base: {
             title: "Itinerario Base",
-            description: "Para los puristas del coleccionismo, Nakano superó a Akihabara hace años al no estar tan masificado por el turismo genérico, escondiendo los mejores tesoros de segunda mano retro en sus múltiples pisos techados.",
+            description: "Un recorrido por el Tokio más nostálgico. Desde los vestigios del mercado negro en Ueno y la paz felina de Yanaka Ginza, hasta culminar la tarde escarbando reliquias en Nakano.",
             events: [
                 {
                     id: "b1",
-                    time: "11:00",
-                    title: "El Complejo Nakano Broadway",
-                    description: "Edificio comercial de hormigón de varias plantas al final del Sun Mall plagado de pequeñas tiendas independientes y cristaleras.",
-                    image: "images/dia21-nakano.jpg",
-                    price: "Gratis / Gastos compras",
+                    time: "09:30",
+                    title: "Parque Ueno y Estanque Shinobazu",
+                    description: "El parque público más popular, hogar de museos, un zoo y un estanque de lotos gigante.",
+                    image: "images/dia17-ueno.jpg",
+                    price: "Gratis",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-robot"></i> La Madriguera del Conejo Blanca</h3>
-                        <p>A diferencia del ruido de Akihabara, Nakano Broadway parece un centro comercial de los años 80 abandonado hasta que subes al segundo y tercer piso. Allí opera el imperio <strong>Mandarake</strong>, con decenas de pequeños locales temáticos especializados (algunos parecen museos o mazmorras) que venden desde cels originales de animación de Studio Ghibli, hasta cartuchos de Super Nintendo en su caja intacta, mangas antiquísimos, relojes rolex de segunda mano y Godzilla vintage de plástico inyectado.</p>
+                        <h3><i class="fa-solid fa-leaf"></i> El Pulmón del Norte</h3>
+                        <p>Perfecto para pasear de mañana. Destaca el gran estanque Shinobazu ahogado en gigantescas plantas de loto verdes con el pabellón octogonal Bentendo flotando en medio.</p>
                     `
                 },
                 {
                     id: "b2",
-                    time: "13:30",
-                    title: "El Reto Helado",
-                    description: "En el sótano subterráneo profundo (B1) (donde hay un supermercado local que huele a pescado) sobrevive un local minúsculo.",
-                    image: "images/dia21-icecream.jpg",
-                    price: "~700 JPY",
+                    time: "11:00",
+                    title: "Mercado Ameyoko",
+                    description: "El ruido y el regateo en bruto bajo las vías del tren elevado.",
+                    image: "images/dia17-kappabashi.jpg",
+                    price: "Gratis",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-ice-cream"></i> El Torreón de Daily Chico</h3>
-                        <p><strong>Iván Reto:</strong> En la heladería Daily Chico sirven el famoso helado de 8 pisos extralargo con sabores extraños (como ramune, melón o boniato). Cómprenlo, llévenselo a la calle sin que se caiga y terminénselo rápido.</p>
+                        <h3><i class="fa-solid fa-store"></i> Sobras del Mercado Negro</h3>
+                        <p>Tras la segunda guerra mundial aquí floreció el mercado negro. Hoy es un laberinto de callejuelas abigarradas donde los vendedores gritan ofreciendo zapatillas con descuento, pescado seco, especias y chaquetas vintage. El ambiente es vibrante y muy distinto al orden estricto nipón.</p>
                     `
                 },
                 {
-                    time: "14:30",
-                    title: "Almuerzo y Cambio Zona",
-                    description: "Tras salir de Nakano, al lado está la macro-estación de Shinjuku para rematar la tarde.",
-                    type: "gap"
+                    id: "b3",
+                    time: "13:00",
+                    title: "Yanaka Ginza (Barrio Gato)",
+                    description: "Escapando de la guerra y los terremotos, este barrio mantiene la madera y escala de los años 50.",
+                    image: "images/dia17-ueno.jpg",
+                    price: "Gratis",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-cat"></i> Escaleras al Atardecer</h3>
+                        <p>Se llega bajando las famosas Yuyake Dandan (Escaleras del atardecer). Toda la calle peatonal está llena de pequeños comercios artesanales y puestos de comida local lenta: croquetas de patata (korokke), té verde y dulces en forma de pata de gato. Muy relajante y costumbrista para comer picando.</p>
+                    `
                 }
             ]
         },
         complements: [
             {
                 id: "c1",
-                title: "El Gato Gigante Anime (Shinjuku)",
+                title: "Nakano Broadway (Cultura Retro)",
                 time: "15:30",
-                description: "Cross Shinjuku Vision. Una pantalla curva 3D publicitaria donde un gato gigante te mira y miau desde un balcón.",
+                description: "Edificio de hormigón plagado del imperio Mandarake. Tesoros otaku de pura cepa.",
                 price: "Gratis",
-                image: "images/dia21-cat3d.jpg",
+                image: "images/nakano_broadway.png",
+                recommended: true,
                 fullDesc: `
-                    <h3><i class="fa-solid fa-cat"></i> Realidad Aumentada Callejera</h3>
-                    <p>Saliendo por el lado este de Shinjuku. El espectáculo de ver el efecto de profundidad forzada (anamorfosis) desde la acera es genial. El gato suele salir a intervalos junto con un anuncio publicitario de robótica.</p>
+                    <h3><i class="fa-solid fa-box-open"></i> La Madriguera del Conejo Blanca</h3>
+                    <p>Mientras os acercáis por el Sun Mall cubierto parece normal, pero al subir a los pisos superiores entraréis en celdas especializadas llenas de cels de Ghibli originales, cartuchos de SNES en caja y Godzilla vintage. <strong>Reto:</strong> Buscad en el sótano el helado de 8 pisos de Daily Chico.</p>
                 `,
                 tacticalOptions: [
                     {
-                        title: "UBICACIÓN EXACTA CROSS SHINJUKU",
-                        time: "Aparece periódicamente",
-                        description: "Justo al lado de la salida Este (East Exit) de la estación de Shinjuku.",
-                        link: "https://www.google.com/maps/place/Cross+Shinjuku+Vision",
-                        tacticalGuideId: "mission_cat3d"
+                        title: "RUTA DIRECTA A NAKANO",
+                        time: "Tarde",
+                        description: "Tomar la línea Yamanote a Shinjuku, y cambiar a JR Chuo (Express a Nakano).",
+                        link: "https://www.google.com/maps/dir/?api=1&origin=Nippori+Station&destination=Nakano+Station",
+                        tacticalGuideId: "mission_nakano_jr"
                     }
                 ]
             },
             {
                 id: "c2",
-                title: "Ikebukuro y Sunshine City",
-                time: "16:00",
-                description: "El equivalente a Akihabara pero con un enfoque del mercado otaku dirigido a historias dramáticas femeninas (Otome Road).",
-                price: "Gratis",
-                image: "images/dia21-ikebukuro.jpg",
+                title: "Museo Nacional de Tokio (Ueno)",
+                time: "10:00",
+                description: "Si sois amantes de la historia de los Samuráis, Katanas y armaduras.",
+                price: "~1.000 JPY",
+                image: "images/dia17-ueno.jpg",
                 fullDesc: `
-                    <h3><i class="fa-solid fa-venus"></i> Otome Road y Pokémon</h3>
-                    <p>En el gran complejo Sunshine City podréis encontrar el enorme "Pokémon Center Mega Tokyo" y numerosas tiendas de Gashapon de dos pisos (máquinas tragaperras de cápsulas sorpresa con miniaturas absurdas).</p>
+                    <h3><i class="fa-solid fa-building-columns"></i> El Legado del Imperio</h3>
+                    <p>Ubicado dentro del inmenso parque Ueno, contiene la mayor colección de arte japonés del mundo. Las exposiciones de espadas históricas forjadas por los grandes maestros son formidables.</p>
                 `
             }
         ]
     },
 
-    // --- DÍA 22: KAMAKURA (Historia) ---
+    // --- DÍA 21: EXCURSIÓN (NIKKO O KAMAKURA) ---
     {
-        day: 22, type: "stay",
-        date: "Lun, 17 Agosto", title: "🗿 Kamakura Costera",
-        coords: [35.319, 139.546], zoom: 13,
+        day: 21, type: "stay",
+        date: "Dom, 16 Agosto", title: "🌳 Nikko Tokugawa o Kamakura Buda",
+        coords: [36.758, 139.598], zoom: 10,
         hotel: "Hotel Metropolitan Edmont Tokyo",
         hotelImage: "images/hotel-metropolitan-tokio.jpg",
         hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Hotel+Metropolitan+Edmont+Tokyo",
-        image: "images/kamakura_buda.png",
+        image: "images/dia21-nikko.jpg",
 
         logistics: [
-            { title: "Transporte Directo", text: "Id desde Iidabashi a Shinjuku o Tokyo Station, y coged el tren Línea Yokosuka directos a Kamakura." },
-            { title: "Costa", text: "Hará calor. Kamakura da al océano pacífico y es zona playera surfera, llevad agua." }
+            { title: "Decisión Fuerte", text: "Es domingo y tendréis que madrugar mucho para evitar muchedumbres en los trenes. Decidid entre la montaña dorada (Nikko) o la costa budista (Kamakura)." },
+            { title: "Transporte Nikko", text: "Nikko requiere el JR Pass o el pase Tobu (caro de pagar suelto), 2 horas de trayecto en tren Shinkansen/Exprés." },
+            { title: "Transporte Kamakura", text: "Kamakura está a 1h directo desde Shinjuku pagando solo 950 JPY con Suica." }
         ],
 
         transportTimeline: [
-            { time: "08:45", type: "point", title: "Salida Hotel Edmont", icon: "fa-solid fa-hotel" },
+            { time: "07:30", type: "point", title: "Salida Hotel Edmont (Madrugón)", icon: "fa-solid fa-hotel" },
             {
-                time: "09:00",
+                time: "08:00",
                 type: "transit",
-                title: "Tren Expréss/Normal a Kamakura",
-                price: "JR Pass o Suica (~950 JPY)",
-                timeLabel: "Iidabashi -> Shinjuku -> Kamakura (1h 15m)",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Iidabashi+Station&destination=Kamakura+Station&travelmode=transit",
+                title: "Ruta 1: Shinkansen a Utsunomiya -> Nikko",
+                price: "JR Pass o ~5.500 JPY",
+                timeLabel: "2h",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Tokyo+Station&destination=Nikko+Station&travelmode=transit",
+                tacticalGuideId: "mission_nikko_jr"
+            },
+            {
+                time: "08:30",
+                type: "transit",
+                title: "Ruta 2: Tren JR a Kamakura",
+                price: "Suica (~1.000 JPY)",
+                timeLabel: "1h 15min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Shinjuku+Station&destination=Kamakura+Station&travelmode=transit",
                 tacticalGuideId: "mission_kamakura_jr"
-            },
-            {
-                time: "10:30",
-                type: "transit",
-                title: "Tren Retro Enoden (Línea Costera)",
-                price: "Suica (~200 JPY)",
-                timeLabel: "10 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Kamakura+Station&destination=Hase+Station&travelmode=transit",
-                tacticalGuideId: "mission_enoden"
-            },
-            { time: "11:00", type: "point", title: "Estación Hase (Zona Templos)", icon: "fa-solid fa-train-tram" },
-            {
-                time: "14:00",
-                type: "transit",
-                title: "Tranvía Enoden hacia Enoshima O Kamakura",
-                price: "Suica",
-                timeLabel: "Flexible",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Hase+Station&destination=Enoshima+Station"
             }
         ],
 
         timeline: [
-            { time: "11:00", title: "Gran Buda", desc: "El sereno coloso de bronce al aire libre. (Base)" },
-            { time: "12:15", title: "Complejo Hasedera", desc: "Templo floral escalonado con vistas al pacífico. (Base)" },
-            { time: "14:00", title: "Komachi Dori / Opciones", desc: "Almuerzo y elegir complemento: Enoshima vs Compras. (Base)" }
+            { time: "10:30", title: "Llegada Destino", desc: "Inicio de la exploración elegida. (Base)" },
+            { time: "11:00", title: "Toshogu (Nikko) o Daibutsu (Kamakura)", desc: "Monumentos principales de cada ruta. (Base)" },
+            { time: "13:30", title: "Almuerzo local", desc: "Comer en las callejuelas. (Base)" }
         ],
 
         prices: {
-            transport: "Tren ida/vuelta + local (~2.500 JPY total)",
+            transport: "Variables (1.000 - 5.500 JPY trayecto)",
             total: "Base +"
         },
 
         isFlexible: true,
         base: {
-            title: "Itinerario Base",
-            description: "Excursión de un día al 'Kioto del este'. Kamakura fue capital en el medievo, dejándola salpicada de templos increíbles rodeados de bosque, pero con ambiente relajado playero.",
+            title: "Día de Bifurcación",
+            description: "Día para escapar de la gran urbe de neón de cristal buscando la herencia histórica monumental en los bosques.",
             events: [
                 {
                     id: "b1",
-                    time: "11:00",
-                    title: "Kotoku-in y el Gran Daibutsu",
-                    description: "Estatua de las mayores dimensiones de todo Japón resistiendo elementos pacíficos.",
-                    image: "images/kamakura_buda.png",
-                    price: "300 JPY",
+                    time: "Todo el día",
+                    title: "Opción A: El Esplendor de Nikko",
+                    description: "Montañas frondosas, santuarios profusamente decorados en oro y el mausoleo de Ieyasu Tokugawa.",
+                    image: "images/dia21-nikko.jpg",
+                    price: "Santuarios ~1.300 JPY",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-om"></i> Sobreviviendo a Tsumanis</h3>
-                        <p>El Gran Buda de Kamakura (Daibutsu) fue fundido en el siglo XIII dentro de un enorme templo de madera. Un terrible tsunami engulló la costa en el siglo XV borrando todo edificio protector de madera para siempre y dejando solo el peso del metal intacto. Meditar allí es obligatorio.</p>
-                        <p><strong>Dato curioso:</strong> ¡Se puede pagar 20 tristes Yenes más entrar (litralmente por la espalda) a las entrañas metálicas de la estatua!</p>
+                        <h3><i class="fa-solid fa-leaf"></i> La Montaña Dorada</h3>
+                        <p>Nikko es Patrimonio de la Humanidad. El complejo Toshogu donde descansa el shogun que unificó Japón está decorado en oro radiante a diferencia del resto de templos sobrios japoneses. Incluye los puentes sagrados rojos sobre ríos bravos y densos bosques de cedros monumentales.</p>
+                        <p><strong>Lo mejor:</strong> El clima es más frío y la arquitectura está al nivel de Kioto.</p>
                     `
                 },
                 {
                     id: "b2",
-                    time: "12:15",
-                    title: "Templo Floral de Hasedera",
-                    description: "Gran recinto escalonado excavado en la ladera dedicada a la diosa Kannon.",
-                    image: "images/dia22-kamakura.jpg",
-                    price: "400 JPY",
+                    time: "Todo el día",
+                    title: "Opción B: La Tranquilidad Costera de Kamakura",
+                    description: "La antigua capital surfera. Famosa por su inmenso Daibutsu (Gran Buda) de bronce al aire libre.",
+                    image: "images/kamakura_buda.png",
+                    price: "Templos ~300-400 JPY",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-leaf"></i> Mil Guardianes de Piedra</h3>
-                        <p>Uno de los sitios más cuidados y fotografiados de la zona. Subiendo por hermosos senderos con hortensias llegaréis a un mirador sobre el mar lejano. No os vayáis sin encontrar a los escondidos "Jizo adorables" que sonríen entre las hojas mojadas o recorrer su laberíntica cueva dedicada a Benzaiten (usa linterna móvil).</p>
+                        <h3><i class="fa-solid fa-om"></i> El Kioto del Este y Océano</h3>
+                        <p>Más rápida y barata de acceder (1h al sur de Tokio). Es un conjunto de hermosos templos diseminados por la ladera marítima unidos por un tranvía vintage (el Enoden). Destaca el gran Buda que sobrevivió a un tsunami masivo en el medievo, y el templo escalonado y florido de Hasedera.</p>
                     `
-                },
-                {
-                    time: "13:30",
-                    title: "Almuerzo por las callejuelas",
-                    description: "Encontrar un ramen o comida local cerca de la estación de Hase o volver en el tranvía.",
-                    type: "gap"
                 }
             ]
         },
         complements: [
             {
                 id: "c1",
-                title: "Isla de Enoshima",
+                title: "Enoshima (Si elegís Kamakura)",
                 time: "15:00",
-                description: "Tomad el pintoresco tren playero Enoden hasta la lejana costa oeste a la pequeña isla de santuarios.",
+                description: "Tomar el tranvía Enoden a la isla de santuarios y cuevas marinas.",
                 price: "Tren (260 JPY)",
                 image: "images/dia22-enoshima.jpg",
                 fullDesc: `
-                    <h3><i class="fa-solid fa-water"></i> Cuevas, Faros y Playas</h3>
-                    <p>Subiréis (hay escaleras mecánicas pagando si estáis reventados) hacia la torre faro de la cima entre gatos callejeros y podréis bajar por detrás hasta la agreste costa de roca para explorar las cuevas marítimas Iwaya golpeadas por la marea al atardecer.</p>
-                `,
-                tacticalOptions: [
-                    {
-                        title: "EL CRUCE DE SLAM DUNK",
-                        time: "En trayecto de Enoden",
-                        description: "Parada intermendia en 'Kamakurakōkō-Mae'. Famoso paso a nivel frente al mar del anime Slam Dunk.",
-                        link: "https://www.google.com/maps/place/Kamakura-koko-mae+Station/",
-                        tacticalGuideId: "mission_slamdunk"
-                    }
-                ]
+                    <h3><i class="fa-solid fa-water"></i> Vistas al Fuji</h3>
+                    <p>Una pequeña isla rocosa en el mar de Sagami conectada por un puente. Escaleras infernales (o de pago mecánicas) os llevarán a la cima iluminada al atardecer lleno de gatos, pescadores y templos budistas. Si hace un frente claro espectacular, podréis ver el monte Fuji asomar detrás del mar.</p>
+                `
             },
             {
                 id: "c2",
-                title: "Calle Komachi Dori / Vaciado de Carteras",
-                time: "15:00",
-                description: "Junto a la estación de origen de Kamakura. La arteria comercial enorme con souvenirs, sables samuráis y snacks.",
-                price: "Gratis",
-                image: "images/dia22-donki.jpg", // Consider changing this placeholder to a street photo
+                title: "Cascadas Kegon o Lago Chuzenji (Si elegís Nikko)",
+                time: "14:00",
+                description: "Subir la montaña en autobús zigzagueante para ver la naturaleza brutal del parque nacional.",
+                price: "Bus ~1.500 JPY",
+                image: "images/dia21-kegon.jpg",
                 fullDesc: `
-                    <h3><i class="fa-solid fa-gift"></i> Croquetas y Recuerdos de Madera</h3>
-                    <p>Evitad el viaje agotador a Enoshima si queréis relax. Recorred esta calle kilométrica que en la base lleva hasta el centro rojo sintoísta del Tsurugaoka Hachimangu. Buena zona para comer helados de boniato lila o comprar merchandising Ghibli tradicional en la gran "Symphony Totorogu".</p>
+                    <h3><i class="fa-solid fa-water"></i> Fuerzas Naturales</h3>
+                    <p>Si el santuario Toshogu se os queda corto y no os importa el largo trayecto en bus de peaje subiendo puertos de montaña (cuidado mareos), la caída libre de 97 metros de la gran cascada Kegon partiendo del lago de cráter Chuzenji es sobrecogedora.</p>
+                `
+            }
+        ]
+    },
+
+    // --- DÍA 22: TOYOSU, GINZA Y ROPPONGI ---
+    {
+        day: 22, type: "stay",
+        date: "Lun, 17 Agosto", title: "🏙️ Toyosu, Ginza y Roppongi",
+        coords: [35.671, 139.765], zoom: 12,
+        hotel: "Hotel Metropolitan Edmont Tokyo",
+        hotelImage: "images/hotel-metropolitan-tokio.jpg",
+        hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Hotel+Metropolitan+Edmont+Tokyo",
+        image: "images/dia19-ginza.jpg",
+
+        logistics: [
+            { title: "Transporte", text: "Día de metros por la zona céntrica y bahía exterior de Tokio." },
+            { title: "Vestimenta", text: "En Ginza y Roppongi impera la formalidad y el lujo, vestid casual-elegante." }
+        ],
+
+        transportTimeline: [
+            { time: "08:00", type: "point", title: "Salida Hotel Edmont", icon: "fa-solid fa-hotel" },
+            {
+                time: "08:15",
+                type: "transit",
+                title: "Metro a Toyosu",
+                price: "Suica",
+                timeLabel: "30 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Metropolitan+Edmont+Tokyo&destination=Toyosu+Market&travelmode=transit"
+            },
+            { time: "08:45", type: "point", title: "Toyosu Market / Senkyaku Banrai", icon: "fa-solid fa-fish" },
+            {
+                time: "12:00",
+                type: "transit",
+                title: "Bus o Yurikamome a Ginza",
+                price: "Suica",
+                timeLabel: "20 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Toyosu&destination=Ginza&travelmode=transit"
+            },
+            { time: "12:30", type: "point", title: "Ginza Luxury (Milla de Oro)", icon: "fa-solid fa-gem" },
+            {
+                time: "16:00",
+                type: "transit",
+                title: "Metro Hibiya/Oedo a Roppongi",
+                price: "Suica (~180 JPY)",
+                timeLabel: "15 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Ginza+Station&destination=Roppongi+Station&travelmode=transit"
+            },
+            { time: "16:15", type: "point", title: "Roppongi Hills y vistas Torre Tokyo", icon: "fa-solid fa-city" }
+        ],
+
+        timeline: [
+            { time: "08:45", title: "Toyosu Market", desc: "La nueva lonja de pescado y baños termales. (Base)" },
+            { time: "12:30", title: "Ginza", desc: "Lujo, arquitectura y comida top. (Base)" },
+            { time: "16:15", title: "Roppongi", desc: "Vida nocturna expat y la icónica Torre de Tokio roja. (Base)" }
+        ],
+
+        prices: {
+            transport: "Metro (~600 JPY)",
+            total: "Base +"
+        },
+
+        isFlexible: true,
+        base: {
+            title: "Itinerario Base",
+            description: "Día ecléctico. Amanecer inmerso en los pescados y gastronomía del puerto en Toyosu, comer en la milla de oro más cara de Japón, y terminar bebiendo algo con los expatriados bajo la copia parisina de la Torre de Tokio.",
+            events: [
+                {
+                    id: "b1",
+                    time: "08:45",
+                    title: "Toyosu Senkyaku Banrai",
+                    description: "El nuevo complejo comercial termal junto al mercado mayorista de atunes más grande del mundo.",
+                    image: "images/dia22-toyosu.jpg",
+                    price: "Gratis",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-fish-fins"></i> Sushi de Primera Mano</h3>
+                        <p>Aunque el mercado mayorista de Toyosu es muy estéril (no es como el antiguo Tsukiji), han abierto recientemente un complejo comercial temático Edo llamado "Senkyaku Banrai". Ofrece las paradas de sushi más fresco extraído en la madrugada, así como varios puestos de comida callejera y hasta baños de pies onsen gratuitos de aguas termales a gran altura con vistas a la bahía de Tokio.</p>
+                    `
+                },
+                {
+                    id: "b2",
+                    time: "12:30",
+                    title: "La Avenida Principal de Ginza (Chuo Dori)",
+                    description: "La zona más elitista comercial de todo el país. Flagships imponentes, boutiques de diseño y restaurantes de estrellas michelin ocultos en rascacielos.",
+                    image: "images/dia19-ginza.jpg",
+                    price: "Gratis",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-gem"></i> La Milla de Diamantes</h3>
+                        <p>Elegancia pura extrema. A parte de las flagship stores de alta costura, merece la pena entrar al macro complejo de marcas <strong>Ginza Six</strong> con sus espectaculares bóvedas artísticas interiores, o los showrooms experimentales de grandes marcas tecnológicas japonesas como Nissan Crossing o Sony.</p>
+                        <p>Los domingos y sábados al mediodía las grandes avenidas de Ginza cierran al tráfico para ser un gran paseo peatonal masivo. Al ser Lunes hoy, tendréis que caminar por las aceras, pero el ambiente sigue siendo vibrante.</p>
+                    `
+                },
+                {
+                    id: "b3",
+                    time: "16:15",
+                    title: "Roppongi Hills y Torre de Tokio",
+                    description: "El complejo futurista expat coronado con vistas a la torre de comunicaciones roja clásica.",
+                    image: "images/dia22-roppongi.jpg",
+                    price: "Gratis visual",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-martini-glass"></i> Noches de Torre Roja</h3>
+                        <p>Roppongi es un barrio transformado: del desenfreno militar al hub de arte y diseño de cristal con ambiente multicultural de millonarios expatriados. Caminar por el complejo Roppongi Hills cruzando con la gran escultura de la araña de Louise Bourgeois (Maman). Destaca acercarse caminando a la zona del templo Zojoji o la base de la Tokyo Tower, una increíble estructura de celosía naranja y blanca (copia modernizada de la torre Eiffel de Francia) que se enciende rotundamente al caer la noche destacando sobre los rascacielos sombríos.</p>
+                    `
+                }
+            ]
+        },
+        complements: [
+            {
+                id: "c1",
+                title: "Mercado Tsukiji (Exterior)",
+                time: "Flexible Mediodía",
+                description: "Para los puristas. Si no queréis la modernidad de Toyosu, los callejones del antiguo mercado en Tsukiji siguen sirviendo marisco y wagyu increíble.",
+                price: "Variable",
+                image: "images/dia19-tsukiji.jpg",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-fire-burner"></i> Las Parrillas Callejeras</h3>
+                    <p>A pesar de que el mercado central se mudó a Toyosu, el 'Outer Market' de Tsukiji se niega a morir. Pinchos de salmón ahumándose en la vía, cangrejo real, tortilla dulce recién hecha y bares minúsculos atestados llenos de bullicio e inmersión sensorial absoluta para desayunar a base de pescados al carbón.</p>
+                `
+            },
+            {
+                id: "c2",
+                title: "Teatro Kabuki-za (Desde fuera)",
+                time: "15:00",
+                description: "La joya arquitectónica del teatro clásico sobreviviendo entre torres modernas de cristal en Ginza.",
+                price: "Gratis",
+                image: "images/dia19-ginza.jpg", // Needs custom image or reuse
+                fullDesc: `
+                    <h3><i class="fa-solid fa-masks-theater"></i> Reflejos Feudales</h3>
+                    <p>Reconstruido varias veces, es el teatro principal donde se ejecuta hoy en día el arte dramático tradicional Kabuki de Japón (actuado sólo por varones y con elaborados sets giratorios). Su inmensa techumbre al uso de los castillos feudales es un spot fotográfico magnífico para constatar la dualidad de Ginza entre lo ultra-moderno y lo intocablemente clásico.</p>
                 `
             }
         ]
