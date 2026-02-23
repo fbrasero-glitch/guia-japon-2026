@@ -12,6 +12,7 @@ const travelData = [
         image: "",
 
         preparation: {
+            travelers: ["FELIPE", "LORENA", "IVAN", "LAURA", "GEMA", "CESAR", "VICENTE", "LOLA"],
             sections: [
                 {
                     title: "Ahora — Acción Inmediata",
@@ -1845,31 +1846,65 @@ const travelData = [
         date: "Jue, 6 Agosto", title: "⛰️ Alpes: Relax en el Ryokan",
         coords: [36.259, 137.551], zoom: 13,
         hotel: "Kazeya Ryokan",
-        hotelImage: "images/hotel-kazeya-ryokan.jpg",
+        hotelImage: "images/hotel-kazeya.jpg",
         hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Kazeya+Ryokan+Shin-Hotaka+Onsen",
         image: "images/okuhida_ryokan.png",
 
         logistics: [
-            { title: "Equipaje", text: "Solo mochilas de mano. Las maletas grandes van por Takkyubin." },
+            { title: "Equipaje", text: "Solo mochilas de mano. Las maletas grandes van por Takkyubin a Tokio o Kawaguchiko." },
             { title: "Onsen", text: "Ducharse antes de entrar. Tatuajes: consultar política (o reservar privado)." }
         ],
 
+        transportTimeline: [
+            { time: "08:30", type: "point", title: "Salida de Kioto", icon: "fa-solid fa-train-subway" },
+            {
+                time: "08:50",
+                type: "transit",
+                title: "Shinkansen Nozomi a Nagoya",
+                price: "Cubierto por pase o ~5.940 JPY",
+                timeLabel: "35 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Kyoto+Station&destination=Nagoya+Station&travelmode=transit",
+                tacticalGuideId: "mission_alpes_1"
+            },
+            { time: "09:30", type: "point", title: "Transbordo en Nagoya", icon: "fa-solid fa-person-walking-arrow-right" },
+            {
+                time: "10:00",
+                type: "transit",
+                title: "Tren Wide View Hida a Takayama",
+                price: "Cubierto por pase o ~6.000 JPY",
+                timeLabel: "2h 30m",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Nagoya+Station&destination=Takayama+Station&travelmode=transit",
+                tacticalGuideId: "mission_alpes_2"
+            },
+            { time: "12:30", type: "point", title: "LLegada a Takayama / Almuerzo rápido", icon: "fa-solid fa-bowl-food" },
+            {
+                time: "14:00",
+                type: "transit",
+                title: "Bus Nohi hacia Okuhida (Shin-Hotaka)",
+                price: "~2.200 JPY",
+                timeLabel: "1h 30m",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Takayama+Nohi+Bus+Center&destination=Shin-Hotaka+Onsen&travelmode=transit",
+                tacticalGuideId: "mission_alpes_3"
+            },
+            { time: "15:30", type: "point", title: "Check-in Kazeya Ryokan", icon: "fa-solid fa-hot-tub-person" }
+        ],
+
         timeline: [
-            { time: "09:00", title: "Tren a Takayama", desc: "Wide View Hida. Vistas espectaculares. (Base)" },
+            { time: "08:50", title: "Tren a Takayama", desc: "Wide View Hida. Vistas espectaculares. (Base)" },
             { time: "15:30", title: "Check-in Ryokan", desc: "Té verde, yukata y onsen. (Base)" },
             { time: "19:00", title: "Cena Kaiseki", desc: "Banquete tradicional con Ternera de Hida. (Base)" }
         ],
 
         prices: {
-            transport: "~13.000 JPY (Trenes y buses)",
+            transport: "~14.000 JPY (Trenes y buses)",
             food: "Incluida en Ryokan",
-            total: "~13.000 JPY (Base)"
+            total: "~14.000 JPY"
         },
 
         isFlexible: true,
         base: {
             title: "Itinerario Base",
-            description: "Día de viaje escénico y relax total en un Ryokan tradicional con aguas termales.",
+            description: "Día de viaje escénico cruzando montañas y relax total en un Ryokan tradicional.",
             events: [
                 {
                     id: "b1",
@@ -1881,10 +1916,10 @@ const travelData = [
                     fullDesc: `
                         <h3><i class="fa-solid fa-hot-tub-person"></i> Llegada al Ryokan Kazeya</h3>
                         <p>Inmersión total en la cultura japonesa. Dejad los zapatos en la entrada y entrad en un mundo de tatami y silencio.</p>
-                        <ul>
-                            <li><i class="fa-solid fa-vest"></i> <strong>Yukata:</strong> Podéis usarlo en todo el hotel, incluso para cenar.</li>
-                            <li><i class="fa-solid fa-soap"></i> <strong>Onsen:</strong> Recordad ducharos bien antes de entrar al agua.</li>
-                        </ul>
+                        <div style="background:rgba(255,140,0,0.05); border:1px solid #ff8c00; padding:10px; border-radius:8px; margin-top:10px;">
+                            <h4 style="margin:0; font-size:0.8rem; color:#ff8c00;"><i class="fa-solid fa-circle-exclamation"></i> Protocolo Onsen:</h4>
+                            <p style="margin:5px 0 0; font-size:0.75rem;">1. Ducharos a fondo <strong>fuera</strong> del agua.<br>2. Entrad limpios y sin bañador.<br>3. No sumerjáis la toalla pequeña, dejadla en la cabeza o el borde.</p>
+                        </div>
                     `
                 },
                 {
@@ -1913,17 +1948,43 @@ const travelData = [
                 id: "c1",
                 title: "Shinhotaka-no-yu",
                 time: "16:30",
-                description: "Baño mixto al aire libre junto al río. Experiencia salvaje.",
-                price: "Gratis / Donación",
-                image: "images/dia11-shinhotaka.jpg"
+                description: "Baño mixto al aire libre junto al río. Experiencia salvaje (Baño público).",
+                price: "Donación",
+                image: "images/dia11-shinhotaka.jpg",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-water"></i> Onsen Salvaje junto al río</h3>
+                    <p>Un baño rústico al aire libre literalmente pegado al río. Es mixto y los bañadores suelen estar prohibidos (usar toalla grande).</p>
+                `,
+                tacticalOptions: [
+                    {
+                        title: "PASEO AL ONSEN PÚBLICO",
+                        time: "16:30 - 18:00",
+                        description: "Salida del hotel antes de cenar para explorar las aguas termales naturales del valle.",
+                        link: "https://www.google.com/maps/dir/?api=1&origin=Kazeya+Ryokan&destination=Shinhotaka-no-yu",
+                        tacticalGuideId: "mission_onsen_walk"
+                    }
+                ]
             },
             {
                 id: "c2",
                 title: "Teleférico Shinhotaka",
                 time: "15:45",
-                description: "Vistas alpinas desde las nubes (si llegáis a tiempo).",
-                price: "~2.900 JPY",
-                image: "images/dia11-teleferico.jpg"
+                description: "Vistas alpinas desde las nubes (Si os da tiempo a llegar).",
+                price: "2.900 JPY",
+                image: "images/dia11-teleferico.jpg",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-cable-car"></i> Teleférico de Dos Pisos</h3>
+                    <p>Sube a más de 2.000 metros para una vista panorámica de los Alpes del Norte. Cierra a las 16:45, la logística debe ser perfecta.</p>
+                `,
+                tacticalOptions: [
+                    {
+                        title: "CARRERA A LAS NUBES",
+                        time: "15:00 - 17:00",
+                        description: "Requiere tomar el autobús más allá del ryokan sin hacer check-in previo.",
+                        link: "https://www.google.com/maps/dir/?api=1&origin=Takayama+Station&destination=Shinhotaka+Ropeway&travelmode=transit",
+                        tacticalGuideId: "mission_ropeway"
+                    }
+                ]
             }
         ]
     },
@@ -1939,68 +2000,87 @@ const travelData = [
         image: "images/takayama.png",
 
         logistics: [
-            { title: "Transporte", text: "Bus desde el Ryokan a Takayama (1h)." },
-            { title: "Andar", text: "Todo el centro se recorre a pie." }
+            { title: "Transporte", text: "Bus de vuelta desde Okuhida a Takayama (1h 30m)." },
+            { title: "Pateo", text: "El casco antiguo de Takayama es completamente peatonal." }
+        ],
+
+        transportTimeline: [
+            { time: "10:00", type: "point", title: "Relajo Final y Check-out Ryokan", icon: "fa-solid fa-mug-hot" },
+            {
+                time: "10:30",
+                type: "transit",
+                title: "Bus Nohi de regreso a Takayama",
+                price: "~2.200 JPY",
+                timeLabel: "1h 30m",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Shin-Hotaka+Onsen&destination=Takayama+Nohi+Bus+Center&travelmode=transit",
+                tacticalGuideId: "mission_takayama_bus"
+            },
+            { time: "12:15", type: "point", title: "Llegada Takayama / Dejar equipajes", icon: "fa-solid fa-suitcase-rolling" },
+            { time: "12:30", type: "point", title: "Almuerzo Carne Hida", icon: "fa-solid fa-drumstick-bite" },
+            {
+                time: "14:30",
+                type: "transit",
+                title: "Caminata al casco antiguo",
+                price: "Gratis",
+                timeLabel: "10 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Takayama+Station&destination=Sanmachi+Suji&travelmode=walking"
+            },
+            { time: "14:45", type: "point", title: "Exploración Sanmachi Suji", icon: "fa-solid fa-house-chimney" },
+            { time: "18:00", type: "point", title: "Cena en Takayama y descanso", icon: "fa-solid fa-bed" }
         ],
 
         timeline: [
             { time: "12:15", title: "Llegada Takayama", desc: "Regreso desde el Ryokan. (Base)" },
             { time: "12:30", title: "Almuerzo Hida Beef", desc: "La mejor carne de Japón. (Base)" },
-            { time: "14:30", title: "Takayama Jinya", desc: "Oficina histórica del Shogun. (Base)" },
-            { time: "16:00", title: "Sanmachi Suji", desc: "Casco antiguo conservado. (Base)" }
+            { time: "14:30", title: "Sanmachi Suji", desc: "Casco antiguo conservado. (Base)" },
+            { time: "16:00", title: "Tiempo Libre", desc: "Elegid complemento (Jinya, Museos). (Opcional)" }
         ],
 
         prices: {
             transport: "~2.200 JPY (Bus)",
+            entrances: "Variable",
             food: "~5.000 JPY (Carne Hida de calidad)",
-            total: "~7.200 JPY (Base)"
+            total: "~7.200 JPY"
         },
 
         isFlexible: true,
         base: {
             title: "Itinerario Base",
-            description: "Explorar el casco antiguo mejor conservado y comer la famosa ternera de Hida.",
+            description: "Descenso de la montaña para explorar las calles de madera oscura del casco antiguo.",
             events: [
                 {
                     id: "b1",
                     time: "12:30",
                     title: "Almuerzo: Ternera de Hida",
-                    description: "La joya gastronómica de la región (Yakiniku).",
-                    image: "images/dia12-jinya.jpg",
+                    description: "La joya gastronómica de la región (Yakiniku o Sushi de carne).",
+                    image: "images/dia12-yatai.jpg",
                     price: "~4.000-6.000 JPY",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-drumstick-bite"></i> Hida Beef Yakiniku</h3>
-                        <p>Considerada por muchos superior a la de Kobe por su marmoleo y sabor intenso. Se cocina a la parrilla en tu mesa.</p>
+                        <h3><i class="fa-solid fa-drumstick-bite"></i> Festín de Hida Beef</h3>
+                        <p>Considerada por muchos superior a la de Kobe por su marmoleo y sabor intenso. Podéis probarla en formato Yakiniku (a la parrilla) o como nigiris de carne cruda en los puestos de la calle.</p>
                     `
                 },
                 {
                     id: "b2",
                     time: "14:30",
-                    title: "Takayama Jinya",
-                    description: "Única oficina del gobierno del Shogun que queda en pie.",
-                    image: "images/dia12-jinya.jpg",
-                    price: "440 JPY",
-                    fullDesc: `
-                        <h3><i class="fa-solid fa-landmark"></i> Takayama Jinya</h3>
-                        <p>Centro administrativo del periodo Edo. Incluye salas de tatami, almacenes de arroz y el pabellón de justicia.</p>
-                    `
-                },
-                {
-                    id: "b3",
-                    time: "16:00",
                     title: "Barrio Sanmachi Suji",
                     description: "Corazón feudal de la ciudad con casas de madera negra.",
-                    image: "images/dia12-jinya.jpg",
+                    image: "images/takayama.png",
                     price: "Gratis",
+                    link: "https://www.google.com/maps/dir/Takayama+Station/Sanmachi+Suji/",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-house-chimney"></i> Sanmachi Suji</h3>
-                        <p>Paseo por las calles históricas de Takayama. Buscad las bodegas de sake con sus Sugidamas (bolas de cedro) en la entrada.</p>
+                        <h3><i class="fa-solid fa-house-chimney"></i> Casco Antiguo (Sanmachi)</h3>
+                        <p>Paseo por las calles históricas. Buscad las bodegas de sake con sus Sugidamas (bolas de cedro) colgando en la entrada.</p>
+                        <div style="background:rgba(0,191,255,0.05); border:1px solid #00bfff; padding:10px; border-radius:8px; margin-top:10px;">
+                            <h4 style="margin:0; font-size:0.8rem; color:#00bfff;"><i class="fa-solid fa-wine-bottle"></i> Misión Local:</h4>
+                            <p style="margin:5px 0 0; font-size:0.75rem;">Entrad en una cervecería de sake para hacer una cata (por unos pocos yenes te dan una tacita que puedes llevarte).</p>
+                        </div>
                     `
                 },
                 {
-                    time: "14:30",
+                    time: "16:00",
                     title: "Tarde Libre / Opcionales",
-                    description: "Visita al Jinya, Museos o paseo Higashiyama.",
+                    description: "Visitas a museos, templos o paseos relajados.",
                     type: "gap"
                 }
             ]
@@ -2009,35 +2089,48 @@ const travelData = [
             {
                 id: "c1",
                 title: "Takayama Jinya",
-                time: "14:30",
+                time: "15:30",
                 description: "Antigua oficina del gobierno del Shogun. Salas de tatami e historia.",
                 price: "440 JPY",
                 image: "images/dia12-jinya.jpg",
-                recommended: true
+                recommended: true,
+                fullDesc: `
+                    <h3><i class="fa-solid fa-landmark"></i> Takayama Jinya</h3>
+                    <p>Única oficina del gobierno del periodo Edo que queda en pie. Incluye el pabellón de justicia (con herramientas de interrogatorio) y enormes almacenes de arroz.</p>
+                `,
+                tacticalOptions: [
+                    {
+                        title: "VISITA AL JINYA",
+                        time: "15:30 - 16:30",
+                        description: "A 10 mins del centro histórico.",
+                        link: "https://www.google.com/maps/dir/?api=1&origin=Sanmachi+Suji&destination=Takayama+Jinya",
+                        tacticalGuideId: "mission_jinya"
+                    }
+                ]
             },
             {
                 id: "c2",
                 title: "Yatai Kaikan",
-                time: "15:00",
-                description: "Museo de las carrozas del festival (Patrimonio UNESCO).",
+                time: "16:00",
+                description: "Museo de las carrozas del festival de Takayama (Patrimonio UNESCO).",
                 price: "1.000 JPY",
-                image: "images/dia12-yatai.jpg"
+                image: "images/dia12-yatai.jpg",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-masks-theater"></i> Exposición de Carrozas</h3>
+                    <p>Muestra las espectaculares y gigantescas carrozas de madera adornadas que desfilan en los festivales de primavera y otoño.</p>
+                `
             },
             {
                 id: "c3",
-                title: "Showa-kan",
-                time: "16:00",
-                description: "Museo retro de los años 50. Nostalgia pura.",
-                price: "800 JPY",
-                image: "images/dia12-yatai.jpg"
-            },
-            {
-                id: "c4",
                 title: "Higashiyama Walk",
-                time: "16:00",
-                description: "Paseo por los templos de la colina. Muy tranquilo.",
+                time: "16:30",
+                description: "Paseo por los templos de la colina. Silencio y musgo.",
                 price: "Gratis",
-                image: "images/dia12-higashiyama.jpg"
+                image: "images/dia12-higashiyama.jpg",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-tree"></i> Ruta de Templos</h3>
+                    <p>Un paseo tranquilo alejado de las rutas comerciales comerciales, siguiendo en parte el diseño del Kioto original.</p>
+                `
             }
         ]
     },
@@ -2053,63 +2146,80 @@ const travelData = [
         image: "images/dia13-portada.jpg",
 
         logistics: [
-            { title: "Bus", text: "Bus Expreso Nohi desde Takayama. Reservad 1 mes antes." },
-            { title: "Coche", text: "Recogida en Budget Rent a Car al llegar." }
+            { title: "Bus", text: "Bus Expreso Nohi desde Takayama. Reservad exactamente 1 mes antes para el grupo." },
+            { title: "Coche", text: "Recogida de Budget Rent a Car nada más llegar a la estación." }
+        ],
+
+        transportTimeline: [
+            { time: "08:15", type: "point", title: "Estación de Buses Takayama Nohi", icon: "fa-solid fa-bus-simple" },
+            {
+                time: "08:30",
+                type: "transit",
+                title: "Bus Directo Mt. Fuji (Express)",
+                price: "~5.000 JPY (Reserva previa obligatoria)",
+                timeLabel: "4h 45m",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Takayama+Nohi+Bus+Center&destination=Kawaguchiko+Station&travelmode=transit",
+                tacticalGuideId: "mission_fuji_bus"
+            },
+            { time: "13:15", type: "point", title: "Llegada Kawaguchiko Station", icon: "fa-solid fa-flag-checkered" },
+            { time: "13:30", type: "point", title: "Recogida Coche en Budget", icon: "fa-solid fa-car" },
+            {
+                time: "14:15",
+                type: "transit",
+                title: "Desplazamiento en coche de alquiler",
+                price: "Gasolina compartida",
+                timeLabel: "10 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Kawaguchiko+Station&destination=Toyoko+Inn+Fuji+Kawaguchiko+Ohashi"
+            },
+            { time: "14:30", type: "point", title: "Check-in Hotel Toyoko Inn", icon: "fa-solid fa-bed" },
+            { time: "16:00", type: "point", title: "Exploración al Atardecer", icon: "fa-solid fa-mountain-sun" }
         ],
 
         timeline: [
-            { time: "08:30", title: "Bus a Kawaguchiko", desc: "Trayecto de 4h 45min cruzando los Alpes. (Base)" },
-            { time: "13:15", title: "Llegada Kawaguchiko", desc: "Primera vista del Fuji. (Base)" },
-            { time: "13:30", title: "Recogida Coche", desc: "Libertad total para explorar la zona. (Base)" },
-            { time: "15:00", title: "Check-in & Relax", desc: "Dejad maletas y salid a explorar. (Base)" }
+            { time: "08:30", title: "Bus a Kawaguchiko", desc: "Trayecto de casi 5h cruzando sierras. (Base)" },
+            { time: "13:30", title: "Recogida Coche", desc: "Libertad total para explorar la zona alpina. (Base)" },
+            { time: "16:00", title: "Opciones Atardecer", desc: "Pagoda o Vistas del Lago. (Opcional)" }
         ],
 
         prices: {
-            transport: "Incluido en pase / Alquiler coche aparte",
-            total: "Base"
+            transport: "Reserva de Bus (~5.000 JPY) + Alquiler coche compartido (~2.000 JPY/pax/día)",
+            total: "~7.000 JPY"
         },
 
         isFlexible: true,
         base: {
             title: "Itinerario Base",
-            description: "Llegada a la región de los Cinco Lagos y recogida del coche de alquiler.",
+            description: "Gran traslado a la región de los Cinco Lagos y toma de control logístico con el coche.",
             events: [
                 {
                     id: "b1",
                     time: "08:30",
-                    title: "Bus Expreso a Kawaguchiko",
-                    description: "Fuji Five Lakes Bus. Travesía de 5 horas.",
-                    price: "~5.000 JPY"
+                    title: "Viaje a la falda del Volcán",
+                    description: "Jornada de descanso visual en el Highway Bus a través de las montañas centrales de Japón.",
+                    price: "~5.000 JPY",
+                    image: "images/fuji_lago.png",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-bus"></i> Expreso Takayama ➔ Kawaguchiko</h3>
+                        <p>Aprovechad para dormir. A medio camino el paisaje cambia radicalmente revelando poco a poco la inmensa silueta cónica del Fuji.</p>
+                    `
                 },
                 {
                     id: "b2",
                     time: "13:30",
-                    title: "Recogida Coche (Budget)",
-                    description: "Coche de alquiler para explorar los lagos con libertad.",
+                    title: "Recogida de Coche (Budget)",
+                    description: "Clave logística: El transporte público alrededor del Fuji es muy deficiente. El coche da alas.",
                     image: "images/dia13-portada.jpg",
-                    price: "Incluido",
+                    price: "Coche Alquiler",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-car"></i> Expedición Fuji: El Coche</h3>
-                        <p>Recogida en Budget Rent a Car. Conduciremos por la izquierda. ¡Iván, serás el copiloto oficial!</p>
+                        <h3><i class="fa-solid fa-car-side"></i> Operación Conducción Nipona</h3>
+                        <p>Iván o Felipe: Os tocará conducir por la izquierda. El GPS vendrá configurado. La velocidad máxima suele ser 60km/h en estas vías montañosas. ¡Precaución máxima!</p>
                     `
                 },
                 {
                     time: "15:00",
-                    title: "Check-in y Preparativos",
-                    description: "Dejar maletas y planificar la tarde.",
+                    title: "Acomodación y Organización",
+                    description: "Reparto de habitaciones y planificación de la tarde según la nubosidad del Fuji.",
                     type: "gap"
-                },
-                {
-                    id: "b3",
-                    time: "17:30",
-                    title: "Atardecer en el Lago",
-                    description: "Paseo por la orilla norte (Oishi Park).",
-                    image: "images/dia13-portada.jpg",
-                    price: "Gratis",
-                    fullDesc: `
-                        <h3><i class="fa-solid fa-mountain-sun"></i> Fuji al Atardecer</h3>
-                        <p>Primera gran vista del volcán reflejado en las aguas del lago Kawaguchi.</p>
-                    `
                 }
             ]
         },
@@ -2117,35 +2227,48 @@ const travelData = [
             {
                 id: "c1",
                 title: "Pagoda Chureito",
-                time: "16:00",
-                description: "La foto más famosa de Japón. 400 escalones, pero vale la pena.",
-                price: "Gratis",
+                time: "16:30",
+                description: "La foto más famosa de Japón: Pagoda roja, cerezos/pinos y el Fuji detrás.",
+                price: "Gratis (Parking ~1.000 JPY)",
                 image: "images/dia13-chureito.jpg",
-                recommended: true
+                recommended: true,
+                fullDesc: `
+                    <h3><i class="fa-solid fa-vihara"></i> El Mirador Arakurayama</h3>
+                    <p>Prepárate para subir unos 400 escalones. La recompensa es la vista que sale en todas las portadas de guías de viaje.</p>
+                `,
+                tacticalOptions: [
+                    {
+                        title: "SUBIDA AL ATARDECER",
+                        time: "16:30 - 18:30",
+                        description: "Conducción desde el hotel unos 15 min. La luz de la tarde ilumina frontalmente la Pagoda.",
+                        link: "https://www.google.com/maps/dir/?api=1&origin=Toyoko+Inn+Fuji+Kawaguchiko&destination=Chureito+Pagoda",
+                        tacticalGuideId: "mission_chureito"
+                    }
+                ]
             },
             {
                 id: "c2",
-                title: "Teleférico Kachi Kachi",
-                time: "15:30",
-                description: "Subida rápida para vistas panorámicas del lago y el volcán.",
-                price: "900 JPY",
-                image: "images/dia13-ropeway.jpg"
+                title: "Lago Saiko (Pueblo Iyashi)",
+                time: "16:00",
+                description: "Escape del turismo masivo. Lago misterioso y pueblo de tejados de paja.",
+                price: "Variable",
+                image: "images/dia13-saiko.jpg",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-water"></i> La Cara Oculta del Fuji</h3>
+                    <p>Un paseo en coche rodeando el vecino lago Saiko buscando tranquilidad rural.</p>
+                `
             },
             {
                 id: "c3",
                 title: "Oshino Hakkai",
                 time: "16:30",
-                description: "Pueblo tradicional con estanques de agua pura. Mágico al atardecer.",
+                description: "Pueblo mágico alimentado por el deshielo del Mt. Fuji (Ocho estanques transparentes).",
                 price: "Gratis",
-                image: "images/dia13-oshino.jpg"
-            },
-            {
-                id: "c4",
-                title: "Lago Saiko",
-                time: "16:00",
-                description: "El lago del silencio. Naturaleza salvaje y menos turistas.",
-                price: "Gratis",
-                image: "images/dia13-saiko.jpg"
+                image: "images/dia13-oshino.jpg",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-droplet"></i> Los Estanques de Cristal</h3>
+                    <p>El agua de estos estanques tarda décadas en filtrarse desde el cráter a través de la piedra pómez porosa. Podrás beber agua sagrada súper fría.</p>
+                `
             }
         ]
     },
@@ -2162,22 +2285,41 @@ const travelData = [
 
         logistics: [
             { title: "Vertical", text: "Si subís a la 5ª estación, llevad cortavientos (hace frío)." },
-            { title: "Transporte", text: "Shuttle bus obligatorio desde el parking del volcán en agosto." }
+            { title: "Transporte", text: "Shuttle bus obligatorio desde el parking del volcán en agosto." },
+            { title: "Coche", text: "El Ryugatake requiere conducir unos 40 minutos bordeando el lago Motosu." }
+        ],
+
+        transportTimeline: [
+            { time: "07:30", type: "point", title: "Salida del Hotel (Coche)", icon: "fa-solid fa-car" },
+            {
+                time: "07:45",
+                type: "transit",
+                title: "Conducción hacia destino alpino",
+                price: "Gasolina",
+                timeLabel: "15m - 40m",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Toyoko+Inn+Kawaguchiko&destination=Mt+Fuji+Subaru+Line",
+                tacticalGuideId: "mission_fuji_drive"
+            },
+            { time: "08:30", type: "point", title: "Inicio Excursión Elegida (5ª Estación o Ryugatake)", icon: "fa-solid fa-person-hiking" },
+            { time: "13:30", type: "point", title: "Almuerzo libre por la zona de los lagos", icon: "fa-solid fa-burger" },
+            { time: "15:30", type: "point", title: "Tarde de Baños Termales o relax frontal", icon: "fa-solid fa-hot-tub-person" }
         ],
 
         timeline: [
-            { time: "08:00", title: "Excursión al Fuji", desc: "Acercarse al cráter o trekking RYUGATAKE. (Base)" }
+            { time: "08:00", title: "Excursión al Fuji", desc: "Acercarse al cráter o trekking RYUGATAKE. (Base)" },
+            { time: "13:30", title: "Almuerzo", desc: "Comida reconfortante tras la montaña. (Base)" },
+            { time: "16:00", title: "Opciones Tarde", desc: "Onsen Fujiyama u otras vistas. (Opcional)" }
         ],
 
         prices: {
-            transport: "Gasolina + Shuttle (~2.500 JPY)",
+            transport: "Gasolina + Peaje/Shuttle (~2.500 JPY)",
             total: "Base +"
         },
 
         isFlexible: true,
         base: {
             title: "Itinerario Base",
-            description: "Tocar el volcán o verlo desde el mejor mirador alpino.",
+            description: "Día físico. Tocar el volcán de cerca o caminar para conseguir la vista perfecta.",
             events: [
                 {
                     id: "b1",
@@ -2188,14 +2330,18 @@ const travelData = [
                     price: "Variable",
                     fullDesc: `
                         <h3><i class="fa-solid fa-mountain"></i> Experiencia Fuji</h3>
-                        <p>Día dedicado al volcán. Podéis subir a la 5ª estación (estilo turista) o hacer el trekking Ryugatake (estilo explorador) para ver la vista del billete de 1000 yenes.</p>
+                        <p>Día dedicado al volcán. Podéis optar por conducir por la Subaru Line hasta la 5ª Estación de la línea Yoshida (estilo turista al lado del cráter) o hacer un trekking alejados como el del monte Ryugatake (estilo explorador) para tener la vista frontal al Fuji que sale en el billete de 1000 yenes.</p>
+                        <div style="background:rgba(255,255,255,0.1); border:1px solid #ffffff; padding:10px; border-radius:8px; margin-top:10px;">
+                            <h4 style="margin:0; font-size:0.8rem; color:#ffffff;"><i class="fa-solid fa-triangle-exclamation"></i> Nota sobre el coche:</h4>
+                            <p style="margin:5px 0 0; font-size:0.75rem;">En agosto la carretera Subaru Line suele estar cortada en el punto de peaje para vehículos privados. Hay que aparcar en el "Fujihoku-roku Parking Lot" y coger un bus lanzadera.</p>
+                        </div>
                     `,
                     video: "https://www.youtube.com/watch?v=Fst5jY_w7rM"
                 },
                 {
                     time: "13:00",
                     title: "Tiempo Libre / Almuerzo",
-                    description: "Pausa para comer y descansar.",
+                    description: "Pausa en algún pueblo u orilla del lago para reponer calorías.",
                     type: "gap"
                 }
             ]
@@ -2205,18 +2351,35 @@ const travelData = [
                 id: "c1",
                 title: "Trekking Ryugatake",
                 time: "08:00",
-                description: "Senderismo con vistas frontales brutales. La vista del billete de 1000 yenes.",
+                description: "Senderismo (2h de subida) con vistas frontales brutales. La vista del billete de 1000 yenes.",
                 price: "Gratis",
                 image: "images/dia15-ryugatake.jpg",
-                recommended: true
+                recommended: true,
+                fullDesc: `
+                    <h3><i class="fa-solid fa-person-walking-luggage"></i> El Mirador de los 1000 Yenes</h3>
+                    <p>Un trekking empinado pero seguro por el Monte Ryugatake (dragón). Desde la cima no verás a turistas de bus, solo a otros montañeros y una vista panorámica irreal del Fuji junto a los lagos glaciares.</p>
+                `,
+                tacticalOptions: [
+                    {
+                        title: "RUTA AL DRAGÓN",
+                        time: "08:00 - 13:00",
+                        description: "Conducción al Camping Motosu (40 min). Aparcar y subir unas 2 horas a buen ritmo.",
+                        link: "https://www.google.com/maps/dir/?api=1&origin=Toyoko+Inn+Kawaguchiko&destination=Lake+Motosuko+Campground",
+                        tacticalGuideId: "mission_ryugatake"
+                    }
+                ]
             },
             {
                 id: "c2",
                 title: "5ª Estación Fuji",
                 time: "09:00",
-                description: "Llegar a los 2300m en bus. Tiendas, santuario y aire alpino.",
-                price: "2.500 JPY",
-                image: "images/dia15-fuji.jpg"
+                description: "Llegar a los 2300m en bus. Tiendas, santuario milenario y mirar hacia la cumbre.",
+                price: "2.500 JPY (Shuttle Bus)",
+                image: "images/dia15-fuji.jpg",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-cloud"></i> Tocando el Cielo a 2300m</h3>
+                    <p>El punto más alto al que se puede llegar de forma "fácil". Incluye el Santuario Komitake y la oficina de correos más alta de Japón (¡enviad una postal!).</p>
+                `
             }
         ]
     },
@@ -2232,48 +2395,88 @@ const travelData = [
         image: "images/fuji_sanctuary.png",
 
         logistics: [
-            { title: "Coche", text: "Tened el coche disponible para las cascadas." }
+            { title: "Coche", text: "Último día completo con el vehículo alquilado." },
+            { title: "Tráfico", text: "Ruta occidental (Shiraito) implica unos 45-60 min de conducción tranquila." }
+        ],
+
+        transportTimeline: [
+            { time: "08:45", type: "point", title: "Salida del Hotel (Coche)", icon: "fa-solid fa-key" },
+            {
+                time: "09:00",
+                type: "transit",
+                title: "Conducción a Santuario Sengen",
+                price: "Gasolina",
+                timeLabel: "15 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Toyoko+Inn+Kawaguchiko&destination=Kitaguchi+Hongu+Fuji+Sengen+Jinja",
+                tacticalGuideId: "mission_fuji_sengen"
+            },
+            { time: "09:15", type: "point", title: "Santuario y Bosque de Cedros", icon: "fa-solid fa-torii-gate" },
+            {
+                time: "10:30",
+                type: "transit",
+                title: "Conducción a Kawaguchiko Centro",
+                price: "Gasolina",
+                timeLabel: "10 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Kitaguchi+Hongu+Fuji+Sengen+Jinja&destination=Kawaguchiko+Station"
+            },
+            { time: "11:30", type: "point", title: "Almuerzo Noodles (Hoto Fudo)", icon: "fa-solid fa-bowl-food" },
+            {
+                time: "13:30",
+                type: "transit",
+                title: "Conducción al oeste (Ej. Cascadas)",
+                price: "Peaje local opcional",
+                timeLabel: "45 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Kawaguchiko&destination=Shiraito+Falls",
+                tacticalGuideId: "mission_shiraito"
+            },
+            { time: "14:30", type: "point", title: "Tarde de Naturaleza Libre", icon: "fa-solid fa-tree" }
         ],
 
         timeline: [
-            { time: "09:30", title: "Santuario Sengen", desc: "Misticismo entre cedros milenarios. (Base)" },
-            { time: "12:00", title: "Hoto Noodles", desc: "Almuerzo tradicional de la zona. (Base)" }
+            { time: "09:15", title: "Santuario Sengen", desc: "Misticismo entre cedros milenarios. (Base)" },
+            { time: "11:30", title: "Hoto Noodles", desc: "Almuerzo tradicional espeso de la zona. (Base)" },
+            { time: "14:00", title: "Tarde en coche", desc: "Elegir entre cascadas o pueblos museo. (Opcional)" }
         ],
 
         prices: {
             transport: "Gasolina",
-            total: "Base +"
+            food: "~1.500 JPY",
+            total: "~1.500 JPY +"
         },
 
         isFlexible: true,
         base: {
             title: "Itinerario Base",
-            description: "Día de carretera para explorar los tesoros culturales y naturales alrededor del volcán.",
+            description: "Día de carretera para explorar la cultura y misticismo alrededor del volcán.",
             events: [
                 {
                     id: "b1",
-                    time: "09:00",
+                    time: "09:15",
                     title: "Kitaguchi Hongu Sengen Jinja",
-                    description: "Santuario histórico. Inicio original de la peregrinación al Fuji.",
+                    description: "Santuario histórico. Inicio original de la peregrinación ritual al Fuji.",
                     image: "images/dia14-sengen.jpg",
                     price: "Gratis",
                     fullDesc: `
                         <h3><i class="fa-solid fa-torii-gate"></i> Santuario Sengen Jinja</h3>
-                        <p>Bosque de cedros gigantes y linternas de musgo. Es el santuario más solemne de la zona.</p>
+                        <p>Impresionante santuario escondido en un frondoso bosque antiguo. La avenida de entrada está flanqueada por faroles de piedra con musgo y cedros gigantes, algunos sagrados atados con cuerdas shimenawa.</p>
                     `
                 },
                 {
                     id: "b2",
-                    time: "12:00",
-                    title: "Almuerzo Hoto Noodles",
-                    description: "Plato típico local: fideos planos en sopa de miso y calabaza.",
+                    time: "11:30",
+                    title: "Hoto Noodles",
+                    description: "Plato de supervivencia invernal: fideos tremendos en sopa de miso y calabaza.",
                     image: "images/dia14-honcho.jpg",
-                    price: "~1.500 JPY"
+                    price: "~1.500 JPY",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-fire-burner"></i> Hoto Fudo</h3>
+                        <p>Los fideos son planos y muy gruesos. El plato viene servido en una olla de hierro fundido directo del fuego a tu mesa. Hay local Hoto Fudo justo frente a la estación de tren de Kawaguchiko.</p>
+                    `
                 },
                 {
-                    time: "14:00",
+                    time: "13:30",
                     title: "Tarde de Carretera / Lagos",
-                    description: "Tiempo para las cascadas o cuevas.",
+                    description: "Tiempo libre usando el coche para buscar tesoros fuera del radio de los buses turísticos.",
                     type: "gap"
                 }
             ]
@@ -2282,27 +2485,48 @@ const travelData = [
             {
                 id: "c1",
                 title: "Cascada Shiraito",
-                time: "14:00",
-                description: "Patrimonio UNESCO. Cientos de hilos de agua. (1h en coche).",
+                time: "14:30",
+                description: "Patrimonio UNESCO. Cientos de finos hilos de agua cayendo en herradura (1h en coche).",
                 price: "300 JPY",
                 image: "images/dia14-shiraito.jpg",
-                recommended: true
+                recommended: true,
+                fullDesc: `
+                    <h3><i class="fa-solid fa-water"></i> Cascadas de Hilo Blanco</h3>
+                    <p>Un muro curvo de 150 metros de ancho por donde se vierten las aguas del deshielo del monte Fuji creando innumerables cascadas finas como hilos de seda. Temperatura fresca incluso en verano.</p>
+                `,
+                tacticalOptions: [
+                    {
+                        title: "RUTA AL SUROESTE",
+                        time: "13:30 - 16:30",
+                        description: "Bonito trayecto en coche por autopista escénica bordeando la base del Fuji por el oeste.",
+                        link: "https://www.google.com/maps/dir/?api=1&origin=Kawaguchiko+Station&destination=Shiraito+Falls",
+                        tacticalGuideId: "mission_shiraito"
+                    }
+                ]
             },
             {
                 id: "c2",
                 title: "Iyashi no Sato",
-                time: "09:30",
-                description: "Pueblo museo de casas de paja. Alquiler de armaduras samurái.",
+                time: "10:30",
+                description: "Pueblo museo en el lago Saiko con casas de tejados de paja. Alquiler de armaduras.",
                 price: "500 JPY",
-                image: "images/dia15-iyashi.jpg"
+                image: "images/dia15-iyashi.jpg",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-house"></i> Alda Museo Saiko Iyashi</h3>
+                    <p>Antiguo poblado agrícola reconstruido tras un tifón de los 60. Preciosas fotos de paja contra el volcán y posibilidad ridícula (¡y obligatoria!) de probarse armaduras de papel maché samurai.</p>
+                `
             },
             {
                 id: "c3",
-                title: "Calle Honcho",
-                time: "11:00",
-                description: "La foto icónica de la calle comercial con el Fuji gigante al fondo.",
+                title: "Honcho Street",
+                time: "16:00",
+                description: "Calle mítica (Fujiyoshida) con viejos negocios y el Fuji gigante de fondo.",
                 price: "Gratis",
-                image: "images/dia14-honcho.jpg"
+                image: "images/dia14-honcho.jpg",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-camera"></i> La Calle de Instagram</h3>
+                    <p>Honcho Street tiene esa vibra noventera retro. Ojo con el tráfico, la policía local está cansada de los turistas parando en medio de la calle principal para hacer fotos. Disparad rápido desde las aceras laterales.</p>
+                `
             }
         ]
     },
@@ -2318,69 +2542,101 @@ const travelData = [
         image: "images/tokio_skyline.png",
 
         logistics: [
-            { title: "Coche", text: "Llenad depósito y devolved en Budget (10:30). Guardad ticket." },
-            { title: "Transporte", text: "Tren Fuji Excursion directo a Shinjuku (recomendado) o Highway Bus." },
-            { title: "Equipaje", text: "Maletas grandes enviadas desde Kioto os estarán esperando en el hotel." }
+            { title: "Coche", text: "Llenad depósito de gasolina y devolved en Budget Kawaguchiko Station (10:30 max). Guardad ticket." },
+            { title: "Transporte", text: "Tren Expreso Fuji Excursion directo a Shinjuku (imprescindible reservar). Alternativa: Highway Bus." },
+            { title: "Equipaje", text: "Maletas grandes enviadas desde Kioto u Osaka os estarán esperando en el lobby o habitación del hotel." }
+        ],
+
+        transportTimeline: [
+            { time: "09:30", type: "point", title: "Pagar Gasolina / Devolución Coche", icon: "fa-solid fa-gas-pump" },
+            {
+                time: "10:55",
+                type: "transit",
+                title: "Tren Expréss 'Fuji Excursion' a Tokio",
+                price: "Cubierto por JR Pass + Suplemento (~1.740 JPY)",
+                timeLabel: "1h 55m",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Kawaguchiko+Station&destination=Shinjuku+Station&travelmode=transit",
+                tacticalGuideId: "mission_fuji_excursion"
+            },
+            { time: "12:55", type: "point", title: "Llegada al caos de Shinjuku (Tokio)", icon: "fa-solid fa-city" },
+            {
+                time: "13:30",
+                type: "transit",
+                title: "Taxis a Iidabashi",
+                price: "~2.000 JPY por taxi (a dividir)",
+                timeLabel: "15 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Shinjuku+Station&destination=Hotel+Metropolitan+Edmont+Tokyo"
+            },
+            { time: "14:00", type: "point", title: "Check-in Edmont Tokyo / Descanso", icon: "fa-solid fa-bed" },
+            {
+                time: "17:00",
+                type: "transit",
+                title: "Paseo al Barrio Kagurazaka",
+                price: "Gratis",
+                timeLabel: "10 min a pie",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Metropolitan+Edmont+Tokyo&destination=Kagurazaka&travelmode=walking"
+            },
+            { time: "17:15", type: "point", title: "Sunset en Santuario Akagi", icon: "fa-solid fa-torii-gate" }
         ],
 
         timeline: [
-            { time: "10:30", title: "Devolución Coche", desc: "Llenad depósito. Devolución en Budget Kawaguchiko. (Base)" },
-            { time: "11:00", title: "Traslado a Tokio", desc: "Tren Fuji Excursion o Highway Bus a Shinjuku. (Base)" },
-            { time: "13:30", title: "Llegada Shinjuku", desc: "Estación más concurrida del mundo. Taxis al hotel. (Base)" },
-            { time: "15:00", title: "Check-in", desc: "Recuperad maletas grandes. Descansad 1 hora. (Base)" },
-            { time: "17:00", title: "Kagurazaka", desc: "Paseo por el barrio. Santuario Akagi. (Base)" }
+            { time: "10:30", title: "Devolución Coche", desc: "Llenad depósito. Recepción en Budget. (Base)" },
+            { time: "10:55", title: "Traslado a Tokio", desc: "Tren Directo Fuji Excursion a Shinjuku. (Base)" },
+            { time: "13:30", title: "Llegada Shinjuku", desc: "Cruce de la estación más concurrida del mundo hacia Taxis. (Base)" },
+            { time: "15:00", title: "Check-in Edmont", desc: "Recuperad maletas grandes y descanso brutal. (Base)" },
+            { time: "17:00", title: "Kagurazaka", desc: "Paseo por el barrio cercano al hotel. Santuario Akagi. (Base)" }
         ],
 
         prices: {
-            transport: "~4.000 JPY (Tren) + Taxi",
-            total: "Base"
+            transport: "Suplemento Tren (~1.740 JPY) + Taxis Shinjuku (~2.000 JPY)",
+            total: "~3.800 JPY"
         },
 
         isFlexible: true,
         base: {
             title: "Itinerario Base",
-            description: "Regreso desde los Alpes/Fuji a la jungla de neón.",
+            description: "Regreso desde el aire puro de las montañas a la jungla de neón y cemento de Tokio.",
             events: [
                 {
                     id: "b1",
-                    time: "10:30",
-                    title: "Devolución Coche",
-                    description: "En Kawaguchiko. Guardad el ticket de gasolina.",
+                    time: "09:30",
+                    title: "Devolución Vehículo y Gasolinera",
+                    description: "En Kawaguchiko Station. Último trámite antes de subir al tren.",
                     image: "images/dia16-coche.jpg",
                     price: "Llenar depósito",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-gas-pump"></i> Devolución del Vehículo</h3>
-                        <p>Llenad el depósito en la gasolinera más cercana a Budget. ¡Misión cumplida en la carretera!</p>
+                        <h3><i class="fa-solid fa-gas-pump"></i> Operación Repostaje</h3>
+                        <p>Llenad el depósito en la gasolinera (ENEOS u otra) más cercana a la oficina de Budget. ¡Misión cumplida en la carretera montañosa! <strong>Atención:</strong> Las agencias piden revisar el tapón llenado y a veces ver el ticket final de compra de gasolina.</p>
                     `
                 },
                 {
                     id: "b2",
-                    time: "11:00",
-                    title: "Tren/Bus a Tokio",
-                    description: "Rumbo a Shinjuku. Adiós a las montañas.",
+                    time: "10:55",
+                    title: "Tren a Shinjuku (Tokio)",
+                    description: "Tren Expreso Especial que no requiere transbordos. Fin del descanso.",
                     image: "images/tokio_skyline.png",
-                    price: "~4.000 JPY",
+                    price: "JR Pass + Supl",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-train"></i> Rumbo a la Capital</h3>
-                        <p>Traslado directo a la estación de Shinjuku. Recordad que vuestras maletas grandes os esperan ya en el hotel de Tokio.</p>
+                        <h3><i class="fa-solid fa-train"></i> Rumbo a la Capital del Mundo Orientral</h3>
+                        <p>Traslado directo a la estación de Shinjuku. Entrar en Tokio por Shinjuku es un golpe frontal: neones incesantes, multitudes cruzando en todas direcciones, publicidad auditiva. Bienvenidos a Cyberpunk.</p>
                     `
                 },
                 {
                     time: "14:00",
-                    title: "Check-in y Descanso",
-                    description: "Llegada al Hotel Metropolitan Edmont.",
+                    title: "Check-in y Reencuentro con Equipaje",
+                    description: "Llegada al Hotel Metropolitan Edmont en el barrio de Iidabashi.",
                     type: "gap"
                 },
                 {
                     id: "b3",
                     time: "17:00",
-                    title: "Kagurazaka",
-                    description: "Paseo por el barrio francés/geisha. Santuario Akagi.",
+                    title: "El Barrio Geisha (Kagurazaka)",
+                    description: "Paseo por el barrio colindante de vuestro hotel para aclimataros a Tokio.",
                     image: "images/dia16-kagurazaka.jpg",
                     price: "Gratis",
                     fullDesc: `
                         <h3><i class="fa-solid fa-bridge"></i> Barrio de Kagurazaka</h3>
-                        <p>Un laberinto de callejones que esconden templos modernos y restaurantes exclusivos. Es el barrio donde os alojáis.</p>
+                        <p>Está a pocos minutos de vuestro hotel. Es una mezcla fascinante: conserva callejones geisha de adoquines estrechos, templos y a la vez posee alta presencia gastronómica francesa. Visitad el moderno Santuario Kuma Kengo Akagi Jinja de cristal y madera para el atardecer.</p>
                     `
                 }
             ]
@@ -2388,11 +2644,24 @@ const travelData = [
         complements: [
             {
                 id: "c1",
-                title: "Vistas Tocho",
+                title: "Vistas Tocho (Ayuntamiento Tokio)",
                 time: "18:00",
-                description: "Edificio del Gobierno Metropolitano. Vistas gratis desde la planta 45.",
+                description: "Edificio del Gobierno Metropolitano en Shinjuku. Vistas gratis 360º desde la planta 45.",
                 price: "Gratis",
-                image: "images/dia18-tocho.jpg"
+                image: "images/dia18-tocho.jpg",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-building"></i> Ascensor a las Estrellas</h3>
+                    <p>Subida hiperveloz gratuita al mirador (observatorio Sur o Norte). Al ser gratis suele haber una cola manejable de 20-30 mins de subida. Vistas que dominan hasta el monte Fuji si el cielo está despejado. Hay un piano público decorado por Yayoi Kusama arriba.</p>
+                `,
+                tacticalOptions: [
+                    {
+                        title: "MIRADOR EN SHINJUKU",
+                        time: "18:00 - 19:30",
+                        description: "Tomar la línea JR Chuo o línea de metro Tozai desde Iidabashi a Shinjuku.",
+                        link: "https://www.google.com/maps/dir/?api=1&origin=Iidabashi+Station&destination=Tokyo+Metropolitan+Government+Building+Observation+Decks&travelmode=transit",
+                        tacticalGuideId: "mission_tocho"
+                    }
+                ]
             }
         ]
     },
@@ -2408,38 +2677,71 @@ const travelData = [
         image: "images/dia17-asakusa.jpg",
 
         logistics: [
-            { title: "Multitudes", text: "🔥🔥🔥 ALTO. Especialmente en Senso-ji. Madrugar ayuda." },
-            { title: "Reservas", text: "Reservad entrada web para Skytree para evitar colas de 1h." }
+            { title: "Transporte", text: "Tarjeta Suica/Pasmo en Apple Wallet para el metro. Línea Tozai desde Iidabashi." },
+            { title: "Multitudes", text: "🔥🔥🔥 ALTO. Especialmente en la calle Nakamise y el Templo Senso-ji. Madrugar es clave." },
+            { title: "Reservas", text: "Si subís al Skytree, comprad el ticket online días antes para evitar colas de 1 hora." }
+        ],
+
+        transportTimeline: [
+            { time: "08:45", type: "point", title: "Salida Hotel Edmont", icon: "fa-solid fa-hotel" },
+            {
+                time: "09:00",
+                type: "transit",
+                title: "Metro Tozai / Ginza a Asakusa",
+                price: "Suica (~250 JPY)",
+                timeLabel: "30 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Metropolitan+Edmont+Tokyo&destination=Asakusa+Station&travelmode=transit",
+                tacticalGuideId: "mission_tokyo_metro"
+            },
+            { time: "09:30", type: "point", title: "Puerta Kaminarimon (Asakusa)", icon: "fa-solid fa-torii-gate" },
+            {
+                time: "11:30",
+                type: "transit",
+                title: "Paseo a las orillas del Río Sumida",
+                price: "Gratis",
+                timeLabel: "15 min a pie",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Senso-ji&destination=Sumida+Park&travelmode=walking"
+            },
+            { time: "12:00", type: "point", title: "Vistas y fotos rascacielos/Skytree", icon: "fa-solid fa-camera" },
+            {
+                time: "13:30",
+                type: "transit",
+                title: "Metro/Tren a Ueno o Kappabashi",
+                price: "Suica",
+                timeLabel: "Variable",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Asakusa&destination=Ueno"
+            },
+            { time: "14:00", type: "point", title: "Almuerzo y Exploración Libre", icon: "fa-solid fa-utensils" }
         ],
 
         timeline: [
-            { time: "09:30", title: "Senso-ji", desc: "Templo más antiguo. Linterna roja. (Base)" },
-            { time: "11:30", title: "Río Sumida", desc: "Vistas del skyline. (Base)" },
-            { time: "12:00", title: "Skytree / Ueno", desc: "Elegid complemento." }
+            { time: "09:30", title: "Senso-ji", desc: "Templo más antiguo. Linterna roja Kaminarimon. (Base)" },
+            { time: "11:30", title: "Río Sumida", desc: "Paseo fluvial con vistas al skyline. (Base)" },
+            { time: "12:30", title: "Opciones Tarde", desc: "Skytree, Ueno, o Kappabashi. (Opcionales)" }
         ],
 
         prices: {
-            transport: "~400 JPY (Metro)",
+            transport: "Metro (~500 JPY/día)",
             total: "Base +"
         },
 
         isFlexible: true,
         base: {
             title: "Itinerario Base",
-            description: "El Tokio antiguo en Asakusa y las vistas del río Sumida.",
+            description: "El Tokio antiguo en Asakusa, templos enormes, multitudes y las impresionantes vistas modernas del río Sumida.",
             events: [
                 {
                     id: "b1",
                     time: "09:30",
-                    title: "Templo Senso-ji",
-                    description: "El templo más antiguo. Linterna roja gigante y humo sagrado.",
+                    title: "Templo Senso-ji y Calle Nakamise",
+                    description: "El templo budista más antiguo e importante de Tokio. Famoso por su gigantesca linterna roja.",
                     image: "images/dia17-sensoji.jpg",
                     price: "Gratis",
                     fullDesc: `
                         <h3><i class="fa-solid fa-temple"></i> Templo Senso-ji</h3>
-                        <p>El corazón de Asakusa. Cruzad la puerta Kaminarimon y recorred la calle Nakamise.</p>
+                        <p>El corazón espiritual e histórico de Asakusa. Se accede cruzando la mítica Kaminarimon (Puerta del Trueno) con su linterna de papel de 700 kg. Luego caminaréis por Nakamise, una calle comercial de 200 metros llena de puestecitos de dulces tradicionales y souvenirs que data del periodo Edo.</p>
                         <ul>
-                            <li><i class="fa-solid fa-wind"></i> <strong>Iván Reto:</strong> Échate el humo del incienso sobre la cabeza. ¡Dicen que te hace más inteligente!</li>
+                            <li><i class="fa-solid fa-wind"></i> <strong>Ritual del Incienso:</strong> En el gran pebetero (Jokoro) frente al templo principal, echad el humo del incienso sobre vuestra cabeza u hombros. La tradición dice que atrae buena salud y te hace más inteligente.</li>
                         </ul>
                     `,
                     video: "https://www.youtube.com/watch?v=Knd_N-v_B3Q"
@@ -2447,19 +2749,19 @@ const travelData = [
                 {
                     id: "b2",
                     time: "11:30",
-                    title: "Río Sumida",
-                    description: "Paseo con vistas al skyline y la 'caca dorada' de Asahi.",
+                    title: "Ribera del Río Sumida",
+                    description: "Paseo fotográfico espectacular contrastando barcos tradicionales y la torre Skytree.",
                     image: "images/dia17-sumida.jpg",
                     price: "Gratis",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-water"></i> Ribera del Sumida</h3>
-                        <p>Vistas espectaculares de la Tokyo Skytree y el edificio de Asahi Beer.</p>
+                        <h3><i class="fa-solid fa-water"></i> Vistas al Sumida</h3>
+                        <p>Vistas espectaculares de la modernidad tokiota. A un lado el río con los cruceros futuristas (como el Hotaluna de Leiji Matsumoto) y al otro la torre de telecomunicaciones Tokyo Skytree (634m) junto al surrealista edificio de Asahi Beer coronado por la "flame d'or" (o como lo llaman cariñosamente: el truño dorado).</p>
                     `
                 },
                 {
                     time: "13:00",
-                    title: "Tiempo de Almuerzo",
-                    description: "Elegid entre comida tradicional o centros comerciales.",
+                    title: "Tiempo de Almuerzo Flexible",
+                    description: "Elegid opciones de comida por Asakusa: okonomiyaki, soba o tempura.",
                     type: "gap"
                 }
             ]
@@ -2468,43 +2770,60 @@ const travelData = [
             {
                 id: "c1",
                 title: "Tokyo Skytree",
-                time: "12:30",
-                description: "La torre más alta del mundo. Vistas infinitas.",
+                time: "14:30",
+                description: "La estructura más alta de Japón (634m). Vistas que demuestran que Tokio no tiene fin.",
                 price: "2.100 JPY",
                 image: "images/dia17-skytree.jpg",
-                recommended: true
+                recommended: true,
+                fullDesc: `
+                    <h3><i class="fa-solid fa-tower-broadcast"></i> La Torre hacia el Cielo</h3>
+                    <p>Ascenso vertical fulgurante a 350 metros. Recomendable ir hacia el atardecer (golden hour) para ver cómo se encienden los 30 millones de luces de la metrópolis. Si el día está muy claro se llega a ver la silueta del monte Fuji a lo lejos.</p>
+                `,
+                tacticalOptions: [
+                    {
+                        title: "CRUZANDO A SKYTREE",
+                        time: "14:00 - 14:30",
+                        description: "Cruzad el río Sumida a pie por el puente o tomad la línea Tobu Skytree un par de paradas.",
+                        link: "https://www.google.com/maps/dir/?api=1&origin=Asakusa+Station&destination=Tokyo+Skytree",
+                        tacticalGuideId: "mission_skytree"
+                    }
+                ]
             },
             {
                 id: "c2",
-                title: "Calle Kappabashi",
+                title: "Calle Kappabashi (Cocineros)",
                 time: "15:00",
-                description: "Paraíso de los chefs. Cuchillos japoneses y comida de plástico.",
+                description: "El barrio de suministros para restaurantes. Cuchillos forjados a mano y comida de plástico.",
                 price: "Gratis",
-                image: "images/dia17-kappabashi.jpg"
+                image: "images/dia17-kappabashi.jpg",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-kitchen-set"></i> Kappabashi Dogu-gai</h3>
+                    <p>Una calle entera dedicada al 'hardware' culinario japonés. Podréis comprar los mejores cuchillos del mundo (os los graban con vuestro nombre), palillos preciosos y admirar las increíbles réplicas hiperrealistas de comida en cera/plástico que los restaurantes usan en sus escaparates.</p>
+                `
             },
             {
                 id: "c3",
-                title: "Museo Nacional (Ueno)",
+                title: "Parque y Museos de Ueno",
                 time: "14:00",
-                description: "Tesoros nacionales, espadas samurái y arte antiguo.",
-                price: "1.000 JPY",
-                image: "images/dia17-ueno.jpg"
+                description: "Gran parque que alberga multitud de museos, un zoo y el mercado callejero Ameyoko.",
+                price: "Accesos gratis (Museos ~1000 JPY)",
+                image: "images/dia17-ueno.jpg",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-masks-theater"></i> Ueno y Ameyoko</h3>
+                    <p>Si queréis un respiro verde podéis pasear por el Estanque Shinobazu. Si queréis locura, adentraos bajo las vías del tren en Ameyoko, un antiguo mercado negro post-guerra que hoy es un bullicioso mercado de zapatillas, comida y souvenirs baratos a grito pelado.</p>
+                `
             },
             {
                 id: "c4",
-                title: "Hoppy Street",
+                title: "Hoppy Street (Asakusa Noche)",
                 time: "19:00",
-                description: "Cena de tapas japonesas (Izakaya) en la calle más animada de Asakusa.",
-                price: "3.000 JPY",
-                image: "images/dia17-hoppy.jpg"
-            },
-            {
-                id: "c5",
-                title: "Bandai & Hanayashiki",
-                time: "15:00",
-                description: "Figuras de acción y parque de atracciones retro.",
-                price: "Varía",
-                image: "images/dia17-bandai.jpg"
+                description: "Cena de 'tapas' japonesas (Izakayas) al aire libre en la calle más canalla y nostálgica de Asakusa.",
+                price: "~3.000 JPY",
+                image: "images/dia17-hoppy.jpg",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-beer-mug-empty"></i> Cerveza e Izakayas</h3>
+                    <p>Por la noche Asakusa vacía las grandes avenidas y llena esta calle lateral. Hombres de negocios aflojándose la corbata y jóvenes bebiendo 'Hoppy' (una bebida casi sin alcohol que se mezcla con Soju) y comiendo estofado de carne. Puro ambiente Showa.</p>
+                `
             }
         ]
     },
@@ -2520,57 +2839,91 @@ const travelData = [
         image: "images/shibuya_crossing.png",
 
         logistics: [
-            { title: "Multitudes", text: "🔥🔥🔥🔥 MUY ALTO. Shibuya es el caos." },
-            { title: "Reservas", text: "Reservad Shibuya Sky para las 17:30 (atardecer)." }
+            { title: "Transporte", text: "Línea central JR Chuo/Sobu desde Iidabashi hasta Yoyogi/Shinjuku, transbordo a JR Yamanote." },
+            { title: "Multitudes", text: "🔥🔥🔥🔥 MUY ALTO. Shibuya es el puro caos organizado; los domingos Takeshita (Harajuku) es intransitable." },
+            { title: "Reservas", text: "Si queréis subir al mirador Shibuya Sky al atardecer, es IMPRESCINDIBLE reservar con semanas o meses de antelación en su web." }
+        ],
+
+        transportTimeline: [
+            { time: "09:00", type: "point", title: "Salida Hotel Edmont", icon: "fa-solid fa-hotel" },
+            {
+                time: "09:15",
+                type: "transit",
+                title: "Tren JR Sobu/Yamanote a Harajuku",
+                price: "JR Pass o Suica (~250 JPY)",
+                timeLabel: "25 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Metropolitan+Edmont+Tokyo&destination=Harajuku+Station&travelmode=transit",
+                tacticalGuideId: "mission_yamanote"
+            },
+            { time: "09:45", type: "point", title: "Parque Yoyogi / Meiji Jingu", icon: "fa-solid fa-tree" },
+            {
+                time: "11:30",
+                type: "transit",
+                title: "Caminar hacia Takeshita Dori",
+                price: "Gratis",
+                timeLabel: "10 min a pie",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Meiji+Jingu&destination=Takeshita+Street+Harajuku&travelmode=walking"
+            },
+            { time: "12:00", type: "point", title: "Locura Harajuku / Almuerzo", icon: "fa-solid fa-shop" },
+            {
+                time: "14:30",
+                type: "transit",
+                title: "Caminar por Cat Street a Shibuya",
+                price: "Gratis",
+                timeLabel: "25 min a pie (con tiendas)",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Harajuku&destination=Shibuya+Crossing&travelmode=walking"
+            },
+            { time: "15:00", type: "point", title: "Cruce de Shibuya y Hachiko", icon: "fa-solid fa-people-arrows" }
         ],
 
         timeline: [
-            { time: "09:30", title: "Meiji Jingu", desc: "Santuario en el bosque. (Base)" },
-            { time: "11:00", title: "Harajuku?", desc: "Opcional (Complemento)." },
-            { time: "15:00", title: "Shibuya Crossing", desc: "Cruce famoso + Hachiko. (Base)" }
+            { time: "09:45", title: "Santuario Meiji", desc: "El gran bosque sintoísta en medio de la ciudad. (Base)" },
+            { time: "11:30", title: "Harajuku opcional", desc: "Takeshita Dori: crepes y cultura kawai. (Complemento)" },
+            { time: "15:00", title: "Shibuya Crossing", desc: "El legendario cruce a nivel del suelo. (Base)" },
+            { time: "18:00", title: "Shibuya Sky", desc: "Mirador espectacular abierto. (Complemento recomendado)" }
         ],
 
         prices: {
-            transport: "~400 JPY (Tren)",
+            transport: "~500 JPY (Tren)",
             total: "Base +"
         },
 
         isFlexible: true,
         base: {
             title: "Itinerario Base",
-            description: "El corazón palpitante de Tokio. Tradición imperial y caos moderno.",
+            description: "El corazón palpitante del oeste de Tokio. Un día de contrastes extremos: la paz del bosque imperial y los neones y cruces abarrotados.",
             events: [
                 {
                     id: "b1",
-                    time: "09:30",
-                    title: "Meiji Jingu",
-                    description: "Santuario imperial en un bosque denso. Paz absoluta.",
+                    time: "09:45",
+                    title: "Santuario Meiji Jingu",
+                    description: "Santuario imperial camuflado en un bosque denso enorme y silencioso.",
                     image: "images/dia18-meiji.jpg",
                     price: "Gratis",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-tree"></i> Santuario Meiji Jingu</h3>
-                        <p>Entrad por Harajuku. Un bosque de 100.000 árboles plantados a mano rodea este santuario sintoísta.</p>
-                        <p><strong>Curiosidad:</strong> Fijaos en los barriles de Sake y los barriles de vino francés (donaciones al emperador).</p>
+                        <h3><i class="fa-solid fa-tree"></i> Un Bosque Mágico Plantado a Mano</h3>
+                        <p>A pesar de estar al lado del barrio más moderno, entrar al parque Yoyogi a primera hora para visitar el Meiji Jingu es sobrecogedor. Caminaréis bajo inmensos toriis de cedro y entre más de 100.000 árboles que fueron plantados a mano por los japoneses hace un siglo en honor al Emperador Meiji.</p>
+                        <p><strong>Curiosidad:</strong> Fijaos en las grandes ofrendas en el camino: decenas de barriles tallados de Sake (común) enfrentados a docenas de barriles de vino de Borgoña francés (no tan común, reflejo del interés del emperador por occidente).</p>
                     `
                 },
                 {
-                    time: "11:30",
-                    title: "Tiempo de Compras / Harajuku",
-                    description: "Explora Takeshita Dori o Cat Street.",
+                    time: "12:00",
+                    title: "Pausa Almuerzo en Omotesando/Harajuku",
+                    description: "Recomendado buscar en calles paralelas a The Cat Street para restaurantes más relajados.",
                     type: "gap"
                 },
                 {
                     id: "b2",
                     time: "15:00",
-                    title: "Shibuya Crossing",
-                    description: "El paso de peatones más famoso del mundo. Estatua de Hachiko.",
+                    title: "El Cruce de Shibuya y Hachiko",
+                    description: "El 'Times Square' nipón. El paso de peatones múltiple más concurrido del mundo.",
                     image: "images/dia18-shibuya.jpg",
                     price: "Gratis",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-people-arrows"></i> Cruce de Shibuya</h3>
-                        <p>3.000 personas cruzan cada vez que el semáforo se pone en verde. ¡Cruza tú también!</p>
+                        <h3><i class="fa-solid fa-people-arrows"></i> Caos Organizado (Scramble Crossing)</h3>
+                        <p>Es inmenso. Cuando todos los semáforos se ponen en rojo, la avalancha humana se cruza desde todas las direcciones sin chocar jamás. Es obligatorio cruzarlo, sacar vídeos en medio o buscar lugares elevados (Starbucks o Megadonki) para verlo desde arriba.</p>
                         <ul>
-                            <li><i class="fa-solid fa-dog"></i> <strong>Hachiko:</strong> No olvides saludar a la estatua del perro más fiel de Japón.</li>
+                            <li><i class="fa-solid fa-dog"></i> <strong>Punto de encuentro: Hachiko.</strong> Buscad la broncínea estatua de Hachiko a la salida de la estación, el mítico perro de raza Akita que esperó 9 años a su amo fallecido. Suele haber siempre cola para hacerse una foto.</li>
                         </ul>
                     `,
                     video: "https://www.youtube.com/watch?v=fXyDglw_0f8"
@@ -2581,43 +2934,48 @@ const travelData = [
             {
                 id: "c1",
                 title: "Shibuya Sky",
-                time: "18:00",
-                description: "Atardecer desde la azotea al aire libre. Imprescindible reservar.",
-                price: "2.200 JPY",
+                time: "17:30",
+                description: "El mirador que arrasa en Instagram. Azotea de helicópteros totalmente al aire libre.",
+                price: "~2.200 JPY",
                 image: "images/dia18-sky.jpg",
-                recommended: true
+                recommended: true,
+                fullDesc: `
+                    <h3><i class="fa-solid fa-wind"></i> Tokio bajo tus pies (literal)</h3>
+                    <p>Subir al atardecer es una experiencia increíble; las paredes son de cristal bajo, dejando entrar la brisa y dando la sensación de volar sobre los rascacielos y el cruce. Además cuenta con hamacas tejidas e iluminación LED dinámica de noche. Solo pueden colarse cámaras pequeñas (mochilas prohibidas arriba por el viento).</p>
+                `,
+                tacticalOptions: [
+                    {
+                        title: "EDIFICIO SCRAMBLE SQUARE",
+                        time: "A la hora reservada",
+                        description: "El rascacielos de cristal adyacente a la estación JR Shibuya (vistos desde la salida Hachiko).",
+                        link: "https://www.google.com/maps/dir/?api=1&origin=Shibuya+Crossing&destination=Shibuya+Sky",
+                        tacticalGuideId: "mission_shibuya_sky"
+                    }
+                ]
             },
             {
                 id: "c2",
-                title: "Harajuku (Takeshita)",
-                time: "11:00",
-                description: "Moda loca y algodón de azúcar arcoíris. Muy concurrido.",
+                title: "Harajuku (Takeshita Street)",
+                time: "11:30",
+                description: "El epicentro de la moda adolescente, locura kawaii y el azúcar concentrado.",
                 price: "Gratis",
-                image: "images/dia18-harajuku.jpg"
+                image: "images/dia18-harajuku.jpg",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-ice-cream"></i> Locura Estudiantil Pop</h3>
+                    <p>Solo 400 metros de calle, pero extremadamente densa. Veréis tiendas que venden moda lolita gotica punk, enormes tiendas Daiso de todo a 100 yenes y colas larguísimas para probar crepes hiper calóricas dobladas a rebosar de fresas y nata o algodon de azúcar arcoíris tamaño XXL.</p>
+                `
             },
             {
                 id: "c3",
-                title: "Shinjuku Gyoen",
+                title: "Avenida Omotesando",
                 time: "13:00",
-                description: "Oasis de paz. Jardín japonés perfecto para picnic.",
-                price: "500 JPY",
-                image: "images/dia18-shinjuku-gyoen.jpg"
-            },
-            {
-                id: "c4",
-                title: "Kabukicho (Godzilla)",
-                time: "20:30",
-                description: "El barrio que nunca duerme. Neones y el Godzilla gigante.",
+                description: "Arquitectura moderna de lujo y marcas exclusivas bordeando grandes árboles.",
                 price: "Gratis",
-                image: "images/dia18-kabukicho.jpg"
-            },
-            {
-                id: "c5",
-                title: "Omotesando",
-                time: "12:00",
-                description: "Arquitectura de lujo (Prada, Dior) cerca de Harajuku.",
-                price: "Gratis",
-                image: "images/dia18-omotesando.jpg"
+                image: "images/dia18-omotesando.jpg",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-shop"></i> Los Campos Elíseos Asiáticos</h3>
+                    <p>El polo opuesto a la barata y loca calle Takeshita. Bajando la calle paralela entraréis en amplias aceras sombreadas rodeadas de flagships arquitectónicos espectaculares de Dior, Prada y marcas mundiales. Entrad al Tokyu Plaza Omotesando Harajuku para su mítica entrada de espejos poligonales.</p>
+                `
             }
         ]
     },
@@ -2625,7 +2983,7 @@ const travelData = [
     // --- DÍA 19: AKIHABARA Y GINZA ---
     {
         day: 19, type: "stay",
-        date: "Vie, 14 Agosto", title: "🎮 Akihabara y Ginza",
+        date: "Vie, 14 Agosto", title: "🎮 Akihabara y Lujo Ginza",
         coords: [35.698, 139.773], zoom: 13,
         hotel: "Hotel Metropolitan Edmont Tokyo",
         hotelImage: "images/hotel-metropolitan-tokio.jpg",
@@ -2633,74 +2991,107 @@ const travelData = [
         image: "images/akihabara.png",
 
         logistics: [
-            { title: "Horarios", text: "Tiendas en Akihabara no abren hasta las 10:00-11:00." },
-            { title: "Multitudes", text: "🔥🔥 MEDIO. Akihabara se llena por la tarde." }
+            { title: "Horarios", text: "Importante: Las tiendas frikis de Akihabara abren algo tarde el fin de semana, en torno a las 11:00." },
+            { title: "Compras", text: "Llevad el pasaporte físico original encima si planeáis comprar merchandising o electrónica en Yodobashi o Akiba (Duty Free Tax-free aplicable encima de 5.000 JPY)." },
+            { title: "Etiqueta", text: "Ginza es el barrio caro y formal de Japón; aunque sois turistas, vestid un poquito casual-elegante si entráis a grandes tiendas por respeto." }
+        ],
+
+        transportTimeline: [
+            { time: "09:45", type: "point", title: "Salida Hotel Edmont", icon: "fa-solid fa-hotel" },
+            {
+                time: "10:00",
+                type: "transit",
+                title: "Tren JR Sobu a Akihabara",
+                price: "Suica/JR Pass (~160 JPY)",
+                timeLabel: "10 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Metropolitan+Edmont+Tokyo&destination=Akihabara+Station&travelmode=transit",
+                tacticalGuideId: "mission_akihabara_jr"
+            },
+            { time: "10:15", type: "point", title: "Locura Akihabara y Arcades", icon: "fa-solid fa-gamepad" },
+            { time: "13:00", type: "point", title: "Almuerzo en restaurante temático/Wagyu", icon: "fa-solid fa-bowl-rice" },
+            {
+                time: "15:00",
+                type: "transit",
+                title: "Metro Línea Ginza",
+                price: "Suica (~180 JPY)",
+                timeLabel: "15 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Akihabara&destination=Ginza&travelmode=transit"
+            },
+            { time: "15:30", type: "point", title: "Paseo por Milla de Oro (Ginza)", icon: "fa-solid fa-gem" },
+            { time: "18:00", type: "point", title: "Teatro Kabukiza al Atardecer", icon: "fa-solid fa-masks-theater" }
         ],
 
         timeline: [
-            { time: "10:15", title: "Akihabara", desc: "Electric Town. Anime y figuras. (Base)" },
-            { time: "13:30", title: "Roast Beef Ohno", desc: "Almuerzo gourmet en Akihabara. (Base)" },
-            { time: "15:30", title: "Ginza Luxury", desc: "La milla de oro. Showrooms. (Base)" },
-            { time: "18:00", title: "Teatro Kabuki-za", desc: "Fachada mágica al atardecer. (Base)" }
+            { time: "10:15", title: "Akihabara", desc: "Electric Town. Capital mundial del Anime y tecnología. (Base)" },
+            { time: "13:30", title: "Almuerzo Carne", desc: "Roast Beef Ohno u otras opciones de wagyu. (Base)" },
+            { time: "15:30", title: "Ginza Luxury", desc: "Contraste brutal: alta costura y showrooms futuristas (Sony/Nissan). (Base)" },
+            { time: "18:00", title: "Teatro Kabuki-za", desc: "Veréis la increíble fachada clásica iluminada rodeada de edificios. (Base)" }
         ],
 
         prices: {
-            transport: "~400 JPY (Tren JR)",
+            transport: "Metros (~400 JPY)",
+            food: "Comida Especial (~2.500 JPY)",
             total: "Base +"
         },
 
         isFlexible: true,
         base: {
             title: "Itinerario Base",
-            description: "Contrastes de Tokio: Cultura Otaku y Lujo en Ginza.",
+            description: "Día de contrastes radicales en el este de la red de trenes: empezamos empapándonos de la subcultura otaku extrema para terminar en el recato elitista y acristalado de la gran milla de oro.",
             events: [
                 {
                     id: "b1",
                     time: "10:15",
-                    title: "Akihabara Electric Town",
-                    description: "Paraíso geek. Anime, figuras y videojuegos retro.",
+                    title: "Akihabara: Electric Town",
+                    description: "El paraíso geek. Edificios enteros de neón dedicados a un solo tema: cartas, robótica, retro-gaming o figuritas.",
                     image: "images/dia19-akihabara.jpg",
-                    price: "Gratis",
+                    price: "Gratis / Gastos compras",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-gamepad"></i> Akihabara</h3>
-                        <p>Visitad Radio Kaikan para figuras y Super Potato para juegos antiguos. Las tiendas abren tarde, por eso empezamos a las 10:15.</p>
-                        <p><strong>Iván Reto:</strong> Sube a la planta arcade de Super Potato y juega una partida de Street Fighter original.</p>
+                        <h3><i class="fa-solid fa-robot"></i> La Meca Otaku</h3>
+                        <p>Simplemente hay que salir por la puerta Electric Town Exit y dejarse cegar por edificios repletos de anime. Recomendados: <strong>Radio Kaikan</strong> (un centro comercial entero de coleccionables), <strong>Super Potato</strong> (peregrinación para encontrar juegos o consolas descatalogadas) o el mega-almacén tecnológico de <strong>Yodobashi Camera</strong>. Escucharéis música pop a todo volumen.</p>
+                        <p><strong>Iván y Fran:</strong> Entrad a una de los míticos salones recreativos multicéntricos, subid plantas, cambiar 500 yenes a monedas sueltas y jugad a locuras que no importan nunca a occidente o un buen Street Fighter/Taiko no Tatsujin contra un japonés concentrado (SPOILER: vais a perder muy rápido).</p>
                     `
                 },
                 {
                     id: "b2",
                     time: "13:30",
-                    title: "Almuerzo: Roast Beef Ohno",
-                    description: "Carne de wagyu asada en capas. Imprescindible en la zona.",
-                    image: "images/dia19-akihabara.jpg",
+                    title: "Banquete Carnívoro: Roast Beef Ohno",
+                    description: "Recomendación top para comer carne premium espectacular a precio accesible.",
+                    image: "images/dia19-akihabara.jpg", // CONSIDER UPDATING WITH MEAT PHOTO IF POSSIBLE
                     price: "~2.000 JPY",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-utensils"></i> Roast Beef Ohno</h3>
-                        <p>Famoso por sus cuencos de arroz con carne asada que parecen una montaña. Tened paciencia con la cola, vale la pena.</p>
+                        <h3><i class="fa-solid fa-utensils"></i> El Volcán de Wagyu</h3>
+                        <p>Uno de los mejores restaurantes de Akihabara. Sirven grandes boles de arroz coronados con capas y capas superpuestas de lonchas finas de jugoso Roast Beef coronadas con una yema de huevo cruda local, mayonesa casera y rábano a modo de montaña humeante. Siempre hay cola bajando las escaleras del local (paciencia).</p>
                     `
+                },
+                {
+                    time: "15:00",
+                    title: "Cambio de Chip: Tren hacia el Lujo",
+                    description: "Escapar del bullicio electrónico para visitar el Tokio más pulcro.",
+                    type: "gap"
                 },
                 {
                     id: "b3",
                     time: "15:30",
-                    title: "Ginza Luxury",
-                    description: "Rascacielos de cristal y tiendas exclusivas. Showroom Nissan.",
+                    title: "La Avenida Principal de Ginza (Chuo Dori)",
+                    description: "Los domingos y sábados al mediodía las grandes avenidas de Ginza cierran al tráfico para ser un gran paseo peatonal.",
                     image: "images/dia19-ginza.jpg",
                     price: "Gratis",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-gem"></i> Distrito de Ginza</h3>
-                        <p>Elegancia pura. Visitad el edificio Ginza Six y disfrutad de su jardín en la azotea.</p>
+                        <h3><i class="fa-solid fa-gem"></i> La Milla de Diamantes</h3>
+                        <p>Elegancia pura extrema. A parte de las flagship stores de alta costura, merece la pena entrar al macro complejo de marcas <strong>Ginza Six</strong> con sus espectaculares bóvedas artísticas interiores y su terraza de relax gratuita, o los showrooms experimentales gratuitos de tecnología punta de <strong>Nissan Crossing</strong> o Sony Park.</p>
                     `
                 },
                 {
                     id: "b4",
                     time: "18:00",
-                    title: "Teatro Kabuki-za",
-                    description: "La joya arquitectónica de Ginza al atardecer.",
+                    title: "Teatro Kabuki-za de Noche",
+                    description: "La joya arquitectónica del teatro clásico sobreviviendo entre torres modernas.",
                     image: "images/dia19-ginza.jpg",
-                    price: "Gratis (Fachada)",
+                    price: "Gratis (Visual)",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-masks-theater"></i> Teatro Kabuki-za</h3>
-                        <p>Incluso si no entráis a ver una función, la fachada iluminada al atardecer es una de las vistas más bonitas de Tokio.</p>
+                        <h3><i class="fa-solid fa-masks-theater"></i> Reflejos Feudales</h3>
+                        <p>Reconstruido varias veces, es el teatro principal donde se ejecuta hoy en día el arte dramático tradicional Kabuki de Japón (actuado sólo por varones sobre grandes maquillajes y escenarios giratorios). Llegando la noche, su estilizada e inmensa techumbre al uso de los castillos feudales se ilumina hermosamente, un spot fotográfico magnífico para cerrar Ginza.</p>
                     `
                 }
             ]
@@ -2708,43 +3099,36 @@ const travelData = [
         complements: [
             {
                 id: "c1",
-                title: "Maid Café",
+                title: "Experiencia Maid Café",
                 time: "12:00",
-                description: "Experiencia única (y algo vergonzosa). Maidreamin.",
-                price: "3.000 JPY",
-                image: "images/dia19-maid.jpg"
+                description: "Cafeterías en Akihabara donde camareras disfrazadas os llaman 'amo' e infunden magia en los helados.",
+                price: "~2.500 JPY",
+                image: "images/dia19-maid.jpg",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Surrealismo Kawaii Extremo</h3>
+                    <p>Cadenas como "Maidreamin" u "At Home Café" ofrecen algo que no sabréis si amar o enterrar bajo tierra. Las maids os obligarán a hacer corazones con las manos para bendecir vuestro capuchino ("Moe Moe Kyun!") con orejas de gato frente al resto de clientela. Una inmersión en una moda nipona difícil de explicar a la abuela en España.</p>
+                `,
+                tacticalOptions: [
+                    {
+                        title: "ELEGIR MAID CAFÉ",
+                        time: "Flexible Mediodía",
+                        description: "En las aceras principales de Akihabara (Chuo Dori) habrá docenas de chicas repartiendo flyers. Elegid uno limpio y de red conocida.",
+                        link: "https://www.google.com/maps/search/Maidreamin+Akihabara",
+                        tacticalGuideId: "mission_maid"
+                    }
+                ]
             },
             {
                 id: "c2",
-                title: "Palacio Imperial",
-                time: "09:00",
-                description: "Jardines del Este (gratis). Historia samurái ante los rascacielos.",
-                price: "Gratis",
-                image: "images/dia19-palacio.jpg"
-            },
-            {
-                id: "c3",
-                title: "Mercado Tsukiji",
+                title: "Mercado Tsukiji (Exterior)",
                 time: "08:30",
-                description: "Desayuno de sushi fresco en el antiguo mercado exterior.",
-                price: "3.000 JPY",
-                image: "images/dia19-tsukiji.jpg"
-            },
-            {
-                id: "c4",
-                title: "Harry Potter Tour",
-                time: "10:00",
-                description: "Warner Bros Studio Tour. (Imprescindible reservar meses antes).",
-                price: "6.500 JPY",
-                image: "images/dia19-harrypotter.jpg"
-            },
-            {
-                id: "c5",
-                title: "Tokyo Station",
-                time: "17:00",
-                description: "Fachada de ladrillo y Character Street (tiendas de personajes).",
-                price: "Gratis",
-                image: "images/dia19-tokyo-station.jpg"
+                description: "Para los paladares atrevidos, desayunad en los caóticos callejones pesqueros pegados a Ginza.",
+                price: "Variable / Sushi Caro",
+                image: "images/dia19-tsukiji.jpg",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-fish-fins"></i> El Desayuno del Mar</h3>
+                    <p>Aunque la lonja mayorista atunera se mudó a Toyosu, el laberíntico 'Outer Market' de Tsukiji sigue vibrando de turismo y chefs y está a poca distancia de Ginza. Pinchos marineros ahumándose en la vía, tortilla dulce recién hecha y bares minúsculos que te cortan el sushi del día más hiper fresco que podáis imaginar. Muy concurrido y caro eso sí.</p>
+                `
             }
         ]
     },
@@ -2761,99 +3145,137 @@ const travelData = [
         image: "images/teamlab.png",
 
         logistics: [
-            { title: "Multitudes", text: "🔥🔥🔥 ALTO. Es sábado." },
-            { title: "Ropa", text: "TeamLab Planets: Descalzos. Pantalones remangables." }
+            { title: "Transporte", text: "Metro hacia Shimbashi. Allí se pilla el famoso tren Yurikamome (No entra en el pase regular de metro)." },
+            { title: "Multitudes", text: "🔥🔥🔥 ALTO. Los fines de semana la isla artificial de Odaiba se llena de familias japonesas." },
+            { title: "Ropa (TeamLab)", text: "En Planets entraréis descalzos y caminaréis sobre agua por la rodilla. Llevad pantalones que se puedan remangar fácilmente." }
+        ],
+
+        transportTimeline: [
+            { time: "08:15", type: "point", title: "Salida Hotel Edmont", icon: "fa-solid fa-hotel" },
+            {
+                time: "08:30",
+                type: "transit",
+                title: "Metro Tozai / Ginza a Shimbashi",
+                price: "Suica (~180 JPY)",
+                timeLabel: "20 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Metropolitan+Edmont+Tokyo&destination=Shimbashi+Station&travelmode=transit",
+                tacticalGuideId: "mission_tokyo_metro"
+            },
+            {
+                time: "09:00",
+                type: "transit",
+                title: "Tren Yurikamome a Shin-Toyosu",
+                price: "Suica (~390 JPY - No entra en pases normales)",
+                timeLabel: "25 min (Espectacular)",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Shimbashi&destination=Shin-Toyosu&travelmode=transit",
+                tacticalGuideId: "mission_yurikamome"
+            },
+            { time: "09:30", type: "point", title: "Inicio Turno TeamLab Planets", icon: "fa-solid fa-water" },
+            {
+                time: "12:00",
+                type: "transit",
+                title: "Tren Yurikamome a Nube de Odaiba",
+                price: "Suica (~260 JPY)",
+                timeLabel: "10 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Shin-Toyosu&destination=Daiba+Station"
+            },
+            { time: "12:15", type: "point", title: "Estatua Libertad y Gundam", icon: "fa-solid fa-robot" }
         ],
 
         timeline: [
-            { time: "09:30", title: "TeamLab (Opcional)", desc: "Si tenéis entradas. (Complemento)" },
-            { time: "11:30", title: "Monorraíl", desc: "Vistas panorámicas. (Base)" },
-            { time: "12:00", title: "Odaiba", desc: "Gundam y Estatua Libertad. (Base)" }
+            { time: "09:30", title: "TeamLab Planets", desc: "Arte digital hiper inmersivo. (Complemento muy recomendado)" },
+            { time: "11:30", title: "Tren Yurikamome", desc: "Vistas panorámicas de la bahía y el Rainbow Bridge. (Base)" },
+            { time: "12:15", title: "Odaiba Seaside", desc: "Centros comerciales, Gundam gigante y Liberty. (Base)" }
         ],
 
         prices: {
-            transport: "~600 JPY (Metro + Monorraíl)",
+            transport: "~1.000 JPY (Yurikamome es caro)",
             total: "Base +"
         },
 
         isFlexible: true,
         base: {
             title: "Itinerario Base",
-            description: "La isla artificial del futuro en la bahía de Tokio.",
+            description: "Adentrarse en la bahía de Tokio. Odaiba es una isla artificial ganada al mar llena de centros comerciales enormes, réplicas y arquitectura futurista ochentera.",
             events: [
                 {
                     id: "b1",
                     time: "11:30",
-                    title: "Monorraíl Yurikamome",
-                    description: "Vistas panorámicas de la bahía y el Rainbow Bridge.",
+                    title: "El Tren Monorraíl Yurikamome",
+                    description: "No es solo transporte, es una verdadera atracción gracias a las vistas cruzando el Rainbow Bridge.",
                     image: "images/dia20-monorail.jpg",
-                    price: "320 JPY",
+                    price: "Suica/Pasmo",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-train"></i> Monorraíl sin conductor</h3>
-                        <p>Elegid el primer vagón. La vista cruzando el puente hacia Odaiba es espectacular.</p>
+                        <h3><i class="fa-solid fa-train"></i> El Gusano Robótico</h3>
+                        <p>Este sistema de tránsito ligero automatizado no tiene conductor. Si lográis sentaros en el gran ventanal frontal del primer vagón tendréis la sensación de ir montados en una montaña rusa urbana suave cuando cruza en espiral el gran puente colgante sobre la bahía.</p>
                     `
+                },
+                {
+                    time: "12:30",
+                    title: "Almuerzo en los Mega Centros Comerciales",
+                    description: "Decks, AquaCity o DiverCity ofrecen cientos de opciones con vistas al puente.",
+                    type: "gap"
                 },
                 {
                     id: "b2",
-                    time: "12:00",
-                    title: "Odaiba Seaside",
-                    description: "El Gundam gigante y la Estatua de la Libertad de Tokio.",
+                    time: "14:00",
+                    title: "Odaiba:🗽 y 🤖",
+                    description: "Los dos iconos absurdos fotográficos de la isla artificial.",
                     image: "images/dia20-odaiba.jpg",
                     price: "Gratis",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-robot"></i> Gundam Unicorn</h3>
-                        <p>No os perdáis la transformación del robot gigante (cada hora). Es un icono de Odaiba.</p>
+                        <h3><i class="fa-solid fa-robot"></i> Cultura Pop a Gran Escala</h3>
+                        <p>Paseando por la pasarela elevada de Odaiba veréis la Estatua de la Libertad (construida como homenaje por el año de Japón en Francia) y detrás la imponente fachada del edificio FujiTV. Al otro lado, frente al mall DiverCity, custodia una réplica a escala real 1:1 de un mecha Gundam Unicorn (RX-0) que se transforma con luces y música cada hora en punto.</p>
                     `
-                },
-                {
-                    time: "14:00",
-                    title: "Tarde Libre en la Isla",
-                    description: "Centros comerciales, paseos o TeamLab.",
-                    type: "gap"
                 }
             ]
         },
         complements: [
             {
                 id: "c1",
-                title: "TeamLab Planets",
+                title: "TeamLab Planets TOKYO",
                 time: "09:30",
-                description: "Arte digital inmersivo (Agua y Luz). Imprescindible reservar.",
+                description: "Una de las experiencias artísticas inmersivas más famosas del mundo. Agua, espejos y luces.",
                 price: "3.800 JPY",
                 image: "images/dia20-teamlab.jpg",
-                recommended: true
+                recommended: true,
+                fullDesc: `
+                    <h3><i class="fa-solid fa-hand-sparkles"></i> Nadar en Luz</h3>
+                    <p>Imprescindible reservar con semanas de antelación. Caminaréis descalzos por ríos de agua tibia donde se proyectan carpas koi virtuales, atravesaréis laberintos infinitos de cristales LED colgantes y os tumbaréis en cúpulas de orquídeas flotantes. Una experiencia alucinante (y muy "instagrameable").</p>
+                `,
+                tacticalOptions: [
+                    {
+                        title: "RESERVA ONLINE PREVIA",
+                        time: "Meses de antelación",
+                        description: "No se venden entradas en taquilla física casi nunca.",
+                        link: "https://planets.teamlab.art/tokyo/es/tickets",
+                        tacticalGuideId: "mission_teamlab"
+                    }
+                ]
             },
             {
                 id: "c2",
-                title: "DisneySea (Día Completo)",
+                title: "DisneySea (Día Completo Alternativo)",
                 time: "08:00",
-                description: "El mejor parque Disney del mundo. (Sustituye al resto del día).",
-                price: "9.000 JPY",
-                image: "images/dia20-disneysea.jpg"
+                description: "Para los amantes de parques. El único parque Disney de temática marina del mundo (Sustituye todo Odaiba).",
+                price: "~9.000 JPY",
+                image: "images/dia20-disneysea.jpg",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-volcano"></i> El Parque Único</h3>
+                    <p>Considerado por los expertos el parque temático mejor diseñado arquitectónicamente y con historias más oscuras y adultas (Jules Verne) de toda la franquicia Disney. Cuenta con un volcán gigante central que entra en erupción.</p>
+                `
             },
             {
                 id: "c3",
-                title: "Joypolis / Legoland",
-                time: "14:00",
-                description: "Parques temáticos indoor en Decks Tokyo Beach.",
-                price: "Varía",
-                image: "images/dia20-joypolis.jpg"
-            },
-            {
-                id: "c4",
-                title: "Spa Izumi Tenku",
-                time: "17:00",
-                description: "Baños termales con vistas a la ciudad.",
-                price: "2.000 JPY",
-                image: "images/dia20-spa.jpg"
-            },
-            {
-                id: "c5",
-                title: "Mercado Toyosu",
-                time: "08:00",
-                description: "El nuevo mercado de pescado. Subasta de atún.",
-                price: "Gratis",
-                image: "images/dia20-toyosu.jpg"
+                title: "Joypolis Tokyo",
+                time: "16:00",
+                description: "Parque de atracciones totalmente indoor propiedad de SEGA. Montañas rusas simuladores bajo techo.",
+                price: "Pase diario ~5.000 JPY",
+                image: "images/dia20-joypolis.jpg",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-roller-coaster"></i> La Locura SEGA</h3>
+                    <p>Ideal si llueve o sois fans de Sonic y los salones arcades gigantescos repletos de japoneses adolescentes compitiendo en simuladores de derrape a lo Initial-D.</p>
+                `
             }
         ]
     },
@@ -2861,7 +3283,7 @@ const travelData = [
     // --- DÍA 21: NAKANO (Cultura) ---
     {
         day: 21, type: "stay",
-        date: "Dom, 16 Agosto", title: "🎯 Nakano: Coleccionismo",
+        date: "Dom, 16 Agosto", title: "🎯 Nakano Rretro",
         coords: [35.710, 139.666], zoom: 13,
         hotel: "Hotel Metropolitan Edmont Tokyo",
         hotelImage: "images/hotel-metropolitan-tokio.jpg",
@@ -2869,54 +3291,77 @@ const travelData = [
         image: "images/nakano_broadway.png",
 
         logistics: [
-            { title: "Multitudes", text: "🔥🔥 MEDIO." },
-            { title: "Transporte", text: "Metro Línea Tozai (Azul Cielo) desde Iidabashi a Nakano (15 min)." }
+            { title: "Transporte", text: "Línea Tozai de Metro directa desde Iidabashi hasta Nakano sin transbordos (15 minutos)." },
+            { title: "Horarios", text: "Al igual que Akihabara, las tiendas especializadas del centro comercial Nakano Broadway abren tarde (11:00 am)." }
+        ],
+
+        transportTimeline: [
+            { time: "10:00", type: "point", title: "Salida Hotel Edmont", icon: "fa-solid fa-hotel" },
+            {
+                time: "10:15",
+                type: "transit",
+                title: "Metro Tozai a Nakano",
+                price: "Suica (~200 JPY)",
+                timeLabel: "15 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Metropolitan+Edmont+Tokyo&destination=Nakano+Station&travelmode=transit"
+            },
+            { time: "10:45", type: "point", title: "Calle cubierta Sun Mall", icon: "fa-solid fa-store" },
+            { time: "11:00", type: "point", title: "Edificio Nakano Broadway", icon: "fa-solid fa-box-open" },
+            {
+                time: "15:00",
+                type: "transit",
+                title: "Tren JR hacia Shinjuku",
+                price: "Suica/JR Pass (~160 JPY)",
+                timeLabel: "5 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Nakano+Station&destination=Shinjuku+Station&travelmode=transit"
+            }
         ],
 
         timeline: [
-            { time: "10:30", title: "Nakano Broadway", desc: "Mandarake. Paraíso retro. (Base)" },
-            { time: "13:30", title: "Helado Gigante", desc: "Daily Chico. (Base)" },
-            { time: "15:00", title: "Tarde Libre", desc: "Elegid complemento." }
+            { time: "10:45", title: "Kitsune Sun Mall", desc: "Calle comercial cubierta llena de comida rápida japonesa. (Base)" },
+            { time: "11:00", title: "Nakano Broadway", desc: "El gran edificio de las reliquias. Complejo Mandarake. (Base)" },
+            { time: "13:30", title: "Helado Coloso", desc: "Daily Chico en el sótano subterráneo. (Base)" },
+            { time: "15:00", title: "Complemento Shinjuku", desc: "Tren a Shinjuku para ver al gato 3D o compras. (Complementos)" }
         ],
 
         prices: {
-            transport: "~400 JPY (Metro)",
+            transport: "Metro (~500 JPY)",
             total: "Base +"
         },
 
         isFlexible: true,
         base: {
             title: "Itinerario Base",
-            description: "Paraíso del coleccionismo y cultura retro.",
+            description: "Para los puristas del coleccionismo, Nakano superó a Akihabara hace años al no estar tan masificado por el turismo genérico, escondiendo los mejores tesoros de segunda mano retro en sus múltiples pisos techados.",
             events: [
                 {
                     id: "b1",
-                    time: "10:30",
-                    title: "Nakano Broadway",
-                    description: "Centro comercial de subculturas. Mandarake (tiendas especializadas).",
+                    time: "11:00",
+                    title: "El Complejo Nakano Broadway",
+                    description: "Edificio comercial de hormigón de varias plantas al final del Sun Mall plagado de pequeñas tiendas independientes y cristaleras.",
                     image: "images/dia21-nakano.jpg",
-                    price: "Gratis",
+                    price: "Gratis / Gastos compras",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-robot"></i> Nakano Broadway</h3>
-                        <p>El paraíso de los coleccionistas. Buscad Mandarake para figuras, robots y merchandising vintage de alta calidad.</p>
+                        <h3><i class="fa-solid fa-robot"></i> La Madriguera del Conejo Blanca</h3>
+                        <p>A diferencia del ruido de Akihabara, Nakano Broadway parece un centro comercial de los años 80 abandonado hasta que subes al segundo y tercer piso. Allí opera el imperio <strong>Mandarake</strong>, con decenas de pequeños locales temáticos especializados (algunos parecen museos o mazmorras) que venden desde cels originales de animación de Studio Ghibli, hasta cartuchos de Super Nintendo en su caja intacta, mangas antiquísimos, relojes rolex de segunda mano y Godzilla vintage de plástico inyectado.</p>
                     `
                 },
                 {
                     id: "b2",
                     time: "13:30",
-                    title: "Helado Gigante",
-                    description: "Daily Chico. Helado de 8 pisos (Chi-Chico).",
+                    title: "El Reto Helado",
+                    description: "En el sótano subterráneo profundo (B1) (donde hay un supermercado local que huele a pescado) sobrevive un local minúsculo.",
                     image: "images/dia21-icecream.jpg",
                     price: "~700 JPY",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-ice-cream"></i> El Megagelato</h3>
-                        <p><strong>Iván Reto:</strong> ¡Cómete el helado de 8 sabores antes de que se derrita! Es el reto más dulce de Tokio.</p>
+                        <h3><i class="fa-solid fa-ice-cream"></i> El Torreón de Daily Chico</h3>
+                        <p><strong>Iván Reto:</strong> En la heladería Daily Chico sirven el famoso helado de 8 pisos extralargo con sabores extraños (como ramune, melón o boniato). Cómprenlo, llévenselo a la calle sin que se caiga y terminénselo rápido.</p>
                     `
                 },
                 {
-                    time: "15:00",
-                    title: "Tarde Libre / Compras",
-                    description: "Últimos regalos en Nakano o Shinjuku.",
+                    time: "14:30",
+                    title: "Almuerzo y Cambio Zona",
+                    description: "Tras salir de Nakano, al lado está la macro-estación de Shinjuku para rematar la tarde.",
                     type: "gap"
                 }
             ]
@@ -2924,43 +3369,36 @@ const travelData = [
         complements: [
             {
                 id: "c1",
-                title: "Shinjuku Gato 3D",
-                time: "14:30",
-                description: "Cross Shinjuku Vision. Pantalla 3D curva con un gato gigante hiperrealista.",
+                title: "El Gato Gigante Anime (Shinjuku)",
+                time: "15:30",
+                description: "Cross Shinjuku Vision. Una pantalla curva 3D publicitaria donde un gato gigante te mira y miau desde un balcón.",
                 price: "Gratis",
-                image: "images/dia21-cat3d.jpg"
+                image: "images/dia21-cat3d.jpg",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-cat"></i> Realidad Aumentada Callejera</h3>
+                    <p>Saliendo por el lado este de Shinjuku. El espectáculo de ver el efecto de profundidad forzada (anamorfosis) desde la acera es genial. El gato suele salir a intervalos junto con un anuncio publicitario de robótica.</p>
+                `,
+                tacticalOptions: [
+                    {
+                        title: "UBICACIÓN EXACTA CROSS SHINJUKU",
+                        time: "Aparece periódicamente",
+                        description: "Justo al lado de la salida Este (East Exit) de la estación de Shinjuku.",
+                        link: "https://www.google.com/maps/place/Cross+Shinjuku+Vision",
+                        tacticalGuideId: "mission_cat3d"
+                    }
+                ]
             },
             {
                 id: "c2",
-                title: "Ikebukuro (Otome Rd)",
-                time: "15:00",
-                description: "Paraíso del anime femenino (Otome). Sunshine City (Pokémon Center).",
-                price: "Gratis",
-                image: "images/dia21-ikebukuro.jpg"
-            },
-            {
-                id: "c3",
-                title: "Tokyo Dome City",
-                time: "18:00",
-                description: "Parque de atracciones urbano. Montaña rusa Thunder Dolphin.",
-                price: "Varía",
-                image: "images/dia21-tokyo-dome.jpg"
-            },
-            {
-                id: "c4",
-                title: "Museo Ghibli",
-                time: "10:00",
-                description: "Si tenéis entradas (muy difícil). Mitaka.",
-                price: "1.000 JPY",
-                image: "images/dia21-ghibli.jpg"
-            },
-            {
-                id: "c5",
-                title: "Shimokitazawa",
+                title: "Ikebukuro y Sunshine City",
                 time: "16:00",
-                description: "Barrio bohemio. Ropa vintage, cafeterías y música en vivo.",
+                description: "El equivalente a Akihabara pero con un enfoque del mercado otaku dirigido a historias dramáticas femeninas (Otome Road).",
                 price: "Gratis",
-                image: "images/dia21-shimokitazawa.jpg"
+                image: "images/dia21-ikebukuro.jpg",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-venus"></i> Otome Road y Pokémon</h3>
+                    <p>En el gran complejo Sunshine City podréis encontrar el enorme "Pokémon Center Mega Tokyo" y numerosas tiendas de Gashapon de dos pisos (máquinas tragaperras de cápsulas sorpresa con miniaturas absurdas).</p>
+                `
             }
         ]
     },
@@ -2968,7 +3406,7 @@ const travelData = [
     // --- DÍA 22: KAMAKURA (Historia) ---
     {
         day: 22, type: "stay",
-        date: "Lun, 17 Agosto", title: "🗿 Kamakura y Buda",
+        date: "Lun, 17 Agosto", title: "🗿 Kamakura Costera",
         coords: [35.319, 139.546], zoom: 13,
         hotel: "Hotel Metropolitan Edmont Tokyo",
         hotelImage: "images/hotel-metropolitan-tokio.jpg",
@@ -2976,55 +3414,86 @@ const travelData = [
         image: "images/kamakura_buda.png",
 
         logistics: [
-            { title: "Transporte", text: "Tren JR Shonan-Shinjuku Line a Kamakura (1 hora)." },
-            { title: "Tren Local", text: "Enoden (tren verde retro) para moverse por la zona." }
+            { title: "Transporte Directo", text: "Id desde Iidabashi a Shinjuku o Tokyo Station, y coged el tren Línea Yokosuka directos a Kamakura." },
+            { title: "Costa", text: "Hará calor. Kamakura da al océano pacífico y es zona playera surfera, llevad agua." }
+        ],
+
+        transportTimeline: [
+            { time: "08:45", type: "point", title: "Salida Hotel Edmont", icon: "fa-solid fa-hotel" },
+            {
+                time: "09:00",
+                type: "transit",
+                title: "Tren Expréss/Normal a Kamakura",
+                price: "JR Pass o Suica (~950 JPY)",
+                timeLabel: "Iidabashi -> Shinjuku -> Kamakura (1h 15m)",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Iidabashi+Station&destination=Kamakura+Station&travelmode=transit",
+                tacticalGuideId: "mission_kamakura_jr"
+            },
+            {
+                time: "10:30",
+                type: "transit",
+                title: "Tren Retro Enoden (Línea Costera)",
+                price: "Suica (~200 JPY)",
+                timeLabel: "10 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Kamakura+Station&destination=Hase+Station&travelmode=transit",
+                tacticalGuideId: "mission_enoden"
+            },
+            { time: "11:00", type: "point", title: "Estación Hase (Zona Templos)", icon: "fa-solid fa-train-tram" },
+            {
+                time: "14:00",
+                type: "transit",
+                title: "Tranvía Enoden hacia Enoshima O Kamakura",
+                price: "Suica",
+                timeLabel: "Flexible",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Hase+Station&destination=Enoshima+Station"
+            }
         ],
 
         timeline: [
-            { time: "10:00", title: "Gran Buda", desc: "Estatua de bronce al aire libre. (Base)" },
-            { time: "11:30", title: "Hasedera", desc: "Templo con vistas al mar. (Base)" },
-            { time: "14:00", title: "Tarde Libre", desc: "Elegid complemento (Playa, Chinatown, etc)." }
+            { time: "11:00", title: "Gran Buda", desc: "El sereno coloso de bronce al aire libre. (Base)" },
+            { time: "12:15", title: "Complejo Hasedera", desc: "Templo floral escalonado con vistas al pacífico. (Base)" },
+            { time: "14:00", title: "Komachi Dori / Opciones", desc: "Almuerzo y elegir complemento: Enoshima vs Compras. (Base)" }
         ],
 
         prices: {
-            transport: "~1.200 JPY (Tren)",
+            transport: "Tren ida/vuelta + local (~2.500 JPY total)",
             total: "Base +"
         },
 
         isFlexible: true,
         base: {
             title: "Itinerario Base",
-            description: "Excursión a la ciudad costera de los samuráis.",
+            description: "Excursión de un día al 'Kioto del este'. Kamakura fue capital en el medievo, dejándola salpicada de templos increíbles rodeados de bosque, pero con ambiente relajado playero.",
             events: [
                 {
                     id: "b1",
-                    time: "10:30",
-                    title: "Gran Buda de Kamakura",
-                    description: "Kotoku-in. Buda gigante de bronce al aire libre.",
+                    time: "11:00",
+                    title: "Kotoku-in y el Gran Daibutsu",
+                    description: "Estatua de las mayores dimensiones de todo Japón resistiendo elementos pacíficos.",
                     image: "images/kamakura_buda.png",
                     price: "300 JPY",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-om"></i> Daibutsu (Gran Buda)</h3>
-                        <p>Una de las estatuas más icónicas de Japón. Originalmente estaba dentro de un templo, pero un tsunami en el s. XV destruyó el edificio y dejó al Buda a la intemperie.</p>
-                        <p><strong>Dato curioso:</strong> ¡Se puede entrar dentro de la estatua por 20 JPY!</p>
+                        <h3><i class="fa-solid fa-om"></i> Sobreviviendo a Tsumanis</h3>
+                        <p>El Gran Buda de Kamakura (Daibutsu) fue fundido en el siglo XIII dentro de un enorme templo de madera. Un terrible tsunami engulló la costa en el siglo XV borrando todo edificio protector de madera para siempre y dejando solo el peso del metal intacto. Meditar allí es obligatorio.</p>
+                        <p><strong>Dato curioso:</strong> ¡Se puede pagar 20 tristes Yenes más entrar (litralmente por la espalda) a las entrañas metálicas de la estatua!</p>
                     `
                 },
                 {
                     id: "b2",
-                    time: "12:00",
-                    title: "Templo Hasedera",
-                    description: "Templo de las 11 cabezas de Kannon y jardines con vistas al mar.",
+                    time: "12:15",
+                    title: "Templo Floral de Hasedera",
+                    description: "Gran recinto escalonado excavado en la ladera dedicada a la diosa Kannon.",
                     image: "images/dia22-kamakura.jpg",
                     price: "400 JPY",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-flower"></i> Templo Hasedera</h3>
-                        <p>Famoso por su estatua de Kannon y sus miles de pequeñas estatuas Jizo. Las vistas desde la terraza superior hacia la bahía de Sagami son preciosas.</p>
+                        <h3><i class="fa-solid fa-leaf"></i> Mil Guardianes de Piedra</h3>
+                        <p>Uno de los sitios más cuidados y fotografiados de la zona. Subiendo por hermosos senderos con hortensias llegaréis a un mirador sobre el mar lejano. No os vayáis sin encontrar a los escondidos "Jizo adorables" que sonríen entre las hojas mojadas o recorrer su laberíntica cueva dedicada a Benzaiten (usa linterna móvil).</p>
                     `
                 },
                 {
                     time: "13:30",
-                    title: "Almuerzo / Playa",
-                    description: "Tiempo para comer en la calle Komachi-dori o pasear por la playa Yuigahama.",
+                    title: "Almuerzo por las callejuelas",
+                    description: "Encontrar un ramen o comida local cerca de la estación de Hase o volver en el tranvía.",
                     type: "gap"
                 }
             ]
@@ -3032,35 +3501,36 @@ const travelData = [
         complements: [
             {
                 id: "c1",
-                title: "Enoshima",
-                time: "14:00",
-                description: "Isla conectada por puente. Santuarios, cuevas y vistas al mar.",
-                price: "Gratis",
-                image: "images/dia22-enoshima.jpg"
+                title: "Isla de Enoshima",
+                time: "15:00",
+                description: "Tomad el pintoresco tren playero Enoden hasta la lejana costa oeste a la pequeña isla de santuarios.",
+                price: "Tren (260 JPY)",
+                image: "images/dia22-enoshima.jpg",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-water"></i> Cuevas, Faros y Playas</h3>
+                    <p>Subiréis (hay escaleras mecánicas pagando si estáis reventados) hacia la torre faro de la cima entre gatos callejeros y podréis bajar por detrás hasta la agreste costa de roca para explorar las cuevas marítimas Iwaya golpeadas por la marea al atardecer.</p>
+                `,
+                tacticalOptions: [
+                    {
+                        title: "EL CRUCE DE SLAM DUNK",
+                        time: "En trayecto de Enoden",
+                        description: "Parada intermendia en 'Kamakurakōkō-Mae'. Famoso paso a nivel frente al mar del anime Slam Dunk.",
+                        link: "https://www.google.com/maps/place/Kamakura-koko-mae+Station/",
+                        tacticalGuideId: "mission_slamdunk"
+                    }
+                ]
             },
             {
                 id: "c2",
-                title: "Yokohama Chinatown",
-                time: "18:00",
-                description: "El barrio chino más grande de Japón. Cena espectacular.",
+                title: "Calle Komachi Dori / Vaciado de Carteras",
+                time: "15:00",
+                description: "Junto a la estación de origen de Kamakura. La arteria comercial enorme con souvenirs, sables samuráis y snacks.",
                 price: "Gratis",
-                image: "images/dia22-chinatown.jpg"
-            },
-            {
-                id: "c3",
-                title: "Roppongi Hills",
-                time: "20:00",
-                description: "Mirador Tokyo City View y Museo Mori. Vistas de la Torre de Tokio iluminada.",
-                price: "2.000 JPY",
-                image: "images/dia22-roppongi.jpg"
-            },
-            {
-                id: "c4",
-                title: "Compras Finales (Donki)",
-                time: "16:00",
-                description: "Don Quijote (Mega Donki). Compras de souvenirs y KitKats.",
-                price: "Varía",
-                image: "images/dia22-donki.jpg"
+                image: "images/dia22-donki.jpg", // Consider changing this placeholder to a street photo
+                fullDesc: `
+                    <h3><i class="fa-solid fa-gift"></i> Croquetas y Recuerdos de Madera</h3>
+                    <p>Evitad el viaje agotador a Enoshima si queréis relax. Recorred esta calle kilométrica que en la base lleva hasta el centro rojo sintoísta del Tsurugaoka Hachimangu. Buena zona para comer helados de boniato lila o comprar merchandising Ghibli tradicional en la gran "Symphony Totorogu".</p>
+                `
             }
         ]
     },
@@ -3076,59 +3546,100 @@ const travelData = [
         image: "images/dia23-portada.jpg",
 
         logistics: [
-            { title: "Aeropuerto", text: "Vuelo desde Haneda (HND) a las 21:45." },
-            { title: "Check-out", text: "Podéis dejar las maletas en recepción hasta la hora del traslado." }
+            { title: "Aeropuerto", text: "Vuelo TK199 desde Haneda (HND) a las 21:45. Hay que estar 4 horas antes por precaución (17:45)." },
+            { title: "Equipaje", text: "Haced el Check-out a las 10:00 pero pedid en recepción que os guarden las maletas grandes hasta la tarde." }
+        ],
+
+        transportTimeline: [
+            { time: "10:00", type: "point", title: "Check-out Hotel Edmont", icon: "fa-solid fa-bell-concierge" },
+            { time: "10:15", type: "point", title: "Día Libre en Tokio", icon: "fa-solid fa-bag-shopping" },
+            { time: "16:00", type: "point", title: "Volver al Hotel / Recoger Maletas", icon: "fa-solid fa-suitcase-rolling" },
+            {
+                time: "16:30",
+                type: "transit",
+                title: "Taxis hacia Aeropuerto de Haneda",
+                price: "Efectivo/Tarjeta (~8.000 JPY por taxi)",
+                timeLabel: "45 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Metropolitan+Edmont+Tokyo&destination=Haneda+Airport",
+                tacticalGuideId: "mission_haneda"
+            },
+            { time: "17:45", type: "point", title: "Llegada a Terminal / Check-in", icon: "fa-solid fa-plane-arrival" },
+            {
+                time: "21:45",
+                type: "transit",
+                title: "Despegue Vuelo TK199 (Turkish)",
+                price: "Incluido",
+                timeLabel: "13h hacia Estambul",
+                link: "https://www.flightaware.com/live/flight/THY199"
+            }
         ],
 
         timeline: [
-            { time: "11:00", title: "Mañana Libre", desc: "Últimas compras en Tokio. (Base)" },
-            { time: "17:00", title: "Rumbo a Haneda", desc: "Taxi al aeropuerto. (Base)" },
-            { time: "21:45", title: "Despegue", desc: "Vuelo TK199 hacia Estambul. (Base)" }
+            { time: "11:00", title: "Mañana Libre", desc: "Últimas compras de souvenirs o relax. (Base)" },
+            { time: "16:30", title: "Traslado a Haneda", desc: "Taxis desde el hotel directo a la terminal. (Base)" },
+            { time: "17:45", title: "Aeropuerto", desc: "Facturación, comer algo y puertas de embarque. (Base)" },
+            { time: "21:45", title: "Despegue", desc: "Vuelo de medianoche hacia Estambul. (Base)" }
         ],
 
         prices: {
-            transport: "~1.000 JPY (Aeropuerto)",
-            total: "Base"
+            transport: "Taxis al aeropuerto (~8000 JPY/vehículo)",
+            total: "Base +"
         },
 
         isFlexible: true,
         base: {
             title: "Itinerario Base",
-            description: "Gestión del equipaje y últimas horas en la capital.",
+            description: "Es el momento de cerrar las maletas (probablemente sentándose encima) y aprovechar las últimas horas para despdirse de la ciudad antes del largo vuelo nocturno.",
             events: [
                 {
                     id: "b1",
                     time: "11:00",
-                    title: "Últimas Compras / Iidabashi",
-                    description: "Compras de última hora en Don Quijote o relax en el hotel.",
+                    title: "Compras Finales (Don Quijote o Akihabara)",
+                    description: "Comprar los últimos Kit-Kats raros, matcha o electrónica.",
                     image: "images/dia23-portada.jpg",
                     price: "Libre",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-suitcase"></i> Despedida de Tokio</h3>
-                        <p>Aprovechad para comprar esos dulces o souvenirs que faltan. Preparad bien las maletas para el vuelo.</p>
+                        <h3><i class="fa-solid fa-gift"></i> Tetris de Equipaje</h3>
+                        <p>Tras dejar el equipaje en el lobby del hotel, tenéis el día libre. Es el momento clásico de ir a un "Mega Donki" (Don Quijote gigante) a comprar cajas de Kit-Kats de sabores, mochis y chucherías para la familia, o volver a vuestro barrio favorito de días anteriores para una última mirada.</p>
                     `
                 },
                 {
                     time: "13:00",
-                    title: "Tiempo de Almuerzo",
-                    description: "Última comida japonesa real antes del avión.",
+                    title: "Último Almuerzo Japonés",
+                    description: "Última oportunidad para sushi decente o un gran plato de ramen antes de la comida de avión.",
                     type: "gap"
                 },
                 {
                     id: "b2",
-                    time: "17:00",
-                    title: "Traslado a Haneda (Taxi)",
-                    description: "Salida hacia el aeropuerto para llegar 4h antes.",
+                    time: "16:30",
+                    title: "Operación Traslado: Taxis a Haneda",
+                    description: "Se recomiendan taxis furgoneta grandes para acomodar todo vuestro equipaje final.",
                     image: "images/dia23-portada.jpg",
-                    price: "~8.000 JPY (Taxi)",
+                    price: "A dividir",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-plane-departure"></i> Rumbo al Aeropuerto</h3>
-                        <p>Facturación, control de seguridad y... ¡Sayonara! El taxi os dejará cómodamente en la terminal de salida.</p>
+                        <h3><i class="fa-solid fa-taxi"></i> Ruta al Aeropuerto</h3>
+                        <p>Pedid en el hotel que os llamen a un par de taxis adaptados para volumen (tipo Nissan NV200 que abundan). Haneda está cerca de la ciudad (al sur, a diferencia de Narita que está lejísmos). Serán unos 45 minutos cómodos por autopista.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-plane"></i> <strong>Haneda:</strong> El aeropuerto de Haneda es excelente. Tiene un puente de madera estilo Edo en la planta superior y muchas opciones de comida y tiendas si llegáis con tiempo extra.</li>
+                        </ul>
                     `
                 }
             ]
         },
-        complements: []
+        complements: [
+            {
+                id: "c1",
+                title: "Terminal 3 (Internacional) Haneda",
+                time: "18:00",
+                description: "Edo Koji. Réplica de una calle del periodo Edo dentro del propio aeropuerto.",
+                price: "Gratis",
+                image: "images/dia23-portada.jpg", // CONSIDER USING A HANEDA PHOTO
+                fullDesc: `
+                    <h3><i class="fa-solid fa-torii-gate"></i> Despedida Cultural</h3>
+                    <p>Si llegáis pronto, subid a la planta 4 y 5 de la T3. Han reconstruido un puente japonés de madera enorme y calles comerciales preciosas. Buen sitio para la última cena antes de entrar a las aburridas puertas de embarque internacionales.</p>
+                `
+            }
+        ]
     },
 
     // --- DÍA 24: LLEGADA A ESPAÑA ---
@@ -3139,20 +3650,38 @@ const travelData = [
         hotel: "Valencia, España",
         hotelImage: "images/casa.jpg",
 
+        logistics: [
+            { title: "Escala", text: "Llegada a Estambul a las 05:15 am. Escala de 3 horas." },
+            { title: "Llegada", text: "Vuelo TK1313. Llegada a Valencia a las 11:30 am hora local." }
+        ],
+
+        transportTimeline: [
+            { time: "05:15", type: "point", title: "Aterrizaje en Estambul (IST)", icon: "fa-solid fa-plane-arrival" },
+            {
+                time: "08:20",
+                type: "transit",
+                title: "Despegue Vuelo TK1313",
+                price: "Incluido",
+                timeLabel: "4h 10m",
+                link: "https://www.flightaware.com/live/flight/THY1313"
+            },
+            { time: "11:30", type: "point", title: "Aterrizaje en Valencia (VLC)", icon: "fa-solid fa-house" }
+        ],
+
         isFlexible: true,
         base: {
-            title: "Hogar Dulce Hogar",
-            description: "Fin de una aventura inolvidable.",
+            title: "Fin de la Aventura",
+            description: "Cambio de huso horario brusco y llegada a Manises al mediodía.",
             events: [
                 {
-                    time: "---",
-                    title: "Llegada",
-                    description: "Bienvenida a casa. ¡A descansar!",
+                    time: "11:30",
+                    title: "Llegada a Tierra Conocida",
+                    description: "Recogida de equipaje y bienvenida familiar. ¡Toca lidiar con el Jetlag!",
                     image: "images/dia24-home.jpg",
                     price: "Gratis"
                 }
             ]
         },
         complements: []
-    },
+    }
 ];

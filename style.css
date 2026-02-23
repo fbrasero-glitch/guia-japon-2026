@@ -2885,3 +2885,452 @@ body:not(.day-selected) .right-panel {
         font-size: 10px;
     }
 }
+
+/* ==========================================
+   PREPARACIÓN PAGE - TRAVELER CHECKLIST
+   ========================================== */
+
+.preparation-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.preparation-header {
+    margin-bottom: 30px;
+}
+
+.preparation-title-row h1 {
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.preparation-title-row h1 i {
+    color: var(--accent);
+}
+
+/* Traveler Selector */
+.traveler-selector-box {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(0, 243, 255, 0.3);
+    border-radius: 12px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+}
+
+.traveler-selector-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.traveler-selector-label i {
+    color: var(--neon-blue);
+}
+
+.traveler-avatars {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.traveler-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-secondary);
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.traveler-avatar:hover {
+    background: rgba(0, 243, 255, 0.2);
+    border-color: var(--neon-blue);
+    color: var(--neon-blue);
+    transform: scale(1.1);
+}
+
+.traveler-avatar.selected {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--bg-900);
+    box-shadow: 0 0 15px rgba(249, 115, 22, 0.5);
+}
+
+/* Progress Section */
+.progress-section {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 12px;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.progress-traveler {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.progress-text {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.progress-bar-container {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--success), #34d399);
+    border-radius: 10px;
+    transition: width 0.5s ease;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+.progress-percent {
+    text-align: right;
+    color: var(--success);
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+/* Preparation Sections */
+.preparation-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.preparation-section {
+    background: rgba(15, 23, 42, 0.7);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.preparation-section-header {
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.preparation-section-header i {
+    font-size: 1.3rem;
+}
+
+.preparation-section-header h2 {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.preparation-items {
+    padding: 0 15px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Individual Preparation Item */
+.preparation-item {
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 15px;
+    transition: all 0.3s ease;
+}
+
+.preparation-item:hover {
+    border-color: rgba(0, 243, 255, 0.3);
+}
+
+.preparation-item.completed {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.preparation-item.completed .preparation-item-header h3 {
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+.preparation-item-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.preparation-checkbox {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: var(--text-secondary);
+    font-size: 1.4rem;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.preparation-checkbox:hover {
+    color: var(--neon-blue);
+    transform: scale(1.1);
+}
+
+.preparation-checkbox .fa-circle-check {
+    color: var(--success);
+}
+
+.preparation-item-header h3 {
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.preparation-item-content {
+    margin-left: 32px;
+}
+
+.preparation-desc {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.preparation-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.preparation-who,
+.preparation-why {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.preparation-who i {
+    color: var(--neon-blue);
+}
+
+.preparation-why i {
+    color: var(--gold);
+}
+
+/* Traveler Status Row */
+.traveler-status-row {
+    margin-top: 12px;
+    margin-left: 32px;
+    padding-top: 10px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.traveler-status-label {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.traveler-status-dots {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.traveler-status-dot {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: default;
+}
+
+.traveler-status-dot.checked {
+    background: rgba(16, 185, 129, 0.2);
+    border-color: var(--success);
+    color: var(--success);
+}
+
+.traveler-status-dot i {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    font-size: 0.5rem;
+    background: var(--success);
+    color: white;
+    border-radius: 50%;
+    padding: 2px;
+}
+
+/* Sidebar Styles */
+.preparation-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.preparation-priority-box,
+.preparation-special-box,
+.preparation-messages-box,
+.preparation-tips-box {
+    background: rgba(15, 23, 42, 0.8);
+    border-radius: 12px;
+    padding: 15px;
+    border-left: 3px solid var(--accent);
+}
+
+.preparation-priority-box h3,
+.preparation-special-box h3,
+.preparation-messages-box h3,
+.preparation-tips-box h3 {
+    font-size: 0.95rem;
+    color: var(--accent);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.priority-level {
+    margin-bottom: 10px;
+}
+
+.priority-level ul,
+.preparation-special-box ul,
+.preparation-tips-box ul {
+    margin: 8px 0 0 20px;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.priority-level li,
+.preparation-special-box li,
+.preparation-tips-box li {
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+
+.preparation-messages-desc {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    margin-bottom: 12px;
+}
+
+.preparation-message-item {
+    margin-bottom: 15px;
+}
+
+.preparation-message-item strong {
+    display: block;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+}
+
+.preparation-message-text {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    padding: 10px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.preparation-message-text:hover {
+    background: rgba(0, 243, 255, 0.1);
+}
+
+.preparation-message-text code {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    display: block;
+    padding-right: 25px;
+    word-break: break-word;
+}
+
+.preparation-message-text .copy-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--neon-blue);
+    font-size: 0.9rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 767px) {
+    .preparation-container {
+        padding: 10px;
+    }
+
+    .preparation-title-row h1 {
+        font-size: 1.4rem;
+    }
+
+    .traveler-avatar {
+        width: 38px;
+        height: 38px;
+        font-size: 0.9rem;
+    }
+
+    .preparation-section-header h2 {
+        font-size: 1rem;
+    }
+
+    .preparation-item-header h3 {
+        font-size: 0.95rem;
+    }
+
+    .traveler-status-row {
+        margin-left: 0;
+    }
+}

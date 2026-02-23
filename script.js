@@ -321,18 +321,69 @@ function loadDay(index) {
 }
 
 // Función especial para renderizar la página de preparación
+// Variable global para el viajero seleccionado
+let selectedTraveler = localStorage.getItem('selectedTraveler') || 'FELIPE';
+
 function renderPreparationPage(data) {
     const centerCard = document.getElementById('visual-card');
     const rightPanel = document.getElementById('info-content');
 
     if (!data.preparation) return;
 
+    const travelers = data.preparation.travelers || ["FELIPE", "LORENA", "IVAN", "LAURA", "GEMA", "CESAR", "VICENTE", "LOLA"];
+
+    // Calcular progreso del viajero seleccionado
+    let totalItems = 0;
+    let completedItems = 0;
+    data.preparation.sections.forEach((section, sIdx) => {
+        section.items.forEach((item, iIdx) => {
+            totalItems++;
+            if (localStorage.getItem(`prep-${selectedTraveler}-${sIdx}-${iIdx}`) === 'true') {
+                completedItems++;
+            }
+        });
+    });
+    const progressPercent = totalItems > 0 ? Math.round((completedItems / totalItems) * 100) : 0;
+
+    // Generar avatares de viajeros para el selector
+    const travelerAvatarsHTML = travelers.map(t => {
+        const initial = t.charAt(0);
+        const isSelected = t === selectedTraveler;
+        return `<button class="traveler-avatar ${isSelected ? 'selected' : ''}" 
+                        data-traveler="${t}" 
+                        title="${t}"
+                        aria-label="Seleccionar viajero ${t}">
+                    ${initial}
+                </button>`;
+    }).join('');
+
     // Renderizar panel central con las secciones principales
     let centerHTML = `
      <div class="preparation-container">
          <div class="preparation-header">
-             <h1><i class="fa-solid fa-clipboard-check"></i> Preparación del Viaje</h1>
-             <p class="preparation-subtitle">Checklist completo de trámites y acciones antes del viaje</p>
+             <div class="preparation-title-row">
+                 <h1><i class="fa-solid fa-clipboard-check"></i> Preparación del Viaje</h1>
+             </div>
+             
+             <div class="traveler-selector-box">
+                 <div class="traveler-selector-label">
+                     <i class="fa-solid fa-users"></i> Selecciona tu viajero:
+                 </div>
+                 <div class="traveler-avatars">
+                     ${travelerAvatarsHTML}
+                 </div>
+             </div>
+             
+             <div class="progress-section">
+                 <div class="progress-header">
+                     <span class="progress-traveler"><i class="fa-solid fa-user"></i> ${selectedTraveler}</span>
+                     <span class="progress-text">${completedItems}/${totalItems} completados</span>
+                 </div>
+                 <div class="progress-bar-container">
+                     <div class="progress-bar-fill" style="width: ${progressPercent}%;"></div>
+                 </div>
+                 <div class="progress-percent">${progressPercent}%</div>
+             </div>
          </div>
          
          <div class="preparation-sections">
@@ -341,7 +392,7 @@ function renderPreparationPage(data) {
     data.preparation.sections.forEach((section, idx) => {
         centerHTML += `
          <div class="preparation-section" style="border-left: 4px solid ${section.color};">
-             <div class="preparation-section-header" style="background: linear-gradient(135deg, ${section.color}15, ${section.color}05);">
+             <div class="preparation-section-header" style="background: linear-gradient(135deg, ${section.color}20, ${section.color}08);">
                  <i class="${section.icon}" style="color: ${section.color};"></i>
                  <h2>${section.title}</h2>
              </div>
@@ -349,19 +400,39 @@ function renderPreparationPage(data) {
      `;
 
         section.items.forEach((item, itemIdx) => {
+            // Verificar si el viajero actual ha completado este item
+            const isChecked = localStorage.getItem(`prep-${selectedTraveler}-${idx}-${itemIdx}`) === 'true';
+            const checkIcon = isChecked ? 'fa-solid fa-circle-check' : 'fa-regular fa-circle';
+            const completedClass = isChecked ? 'completed' : '';
+
+            // Generar indicadores de estado de todos los viajeros
+            const travelerStatusHTML = travelers.map(t => {
+                const tChecked = localStorage.getItem(`prep-${t}-${idx}-${itemIdx}`) === 'true';
+                const initial = t.charAt(0);
+                return `<span class="traveler-status-dot ${tChecked ? 'checked' : ''}" title="${t}: ${tChecked ? 'Completado' : 'Pendiente'}">
+                            ${initial}${tChecked ? '<i class="fa-solid fa-check"></i>' : ''}
+                        </span>`;
+            }).join('');
+
             centerHTML += `
-             <div class="preparation-item">
+             <div class="preparation-item ${completedClass}">
                  <div class="preparation-item-header">
-                     <span class="preparation-checkbox" data-section="${idx}" data-item="${itemIdx}">
-                         <i class="fa-regular fa-circle"></i>
-                     </span>
+                     <button class="preparation-checkbox" data-section="${idx}" data-item="${itemIdx}" aria-label="Marcar como completado">
+                         <i class="${checkIcon}"></i>
+                     </button>
                      <h3>${item.title}</h3>
                  </div>
                  <div class="preparation-item-content">
                      <p class="preparation-desc">${item.desc}</p>
                      <div class="preparation-meta">
-                         <span class="preparation-who"><i class="fa-solid fa-user"></i> ${item.who}</span>
-                         ${item.why ? `<span class="preparation-why"><i class="fa-solid fa-info-circle"></i> ${item.why}</span>` : ''}
+                         <span class="preparation-who"><i class="fa-solid fa-user-tag"></i> ${item.who}</span>
+                         ${item.why ? `<span class="preparation-why"><i class="fa-solid fa-circle-info"></i> ${item.why}</span>` : ''}
+                     </div>
+                 </div>
+                 <div class="traveler-status-row">
+                     <span class="traveler-status-label">Estado viajeros:</span>
+                     <div class="traveler-status-dots">
+                         ${travelerStatusHTML}
                      </div>
                  </div>
              </div>
@@ -412,7 +483,7 @@ function renderPreparationPage(data) {
         rightHTML += `
          <div class="preparation-messages-box">
              <h3><i class="fa-solid fa-envelope"></i> Mensajes Tipo</h3>
-             <p class="preparation-messages-desc">Textos listos para copiar en reservas y solicitudes:</p>
+             <p class="preparation-messages-desc">Textos listos para copiar:</p>
      `;
 
         data.preparation.messages.forEach((msg, idx) => {
@@ -447,30 +518,38 @@ function renderPreparationPage(data) {
     centerCard.innerHTML = centerHTML;
     rightPanel.innerHTML = rightHTML;
 
+    // Añadir evento a los avatares de viajeros
+    document.querySelectorAll('.traveler-avatar').forEach(avatar => {
+        avatar.addEventListener('click', function () {
+            selectedTraveler = this.dataset.traveler;
+            localStorage.setItem('selectedTraveler', selectedTraveler);
+            renderPreparationPage(data);
+        });
+    });
+
     // Añadir funcionalidad de checkboxes
     document.querySelectorAll('.preparation-checkbox').forEach(checkbox => {
         checkbox.addEventListener('click', function () {
             const icon = this.querySelector('i');
-            if (icon.classList.contains('fa-circle')) {
-                icon.classList.remove('fa-circle');
-                icon.classList.add('fa-check-circle');
-                this.parentElement.parentElement.classList.add('completed');
-                localStorage.setItem(`prep-${this.dataset.section}-${this.dataset.item}`, 'true');
-            } else {
-                icon.classList.remove('fa-check-circle');
-                icon.classList.add('fa-circle');
-                this.parentElement.parentElement.classList.remove('completed');
-                localStorage.removeItem(`prep-${this.dataset.section}-${this.dataset.item}`);
-            }
-        });
+            const section = this.dataset.section;
+            const item = this.dataset.item;
+            const key = `prep-${selectedTraveler}-${section}-${item}`;
 
-        // Cargar estado guardado
-        if (localStorage.getItem(`prep-${checkbox.dataset.section}-${checkbox.dataset.item}`) === 'true') {
-            const icon = checkbox.querySelector('i');
-            icon.classList.remove('fa-circle');
-            icon.classList.add('fa-check-circle');
-            checkbox.parentElement.parentElement.classList.add('completed');
-        }
+            if (icon.classList.contains('fa-circle')) {
+                icon.classList.remove('fa-regular', 'fa-circle');
+                icon.classList.add('fa-solid', 'fa-circle-check');
+                this.closest('.preparation-item').classList.add('completed');
+                localStorage.setItem(key, 'true');
+            } else {
+                icon.classList.remove('fa-solid', 'fa-circle-check');
+                icon.classList.add('fa-regular', 'fa-circle');
+                this.closest('.preparation-item').classList.remove('completed');
+                localStorage.removeItem(key);
+            }
+
+            // Re-renderizar para actualizar progreso y estados
+            renderPreparationPage(data);
+        });
     });
 }
 
