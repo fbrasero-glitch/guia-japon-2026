@@ -373,7 +373,7 @@ const travelData = [
                     time: "09:00",
                     title: "Castillo de Osaka",
                     description: "Construido en 1583. Torres, murallas y museo histórico.",
-                    image: "images/dia3-castillo.jpg",
+                    image: "images/dia3-itinerario-base.jpg",
                     price: "600 JPY",
                     link: "https://www.google.com/maps/dir/Hotel+Wing+International+Select+Osaka+Umeda/Osaka+Castle/",
                     fullDesc: `
@@ -1012,7 +1012,7 @@ const travelData = [
                     time: "14:30",
                     title: "Castillo de Nijo",
                     description: "Fortaleza de los Shoguns con suelos 'ruiseñor' antininja.",
-                    image: "images/dia3-castillo.jpg",
+                    image: "images/dia6-despliegue-capital-imperial.jpg",
                     price: "800 JPY",
                     link: "https://www.google.com/maps/dir/?api=1&origin=Kyoto+Station&destination=Nijo+Castle&travelmode=transit",
                     tacticalGuideId: "mission_nijo",
@@ -1344,7 +1344,7 @@ const travelData = [
                     time: "08:30",
                     title: "Bosque de Bambú",
                     description: "Paseo icónico entre tallos gigantes. (Gratis)",
-                    image: "images/dia8-bambu.jpg",
+                    image: "images/dia8-itinerario-base.jpg",
                     price: "Gratis",
                     fullDesc: `
                         <h3><i class="fa-solid fa-leaf"></i> Bosque de Bambú</h3>
@@ -1356,7 +1356,7 @@ const travelData = [
                     time: "10:00",
                     title: "Templo Tenryu-ji",
                     description: "El dragón celestial. Jardín Sogenchi con técnica Shakkei. (500 JPY)",
-                    image: "images/dia8-bambu.jpg",
+                    image: "images/dia8-itinerario-base-1.jpg",
                     price: "500 JPY",
                     fullDesc: `
                         <h3><i class="fa-solid fa-dragon"></i> Templo Tenryu-ji</h3>
@@ -1380,7 +1380,7 @@ const travelData = [
                     time: "12:30",
                     title: "Parque Iwatayama",
                     description: "Reserva de macacos japoneses con las mejores vistas panorámicas. (600 JPY)",
-                    image: "images/dia8-bambu.jpg",
+                    image: "images/dia8-itinerario-base-2.jpg",
                     price: "600 JPY",
                     fullDesc: `
                         <h3><i class="fa-solid fa-monkey"></i> Iwatayama Monkey Park</h3>
@@ -1605,7 +1605,7 @@ const travelData = [
         hotel: "Kyoto Tower Hotel Annex",
         hotelImage: "images/hotel-kyoto-tower.jpg",
         hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Kyoto+Tower+Hotel+Annex",
-        image: "images/dia10-portada.jpg",
+        image: "images/dia10-itinerario-base.jpg",
 
         logistics: [
             { title: "Takkyubin", text: "IMPORTANTE: Enviar maletas grandes a Tokio/Kawaguchiko." },
@@ -1698,7 +1698,7 @@ const travelData = [
                     time: "09:00",
                     title: "Check-out y Takkyubin",
                     description: "Enviar maletas grandes y prepararse para los Alpes.",
-                    image: "images/dia10-portada.jpg",
+                    image: "images/dia10-itinerario-base-1.jpg",
                     price: "~2.500 JPY/maleta",
                     fullDesc: `
                         <h3><i class="fa-solid fa-truck-fast"></i> Logística Vital: Takkyubin</h3>
@@ -1911,7 +1911,7 @@ const travelData = [
                     time: "15:30",
                     title: "Llegada al Ryokan",
                     description: "Kazeya Ryokan. Poneos el Yukata y disfrutad del té de bienvenida.",
-                    image: "images/dia11-zen.jpg",
+                    image: "images/dia11-itinerario-base.jpg",
                     price: "Incluido",
                     fullDesc: `
                         <h3><i class="fa-solid fa-hot-tub-person"></i> Llegada al Ryokan Kazeya</h3>
@@ -1933,7 +1933,7 @@ const travelData = [
                     time: "19:00",
                     title: "Cena Kaiseki",
                     description: "Festín de platos de temporada y Ternera de Hida.",
-                    image: "images/dia11-zen.jpg",
+                    image: "images/dia11-itinerario-base-1.jpg",
                     price: "Incluido",
                     fullDesc: `
                         <h3><i class="fa-solid fa-utensils"></i> Banquete Kaiseki</h3>
@@ -2053,7 +2053,7 @@ const travelData = [
                     time: "12:30",
                     title: "Almuerzo: Ternera de Hida",
                     description: "La joya gastronómica de la región (Yakiniku o Sushi de carne).",
-                    image: "images/dia12-yatai.jpg",
+                    image: "images/dia12-itinerario-base.jpg",
                     price: "~4.000-6.000 JPY",
                     fullDesc: `
                         <h3><i class="fa-solid fa-drumstick-bite"></i> Festín de Hida Beef</h3>
@@ -2114,7 +2114,7 @@ const travelData = [
                 time: "16:00",
                 description: "Museo de las carrozas del festival de Takayama (Patrimonio UNESCO).",
                 price: "1.000 JPY",
-                image: "images/dia12-yatai.jpg",
+                image: "images/dia12-yatai-kaikan.jpg",
                 fullDesc: `
                     <h3><i class="fa-solid fa-masks-theater"></i> Exposición de Carrozas</h3>
                     <p>Muestra las espectaculares y gigantescas carrozas de madera adornadas que desfilan en los festivales de primavera y otoño.</p>
@@ -2326,7 +2326,7 @@ const travelData = [
                     time: "08:30",
                     title: "Aproximación al Fuji",
                     description: "Elegid entre subir a los 2300m o hacer el trekking del billete de 1000 yenes.",
-                    image: "images/dia15-fuji.jpg",
+                    image: "images/dia14-itinerario-base.jpg",
                     price: "Variable",
                     fullDesc: `
                         <h3><i class="fa-solid fa-mountain"></i> Experiencia Fuji</h3>
@@ -2375,7 +2375,7 @@ const travelData = [
                 time: "09:00",
                 description: "Llegar a los 2300m en bus. Tiendas, santuario milenario y mirar hacia la cumbre.",
                 price: "2.500 JPY (Shuttle Bus)",
-                image: "images/dia15-fuji.jpg",
+                image: "images/dia14-5-estaci-n-fuji.jpg",
                 fullDesc: `
                     <h3><i class="fa-solid fa-cloud"></i> Tocando el Cielo a 2300m</h3>
                     <p>El punto más alto al que se puede llegar de forma "fácil". Incluye el Santuario Komitake y la oficina de correos más alta de Japón (¡enviad una postal!).</p>
@@ -2466,7 +2466,7 @@ const travelData = [
                     time: "11:30",
                     title: "Hoto Noodles",
                     description: "Plato de supervivencia invernal: fideos tremendos en sopa de miso y calabaza.",
-                    image: "images/dia14-honcho.jpg",
+                    image: "images/dia15-itinerario-base.jpg",
                     price: "~1.500 JPY",
                     fullDesc: `
                         <h3><i class="fa-solid fa-fire-burner"></i> Hoto Fudo</h3>
@@ -2522,7 +2522,7 @@ const travelData = [
                 time: "16:00",
                 description: "Calle mítica (Fujiyoshida) con viejos negocios y el Fuji gigante de fondo.",
                 price: "Gratis",
-                image: "images/dia14-honcho.jpg",
+                image: "images/dia15-honcho-street.jpg",
                 fullDesc: `
                     <h3><i class="fa-solid fa-camera"></i> La Calle de Instagram</h3>
                     <p>Honcho Street tiene esa vibra noventera retro. Ojo con el tráfico, la policía local está cansada de los turistas parando en medio de la calle principal para hacer fotos. Disparad rápido desde las aceras laterales.</p>
@@ -2802,7 +2802,7 @@ const travelData = [
                 time: "Flexible Mañana",
                 description: "El barrio de suministros para restaurantes. Cuchillos forjados a mano y comida de plástico.",
                 price: "Gratis",
-                image: "images/dia17-kappabashi.jpg",
+                image: "images/dia17-calle-kappabashi-cocineros.jpg",
                 fullDesc: `
                     <h3><i class="fa-solid fa-kitchen-set"></i> Kappabashi Dogu-gai</h3>
                     <p>Una calle entera dedicada al 'hardware' culinario japonés muy cerca de Asakusa. Podréis comprar los mejores cuchillos del mundo (os los graban con vuestro nombre), palillos preciosos y admirar las increíbles réplicas hiperrealistas de comida en plástico que los restaurantes usan en sus escaparates.</p>
@@ -3139,7 +3139,7 @@ const travelData = [
         hotel: "Hotel Metropolitan Edmont Tokyo",
         hotelImage: "images/hotel-metropolitan-tokio.jpg",
         hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Hotel+Metropolitan+Edmont+Tokyo",
-        image: "images/dia17-ueno.jpg",
+        image: "images/dia20-itinerario-base.jpg",
 
         logistics: [
             { title: "Transporte", text: "Día completo de moverse en tren. JR Yamanote es la clave para conectar todo." },
@@ -3208,7 +3208,7 @@ const travelData = [
                     time: "09:30",
                     title: "Parque Ueno y Estanque Shinobazu",
                     description: "El parque público más popular, hogar de museos, un zoo y un estanque de lotos gigante.",
-                    image: "images/dia17-ueno.jpg",
+                    image: "images/dia20-itinerario-base-2.jpg",
                     price: "Gratis",
                     fullDesc: `
                         <h3><i class="fa-solid fa-leaf"></i> El Pulmón del Norte</h3>
@@ -3220,7 +3220,7 @@ const travelData = [
                     time: "11:00",
                     title: "Mercado Ameyoko",
                     description: "El ruido y el regateo en bruto bajo las vías del tren elevado.",
-                    image: "images/dia17-kappabashi.jpg",
+                    image: "images/dia20-itinerario-base-1.jpg",
                     price: "Gratis",
                     fullDesc: `
                         <h3><i class="fa-solid fa-store"></i> Sobras del Mercado Negro</h3>
@@ -3232,7 +3232,7 @@ const travelData = [
                     time: "13:00",
                     title: "Yanaka Ginza (Barrio Gato)",
                     description: "Escapando de la guerra y los terremotos, este barrio mantiene la madera y escala de los años 50.",
-                    image: "images/dia17-ueno.jpg",
+                    image: "images/dia20-museo-nacional-de-tokio-ueno.jpg",
                     price: "Gratis",
                     fullDesc: `
                         <h3><i class="fa-solid fa-cat"></i> Escaleras al Atardecer</h3>
@@ -3396,7 +3396,7 @@ const travelData = [
         hotel: "Hotel Metropolitan Edmont Tokyo",
         hotelImage: "images/hotel-metropolitan-tokio.jpg",
         hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Hotel+Metropolitan+Edmont+Tokyo",
-        image: "images/dia19-ginza.jpg",
+        image: "images/dia22-itinerario-base.jpg",
 
         logistics: [
             { title: "Transporte", text: "Día de metros por la zona céntrica y bahía exterior de Tokio." },
@@ -3467,7 +3467,7 @@ const travelData = [
                     time: "12:30",
                     title: "La Avenida Principal de Ginza (Chuo Dori)",
                     description: "La zona más elitista comercial de todo el país. Flagships imponentes, boutiques de diseño y restaurantes de estrellas michelin ocultos en rascacielos.",
-                    image: "images/dia19-ginza.jpg",
+                    image: "images/dia22-teatro-kabuki-za-desde-fuera.jpg",
                     price: "Gratis",
                     fullDesc: `
                         <h3><i class="fa-solid fa-gem"></i> La Milla de Diamantes</h3>
@@ -3525,7 +3525,7 @@ const travelData = [
         hotel: "Vuelo de regreso",
         hotelImage: "images/avion.jpg",
         hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Haneda+Airport",
-        image: "images/dia23-portada.jpg",
+        image: "images/dia23-itinerario-base.jpg",
 
         logistics: [
             { title: "Aeropuerto", text: "Vuelo TK199 desde Haneda (HND) a las 21:45. Hay que estar 4 horas antes por precaución (17:45)." },
@@ -3578,7 +3578,7 @@ const travelData = [
                     time: "11:00",
                     title: "Compras Finales (Don Quijote o Akihabara)",
                     description: "Comprar los últimos Kit-Kats raros, matcha o electrónica.",
-                    image: "images/dia23-portada.jpg",
+                    image: "images/dia23-itinerario-base-1.jpg",
                     price: "Libre",
                     fullDesc: `
                         <h3><i class="fa-solid fa-gift"></i> Tetris de Equipaje</h3>
@@ -3596,7 +3596,7 @@ const travelData = [
                     time: "16:30",
                     title: "Operación Traslado: Taxis a Haneda",
                     description: "Se recomiendan taxis furgoneta grandes para acomodar todo vuestro equipaje final.",
-                    image: "images/dia23-portada.jpg",
+                    image: "images/dia23-terminal-3-internacional-haneda.jpg",
                     price: "A dividir",
                     fullDesc: `
                         <h3><i class="fa-solid fa-taxi"></i> Ruta al Aeropuerto</h3>

@@ -1,11 +1,8 @@
-# 📷 Auditoría de Medios Actualizada (Deduplicada)
+# 📥 Lista de Descarga de Imágenes
 
-Este informe lista todas las imágenes necesarias para el proyecto. Hemos eliminado los duplicados para que cada actividad pueda tener su propia foto personalizada.
+Descarga o renombra tus fotos con estos nombres exactos para que aparezcan en la web:
 
-## 1. Instrucciones de Descarga
-Descarga o renombra tus fotos usando los nombres de la columna **"Nombre de Archivo"**. Guárdalas todas en la carpeta `images/` de tu proyecto.
-
-| Nombre de Archivo | Día | Contexto / Actividad |
+| Nombre del Archivo | Día | Actividad / Contexto |
 | :--- | :--- | :--- |
 | `dia3-itinerario-base.jpg` | 3 | Itinerario Base |
 | `dotonbori.png` | 3 | Itinerario Base |
@@ -16,17 +13,20 @@ Descarga o renombra tus fotos usando los nombres de la columna **"Nombre de Arch
 | `dia4-nara.jpg` | 5 | Nara Tradicional |
 | `dia6-despliegue-capital-imperial.jpg` | 6 | Despliegue: Capital Imperial |
 | `hotel-kyoto-tower.jpg` | 6 | Despliegue: Capital Imperial |
-| `dia7-kiyomizu.jpg" | 7 | El Corazón de Kioto |
+| `dia7-kiyomizu.jpg` | 7 | El Corazón de Kioto |
 | `dia7-portada.jpg` | 7 | El Corazón de Kioto |
 | `arashiyama.png` | 8 | Itinerario Base |
 | `dia8-itinerario-base-1.jpg` | 8 | Itinerario Base |
+| `dia8-itinerario-base-2.jpg` | 8 | Itinerario Base |
 | `dia8-itinerario-base.jpg` | 8 | Itinerario Base |
 | `dia7-ginkakuji.jpg` | 9 | Templo Ryoan-ji |
 | `fushimi_inari.png` | 9 | Ruta de los Contrastes |
 | `kinkakuji.png` | 9 | Ruta de los Contrastes |
 | `nishiki_market.png` | 9 | Ruta de los Contrastes |
+| `dia10-itinerario-base-1.jpg` | 10 | Itinerario Base |
 | `dia10-itinerario-base.jpg` | 10 | Itinerario Base |
 | `dia10-nishiki.jpg` | 10 | Itinerario Base |
+| `dia11-itinerario-base-1.jpg` | 11 | Itinerario Base |
 | `dia11-itinerario-base.jpg` | 11 | Itinerario Base |
 | `dia11-shinhotaka.jpg` | 11 | Shinhotaka-no-yu |
 | `dia11-teleferico.jpg` | 11 | Teleférico Shinhotaka |
@@ -61,13 +61,15 @@ Descarga o renombra tus fotos usando los nombres de la columna **"Nombre de Arch
 | `dia18-harajuku.jpg` | 18 | Harajuku (Takeshita Street) |
 | `dia18-meiji.jpg` | 18 | Itinerario Base |
 | `dia18-omotesando.jpg` | 18 | Avenida Omotesando |
-| `dia18-shibuya.jpg" | 18 | Itinerario Base |
+| `dia18-shibuya.jpg` | 18 | Itinerario Base |
 | `dia18-sky.jpg` | 18 | Shibuya Sky |
 | `dia20-disneysea.jpg` | 19 | DisneySea (Día Completo Alternativo) |
 | `dia20-joypolis.jpg` | 19 | Joypolis Tokyo |
 | `dia20-monorail.jpg` | 19 | Itinerario Base |
 | `dia20-odaiba.jpg` | 19 | Itinerario Base |
 | `dia20-teamlab.jpg` | 19 | TeamLab Planets TOKYO |
+| `dia20-itinerario-base-1.jpg` | 20 | Itinerario Base |
+| `dia20-itinerario-base-2.jpg` | 20 | Itinerario Base |
 | `dia20-itinerario-base.jpg` | 20 | Itinerario Base |
 | `dia20-museo-nacional-de-tokio-ueno.jpg` | 20 | Museo Nacional de Tokio (Ueno) |
 | `nakano_broadway.png` | 20 | Nakano Broadway (Cultura Retro) |
@@ -80,9 +82,7 @@ Descarga o renombra tus fotos usando los nombres de la columna **"Nombre de Arch
 | `dia22-roppongi.jpg` | 22 | Itinerario Base |
 | `dia22-teatro-kabuki-za-desde-fuera.jpg` | 22 | Teatro Kabuki-za (Desde fuera) |
 | `dia22-toyosu.jpg` | 22 | Itinerario Base |
+| `dia23-itinerario-base-1.jpg` | 23 | Itinerario Base |
 | `dia23-itinerario-base.jpg` | 23 | Itinerario Base |
 | `dia23-terminal-3-internacional-haneda.jpg` | 23 | Terminal 3 (Internacional) Haneda |
 | `dia24-home.jpg` | 24 | Fin de la Aventura |
-
-## 2. Vídeos Sugeridos (YouTube)
-*Consulta el archivo [media_audit_report.md](media_audit_report.md) para ver la lista completa de búsquedas sugeridas en YouTube.*
