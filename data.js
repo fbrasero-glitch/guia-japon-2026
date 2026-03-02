@@ -378,11 +378,12 @@ const travelData = [
                     link: "https://www.google.com/maps/dir/Hotel+Wing+International+Select+Osaka+Umeda/Osaka+Castle/",
                     fullDesc: `
                         <h3><i class="fa-solid fa-castle"></i> Castillo de Osaka</h3>
-                        <p>Símbolo de Osaka. Construido en 1583 por Toyotomi Hideyoshi. El castillo actual es una reconstrucción de 1931.</p>
+                        <p>Símbolo innegable de la ciudad. Originalmente construido en 1583 por el señor de la guerra Toyotomi Hideyoshi, fue diseñado para ser el centro de una nueva y unificada nación japonesa bajo su dominio. Aunque la imponente torre actual es una reconstrucción de 1931 (restaurada en 1997), se asienta sobre las formidables murallas y fosos de piedra originales de la era Tokugawa.</p>
+                        <p><em>El interior es un museo moderno de ocho plantas que narra la turbulenta historia de la unificación de Japón, culminando en un mirador panorámico en la azotea. Los interminables jardines que lo rodean, especialmente el parque Nishinomaru, son un oasis de paz en el tejido urbano de Osaka.</em></p>
                         <ul>
                             <li><i class="fa-solid fa-clock"></i> <strong>Tiempo:</strong> 2-3 horas.</li>
                             <li><i class="fa-solid fa-ticket"></i> <strong>Entrada:</strong> 600 JPY.</li>
-                            <li><i class="fa-solid fa-camera"></i> <strong>Foto:</strong> Vistas desde la torre principal.</li>
+                            <li><i class="fa-solid fa-camera"></i> <strong>Foto Clave:</strong> Vistas desde la torre principal y desde los jardines.</li>
                         </ul>
                     `
                 },
@@ -396,11 +397,12 @@ const travelData = [
                     link: "https://www.google.com/maps/dir/Osaka+Castle/Umeda+Sky+Building/",
                     fullDesc: `
                         <h3><i class="fa-solid fa-building"></i> Umeda Sky Building</h3>
-                        <p>Observatorio flotante a 173 metros de altura. Vistas de 360° de Osaka.</p>
+                        <p>Un espectáculo de la arquitectura futurista de los años 90. Diseñado por Hiroshi Hara, consiste en dos torres gemelas de 40 pisos conectadas en la cima por el "Floating Garden Observatory" (Observatorio del Jardín Flotante) a 173 metros de altura.</p>
+                        <p><em>El ascenso final se realiza a través de escaleras mecánicas acristaladas suspendidas en el vacío, ofreciendo una experiencia casi de ciencia ficción. A diferencia de otros miradores cerrados, su azotea circular está completamente al aire libre (sin cristales), permitiendo sentir la brisa y escuchar la ciudad mientras se admira una panorámica de 360 grados de la gigantesca red urbana de Kansai.</em></p>
                         <ul>
                             <li><i class="fa-solid fa-clock"></i> <strong>Tiempo:</strong> 1-2 horas.</li>
                             <li><i class="fa-solid fa-ticket"></i> <strong>Entrada:</strong> 1.500 JPY.</li>
-                            <li><i class="fa-solid fa-sun"></i> <strong>Mejor hora:</strong> Atardecer (16:30-18:00).</li>
+                            <li><i class="fa-solid fa-sun"></i> <strong>Momento Épico:</strong> Atardecer (16:30-18:00) para ver cómo la ciudad se enciende.</li>
                         </ul>
                     `
                 },
@@ -414,10 +416,11 @@ const travelData = [
                     link: "https://www.google.com/maps/dir/Umeda+Sky+Building/Dotonbori/",
                     fullDesc: `
                         <h3><i class="fa-solid fa-utensils"></i> Cena en Dotonbori</h3>
-                        <p>El corazón gastronómico de Osaka. Neones, el cartel de Glico, y comida callejera icónica.</p>
+                        <p>El corazón y alma de la famosa filosofía osakeña del <em>Kuidaore</em> (comer hasta arruinarse). Este canal histórico, antaño núcleo de teatros en el periodo Edo, es hoy un caótico, ruidoso y deslumbrante laberinto de cientos de neones gigantes.</p>
+                        <p><em>Aquí se viene a disfrutar de la energía pura de Japón. La comida callejera es obligatoria: pequeñas bolas de pulpo ardiendo (Takoyaki), tortillas saladas japonesas cocinadas en la plancha (Okonomiyaki) y brochetas fritas crujientes (Kushikatsu). Es abrumador pero absolutamente imprescindible para el paladar y la vista.</em></p>
                         <ul>
                             <li><i class="fa-solid fa-bowl-food"></i> <strong>Especialidades:</strong> Takoyaki, Okonomiyaki, Kushikatsu.</li>
-                            <li><i class="fa-solid fa-camera"></i> <strong>Foto obligatoria:</strong> Cartel de Glico Runner.</li>
+                            <li><i class="fa-solid fa-camera"></i> <strong>Foto obligatoria:</strong> Cartel de Glico Runner iluminado y puente Ebisu.</li>
                         </ul>
                     `
                 },
@@ -441,12 +444,13 @@ const travelData = [
                 image: "images/dia3-shinsekai.jpg",
                 recommended: true,
                 fullDesc: `
-                    <h3><i class="fa-solid fa-tower-broadcast"></i> Shinsekai y Tsūtenkaku</h3>
-                    <p>Barrio retro de Osaka con la icónica Torre Tsūtenkaku. Famoso por sus brochetas Kushikatsu.</p>
+                    <h3><i class="fa-solid fa-tower-broadcast"></i> Shinsekai y Tsutenkaku</h3>
+                    <p>Creado en 1912 como el "Parque de Atracciones del Nuevo Mundo" (combinando mitades inspiradas en París y Coney Island), Shinsekai quedó estancado tras la Segunda Guerra Mundial, conservando una irresistible atmósfera retro (estilo Showa) y un aura ligeramente melancólica o decadente muy especial.</p>
+                    <p><em>En el centro se alza la torre Tsutenkaku ("la torre que llega al cielo"), su símbolo icónico. Actualmente, todo el barrio es famoso por estar saturado de vibrantes letreros luminosos vintage, estatuillas de Billiken (el dios de cabeza puntiaguda que da suerte al frotarle los pies) y docenas de izakayas especializadas en <strong>Kushikatsu</strong>: deliciosa carne, pescado y verduras rebozadas, fritas en aceite y untadas en una salsa especial (¡solo se permite untar una vez!).</em></p>
                     <ul>
                         <li><i class="fa-solid fa-clock"></i> <strong>Tiempo:</strong> 2-3 horas.</li>
-                        <li><i class="fa-solid fa-bowl-food"></i> <strong>Especialidad:</strong> Kushikatsu (brochetas fritas).</li>
-                        <li><i class="fa-solid fa-camera"></i> <strong>Ambiente:</strong> Neones retro, estilo Showa.</li>
+                        <li><i class="fa-solid fa-bowl-food"></i> <strong>Regla de oro:</strong> Probar Kushikatsu (comer de pie en barras tradicionales).</li>
+                        <li><i class="fa-solid fa-camera"></i> <strong>Ambiente:</strong> Excelente para fotos callejeras nocturnas, rebosa carácter retro-futurista.</li>
                     </ul>
                 `,
                 tacticalOptions: [
@@ -476,6 +480,67 @@ const travelData = [
                     }
                 ]
             },
+        ],
+        additionalExcursions: [
+            {
+                id: "add_osaka_housing",
+                title: "Museo de la Vivienda y la Vida de Osaka",
+                image: "images/add-osaka-housing.jpg",
+                description: "Inmersión total en el pasado de Osaka con una recreación a tamaño real de un barrio del periodo Edo.",
+                time: "10:00 – 12:00",
+                price: "~600 JPY",
+                link: "https://www.google.com/maps/search/?api=1&query=Osaka+Museum+of+Housing+and+Living",
+                tacticalGuideId: "mission_osaka_housing",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-house-chimney-window"></i> Museo de la Vivienda y la Vida</h3>
+                    <p>Una joya oculta que ofrece una inmersión total en el pasado de la ciudad. Lo más impresionante es su recreación a tamaño real de un barrio de Osaka durante el periodo Edo (siglo XIX). Podréis caminar por calles antiguas, entrar en casas tradicionales japonesas (machiya), tiendas y almacenes.</p>
+                    <p><em>Nota histórica: Durante el periodo Edo, Osaka era conocida como la "cocina de la nación" debido a su papel central en el comercio del arroz y otros bienes. Este museo captura fielmente la vida comerciante de esa época dorada.</em></p>
+                    <ul>
+                        <li><i class="fa-solid fa-clock"></i> <strong>Horario ideal:</strong> Mañana (10:00 – 12:00), antes del calor intenso.</li>
+                        <li><i class="fa-solid fa-snowflake"></i> <strong>Refugio:</strong> Interiores con aire acondicionado, ideal para el grupo y los mayores si el calor de julio es sofocante. Experiencia muy visual y poco cansada.</li>
+                        <li><i class="fa-solid fa-shadows-light-show"></i> <strong>Efecto:</strong> Todo se encuentra bajo una cúpula que simula el ciclo del día y la noche con efectos de luces y sonido.</li>
+                    </ul>
+                `
+            },
+            {
+                id: "add_namba_yasaka",
+                title: "Santuario Namba Yasaka",
+                image: "images/add-namba-yasaka.jpg",
+                description: "Famoso por su enorme edificio en forma de cabeza de león que 'traga' los malos espíritus.",
+                time: "18:30 – 19:30",
+                price: "Gratis",
+                link: "https://www.google.com/maps/search/?api=1&query=Namba+Yasaka+Shrine",
+                tacticalGuideId: "mission_namba_yasaka",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-mask"></i> Santuario Namba Yasaka</h3>
+                    <p>Este santuario es famoso por su icónico edificio, el Ema-Den, que tiene la forma de una gigantesca cabeza de león (12 metros de altura y 11 metros de ancho). Su enorme boca abierta está diseñada para "tragar" los malos espíritus y la mala suerte, asegurando así el éxito en los negocios, el amor y los estudios.</p>
+                    <p><em>Es una visita rápida pero de alto impacto estético que encantará a todos por su originalidad. Además, se encuentra en una zona tranquila de Namba, ofreciendo un respiro visual antes de sumergires en el caos de neones de Dotonbori.</em></p>
+                    <ul>
+                        <li><i class="fa-solid fa-clock"></i> <strong>Horario ideal:</strong> Tarde (18:30 – 19:30), de camino a la cena en Dotonbori.</li>
+                        <li><i class="fa-solid fa-camera"></i> <strong>Santuario Fotogénico:</strong> Uno de los puntos más fotografiados y singulares de todo Osaka.</li>
+                    </ul>
+                `
+            },
+            {
+                id: "add_okawa_cruise",
+                title: "Cruceros por el río Okawa",
+                image: "images/add-okawa-cruise.jpg",
+                description: "Relajado paseo en barco por la isla fluvial de Nakanoshima con vistas al skyline.",
+                time: "17:30 – 18:30",
+                price: "~1.500 JPY",
+                link: "https://www.google.com/maps/search/?api=1&query=Okawa+River+Cruise+Osaka",
+                tacticalGuideId: "mission_okawa_cruise",
+                video: "https://www.youtube.com/watch?v=wWhqU2kzF2s",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-ship"></i> Crucero por el río Okawa</h3>
+                    <p>Un relajado paseo en barco por la isla fluvial de Nakanoshima. Desde el agua, veréis el contraste arquitectónico entre los majestuosos edificios gubernamentales de estilo europeo (como el Ayuntamiento de Osaka y el Banco de Japón) y los rascacielos de cristal modernos.</p>
+                    <p><em>Es una actividad ideal para que los mayores del grupo descansen las piernas mientras disfrutan de la brisa del río y ven cómo se encienden gradualmente las luces de la ciudad al caer la noche.</em></p>
+                    <ul>
+                        <li><i class="fa-solid fa-clock"></i> <strong>Horario ideal:</strong> Atardecer (17:30 – 18:30).</li>
+                        <li><i class="fa-solid fa-couch"></i> <strong>Confort Máximo:</strong> Perspectiva única del skyline de Osaka sin esfuerzo físico.</li>
+                    </ul>
+                `
+            }
         ]
     },
 
@@ -562,6 +627,16 @@ const travelData = [
                     description: "Barrio retro congelado en el tiempo. Probad las brochetas Kushikatsu.",
                     image: "images/dia3-shinsekai.jpg",
                     price: "~1.500 JPY (Torre)",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-tower-broadcast"></i> Shinsekai y Tsutenkaku</h3>
+                        <p>Creado en 1912 como el "Parque de Atracciones del Nuevo Mundo" (combinando mitades inspiradas en París y Coney Island), Shinsekai quedó estancado tras la Segunda Guerra Mundial, conservando una irresistible atmósfera retro (estilo Showa) y un aura ligeramente melancólica o decadente muy especial.</p>
+                        <p><em>En el centro se alza la torre Tsutenkaku ("la torre que llega al cielo"), su símbolo icónico. Actualmente, todo el barrio es famoso por estar saturado de vibrantes letreros luminosos vintage, estatuillas de Billiken (el dios de cabeza puntiaguda que da suerte al frotarle los pies) y docenas de izakayas especializadas en <strong>Kushikatsu</strong>: deliciosa carne, pescado y verduras rebozadas, fritas en aceite y untadas en una salsa especial (¡solo se permite untar una vez!).</em></p>
+                        <ul>
+                            <li><i class="fa-solid fa-clock"></i> <strong>Tiempo:</strong> 2-3 horas.</li>
+                            <li><i class="fa-solid fa-bowl-food"></i> <strong>Regla de oro:</strong> Probar Kushikatsu (comer de pie en barras tradicionales).</li>
+                            <li><i class="fa-solid fa-camera"></i> <strong>Ambiente:</strong> Excelente para fotos callejeras nocturnas, rebosa carácter retro-futurista.</li>
+                        </ul>
+                    `,
                     tacticalOptions: [
                         {
                             title: "DESPLIEGUE: ZONA RETRO",
@@ -584,6 +659,16 @@ const travelData = [
                     description: "Tarde libre o compras en la galería comercial kilométrica.",
                     image: "images/shinsaibashi.png",
                     price: "Gratis",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-shop"></i> Shinsaibashi-suji</h3>
+                        <p>La arteria comercial más antigua e importante de Osaka, con una historia que se remonta a 380 años, cuando el distrito se convirtió en un bullicioso centro de comerciantes durante el periodo Edo.</p>
+                        <p><em>Hoy en día es una galería techada (arcada) de casi 600 metros de longitud que personifica el espíritu consumista y vibrante de la ciudad. Aquí se encuentran desde grandes almacenes históricos de lujo hasta tiendas de electrónica de vanguardia, cosméticos y moda urbana. Es el mejor lugar para observar la "moda de Osaka", conocida por ser más atrevida y colorida que la de Tokio.</em></p>
+                        <ul>
+                            <li><i class="fa-solid fa-walking"></i> <strong>Distancia:</strong> 600 metros de compras ininterrumpidas.</li>
+                            <li><i class="fa-solid fa-lightbulb"></i> <strong>Tip:</strong> Manteneos a la izquierda para fluir con el río de gente.</li>
+                            <li><i class="fa-solid fa-cart-shopping"></i> <strong>Objetivo:</strong> Souvenirs, Kit-Kats de sabores raros y gadgets.</li>
+                        </ul>
+                    `,
                     tacticalOptions: [
                         {
                             title: "INFILTRACIÓN: SHOPPING PROTOCOL",
@@ -713,6 +798,175 @@ const travelData = [
                     }
                 ]
             }
+        ],
+        additionalExcursions: [
+            {
+                id: "add_sumiyoshi",
+                title: "Santuario Sumiyoshi Taisha",
+                image: "images/add-sumiyoshi.jpg",
+                description: "Uno de los santuarios más antiguos de Japón con el icónico puente curvo Sorihashi.",
+                time: "09:30 – 11:30",
+                price: "Gratis",
+                link: "https://www.google.com/maps/search/?api=1&query=Sumiyoshi+Taisha+Shrine",
+                tacticalGuideId: "mission_sumiyoshi",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-archway"></i> Santuario Sumiyoshi Taisha</h3>
+                    <p>Es uno de los santuarios más antiguos de Japón, fundado en el siglo III, mucho antes de la introducción del budismo. Es famoso por su arquitectura estilo <em>Sumiyoshi-zukuri</em>, caracterizada por techos rectos exentos de la curvatura habitual de influencia continental.</p>
+                    <p><em>El punto más icónico es el puente curvo Sorihashi, que se refleja perfectamente en el agua creando un círculo completo. Es un lugar de paz absoluta, de caminos anchos de grava blanca, ideal para disfrutar sin aglomeraciones turísticas.</em></p>
+                    <ul>
+                        <li><i class="fa-solid fa-clock"></i> <strong>Horario ideal:</strong> Mañana (09:30 – 11:30).</li>
+                        <li><i class="fa-solid fa-peace"></i> <strong>Paz y Espacio:</strong> Caminata cómoda y relajante, perfecta para los mayores del grupo.</li>
+                    </ul>
+                `
+            },
+            {
+                id: "add_osaka_history",
+                title: "Museo de Historia de Osaka",
+                image: "images/add-osaka-history.jpg",
+                description: "Vistas panorámicas del Castillo de Osaka y maquetas detalladas de la antigua Naniwa.",
+                time: "12:00 – 14:00",
+                price: "~600 JPY",
+                link: "https://www.google.com/maps/search/?api=1&query=Osaka+Museum+of+History",
+                tacticalGuideId: "mission_osaka_history",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-monument"></i> Museo de Historia de Osaka</h3>
+                    <p>Este museo cuenta la historia de la ciudad de forma cronológica de arriba hacia abajo. En la planta superior os recibirán figuras a tamaño real en una recreación del antiguo Palacio Naniwa, mostrando cómo Osaka fue la primera capital de facto de Japón en el siglo VII antes que Nara o Kioto.</p>
+                    <p><em>Lo mejor no es solo el museo en sí: sus enormes ventanales panorámicos ofrecen la mejor vista aérea del impresionante Castillo de Osaka, permitiendo disfrutar de la estampa sin tener que subir a pie a la torre del castillo en el calor del verano.</em></p>
+                    <ul>
+                        <li><i class="fa-solid fa-clock"></i> <strong>Horario ideal:</strong> Mediodía (12:00 – 14:00).</li>
+                        <li><i class="fa-solid fa-elevator"></i> <strong>Refugio Estratégico:</strong> Totalmente climatizado, con ascensores y zonas de descanso. Educativo y muy cómodo.</li>
+                    </ul>
+                `
+            },
+            {
+                id: "add_tsuruhashi",
+                title: "Tsuruhashi Koreatown",
+                image: "images/add-tsuruhashi.jpg",
+                description: "El corazón multicultural de Osaka con los mejores mercados y barbacoa coreana.",
+                time: "18:00 – 20:00",
+                price: "Variable",
+                link: "https://www.google.com/maps/search/?api=1&query=Tsuruhashi+Koreatown+Osaka",
+                tacticalGuideId: "mission_koreatown",
+                video: "https://www.youtube.com/watch?v=YnFZkCGTCa8",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-fire-burner"></i> Tsuruhashi Koreatown</h3>
+                    <p>El corazón de la vibrante comunidad coreana de Osaka (los <em>Zainichi</em>). Originado tras la Segunda Guerra Mundial, este extenso laberinto de callejuelas está lleno de puestos de kimchi, prendas tradicionales y decenas de restaurantes de Yakiniku (barbacoa coreana).</p>
+                    <p><em>Es una alternativa fantástica si queréis probar sabores intensos y ver una cara de Osaka mucho más multicultural, frenética y auténtica que las zonas puramente turísticas, con el olor a carne asada inundando el aire desde la propia salida de la estación del tren.</em></p>
+                    <ul>
+                        <li><i class="fa-solid fa-clock"></i> <strong>Horario ideal:</strong> Tarde/Cena (18:00 – 20:00).</li>
+                        <li><i class="fa-brands fa-youtube"></i> <strong>Ambiente:</strong> Multicultural, ruidoso y lleno de energía. Una experiencia completamente distinta al resto del día.</li>
+                    </ul>
+                `
+            },
+            {
+                id: "add_miyajima_gourmet",
+                title: "Miyajima Gourmet",
+                image: "images/add-miyajima-food.jpg",
+                description: "Ostras a la parrilla y el famoso Momiji Manju en la isla sagrada.",
+                time: "12:00 – 14:00",
+                price: "Variable",
+                link: "https://www.google.com/maps/search/?api=1&query=Miyajima+Omotesando+Shopping+Street",
+                tacticalGuideId: "mission_miyajima_gourmet",
+                video: "https://www.youtube.com/watch?v=vVj4u_3n08o",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-utensils"></i> Miyajima Gourmet</h3>
+                    <p>La isla de Miyajima no solo es famosa por su torii flotante, sino por su calle comercial Omotesando, llena de delicias locales.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-fish"></i> <strong>Ostras:</strong> Cocinadas a la parrilla con un toque de limón.</li>
+                        <li><i class="fa-solid fa-leaf"></i> <strong>Momiji Manju:</strong> Pastelitos en forma de hoja de arce rellenos de chocolate, crema o anko.</li>
+                    </ul>
+                `
+            },
+            {
+                id: "add_hiroshima_peace",
+                title: "Museo de la Paz Hiroshima",
+                image: "images/add-hiroshima-peace.jpg",
+                description: "Un recordatorio impactante de la historia y un mensaje de paz mundial.",
+                time: "14:30 – 16:30",
+                price: "~200 JPY",
+                link: "https://www.google.com/maps/search/?api=1&query=Hiroshima+Peace+Memorial+Museum",
+                tacticalGuideId: "mission_hiroshima_peace",
+                video: "https://www.youtube.com/watch?v=Lstpwh6S-Tg",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-dove"></i> Museo de la Paz</h3>
+                    <p>El museo ofrece una visión detallada de los eventos del 6 de agosto de 1945 y las historias de los supervivientes.</p>
+                `
+            },
+            {
+                id: "add_hiroshima_castle",
+                title: "Castillo de Hiroshima",
+                image: "images/add-hiroshima-castle.jpg",
+                description: "Reconstrucción del castillo original, conocido como el 'Castillo de la Carpa'.",
+                time: "10:30 – 12:00",
+                price: "~370 JPY",
+                link: "https://www.google.com/maps/search/?api=1&query=Hiroshima+Castle",
+                tacticalGuideId: "mission_hiroshima_castle",
+                video: "https://www.youtube.com/watch?v=Lstpwh6S-Tg",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-fort-awesome"></i> Castillo de Hiroshima</h3>
+                    <p>Rodeado por un foso y con un museo de historia samurai en su interior.</p>
+                `
+            },
+            {
+                id: "add_shukkeien",
+                title: "Jardín Shukkeien",
+                image: "images/add-shukkeien.jpg",
+                description: "Jardín histórico con paisajes miniaturizados de montañas y lagos.",
+                time: "09:00 – 10:30",
+                price: "~260 JPY",
+                link: "https://www.google.com/maps/search/?api=1&query=Shukkeien+Garden",
+                tacticalGuideId: "mission_shukkeien",
+                video: "https://www.youtube.com/watch?v=F_Yq-zM_mF4",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-tree"></i> Jardín Shukkeien</h3>
+                    <p>Un remanso de paz con puentes tradicionales y casas de té, ideal para un paseo matutino.</p>
+                `
+            },
+            {
+                id: "add_okayama_kurashiki",
+                title: "Okayama Castle & Kurashiki",
+                image: "images/add-okayama.jpg",
+                description: "El castillo negro de Okayama y los canales históricos de Kurashiki.",
+                time: "Todo el día",
+                price: "Variable",
+                link: "https://www.google.com/maps/search/?api=1&query=Okayama+Castle",
+                tacticalGuideId: "mission_okayama_kurashiki",
+                video: "https://www.youtube.com/watch?v=W90n1_vG7vU",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-city"></i> Okayama y Kurashiki</h3>
+                    <p>Combinad la visita al impresionante Castillo de Okayama con un paseo en barca por los canales de Kurashiki Bikan.</p>
+                `
+            },
+            {
+                id: "add_himeji",
+                title: "Castillo de Himeji & Jardín Kokoen",
+                image: "images/add-himeji.jpg",
+                description: "El mejor ejemplo de arquitectura defensiva samurai y sus jardines adyacentes.",
+                time: "09:30 – 13:30",
+                price: "~1.050 JPY",
+                link: "https://www.google.com/maps/search/?api=1&query=Himeji+Castle",
+                tacticalGuideId: "mission_himeji",
+                video: "https://www.youtube.com/watch?v=rX_HAn3M_p0",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-chess-rook"></i> Castillo de Himeji</h3>
+                    <p>Patrimonio Mundial de la UNESCO. Subid a la torre principal para vistas de 360 grados.</p>
+                `
+            },
+            {
+                id: "add_okawa_cruise",
+                title: "Crucero por el río Okawa (Osaka)",
+                image: "images/add-okawa-cruise.jpg",
+                description: "Recorrido visual en 4K por los canales de Osaka.",
+                time: "17:00 – 18:00",
+                price: "~1.500 JPY",
+                video: "https://www.youtube.com/watch?v=wWhqU2kzF2s",
+                link: "https://www.google.com/maps/search/?api=1&query=Okawa+River+Cruise+Osaka",
+                tacticalGuideId: "mission_okawa_cruise",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-ship"></i> Crucero Fluvial Okawa</h3>
+                    <p>Un excelente recorrido visual para que veáis la ciudad desde otra perspectiva. Especialmente mágico con las luces del atardecer.</p>
+                `
+            }
         ]
     },
 
@@ -808,12 +1062,13 @@ const travelData = [
                     price: "600 JPY",
                     link: "https://www.google.com/maps/dir/Nara+Station/Todai-ji+Temple/",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-landmark"></i> Todai-ji</h3>
-                        <p>Hogar del Daibutsu. No olvides el reto de Iván en el pilar con el agujero.</p>
+                        <h3><i class="fa-solid fa-landmark"></i> Templo Tōdai-ji</h3>
+                        <p>Construido originalmente en el año 752 por decreto del Emperador Shomu, este templo no es solo un edificio religioso, sino que fue concebido como la pieza central de una red nacional de templos para proteger a Japón. Su sala principal, la Daibutsuden, es mundialmente famosa por ser la estructura de madera más grande del mundo, a pesar de que la versión actual (reconstruida en 1709 tras incendios sufridos en guerras civiles) es sorprendentemente un 30% más pequeña que la original.</p>
+                        <p><em>En su interior se encuentra el Daibutsu (Gran Buda) de bronce fundido, una de las estatuas más grandes de su tipo en el mundo, que pesa más de 500 toneladas. Detrás de la estatua, buscad el pilar con un agujero en su base: la leyenda dice que quien logre pasar por él (tiene el mismo tamaño que la fosa nasal del Gran Buda) alcanzará la iluminación en su próxima vida. Iván, este es tu reto oficial del día.</em></p>
                         <ul>
                             <li><i class="fa-solid fa-clock"></i> <strong>Tiempo:</strong> 1-2 horas.</li>
                             <li><i class="fa-solid fa-ticket"></i> <strong>Entrada:</strong> 600 JPY.</li>
-                            <li><i class="fa-solid fa-camera"></i> <strong>Foto:</strong> Gran Buda de 15 metros.</li>
+                            <li><i class="fa-solid fa-dragon"></i> <strong>Hito:</strong> Esculturas guardianas Niō en la puerta Nandaimon.</li>
                         </ul>
                     `,
                     video: "https://www.youtube.com/watch?v=Wz9y6JI6qfU"
@@ -828,14 +1083,15 @@ const travelData = [
                     link: "https://www.google.com/maps/dir/Todai-ji+Temple/Kasuga+Taisha/",
                     fullDesc: `
                         <h3><i class="fa-solid fa-lightbulb"></i> Kasuga Taisha</h3>
-                        <p>Paseo por el bosque de linternas de piedra. Inmersión total en el sintoísmo antiguo.</p>
+                        <p>Fundado en el año 768 y dedicado a las deidades que protegen la ciudad de Nara, este santuario es el mausoleo espiritual del poderoso clan Fujiwara. El camino hacia el santuario atraviesa un bosque místico habitado por ciervos salvajes (mensajeros divinos en la mitología sintoísta).</p>
+                        <p><em>El complejo es famoso por su arquitectura bermellón brillante y, sobre todo, por sus más de 3.000 linternas. Unas 2.000 son linternas de piedra que bordean los senderos y otras 1.000 son linternas de bronce que cuelgan del propio santuario. Solo se encienden todas dos veces al año (Mantōrō), creando una imagen mágica de otro mundo.</em></p>
                         <ul>
                             <li><i class="fa-solid fa-clock"></i> <strong>Tiempo:</strong> 1-1.5 horas.</li>
                             <li><i class="fa-solid fa-ticket"></i> <strong>Entrada:</strong> 500 JPY.</li>
-                            <li><i class="fa-solid fa-lantern"></i> <strong>Especial:</strong> 3.000 linternas de piedra y bronce.</li>
+                            <li><i class="fa-solid fa-tree"></i> <strong>Vibe:</strong> Profundo silencio y espiritualidad antigua en el bosque.</li>
                         </ul>
                     `,
-                    video: "https://www.youtube.com/watch?v=Wz9y6JI6qfU"
+                    video: "https://www.youtube.com/watch?v=5zdQAZmpgUE"
                 }
             ]
         },
@@ -884,6 +1140,142 @@ const travelData = [
                     }
                 ],
                 video: "https://www.youtube.com/watch?v=RJy9LjTnz-Q"
+            }
+        ],
+        additionalExcursions: [
+            {
+                id: "add_nara_deer",
+                title: "Nara Deer Experience",
+                image: "images/dia4-nara.jpg",
+                description: "Interacción inmersiva con los ciervos sagrados de Nara.",
+                time: "Flexible",
+                price: "Gratis",
+                video: "https://www.youtube.com/watch?v=Xz2Z0x-N_2k",
+                link: "https://www.google.com/maps/search/?api=1&query=Nara+Park",
+                tacticalGuideId: "mission_nara_deer",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-deer"></i> Encuentro con los Ciervos</h3>
+                    <p>Un recorrido visual por el parque de Nara, mostrando la interacción con los ciervos y los rincones más tranquilos del bosque.</p>
+                `
+            },
+            {
+                id: "add_wakakusa",
+                title: "Monte Wakakusa",
+                image: "images/add-wakakusa.jpg",
+                description: "Vistas panorámicas espectaculares de Nara al atardecer.",
+                time: "16:00 – 17:30",
+                price: "~150 JPY",
+                link: "https://www.google.com/maps/search/?api=1&query=Mount+Wakakusa",
+                tacticalGuideId: "mission_wakakusa",
+                video: "https://www.youtube.com/watch?v=L3Gx5sbREeE",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-mountain-sun"></i> Monte Wakakusa</h3>
+                    <p>Una verde colina de 342 metros de altura situada justo detrás del parque y del Gran Santuario Kasuga Taisha. Su ladera está desprovista de árboles gruesos y cubierta completamente de suave hierba, lo que ofrece un sendero despejado ideal para caminar.</p>
+                    <p><em>La recompensa tras una caminata de unos 15-20 minutos hasta el primer nivel es una vista panorámica espectacular e ininterrumpida de toda la antigua capital de Nara. Es el mejor lugar para observar a los ciervos pastando en un entorno de montaña mucho más salvaje y natural, lejos del asfalto. Las fotos al atardecer desde aquí son absolutamente legendarias.</em></p>
+                    <ul>
+                        <li><i class="fa-solid fa-clock"></i> <strong>Horario ideal:</strong> Tarde (16:00 – 17:30).</li>
+                        <li><i class="fa-solid fa-camera"></i> <strong>Vistas:</strong> Panorámica total de Nara y ciervos en libertad.</li>
+                    </ul>
+                `
+            },
+            {
+                id: "add_nara_museum",
+                title: "Museo Nacional de Nara",
+                image: "images/add-nara-museum.jpg",
+                description: "Una de las colecciones de arte budista más importantes del mundo.",
+                time: "Mediodía",
+                price: "~700 JPY",
+                link: "https://www.google.com/maps/search/?api=1&query=Nara+National+Museum",
+                tacticalGuideId: "mission_nara_museum",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-chess-knight"></i> Museo Nacional de Nara</h3>
+                    <p>El edificio original, finalizado en 1894 y diseñado por Katayama Tokuma, es una obra maestra de la arquitectura del estilo renacentista francés de la era Meiji y está designado como Propiedad Cultural Importante. Alberga una de las colecciones de arte budista más importantes y antiguas del mundo.</p>
+                    <p><em>Entre sus galerías climatizadas encontraréis impresionantes estatuas originales de bronce y madera, mandalas elaborados y pergaminos históricos. Esta visita no solo ofrece un refugio vital contra el intenso calor de agosto, sino que es clave para entender la magnitud de Nara como el centro espiritual y político de Japón en el siglo VIII.</em></p>
+                    <ul>
+                        <li><i class="fa-solid fa-snowflake"></i> <strong>Estrategia de escape:</strong> Visitar al mediodía para huir del sol picante.</li>
+                        <li><i class="fa-solid fa-building-columns"></i> <strong>Valor Histórico:</strong> Contexto esencial sobre el origen del Budismo en Japón.</li>
+                    </ul>
+                `
+            },
+            {
+                id: "add_isuien",
+                title: "Jardín Isuien",
+                image: "images/add-isuien.jpg",
+                description: "Jardín zen extremadamente tranquilo con técnica de 'paisaje prestado'.",
+                time: "10:00 – 11:30",
+                price: "~900 JPY",
+                link: "https://www.google.com/maps/search/?api=1&query=Isuien+Garden",
+                tacticalGuideId: "mission_isuien",
+                video: "https://www.youtube.com/watch?v=q6P4e6P3nL0",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-spa"></i> Jardín Isuien</h3>
+                    <p>Uno de los jardines japoneses más exquisitos, construido durante el periodo Edo y Meiji. El Isuien utiliza de manera magistral la técnica del <em>Shakkei</em> o "paisaje prestado", integrando visualmente elementos lejanos (como el imponente techo del Templo Todai-ji y las verdes laderas del Monte Wakakusa) como si fueran parte de su propio trazado.</p>
+                    <p><em>A diferencia del ajetreo del Parque de Nara, es un recinto privado que respira un nivel zen superior. Caminar por sus senderos de piedra, admirar sus casas de té y cruzar los arroyos llenos de carpas koi ofrece una experiencia aristocrática, pacífica y visualmente deslumbrante que el grupo agradecerá.</em></p>
+                    <ul>
+                        <li><i class="fa-solid fa-clock"></i> <strong>Horario ideal:</strong> Mañana (10:00 – 11:30), antes de que apriete el calor.</li>
+                        <li><i class="fa-solid fa-mountain"></i> <strong>Diseño Paisajístico:</strong> Pura maestría fotográfica en vivo.</li>
+                    </ul>
+                `
+            },
+            {
+                id: "add_naramachi",
+                title: "Estanque Sarusawa & Naramachi",
+                image: "images/add-naramachi.jpg",
+                description: "Paseo por el estanque sagrado y el barrio tradicional de mercaderes.",
+                time: "13:30 – 15:00",
+                price: "Gratis",
+                link: "https://www.google.com/maps/search/?api=1&query=Sarusawa-ike+Pond",
+                tacticalGuideId: "mission_naramachi",
+                video: "https://www.youtube.com/watch?v=lX9z-LwS88c",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-water"></i> Estanque Sarusawa y Naramachi</h3>
+                    <p>El estanque Sarusawa ofrece una vista clásica de la pagoda del templo Kofuku-ji reflejada en el agua. Naramachi es el antiguo distrito comercial de Nara, con estrechas callejuelas y casas de madera (machiya) bien conservadas.</p>
+                `
+            },
+            {
+                id: "add_koyasan_okunoin",
+                title: "Okunoin & Experiencia Shukubo (Koya-san)",
+                image: "images/add-okunoin.jpg",
+                description: "El cementerio más grande de Japón y estancia en un templo budista.",
+                time: "Todo el día",
+                price: "Variable",
+                link: "https://www.google.com/maps/search/?api=1&query=Okunoin+Cemetery",
+                tacticalGuideId: "mission_okunoin",
+                video: "https://www.youtube.com/watch?v=X5rdMYouswg",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-gopuram"></i> Okunoin y Koya-san</h3>
+                    <p>Okunoin es el mausoleo de Kobo Daishi, rodeado por más de 200.000 tumbas y cedros centenarios. La experiencia Shukubo permite dormir en un templo y participar en los rezos matutinos.</p>
+                `
+            },
+            {
+                id: "add_koyasan_garan",
+                title: "Complejo Garan & Kongobuji",
+                image: "images/add-garan.jpg",
+                description: "El centro espiritual de la montaña sagrada Koya-san.",
+                time: "10:00 – 14:00",
+                price: "~500 JPY",
+                link: "https://www.google.com/maps/search/?api=1&query=Danjo+Garan+Complex",
+                tacticalGuideId: "mission_garan",
+                video: "https://www.youtube.com/watch?v=CQ4O5lZX42A",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-archway"></i> Complejo Garan</h3>
+                    <p>El centro de Koya-san, con la impresionante pagoda Konpon Daito y el templo principal Kongobuji, famoso por su jardín de rocas Banryutei.</p>
+                `
+            },
+            {
+                id: "add_koyasan_daimon",
+                title: "Puerta Daimon",
+                image: "images/add-daimon.jpg",
+                description: "La majestuosa puerta de entrada a la montaña sagrada.",
+                time: "Flexible",
+                price: "Gratis",
+                link: "https://www.google.com/maps/search/?api=1&query=Daimon+Gate+Koyasan",
+                tacticalGuideId: "mission_daimon",
+                video: "https://www.youtube.com/watch?v=eP_f98_pGsc",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-torii-gate"></i> Puerta Daimon</h3>
+                    <p>Una enorme puerta de color bermellón que marca la entrada tradicional a Koya-san, custodiada por dos estatuas guardianas Nio.</p>
+                `
             }
         ]
     },
@@ -1018,12 +1410,13 @@ const travelData = [
                     tacticalGuideId: "mission_nijo",
                     fullDesc: `
                         <h3><i class="fa-solid fa-fort-awesome"></i> Castillo de Nijo-jo</h3>
-                        <p>Residencia en Kioto del Shogun Tokugawa Ieyasu. Famoso por su arquitectura palaciega y sus sistemas de seguridad antiguos.</p>
+                        <p>Construido en 1603 como la residencia oficial en Kioto del primer Shogún del periodo Edo, Tokugawa Ieyasu. El complejo es un testimonio del poder y la opulencia del shogunato, contrastando con la relativa sencillez del Palacio Imperial de Kioto.</p>
+                        <p><em>La joya del castillo es el Palacio Ninomaru, donde destaca el ingenioso "suelo de ruiseñor" (uguisubari). Estos tablones de madera fueron diseñados deliberadamente para emitir un chirrido similar al canto de un pájaro al ser pisados, funcionando como un sistema de alarma natural contra posibles intrusos o asesinos ninja. El interior del palacio está decorado con impresionantes biombos pintados por la escuela Kanō, representando tigres y pinos que simbolizaban la fuerza del Shogún.</em></p>
                         <ul>
-                            <li><i class="fa-solid fa-bird"></i> <strong>Suelos de Ruiseñor:</strong> Diseñados para chirriar cuando alguien camina sobre ellos, alertando contra asesinos.</li>
-                            <li><i class="fa-solid fa-leaf"></i> <strong>Palacio Ninomaru:</strong> Conserva las pinturas originales y el ambiente del shogunato.</li>
+                            <li><i class="fa-solid fa-bird"></i> <strong>Suelos de Ruiseñor:</strong> Una obra maestra de la carpintería defensiva antigua.</li>
+                            <li><i class="fa-solid fa-leaf"></i> <strong>Jardín Ninomaru:</strong> Diseñado por el maestro de té Kobori Enshu, con rocas masivas que representan la longevidad.</li>
                         </ul>
-                    `
+                    `,
                 },
                 {
                     time: "18:00",
@@ -1068,6 +1461,63 @@ const travelData = [
                         tacticalGuideId: "mission_toji"
                     }
                 ]
+            }
+        ],
+        additionalExcursions: [
+            {
+                id: "add_sanjusangendo",
+                title: "Templo Sanjūsangen-dō",
+                image: "images/add-sanjusangendo.jpg",
+                description: "1.001 estatuas de la diosa Kannon cubiertas de pan de oro.",
+                time: "15:00 – 16:30",
+                price: "~600 JPY",
+                link: "https://www.google.com/maps/search/?api=1&query=Sanjusangendo+Temple",
+                tacticalGuideId: "mission_sanjusangendo",
+                video: "https://www.youtube.com/watch?v=ECJfCEUoMaA",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-users-rays"></i> Sanjūsangen-dō</h3>
+                    <p>Salón de madera de 120 metros con un ejército místico de estatuas talladas a mano. Atmósfera sobrecogedora.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-clock"></i> <strong>Horario ideal:</strong> Tarde (15:00 – 16:30).</li>
+                        <li><i class="fa-solid fa-eye"></i> <strong>Visual:</strong> Una de las vistas interiores más increíbles de Japón.</li>
+                    </ul>
+                `
+            },
+            {
+                id: "add_kamogawa",
+                title: "Paseo por el río Kamo",
+                image: "images/add-kamogawa.jpg",
+                description: "Paseo local y relajado junto al río para ver el Kioto costumbrista.",
+                time: "18:30 – 19:30",
+                price: "Gratis",
+                link: "https://www.google.com/maps/search/?api=1&query=Kamo+River+Kyoto",
+                tacticalGuideId: "mission_kamogawa",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-bridge"></i> Río Kamo (Kamo-gawa)</h3>
+                    <p>Caminad por la orilla desde la calle Shijo. Ideal para ver músicos, parejas y la vida local de Kioto.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-clock"></i> <strong>Horario ideal:</strong> Atardecer (18:30 – 19:30).</li>
+                        <li><i class="fa-solid fa-wind"></i> <strong>Refrescante:</strong> Paseo gratuito con brisa fluvial en verano.</li>
+                    </ul>
+                `
+            },
+            {
+                id: "add_nishi_honganji",
+                title: "Templo Nishi Hongan-ji",
+                image: "images/add-nishi-honganji.jpg",
+                description: "Enorme complejo Patrimonio de la Humanidad, gratuito y poco turístico.",
+                time: "11:00 – 12:00",
+                price: "Gratis",
+                link: "https://www.google.com/maps/search/?api=1&query=Nishi+Hongan-ji+Temple",
+                tacticalGuideId: "mission_nishi_honganji",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-building-ngo"></i> Nishi Hongan-ji</h3>
+                    <p>Salones de madera gigantescos y tallas doradas exquisitas. Ideal para observar rituales en silencio.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-clock"></i> <strong>Horario ideal:</strong> Mañana (11:00 – 12:00).</li>
+                        <li><i class="fa-solid fa-couch"></i> <strong>Confort:</strong> Salones amplios con tatami para sentarse y descansar.</li>
+                    </ul>
+                `
             }
         ]
     },
@@ -1168,28 +1618,65 @@ const travelData = [
                     price: "400 JPY",
                     link: "https://www.google.com/maps/search/?api=1&query=Kiyomizu-dera",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-water"></i> Kiyomizu-dera</h3>
-                        <p>Construido sin un solo clavo, este templo cuelga sobre la colina de Otowa.</p>
+                        <h3><i class="fa-solid fa-mountain"></i> Templo Kiyomizu-dera</h3>
+                        <p>Fundado en el año 778, este templo es un tesoro del Patrimonio Mundial de la UNESCO. Su nombre, que significa "Templo del Agua Pura", proviene de la cascada Otowa que fluye por las colinas circundantes. Lo más espectacular es su gran terraza de madera, que sobresale 13 metros sobre el valle y fue construida sin utilizar un solo clavo, empleando un complejo sistema de encajes y pilares de madera de zelkova.</p>
+                        <p><em>En la base de la terraza, veréis a los visitantes bebiendo de los tres chorros de la cascada Otowa. Cada chorro tiene un significado: longevidad, éxito escolar y una vida amorosa afortunada (¡pero cuidado, se dice que beber de los tres es señal de codicia!). Es un lugar de vistas inolvidables de Kioto, especialmente hermoso cuando la luz baña la estructura al amanecer.</em></p>
                         <ul>
-                            <li><strong>Terraza de madera:</strong> Vistas panorámicas de Kioto.</li>
-                            <li><strong>Cascada Otowa:</strong> Bebe de sus tres hilos de agua para salud, longevidad o éxito escolar.</li>
+                            <li><i class="fa-solid fa-clock"></i> <strong>Horario recomendado:</strong> 08:30 para evitar el grueso de turistas.</li>
+                            <li><i class="fa-solid fa-droplet"></i> <strong>Cascada Otowa:</strong> Elegid vuestro deseo antes de beber.</li>
                         </ul>
                     `
                 },
                 {
                     id: "b2",
-                    time: "18:00",
-                    title: "Gion & Pontocho",
-                    description: "El distrito de las Geishas al atardecer y cena en los callejones atmosféricos junto al río Kamo.",
-                    image: "images/dia7-portada.jpg",
+                    time: "11:00",
+                    title: "Paseo Higashiyama (Sannenzaka/Ninenzaka)",
+                    description: "Descenso por las calles empedradas más icónicas de Kioto.",
+                    image: "images/dia7-historico.jpg",
                     price: "Gratis",
-                    type: "area",
+                    link: "https://www.google.com/maps/dir/Kiyomizu-dera/Yasaka+Shrine/",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-person-dress-fairy"></i> Gion</h3>
-                        <p>El barrio de entretenimiento más famoso de Kioto, donde aún se pueden ver Maikos y Geishas.</p>
+                        <h3><i class="fa-solid fa-walking"></i> El Alma de Kioto: Higashiyama</h3>
+                        <p>Caminar por las pendientes de Sannenzaka y Ninenzaka es como retroceder siglos en el tiempo. Estas calles empedradas, flanqueadas por casas de madera restauradas que ahora albergan tiendas de artesanía, dulces tradicionales y casas de té, capturan la esencia del Kioto medieval.</p>
+                        <p><em>El nombre de las calles tiene un toque de superstición local: se decía que si tropezabas en Sannenzaka tendrías tres años de mala suerte. Más allá de las leyendas, el paseo es visualmente deslumbrante, con vistas que incluyen la Pagoda Yasaka (Hokan-ji) asomando entre los tejados de paja y teja oscura.</em></p>
                         <ul>
-                            <li><strong>Hanamikoji:</strong> La calle más exclusiva con casas de té tradicionales.</li>
-                            <li><strong>Pontocho:</strong> Callejón estrecho paralelo al río, ideal para cenar.</li>
+                            <li><i class="fa-solid fa-camera"></i> <strong>Perspectiva:</strong> Buscad el encuadre con la pagoda al fondo desde Sannenzaka.</li>
+                            <li><i class="fa-solid fa-ice-cream"></i> <strong>Tip:</strong> Probad los helados de té matcha o los dulces Yatsuhashi.</li>
+                        </ul>
+                    `
+                },
+                {
+                    id: "b3",
+                    time: "12:30",
+                    title: "Santuario Yasaka y Parque Maruyama",
+                    description: "El 'Santuario de Gion' y su famosa puerta bermellón.",
+                    image: "images/dia7-yasaka.jpg",
+                    price: "Gratis",
+                    link: "https://www.google.com/maps/search/?api=1&query=Yasaka+Shrine+Kyoto",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-torii-gate"></i> Santuario Yasaka-jinja</h3>
+                        <p>Estratégicamente situado entre los distritos de Gion y Higashiyama, este santuario es uno de los más populares de la ciudad. Su puerta bermellón de dos pisos (Nishi-ro-mon) en la calle Shijo es uno de los hitos más reconocibles de Kioto.</p>
+                        <p><em>Es conocido como el protector del distrito de geishas. Por la noche, sus cientos de linternas se iluminan, creando un ambiente místico. Si camináis un poco más hacia el interior, llegaréis al Parque Maruyama, el lugar favorito de los locales para el hanami (contemplación de los cerezos), donde destaca un enorme cerezo llorón central.</em></p>
+                        <ul>
+                            <li><i class="fa-solid fa-lightbulb"></i> <strong>Linternas:</strong> Veréis los nombres de los negocios locales donados en ellas.</li>
+                            <li><i class="fa-solid fa-peace"></i> <strong>Atmósfera:</strong> Especialmente mágico al atardecer cuando se encienden las luces.</li>
+                        </ul>
+                    `
+                },
+                {
+                    id: "b4",
+                    time: "18:00",
+                    title: "Barrio de Gion",
+                    description: "El legendario distrito de las Geishas. Infiltración nocturna.",
+                    image: "images/dia7-gion.jpg",
+                    price: "Gratis",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-person-dress-fairy"></i> El Enigma de Gion</h3>
+                        <p>Gion es el distrito de entretenimiento más famoso de Kioto, donde el mundo de las Geiko (geishas) y Maiko (aprendices) todavía late con fuerza detrás de las celosías de madera de las ochaya (casas de té). La calle Hanamikoji es el epicentro visual, con su pavimento de piedra y edificios tradicionales perfectamente conservados.</p>
+                        <p><em>Pasear por Gion al anochecer es una experiencia de paciencia y respeto. Si tenéis suerte, podréis ver la silueta rápida de una Maiko dirigiéndose a una cita. Recordad que son artistas trabajando, no atracciones turísticas; mantened la distancia y disfrutad del aura de misterio que envuelve estas calles.</em></p>
+                        <ul>
+                            <li><i class="fa-solid fa-user-secret"></i> <strong>Código Ético:</strong> No molestar ni tocar a las Geiko/Maiko.</li>
+                            <li><i class="fa-solid fa-camera-retro"></i> <strong>Canal Shirakawa:</strong> La zona más pintoresca de Gion, paralela al canal bajo los sauces.</li>
                         </ul>
                     `
                 }
@@ -1237,6 +1724,77 @@ const travelData = [
                         ]
                     }
                 ]
+            }
+        ],
+        additionalExcursions: [
+            {
+                id: "add_pontocho_night",
+                title: "Paseo Nocturno Pontocho",
+                image: "images/dia7-gion.jpg",
+                description: "Recorrido atmosférico por el callejón más famoso de Kioto de noche.",
+                time: "20:00 – 21:30",
+                price: "Gratis",
+                video: "https://www.youtube.com/watch?v=8mG_nI_yKys",
+                link: "https://www.google.com/maps/search/?api=1&query=Pontocho+Alley+Kyoto",
+                tacticalGuideId: "mission_pontocho_night",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-lantern"></i> Pontocho bajo la Luna</h3>
+                    <p>Inmersión visual en las luces de neón y linternas tradicionales que bañan este estrecho callejón lleno de secretos.</p>
+                `
+            },
+            {
+                id: "add_samurai_museum",
+                title: "Museo de Samuráis y Ninjas de Kioto",
+                image: "images/add-samurai-museum.jpg",
+                description: "Experiencia interactiva con armaduras, katanas y entrenamiento ninja.",
+                time: "11:30 – 13:30",
+                price: "~2.500 JPY",
+                link: "https://www.google.com/maps/search/?api=1&query=Samurai+and+Ninja+Museum+with+Experience",
+                tacticalGuideId: "mission_samurai_museum",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-user-ninja"></i> Museo Samurái y Ninja</h3>
+                    <p>Situado cerca de Nishiki Market. Podréis ver armaduras reales, aprender sobre la historia y participar en una breve clase de entrenamiento.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-clock"></i> <strong>Horario ideal:</strong> Mediodía (11:30 – 13:30).</li>
+                        <li><i class="fa-solid fa-khalifah"></i> <strong>Especial:</strong> Podéis probaros una armadura samurái para fotos.</li>
+                    </ul>
+                `
+            },
+            {
+                id: "add_gion_shirakawa",
+                title: "Gion Shirakawa",
+                image: "images/add-gion-shirakawa.jpg",
+                description: "La zona más pintoresca de Gion con canales, sauces llorones y casas de té.",
+                time: "18:00 – 19:00",
+                price: "Gratis",
+                link: "https://www.google.com/maps/search/?api=1&query=Gion+Shirakawa+Area",
+                tacticalGuideId: "mission_gion_shirakawa",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-bridge-water"></i> Gion Shirakawa</h3>
+                    <p>Zona mucho más tranquila que la calle Hanamikoji. Paseo idílico junto al canal Shirakawa.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-clock"></i> <strong>Horario ideal:</strong> Atardecer/Noche (18:00 – 19:00).</li>
+                        <li><i class="fa-solid fa-camera"></i> <strong>Visual:</strong> Puentes de madera y fachadas tradicionales iluminadas.</li>
+                    </ul>
+                `
+            },
+            {
+                id: "add_kenninji",
+                title: "Templo Kennin-ji",
+                image: "images/add-kenninji.jpg",
+                description: "El templo zen más antiguo de Kioto con unos dragones gemelos en el techo impresionantes.",
+                time: "14:00 – 15:30",
+                price: "~600 JPY",
+                link: "https://www.google.com/maps/search/?api=1&query=Kennin-ji+Temple",
+                tacticalGuideId: "mission_kenninji",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-dragon"></i> Templo Kennin-ji</h3>
+                    <p>Famoso por su pintura de los dragones gemelos en el techo del salón principal y sus jardines de arena zen.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-clock"></i> <strong>Horario ideal:</strong> Tarde (14:00 – 15:30).</li>
+                        <li><i class="fa-solid fa-peace"></i> <strong>Ambiente:</strong> Zen absoluto en el centro de Gion.</li>
+                    </ul>
+                `
             }
         ]
     },
@@ -1347,44 +1905,70 @@ const travelData = [
                     image: "images/dia8-itinerario-base.jpg",
                     price: "Gratis",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-leaf"></i> Bosque de Bambú</h3>
-                        <p>El sonido del viento entre los tallos es considerado uno de los '100 sonidos a preservar' por el gobierno japonés.</p>
+                        <h3><i class="fa-solid fa-leaf"></i> Bosque de Bambú de Sagano</h3>
+                        <p>Uno de los paisajes más fotografiados y evocadores de todo Japón. El camino serpentea a través de miles de altísimos tallos de bambú que filtran la luz del sol, creando una atmósfera verde y mágica. No es solo un espectáculo visual: el sonido del viento meciedo ligeramente los troncos de bambú ha sido designado por el Ministerio de Medio Ambiente como uno de los "100 Paisajes Sonoros de Japón" que deben ser preservados.</p>
+                        <p><em>Para disfrutar de este aura de paz y escuchar el susurro místico del bosque, es vital llegar a primera hora (antes de las 08:30), cuando el silencio todavía reina antes de la llegada de los grupos turísticos.</em></p>
+                        <ul>
+                            <li><i class="fa-solid fa-clock"></i> <strong>Tiempo:</strong> 30-45 min de paseo.</li>
+                            <li><i class="fa-solid fa-music"></i> <strong>Experiencia:</strong> Deteneos un momento en silencio para escuchar el bosque.</li>
+                        </ul>
                     `
                 },
                 {
                     id: "b2",
                     time: "10:00",
-                    title: "Templo Tenryu-ji",
-                    description: "El dragón celestial. Jardín Sogenchi con técnica Shakkei. (500 JPY)",
-                    image: "images/dia8-itinerario-base-1.jpg",
+                    title: "Templo Tenryū-ji",
+                    description: "El Templo del Dragón Celestial y su jardín zen del siglo XIV.",
+                    image: "images/dia8-tenryuji.jpg",
                     price: "500 JPY",
+                    link: "https://www.google.com/maps/dir/Sagano+Bamboo+Forest/Tenryu-ji/",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-dragon"></i> Templo Tenryu-ji</h3>
-                        <p>Principal templo de la escuela Rinzai. Su jardín zen del s. XIV usa las montañas como paisaje prestado.</p>
-                    `
+                        <h3><i class="fa-solid fa-pagoda"></i> Templo Tenryū-ji</h3>
+                        <p>Fundado en 1339 por el Shogún Ashikaga Takauji en honor al emperador Go-Daigo, este es el templo zen más importante de Arashiyama. Aunque sus edificios han sido reconstruidos varias veces, su jardín Sogenchi es una obra maestra que se conserva en su diseño original del siglo XIV.</p>
+                        <p><em>El jardín utiliza la técnica del "paisaje prestado" (shakkei), integrando las montañas de Arashiyama y Kameyama en su propia composición. Dentro del Dharma Hall, no os perdáis la impresionante pintura del "Dragón de las Nubes" en el techo, cuya mirada parece seguirte desde cualquier punto de la sala.</em></p>
+                        <ul>
+                            <li><i class="fa-solid fa-clock"></i> <strong>Tiempo:</strong> 1 hora.</li>
+                            <li><i class="fa-solid fa-ticket"></i> <strong>Entrada:</strong> 500 JPY (Jardín) + 300 JPY (Interior).</li>
+                            <li><i class="fa-solid fa-dragon"></i> <strong>Clave:</strong> El dragón del techo y la paz del estanque central.</li>
+                        </ul>
+                    `,
+                    video: "https://www.youtube.com/watch?v=_PWIY6trR2U"
                 },
                 {
                     id: "b3",
                     time: "11:30",
-                    title: "Puente Togetsukyo",
-                    description: "El puente que 'cruza la luna'. Símbolo de Arashiyama. (Gratis)",
-                    image: "images/arashiyama.png",
+                    title: "Puente Togetsukyō",
+                    description: "El 'Puente que cruza la Luna', icono histórico de Arashiyama.",
+                    image: "images/dia8-puente.jpg",
                     price: "Gratis",
+                    link: "https://www.google.com/maps/dir/Tenryu-ji/Togetsukyo+Bridge/",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-bridge"></i> Puente Togetsukyo</h3>
-                        <p>Paseo fotográfico obligatorio por este puente de madera cargado de historia.</p>
+                        <h3><i class="fa-solid fa-bridge"></i> Puente Togetsukyō</h3>
+                        <p>Cuyo nombre poético significa "El Puente que cruza la Luna". Se dice que el emperador Kameyama del periodo Kamakura, durante una fiesta nocturna en barco, observó cómo la luna brillante parecía cruzar el puente de un lado a otro.</p>
+                        <p><em>Originalmente construido en el año 836, la versión actual de madera y hormigón (reconstruida en 1934) mantiene la estética tradicional. Ofrece una de las vistas más famosas de la zona, con las colinas boscosas de Arashiyama como telón de fondo, especialmente bellas en otoño u horizontal bajo el sol de verano mientras fluye el río Katsura.</em></p>
+                        <ul>
+                            <li><i class="fa-solid fa-camera"></i> <strong>Foto:</strong> Desde la orilla sur buscando el reflejo de la montaña.</li>
+                            <li><i class="fa-solid fa-wind"></i> <strong>Vibe:</strong> Brisa fresca junto al río, ideal para un breve descanso.</li>
+                        </ul>
                     `
                 },
                 {
                     id: "b4",
                     time: "12:30",
-                    title: "Parque Iwatayama",
-                    description: "Reserva de macacos japoneses con las mejores vistas panorámicas. (600 JPY)",
-                    image: "images/dia8-itinerario-base-2.jpg",
+                    title: "Parque de los Monos Iwatayama",
+                    description: "Encuentro con macacos japoneses y vistas panorámicas de Kioto.",
+                    image: "images/dia8-monos.jpg",
                     price: "600 JPY",
+                    link: "https://www.google.com/maps/dir/Togetsukyo+Bridge/Iwatayama+Monkey+Park/",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-monkey"></i> Iwatayama Monkey Park</h3>
-                        <p>Tras una subida de 20 min, llegaréis a la cima donde habitan más de 120 macacos en libertad y se ve todo Kioto.</p>
+                        <h3><i class="fa-solid fa-mountain"></i> Parque de Monos Iwatayama</h3>
+                        <p>Tras una caminata cuesta arriba de unos 20 minutos por un sendero sombreado, llegaréis a la cima de la colina Arashiyama, hogar de una colonia de más de 120 macacos japoneses (monos de cara roja) que viven en libertad.</p>
+                        <p><em>A diferencia de los zoológicos tradicionales, aquí los humanos entran en un recinto vallado para alimentar a los monos, que campan a sus anchas por el exterior. Es una experiencia divertida y segura, que además recompensa el esfuerzo de la subida con una de las mejores vistas panorámicas de todo Kioto y el valle del río Hozugawa.</em></p>
+                        <ul>
+                            <li><i class="fa-solid fa-clock"></i> <strong>Subida:</strong> 20 min (paso suave).</li>
+                            <li><i class="fa-solid fa-ticket"></i> <strong>Entrada:</strong> 600 JPY.</li>
+                            <li><i class="fa-solid fa-triangle-exclamation"></i> <strong>Aviso:</strong> No mirar directamente a los ojos a los monos ni tocarles.</li>
+                        </ul>
                     `
                 }
             ]
@@ -1449,6 +2033,64 @@ const travelData = [
                         tacticalGuideId: "mission_otagi"
                     }
                 ]
+            }
+        ],
+        additionalExcursions: [
+            {
+                id: "add_hozugawa",
+                title: "Barco por el río Hozugawa",
+                image: "images/add-hozugawa.jpg",
+                description: "Descenso tradicional de 2 horas por los rápidos del río entre montañas.",
+                time: "10:00 – 12:00",
+                price: "~4.100 JPY",
+                tacticalGuideId: "mission_hozugawa",
+                video: "https://www.youtube.com/watch?v=Hiy0gA5V9V0",
+                link: "https://www.google.com/maps/search/?api=1&query=Hozugawa+River+Boat+Ride",
+                tacticalGuideId: "mission_hozugawa",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-ship"></i> Descenso del Hozugawa</h3>
+                    <p>Una experiencia de 16km río abajo en barcas de madera guiadas por remeros expertos. Paisaje montañoso espectacular.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-clock"></i> <strong>Estrategia:</strong> Ir temprano a Kameoka para pillar la primera barca.</li>
+                        <li><i class="fa-solid fa-mountain"></i> <strong>Naturaleza:</strong> Ideal para ver la vegetación exuberante de Arashiyama.</li>
+                    </ul>
+                `
+            },
+            {
+                id: "add_kimono_arashiyama",
+                title: "Alquiler de Kimono en Arashiyama",
+                image: "images/add-kimono.jpg",
+                description: "Paseo por el bosque de bambú y los puentes vestido con la prenda tradicional.",
+                time: "09:00 – 17:00",
+                price: "~3.500 JPY",
+                link: "https://www.google.com/maps/search/?api=1&query=Kimono+Rental+Arashiyama",
+                tacticalGuideId: "mission_kimono_arashiyama",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-person-dress"></i> Experiencia Kimono</h3>
+                    <p>Arashiyama es el escenario fotográfico perfecto para vestir un Kimono o Yukata. Hay muchas tiendas cerca de la estación JR.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-camera"></i> <strong>Visual:</strong> Fotos increíbles en el bosque de bambú y el puente Togetsukyo.</li>
+                        <li><i class="fa-solid fa-clock"></i> <strong>Duración:</strong> Podéis llevarlo todo el día.</li>
+                    </ul>
+                `
+            },
+            {
+                id: "add_daikakuji",
+                title: "Templo Daikaku-ji",
+                image: "images/add-daikakuji.jpg",
+                description: "Antiguo palacio imperial con un gran estanque artificial y pasarelas de madera.",
+                time: "14:30 – 16:00",
+                price: "~500 JPY",
+                link: "https://www.google.com/maps/search/?api=1&query=Daikakuji+Temple",
+                tacticalGuideId: "mission_daikakuji",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-landmark"></i> Templo Daikaku-ji</h3>
+                    <p>Mucho menos concurrido que Tenryu-ji. Sus pasillos de madera conectan varios edificios sobre el agua del estanque Osawa.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-clock"></i> <strong>Horario ideal:</strong> Tarde (14:30 – 16:00).</li>
+                        <li><i class="fa-solid fa-peace"></i> <strong>Paz:</strong> Un escondite perfecto de las multitudes del bosque de bambú.</li>
+                    </ul>
+                `
             }
         ]
     },
@@ -1547,8 +2189,13 @@ const travelData = [
                     price: "Gratis",
                     link: "https://www.google.com/maps/dir/Kyoto+Station/Fushimi+Inari-taisha/",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-torii-gate"></i> Fushimi Inari</h3>
-                        <p><strong>Guía Táctica:</strong> Subid al menos 20 min por las toriis; la mayoría de turistas se queda al principio. El mirador Yotsutsuji ofrece las mejores vistas.</p>
+                        <h3><i class="fa-solid fa-torii-gate"></i> Fushimi Inari-taisha</h3>
+                        <p>Dedicado a Inari, el dios Shinto del arroz y la prosperidad, este santuario es famoso por sus miles de toriis bermellón que forman túneles interminables por la ladera del monte Inari. Cada puerta es una donación de una empresa o individuo, con sus nombres grabados en negro en la parte posterior.</p>
+                        <p><em>En el camino veréis numerosas estatuas de zorros (kitsune), considerados mensajeros divinos de Inari, a menudo representados con una llave en la boca (del granero de arroz). Para disfrutar de la magia real sin multitudes, subid al menos hasta el mirador Yotsutsuji; allí la mayoría de la gente se da la vuelta, dejando los senderos superiores sumidos en un silencio sagrado y boscoso.</em></p>
+                        <ul>
+                            <li><i class="fa-solid fa-clock"></i> <strong>Estrategia:</strong> Infiltración temprana (08:00) es clave para las fotos sin gente.</li>
+                            <li><i class="fa-solid fa-mountain"></i> <strong>Vistas:</strong> El mirador Yotsutsuji ofrece una panorámica espectacular del sur de Kioto.</li>
+                        </ul>
                     `
                 },
                 {
@@ -1558,10 +2205,16 @@ const travelData = [
                     description: "La despensa de Kioto. Un paraíso para los amantes de la comida callejera. (Variable)",
                     image: "images/nishiki_market.png",
                     price: "Variable",
+                    video: "https://www.youtube.com/watch?v=1KWnkAaefbo",
                     link: "https://www.google.com/maps/search/Nishiki+Market+Kyoto/",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-bowl-food"></i> Mercado de Nishiki</h3>
-                        <p><strong>Guía Táctica:</strong> Buscad el puesto de 'Tako Tamago' (mini pulpo con huevo). Es la foto gastronómica del viaje.</p>
+                        <h3><i class="fa-solid fa-bowl-food"></i> Mercado de Nishiki (Kyoto Kitchen)</h3>
+                        <p>Con más de 400 años de historia, Nishiki es una estrecha calle comercial techada que alberga más de cien tiendas y restaurantes. Conocida como "La despensa de Kioto", aquí se encuentran los ingredientes más frescos y exquisitos de la gastronomía japonesa, desde marisco de alta calidad hasta vegetales únicos de la región y encurtidos tradicionales (tsukemono).</p>
+                        <p><em>Es un paraíso sensorial. Probad el famoso "Tako Tamago" (un pequeño pulpo asado con un huevo de codorniz dentro de su cabeza) o los pinchos de carne wagyu. Recordad la etiqueta local: no se debe caminar mientras se come; comprad el bocado, disfrutadlo en el propio puesto y luego continuad vuestra exploración.</em></p>
+                        <ul>
+                            <li><i class="fa-solid fa-clock"></i> <strong>Horario:</strong> 09:30-18:00 (la mayoría abre sobre las 10:00).</li>
+                            <li><i class="fa-solid fa-basket-shopping"></i> <strong>Souvenirs:</strong> Lugar ideal para comprar cuchillos de cocina artesanos y especias.</li>
+                        </ul>
                     `
                 },
                 {
@@ -1573,8 +2226,13 @@ const travelData = [
                     price: "500 JPY",
                     link: "https://www.google.com/maps/dir/Nishiki+Market/Kinkaku-ji/",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-sparkles"></i> Kinkaku-ji</h3>
-                        <p><strong>Guía Táctica:</strong> La luz de la tarde (15:30-16:30) es la mejor para ver el reflejo del oro en el estanque.</p>
+                        <h3><i class="fa-solid fa-sparkles"></i> Kinkaku-ji (Pabellón Dorado)</h3>
+                        <p>Es, sin duda, la imagen más icónica de Kioto. Este templo zen de la escuela Rinzai fue originalmente la villa de retiro del Shogún Ashikaga Yoshimitsu. Lo más impactante es que sus dos plantas superiores están completamente recubiertas de pan de oro puro, brillando intensamente sobre el "Estanque del Espejo" (Kyoko-chi) que lo rodea.</p>
+                        <p><em>Cada planta representa un estilo arquitectónico diferente: la primera es estilo palaciego Heian, la segunda estilo de casa samurái y la tercera estilo templo zen. El edificio que veis hoy es una reconstrucción fiel de 1955, después de que un joven monje fanático lo incendiara en 1950, un suceso que conmovió a Japón.</em></p>
+                        <ul>
+                            <li><i class="fa-solid fa-camera"></i> <strong>Foto Clave:</strong> Desde la orilla opuesta del estanque para capturar el reflejo perfecto.</li>
+                            <li><i class="fa-solid fa-ticket"></i> <strong>Entrada:</strong> El ticket es un amuleto (ofuda) que atrae la buena suerte.</li>
+                        </ul>
                     `
                 }
             ]
@@ -1592,6 +2250,62 @@ const travelData = [
                     <p>A solo 15 min caminando desde Kinkaku-ji. Contempla las 15 piedras místicas de su jardín zen.</p>
                 `,
                 link: "https://www.google.com/maps/dir/Kinkaku-ji/Ryoan-ji/"
+            }
+        ],
+        additionalExcursions: [
+            {
+                id: "add_fushimi_sake",
+                title: "Distrito del Sake de Fushimi",
+                image: "images/add-fushimi-sake.jpg",
+                description: "Bodegas tradicionales de sake junto a canales con barcos de madera.",
+                time: "10:30 – 12:30",
+                price: "Variable",
+                link: "https://www.google.com/maps/search/?api=1&query=Fushimi+Sake+District",
+                tacticalGuideId: "mission_fushimi_sake",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-wine-glass"></i> Fushimi Sake District</h3>
+                    <p>Cerca de Fushimi Inari. Podéis visitar la fábrica Gekkeikan y pasear por los canales bordeados de sauces.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-clock"></i> <strong>Horario ideal:</strong> Mañana (10:30 – 12:30).</li>
+                        <li><i class="fa-solid fa-vial"></i> <strong>Cata:</strong> Muchas bodegas ofrecen degustaciones por pocos yenes.</li>
+                    </ul>
+                `
+            },
+            {
+                id: "add_ninnaji",
+                title: "Templo Ninna-ji",
+                image: "images/add-ninnaji.jpg",
+                description: "Complejo imperial enorme con una pagoda de cinco pisos y jardines palaciegos.",
+                time: "14:00 – 15:30",
+                price: "~500 JPY",
+                link: "https://www.google.com/maps/search/?api=1&query=Ninnaji+Temple",
+                tacticalGuideId: "mission_ninnaji",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-hotel"></i> Templo Ninna-ji</h3>
+                    <p>Patrimonio de la Humanidad. Famoso por sus cerezos de floración tardía y sus elegantes edificios de estilo imperial.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-clock"></i> <strong>Horario ideal:</strong> Tarde (14:00 – 15:30).</li>
+                        <li><i class="fa-solid fa-vector-square"></i> <strong>Espacio:</strong> Recinto muy amplio y tranquilo.</li>
+                    </ul>
+                `
+            },
+            {
+                id: "add_kitano",
+                title: "Santuario Kitano Tenmangu",
+                image: "images/add-kitano.jpg",
+                description: "El santuario del dios del estudio, famoso por sus ciruelos y sus estatuas de bueyes.",
+                time: "16:00 – 17:00",
+                price: "Gratis",
+                link: "https://www.google.com/maps/search/?api=1&query=Kitano+Tenmangu+Shrine",
+                tacticalGuideId: "mission_kitano",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-pen-nib"></i> Kitano Tenmangu</h3>
+                    <p>Un santuario vibrante cerca de la zona de Geishas de Kamigyo. Los estudiantes vienen aquí a pedir éxito en los exámenes.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-cow"></i> <strong>Tradición:</strong> Acariciad la nariz de los bueyes de bronce para tener buena suerte.</li>
+                        <li><i class="fa-solid fa-clock"></i> <strong>Horario ideal:</strong> Tarde (16:00 – 17:00).</li>
+                    </ul>
+                `
             }
         ]
     },
@@ -1837,6 +2551,62 @@ const travelData = [
                     }
                 ]
             }
+        ],
+        additionalExcursions: [
+            {
+                id: "add_heian",
+                title: "Santuario Heian",
+                image: "images/add-heian.jpg",
+                description: "Famoso por su gigantesco Torii rojo y sus jardines imperiales con puentes de madera.",
+                time: "11:00 – 12:30",
+                price: "Jardín ~600 JPY",
+                link: "https://www.google.com/maps/search/?api=1&query=Heian+Shrine",
+                tacticalGuideId: "mission_heian",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-torii-gate"></i> Santuario Heian</h3>
+                    <p>Construido para celebrar el 1100 aniversario de Kioto. Su jardín trasero es uno de los más bellos para pasear sobre el agua.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-clock"></i> <strong>Horario ideal:</strong> Mañana (11:00 – 12:30).</li>
+                        <li><i class="fa-solid fa-bridge"></i> <strong>Visual:</strong> El puente Taihei-kaku es icónico.</li>
+                    </ul>
+                `
+            },
+            {
+                id: "add_tofukuji",
+                title: "Templo Tōfuku-ji",
+                image: "images/add-tofukuji.jpg",
+                description: "Templo zen con un puente que cruza un valle de arces y jardines de piedra modernos.",
+                time: "14:30 – 16:00",
+                price: "~600 JPY",
+                link: "https://www.google.com/maps/search/?api=1&query=Tofukuji+Temple",
+                tacticalGuideId: "mission_tofukuji",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-bridge-water"></i> Tōfuku-ji</h3>
+                    <p>Posee uno de los jardines zen más fotografiados (el de cuadrados de musgo y piedra). El puente Tsutenkyo ofrece vistas de bosque urbano.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-clock"></i> <strong>Horario ideal:</strong> Tarde (14:30 – 16:00).</li>
+                        <li><i class="fa-solid fa-square"></i> <strong>Diseño:</strong> Mezcla perfecta de tradición y vanguardia zen.</li>
+                    </ul>
+                `
+            },
+            {
+                id: "add_funaoka",
+                title: "Funaoka Onsen",
+                image: "images/add-funaoka.jpg",
+                description: "Uno de los baños públicos más antiguos y bonitos de Kioto con tallas de madera históricas.",
+                time: "18:00 – 20:00",
+                price: "~490 JPY",
+                link: "https://www.google.com/maps/search/?api=1&query=Funaoka+Onsen+Kyoto",
+                tacticalGuideId: "mission_funaoka",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-hot-tub-person"></i> Funaoka Onsen</h3>
+                    <p>No es un onsen natural de montaña, sino un Sentō (baño público) histórico. Impulsaos por su historia y sus azulejos decorativos.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-clock"></i> <strong>Horario ideal:</strong> Noche (18:00 – 20:00).</li>
+                        <li><i class="fa-solid fa-user-check"></i> <strong>Auténtico:</strong> Experiencia local 100% fuera de la ruta turística.</li>
+                    </ul>
+                `
+            }
         ]
     },
 
@@ -1914,13 +2684,14 @@ const travelData = [
                     image: "images/dia11-itinerario-base.jpg",
                     price: "Incluido",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-hot-tub-person"></i> Llegada al Ryokan Kazeya</h3>
-                        <p>Inmersión total en la cultura japonesa. Dejad los zapatos en la entrada y entrad en un mundo de tatami y silencio.</p>
+                        <h3><i class="fa-solid fa-hot-tub-person"></i> El Arte del Ryokan: Kazeya</h3>
+                        <p>Alojarse en un Ryokan es una inmersión profunda en el concepto de <em>Omotenashi</em> (la hospitalidad japonesa llevada al extremo). El Kazeya Ryokan, con su estructura de madera y suelos de tatami, os invita a desconectar del mundo moderno. Al llegar, dejad vuestro calzado y preocupaciones en la entrada; aquí el tiempo fluye de otra manera.</p>
+                        <p><em>El ritual comienza con un té verde de bienvenida mientras os invitan a elegir vuestro Yukata (kimono ligero de algodón). Este Ryokan es famoso por sus baños termales (onsen) privados y su decoración que mezcla la elegancia rústica de los Alpes con el refinamiento tradicional.</em></p>
                         <div style="background:rgba(255,140,0,0.05); border:1px solid #ff8c00; padding:10px; border-radius:8px; margin-top:10px;">
                             <h4 style="margin:0; font-size:0.8rem; color:#ff8c00;"><i class="fa-solid fa-circle-exclamation"></i> Protocolo Onsen:</h4>
-                            <p style="margin:5px 0 0; font-size:0.75rem;">1. Ducharos a fondo <strong>fuera</strong> del agua.<br>2. Entrad limpios y sin bañador.<br>3. No sumerjáis la toalla pequeña, dejadla en la cabeza o el borde.</p>
+                            <p style="margin:5px 0 0; font-size:0.75rem;">1. Lavaros a fondo en los tabueretes <strong>antes</strong> de entrar al agua.<br>2. El agua del onsen es para relajarse, no para lavar el cuerpo.<br>3. Disfrutad del silencio y la vista de la montaña.</p>
                         </div>
-                    `
+                    `,
                 },
                 {
                     time: "16:00",
@@ -1936,8 +2707,9 @@ const travelData = [
                     image: "images/dia11-itinerario-base-1.jpg",
                     price: "Incluido",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-utensils"></i> Banquete Kaiseki</h3>
-                        <p>Cena tradicional de múltiples platos presentados como obras de arte. Incluye la famosa ternera de Hida, una de las mejores de Japón.</p>
+                        <h3><i class="fa-solid fa-utensils"></i> Kaiseki: Alta Cocina Estacional</h3>
+                        <p>La cena Kaiseki es la máxima expresión de la gastronomía japonesa. No es solo una comida, sino una ceremonia visual y gustativa donde cada plato se presenta como una obra de arte que refleja la estación actual.</p>
+                        <p><em>En esta región de los Alpes, el plato estrella es la <strong>Ternera de Hida</strong>, considerada por muchos como superior incluso a la de Kobe por su intenso veteado y suavidad. Cocinaréis finas láminas de esta carne sobre una hoja de magnolia (estilo Hoba Miso), rodeados de vegetales de montaña y pescados de río fresquísimos.</em></p>
                     `,
                     video: "https://www.youtube.com/watch?v=5U_O8G63X4M"
                 }
@@ -1985,6 +2757,65 @@ const travelData = [
                         tacticalGuideId: "mission_ropeway"
                     }
                 ]
+            }
+        ],
+        additionalExcursions: [
+            {
+                id: "add_shinkansen_fuji",
+                title: "Shinkansen: Vistas al Fuji",
+                image: "images/fuji_sanctuary.png",
+                description: "La experiencia de ver el Monte Fuji desde el tren bala a 300km/h.",
+                time: "Durante el traslado",
+                price: "Incluido en billete",
+                video: "https://www.youtube.com/shorts/z-52C4vJ1mI",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Kyoto+Station&destination=Tokyo+Station&travelmode=transit",
+                tacticalGuideId: "mission_shinkansen_fuji",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-train"></i> El Rayo Escénico</h3>
+                    <p>Un vídeo que captura el momento mágico en que el volcán aparece tras la ventana del Shinkansen.</p>
+                `
+            },
+            {
+                id: "add_hirayu_waterfall",
+                title: "Cascada Hirayu",
+                image: "images/add-hirayu-waterfall.jpg",
+                description: "Impresionante caída de agua de 64 metros rodeada de naturaleza salvaje.",
+                time: "16:00 – 17:00",
+                price: "Gratis",
+                link: "https://www.google.com/maps/search/?api=1&query=Hirayu+Waterfall",
+                tacticalGuideId: "mission_hirayu_waterfall",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-water"></i> Cascada Hirayu</h3>
+                    <p>Una de las mejores cascadas de Japón. El entorno es muy fresco y el sonido del agua cayendo entre las rocas volcánicas es revitalizante.</p>
+                `
+            },
+            {
+                id: "add_bear_park",
+                title: "Bear Park (Kuma-bokujo)",
+                image: "images/add-bear-park.jpg",
+                description: "Lugar curioso donde habitan osos negros asiáticos nativos de los Alpes.",
+                time: "15:30 – 16:30",
+                price: "~1.100 JPY",
+                link: "https://www.google.com/maps/search/?api=1&query=Okuhida+Bear+Park",
+                tacticalGuideId: "mission_bear_park",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-paw"></i> Parque de Osos de Okuhida</h3>
+                    <p>Podréis ver de cerca a los osos negros de la región y alimentarlos con galletas especiales. Una parada curiosa en el valle.</p>
+                `
+            },
+            {
+                id: "add_night_walk_hirayu",
+                title: "Paseo Nocturno en Hirayu Onsen",
+                image: "images/add-night-walk.jpg",
+                description: "Caminata mágica por el pueblo termal viendo el vapor de las alcantarillas bajo las estrellas.",
+                time: "20:30 – 21:30",
+                price: "Gratis",
+                link: "https://www.google.com/maps/search/?api=1&query=Hirayu+Onsen+Town",
+                tacticalGuideId: "mission_night_walk_hirayu",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-moon"></i> Paseo Nocturno</h3>
+                    <p>Un plan de 'desconexión total' tras la cena Kaiseki. El silencio de la montaña y el vapor de las aguas termales crean un ambiente único.</p>
+                `
             }
         ]
     },
@@ -2056,9 +2887,10 @@ const travelData = [
                     image: "images/dia12-itinerario-base.jpg",
                     price: "~4.000-6.000 JPY",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-drumstick-bite"></i> Festín de Hida Beef</h3>
-                        <p>Considerada por muchos superior a la de Kobe por su marmoleo y sabor intenso. Podéis probarla en formato Yakiniku (a la parrilla) o como nigiris de carne cruda en los puestos de la calle.</p>
-                    `
+                        <h3><i class="fa-solid fa-drumstick-bite"></i> El Manjar de los Alpes: Carne de Hida</h3>
+                        <p>Considerada por los expertos como una de las carnes de más alta calidad del mundo, la ternera de Hida (Hida-gyu) compite directamente con la de Kobe. Lo que la hace especial es su marmoleo extremadamente fino que se funde a temperaturas muy bajas, dándole una textura de "mantequilla de carne".</p>
+                        <p><em>No os perdáis la oportunidad de probarla en formato <strong>Hoba Miso</strong> (asada sobre una hoja de magnolia con pasta de miso local) o simplemente como nigiris en los puestos callejeros de Sanmachi Suji. Es un sabor que define la riqueza de esta región montañosa.</em></p>
+                    `,
                 },
                 {
                     id: "b2",
@@ -2069,13 +2901,14 @@ const travelData = [
                     price: "Gratis",
                     link: "https://www.google.com/maps/dir/Takayama+Station/Sanmachi+Suji/",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-house-chimney"></i> Casco Antiguo (Sanmachi)</h3>
-                        <p>Paseo por las calles históricas. Buscad las bodegas de sake con sus Sugidamas (bolas de cedro) colgando en la entrada.</p>
+                        <h3><i class="fa-solid fa-house-chimney"></i> Sanmachi Suji: El Corazón Edo</h3>
+                        <p>Este distrito histórico es un viaje directo al periodo Edo (1603-1868). Sus tres calles principales están flanqueadas por casas de mercaderes excelentemente conservadas, con sus características fachadas de madera oscura y canales de agua cristalina que todavía corren por los lados de las calles.</p>
+                        <p><em>Buscad las <strong>Sugidama</strong> (grandes bolas de agujas de cedro) que cuelgan sobre las puertas de las bodegas de sake; si la bola es verde, el sake de la nueva temporada está listo. Es el lugar perfecto para perderse entre tiendas de artesanía, museos locales y destilerías centenarias.</em></p>
                         <div style="background:rgba(0,191,255,0.05); border:1px solid #00bfff; padding:10px; border-radius:8px; margin-top:10px;">
-                            <h4 style="margin:0; font-size:0.8rem; color:#00bfff;"><i class="fa-solid fa-wine-bottle"></i> Misión Local:</h4>
-                            <p style="margin:5px 0 0; font-size:0.75rem;">Entrad en una cervecería de sake para hacer una cata (por unos pocos yenes te dan una tacita que puedes llevarte).</p>
+                            <h4 style="margin:0; font-size:0.8rem; color:#00bfff;"><i class="fa-solid fa-wine-bottle"></i> Misión Sake:</h4>
+                            <p style="margin:5px 0 0; font-size:0.75rem;">Muchas bodegas ofrecen catas por unos 200-500 JPY. Elegid una, recibid vuestra tacita <em>choko</em> de cerámica y degustad la pureza del agua de los Alpes hecha licor.</p>
                         </div>
-                    `
+                    `,
                 },
                 {
                     time: "16:00",
@@ -2130,6 +2963,52 @@ const travelData = [
                 fullDesc: `
                     <h3><i class="fa-solid fa-tree"></i> Ruta de Templos</h3>
                     <p>Un paseo tranquilo alejado de las rutas comerciales comerciales, siguiendo en parte el diseño del Kioto original.</p>
+                `
+            }
+        ],
+        additionalExcursions: [
+            {
+                id: "add_hida_no_sato",
+                title: "Hida no Sato",
+                image: "images/add-hida-no-sato.jpg",
+                description: "Museo al aire libre con más de 30 casas tradicionales de techos de paja.",
+                time: "15:30 – 17:30",
+                price: "~700 JPY",
+                link: "https://www.google.com/maps/search/?api=1&query=Hida+no+Sato",
+                tacticalGuideId: "mission_hida_no_sato",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-house-chimney"></i> Aldea Folclórica de Hida</h3>
+                    <p>Gemelo de Shirakawa-go pero en Takayama. Podréis entrar en casas reales y ver demostraciones de artesanía.</p>
+                `
+            },
+            {
+                id: "add_matsuri_no_mori",
+                title: "Matsuri no Mori",
+                image: "images/add-matsuri-no-mori.jpg",
+                description: "Museo subterráneo con carrozas tecnológicas y tambores taiko gigantes.",
+                time: "12:00 – 13:30",
+                price: "~1.000 JPY",
+                tacticalGuideId: "mission_matsuri_no_mori",
+                video: "https://www.youtube.com/watch?v=0id97z_gM0w",
+                link: "https://www.google.com/maps/search/?api=1&query=Matsuri+no+Mori",
+                tacticalGuideId: "mission_matsuri_no_mori",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-masks-theater"></i> Museo del Festival</h3>
+                    <p>Alberga las carrozas más modernas con autómatas mecánicos que realizan demostraciones.</p>
+                `
+            },
+            {
+                id: "add_sakurayama",
+                title: "Santuario Sakurayama Hachimangu",
+                image: "images/add-sakurayama.jpg",
+                description: "Protector del norte de la ciudad con una atmósfera señorial y cedros centenarios.",
+                time: "11:00 – 12:00",
+                price: "Gratis",
+                link: "https://www.google.com/maps/search/?api=1&query=Sakurayama+Hachimangu+Shrine",
+                tacticalGuideId: "mission_sakurayama",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-peace"></i> Sakurayama Hachimangu</h3>
+                    <p>Un santuario que ofrece paz absoluta. Es el lugar donde se celebra el festival de otoño de Takayama.</p>
                 `
             }
         ]
@@ -2233,9 +3112,10 @@ const travelData = [
                 image: "images/dia13-chureito.jpg",
                 recommended: true,
                 fullDesc: `
-                    <h3><i class="fa-solid fa-vihara"></i> El Mirador Arakurayama</h3>
-                    <p>Prepárate para subir unos 400 escalones. La recompensa es la vista que sale en todas las portadas de guías de viaje.</p>
-                `,
+                        <h3><i class="fa-solid fa-vihara"></i> La Pagoda de la Paz: Chureito</h3>
+                        <p>Ubicada en el Parque Arakurayama Sengen, esta pagoda de cinco pisos es un monumento conmemorativo de la paz construido en 1963. Aunque es relativamente moderna, se ha convertido en el símbolo visual de Japón por excelencia.</p>
+                        <p><em>Para llegar a la plataforma de observación, deberéis subir exactamente 398 escalones (conocidos como la Escalera al Éxito). Al llegar arriba, entenderéis por qué: la alineación perfecta de la pagoda bermellón con el Monte Fuji al fondo crea una composición que parece pintada. Es un lugar de meditación visual sobre el paso del tiempo y la imponente presencia del volcán.</em></p>
+                    `,
                 tacticalOptions: [
                     {
                         title: "SUBIDA AL ATARDECER",
@@ -2268,6 +3148,22 @@ const travelData = [
                 fullDesc: `
                     <h3><i class="fa-solid fa-droplet"></i> Los Estanques de Cristal</h3>
                     <p>El agua de estos estanques tarda décadas en filtrarse desde el cráter a través de la piedra pómez porosa. Podrás beber agua sagrada súper fría.</p>
+                `
+            }
+        ],
+        additionalExcursions: [
+            {
+                id: "add_music_forest",
+                title: "Music Forest Museum",
+                image: "images/add-music-forest.jpg",
+                description: "Pequeño pueblo europeo dedicado a instrumentos musicales mecánicos.",
+                time: "15:00 – 17:00",
+                price: "~1.800 JPY",
+                link: "https://www.google.com/maps/search/?api=1&query=Kawaguchiko+Music+Forest+Museum",
+                tacticalGuideId: "mission_music_forest",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-music"></i> Bosque de la Música</h3>
+                    <p>Jardines con estética suiza y una de las mejores vistas encuadradas del Monte Fuji.</p>
                 `
             }
         ]
@@ -2329,14 +3225,13 @@ const travelData = [
                     image: "images/dia14-itinerario-base.jpg",
                     price: "Variable",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-mountain"></i> Experiencia Fuji</h3>
-                        <p>Día dedicado al volcán. Podéis optar por conducir por la Subaru Line hasta la 5ª Estación de la línea Yoshida (estilo turista al lado del cráter) o hacer un trekking alejados como el del monte Ryugatake (estilo explorador) para tener la vista frontal al Fuji que sale en el billete de 1000 yenes.</p>
+                        <h3><i class="fa-solid fa-mountain"></i> Shinkō: La Devoción al Fuji</h3>
+                        <p>El Fuji no es solo una montaña; es un ser sagrado. Durante siglos, peregrinos vestidos de blanco han ascendido por sus laderas como un acto de purificación. Hoy tenéis dos formas de conectar con su energía: subiendo por la Subaru Line (comodidad táctica) o alejándoos por el Ryugatake para contemplar su magnitud desde la distancia, tal como hacían los antiguos artistas de Grabados Ukiyo-e.</p>
                         <div style="background:rgba(255,255,255,0.1); border:1px solid #ffffff; padding:10px; border-radius:8px; margin-top:10px;">
-                            <h4 style="margin:0; font-size:0.8rem; color:#ffffff;"><i class="fa-solid fa-triangle-exclamation"></i> Nota sobre el coche:</h4>
-                            <p style="margin:5px 0 0; font-size:0.75rem;">En agosto la carretera Subaru Line suele estar cortada en el punto de peaje para vehículos privados. Hay que aparcar en el "Fujihoku-roku Parking Lot" y coger un bus lanzadera.</p>
+                            <h4 style="margin:0; font-size:0.8rem; color:#ffffff;"><i class="fa-solid fa-triangle-exclamation"></i> Logística de Agosto:</h4>
+                            <p style="margin:5px 0 0; font-size:0.75rem;">Debido a la alta afluencia, los vehículos privados tienen prohibido el paso a la Subaru Line. Deberéis aparcar en el <strong>Parking Fujihoku-roku</strong> y tomar el bus lanzadera (shuttle) que sale cada 30 min aprox.</p>
                         </div>
-                    `,
-                    video: "https://www.youtube.com/watch?v=Fst5jY_w7rM"
+                    `
                 },
                 {
                     time: "13:00",
@@ -2355,10 +3250,12 @@ const travelData = [
                 price: "Gratis",
                 image: "images/dia15-ryugatake.jpg",
                 recommended: true,
+                video: "https://www.youtube.com/watch?v=azaJ9W5kXfU",
                 fullDesc: `
-                    <h3><i class="fa-solid fa-person-walking-luggage"></i> El Mirador de los 1000 Yenes</h3>
-                    <p>Un trekking empinado pero seguro por el Monte Ryugatake (dragón). Desde la cima no verás a turistas de bus, solo a otros montañeros y una vista panorámica irreal del Fuji junto a los lagos glaciares.</p>
-                `,
+                        <h3><i class="fa-solid fa-person-walking-luggage"></i> El Mirador de los 1000 Yenes</h3>
+                        <p>El trekking al Monte Ryugatake ("El Dragón que surge") es la ruta preferida por los entusiastas de la fotografía. Desde su cima, se obtiene la perspectiva exacta del Fuji reflejado en el lago Motosu que aparece en el billete de 1000 yenes.</p>
+                        <p><em>Es una caminata empinada por un sendero de tierra y raíces, pero la recompensa es una vista panorámica sin las multitudes que encontraréis en la 5ª estación. Es el lugar ideal para un picnic con vistas al coloso.</em></p>
+                    `,
                 tacticalOptions: [
                     {
                         title: "RUTA AL DRAGÓN",
@@ -2377,8 +3274,26 @@ const travelData = [
                 price: "2.500 JPY (Shuttle Bus)",
                 image: "images/dia14-5-estaci-n-fuji.jpg",
                 fullDesc: `
-                    <h3><i class="fa-solid fa-cloud"></i> Tocando el Cielo a 2300m</h3>
-                    <p>El punto más alto al que se puede llegar de forma "fácil". Incluye el Santuario Komitake y la oficina de correos más alta de Japón (¡enviad una postal!).</p>
+                        <h3><i class="fa-solid fa-cloud"></i> El Umbral del Cielo: 5ª Estación</h3>
+                        <p>Situada a 2.305 metros sobre el nivel del mar, la 5ª estación de la línea Yoshida es el punto más alto accesible por transporte motorizado. Es el punto de partida real para los montañeros que intentan conquistar la cima.</p>
+                        <p><em>Aquí se encuentra el <strong>Santuario Komitake</strong>, un lugar de oración para los escaladores con más de mil años de historia. Incluso si no vais a subir a la cumbre, la sensación de estar por encima de las nubes y la vista de la cima tan cercana es sobrecogedora.</em></p>
+                    `,
+            }
+        ],
+        additionalExcursions: [
+            {
+                id: "add_fuji_caves",
+                title: "Bosque Aokigahara y Cuevas",
+                image: "images/add-fuji-caves.jpg",
+                description: "Exploración del místico bosque del mar de árboles y sus formaciones volcánicas.",
+                time: "09:00 – 11:30",
+                price: "~350 JPY",
+                video: "https://www.youtube.com/watch?v=VJEA0kMdaV0",
+                link: "https://www.google.com/maps/search/?api=1&query=Aokigahara+Forest",
+                tacticalGuideId: "mission_fuji_caves",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-snowflake"></i> Cuevas del Fuji</h3>
+                    <p>Experiencia de aventura suave en las profundidades de la lava del Fuji. Un alivio térmico increíble.</p>
                 `
             }
         ]
@@ -2457,8 +3372,9 @@ const travelData = [
                     image: "images/dia14-sengen.jpg",
                     price: "Gratis",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-torii-gate"></i> Santuario Sengen Jinja</h3>
-                        <p>Impresionante santuario escondido en un frondoso bosque antiguo. La avenida de entrada está flanqueada por faroles de piedra con musgo y cedros gigantes, algunos sagrados atados con cuerdas shimenawa.</p>
+                        <h3><i class="fa-solid fa-torii-gate"></i> Santuario Kitaguchi Hongu Sengen Jinja</h3>
+                        <p>Este majestuoso santuario, rodeado de cedros centenarios, ha sido el punto de partida espiritual para la ascensión al Monte Fuji durante siglos. Tras cruzar su gigantesco Torii rojo (uno de los más grandes de madera en Japón), caminaréis por una avenida de faroles de piedra cubiertos de musgo que os transportará a otra época.</p>
+                        <p><em>En el recinto principal, buscad el enorme cedro sagrado atado con una cuerda shimenawa; se dice que tiene más de mil años. Es el lugar donde los peregrinos pedían protección al espíritu de la montaña antes de adentrarse en sus laderas.</em></p>
                     `
                 },
                 {
@@ -2469,8 +3385,9 @@ const travelData = [
                     image: "images/dia15-itinerario-base.jpg",
                     price: "~1.500 JPY",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-fire-burner"></i> Hoto Fudo</h3>
-                        <p>Los fideos son planos y muy gruesos. El plato viene servido en una olla de hierro fundido directo del fuego a tu mesa. Hay local Hoto Fudo justo frente a la estación de tren de Kawaguchiko.</p>
+                        <h3><i class="fa-solid fa-fire-burner"></i> Hoto Fudo: La Gastronomía Samurái</h3>
+                        <p>El Hoto es un plato reconfortante único de la prefectura de Yamanashi. Consiste en fideos de trigo planos y anchos, similares al udon pero con una textura más rústica, cocinados a fuego lento en un caldo de miso con calabaza (kabocha) y verduras de montaña.</p>
+                        <p><em>Cuenta la leyenda que el daimyo Takeda Shingen comía este contundente guiso con sus tropas para ganar fuerza antes de las batallas. Hoy es un ritual imperdible en la zona; se sirve en pesadas ollas de hierro que mantienen el calor durante toda la comida. El local frente a la estación de Kawaguchiko es famoso por su arquitectura blanca con forma de nube.</em></p>
                     `
                 },
                 {
@@ -2526,6 +3443,22 @@ const travelData = [
                 fullDesc: `
                     <h3><i class="fa-solid fa-camera"></i> La Calle de Instagram</h3>
                     <p>Honcho Street tiene esa vibra noventera retro. Ojo con el tráfico, la policía local está cansada de los turistas parando en medio de la calle principal para hacer fotos. Disparad rápido desde las aceras laterales.</p>
+                `
+            }
+        ],
+        additionalExcursions: [
+            {
+                id: "add_fujinomiya_shrine",
+                title: "Santuario Fujisan Hongu Sengen Taisha",
+                image: "images/add-fujinomiya.jpg",
+                description: "Santuario principal de los 1.300 Sengen de Japón con agua de deshielo.",
+                time: "15:30 – 17:30",
+                price: "Gratis",
+                link: "https://www.google.com/maps/search/?api=1&query=Fujisan+Hongu+Sengen+Taisha",
+                tacticalGuideId: "mission_fujinomiya_shrine",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-water"></i> Santuario de Fujinomiya</h3>
+                    <p>Posee el estanque Wakutama-ike de agua cristalina que brota directamente de la roca volcánica.</p>
                 `
             }
         ]
@@ -2635,8 +3568,9 @@ const travelData = [
                     image: "images/dia16-kagurazaka.jpg",
                     price: "Gratis",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-bridge"></i> Barrio de Kagurazaka</h3>
-                        <p>Está a pocos minutos de vuestro hotel. Es una mezcla fascinante: conserva callejones geisha de adoquines estrechos, templos y a la vez posee alta presencia gastronómica francesa. Visitad el moderno Santuario Kuma Kengo Akagi Jinja de cristal y madera para el atardecer.</p>
+                        <h3><i class="fa-solid fa-bridge"></i> Kagurazaka: La Pequeña Francia de Kioto</h3>
+                        <p>Kagurazaka es uno de los pocos lugares en Tokio que todavía emana la atmósfera del periodo Edo. Antiguamente fue un prestigioso distrito de Geishas (Hanamachi) fuera de los límites de la ciudad vieja. Sus callejones empedrados y sinuosos, como el famoso "Callejón Kakurenbo", esconden restaurantes de lujo y casas de té tradicionales tras discretas puertas de madera.</p>
+                        <p><em>Hoy es conocido como el barrio francés de Tokio por la alta concentración de residentes de esa nacionalidad y excelentes panaderías y bistrós. No os perdáis el <strong>Santuario Akagi</strong>, reconstruido recientemente por el afamado arquitecto Kengo Kuma, fusionando de forma brillante la madera tradicional con el cristal moderno.</em></p>
                     `
                 }
             ]
@@ -2662,6 +3596,51 @@ const travelData = [
                         tacticalGuideId: "mission_tocho"
                     }
                 ]
+            }
+        ],
+        additionalExcursions: [
+            {
+                id: "add_samurai_restaurant",
+                title: "Samurai Restaurant Show",
+                image: "images/dia16-kagurazaka.jpg",
+                description: "El nuevo espectáculo heredero del Robot Restaurant en Kabukicho.",
+                time: "20:00 – 21:30",
+                price: "~9.000 JPY",
+                video: "https://www.youtube.com/watch?v=oR7AAgVv0_g",
+                link: "https://www.google.com/maps/search/?api=1&query=Samurai+Restaurant+Time+Shinjuku",
+                tacticalGuideId: "mission_samurai_show",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-drum"></i> Locura en Kabukicho</h3>
+                    <p>Un espectáculo de luces, tambores Taiko y coreografías samurái modernas en el corazón de Shinjuku.</p>
+                `
+            },
+            {
+                id: "add_koishikawa",
+                title: "Jardín Koishikawa Korakuen",
+                image: "images/add-koishikawa.jpg",
+                description: "Uno de los jardines japoneses más antiguos y hermosos de Tokio, junto al hotel.",
+                time: "16:00 – 17:30",
+                price: "~300 JPY",
+                link: "https://www.google.com/maps/search/?api=1&query=Koishikawa+Korakuen+Garden",
+                tacticalGuideId: "mission_koishikawa",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-tree"></i> Jardín Koishikawa Korakuen</h3>
+                    <p>Construido por el clan Tokugawa. Utiliza elementos chinos y japoneses. Un oasis de paz al lado de vuestro hotel para vuestro primer contacto con Tokio.</p>
+                `
+            },
+            {
+                id: "add_shinjuku_gyoen",
+                title: "Shinjuku Gyoen",
+                image: "images/add-shinjuku-gyoen.jpg",
+                description: "Parque inmenso que combina jardines japoneses, franceses e ingleses.",
+                time: "15:30 – 17:30",
+                price: "~500 JPY",
+                link: "https://www.google.com/maps/search/?api=1&query=Shinjuku+Gyoen+National+Garden",
+                tacticalGuideId: "mission_shinjuku_gyoen",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-leaf"></i> Shinjuku Gyoen</h3>
+                    <p>Un pulmón de paz en medio de los rascacielos. Ideal para caminar en grupo sin agobios.</p>
+                `
             }
         ]
     },
@@ -2748,13 +3727,14 @@ const travelData = [
                     image: "images/dia17-sensoji.jpg",
                     price: "Gratis",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-temple"></i> Templo Senso-ji</h3>
-                        <p>El corazón espiritual e histórico de Asakusa. Se accede cruzando la mítica Kaminarimon (Puerta del Trueno) con su linterna de papel de 700 kg. Luego caminaréis por Nakamise, una calle comercial de 200 metros llena de puestecitos de dulces tradicionales y souvenirs que data del periodo Edo.</p>
+                        <h3><i class="fa-solid fa-temple"></i> Templo Senso-ji: El Origen de Edo</h3>
+                        <p>Fundado en el año 645, es el templo más antiguo de Tokio y el corazón espiritual de Asakusa. Su historia se remonta a una leyenda de dos hermanos pescadores que hallaron una estatua dorada de Kannon (la diosa de la misericordia) en el río Sumida. Tras cruzar la imponente <strong>Kaminarimon</strong> (Puerta del Trueno) con su linterna de 700 kg, caminaréis por <strong>Nakamise-dori</strong>, una calle comercial que ha servido a los peregrinos con dulces y artesanía desde el periodo Edo.</p>
                         <ul>
-                            <li><i class="fa-solid fa-wind"></i> <strong>Ritual del Incienso:</strong> En el gran pebetero (Jokoro) frente al templo principal, echad el humo del incienso sobre vuestra cabeza u hombros. La tradición dice que atrae buena salud y te hace más inteligente.</li>
+                            <li><i class="fa-solid fa-wind"></i> <strong>Ritual del Incienso:</strong> Frente al templo principal, atraed el humo del Jokoro hacia vosotros; se dice que purifica y concede sabiduría.</li>
+                            <li><i class="fa-solid fa-om"></i> <strong>Omikuji:</strong> Probad vuestra suerte extrayendo un palillo de la caja de madera por solo 100 yenes.</li>
                         </ul>
                     `,
-                    video: "https://www.youtube.com/watch?v=Knd_N-v_B3Q"
+                    video: "https://www.youtube.com/watch?v=IbPBdY5xuDM"
                 },
                 {
                     id: "b2",
@@ -2776,9 +3756,10 @@ const travelData = [
                     image: "images/dia17-skytree.jpg",
                     price: "Opcional 2.100 JPY",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-tower-broadcast"></i> La Torre hacia el Cielo</h3>
-                        <p>Ascenso vertical fulgurante a 350 metros. Aunque no subáis, el macro centro comercial de su base (Tokyo Solamachi) está repleto de restaurantes para almorzar y tiendas frikis de Ghibli o Pokémon.</p>
-                    `
+                        <h3><i class="fa-solid fa-tower-broadcast"></i> Tokyo Skytree: Superando las Nubes</h3>
+                        <p>Con 634 metros, es la torre de comunicaciones más alta del mundo y un prodigio de la ingeniería antisísmica moderna. Su diseño exterior, de color "Blanco Skytree" (basado en el tinte tradicional japonés <em>aijiro</em>), fusiona la estética neofuturista con la belleza de las pagodas tradicionales de cinco pisos.</p>
+                        <p><em>Incluso si decidís no subir a sus observatorios a 350 o 450 metros, el complejo **Tokyo Solamachi** en su base es una ciudad en sí misma, con tiendas oficiales de Ghibli, Pokémon Center y una oferta gastronómica infinita que abarca desde sushi de cinta hasta postres temáticos.</em></p>
+                    `,
                 },
                 {
                     id: "b4",
@@ -2788,10 +3769,10 @@ const travelData = [
                     image: "images/dia19-akihabara.jpg",
                     price: "Gratis / Gastos compras",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-robot"></i> La Meca Otaku</h3>
-                        <p>Llegar al atardecer cuando los neones se encienden es mágico. Recomendados: <strong>Radio Kaikan</strong> (un centro comercial entero de coleccionables), <strong>Super Potato</strong> (peregrinación para retro consolas) o el mega-almacén tecnológico de <strong>Yodobashi Camera</strong>.</p>
-                        <p><strong>Iván y Fran:</strong> Entrad a una de los míticos salones recreativos (GiGO), subid plantas, cambiar 500 yenes a monedas sueltas y jugad a locuras rítmicas japonesas.</p>
-                    `
+                        <h3><i class="fa-solid fa-robot"></i> Akihabara: Ciudad Eléctrica</h3>
+                        <p>Antiguamente el epicentro de la tecnología de postguerra, Akihabara ha evolucionado hasta convertirse en la capital mundial de la cultura otaku (anime, manga y videojuegos). Es un laberinto vertical de neón donde cada edificio oculta tesoros impensables.</p>
+                        <p><em>Imprescindible visitar **Radio Kaikan** (10 plantas de figuras y coleccionismo), **Super Potato** para revivir la era de los 8 y 16 bits, y perderse en los infinitos pasillos de **Yodobashi Camera**. <strong>Misión para Iván y Fran:</strong> Entrad en un salón GiGO, subid a las plantas de juegos de ritmo y flipad con la destreza sobrehumana de los locales.</em></p>
+                    `,
                 }
             ]
         },
@@ -2828,6 +3809,57 @@ const travelData = [
                         tacticalGuideId: "mission_maid"
                     }
                 ]
+            }
+        ],
+        additionalExcursions: [
+            {
+                id: "add_hotaluna",
+                title: "Crucero Fluvial Hotaluna",
+                image: "images/add-hotaluna.jpg",
+                description: "Trayecto en barco futurista desde Asakusa hasta Odaiba.",
+                time: "12:00 – 13:00",
+                price: "~1.700 JPY",
+                tacticalGuideId: "mission_hotaluna",
+                video: "https://www.youtube.com/watch?v=H7_4j_f5Wks",
+                link: "https://www.google.com/maps/search/?api=1&query=Hotaluna+Water+Bus+Asakusa",
+                tacticalGuideId: "mission_hotaluna",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-ship"></i> Crucero Hotaluna</h3>
+                    <p>Diseñado por Leiji Matsumoto. El barco parece una nave espacial de cristal. Vistas increíbles del skyline desde el río Sumida.</p>
+                `
+            },
+            {
+                id: "add_sumida_aquarium",
+                title: "Sumida Aquarium",
+                image: "images/add-sumida-aquarium.jpg",
+                description: "Acuario de diseño moderno y artístico dentro del complejo Skytree.",
+                time: "15:00 – 16:30",
+                price: "~2.300 JPY",
+                link: "https://www.google.com/maps/search/?api=1&query=Sumida+Aquarium",
+                tacticalGuideId: "mission_sumida_aquarium",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-fish"></i> Acuario de Sumida</h3>
+                    <p>Destaca su zona de pingüinos y medusas. Un ambiente fresco y relajante tras bajar del Skytree.</p>
+                `
+            },
+            {
+                id: "add_kanda_myojin",
+                title: "Kanda Myōjin (Templo IT & Anime)",
+                image: "images/add-kanda-myojin.jpg",
+                description: "El templo de los informáticos y el anime. Famoso por sus amuletos para dispositivos electrónicos.",
+                time: "10:00 – 11:30",
+                price: "Gratis",
+                video: "https://www.youtube.com/watch?v=UtuCPV240dc",
+                link: "https://www.google.com/maps/search/?api=1&query=Kanda+Myojin+Shrine",
+                tacticalGuideId: "mission_kanda_myojin",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-microchip"></i> Kanda Myōjin</h3>
+                    <p>Un santuario con más de 1300 años de historia, pero con un giro moderno único: es el protector del distrito tecnológico de Akihabara. Aquí podéis comprar amuletos para bendecir vuestro PC o smartphone y ver colaboraciones con series de anime.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-bolt-lightning"></i> <strong>Especial:</strong> Los informáticos vienen aquí a rezar para que no fallen sus servidores.</li>
+                        <li><i class="fa-solid fa-camera"></i> <strong>Visual:</strong> Puerta Zuimon de madera dorada y bermellón espectacular.</li>
+                    </ul>
+                `
             }
         ]
     },
@@ -2904,11 +3936,12 @@ const travelData = [
                     description: "Santuario imperial camuflado en un bosque denso enorme y silencioso.",
                     image: "images/dia18-meiji.jpg",
                     price: "Gratis",
+                    video: "https://www.youtube.com/watch?v=VN_Kk0KWAvk",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-tree"></i> Un Bosque Mágico Plantado a Mano</h3>
-                        <p>A pesar de estar al lado del barrio más moderno, entrar al parque Yoyogi a primera hora para visitar el Meiji Jingu es sobrecogedor. Caminaréis bajo inmensos toriis de cedro y entre más de 100.000 árboles que fueron plantados a mano por los japoneses hace un siglo en honor al Emperador Meiji.</p>
-                        <p><strong>Curiosidad:</strong> Fijaos en las grandes ofrendas en el camino: decenas de barriles tallados de Sake (común) enfrentados a docenas de barriles de vino de Borgoña francés (no tan común, reflejo del interés del emperador por occidente).</p>
-                    `
+                        <h3><i class="fa-solid fa-tree"></i> Meiji Jingu: Un Bosque Sagrado</h3>
+                        <p>Dedicado a las almas del Emperador Meiji y la Emperatriz Shoken, este santuario es un remanso de paz absoluta en el corazón de la urbe. Tras cruzar los inmensos Torii de madera de cedro de 1.500 años de antigüedad, caminaréis por un bosque artificial de 70 hectáreas compuesto por 100.000 árboles donados por todo Japón cuando se fundó el santuario en 1920.</p>
+                        <p><em>No os perdáis los coloridos barriles de sake (kazaridaru) donados anualmente, enfrentados a los barriles de vino de Borgoña, reflejo del amor del emperador por la cultura internacional. Con suerte, podréis ver una procesión de boda tradicional (shinto) cruzando el patio principal.</em></p>
+                    `,
                 },
                 {
                     time: "12:00",
@@ -2924,13 +3957,14 @@ const travelData = [
                     image: "images/dia18-shibuya.jpg",
                     price: "Gratis",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-people-arrows"></i> Caos Organizado (Scramble Crossing)</h3>
-                        <p>Es inmenso. Cuando todos los semáforos se ponen en rojo, la avalancha humana se cruza desde todas las direcciones sin chocar jamás. Es obligatorio cruzarlo, sacar vídeos en medio o buscar lugares elevados (Starbucks o Megadonki) para verlo desde arriba.</p>
+                        <h3><i class="fa-solid fa-people-arrows"></i> El Cruce de Shibuya: Caos en Armonía</h3>
+                        <p>Cuando los semáforos se ponen en rojo para los coches, la marea humana se lanza al asfalto desde cinco direcciones distintas. Es el "Scramble Crossing" más famoso del mundo, un icono de la modernidad y la densidad de Tokio. Cruzarlo es un rito de iniciación obligatorio; observarlo desde lo alto (como el Starbucks del edificio QFRONT) es hipnótico.</p>
                         <ul>
-                            <li><i class="fa-solid fa-dog"></i> <strong>Punto de encuentro: Hachiko.</strong> Buscad la broncínea estatua de Hachiko a la salida de la estación, el mítico perro de raza Akita que esperó 9 años a su amo fallecido. Suele haber siempre cola para hacerse una foto.</li>
+                            <li><i class="fa-solid fa-dog"></i> <strong>Hachiko: La Lealtad Eterna.</strong> Junto al cruce se encuentra la estatua de bronce de Hachiko, el perro de raza Akita que esperó a su dueño fallecido en este mismo punto durante casi 10 años. Es el concepto japonés de <em>giri</em> (deber y lealtad) hecho carne... o bronce.</li>
+                            <li><i class="fa-solid fa-lightbulb"></i> <strong>Consejo:</strong> Si buscáis una vista espectacular del cruce, el **Magnets by Shibuya 109** tiene una planta superior panorámica menos masificada.</li>
                         </ul>
                     `,
-                    video: "https://www.youtube.com/watch?v=fXyDglw_0f8"
+                    video: "https://www.youtube.com/watch?v=pZRHMKangVQ"
                 }
             ]
         },
@@ -2943,6 +3977,7 @@ const travelData = [
                 price: "~2.200 JPY",
                 image: "images/dia18-sky.jpg",
                 recommended: true,
+                video: "https://www.youtube.com/watch?v=-92mxe5UQYg",
                 fullDesc: `
                     <h3><i class="fa-solid fa-wind"></i> Tokio bajo tus pies (literal)</h3>
                     <p>Subir al atardecer es una experiencia increíble; las paredes son de cristal bajo, dejando entrar la brisa y dando la sensación de volar sobre los rascacielos y el cruce. Además cuenta con hamacas tejidas e iluminación LED dinámica de noche. Solo pueden colarse cámaras pequeñas (mochilas prohibidas arriba por el viento).</p>
@@ -3055,10 +4090,12 @@ const travelData = [
                     description: "No es solo transporte, es una verdadera atracción gracias a las vistas cruzando el Rainbow Bridge.",
                     image: "images/dia20-monorail.jpg",
                     price: "Suica/Pasmo",
+                    video: "https://www.youtube.com/watch?v=7iSOMLkFizU",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-train"></i> El Gusano Robótico</h3>
-                        <p>Este sistema de tránsito ligero automatizado no tiene conductor. Si lográis sentaros en el gran ventanal frontal del primer vagón tendréis la sensación de ir montados en una montaña rusa urbana suave cuando cruza en espiral el gran puente colgante sobre la bahía.</p>
-                    `
+                        <h3><i class="fa-solid fa-train"></i> Yurikamome: El Viaje al Futuro</h3>
+                        <p>Este sistema de tránsito ligero totalmente automatizado (sin conductor) es el mejor mirador móvil de Tokio. Recibe su nombre de la gaviota de cabeza negra, el ave oficial de la capital.</p>
+                        <p><em>El momento culminante es cuando el tren realiza una doble curva de 270 grados para ganar altura antes de cruzar el <strong>Rainbow Bridge</strong>. Las vistas de los rascacielos de Minato a un lado y la bahía al otro son imbatibles. Truco: Intentad sentaros en el gran ventanal del primer vagón.</em></p>
+                    `,
                 },
                 {
                     time: "12:30",
@@ -3074,9 +4111,13 @@ const travelData = [
                     image: "images/dia20-odaiba.jpg",
                     price: "Gratis",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-robot"></i> Cultura Pop a Gran Escala</h3>
-                        <p>Paseando por la pasarela elevada de Odaiba veréis la Estatua de la Libertad (construida como homenaje por el año de Japón en Francia) y detrás la imponente fachada del edificio FujiTV. Al otro lado, frente al mall DiverCity, custodia una réplica a escala real 1:1 de un mecha Gundam Unicorn (RX-0) que se transforma con luces y música cada hora en punto.</p>
-                    `
+                        <h3><i class="fa-solid fa-robot"></i> Odaiba: Isla de Entretenimiento</h3>
+                        <p>Odaiba es una serie de islas artificiales ganadas al mar. Originalmente construidas como fortalezas defensivas en 1853, hoy son el centro de ocio futurista de Tokio. Aquí la escala es diferente: espacios abiertos, brisa marina y arquitecturas audaces como el edificio de Fuji TV.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-robot"></i> <strong>Unicorn Gundam:</strong> Frente al centro comercial DiverCity veréis una estatua escala 1:1 de 20 metros que realiza transformaciones rítmicas de luz y placas mecánicas cada hora.</li>
+                            <li><i class="fa-solid fa-statue-mercurial"></i> <strong>Estatua de la Libertad:</strong> Una réplica encargada en 1998 para celebrar el "Año de Francia en Japón", situada con el skyline de Tokio al fondo.</li>
+                        </ul>
+                    `,
                 }
             ]
         },
@@ -3089,6 +4130,7 @@ const travelData = [
                 price: "3.800 JPY",
                 image: "images/dia20-teamlab.jpg",
                 recommended: true,
+                video: "https://www.youtube.com/watch?v=bFE0Kas391k",
                 fullDesc: `
                     <h3><i class="fa-solid fa-hand-sparkles"></i> Nadar en Luz</h3>
                     <p>Imprescindible reservar con semanas de antelación. Caminaréis descalzos por ríos de agua tibia donde se proyectan carpas koi virtuales, atravesaréis laberintos infinitos de cristales LED colgantes y os tumbaréis en cúpulas de orquídeas flotantes. Una experiencia alucinante (y muy "instagrameable").</p>
@@ -3210,10 +4252,12 @@ const travelData = [
                     description: "El parque público más popular, hogar de museos, un zoo y un estanque de lotos gigante.",
                     image: "images/dia20-itinerario-base-2.jpg",
                     price: "Gratis",
+                    video: "https://www.youtube.com/watch?v=bgC0Vno1wJo",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-leaf"></i> El Pulmón del Norte</h3>
-                        <p>Perfecto para pasear de mañana. Destaca el gran estanque Shinobazu ahogado en gigantescas plantas de loto verdes con el pabellón octogonal Bentendo flotando en medio.</p>
-                    `
+                        <h3><i class="fa-solid fa-leaf"></i> Parque Ueno: El Corazón Cultural</h3>
+                        <p>Este inmenso parque fue antiguamente el recinto del templo Kan'ei-ji, uno de los más poderosos de la ciudad, destruido durante la guerra civil Boshin. Hoy es un epicentro cultural que alberga los mejores museos del país y el famoso zoológico de Ueno.</p>
+                        <p><em>No os perdáis el <strong>Estanque Shinobazu</strong>, un vasto humedal que en verano se cubre completamente de flores de loto gigantescas, ocultando el agua y creando un mar verde bajo los rascacielos. En su centro flota el templo Bentendo, dedicado a la diosa de la fortuna y el conocimiento.</em></p>
+                    `,
                 },
                 {
                     id: "b2",
@@ -3223,9 +4267,10 @@ const travelData = [
                     image: "images/dia20-itinerario-base-1.jpg",
                     price: "Gratis",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-store"></i> Sobras del Mercado Negro</h3>
-                        <p>Tras la segunda guerra mundial aquí floreció el mercado negro. Hoy es un laberinto de callejuelas abigarradas donde los vendedores gritan ofreciendo zapatillas con descuento, pescado seco, especias y chaquetas vintage. El ambiente es vibrante y muy distinto al orden estricto nipón.</p>
-                    `
+                        <h3><i class="fa-solid fa-store"></i> Ameyoko: El Mercado del Azúcar</h3>
+                        <p>Ameya Yokocho ("Callejón de las tiendas de caramelos") nació como un bullicioso mercado negro tras la Segunda Guerra Mundial, donde se vendía azúcar y productos de los soldados estadounidenses. Hoy conserva esa energía cruda y caótica, con puestos bajo las vías del tren elevado.</p>
+                        <p><em>Es el lugar perfecto para ver el Tokio menos pulido: vendedores gritando ofertas de pescado fresco, especias, ropa vintage y zapatillas. Es una experiencia de asalto a los sentidos ineludible.</em></p>
+                    `,
                 },
                 {
                     id: "b3",
@@ -3235,9 +4280,10 @@ const travelData = [
                     image: "images/dia20-museo-nacional-de-tokio-ueno.jpg",
                     price: "Gratis",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-cat"></i> Escaleras al Atardecer</h3>
-                        <p>Se llega bajando las famosas Yuyake Dandan (Escaleras del atardecer). Toda la calle peatonal está llena de pequeños comercios artesanales y puestos de comida local lenta: croquetas de patata (korokke), té verde y dulces en forma de pata de gato. Muy relajante y costumbrista para comer picando.</p>
-                    `
+                        <h3><i class="fa-solid fa-cat"></i> Yanaka Ginza: El Tokio de Ayer</h3>
+                        <p>Yanaka es uno de los pocos barrios que sobrevivió a los bombardeos de la guerra y a los terremotos, manteniendo la escala y el encanto de la era Showa (mediados del siglo XX). Es conocido como el "Barrio de los Gatos" por la abundancia de felinos y figuritas decorativas de estos animales.</p>
+                        <p><em>El acceso por las escaleras **Yuyake Dandan** ofrece una de las vistas más nostálgicas de la ciudad al atardecer. Es ideal para comer croquetas caseras (korokke) recién hechas mientras paseáis entre pescaderías, teterías y tiendas de sellos tradicionales.</em></p>
+                    `,
                 }
             ]
         },
@@ -3340,11 +4386,12 @@ const travelData = [
                     description: "Montañas frondosas, santuarios profusamente decorados en oro y el mausoleo de Ieyasu Tokugawa.",
                     image: "images/dia21-nikko.jpg",
                     price: "Santuarios ~1.300 JPY",
+                    video: "https://www.youtube.com/watch?v=XGDPWTPx_JM",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-leaf"></i> La Montaña Dorada</h3>
-                        <p>Nikko es Patrimonio de la Humanidad. El complejo Toshogu donde descansa el shogun que unificó Japón está decorado en oro radiante a diferencia del resto de templos sobrios japoneses. Incluye los puentes sagrados rojos sobre ríos bravos y densos bosques de cedros monumentales.</p>
-                        <p><strong>Lo mejor:</strong> El clima es más frío y la arquitectura está al nivel de Kioto.</p>
-                    `
+                        <h3><i class="fa-solid fa-leaf"></i> Nikko: La Morada de los Shogunes</h3>
+                        <p>Nikko es Patrimonio de la Humanidad por la UNESCO y un lugar donde la arquitectura japonesa alcanza su máximo esplendor decorativo. El complejo **Toshogu**, mausoleo del gran shogun Tokugawa Ieyasu, rompe con la sobriedad budista habitual mostrando tallas intrincadas, pan de oro y colores vibrantes en medio de un bosque de cedros milenarios.</p>
+                        <p><em>Buscad el relieve de los "Tres Monos Sabios" (no oír, no decir, no ver el mal) y el "Gato Durmiente". Nikko combina espiritualidad samurái con una naturaleza salvaje de cascadas y lagos alpinos.</em></p>
+                    `,
                 },
                 {
                     id: "b2",
@@ -3353,10 +4400,12 @@ const travelData = [
                     description: "La antigua capital surfera. Famosa por su inmenso Daibutsu (Gran Buda) de bronce al aire libre.",
                     image: "images/kamakura_buda.png",
                     price: "Templos ~300-400 JPY",
+                    video: "https://www.youtube.com/watch?v=3a7hEF16KpA",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-om"></i> El Kioto del Este y Océano</h3>
-                        <p>Más rápida y barata de acceder (1h al sur de Tokio). Es un conjunto de hermosos templos diseminados por la ladera marítima unidos por un tranvía vintage (el Enoden). Destaca el gran Buda que sobrevivió a un tsunami masivo en el medievo, y el templo escalonado y florido de Hasedera.</p>
-                    `
+                        <h3><i class="fa-solid fa-om"></i> Kamakura: El Gran Buda del Mar</h3>
+                        <p>Kamakura fue la capital política de Japón en el siglo XII y hoy es una ciudad costera llena de templos zen y una vibra relajada. Su icono es el **Daibutsu** del templo Kotoku-in, una estatua de bronce de 13 metros que ha resistido terremotos y tsunamis desde 1252.</p>
+                        <p><em>Pasead por la calle Komachi-dori para probar dulces locales y visitad el templo **Hasedera**, famoso por sus miles de pequeñas estatuas Jizo y sus jardines con vistas panorámicas al océano Pacífico.</em></p>
+                    `,
                 }
             ]
         },
@@ -3383,6 +4432,52 @@ const travelData = [
                 fullDesc: `
                     <h3><i class="fa-solid fa-water"></i> Fuerzas Naturales</h3>
                     <p>Si el santuario Toshogu se os queda corto y no os importa el largo trayecto en bus de peaje subiendo puertos de montaña (cuidado mareos), la caída libre de 97 metros de la gran cascada Kegon partiendo del lago de cráter Chuzenji es sobrecogedora.</p>
+                `
+            }
+        ],
+        additionalExcursions: [
+            {
+                id: "add_engakuji",
+                title: "Templo Engaku-ji",
+                image: "images/add-engakuji.jpg",
+                description: "Centro zen con atmósfera de quietud absoluta y arboledas de cedros en Kamakura.",
+                time: "10:00 – 11:30",
+                price: "~500 JPY",
+                link: "https://www.google.com/maps/search/?api=1&query=Engakuji+Temple+Kamakura",
+                tacticalGuideId: "mission_engakuji",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-peace"></i> Templo Engaku-ji</h3>
+                    <p>Uno de los centros zen más importantes. La introducción perfecta antes de las zonas más concurridas de Kamakura.</p>
+                `
+            },
+            {
+                id: "add_shinkyo_bridge",
+                title: "Puente Shinkyo (Nikko)",
+                image: "images/add-shinkyo.jpg",
+                description: "El famoso puente sagrado rojo sobre el río Daiya.",
+                time: "10:30 – 11:30",
+                price: "~300 JPY",
+                link: "https://www.google.com/maps/search/?api=1&query=Shinkyo+Bridge+Nikko",
+                tacticalGuideId: "mission_shinkyo",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-bridge"></i> Puente Shinkyo</h3>
+                    <p>Icono de Nikko. El agua brava y el bosque verde crean una estampa de naturaleza pura.</p>
+                `
+            },
+            {
+                id: "add_kawagoe",
+                title: "Kawagoe (Little Edo)",
+                image: "images/add-kawagoe.jpg",
+                description: "Ciudad que conserva almacenes de la época Edo con paredes de arcilla negra.",
+                time: "Día Completo",
+                price: "Variable",
+                tacticalGuideId: "mission_kawagoe",
+                video: "https://www.youtube.com/watch?v=A2SlyMstSCo",
+                link: "https://www.google.com/maps/search/?api=1&query=Kawague+Little+Edo",
+                tacticalGuideId: "mission_kawagoe",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-landmark"></i> Kawagoe: El Pequeño Edo</h3>
+                    <p>A solo 30 min de Tokio. Una opción excelente si el grupo prefiere algo histórico pero menos exigente físicamente que Nikko.</p>
                 `
             }
         ]
@@ -3457,10 +4552,12 @@ const travelData = [
                     description: "El nuevo complejo comercial termal junto al mercado mayorista de atunes más grande del mundo.",
                     image: "images/dia22-toyosu.jpg",
                     price: "Gratis",
+                    video: "https://www.youtube.com/watch?v=dpPnum86GoA",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-fish-fins"></i> Sushi de Primera Mano</h3>
-                        <p>Aunque el mercado mayorista de Toyosu es muy estéril (no es como el antiguo Tsukiji), han abierto recientemente un complejo comercial temático Edo llamado "Senkyaku Banrai". Ofrece las paradas de sushi más fresco extraído en la madrugada, así como varios puestos de comida callejera y hasta baños de pies onsen gratuitos de aguas termales a gran altura con vistas a la bahía de Tokio.</p>
-                    `
+                        <h3><i class="fa-solid fa-fish-fins"></i> Toyosu: El Nuevo Legado del Mar</h3>
+                        <p>Tras el cierre del icónico Tsukiji, Toyosu se ha convertido en la lonja de pescado más avanzada del mundo. Aunque el área mayorista es de acceso restringido y muy tecnológica, el nuevo complejo **Senkyaku Banrai** ("Mil Huéspedes") recrea un animado mercado del periodo Edo con arquitectura de madera tradicional.</p>
+                        <p><em>Es el lugar definitivo para desayunar el sushi mejor seleccionado de la madrugada. No os perdáis el **Manyo Club**, donde podréis disfrutar de un baño de pies (ashiyu) gratuito en la azotea con vistas panorámicas a la bahía de Tokio y al skyline.</em></p>
+                    `,
                 },
                 {
                     id: "b2",
@@ -3470,10 +4567,10 @@ const travelData = [
                     image: "images/dia22-teatro-kabuki-za-desde-fuera.jpg",
                     price: "Gratis",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-gem"></i> La Milla de Diamantes</h3>
-                        <p>Elegancia pura extrema. A parte de las flagship stores de alta costura, merece la pena entrar al macro complejo de marcas <strong>Ginza Six</strong> con sus espectaculares bóvedas artísticas interiores, o los showrooms experimentales de grandes marcas tecnológicas japonesas como Nissan Crossing o Sony.</p>
+                        <h3><i class="fa-solid fa-gem"></i> Ginza: La Milla de Diamantes</h3>
+                        <p>Elegancia pura extrema. Aparte de las flagship stores de alta costura, merece la pena entrar al macro complejo de marcas **Ginza Six** con sus espectaculares bóvedas artísticas interiores, o los showrooms experimentales de grandes marcas tecnológicas japonesas como Nissan Crossing o Sony.</p>
                         <p>Los domingos y sábados al mediodía las grandes avenidas de Ginza cierran al tráfico para ser un gran paseo peatonal masivo. Al ser Lunes hoy, tendréis que caminar por las aceras, pero el ambiente sigue siendo vibrante.</p>
-                    `
+                    `,
                 },
                 {
                     id: "b3",
@@ -3483,9 +4580,9 @@ const travelData = [
                     image: "images/dia22-roppongi.jpg",
                     price: "Gratis visual",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-martini-glass"></i> Noches de Torre Roja</h3>
-                        <p>Roppongi es un barrio transformado: del desenfreno militar al hub de arte y diseño de cristal con ambiente multicultural de millonarios expatriados. Caminar por el complejo Roppongi Hills cruzando con la gran escultura de la araña de Louise Bourgeois (Maman). Destaca acercarse caminando a la zona del templo Zojoji o la base de la Tokyo Tower, una increíble estructura de celosía naranja y blanca (copia modernizada de la torre Eiffel de Francia) que se enciende rotundamente al caer la noche destacando sobre los rascacielos sombríos.</p>
-                    `
+                        <h3><i class="fa-solid fa-martini-glass"></i> Roppongi: Noches de Torre Roja</h3>
+                        <p>Roppongi es un barrio transformado: del desenfreno militar al hub de arte y diseño de cristal con ambiente multicultural de millonarios expatriados. Caminar por el complejo **Roppongi Hills** cruzando con la gran escultura de la araña de Louise Bourgeois (Maman). Destaca acercarse caminando a la zona del templo Zojoji o la base de la Tokyo Tower, una increíble estructura de celosía naranja y blanca (copia modernizada de la torre Eiffel de Francia) que se enciende rotundamente al caer la noche destacando sobre los rascacielos sombríos.</p>
+                    `,
                 }
             ]
         },
@@ -3581,9 +4678,10 @@ const travelData = [
                     image: "images/dia23-itinerario-base-1.jpg",
                     price: "Libre",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-gift"></i> Tetris de Equipaje</h3>
+                        <h3><i class="fa-solid fa-gift"></i> Don Quijote: El Paraíso de las Compras</h3>
                         <p>Tras dejar el equipaje en el lobby del hotel, tenéis el día libre. Es el momento clásico de ir a un "Mega Donki" (Don Quijote gigante) a comprar cajas de Kit-Kats de sabores, mochis y chucherías para la familia, o volver a vuestro barrio favorito de días anteriores para una última mirada.</p>
-                    `
+                        <p><em>**Don Quijote** es una cadena de tiendas de descuento con todo tipo de productos, desde snacks y cosméticos hasta electrónica y disfraces. Es el lugar perfecto para encontrar souvenirs únicos y a buen precio.</em></p>
+                    `,
                 },
                 {
                     time: "13:00",
@@ -3619,6 +4717,36 @@ const travelData = [
                 fullDesc: `
                     <h3><i class="fa-solid fa-torii-gate"></i> Despedida Cultural</h3>
                     <p>Si llegáis pronto, subid a la planta 4 y 5 de la T3. Han reconstruido un puente japonés de madera enorme y calles comerciales preciosas. Buen sitio para la última cena antes de entrar a las aburridas puertas de embarque internacionales.</p>
+                `
+            }
+        ],
+        additionalExcursions: [
+            {
+                id: "add_anamori_inari",
+                title: "Santuario Anamori Inari",
+                image: "images/add-anamori.jpg",
+                description: "Santuario con decenas de pequeños toris rojos muy cerca de Haneda.",
+                time: "16:30 – 17:30",
+                price: "Gratis",
+                link: "https://www.google.com/maps/search/?api=1&query=Anamori+Inari+Shrine",
+                tacticalGuideId: "mission_anamori",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-torii-gate"></i> Santuario Anamori Inari</h3>
+                    <p>Despedida espiritual perfecta. Podéis recoger 'arena sagrada' para la protección en vuestro vuelo de regreso.</p>
+                `
+            },
+            {
+                id: "add_jonanjima_park",
+                title: "Jonanjima Seaside Park",
+                image: "images/add-jonanjima.jpg",
+                description: "Parque costero para ver los aviones despegar a baja altura en Haneda.",
+                time: "17:00 – 18:00",
+                price: "Gratis",
+                link: "https://www.google.com/maps/search/?api=1&query=Jonanjima+Seaside+Park",
+                tacticalGuideId: "mission_jonanjima",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-plane-departure"></i> Parque Costero Jonanjima</h3>
+                    <p>Relax al atardecer sobre la bahía viendo de cerca los gigantes del aire antes de ser uno de ellos.</p>
                 `
             }
         ]
