@@ -1044,6 +1044,9 @@ function renderCenterVisual(data, mode, optData = null) {
 
         listHTML += `</div>`;
         card.innerHTML = listHTML;
+        // Scroll al inicio del panel al abrir la lista
+        card.scrollTop = 0;
+        if (card.parentElement) card.parentElement.scrollTop = 0;
         return;
     }
 
@@ -1120,10 +1123,18 @@ function renderCenterVisual(data, mode, optData = null) {
             `<img src="${imgSrc}" class="cinema-mode-img" onerror="this.style.display='none'">` :
             `<div class="photo-placeholder"><i class="fa-solid fa-image"></i> Sin imagen</div>`;
 
-        card.innerHTML = `
-             <button onclick="loadDay(${travelData.indexOf(data)})" style="background:transparent; border:none; color:var(--accent); cursor:pointer; font-size:1.1rem; margin-bottom:15px; display:flex; align-items:center;">
+        // Determinar si es una excursión adicional (id starts with 'add_')
+        const isAdditionalExc = optData.id && optData.id.startsWith('add_');
+        const backBtnHTML = isAdditionalExc
+            ? `<button onclick="renderCenterVisual(travelData[${travelData.indexOf(data)}], 'additional-excursions-list')" style="background:transparent; border:none; color:var(--neon-blue); cursor:pointer; font-size:1.1rem; margin-bottom:15px; display:flex; align-items:center;">
+                 <i class="fa-solid fa-arrow-left" style="margin-right:8px;"></i> Volver a Excursiones Adicionales
+               </button>`
+            : `<button onclick="loadDay(${travelData.indexOf(data)})" style="background:transparent; border:none; color:var(--accent); cursor:pointer; font-size:1.1rem; margin-bottom:15px; display:flex; align-items:center;">
                  <i class="fa-solid fa-arrow-left" style="margin-right:8px;"></i> Volver al Itinerario
-             </button>
+               </button>`;
+
+        card.innerHTML = `
+             ${backBtnHTML}
              
              ${imgHTML}
              
@@ -1227,6 +1238,9 @@ function renderCenterVisual(data, mode, optData = null) {
                   ` : ''}
              </div>
          `;
+        // Scroll al inicio del panel al abrir el detalle de excursión
+        card.scrollTop = 0;
+        if (card.parentElement) card.parentElement.scrollTop = 0;
     }
 }
 
