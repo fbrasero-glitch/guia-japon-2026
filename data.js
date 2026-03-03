@@ -1139,7 +1139,7 @@ const travelData = [
                         tacticalGuideId: "mission_fushimi"
                     }
                 ],
-                video: "https://www.youtube.com/watch?v=RJy9LjTnz-Q"
+                video: "https://www.youtube.com/watch?v=lX9z-LwS88c"
             }
         ],
         additionalExcursions: [
@@ -1226,7 +1226,7 @@ const travelData = [
                 price: "Gratis",
                 link: "https://www.google.com/maps/search/?api=1&query=Sarusawa-ike+Pond",
                 tacticalGuideId: "mission_naramachi",
-                video: "https://www.youtube.com/watch?v=lX9z-LwS88c",
+                video: "https://www.youtube.com/watch?v=aSPhkem89vU",
                 fullDesc: `
                     <h3><i class="fa-solid fa-water"></i> Estanque Sarusawa y Naramachi</h3>
                     <p>El estanque Sarusawa ofrece una vista clásica de la pagoda del templo Kofuku-ji reflejada en el agua. Naramachi es el antiguo distrito comercial de Nara, con estrechas callejuelas y casas de madera (machiya) bien conservadas.</p>
@@ -1256,7 +1256,7 @@ const travelData = [
                 price: "~500 JPY",
                 link: "https://www.google.com/maps/search/?api=1&query=Danjo+Garan+Complex",
                 tacticalGuideId: "mission_garan",
-                video: "https://www.youtube.com/watch?v=CQ4O5lZX42A",
+                video: "https://www.youtube.com/watch?v=8yU7-GisU-8",
                 fullDesc: `
                     <h3><i class="fa-solid fa-archway"></i> Complejo Garan</h3>
                     <p>El centro de Koya-san, con la impresionante pagoda Konpon Daito y el templo principal Kongobuji, famoso por su jardín de rocas Banryutei.</p>
@@ -1271,7 +1271,7 @@ const travelData = [
                 price: "Gratis",
                 link: "https://www.google.com/maps/search/?api=1&query=Daimon+Gate+Koyasan",
                 tacticalGuideId: "mission_daimon",
-                video: "https://www.youtube.com/watch?v=eP_f98_pGsc",
+                video: "https://www.youtube.com/watch?v=3S5eK3D1C8k",
                 fullDesc: `
                     <h3><i class="fa-solid fa-torii-gate"></i> Puerta Daimon</h3>
                     <p>Una enorme puerta de color bermellón que marca la entrada tradicional a Koya-san, custodiada por dos estatuas guardianas Nio.</p>
@@ -1417,6 +1417,7 @@ const travelData = [
                             <li><i class="fa-solid fa-leaf"></i> <strong>Jardín Ninomaru:</strong> Diseñado por el maestro de té Kobori Enshu, con rocas masivas que representan la longevidad.</li>
                         </ul>
                     `,
+                    video: "https://www.youtube.com/watch?v=N9AXzIbPJoE"
                 },
                 {
                     time: "18:00",
@@ -1625,7 +1626,8 @@ const travelData = [
                             <li><i class="fa-solid fa-clock"></i> <strong>Horario recomendado:</strong> 08:30 para evitar el grueso de turistas.</li>
                             <li><i class="fa-solid fa-droplet"></i> <strong>Cascada Otowa:</strong> Elegid vuestro deseo antes de beber.</li>
                         </ul>
-                    `
+                    `,
+                    video: "https://www.youtube.com/watch?v=_a-PPFMNpdU"
                 },
                 {
                     id: "b2",
@@ -1643,7 +1645,8 @@ const travelData = [
                             <li><i class="fa-solid fa-camera"></i> <strong>Perspectiva:</strong> Buscad el encuadre con la pagoda al fondo desde Sannenzaka.</li>
                             <li><i class="fa-solid fa-ice-cream"></i> <strong>Tip:</strong> Probad los helados de té matcha o los dulces Yatsuhashi.</li>
                         </ul>
-                    `
+                    `,
+                    video: "https://www.youtube.com/watch?v=qS_D_M6N3XU"
                 },
                 {
                     id: "b3",
@@ -2562,6 +2565,7 @@ const travelData = [
                 price: "Jardín ~600 JPY",
                 link: "https://www.google.com/maps/search/?api=1&query=Heian+Shrine",
                 tacticalGuideId: "mission_heian",
+                video: "https://www.youtube.com/watch?v=E3mX_M7B7_k",
                 fullDesc: `
                     <h3><i class="fa-solid fa-torii-gate"></i> Santuario Heian</h3>
                     <p>Construido para celebrar el 1100 aniversario de Kioto. Su jardín trasero es uno de los más bellos para pasear sobre el agua.</p>
@@ -2580,6 +2584,7 @@ const travelData = [
                 price: "~600 JPY",
                 link: "https://www.google.com/maps/search/?api=1&query=Tofukuji+Temple",
                 tacticalGuideId: "mission_tofukuji",
+                video: "https://www.youtube.com/watch?v=2W6M48uS-i4",
                 fullDesc: `
                     <h3><i class="fa-solid fa-bridge-water"></i> Tōfuku-ji</h3>
                     <p>Posee uno de los jardines zen más fotografiados (el de cuadrados de musgo y piedra). El puente Tsutenkyo ofrece vistas de bosque urbano.</p>
@@ -2598,6 +2603,7 @@ const travelData = [
                 price: "~490 JPY",
                 link: "https://www.google.com/maps/search/?api=1&query=Funaoka+Onsen+Kyoto",
                 tacticalGuideId: "mission_funaoka",
+                video: "https://www.youtube.com/watch?v=Kz-rV-jEwVs",
                 fullDesc: `
                     <h3><i class="fa-solid fa-hot-tub-person"></i> Funaoka Onsen</h3>
                     <p>No es un onsen natural de montaña, sino un Sentō (baño público) histórico. Impulsaos por su historia y sus azulejos decorativos.</p>
@@ -2723,6 +2729,7 @@ const travelData = [
                 description: "Baño mixto al aire libre junto al río. Experiencia salvaje (Baño público).",
                 price: "Donación",
                 image: "images/dia11-shinhotaka.jpg",
+                video: "https://www.youtube.com/watch?v=mG0oR74fL1A",
                 fullDesc: `
                     <h3><i class="fa-solid fa-water"></i> Onsen Salvaje junto al río</h3>
                     <p>Un baño rústico al aire libre literalmente pegado al río. Es mixto y los bañadores suelen estar prohibidos (usar toalla grande).</p>
@@ -2744,6 +2751,7 @@ const travelData = [
                 description: "Vistas alpinas desde las nubes (Si os da tiempo a llegar).",
                 price: "2.900 JPY",
                 image: "images/dia11-teleferico.jpg",
+                video: "https://www.youtube.com/watch?v=c7vvq-x5T2g",
                 fullDesc: `
                     <h3><i class="fa-solid fa-cable-car"></i> Teleférico de Dos Pisos</h3>
                     <p>Sube a más de 2.000 metros para una vista panorámica de los Alpes del Norte. Cierra a las 16:45, la logística debe ser perfecta.</p>
@@ -2784,6 +2792,7 @@ const travelData = [
                 price: "Gratis",
                 link: "https://www.google.com/maps/search/?api=1&query=Hirayu+Waterfall",
                 tacticalGuideId: "mission_hirayu_waterfall",
+                video: "https://www.youtube.com/watch?v=w7AunW8YQ08",
                 fullDesc: `
                     <h3><i class="fa-solid fa-water"></i> Cascada Hirayu</h3>
                     <p>Una de las mejores cascadas de Japón. El entorno es muy fresco y el sonido del agua cayendo entre las rocas volcánicas es revitalizante.</p>
@@ -2798,6 +2807,7 @@ const travelData = [
                 price: "~1.100 JPY",
                 link: "https://www.google.com/maps/search/?api=1&query=Okuhida+Bear+Park",
                 tacticalGuideId: "mission_bear_park",
+                video: "https://www.youtube.com/watch?v=W79U1H-yq-A",
                 fullDesc: `
                     <h3><i class="fa-solid fa-paw"></i> Parque de Osos de Okuhida</h3>
                     <p>Podréis ver de cerca a los osos negros de la región y alimentarlos con galletas especiales. Una parada curiosa en el valle.</p>
@@ -2812,6 +2822,7 @@ const travelData = [
                 price: "Gratis",
                 link: "https://www.google.com/maps/search/?api=1&query=Hirayu+Onsen+Town",
                 tacticalGuideId: "mission_night_walk_hirayu",
+                video: "https://www.youtube.com/watch?v=Tq_YvT82Cis",
                 fullDesc: `
                     <h3><i class="fa-solid fa-moon"></i> Paseo Nocturno</h3>
                     <p>Un plan de 'desconexión total' tras la cena Kaiseki. El silencio de la montaña y el vapor de las aguas termales crean un ambiente único.</p>
@@ -2899,6 +2910,7 @@ const travelData = [
                     description: "Corazón feudal de la ciudad con casas de madera negra.",
                     image: "images/takayama.png",
                     price: "Gratis",
+                    video: "https://www.youtube.com/watch?v=iPTK9vDqPPA",
                     link: "https://www.google.com/maps/dir/Takayama+Station/Sanmachi+Suji/",
                     fullDesc: `
                         <h3><i class="fa-solid fa-house-chimney"></i> Sanmachi Suji: El Corazón Edo</h3>
@@ -2927,6 +2939,7 @@ const travelData = [
                 price: "440 JPY",
                 image: "images/dia12-jinya.jpg",
                 recommended: true,
+                video: "https://www.youtube.com/watch?v=jDMq_m1fpzI",
                 fullDesc: `
                     <h3><i class="fa-solid fa-landmark"></i> Takayama Jinya</h3>
                     <p>Única oficina del gobierno del periodo Edo que queda en pie. Incluye el pabellón de justicia (con herramientas de interrogatorio) y enormes almacenes de arroz.</p>
@@ -2948,6 +2961,7 @@ const travelData = [
                 description: "Museo de las carrozas del festival de Takayama (Patrimonio UNESCO).",
                 price: "1.000 JPY",
                 image: "images/dia12-yatai-kaikan.jpg",
+                video: "https://www.youtube.com/watch?v=4U0_0R4R_A0",
                 fullDesc: `
                     <h3><i class="fa-solid fa-masks-theater"></i> Exposición de Carrozas</h3>
                     <p>Muestra las espectaculares y gigantescas carrozas de madera adornadas que desfilan en los festivales de primavera y otoño.</p>
@@ -2960,6 +2974,7 @@ const travelData = [
                 description: "Paseo por los templos de la colina. Silencio y musgo.",
                 price: "Gratis",
                 image: "images/dia12-higashiyama.jpg",
+                video: "https://www.youtube.com/watch?v=x7Eof_uWkic",
                 fullDesc: `
                     <h3><i class="fa-solid fa-tree"></i> Ruta de Templos</h3>
                     <p>Un paseo tranquilo alejado de las rutas comerciales comerciales, siguiendo en parte el diseño del Kioto original.</p>
@@ -2976,6 +2991,7 @@ const travelData = [
                 price: "~700 JPY",
                 link: "https://www.google.com/maps/search/?api=1&query=Hida+no+Sato",
                 tacticalGuideId: "mission_hida_no_sato",
+                video: "https://www.youtube.com/watch?v=M9-y_fG25m4",
                 fullDesc: `
                     <h3><i class="fa-solid fa-house-chimney"></i> Aldea Folclórica de Hida</h3>
                     <p>Gemelo de Shirakawa-go pero en Takayama. Podréis entrar en casas reales y ver demostraciones de artesanía.</p>
@@ -3006,6 +3022,7 @@ const travelData = [
                 price: "Gratis",
                 link: "https://www.google.com/maps/search/?api=1&query=Sakurayama+Hachimangu+Shrine",
                 tacticalGuideId: "mission_sakurayama",
+                video: "https://www.youtube.com/watch?v=mD-mG8zM8Gk",
                 fullDesc: `
                     <h3><i class="fa-solid fa-peace"></i> Sakurayama Hachimangu</h3>
                     <p>Un santuario que ofrece paz absoluta. Es el lugar donde se celebra el festival de otoño de Takayama.</p>
@@ -3111,6 +3128,7 @@ const travelData = [
                 price: "Gratis (Parking ~1.000 JPY)",
                 image: "images/dia13-chureito.jpg",
                 recommended: true,
+                video: "https://www.youtube.com/watch?v=o_wU1jOudYg",
                 fullDesc: `
                         <h3><i class="fa-solid fa-vihara"></i> La Pagoda de la Paz: Chureito</h3>
                         <p>Ubicada en el Parque Arakurayama Sengen, esta pagoda de cinco pisos es un monumento conmemorativo de la paz construido en 1963. Aunque es relativamente moderna, se ha convertido en el símbolo visual de Japón por excelencia.</p>
@@ -3136,7 +3154,8 @@ const travelData = [
                 fullDesc: `
                     <h3><i class="fa-solid fa-water"></i> La Cara Oculta del Fuji</h3>
                     <p>Un paseo en coche rodeando el vecino lago Saiko buscando tranquilidad rural.</p>
-                `
+                `,
+                video: "https://www.youtube.com/watch?v=vVj4u_3n08o"
             },
             {
                 id: "c3",
@@ -3148,7 +3167,8 @@ const travelData = [
                 fullDesc: `
                     <h3><i class="fa-solid fa-droplet"></i> Los Estanques de Cristal</h3>
                     <p>El agua de estos estanques tarda décadas en filtrarse desde el cráter a través de la piedra pómez porosa. Podrás beber agua sagrada súper fría.</p>
-                `
+                `,
+                video: "https://www.youtube.com/watch?v=D-w-pA8YtG8"
             }
         ],
         additionalExcursions: [
@@ -3161,6 +3181,7 @@ const travelData = [
                 price: "~1.800 JPY",
                 link: "https://www.google.com/maps/search/?api=1&query=Kawaguchiko+Music+Forest+Museum",
                 tacticalGuideId: "mission_music_forest",
+                video: "https://www.youtube.com/watch?v=vN3p7qBAnIs",
                 fullDesc: `
                     <h3><i class="fa-solid fa-music"></i> Bosque de la Música</h3>
                     <p>Jardines con estética suiza y una de las mejores vistas encuadradas del Monte Fuji.</p>
@@ -3273,6 +3294,7 @@ const travelData = [
                 description: "Llegar a los 2300m en bus. Tiendas, santuario milenario y mirar hacia la cumbre.",
                 price: "2.500 JPY (Shuttle Bus)",
                 image: "images/dia14-5-estaci-n-fuji.jpg",
+                video: "https://www.youtube.com/watch?v=4rEzBJarLoc",
                 fullDesc: `
                         <h3><i class="fa-solid fa-cloud"></i> El Umbral del Cielo: 5ª Estación</h3>
                         <p>Situada a 2.305 metros sobre el nivel del mar, la 5ª estación de la línea Yoshida es el punto más alto accesible por transporte motorizado. Es el punto de partida real para los montañeros que intentan conquistar la cima.</p>
@@ -3407,6 +3429,7 @@ const travelData = [
                 price: "300 JPY",
                 image: "images/dia14-shiraito.jpg",
                 recommended: true,
+                video: "https://www.youtube.com/watch?v=K-lEnA7-QpY",
                 fullDesc: `
                     <h3><i class="fa-solid fa-water"></i> Cascadas de Hilo Blanco</h3>
                     <p>Un muro curvo de 150 metros de ancho por donde se vierten las aguas del deshielo del monte Fuji creando innumerables cascadas finas como hilos de seda. Temperatura fresca incluso en verano.</p>
@@ -3428,6 +3451,7 @@ const travelData = [
                 description: "Pueblo museo en el lago Saiko con casas de tejados de paja. Alquiler de armaduras.",
                 price: "500 JPY",
                 image: "images/dia15-iyashi.jpg",
+                video: "https://www.youtube.com/watch?v=e_B64Y07SV0",
                 fullDesc: `
                     <h3><i class="fa-solid fa-house"></i> Alda Museo Saiko Iyashi</h3>
                     <p>Antiguo poblado agrícola reconstruido tras un tifón de los 60. Preciosas fotos de paja contra el volcán y posibilidad ridícula (¡y obligatoria!) de probarse armaduras de papel maché samurai.</p>
@@ -3440,6 +3464,7 @@ const travelData = [
                 description: "Calle mítica (Fujiyoshida) con viejos negocios y el Fuji gigante de fondo.",
                 price: "Gratis",
                 image: "images/dia15-honcho-street.jpg",
+                video: "https://www.youtube.com/watch?v=2rrUQEVWKVE",
                 fullDesc: `
                     <h3><i class="fa-solid fa-camera"></i> La Calle de Instagram</h3>
                     <p>Honcho Street tiene esa vibra noventera retro. Ojo con el tráfico, la policía local está cansada de los turistas parando en medio de la calle principal para hacer fotos. Disparad rápido desde las aceras laterales.</p>
@@ -3456,6 +3481,7 @@ const travelData = [
                 price: "Gratis",
                 link: "https://www.google.com/maps/search/?api=1&query=Fujisan+Hongu+Sengen+Taisha",
                 tacticalGuideId: "mission_fujinomiya_shrine",
+                video: "https://www.youtube.com/watch?v=rBJpHPcVj0k",
                 fullDesc: `
                     <h3><i class="fa-solid fa-water"></i> Santuario de Fujinomiya</h3>
                     <p>Posee el estanque Wakutama-ike de agua cristalina que brota directamente de la roca volcánica.</p>
@@ -3623,6 +3649,7 @@ const travelData = [
                 price: "~300 JPY",
                 link: "https://www.google.com/maps/search/?api=1&query=Koishikawa+Korakuen+Garden",
                 tacticalGuideId: "mission_koishikawa",
+                video: "https://www.youtube.com/watch?v=ZiE9L77S_pk",
                 fullDesc: `
                     <h3><i class="fa-solid fa-tree"></i> Jardín Koishikawa Korakuen</h3>
                     <p>Construido por el clan Tokugawa. Utiliza elementos chinos y japoneses. Un oasis de paz al lado de vuestro hotel para vuestro primer contacto con Tokio.</p>
@@ -3637,6 +3664,7 @@ const travelData = [
                 price: "~500 JPY",
                 link: "https://www.google.com/maps/search/?api=1&query=Shinjuku+Gyoen+National+Garden",
                 tacticalGuideId: "mission_shinjuku_gyoen",
+                video: "https://www.youtube.com/watch?v=dvIxjRdvbeo",
                 fullDesc: `
                     <h3><i class="fa-solid fa-leaf"></i> Shinjuku Gyoen</h3>
                     <p>Un pulmón de paz en medio de los rascacielos. Ideal para caminar en grupo sin agobios.</p>
