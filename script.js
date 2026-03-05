@@ -6,6 +6,77 @@ let map;        // Mapa principal
 let previewMap; // Mapa de la ventana espía
 let introVideo; // Video de portada
 
+// --- SISTEMA DE RESERVAS (LOCALSTORAGE) ---
+window.toggleBookingStatus = function (id, dayIndex) {
+    const currentState = localStorage.getItem(id);
+    if (currentState === 'comprado') {
+        localStorage.setItem(id, 'pendiente');
+    } else {
+        localStorage.setItem(id, 'comprado');
+    }
+
+    // Forzar re-render de la vista actual (si estamos en una excursión, el modal ya está abierto, 
+    // pero lo más fácil es recargar el panel derecho o el visual card. En este caso recargamos la info estática para refrescar la UI)
+    const btn = document.querySelector('.day-btn.active');
+    if (btn) {
+        // Un pequeño truco para re-renderizar manteniendo la vista es volver a generar el HTML del ticket,
+        // pero como renderCenterVisual pisa todo, lo ideal es recargar el día, o simplemente cambiar el DOM interno.
+        // Dado que recargar el día con loadDay cierra la excursión, haremos un update directo del DOM por simplicidad si se requiere, 
+        // o re-pintar. Aquí recargamos la excursión llamando a click sobre optData si es posible, pero
+        // lo más seguro globalmente para mantener consistencia:
+        const currentBtn = document.getElementById(id + '_btn');
+        if (currentBtn) {
+            const newState = localStorage.getItem(id) === 'comprado';
+            currentBtn.innerHTML = newState ? '<i class="fa-solid fa-check-circle"></i> Comprado' : '<i class="fa-solid fa-triangle-exclamation"></i> Pendiente';
+            currentBtn.style.background = newState ? 'var(--success)' : 'var(--danger)';
+
+            const badgeContainer = document.getElementById(id + '_badge');
+            if (badgeContainer) {
+                badgeContainer.style.borderColor = newState ? 'var(--success)' : 'var(--danger)';
+                badgeContainer.style.background = newState ? 'rgba(16,185,129,0.1)' : 'rgba(239,68,68,0.1)';
+
+                const icon = badgeContainer.querySelector('i.fa-ticket');
+                const text = badgeContainer.querySelector('span.badge-time');
+                if (icon) icon.style.color = newState ? 'var(--success)' : 'var(--danger)';
+                if (text) text.style.color = newState ? 'var(--success)' : 'var(--danger)';
+            }
+        } else {
+            loadDay(dayIndex); // fallback
+        }
+    }
+};
+
+window.renderBookingBadge = function (booking, dayIndex) {
+    if (!booking) return '';
+    const state = localStorage.getItem(booking.id) === 'comprado' ? 'comprado' : 'pendiente';
+    const isComprado = state === 'comprado';
+
+    return `
+        <div id="${booking.id}_badge" style="margin-top:20px; margin-bottom: 20px; border:2px solid ${isComprado ? 'var(--success)' : 'var(--danger)'}; border-radius:12px; padding:15px; background:${isComprado ? 'rgba(16,185,129,0.1)' : 'rgba(239,68,68,0.1)'}; transition: all 0.3s ease;">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <i class="fa-solid fa-ticket" style="font-size:1.5rem; color:${isComprado ? 'var(--success)' : 'var(--danger)'}; transition: color 0.3s ease;"></i>
+                    <div>
+                        <strong style="color:white; display:block; font-size:1.1rem;">Gestión de Billetes</strong>
+                        <span class="badge-time" style="color:${isComprado ? 'var(--success)' : 'var(--danger)'}; font-size:0.9rem; font-weight:bold; transition: color 0.3s ease;">
+                            <i class="fa-solid fa-clock"></i> ${booking.timeframe}
+                        </span>
+                    </div>
+                </div>
+                
+                <div style="display:flex; gap:10px;">
+                    <button id="${booking.id}_btn" onclick="toggleBookingStatus('${booking.id}', ${dayIndex})" 
+                            style="cursor:pointer; padding:8px 15px; border-radius:8px; font-weight:bold; border:none; 
+                                   background:${isComprado ? 'var(--success)' : 'var(--danger)'}; color:white; display:flex; align-items:center; gap:5px; transition: all 0.3s ease;">
+                        ${isComprado ? '<i class="fa-solid fa-check-circle"></i> Comprado' : '<i class="fa-solid fa-triangle-exclamation"></i> Pendiente'}
+                    </button>
+                    ${booking.link ? `<a href="${booking.link}" target="_blank" style="padding:8px 15px; border-radius:8px; border:1px solid #38bdf8; color:#38bdf8; text-decoration:none; font-weight:bold; display:flex; align-items:center; gap:5px; background: rgba(56,189,248,0.1);"><i class="fa-solid fa-link"></i> Oficial</a>` : ''}
+                </div>
+            </div>
+        </div>
+    `;
+};
+
 // Función para extraer el lugar principal del hotel donde se duerme esa noche
 function getLocation(data) {
     // Caso especial: Día 11 es Kazeya Ryokan
@@ -172,7 +243,7 @@ function init() {
         const targetContainer = isMobile ? visualCard : container;
 
         const countdownHTML = `
-         <div class="countdown-container ${isMobile ? 'countdown-mobile' : ''}">
+        <div class="countdown-container ${isMobile ? 'countdown-mobile' : ''}" >
              <div class="countdown-title">
                  <i class="fa-solid fa-rocket"></i>
                  <h2>CUENTA ATRÁS</h2>
@@ -189,7 +260,7 @@ function init() {
                  27 de Julio, 2026
              </div>
          </div>
-     `;
+        `;
 
         if (isMobile) {
             // En móvil, agregar al visual-card y limpiar el info-content
@@ -227,9 +298,9 @@ function init() {
         const btn = document.createElement('button');
         btn.className = 'day-btn';
         btn.setAttribute('role', 'listitem');
-        btn.setAttribute('aria-label', d.day === 0 ? `Preparación del viaje` : `Día ${d.day}: ${d.title}`);
+        btn.setAttribute('aria-label', d.day === 0 ? `Preparación del viaje` : `Día ${d.day}: ${d.title} `);
         if (d.day === 0) {
-            btn.innerHTML = `<strong>📋 Preparación</strong><br><small>${d.date}</small>`;
+            btn.innerHTML = `< strong >📋 Preparación</strong > <br><small>${d.date}</small>`;
         } else {
             const location = getLocation(d);
             const locationText = location ? ` ${location}` : '';
@@ -349,45 +420,82 @@ function renderPreparationPage(data) {
     const travelerAvatarsHTML = travelers.map(t => {
         const initial = t.charAt(0);
         const isSelected = t === selectedTraveler;
-        return `<button class="traveler-avatar ${isSelected ? 'selected' : ''}" 
-                        data-traveler="${t}" 
-                        title="${t}"
-                        aria-label="Seleccionar viajero ${t}">
-                    ${initial}
-                </button>`;
+        return `<button class="traveler-avatar ${isSelected ? 'selected' : ''}"
+                data-traveler="${t}"
+                title="${t}"
+                aria-label="Seleccionar viajero ${t}">
+                ${initial}
+            </button>`;
     }).join('');
 
     // Renderizar panel central con las secciones principales
     let centerHTML = `
-     <div class="preparation-container">
-         <div class="preparation-header">
-             <div class="preparation-title-row">
-                 <h1><i class="fa-solid fa-clipboard-check"></i> Preparación del Viaje</h1>
-             </div>
-             
-             <div class="traveler-selector-box">
-                 <div class="traveler-selector-label">
-                     <i class="fa-solid fa-users"></i> Selecciona tu viajero:
-                 </div>
-                 <div class="traveler-avatars">
-                     ${travelerAvatarsHTML}
-                 </div>
-             </div>
-             
-             <div class="progress-section">
-                 <div class="progress-header">
-                     <span class="progress-traveler"><i class="fa-solid fa-user"></i> ${selectedTraveler}</span>
-                     <span class="progress-text">${completedItems}/${totalItems} completados</span>
-                 </div>
-                 <div class="progress-bar-container">
-                     <div class="progress-bar-fill" style="width: ${progressPercent}%;"></div>
-                 </div>
-                 <div class="progress-percent">${progressPercent}%</div>
-             </div>
-         </div>
-         
-         <div class="preparation-sections">
- `;
+            <div class="preparation-container">
+                <div class="preparation-header">
+                    <div class="preparation-title-row">
+                        <h1><i class="fa-solid fa-clipboard-check"></i> Preparación del Viaje</h1>
+                    </div>
+
+                    <div class="traveler-selector-box">
+                        <div class="traveler-selector-label">
+                            <i class="fa-solid fa-users"></i> Selecciona tu viajero:
+                        </div>
+                        <div class="traveler-avatars">
+                            ${travelerAvatarsHTML}
+                        </div>
+                    </div>
+
+                    <div class="progress-section">
+                        <div class="progress-header">
+                            <span class="progress-traveler"><i class="fa-solid fa-user"></i> ${selectedTraveler}</span>
+                            <span class="progress-text">${completedItems}/${totalItems} completados</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" style="width: ${progressPercent}%;"></div>
+                        </div>
+                        <div class="progress-percent">${progressPercent}%</div>
+                    </div>
+                </div>
+
+                <div class="preparation-sections">
+                    `;
+
+    // === NUEVO: PANEL DE RESERVAS MAESTRO ===
+    if (data.bookingPanel) {
+        let bookingHTML = `
+                    <div style="margin-bottom:40px; background:rgba(20,20,20,0.8); border:1px solid rgba(255,255,255,0.1); border-radius:15px; padding:25px;">
+                        <h2 style="color:var(--gold); margin-bottom:20px; font-size:1.5rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:15px;">
+                            <i class="fa-solid fa-calendar-check"></i> ${data.bookingPanel.title}
+                        </h2>
+                        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:20px;">
+                            `;
+
+        data.bookingPanel.phases.forEach(phase => {
+            bookingHTML += `
+            <div style="background:rgba(0,0,0,0.4); border-top: 3px solid ${phase.color || 'var(--accent)'}; border-radius:10px; padding:20px;">
+                <h3 style="color:${phase.color || 'white'}; margin-top:0; margin-bottom:15px; font-size:1.1rem;">${phase.name}</h3>
+                <ul style="list-style:none; padding:0; margin:0;">
+            `;
+            phase.items.forEach(item => {
+                bookingHTML += `
+                <li style="margin-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.05); padding-bottom:8px;">
+                    <strong style="color:white; display:block; font-size:0.95rem;">${item.name}</strong>
+                    <span style="color:#9ca3af; font-size:0.85rem;"><i class="fa-regular fa-clock"></i> ${item.date}</span>
+                </li>
+                `;
+            });
+            bookingHTML += `
+                        </ul>
+                    </div>
+                    `;
+        });
+
+        bookingHTML += `
+                </div>
+            </div>
+            `;
+        centerHTML += bookingHTML;
+    }
 
     data.preparation.sections.forEach((section, idx) => {
         centerHTML += `
@@ -410,46 +518,46 @@ function renderPreparationPage(data) {
                 const tChecked = localStorage.getItem(`prep-${t}-${idx}-${itemIdx}`) === 'true';
                 const initial = t.charAt(0);
                 return `<span class="traveler-status-dot ${tChecked ? 'checked' : ''}" title="${t}: ${tChecked ? 'Completado' : 'Pendiente'}">
-                            ${initial}${tChecked ? '<i class="fa-solid fa-check"></i>' : ''}
-                        </span>`;
+                ${initial}${tChecked ? '<i class="fa-solid fa-check"></i>' : ''}
+            </span>`;
             }).join('');
 
             centerHTML += `
-             <div class="preparation-item ${completedClass}">
-                 <div class="preparation-item-header">
-                     <button class="preparation-checkbox" data-section="${idx}" data-item="${itemIdx}" aria-label="Marcar como completado">
-                         <i class="${checkIcon}"></i>
-                     </button>
-                     <h3>${item.title}</h3>
-                 </div>
-                 <div class="preparation-item-content">
-                     <p class="preparation-desc">${item.desc}</p>
-                     <div class="preparation-meta">
-                         <span class="preparation-who"><i class="fa-solid fa-user-tag"></i> ${item.who}</span>
-                         ${item.why ? `<span class="preparation-why"><i class="fa-solid fa-circle-info"></i> ${item.why}</span>` : ''}
-                     </div>
-                 </div>
-                 <div class="traveler-status-row">
-                     <span class="traveler-status-label">Estado viajeros:</span>
-                     <div class="traveler-status-dots">
-                         ${travelerStatusHTML}
-                     </div>
-                 </div>
-             </div>
-         `;
+            <div class="preparation-item ${completedClass}">
+                <div class="preparation-item-header">
+                    <button class="preparation-checkbox" data-section="${idx}" data-item="${itemIdx}" aria-label="Marcar como completado">
+                        <i class="${checkIcon}"></i>
+                    </button>
+                    <h3>${item.title}</h3>
+                </div>
+                <div class="preparation-item-content">
+                    <p class="preparation-desc">${item.desc}</p>
+                    <div class="preparation-meta">
+                        <span class="preparation-who"><i class="fa-solid fa-user-tag"></i> ${item.who}</span>
+                        ${item.why ? `<span class="preparation-why"><i class="fa-solid fa-circle-info"></i> ${item.why}</span>` : ''}
+                    </div>
+                </div>
+                <div class="traveler-status-row">
+                    <span class="traveler-status-label">Estado viajeros:</span>
+                    <div class="traveler-status-dots">
+                        ${travelerStatusHTML}
+                    </div>
+                </div>
+            </div>
+            `;
         });
 
         centerHTML += `</div></div>`;
     });
 
-    centerHTML += `</div></div>`;
+    centerHTML += `</div></div> `;
 
     // Renderizar panel derecho con información adicional
     let rightHTML = `
-     <div class="preparation-sidebar">
-         <div class="preparation-priority-box">
-             <h3><i class="fa-solid fa-exclamation-circle"></i> Prioridades</h3>
- `;
+        <div class="preparation-sidebar" >
+            <div class="preparation-priority-box">
+                <h3><i class="fa-solid fa-exclamation-circle"></i> Prioridades</h3>
+                `;
 
     data.preparation.priorities.forEach(priority => {
         rightHTML += `
@@ -468,52 +576,52 @@ function renderPreparationPage(data) {
     if (data.preparation.specialNotes) {
         data.preparation.specialNotes.forEach(note => {
             rightHTML += `
-             <div class="preparation-special-box">
+                    <div class="preparation-special-box" >
                  <h3><i class="fa-solid fa-star"></i> ${note.title}</h3>
                  <ul>
                      ${note.items.map(item => `<li>${item}</li>`).join('')}
                  </ul>
              </div>
-         `;
+        `;
         });
     }
 
     // Mensajes tipo
     if (data.preparation.messages && data.preparation.messages.length > 0) {
         rightHTML += `
-         <div class="preparation-messages-box">
+        <div class="preparation-messages-box" >
              <h3><i class="fa-solid fa-envelope"></i> Mensajes Tipo</h3>
              <p class="preparation-messages-desc">Textos listos para copiar:</p>
-     `;
+    `;
 
         data.preparation.messages.forEach((msg, idx) => {
             rightHTML += `
-             <div class="preparation-message-item">
+        <div class="preparation-message-item" >
                  <strong>${msg.title}</strong>
                  <div class="preparation-message-text" onclick="copyToClipboard(this)">
                      <code>${msg.text}</code>
                      <i class="fa-solid fa-copy copy-icon"></i>
                  </div>
              </div>
-         `;
+        `;
         });
 
-        rightHTML += `</div>`;
+        rightHTML += `</div> `;
     }
 
     // Consejos finales
     if (data.preparation.tips && data.preparation.tips.length > 0) {
         rightHTML += `
-         <div class="preparation-tips-box">
+        <div class="preparation-tips-box" >
              <h3><i class="fa-solid fa-lightbulb"></i> Consejos Finales</h3>
              <ul>
                  ${data.preparation.tips.map(tip => `<li>${tip}</li>`).join('')}
              </ul>
          </div>
-     `;
+        `;
     }
 
-    rightHTML += `</div>`;
+    rightHTML += `</div> `;
 
     centerCard.innerHTML = centerHTML;
     rightPanel.innerHTML = rightHTML;
@@ -533,7 +641,7 @@ function renderPreparationPage(data) {
             const icon = this.querySelector('i');
             const section = this.dataset.section;
             const item = this.dataset.item;
-            const key = `prep-${selectedTraveler}-${section}-${item}`;
+            const key = `prep - ${selectedTraveler} -${section} -${item} `;
 
             const isCurrentlyChecked = localStorage.getItem(key) === 'true';
 
@@ -572,105 +680,161 @@ function copyToClipboard(element) {
     });
 }
 
+// --- SISTEMA DE ALERTAS INTELIGENTES ---
+window.getSmartAlertsHTML = function (data, dayIndex) {
+    let alertsHTML = '';
+
+    let activities = [];
+    if (data.options) activities = activities.concat(data.options);
+    if (data.complements) activities = activities.concat(data.complements);
+    if (data.base && data.base.events) activities = activities.concat(data.base.events);
+    if (data.additionalExcursions) activities = activities.concat(data.additionalExcursions);
+
+    activities.forEach(act => {
+        if (act && act.booking && (act.exactDate || data.exactDate)) {
+            const state = localStorage.getItem(act.booking.id);
+            if (state !== 'comprado') {
+                const dateToUse = act.exactDate || data.exactDate;
+                const eventDate = new Date(dateToUse);
+                const openDate = new Date(eventDate);
+                // Si es Shibuya Sky, TeamLab o Bus Takayama-Fuji, la ventana es distinta, pero por simplicidad usamos 30 días
+                // como aviso genérico "Ventana Abierta".
+                openDate.setDate(openDate.getDate() - 32); // Avisamos 2 días antes de que abra realmente
+
+                const now = new Date();
+                if (now >= openDate) {
+                    alertsHTML += `
+        <div style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(0,0,0,0.6)); border-left: 4px solid var(--danger); border-radius: 8px; padding: 15px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(239,68,68,0.1);" >
+            <div style="display:flex; align-items:flex-start; gap: 15px;">
+                <i class="fa-solid fa-triangle-exclamation" style="font-size: 1.8rem; color: var(--danger); margin-top:2px;"></i>
+                <div style="flex:1;">
+                    <h4 style="color:var(--danger); margin:0 0 5px 0; font-size:1.05rem; text-transform:uppercase; font-weight:900; letter-spacing:0.5px;">¡Acción Requerida!</h4>
+                    <p style="color:white; margin:0 0 12px 0; font-size:0.9rem; line-height:1.4;">
+                        Se ha abierto la ventana de reserva para <strong style="color:var(--gold); font-size:1rem;">${act.title || act.name}</strong>.
+                    </p>
+                    <div style="display:flex; gap: 8px; flex-wrap: wrap;">
+                        <button onclick="toggleBookingStatus('${act.booking.id}', ${dayIndex})" style="background:var(--danger); color:white; border:none; padding:6px 12px; border-radius:6px; font-weight:bold; cursor:pointer; flex:1; display:flex; justify-content:center; align-items:center; gap:6px; font-size:0.85rem; transition: background 0.3s ease;">
+                            <i class="fa-solid fa-check"></i> Comprado
+                        </button>
+                        ${act.booking.link ? `<a href="${act.booking.link}" target="_blank" style="background:rgba(56,189,248,0.1); color:#38bdf8; border:1px solid #38bdf8; padding:6px 12px; border-radius:6px; font-weight:bold; text-decoration:none; flex:1; display:flex; justify-content:center; align-items:center; gap:6px; font-size:0.85rem; transition: all 0.3s ease;">
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Oficial
+                                        </a>` : ''}
+                    </div>
+                </div>
+            </div>
+                        </div>
+        `;
+                }
+            }
+        }
+    });
+
+    return alertsHTML;
+};
+
 function renderRightPanel(data) {
     const container = document.getElementById('info-content');
+    const dayIndex = travelData.indexOf(data);
+    let alerts = getSmartAlertsHTML(data, dayIndex);
+
     let html = `
-     <div style="margin-bottom:20px; border-bottom:1px solid #334155; padding-bottom:10px;">
-         <span style="color:var(--accent); font-weight:800; text-transform:uppercase;">${data.date}</span>
-         <h2 style="font-size:1.6rem; color:white;">${data.title}</h2>
-     </div>
- `;
+        ${alerts}
+    <div style="margin-bottom:20px; border-bottom:1px solid #334155; padding-bottom:10px;">
+        <span style="color:var(--accent); font-weight:800; text-transform:uppercase;">${data.date}</span>
+        <h2 style="font-size:1.6rem; color:white;">${data.title}</h2>
+    </div>
+    `;
 
     if (data.logistics) {
-        html += `<div class="logistics-box"><div class="logistics-title">LOGÍSTICA</div>`;
-        data.logistics.forEach(l => html += `<div class="logistics-item"><strong>${l.title}:</strong> ${l.text}</div>`);
-        html += `</div>`;
+        html += `<div class="logistics-box" > <div class="logistics-title">LOGÍSTICA</div>`;
+        data.logistics.forEach(l => html += `<div class="logistics-item" > <strong>${l.title}:</strong> ${l.text}</div> `);
+        html += `</div> `;
     }
 
     // Si tiene línea de tiempo de transporte específica
     if (data.transportTimeline) {
-        html += `<div class="transport-timeline-container" style="margin-top:20px;">
-                    <div class="logistics-title" style="margin-bottom:15px;"><i class="fa-solid fa-train"></i> TRANSPORTE Y RUTA</div>`;
+        html += `<div class="transport-timeline-container" style="margin-top:20px;" >
+        <div class="logistics-title" style="margin-bottom:15px;"><i class="fa-solid fa-train"></i> TRANSPORTE Y RUTA</div>`;
 
         data.transportTimeline.forEach(item => {
             if (item.type === 'point') {
                 html += `
-                    <div class="transport-point" style="display:flex; align-items:center; margin-bottom:10px;">
+            <div class="transport-point" style="display:flex; align-items:center; margin-bottom:10px;" >
                         <span style="color:var(--neon-blue); font-weight:bold; min-width:55px; font-family:monospace;">${item.time}</span>
                         <div style="background:rgba(255,255,255,0.1); padding:8px 12px; border-radius:8px; display:flex; align-items:center; flex:1;">
                             <i class="${item.icon}" style="color:var(--gold); margin-right:10px;"></i>
                             <span style="color:#f0f0f0;">${item.title}</span>
                         </div>
                     </div>
-                `;
+        `;
             } else if (item.type === 'transit') {
                 const transitContent = `
-                    <i class="fa-solid fa-arrow-down" style="position:absolute; left:-7px; top:40%; font-size:0.8rem; color:rgba(255,255,255,0.3);"></i>
-                    <div style="padding-left:15px;">
-                        <div style="color:var(--accent); font-size:0.9rem; font-weight:bold; margin-bottom:5px; display:flex; align-items:center; gap:8px;">
-                            ${item.title}
-                        </div>
-                        <div style="display:flex; gap:15px; align-items:center; margin-bottom:10px;">
-                            <div style="color:var(--gold); font-size:0.85rem; font-weight:bold;">${item.price}</div>
-                            ${item.timeLabel ? `<div style="color:rgba(255,255,255,0.5); font-size:0.8rem; font-style:italic;">${item.timeLabel}</div>` : ''}
-                        </div>
-                        <div style="display:flex; gap:8px;">
-                            ${item.link ? `
+        <i class="fa-solid fa-arrow-down" style="position:absolute; left:-7px; top:40%; font-size:0.8rem; color:rgba(255,255,255,0.3);" ></i>
+            <div style="padding-left:15px;">
+                <div style="color:var(--accent); font-size:0.9rem; font-weight:bold; margin-bottom:5px; display:flex; align-items:center; gap:8px;">
+                    ${item.title}
+                </div>
+                <div style="display:flex; gap:15px; align-items:center; margin-bottom:10px;">
+                    <div style="color:var(--gold); font-size:0.85rem; font-weight:bold;">${item.price}</div>
+                    ${item.timeLabel ? `<div style="color:rgba(255,255,255,0.5); font-size:0.8rem; font-style:italic;">${item.timeLabel}</div>` : ''}
+                </div>
+                <div style="display:flex; gap:8px;">
+                    ${item.link ? `
                                 <a href="${item.link}" target="_blank" class="tactical-btn" 
                                    style="flex:1; text-align:center; padding:5px; font-size:0.7rem; border-radius:4px; text-decoration:none; background:rgba(0,243,255,0.1); border:1px solid var(--neon-blue); color:var(--neon-blue); font-weight:bold; display:flex; align-items:center; justify-content:center; gap:5px;">
                                     <i class="fa-solid fa-map-location-dot"></i> GOOGLE MAPS
                                 </a>` : ''}
-                            ${item.tacticalGuideId ? `
+                    ${item.tacticalGuideId ? `
                                 <button onclick="renderTacticalMission('${item.tacticalGuideId}', ${travelData.indexOf(data)})" class="tactical-btn" 
                                         style="flex:1; text-align:center; padding:5px; font-size:0.7rem; border-radius:4px; background:rgba(249,115,22,0.1); border:1px solid var(--accent); color:var(--accent); font-weight:bold; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:5px;">
                                     <i class="fa-solid fa-file-contract"></i> GUÍA TÁCTICA
                                 </button>` : ''}
-                        </div>
-                    </div>
-                `;
+                </div>
+            </div>
+    `;
 
                 html += `
-                    <div class="transport-transit" 
-                         style="margin-left:75px; padding:10px 0; border-left:2px dashed rgba(255,255,255,0.2); position:relative; margin-bottom:15px; display:block;">
-                        ${transitContent}
+        <div class="transport-transit"
+    style="margin-left:75px; padding:10px 0; border-left:2px dashed rgba(255,255,255,0.2); position:relative; margin-bottom:15px; display:block;" >
+        ${transitContent}
                     </div>
-                `;
+        `;
             } else if (item.type === 'gap') {
                 html += `
-                    <div class="transport-point" style="display:flex; align-items:center; margin-bottom:15px; opacity: 0.8;">
+        <div class="transport-point" style="display:flex; align-items:center; margin-bottom:15px; opacity: 0.8;" >
                         <span style="color:rgba(255,255,255,0.4); font-weight:bold; min-width:55px; font-family:monospace;">${item.time}</span>
                         <div style="background:rgba(255,255,255,0.03); padding:8px 12px; border-radius:8px; border:1px dashed rgba(255,255,255,0.15); display:flex; align-items:center; flex:1;">
                             <i class="${item.icon}" style="color:rgba(255,255,255,0.4); margin-right:10px;"></i>
                             <span style="color:rgba(255,255,255,0.5); font-size:0.85rem; font-style:italic;">${item.title}</span>
                         </div>
                     </div>
-                `;
+        `;
             }
         });
-        html += `</div>`;
+        html += `</div> `;
     } else {
-        html += `<div class="timeline-container" style="margin-top:20px;">`;
+        html += `<div class="timeline-container" style="margin-top:20px;" > `;
         data.timeline.forEach(t => {
-            html += `<div class="timeline-item"><div class="time-tag">${t.time}</div><strong class="timeline-title">${t.title}</strong><div class="timeline-desc">${t.desc}</div></div>`;
+            html += `<div class="timeline-item" ><div class="time-tag">${t.time}</div><strong class="timeline-title">${t.title}</strong><div class="timeline-desc">${t.desc}</div></div> `;
         });
-        html += `</div>`;
+        html += `</div> `;
     }
 
     // Añadir precios si existen
     if (data.prices) {
-        html += `<div class="prices-box"><div class="prices-title"><i class="fa-solid fa-yen-sign"></i> GASTOS APROXIMADOS</div>`;
-        if (data.prices.transport) html += `<div class="prices-item"><strong>Transporte:</strong> ${data.prices.transport}</div>`;
-        if (data.prices.entrances) html += `<div class="prices-item"><strong>Entradas:</strong> ${data.prices.entrances}</div>`;
-        if (data.prices.food) html += `<div class="prices-item"><strong>Comida:</strong> ${data.prices.food}</div>`;
-        if (data.prices.total) html += `<div class="prices-item" style="margin-top:10px; padding-top:10px; border-top:1px solid rgba(255,255,255,0.1); font-weight:700; color:var(--gold);"><strong>TOTAL:</strong> ${data.prices.total}</div>`;
-        html += `</div>`;
+        html += `<div class="prices-box" > <div class="prices-title"><i class="fa-solid fa-yen-sign"></i> GASTOS APROXIMADOS</div>`;
+        if (data.prices.transport) html += `<div class="prices-item" > <strong>Transporte:</strong> ${data.prices.transport}</div> `;
+        if (data.prices.entrances) html += `<div class="prices-item" > <strong>Entradas:</strong> ${data.prices.entrances}</div> `;
+        if (data.prices.food) html += `<div class="prices-item" > <strong>Comida:</strong> ${data.prices.food}</div> `;
+        if (data.prices.total) html += `<div class="prices-item" style="margin-top:10px; padding-top:10px; border-top:1px solid rgba(255,255,255,0.1); font-weight:700; color:var(--gold);" > <strong>TOTAL:</strong> ${data.prices.total}</div> `;
+        html += `</div> `;
     }
 
     // Añadir adiciones/consejos al FINAL del panel derecho
     if (data.additions && data.additions.length > 0) {
-        html += `<div class="additions-box" style="margin-top:20px;"><div class="additions-title"><i class="fa-solid fa-lightbulb"></i> CONSEJOS Y ADICIONES</div>`;
-        data.additions.forEach(a => html += `<div class="additions-item">${a}</div>`);
-        html += `</div>`;
+        html += `<div class="additions-box" style="margin-top:20px;" > <div class="additions-title"><i class="fa-solid fa-lightbulb"></i> CONSEJOS Y ADICIONES</div>`;
+        data.additions.forEach(a => html += `<div class="additions-item" > ${a}</div> `);
+        html += `</div> `;
     }
 
     // Ya no mostramos las opciones aquí, se muestran en el panel central
@@ -695,48 +859,49 @@ function renderCenterVisual(data, mode, optData = null) {
             const hotelImage = data.hotelImage || '';
             const hotelGoogleLink = data.hotelGoogleLink || '';
             const hotelImgHTML = hotelImage ?
-                `<img src="${hotelImage}" class="hotel-image" onerror="this.style.display='none'">` :
-                `<div class="hotel-image-placeholder"><i class="fa-solid fa-hotel"></i></div>`;
+                `<img src = "${hotelImage}" class="hotel-image" onerror = "this.style.display='none'" > ` :
+                `<div class="hotel-image-placeholder" > <i class="fa-solid fa-hotel"></i></div> `;
 
             const hotelLinkHTML = hotelGoogleLink ?
-                `<a href="${hotelGoogleLink}" target="_blank" class="hotel-google-link" title="Ver en Google Maps">
-                     <i class="fa-solid fa-map-marker-alt"></i> Ver en Google Maps
-                 </a>` : '';
+                `<a href = "${hotelGoogleLink}" target = "_blank" class="hotel-google-link" title = "Ver en Google Maps" >
+        <i class="fa-solid fa-map-marker-alt"></i> Ver en Google Maps
+                 </a> ` : '';
 
             hotelHTML = `
-                 <div class="hotel-info-section">
-                     ${hotelImgHTML}
-                     <div class="hotel-details">
-                         <h3 class="hotel-name"><i class="fa-solid fa-bed"></i> ${hotelName}</h3>
-                         ${hotelLinkHTML}
-                     </div>
+        <div class="hotel-info-section" >
+            ${hotelImgHTML}
+    <div class="hotel-details">
+        <h3 class="hotel-name"><i class="fa-solid fa-bed"></i> ${hotelName}</h3>
+        ${hotelLinkHTML}
+    </div>
                  </div>
-             `;
+        `;
         }
 
         // Pin de ubicación (Arriba derecha) + Descargas si es Osaka
         let locationBadgeHTML = location ?
-            `<div class="location-badge">
-                <i class="fa-solid fa-map-marker-alt"></i> ${location}
+            `<div class="location-badge" >
+        <i class="fa-solid fa-map-marker-alt"></i> ${location}
                 ${location.toLowerCase().includes('osaka') ? `
                     <div class="pdf-downloads">
                         <a href="pdf/metro osaka.pdf" download title="Mapa Metro Osaka" class="pdf-download-link"><i class="fa-solid fa-train-subway"></i></a>
                         <a href="pdf/map_osaka jr.pdf" download title="Mapa JR Osaka" class="pdf-download-link"><i class="fa-solid fa-train"></i></a>
                         <a href="pdf/station_osaka.pdf" download title="Guía Estación Osaka" class="pdf-download-link"><i class="fa-solid fa-compass"></i></a>
                     </div>
-                ` : ''}
-            </div>` : '';
+                ` : ''
+            }
+            </div> ` : '';
 
         // Banner de ciudad en Neón (Bajo el hotel)
         const cityBannerHTML = location ?
-            `<div class="location-header" style="text-align:left; margin-bottom:0; padding:10px 0;">
-                <h1 style="font-size:3rem; text-align:left; letter-spacing:4px;">${location}</h1>
-            </div>` : '';
+            `<div class="location-header" style="text-align:left; margin-bottom:0; padding:10px 0;" >
+        <h1 style="font-size:3rem; text-align:left; letter-spacing:4px;">${location}</h1>
+            </div> ` : '';
 
         // Título del día (Debajo del neón)
         const dayInfoHTML = `
-            <div class="day-info-section" style="margin-top:0; margin-bottom:20px;">
-                <p class="day-activity" style="font-size:1.1rem; color:var(--text-secondary);">${data.title}</p>
+        <div class="day-info-section" style="margin-top:0; margin-bottom:20px;" >
+            <p class="day-activity" style="font-size:1.1rem; color:var(--text-secondary);">${data.title}</p>
             </div>
         `;
 
@@ -744,15 +909,15 @@ function renderCenterVisual(data, mode, optData = null) {
         let baseEventsHTML = '';
         if (data.base.events) {
             data.base.events.forEach(event => {
-                let eventImg = event.image ? `<img src="${event.image}" class="base-event-thumb" onerror="this.style.display='none'" style="width:80px; height:80px; object-fit:cover; border-radius:8px; margin-right:15px;">` : '';
+                let eventImg = event.image ? `<img src = "${event.image}" class="base-event-thumb" onerror = "this.style.display='none'" style="width:80px; height:80px; object-fit:cover; border-radius:8px; margin-right:15px;" > ` : '';
 
                 // Si el evento tiene ID, lo hacemos pulsable
                 if (event.id) {
                     baseEventsHTML += `
-                        <button class="timeline-item base-event-item clickable-event" 
-                                onclick="selectExcursionFromCard(${travelData.indexOf(data)}, '${event.id}', this)"
-                                style="display:flex; align-items:flex-start; margin-bottom:20px; width:100%; text-align:left; border:none; background:transparent; color:inherit; font-family:inherit; cursor:pointer;"
-                                aria-label="Ver detalles de: ${event.title}">
+        <button class="timeline-item base-event-item clickable-event"
+    onclick="selectExcursionFromCard(${travelData.indexOf(data)}, '${event.id}', this)"
+    style="display:flex; align-items:flex-start; margin-bottom:20px; width:100%; text-align:left; border:none; background:transparent; color:inherit; font-family:inherit; cursor:pointer;"
+    aria - label="Ver detalles de: ${event.title}" >
                             <div class="time-tag" style="min-width:60px;">${event.time}</div>
                             <div class="base-event-content" style="display:flex; flex:1;">
                                 ${eventImg}
@@ -762,18 +927,19 @@ function renderCenterVisual(data, mode, optData = null) {
                                         <i class="fa-solid fa-circle-info" style="color:var(--accent); font-size:0.8rem; margin-top:4px; margin-right:8px;"></i>
                                         <span>${event.description}</span>
                                     </div>
+                                    ${event.booking ? renderBookingBadge(event.booking, travelData.indexOf(data)) : ''}
                                     ${event.price && event.price !== 'Gratis' ? `<div class="base-price" style="color:var(--gold); font-size:0.95rem; font-weight:bold; margin-top:8px;"><i class="fa-solid fa-tag"></i> ${event.price}</div>` : ''}
                                 </div>
                             </div>
                         </button>
-                    `;
+        `;
                 } else {
                     // Si no tiene ID (o es un hueco de tiempo libre), se muestra normal
                     const isGap = event.type === 'gap';
                     const gapStyle = isGap ? 'background:rgba(255,255,255,0.05); border-left:3px dashed #64748b;' : '';
 
                     baseEventsHTML += `
-                        <div class="timeline-item base-event-item" style="display:flex; align-items:flex-start; margin-bottom:20px; ${gapStyle}">
+        <div class="timeline-item base-event-item" style="display:flex; align-items:flex-start; margin-bottom:20px; ${gapStyle}" >
                             <div class="time-tag" style="min-width:60px;">${event.time}</div>
                             <div class="base-event-content" style="display:flex; flex:1;">
                                 ${eventImg}
@@ -784,7 +950,7 @@ function renderCenterVisual(data, mode, optData = null) {
                                 </div>
                             </div>
                         </div>
-                    `;
+        `;
                 }
             });
         }
@@ -792,7 +958,7 @@ function renderCenterVisual(data, mode, optData = null) {
         // --- 3. Complements Grid ---
         let complementsHTML = '';
         if (data.complements && data.complements.length > 0) {
-            complementsHTML += `<div class="complements-section" style="margin-top:40px;">
+            complementsHTML += `<div class="complements-section" style="margin-top:40px;" >
                 <h3 style="color:var(--accent); margin-bottom:20px; border-bottom:1px solid rgba(249, 115, 22, 0.3); padding-bottom:10px;">
                     <i class="fa-solid fa-plus-circle"></i> Personaliza tu día
                 </h3>
@@ -821,7 +987,7 @@ function renderCenterVisual(data, mode, optData = null) {
                     </button>
                 `;
             });
-            complementsHTML += `</div></div>`;
+            complementsHTML += `</div></div> `;
         }
 
         // --- 4. Excursiones Adicionales Block ---
@@ -829,10 +995,10 @@ function renderCenterVisual(data, mode, optData = null) {
         if (data.additionalExcursions && data.additionalExcursions.length > 0) {
             // Usamos la imagen de la primera excursión como portada
             const coverImg = data.additionalExcursions[0].image || '';
-            const imgHTML = coverImg ? `<img src="${coverImg}" class="excursion-thumb" style="opacity:0.8;" onerror="this.style.display='none'">` : '<div class="excursion-thumb-placeholder"><i class="fa-solid fa-image"></i></div>';
+            const imgHTML = coverImg ? `<img src = "${coverImg}" class="excursion-thumb" style="opacity:0.8;" onerror = "this.style.display='none'" > ` : '<div class="excursion-thumb-placeholder"><i class="fa-solid fa-image"></i></div>';
 
             addExcursionsHTML = `
-                <div class="additional-excursions-gateway" style="margin-top:40px;">
+        <div class="additional-excursions-gateway" style="margin-top:40px;" >
                     <h3 style="color:var(--accent); margin-bottom:20px; border-bottom:1px solid rgba(249, 115, 22, 0.3); padding-bottom:10px;">
                         <i class="fa-solid fa-map-location-dot"></i> Excursiones Adicionales
                     </h3>
@@ -853,11 +1019,11 @@ function renderCenterVisual(data, mode, optData = null) {
                         </div>
                     </button>
                 </div>
-            `;
+        `;
         }
 
         card.innerHTML = `
-            <div class="excursion-page-header">
+        <div class="excursion-page-header" >
                 <div class="header-left">
                     ${hotelHTML}
                     ${cityBannerHTML}
@@ -868,21 +1034,21 @@ function renderCenterVisual(data, mode, optData = null) {
                 </div>
             </div>
 
-            <div class="base-itinerary-box" style="background:rgba(15, 23, 42, 0.6); padding:25px; border-radius:16px; margin-bottom:30px; border:1px solid rgba(255,255,255,0.1); box-shadow:0 4px 20px rgba(0,0,0,0.2);">
-                <div style="display:flex; align-items:center; margin-bottom:20px;">
-                    <i class="fa-solid fa-route" style="font-size:1.5rem; color:var(--neon-blue); margin-right:15px;"></i>
-                    <div>
-                        <p style="margin:0; font-style:italic; color:#94a3b8; font-size:0.9rem;">${data.base.description}</p>
-                    </div>
-                </div>
-                <div class="timeline-container" style="margin-bottom:0; padding-left:20px; border-left:2px solid rgba(56, 189, 248, 0.3);">
-                    ${baseEventsHTML}
+        <div class="base-itinerary-box" style="background:rgba(15, 23, 42, 0.6); padding:25px; border-radius:16px; margin-bottom:30px; border:1px solid rgba(255,255,255,0.1); box-shadow:0 4px 20px rgba(0,0,0,0.2);">
+            <div style="display:flex; align-items:center; margin-bottom:20px;">
+                <i class="fa-solid fa-route" style="font-size:1.5rem; color:var(--neon-blue); margin-right:15px;"></i>
+                <div>
+                    <p style="margin:0; font-style:italic; color:#94a3b8; font-size:0.9rem;">${data.base.description}</p>
                 </div>
             </div>
+            <div class="timeline-container" style="margin-bottom:0; padding-left:20px; border-left:2px solid rgba(56, 189, 248, 0.3);">
+                ${baseEventsHTML}
+            </div>
+        </div>
 
             ${complementsHTML}
             ${addExcursionsHTML}
-        `;
+    `;
         return;
     }
 
@@ -901,75 +1067,75 @@ function renderCenterVisual(data, mode, optData = null) {
             let hotelHTML = '';
             if (hotelName && hotelName !== 'Casa' && !hotelName.includes('vuelo') && !hotelName.includes('Vuelo')) {
                 const hotelImgHTML = hotelImage ?
-                    `<img src="${hotelImage}" class="hotel-image" onerror="this.style.display='none'">` :
-                    `<div class="hotel-image-placeholder"><i class="fa-solid fa-hotel"></i></div>`;
+                    `<img src = "${hotelImage}" class="hotel-image" onerror = "this.style.display='none'" > ` :
+                    `<div class="hotel-image-placeholder" > <i class="fa-solid fa-hotel"></i></div> `;
 
                 const hotelLinkHTML = hotelGoogleLink ?
-                    `<a href="${hotelGoogleLink}" target="_blank" class="hotel-google-link" title="Ver en Google Maps">
-                        <i class="fa-solid fa-map-marker-alt"></i> Ver en Google Maps
-                    </a>` : '';
+                    `<a href = "${hotelGoogleLink}" target = "_blank" class="hotel-google-link" title = "Ver en Google Maps" >
+        <i class="fa-solid fa-map-marker-alt"></i> Ver en Google Maps
+                    </a> ` : '';
 
                 hotelHTML = `
-                    <div class="hotel-info-section">
-                        ${hotelImgHTML}
-                        <div class="hotel-details">
-                            <h3 class="hotel-name"><i class="fa-solid fa-bed"></i> ${hotelName}</h3>
-                            ${hotelLinkHTML}
-                        </div>
+        <div class="hotel-info-section" >
+            ${hotelImgHTML}
+    <div class="hotel-details">
+        <h3 class="hotel-name"><i class="fa-solid fa-bed"></i> ${hotelName}</h3>
+        ${hotelLinkHTML}
+    </div>
                     </div>
-                `;
+        `;
             }
 
             // Ciudad (Pin arriba derecha) - Usamos nombres distintos para evitar conflictos de scope
             const selLocationBadgeHTML = location ?
-                `<div class="location-badge"><i class="fa-solid fa-map-marker-alt"></i> ${location}</div>` : '';
+                `<div class="location-badge" > <i class="fa-solid fa-map-marker-alt"></i> ${location}</div> ` : '';
 
             // Banner de ciudad en Neón (Bajo el hotel)
             const selCityBannerHTML = location ?
-                `<div class="location-header" style="text-align:left; margin-bottom:0; padding:10px 0;">
-                <h1 style="font-size:3rem; text-align:left; letter-spacing:4px;">${location}</h1>
-            </div>` : '';
+                `<div class="location-header" style="text-align:left; margin-bottom:0; padding:10px 0;" >
+        <h1 style="font-size:3rem; text-align:left; letter-spacing:4px;">${location}</h1>
+            </div> ` : '';
 
             // Extraer el nombre de la ciudad del título (ej: "🏯 Osaka: Samuráis y Neones" -> "Osaka")
             const cityMatch = data.title.match(/:\s*(.+?):/);
             const cityName = cityMatch ? cityMatch[1] : data.title.split(':')[0].replace(/[🏯⛩️🎌🦌🎢🛫🏠]/g, '').trim();
             const dayNameHTML = `
-                <div class="day-info-section">
+        <div class="day-info-section" >
                     <h2 class="day-name">${cityName}</h2>
                     <p class="day-activity">${data.title}</p>
                 </div>
-            `;
+        `;
 
             // Excursiones (debajo de todo)
             const numOptions = data.options.length;
-            const gridClass = `excursions-grid excursions-grid-${numOptions}`;
-            let optionsHTML = `<div class="${gridClass}">`;
+            const gridClass = `excursions - grid excursions - grid - ${numOptions} `;
+            let optionsHTML = `<div class="${gridClass}" > `;
             data.options.forEach(opt => {
                 const optImg = opt.image || data.image || '';
-                const imgHTML = optImg ? `<img src="${optImg}" class="excursion-thumb" onerror="this.style.display='none'">` : '<div class="excursion-thumb-placeholder"><i class="fa-solid fa-image"></i></div>';
+                const imgHTML = optImg ? `<img src = "${optImg}" class="excursion-thumb" onerror = "this.style.display='none'" > ` : '<div class="excursion-thumb-placeholder"><i class="fa-solid fa-image"></i></div>';
 
                 optionsHTML += `
-                   <button class="excursion-card"
-                           data-option-id="${opt.id}"
-                           onclick="selectExcursionFromCard(${travelData.indexOf(data)}, '${opt.id}', this)"
-                           onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectExcursionFromCard(${travelData.indexOf(data)}, '${opt.id}', this);}"
-                            aria-label="${opt.name}: ${opt.summary}"
-                            aria-pressed="false"
-                            role="button"
-                            tabindex="0">
-                        ${imgHTML}
-                        <div class="excursion-card-content">
-                            <div class="excursion-id">${opt.id}</div>
-                            <h3 class="excursion-title">${opt.name}</h3>
-                            <p class="excursion-summary">${opt.summary}</p>
-                        </div>
+        <button class="excursion-card"
+    data - option - id="${opt.id}"
+    onclick="selectExcursionFromCard(${travelData.indexOf(data)}, '${opt.id}', this)"
+    onkeydown = "if(event.key==='Enter'||event.key===' '){event.preventDefault();selectExcursionFromCard(${travelData.indexOf(data)}, '${opt.id}', this);}"
+    aria - label="${opt.name}: ${opt.summary}"
+    aria - pressed="false"
+    role = "button"
+    tabindex = "0" >
+        ${imgHTML}
+    <div class="excursion-card-content">
+        <div class="excursion-id">${opt.id}</div>
+        <h3 class="excursion-title">${opt.name}</h3>
+        <p class="excursion-summary">${opt.summary}</p>
+    </div>
                     </button>
-                `;
+        `;
             });
-            optionsHTML += `</div>`;
+            optionsHTML += `</div> `;
 
             card.innerHTML = `
-                <div class="excursion-page-header">
+        <div class="excursion-page-header" >
                     <div class="header-left">
                         ${hotelHTML}
                         ${selCityBannerHTML}
@@ -981,34 +1147,34 @@ function renderCenterVisual(data, mode, optData = null) {
                         ${selLocationBadgeHTML}
                     </div>
                 </div>
-                <div class="excursions-section">
-                    ${optionsHTML}
-                </div>
-            `;
+        <div class="excursions-section">
+            ${optionsHTML}
+        </div>
+    `;
             return;
         }
 
         // Si no hay opciones, mostrar contenido estático
         const locationForFallback = getLocation(data);
-        const locationDisplay = locationForFallback ? `<div class="location-header"><h1>${locationForFallback}</h1></div>` : '';
-        let heroImg = data.image ? `<img src="${data.image}" class="cinema-mode-img" style="opacity:0.6; height:200px;">` : '';
+        const locationDisplay = locationForFallback ? `<div class="location-header" > <h1>${locationForFallback}</h1></div> ` : '';
+        let heroImg = data.image ? `<img src = "${data.image}" class="cinema-mode-img" style="opacity:0.6; height:200px;" > ` : '';
         card.innerHTML = `
            ${locationDisplay}
            ${heroImg}
-           <div class="empty-state">
-               <i class="fa-solid fa-info-circle"></i>
-               <h2>Información del Día</h2>
-               <p>Consulta el panel derecho para ver los detalles y la línea de tiempo.</p>
-           </div>
-       `;
+    <div class="empty-state">
+        <i class="fa-solid fa-info-circle"></i>
+        <h2>Información del Día</h2>
+        <p>Consulta el panel derecho para ver los detalles y la línea de tiempo.</p>
+    </div>
+    `;
         return;
     }
 
     // --- NUEVO MODO: LISTA DE EXCURSIONES ADICIONALES ---
     if (mode === 'additional-excursions-list') {
         let listHTML = `
-            <button onclick="renderCenterVisual(travelData[${travelData.indexOf(data)}], 'selector')" style="background:transparent; border:none; color:var(--accent); cursor:pointer; font-size:1.1rem; margin-bottom:20px; display:flex; align-items:center;">
-                <i class="fa-solid fa-arrow-left" style="margin-right:8px;"></i> Volver al Día
+        <button onclick="renderCenterVisual(travelData[${travelData.indexOf(data)}], 'selector')" style="background:transparent; border:none; color:var(--accent); cursor:pointer; font-size:1.1rem; margin-bottom:20px; display:flex; align-items:center;" >
+            <i class="fa-solid fa-arrow-left" style="margin-right:8px;"></i> Volver al Día
             </button>
             
             <div class="location-header" style="text-align:left; margin-bottom:10px;">
@@ -1055,21 +1221,21 @@ function renderCenterVisual(data, mode, optData = null) {
     // 2. MODO "INFO ESTÁTICA" (Para días de vuelo que no tienen opciones)
     if (mode === 'static') {
         let imgSrc = data.image || '';
-        let imgHTML = imgSrc ? `<img src="${imgSrc}" class="cinema-mode-img">` : '';
+        let imgHTML = imgSrc ? `<img src = "${imgSrc}" class="cinema-mode-img" > ` : '';
         const location = getLocation(data);
-        const locationDisplay = location ? `<div class="location-header"><h1>${location}</h1></div>` : '';
+        const locationDisplay = location ? `<div class="location-header" > <h1>${location}</h1></div> ` : '';
 
         card.innerHTML = `
             ${locationDisplay}
             ${imgHTML}
-            <div class="story-container">
-                <h3 style="margin-top:0"><i class="fa-solid fa-circle-info"></i> Resumen de Operaciones</h3>
-                <p>${data.visualContent.summary}</p>
-                <div style="margin-top:20px; padding-top:20px; border-top:1px dashed rgba(255,255,255,0.2)">
-                    <p><strong><i class="fa-solid fa-note-sticky"></i> Nota:</strong> ${data.visualContent.details}</p>
-                </div>
-            </div>
-        `;
+    <div class="story-container">
+        <h3 style="margin-top:0"><i class="fa-solid fa-circle-info"></i> Resumen de Operaciones</h3>
+        <p>${data.visualContent.summary}</p>
+        <div style="margin-top:20px; padding-top:20px; border-top:1px dashed rgba(255,255,255,0.2)">
+            <p><strong><i class="fa-solid fa-note-sticky"></i> Nota:</strong> ${data.visualContent.details}</p>
+        </div>
+    </div>
+    `;
         return;
     }
 
@@ -1082,18 +1248,20 @@ function renderCenterVisual(data, mode, optData = null) {
             `<div class="photo-placeholder"><i class="fa-solid fa-image"></i> Sin imagen</div>`;
 
         card.innerHTML = `
-            <button onclick="loadDay(${travelData.indexOf(data)})" style="background:transparent; border:none; color:var(--accent); cursor:pointer; font-size:1.1rem; margin-bottom:15px; display:flex; align-items:center;">
-                <i class="fa-solid fa-arrow-left" style="margin-right:8px;"></i> Volver al Itinerario
+        <button onclick="loadDay(${travelData.indexOf(data)})" style="background:transparent; border:none; color:var(--accent); cursor:pointer; font-size:1.1rem; margin-bottom:15px; display:flex; align-items:center;">
+            <i class="fa-solid fa-arrow-left" style="margin-right:8px;"></i> Volver al Itinerario
             </button>
-            ${imgHTML}
-            
-            <div class="story-container">
-                <h2 style="font-size:2rem; color:white; margin-bottom:5px;">${optData.name || optData.title}</h2>
-                <p style="color:var(--accent); margin-bottom:30px; font-style:italic;">${optData.summary || optData.description}</p>
-                
-                ${optData.fullDesc || ''}
+        ${imgHTML}
 
-                ${optData.ivanChallenge ? `
+    <div class="story-container">
+        <h2 style="font-size:2rem; color:white; margin-bottom:5px;">${optData.name || optData.title}</h2>
+        <p style="color:var(--accent); margin-bottom:20px; font-style:italic;">${optData.summary || optData.description}</p>
+
+        ${renderBookingBadge(optData.booking, travelData.indexOf(data))}
+
+        ${optData.fullDesc || ''}
+
+        ${optData.ivanChallenge ? `
                     <div style="margin-top:30px; background:rgba(239,68,68,0.1); border:1px solid var(--danger); padding:20px; border-radius:12px;">
                         <strong style="color:var(--danger); display:block; margin-bottom:10px; font-size:1.1rem;">
                             <i class="fa-solid fa-dragon"></i> MISIÓN ESPECIAL (IVÁN)
@@ -1102,7 +1270,7 @@ function renderCenterVisual(data, mode, optData = null) {
                     </div>
                 ` : ''}
 
-                ${optData.price && optData.price !== 'Gratis' ? `
+        ${optData.price && optData.price !== 'Gratis' ? `
                     <div style="margin-top:30px; background:rgba(251, 191, 36, 0.1); border:1px solid var(--gold); padding:15px; border-radius:12px;">
                         <strong style="color:var(--gold); display:block; margin-bottom:8px; font-size:0.95rem;">
                             <i class="fa-solid fa-yen-sign"></i> GASTOS ESTIMADOS (Opción ${optData.id})
@@ -1111,19 +1279,19 @@ function renderCenterVisual(data, mode, optData = null) {
                     </div>
                 ` : ''}
 
-                <div style="margin-top:30px; color:var(--gold); font-weight:bold; border-top:1px solid rgba(255,255,255,0.1); padding-top:15px;">
-                    <i class="fa-solid fa-camera"></i> OBJETIVO FOTO: <span style="color:white; font-weight:normal;">${optData.photoSpot}</span>
-                </div>
-            </div>
-        `;
+        <div style="margin-top:30px; color:var(--gold); font-weight:bold; border-top:1px solid rgba(255,255,255,0.1); padding-top:15px;">
+            <i class="fa-solid fa-camera"></i> OBJETIVO FOTO: <span style="color:white; font-weight:normal;">${optData.photoSpot}</span>
+        </div>
+    </div>
+    `;
     }
 
     // 4. MODO "OPCIÓN FLEXIBLE" (Para complementos en días base + complementos)
     if (mode === 'option-flexible') {
         let imgSrc = optData.image || data.image || '';
         let imgHTML = imgSrc ?
-            `<img src="${imgSrc}" class="cinema-mode-img" onerror="this.style.display='none'">` :
-            `<div class="photo-placeholder"><i class="fa-solid fa-image"></i> Sin imagen</div>`;
+            `<img src = "${imgSrc}" class="cinema-mode-img" onerror = "this.style.display='none'" > ` :
+            `<div class="photo-placeholder" > <i class="fa-solid fa-image"></i> Sin imagen</div> `;
 
         // Determinar si es una excursión adicional (id starts with 'add_')
         const isAdditionalExc = optData.id && optData.id.startsWith('add_');
@@ -1132,7 +1300,7 @@ function renderCenterVisual(data, mode, optData = null) {
         if (isAdditionalExc) {
             // Mostrar AMBOS botones lado a lado
             backBtnHTML = `
-                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:15px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:15px;" >
                     <button onclick="loadDay(${travelData.indexOf(data)})" style="background:transparent; border:none; color:var(--accent); cursor:pointer; font-size:1.1rem; display:flex; align-items:center;">
                         <i class="fa-solid fa-arrow-left" style="margin-right:8px;"></i> Volver al Itinerario
                     </button>
@@ -1140,31 +1308,33 @@ function renderCenterVisual(data, mode, optData = null) {
                         <i class="fa-solid fa-list" style="margin-right:8px;"></i> Volver a Excursiones
                     </button>
                 </div>
-            `;
+        `;
         } else {
             // Comportamiento normal (solo volver al itinerario)
             backBtnHTML = `
-                <button onclick="loadDay(${travelData.indexOf(data)})" style="background:transparent; border:none; color:var(--accent); cursor:pointer; font-size:1.1rem; margin-bottom:15px; display:flex; align-items:center;">
-                    <i class="fa-solid fa-arrow-left" style="margin-right:8px;"></i> Volver al Itinerario
+        <button onclick="loadDay(${travelData.indexOf(data)})" style="background:transparent; border:none; color:var(--accent); cursor:pointer; font-size:1.1rem; margin-bottom:15px; display:flex; align-items:center;" >
+            <i class="fa-solid fa-arrow-left" style="margin-right:8px;"></i> Volver al Itinerario
                 </button>
-            `;
+        `;
         }
 
         card.innerHTML = `
              ${backBtnHTML}
              
              ${imgHTML}
-             
-             <div class="story-container">
-                 <h2 style="font-size:2rem; color:white; margin-bottom:5px;">${optData.title}</h2>
-                 <p style="color:var(--accent); margin-bottom:30px; font-style:italic;">${optData.description}</p>
-                 
-                 ${optData.fullDesc ? optData.fullDesc :
+
+    <div class="story-container">
+        <h2 style="font-size:2rem; color:white; margin-bottom:5px;">${optData.title}</h2>
+        <p style="color:var(--accent); margin-bottom:20px; font-style:italic;">${optData.description}</p>
+
+        ${renderBookingBadge(optData.booking, travelData.indexOf(data))}
+
+        ${optData.fullDesc ? optData.fullDesc :
                 // Fallback si no hay fullDesc: usar description y quizás generar algo genérico
                 `<p>${optData.description}</p>`
             }
 
-                 ${optData.ivanChallenge ? `
+        ${optData.ivanChallenge ? `
                      <div style="margin-top:30px; background:rgba(239,68,68,0.1); border:1px solid var(--danger); padding:20px; border-radius:12px;">
                          <strong style="color:var(--danger); display:block; margin-bottom:10px; font-size:1.1rem;">
                              <i class="fa-solid fa-dragon"></i> MISIÓN ESPECIAL (IVÁN)
@@ -1173,7 +1343,7 @@ function renderCenterVisual(data, mode, optData = null) {
                      </div>
                  ` : ''}
 
-                 ${optData.price && optData.price !== 'Gratis' ? `
+        ${optData.price && optData.price !== 'Gratis' ? `
                      <div style="margin-top:30px; background:rgba(251, 191, 36, 0.1); border:1px solid var(--gold); padding:15px; border-radius:12px;">
                          <strong style="color:var(--gold); display:block; margin-bottom:8px; font-size:0.95rem;">
                              <i class="fa-solid fa-yen-sign"></i> GASTOS ESTIMADOS
@@ -1182,7 +1352,7 @@ function renderCenterVisual(data, mode, optData = null) {
                      </div>
                  ` : ''}
 
-                 ${(optData.link || optData.tacticalGuideId) ? `
+        ${(optData.link || optData.tacticalGuideId) ? `
                      <div style="margin-top:30px; display:flex; gap:15px; flex-wrap:wrap;">
                          ${optData.link ? `
                              <a href="${optData.link}" target="_blank" class="tactical-btn" 
@@ -1199,7 +1369,7 @@ function renderCenterVisual(data, mode, optData = null) {
                      </div>
                  ` : ''}
 
-                 ${optData.video ? `
+        ${optData.video ? `
                     <div style="margin-top:30px;">
                         <h3 style="color:white; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:10px; margin-bottom:15px;"><i class="fa-brands fa-youtube"></i> Video Relacionado</h3>
                         <a href="${optData.video}" target="_blank" style="color:var(--neon-blue); text-decoration:none; display:flex; align-items:center;">
@@ -1209,7 +1379,7 @@ function renderCenterVisual(data, mode, optData = null) {
                     </div>
                  ` : ''}
 
-                  ${optData.tacticalOptions ? `
+        ${optData.tacticalOptions ? `
                     <div style="margin-top:30px; border-top:1px solid rgba(0, 243, 255, 0.2); padding-top:20px;">
                         <h3 style="color:var(--neon-blue); margin-bottom:15px;"><i class="fa-solid fa-route"></i> OPCIONES DE DESPLIEGUE TÁCTICO</h3>
                         <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
@@ -1253,8 +1423,8 @@ function renderCenterVisual(data, mode, optData = null) {
                         </div>
                     </div>
                   ` : ''}
-             </div>
-         `;
+    </div>
+    `;
         // Scroll al inicio de la página al abrir el detalle de excursión
         window.scrollTo({ top: 0, behavior: 'smooth' });
         const centerContent = document.querySelector('.center-stage');
@@ -1327,7 +1497,7 @@ function renderTacticalMission(missionId, dayIndex) {
         let missionHTML = '';
         if (missionId === 'mission01') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: 01</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -1368,10 +1538,10 @@ function renderTacticalMission(missionId, dayIndex) {
                     
                     <div class="scanline-overlay"></div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission02') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: 02</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -1416,10 +1586,10 @@ function renderTacticalMission(missionId, dayIndex) {
                     
                     <div class="scanline-overlay"></div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission03') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: 03</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -1460,10 +1630,10 @@ function renderTacticalMission(missionId, dayIndex) {
                     
                     <div class="scanline-overlay"></div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission04') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: 04</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -1511,10 +1681,10 @@ function renderTacticalMission(missionId, dayIndex) {
                     
                     <div class="scanline-overlay"></div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission05') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: 05</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -1554,10 +1724,10 @@ function renderTacticalMission(missionId, dayIndex) {
                     </div>
                     <div class="scanline-overlay"></div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_aquarium') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: AQUA</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -1602,10 +1772,10 @@ function renderTacticalMission(missionId, dayIndex) {
                     </div>
                     <div class="scanline-overlay"></div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_usj') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: USJ</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -1649,10 +1819,10 @@ function renderTacticalMission(missionId, dayIndex) {
                     </div>
                     <div class="scanline-overlay"></div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_nara') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: NARA</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -1692,10 +1862,10 @@ function renderTacticalMission(missionId, dayIndex) {
                     </div>
                     <div class="scanline-overlay"></div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_fushimi') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: INARI</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -1735,10 +1905,10 @@ function renderTacticalMission(missionId, dayIndex) {
                     </div>
                     <div class="scanline-overlay"></div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_kyoto_transfer') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: KYOTO_MOVE</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -1778,10 +1948,10 @@ function renderTacticalMission(missionId, dayIndex) {
                     </div>
                     <div class="scanline-overlay"></div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_nijo') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: NIJO_CASTLE</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -1821,10 +1991,10 @@ function renderTacticalMission(missionId, dayIndex) {
                     </div>
                     <div class="scanline-overlay"></div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_toji') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: TOJI_INFILTRATION</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -1864,10 +2034,10 @@ function renderTacticalMission(missionId, dayIndex) {
                     </div>
                     <div class="scanline-overlay"></div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_kyoto_return') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: KYOTO_RETURN</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -1906,10 +2076,10 @@ function renderTacticalMission(missionId, dayIndex) {
                     </div>
                     <div class="scanline-overlay"></div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_higashiyama') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: HIGASHIYAMA_WALK</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -1949,10 +2119,10 @@ function renderTacticalMission(missionId, dayIndex) {
                     </div>
                     <div class="scanline-overlay"></div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_arashiyama_transfer') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: ARASHIYAMA_LINK</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -1992,10 +2162,10 @@ function renderTacticalMission(missionId, dayIndex) {
                     </div>
                     <div class="scanline-overlay"></div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_ryoanji_transit') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: RANDEN_CONNECTION</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -2038,10 +2208,10 @@ function renderTacticalMission(missionId, dayIndex) {
                     </div>
                     <div class="scanline-overlay"></div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_otagi') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: OTAGI_NENBUTSU</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -2081,10 +2251,10 @@ function renderTacticalMission(missionId, dayIndex) {
                     </div>
                     <div class="scanline-overlay"></div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission06') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: 06</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -2124,10 +2294,10 @@ function renderTacticalMission(missionId, dayIndex) {
                     </div>
                     <div class="scanline-overlay"></div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission07') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: 07</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -2167,10 +2337,10 @@ function renderTacticalMission(missionId, dayIndex) {
                     </div>
                     <div class="scanline-overlay"></div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission08') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: 08</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -2210,10 +2380,10 @@ function renderTacticalMission(missionId, dayIndex) {
                     </div>
                     <div class="scanline-overlay"></div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_shinsekai_a') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: SHINSEKAI_A</div>
                         <button onclick="selectExcursionFromCard(${dayIndex}, 'c1')" class="datapad-close">
@@ -2253,10 +2423,10 @@ function renderTacticalMission(missionId, dayIndex) {
                     </div>
                     <div class="scanline-overlay"></div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_shinsekai_b') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: SHINSEKAI_B</div>
                         <button onclick="selectExcursionFromCard(${dayIndex}, 'c1')" class="datapad-close">
@@ -2296,10 +2466,10 @@ function renderTacticalMission(missionId, dayIndex) {
                     </div>
                     <div class="scanline-overlay"></div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_kyoto_center_link') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: CENTER_LINK</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -2342,10 +2512,10 @@ function renderTacticalMission(missionId, dayIndex) {
                     </div>
                     <div class="scanline-overlay"></div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_kinkakuji_bus') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: GOLDEN_BUS</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -2385,10 +2555,10 @@ function renderTacticalMission(missionId, dayIndex) {
                     </div>
                     <div class="scanline-overlay"></div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_ohara_bus') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: OHARA_EXPEDITION</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -2428,10 +2598,10 @@ function renderTacticalMission(missionId, dayIndex) {
                     </div>
                     <div class="scanline-overlay"></div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_kyoto_tower') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: TOWER_OBSERVATION</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -2471,10 +2641,10 @@ function renderTacticalMission(missionId, dayIndex) {
                     </div>
                     <div class="scanline-overlay"></div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_nishiki_shopping') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: FINAL_SHOPPING</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -2514,10 +2684,10 @@ function renderTacticalMission(missionId, dayIndex) {
                     </div>
                     <div class="scanline-overlay"></div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_kyoto_return') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: EXTRACTION_PROTOCOL</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -2556,10 +2726,10 @@ function renderTacticalMission(missionId, dayIndex) {
                     </div>
                     <div class="scanline-overlay"></div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_takayama_bus') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: TAKAYAMA_DESCENT</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -2578,10 +2748,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </svg>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_fuji_bus') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: FUJI_EXPRESS</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -2590,10 +2760,10 @@ function renderTacticalMission(missionId, dayIndex) {
                     </div>
                     <h1 class="datapad-title">> TRASLADO: TAKAYAMA ➔ KAWAGUCHIKO</h1>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_chureito') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: CHUREITO</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -2616,10 +2786,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_ryugatake') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: RYUGATAKE</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -2642,10 +2812,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_fuji_drive') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: FUJI_DRIVE</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -2668,10 +2838,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_fuji_sengen') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: SENGEN_SHRINE</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -2694,10 +2864,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_shiraito') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: SHIRAITO_FALLS</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -2720,10 +2890,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_fuji_excursion') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: FUJI_EXCURSION</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -2746,10 +2916,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_tocho') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: TOCHO_OBS</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -2772,10 +2942,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_tokyo_metro') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: TOKYO_METRO</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -2798,10 +2968,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_skytree') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: SKYTREE</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -2824,10 +2994,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_asakusa_walk') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: ASAKUSA_WALK</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -2850,10 +3020,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_sensoji') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: SENSOJI_TEMPLE</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -2876,10 +3046,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_akihabara_intel') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: AKIBA_INTEL</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -2902,10 +3072,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_shibuya_scramble') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: SHIBUYA_CORE</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -2946,10 +3116,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_harajuku_takeshita') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: TAKESHITA_ST</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -2972,10 +3142,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_meiji_jingu') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: MEIJI_SHRINE</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -2998,10 +3168,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_teamlab_plan') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: TEAMLAB</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3024,10 +3194,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_odaiba_monorail') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: YURIKAMOME</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3050,10 +3220,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_ueno_park') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: UENO_INTEL</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3076,10 +3246,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_yanaka_ginza') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: YANAKA_GINZA</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3102,10 +3272,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_nakano_broadway') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: NAKANO_BROADWAY</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3128,10 +3298,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_nikko_transfer') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: NIKKO_LINK</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3154,10 +3324,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_toshogu') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: TOSHOGU</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3180,10 +3350,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_kamakura_transfer') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: KAMAKURA_LINK</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3206,10 +3376,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_daibutsu') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: DAIBUTSU</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3232,10 +3402,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_enoshima_link') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: ENOSHIMA</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3258,10 +3428,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_toyosu_market') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: TOYOSU</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3284,10 +3454,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_ginza_walk') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: GINZA</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3310,10 +3480,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_roppongi_hills') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: ROPPONGI</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3336,10 +3506,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_haneda_transfer') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: EXFILTRATION</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3380,10 +3550,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_osaka_housing') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: OSAKA_HOUSING</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3406,10 +3576,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_namba_yasaka') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: NAMBA_YASAKA</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3432,10 +3602,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_okawa_cruise') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: RIVER_ASSAULT</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3471,10 +3641,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_sumiyoshi') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: SUMIYOSHI_TAISHA</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3497,10 +3667,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_osaka_history') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: OSAKA_HISTORY</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3523,10 +3693,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_koreatown') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: KOREATOWN</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3549,10 +3719,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_wakakusa') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: WAKAKUSA</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3575,10 +3745,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_nara_museum') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: NARA_MUSEUM</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3601,10 +3771,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_isuien') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: ISUIEN_GARDEN</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3627,10 +3797,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_sanjusangendo') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: SANJUSANGENDO</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3653,10 +3823,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_kamo_river') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: KAMO_RIVER</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3679,10 +3849,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_nishi_honganji') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: NISHI_HONGANJI</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3705,10 +3875,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_samurai_ninja') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: SAMURAI_NINJA</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3731,10 +3901,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_gion_shirakawa') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: GION_SHIRAKAWA</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3757,10 +3927,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_kenninji') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: KENNINJI</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3783,10 +3953,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_hozugawa') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: HOZUGAWA_BOAT</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3809,10 +3979,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_kimono') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: KIMONO_RENTAL</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3835,10 +4005,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_daikakuji') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: DAIKAKUJI</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3861,10 +4031,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_fushimi_sake') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: FUSHIMI_SAKE</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3887,10 +4057,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_ninnaji') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: NINNAJI</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3913,10 +4083,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_kitano') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: KITANO_TENMANGU</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3939,10 +4109,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_heian') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: HEIAN_SHRINE</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3965,10 +4135,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_tofukuji') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: TOFUKUJI</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -3991,10 +4161,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_funaoka') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: FUNAOKA_ONSEN</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4017,10 +4187,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_hirayu_waterfall') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: HIRAYU_FALLS</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4043,10 +4213,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_bear_park') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: BEAR_PARK</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4069,10 +4239,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_night_walk_hirayu') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: NIGHT_WALK</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4095,10 +4265,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_hida_no_sato') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: HIDA_NO_SATO</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4121,10 +4291,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_matsuri_no_mori') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: MATSURI_NO_MORI</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4147,10 +4317,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_sakurayama') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: SAKURAYAMA</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4173,10 +4343,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_music_forest') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: MUSIC_FOREST</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4199,10 +4369,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_ice_cave') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: NARUSAWA_ICE_CAVE</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4225,10 +4395,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_wind_cave') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: FUGAKU_WIND_CAVE</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4251,10 +4421,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_fuji_sengen') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: FUJISAN_SENGEN</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4277,10 +4447,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_koishikawa') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: KOISHIKAWA_GARDEN</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4303,10 +4473,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_shinjuku_gyoen') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: SHINJUKU_GYOEN</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4329,10 +4499,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_hanazono') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: HANAZONO_SHRINE</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4355,10 +4525,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_hotaluna') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: HOTALUNA</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4381,10 +4551,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_sumida_aquarium') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: SUMIDA_AQUARIUM</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4407,10 +4577,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_kanda_myojin') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: KANDA_MYOJIN</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4433,10 +4603,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_chureito') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: CHUREITO_PAGODA</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4459,10 +4629,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_ryugatake') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: MT_RYUGATAKE</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4485,10 +4655,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_fuji_excursion') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: FUJI_EXCURSION</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4511,10 +4681,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_tokyo_gov') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: TOKYO_GOV</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4537,10 +4707,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_tokyo_metro') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: TOKYO_TRANSIT</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4563,10 +4733,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_skytree') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: TOKYO_SKYTREE</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4589,10 +4759,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_asakusa_walk') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: ASAKUSA_WALK</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4615,10 +4785,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_sensoji') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: SENSOJI</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4641,10 +4811,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_akihabara') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: AKIHABARA</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4667,10 +4837,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_shibuya_scramble') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: SHIBUYA_CROSSING</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4693,10 +4863,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_takeshita') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: TAKESHITA_STREET</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4719,10 +4889,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_meiji_jingu') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: MEIJI_JINGU</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4745,10 +4915,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_teamlab') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: TEAMLAB</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4771,10 +4941,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_yurikamome') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: YURIKAMOME</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4797,10 +4967,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_ueno_park') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: UENO_PARK</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4823,10 +4993,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_yanaka_ginza') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: YANAKA_GINZA</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4849,10 +5019,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_nakano_broadway') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: NAKANO_BROADWAY</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4875,10 +5045,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_nikko_transfer') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: NIKKO_TRANSFER</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4901,10 +5071,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_toshogu') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: TOSHOGU_SHRINE</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4927,10 +5097,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_kamakura_transfer') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: KAMAKURA_TRANSFER</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4953,10 +5123,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_daibutsu') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: GREAT_BUDDHA</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -4979,10 +5149,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_enoshima') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: ENOSHIMA_ISLAND</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5005,10 +5175,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_toyosu') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: TOYOSU_MARKET</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5031,10 +5201,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_ginza_walk') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: GINZA_WALK</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5057,10 +5227,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_roppongi_hills') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: ROPPONGI_HILLS</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5083,10 +5253,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_haneda_transfer') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: HANEDA_OUT</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5109,10 +5279,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_aquarium') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: KAIYUKAN_AQUARIUM</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5135,10 +5305,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_fushimi') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: FUSHIMI_INARI</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5183,7 +5353,7 @@ function renderTacticalMission(missionId, dayIndex) {
                     
                     <div class="scanline-overlay"></div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_narita_transfer') {
 
 
@@ -5193,7 +5363,7 @@ function renderTacticalMission(missionId, dayIndex) {
 
 
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: NARITA_OUT</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5216,10 +5386,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_osaka_housing') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: OSAKA_HOUSING</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5242,10 +5412,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_namba_yasaka') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: NAMBA_YASAKA</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5268,10 +5438,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_okawa_cruise') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: OKAWA_CRUISE</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5294,10 +5464,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_sumiyoshi') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: SUMIYOSHI_TAISHA</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5320,10 +5490,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_osaka_history') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: OSAKA_HISTORY</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5346,10 +5516,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_koreatown') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: TSURUHASHI_KOREATOWN</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5372,10 +5542,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_wakakusa') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: MT_WAKAKUSA</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5398,10 +5568,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_nara_museum') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: NARA_NATIONAL_MUSEUM</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5424,10 +5594,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_isuien') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: ISUIEN_GARDEN</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5450,10 +5620,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_sanjusangendo') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: SANJUSANGENDO</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5476,10 +5646,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_kamogawa') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: KAMO_GAWA</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5502,10 +5672,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_nishi_honganji') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: NISHI_HONGANJI</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5528,10 +5698,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_samurai_museum') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: SAMURAI_MUSEUM</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5554,10 +5724,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_gion_shirakawa') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: GION_SHIRAKAWA</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5580,10 +5750,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_kenninji') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: KENNIN_JI</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5606,10 +5776,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_hozugawa') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: HOZUGAWA</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5632,10 +5802,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_kimono_arashiyama') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: KIMONO_ARASHIYAMA</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5658,10 +5828,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_daikakuji') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: DAIKAKUJI</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5684,10 +5854,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_fushimi_sake') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: FUSHIMI_SAKE</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5710,10 +5880,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_ninnaji') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: NINNA_JI</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5736,10 +5906,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_kitano') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: KITANO_TENMANGU</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5762,10 +5932,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_heian') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: HEIAN_JINGU</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5788,10 +5958,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_tofukuji') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: TOFUKU_JI</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5814,10 +5984,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_funaoka') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: FUNAOKA_ONSEN</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5840,10 +6010,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_hirayu_waterfall') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: HIRAYU_WATERFALL</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5866,10 +6036,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_bear_park') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: BEAR_PARK</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5892,10 +6062,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_night_walk_hirayu') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: HIRAYU_NIGHT</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5918,10 +6088,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_hida_no_sato') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: HIDA_NO_SATO</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5944,10 +6114,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_matsuri_no_mori') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: MATSURI_NO_MORI</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5970,10 +6140,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_sakurayama') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: SAKURAYAMA</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -5996,10 +6166,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_music_forest') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: MUSIC_FOREST</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -6022,10 +6192,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_fuji_caves') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: FUJI_CAVES</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -6048,10 +6218,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_fujinomiya_shrine') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: FUJINOMIYA</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -6074,10 +6244,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_koishikawa') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: KOISHIKAWA</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -6100,10 +6270,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_shinjuku_gyoen') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: SHINJUKU_GYOEN</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -6126,10 +6296,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_hotaluna') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: HOTALUNA_CRUISE</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -6152,10 +6322,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_sumida_aquarium') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: SUMIDA_AQUARIUM</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -6178,10 +6348,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_engakuji') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: ENGAKU_JI</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -6204,10 +6374,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_shinkyo') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: SHINKYO_BRIDGE</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -6230,10 +6400,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_kawagoe') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: KAWAGOE</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -6256,10 +6426,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_anamori') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: ANAMORI_INARI</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -6282,10 +6452,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         } else if (missionId === 'mission_jonanjima') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+        <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: JONANJIMA_PARK</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
@@ -6308,7 +6478,7 @@ function renderTacticalMission(missionId, dayIndex) {
                         </div>
                     </div>
                 </div>
-            `;
+        `;
         }
 
         card.innerHTML = missionHTML;

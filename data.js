@@ -11,7 +11,41 @@ const travelData = [
         hotel: "",
         image: "",
 
+        bookingPanel: {
+            title: "Control Maestro de Reservas Críticas",
+            phases: [
+                {
+                    name: "FASE 1: 2-3 Meses Antes",
+                    color: "var(--neon-purple)",
+                    items: [
+                        { name: "Coches de Alquiler en Fuji (2 Honda Fit)", status: "pending", date: "2-3 meses antes" },
+                        { name: "TeamLab Planets (Tokio)", status: "pending", date: "Exactamente 2 meses antes" },
+                        { name: "Palacio Imperial de Kioto", status: "pending", date: "Exactamente 2 meses antes" }
+                    ]
+                },
+                {
+                    name: "FASE 2: 1 Mes Antes (CRÍTICA)",
+                    color: "var(--danger)",
+                    items: [
+                        { name: "Bus Takayama-Fuji (Highwaybus)", status: "pending", date: "Exactamente 1 mes antes" },
+                        { name: "Shibuya Sky (Atardecer)", status: "pending", date: "Exactamente 4 semanas antes" },
+                        { name: "Tren Romántico de Arashiyama", status: "pending", date: "Exactamente 1 mes antes" },
+                        { name: "Shinkansen Kioto-Nagoya", status: "pending", date: "Exactamente 1 mes antes" },
+                        { name: "Bus Nohi Shirakawa-go", status: "pending", date: "Exactamente 1 mes antes" }
+                    ]
+                },
+                {
+                    name: "FASE 3: 2-3 Semanas Antes",
+                    color: "var(--gold)",
+                    items: [
+                        { name: "Samurai & Ninja Museum (Kioto)", status: "pending", date: "2-3 semanas antes" },
+                        { name: "Acuario Kaiyukan (Osaka)", status: "pending", date: "1-2 semanas antes" }
+                    ]
+                }
+            ]
+        },
         preparation: {
+
             travelers: ["FELIPE", "LORENA", "IVAN", "LAURA", "GEMA", "CESAR", "VICENTE", "LOLA"],
             sections: [
                 {
@@ -546,7 +580,7 @@ const travelData = [
 
     // --- DÍA 4: OSAKA (ESTRUCTURA BASE + COMPLEMENTOS) ---
     {
-        day: 4, type: "stay",
+        day: 4, exactDate: "2026-07-30", type: "stay",
         date: "Jue, 30 Julio", title: "🐙 Osaka: Sabores y Compras",
         coords: [34.665, 135.502], zoom: 14,
         hotel: "Hotel Wing International Select Osaka Umeda",
@@ -704,6 +738,7 @@ const travelData = [
             {
                 id: "c1",
                 title: "Acuario Kaiyukan",
+                booking: { id: "bk_kaiyukan", timeframe: "1-2 semanas antes", required: true, link: "https://www.kaiyukan.com/language/eng/" },
                 time: "09:30",
                 description: "Uno de los acuarios más grandes del mundo (Tiburón ballena).",
                 price: "2.700 JPY",
@@ -730,7 +765,7 @@ const travelData = [
                             { time: "14:45", event: "Extracción hacia Shinsaibashi" }
                         ],
                         link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Wing+International+Select+Osaka+Umeda&destination=Osaka+Aquarium+Kaiyukan&travelmode=transit",
-                        tacticalGuideId: "mission_aquarium"
+                        tacticalGuideId: "mission_aquarium",
                     }
                 ]
             },
@@ -879,7 +914,7 @@ const travelData = [
     // --- DÍA 5: OSAKA (OPCIONES) ---
     // --- DÍA 5: NARA Y EL BOSQUE SAGRADO ---
     {
-        day: 5, type: "stay",
+        day: 5, exactDate: "2026-07-31", type: "stay",
         date: "Vie, 31 Julio", title: "🦌 Nara: El Bosque de los Dioses",
         coords: [34.685, 135.805], zoom: 13,
         hotel: "Hotel Wing International Select Osaka Umeda",
@@ -1128,7 +1163,7 @@ const travelData = [
 
     // --- DÍA 6: TRASLADO A KIOTO Y CASTILLO DE NIJO ---
     {
-        day: 6, type: "travel",
+        day: 6, exactDate: "2026-08-01", type: "travel",
         date: "Sáb, 1 Agosto", title: "📅 DÍA 1 AGOSTO: OSAKA ➔ KIOTO",
         coords: [35.011, 135.748], zoom: 14,
         hotel: "Kyoto Tower Hotel Annex",
@@ -1365,6 +1400,21 @@ const travelData = [
                         <li><i class="fa-solid fa-couch"></i> <strong>Confort:</strong> Salones amplios con tatami para sentarse y descansar.</li>
                     </ul>
                 `
+            },
+            {
+                id: "add_imperial_palace",
+                title: "Palacio Imperial de Kioto",
+                booking: { id: "bk_imperial_palace", timeframe: "Fase 1 (Semanas antes)", required: true, link: "https://sankan.kunaicho.go.jp/english/index.html" },
+                image: "images/add-osaka-history.jpg",
+                description: "Residencial imperial histórica con jardines extensos.",
+                time: "14:00 – 15:30",
+                price: "Gratis (Reserva recomendada)",
+                link: "https://www.google.com/maps/search/?api=1&query=Kyoto+Imperial+Palace",
+                tacticalGuideId: "mission_imperial_palace",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-crown"></i> Palacio Imperial de Kioto</h3>
+                    <p>Antigua residencia de la familia imperial hasta 1868. Situado en el vasto Parque Imperial de Kioto.</p>
+                `
             }
         ]
     },
@@ -1372,7 +1422,7 @@ const travelData = [
     // --- DÍA 7: TRADICIÓN Y GEISHAS (NORTE DE KIOTO) ---
     // --- DÍA 7: EL CORAZÓN HISTÓRICO (HIGASHIYAMA Y GION) ---
     {
-        day: 7, type: "stay",
+        day: 7, exactDate: "2026-08-02", type: "stay",
         date: "Dom, 2 Agosto", title: "👘 KIOTO: EL CORAZÓN HISTÓRICO",
         coords: [34.995, 135.785], zoom: 14,
         hotel: "Kyoto Tower Hotel Annex",
@@ -1594,6 +1644,7 @@ const travelData = [
             {
                 id: "add_samurai_museum",
                 title: "Museo de Samuráis y Ninjas de Kioto",
+                booking: { id: "bk_samurai", timeframe: "Fase 3 (Semanas antes)", required: true, link: "https://mai-ko.com/culture/samurai-ninja-museum-kyoto/" },
                 image: "images/add-samurai-museum.jpg",
                 description: "Experiencia interactiva con armaduras, katanas y entrenamiento ninja.",
                 time: "11:30 – 13:30",
@@ -1651,7 +1702,7 @@ const travelData = [
 
     // --- DÍA 8: ARASHIYAMA y NORTE (ESTRUCTURA BASE + COMPLEMENTOS) ---
     {
-        day: 8, type: "stay",
+        day: 8, exactDate: "2026-08-03", type: "stay",
         date: "Lun, 3 Agosto", title: "🎋 Arashiyama: Bambú y Zen",
         coords: [35.009, 135.678], zoom: 13,
         hotel: "Kyoto Tower Hotel Annex",
@@ -1660,6 +1711,7 @@ const travelData = [
         image: "images/arashiyama.png",
 
         logistics: [
+            { title: "Reserva", text: "Si planeáis el Tren Romántico de Sagano, reservad con 1 mes de antelación." },
             { title: "Madrugar", text: "Lunes en Arashiyama. Bambú a las 8am máximo para evitar gente." },
             { title: "Transporte", text: "Tren JR Sagano Line hasta Saga-Arashiyama." }
         ],
@@ -1746,6 +1798,16 @@ const travelData = [
             title: "Itinerario Base",
             description: "Naturaleza y templos en el oeste de Kioto.",
             events: [
+                {
+                    id: "b0",
+                    time: "09:30",
+                    title: "Tren Romántico de Sagano",
+                    description: "Paseo escénico en tren de vapor por el desfiladero del río Hozugawa.",
+                    image: "images/dia8-bambu.jpg",
+                    price: "~880 JPY",
+                    booking: { id: "bk_sagano_train", timeframe: "Exactamente 1 mes antes", required: true, link: "https://www.westjr.co.jp/global/en/ticket/route_search/" },
+                    fullDesc: `<h3><i class="fa-solid fa-train"></i> Tren Romántico (Sagano Scenic Railway)</h3><p>Un viaje de 25 minutos por la belleza natural del valle de Hozugawa.</p>`
+                },
                 {
                     id: "b1",
                     time: "08:30",
@@ -2464,7 +2526,7 @@ const travelData = [
 
     // --- DÍA 11: ALPES JAPONESES (ESTRUCTURA BASE + COMPLEMENTOS) ---
     {
-        day: 11, type: "travel",
+        day: 11, exactDate: "2026-08-06", type: "travel",
         date: "Jue, 6 Agosto", title: "⛰️ Alpes: Relax en el Ryokan",
         coords: [36.259, 137.551], zoom: 13,
         hotel: "Kazeya Ryokan",
@@ -2486,7 +2548,8 @@ const travelData = [
                 price: "Cubierto por pase o ~5.940 JPY",
                 timeLabel: "35 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Kyoto+Station&destination=Nagoya+Station&travelmode=transit",
-                tacticalGuideId: "mission_alpes_1"
+                tacticalGuideId: "mission_alpes_1",
+                booking: { id: "bk_shinkansen", timeframe: "1 mes antes (App SmartEX)", required: true, link: "https://smart-ex.jp/en/index.php" }
             },
             { time: "09:30", type: "point", title: "Transbordo en Nagoya", icon: "fa-solid fa-person-walking-arrow-right" },
             {
@@ -2506,7 +2569,8 @@ const travelData = [
                 price: "~2.200 JPY",
                 timeLabel: "1h 30m",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Takayama+Nohi+Bus+Center&destination=Shin-Hotaka+Onsen&travelmode=transit",
-                tacticalGuideId: "mission_alpes_3"
+                tacticalGuideId: "mission_alpes_3",
+                booking: { id: "bk_nohi_okuhida", timeframe: "1 mes antes", required: true, link: "https://www.nouhibus.co.jp/english/" }
             },
             { time: "15:30", type: "point", title: "Check-in Kazeya Ryokan", icon: "fa-solid fa-hot-tub-person" }
         ],
@@ -2645,19 +2709,20 @@ const travelData = [
                 `
             },
             {
-                id: "add_bear_park",
-                title: "Bear Park (Kuma-bokujo)",
-                image: "images/add-bear-park.jpg",
-                description: "Lugar curioso donde habitan osos negros asiáticos nativos de los Alpes.",
-                time: "15:30 – 16:30",
-                price: "~1.100 JPY",
-                link: "https://www.google.com/maps/search/?api=1&query=Okuhida+Bear+Park",
-                tacticalGuideId: "mission_bear_park",
-                video: "https://www.youtube.com/watch?v=W79U1H-yq-A",
+                id: "add_kaiyukan",
+                title: "Acuario Kaiyukan",
+                image: "images/add-kaiyukan.jpg",
+                description: "Uno de los acuarios más grandes del mundo con un tiburón ballena espectacular.",
+                time: "10:00 – 12:30",
+                price: "~2.400 JPY",
+                link: "https://www.google.com/maps/search/?api=1&query=Osaka+Kaiyukan+Aquarium",
+                tacticalGuideId: "mission_kaiyukan",
+                video: "https://www.youtube.com/watch?v=R9KclW_jW5A",
                 fullDesc: `
-                    <h3><i class="fa-solid fa-paw"></i> Parque de Osos de Okuhida</h3>
-                    <p>Podréis ver de cerca a los osos negros de la región y alimentarlos con galletas especiales. Una parada curiosa en el valle.</p>
-                `
+                    <h3><i class="fa-solid fa-fish"></i> Kaiyukan: El Océano en Osaka</h3>
+                    <p>Ubicado en la bahía de Osaka, este acuario es famoso por su tanque central de 9 metros de profundidad que representa el Océano Pacífico, hogar de dos tiburones ballena. El recorrido es descendente, simulando una inmersión desde la superficie hasta el fondo marino.</p>
+                `,
+                booking: { id: "bk_kaiyukan", timeframe: "1-2 semanas antes", required: true, link: "https://www.kaiyukan.com/language/eng/" }
             },
             {
                 id: "add_night_walk_hirayu",
@@ -2679,7 +2744,7 @@ const travelData = [
 
     // --- DÍA 12: TAKAYAMA (ESTRUCTURA BASE + COMPLEMENTOS) ---
     {
-        day: 12, type: "stay",
+        day: 12, exactDate: "2026-08-07", type: "stay",
         date: "Vie, 7 Agosto", title: "🏔️ Takayama: Japón Feudal",
         coords: [36.146, 137.252], zoom: 13,
         hotel: "Residence Hotel Takayama Station",
@@ -2879,7 +2944,7 @@ const travelData = [
 
     // --- DÍA 13: KAWAGUCHIKO (Llegada) ---
     {
-        day: 13, type: "travel",
+        day: 13, exactDate: "2026-08-08", type: "travel",
         date: "Sáb, 8 Agosto", title: "🗻 Kawaguchiko: El Monte Fuji",
         coords: [35.498, 138.768], zoom: 13,
         hotel: "Toyoko Inn Fuji Kawaguchiko Ohashi",
@@ -2898,6 +2963,7 @@ const travelData = [
                 time: "08:30",
                 type: "transit",
                 title: "Bus Directo Mt. Fuji (Express)",
+                booking: { id: "bk_fuji_bus", timeframe: "Exactamente 1 mes antes", required: true, link: "https://www.nouhibus.co.jp/english/" },
                 price: "~5.000 JPY (Reserva previa obligatoria)",
                 timeLabel: "4h 45m",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Takayama+Nohi+Bus+Center&destination=Kawaguchiko+Station&travelmode=transit",
@@ -2955,7 +3021,8 @@ const travelData = [
                     fullDesc: `
                         <h3><i class="fa-solid fa-car-side"></i> Operación Conducción Nipona</h3>
                         <p>Iván o Felipe: Os tocará conducir por la izquierda. El GPS vendrá configurado. La velocidad máxima suele ser 60km/h en estas vías montañosas. ¡Precaución máxima!</p>
-                    `
+                    `,
+                    booking: { id: "bk_coches", timeframe: "2-3 meses antes", required: true, link: "https://www.budgetrentacar.co.jp/en/" }
                 },
                 {
                     time: "15:00",
@@ -3521,7 +3588,7 @@ const travelData = [
 
     // --- DÍA 17: ASAKUSA, SKYTREE Y AKIHABARA ---
     {
-        day: 17, type: "stay",
+        day: 17, exactDate: "2026-08-12", type: "stay",
         date: "Mié, 12 Agosto", title: "🗼 Asakusa, Skytree y Akihabara",
         coords: [35.710, 139.810], zoom: 13,
         hotel: "Hotel Metropolitan Edmont Tokyo",
@@ -3626,6 +3693,7 @@ const travelData = [
                     id: "b3",
                     time: "13:30",
                     title: "Tokyo Skytree",
+                    booking: { id: "bk_skytree", timeframe: "1 mes antes", required: true, link: "https://www.tokyo-skytree.jp/en/ticket/" },
                     description: "La estructura más alta de Japón (634m). Vistas que demuestran que Tokio no tiene fin.",
                     image: "images/dia17-skytree.jpg",
                     price: "Opcional 2.100 JPY",
@@ -3740,7 +3808,7 @@ const travelData = [
 
     // --- DÍA 18: SHIBUYA (Juventud) ---
     {
-        day: 18, type: "stay",
+        day: 18, exactDate: "2026-08-13", type: "stay",
         date: "Jue, 13 Agosto", title: "🚦 Shibuya y Harajuku",
         coords: [35.659, 139.701], zoom: 13,
         hotel: "Hotel Metropolitan Edmont Tokyo",
@@ -3846,6 +3914,7 @@ const travelData = [
             {
                 id: "c1",
                 title: "Shibuya Sky",
+                booking: { id: "bk_shibuya", timeframe: "Exactamente 4 semanas antes (00:00 Japón)", required: true, link: "https://www.shibuya-scramble-square.com/en/sky/ticket/" },
                 time: "17:30",
                 description: "El mirador que arrasa en Instagram. Azotea de helicópteros totalmente al aire libre.",
                 price: "~2.200 JPY",
@@ -3895,7 +3964,7 @@ const travelData = [
 
     // --- DÍA 19: TEAMLAB Y ODAIBA ---
     {
-        day: 19, type: "stay",
+        day: 19, exactDate: "2026-08-14", type: "stay",
         date: "Vie, 14 Agosto", title: "🌊 TeamLab y Odaiba",
         coords: [35.630, 139.776], zoom: 13,
         hotel: "Hotel Metropolitan Edmont Tokyo",
@@ -3999,6 +4068,7 @@ const travelData = [
             {
                 id: "c1",
                 title: "TeamLab Planets TOKYO",
+                booking: { id: "bk_teamlab", timeframe: "Meses de antelación", required: true, link: "https://planets.teamlab.art/tokyo/es/tickets" },
                 time: "09:30",
                 description: "Una de las experiencias artísticas inmersivas más famosas del mundo. Agua, espejos y luces.",
                 price: "3.800 JPY",
@@ -4015,7 +4085,7 @@ const travelData = [
                         time: "Meses de antelación",
                         description: "No se venden entradas en taquilla física casi nunca.",
                         link: "https://planets.teamlab.art/tokyo/es/tickets",
-                        tacticalGuideId: "mission_teamlab"
+                        tacticalGuideId: "mission_teamlab",
                     }
                 ]
             },
