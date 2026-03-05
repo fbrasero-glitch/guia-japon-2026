@@ -1044,9 +1044,11 @@ function renderCenterVisual(data, mode, optData = null) {
 
         listHTML += `</div>`;
         card.innerHTML = listHTML;
-        // Scroll al inicio del panel al abrir la lista
-        card.scrollTop = 0;
-        if (card.parentElement) card.parentElement.scrollTop = 0;
+        // Scroll al inicio de la página al abrir la lista
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Intentar scroll en contenedores principales por si acaso (móvil vs desktop)
+        const centerContent = document.querySelector('.center-stage');
+        if (centerContent) centerContent.scrollTo({ top: 0, behavior: 'smooth' });
         return;
     }
 
@@ -1125,13 +1127,28 @@ function renderCenterVisual(data, mode, optData = null) {
 
         // Determinar si es una excursión adicional (id starts with 'add_')
         const isAdditionalExc = optData.id && optData.id.startsWith('add_');
-        const backBtnHTML = isAdditionalExc
-            ? `<button onclick="renderCenterVisual(travelData[${travelData.indexOf(data)}], 'additional-excursions-list')" style="background:transparent; border:none; color:var(--neon-blue); cursor:pointer; font-size:1.1rem; margin-bottom:15px; display:flex; align-items:center;">
-                 <i class="fa-solid fa-arrow-left" style="margin-right:8px;"></i> Volver a Excursiones Adicionales
-               </button>`
-            : `<button onclick="loadDay(${travelData.indexOf(data)})" style="background:transparent; border:none; color:var(--accent); cursor:pointer; font-size:1.1rem; margin-bottom:15px; display:flex; align-items:center;">
-                 <i class="fa-solid fa-arrow-left" style="margin-right:8px;"></i> Volver al Itinerario
-               </button>`;
+
+        let backBtnHTML = '';
+        if (isAdditionalExc) {
+            // Mostrar AMBOS botones lado a lado
+            backBtnHTML = `
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:15px;">
+                    <button onclick="loadDay(${travelData.indexOf(data)})" style="background:transparent; border:none; color:var(--accent); cursor:pointer; font-size:1.1rem; display:flex; align-items:center;">
+                        <i class="fa-solid fa-arrow-left" style="margin-right:8px;"></i> Volver al Itinerario
+                    </button>
+                    <button onclick="renderCenterVisual(travelData[${travelData.indexOf(data)}], 'additional-excursions-list')" style="background:transparent; border:none; color:var(--neon-blue); cursor:pointer; font-size:1.1rem; display:flex; align-items:center;">
+                        <i class="fa-solid fa-list" style="margin-right:8px;"></i> Volver a Excursiones
+                    </button>
+                </div>
+            `;
+        } else {
+            // Comportamiento normal (solo volver al itinerario)
+            backBtnHTML = `
+                <button onclick="loadDay(${travelData.indexOf(data)})" style="background:transparent; border:none; color:var(--accent); cursor:pointer; font-size:1.1rem; margin-bottom:15px; display:flex; align-items:center;">
+                    <i class="fa-solid fa-arrow-left" style="margin-right:8px;"></i> Volver al Itinerario
+                </button>
+            `;
+        }
 
         card.innerHTML = `
              ${backBtnHTML}
@@ -1238,9 +1255,10 @@ function renderCenterVisual(data, mode, optData = null) {
                   ` : ''}
              </div>
          `;
-        // Scroll al inicio del panel al abrir el detalle de excursión
-        card.scrollTop = 0;
-        if (card.parentElement) card.parentElement.scrollTop = 0;
+        // Scroll al inicio de la página al abrir el detalle de excursión
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        const centerContent = document.querySelector('.center-stage');
+        if (centerContent) centerContent.scrollTo({ top: 0, behavior: 'smooth' });
     }
 }
 
