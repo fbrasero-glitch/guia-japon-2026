@@ -1274,7 +1274,7 @@ const travelData = [
             events: [
                 {
                     id: "b1",
-                    time: "09:30",
+                    time: "10:00",
                     title: "Traslado: Osaka ➔ Kioto",
                     description: "JR Special Rapid Service. Rápido, eficiente y sin reserva.",
                     image: "images/hotel-kyoto-tower.jpg",
@@ -1311,7 +1311,7 @@ const travelData = [
                 },
                 {
                     id: "b3",
-                    time: "14:30",
+                    time: "15:00",
                     title: "Castillo de Nijo",
                     description: "Fortaleza de los Shoguns con suelos 'ruiseñor' antininja.",
                     image: "images/dia6-despliegue-capital-imperial.jpg",
@@ -1350,8 +1350,8 @@ const travelData = [
                 },
                 {
                     id: "b5",
-                    time: "20:30",
-                    title: "Kawaramachi Shopping",
+                    time: "19:30",
+                    title: "Calle Comercial Kawaramachi",
                     description: "Inmersion nocturna en el centro comercial y gastronómico de Kioto.",
                     image: "images/kawaramachi.jpg",
                     price: "Gratis",
@@ -1505,7 +1505,7 @@ const travelData = [
                 icon: "fa-solid fa-mountain"
             },
             {
-                time: "11:00",
+                time: "10:30",
                 type: "transit",
                 title: "🚶 La Bajada Histórica (Sannenzaka/Ninenzaka)",
                 price: "Gratis",
@@ -1534,14 +1534,8 @@ const travelData = [
             {
                 time: "18:00",
                 type: "point",
-                title: "👘 Barrio de Gion (Hanamikoji)",
+                title: "👘 Barrio de Gion y Pontocho",
                 icon: "fa-solid fa-person-dress-fairy"
-            },
-            {
-                time: "20:00",
-                type: "point",
-                title: "🏮 Cena en Pontocho",
-                icon: "fa-solid fa-utensils"
             }
         ],
 
@@ -1584,9 +1578,9 @@ const travelData = [
                 },
                 {
                     id: "b2",
-                    time: "11:00",
-                    title: "Paseo Higashiyama (Sannenzaka/Ninenzaka)",
-                    description: "Descenso por las calles empedradas más icónicas de Kioto.",
+                    time: "10:30",
+                    title: "Sannenzaka y Ninenzaka",
+                    description: "Descenso por las cuestas tradicionales más fotogénicas.",
                     image: "images/dia7-historico.jpg",
                     price: "Gratis",
                     link: "https://www.google.com/maps/dir/Kiyomizu-dera/Yasaka+Shrine/",
@@ -1641,17 +1635,17 @@ const travelData = [
                 {
                     id: "b5",
                     time: "18:00",
-                    title: "Barrio de Gion",
-                    description: "El legendario distrito de las Geishas. Infiltración nocturna.",
+                    title: "Barrio de Gion y Pontocho",
+                    description: "Búsqueda de Maikos en la calle Hanamikoji y cena en los callejones junto al río Kamo.",
                     image: "images/dia7-gion.jpg",
                     price: "Gratis",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-person-dress-fairy"></i> El Enigma de Gion</h3>
-                        <p>Gion es el distrito de entretenimiento más famoso de Kioto, donde el mundo de las Geiko (geishas) y Maiko (aprendices) todavía late con fuerza detrás de las celosías de madera de las ochaya (casas de té). La calle Hanamikoji es el epicentro visual, con su pavimento de piedra y edificios tradicionales perfectamente conservados.</p>
-                        <p><em>Pasear por Gion al anochecer es una experiencia de paciencia y respeto. Si tenéis suerte, podréis ver la silueta rápida de una Maiko dirigiéndose a una cita. Recordad que son artistas trabajando, no atracciones turísticas; mantened la distancia y disfrutad del aura de misterio que envuelve estas calles.</em></p>
+                        <h3><i class="fa-solid fa-person-dress-fairy"></i> El Enigma de Gion y la Noche en Pontocho</h3>
+                        <p>Gion es el distrito de entretenimiento más famoso de Kioto, donde el mundo de las Geiko (geishas) y Maiko (aprendices) todavía late con fuerza detrás de las celosías de madera de las ochaya. La calle Hanamikoji es el epicentro visual. Al lado, el estrecho callejón de Pontocho ofrece una de las atmósferas más especiales de Japón para cenar junto al río Kamo.</p>
+                        <p><em>Pasear por Gion al anochecer es una experiencia de paciencia y respeto. Si tenéis suerte, podréis ver la silueta rápida de una Maiko dirigiéndose a una cita. Después, cruzad hacia Pontocho para disfrutar de la cena en sus callejones iluminados por linternas tradicionales.</em></p>
                         <ul>
-                            <li><i class="fa-solid fa-user-secret"></i> <strong>Código Ético:</strong> No molestar ni tocar a las Geiko/Maiko.</li>
-                            <li><i class="fa-solid fa-camera-retro"></i> <strong>Canal Shirakawa:</strong> La zona más pintoresca de Gion, paralela al canal bajo los sauces.</li>
+                            <li><i class="fa-solid fa-user-secret"></i> <strong>Código Ético:</strong> No molestar ni tocar a las Geiko/Maiko. Es su lugar de trabajo.</li>
+                            <li><i class="fa-solid fa-plate-wheat"></i> <strong>Cena:</strong> Pontocho tiene opciones desde alta cocina hasta tabernas locales.</li>
                         </ul>
                     `
                 }
@@ -1811,14 +1805,8 @@ const travelData = [
             {
                 time: "08:30",
                 type: "point",
-                title: "🎋 Bosque de Bambú: Caminata matutina.",
+                title: "🎋 Bambú y Templo Tenryu-ji.",
                 icon: "fa-solid fa-leaf"
-            },
-            {
-                time: "09:30",
-                type: "point",
-                title: "⛩️ Templo Tenryu-ji: Jardín zen.",
-                icon: "fa-solid fa-pagoda"
             },
             {
                 time: "11:00",
@@ -1839,7 +1827,7 @@ const travelData = [
                 icon: "fa-solid fa-utensils"
             },
             {
-                time: "15:00",
+                time: "14:30",
                 type: "point",
                 title: "🌉 Puente Togetsukyo y Parque de Monos.",
                 icon: "fa-solid fa-bridge"
@@ -1856,10 +1844,10 @@ const travelData = [
         ],
 
         timeline: [
-            { time: "08:30", title: "Bosque de Bambú", desc: "El alma verde de Arashiyama. (Base)" },
+            { time: "08:30", title: "Bambú y Tenryu-ji", desc: "El alma verde y el jardín zen. (Base)" },
             { time: "11:00", title: "Adashino Nembutsuji", desc: "El templo de las miles de estatuas. (Base)" },
             { time: "12:00", title: "Otagi Nembutsuji", desc: "Las 1.200 caras sonrientes. (Base)" },
-            { time: "15:00", title: "Puente y Monos", desc: "Iconos y panorámicas del sur. (Base)" }
+            { time: "14:30", title: "Puente y Monos", desc: "Iconos y panorámicas del sur. (Base)" }
         ],
 
         prices: {
@@ -1887,39 +1875,18 @@ const travelData = [
                 {
                     id: "b1",
                     time: "08:30",
-                    title: "Bosque de Bambú",
-                    description: "Paseo icónico entre tallos gigantes. (Gratis)",
+                    title: "Bosque de Bambú y Templo Tenryū-ji",
+                    description: "Paseo icónico entre tallos gigantes y visita al Templo del Dragón Celestial.",
                     image: "images/dia8-itinerario-base.jpg",
-                    price: "Gratis",
+                    price: "500 JPY",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-leaf"></i> Bosque de Bambú de Sagano</h3>
-                        <p>Uno de los paisajes más fotografiados y evocadores de todo Japón. El camino serpentea a través de miles de altísimos tallos de bambú que filtran la luz del sol, creando una atmósfera verde y mágica. No es solo un espectáculo visual: el sonido del viento meciedo ligeramente los troncos de bambú ha sido designado por el Ministerio de Medio Ambiente como uno de los "100 Paisajes Sonoros de Japón" que deben ser preservados.</p>
-                        <p><em>Para disfrutar de este aura de paz y escuchar el susurro místico del bosque, es vital llegar a primera hora (antes de las 08:30), cuando el silencio todavía reina antes de la llegada de los grupos turísticos.</em></p>
+                        <h3><i class="fa-solid fa-leaf"></i> Bosque de Bambú y Tenryū-ji</h3>
+                        <p>Iniciamos el día en Arashiyama con sus dos joyas más cercanas. El Bosque de Bambú de Sagano ofrece una atmósfera mágica de paz, mientras que el Templo Tenryū-ji, el más importante del distrito, nos deleita con su jardín del siglo XIV.</p>
                         <ul>
-                            <li><i class="fa-solid fa-clock"></i> <strong>Tiempo:</strong> 30-45 min de paseo.</li>
-                            <li><i class="fa-solid fa-music"></i> <strong>Experiencia:</strong> Deteneos un momento en silencio para escuchar el bosque.</li>
+                            <li><i class="fa-solid fa-clock"></i> <strong>Estrategia:</strong> Llegar a las 08:30 es vital para ver el bambú en silencio.</li>
+                            <li><i class="fa-solid fa-dragon"></i> <strong>Tenryū-ji:</strong> No os perdáis el diseño original de su jardín zen.</li>
                         </ul>
                     `
-                },
-                {
-                    id: "b2",
-                    time: "10:00",
-                    title: "Templo Tenryū-ji",
-                    description: "El Templo del Dragón Celestial y su jardín zen del siglo XIV.",
-                    image: "images/dia8-tenryuji.jpg",
-                    price: "500 JPY",
-                    link: "https://www.google.com/maps/dir/Sagano+Bamboo+Forest/Tenryu-ji/",
-                    fullDesc: `
-                        <h3><i class="fa-solid fa-pagoda"></i> Templo Tenryū-ji</h3>
-                        <p>Fundado en 1339 por el Shogún Ashikaga Takauji en honor al emperador Go-Daigo, este es el templo zen más importante de Arashiyama. Aunque sus edificios han sido reconstruidos varias veces, su jardín Sogenchi es una obra maestra que se conserva en su diseño original del siglo XIV.</p>
-                        <p><em>El jardín utiliza la técnica del "paisaje prestado" (shakkei), integrando las montañas de Arashiyama y Kameyama en su propia composición. Dentro del Dharma Hall, no os perdáis la impresionante pintura del "Dragón de las Nubes" en el techo, cuya mirada parece seguirte desde cualquier punto de la sala.</em></p>
-                        <ul>
-                            <li><i class="fa-solid fa-clock"></i> <strong>Tiempo:</strong> 1 hora.</li>
-                            <li><i class="fa-solid fa-ticket"></i> <strong>Entrada:</strong> 500 JPY (Jardín) + 300 JPY (Interior).</li>
-                            <li><i class="fa-solid fa-dragon"></i> <strong>Clave:</strong> El dragón del techo y la paz del estanque central.</li>
-                        </ul>
-                    `,
-                    video: "https://www.youtube.com/watch?v=_PWIY6trR2U"
                 },
                 {
                     id: "b3",
@@ -1959,7 +1926,7 @@ const travelData = [
                 },
                 {
                     id: "b5",
-                    time: "15:00",
+                    time: "14:30",
                     title: "Puente Togetsukyō",
                     description: "El 'Puente que cruza la Luna', icono histórico de Arashiyama.",
                     image: "images/dia8-puente.jpg",
@@ -2126,7 +2093,7 @@ const travelData = [
                 link: "https://www.google.com/maps/dir/Nishiki+Market/Philosopher's+Path/"
             },
             {
-                time: "13:30",
+                time: "12:30",
                 type: "point",
                 title: "🌿 Paseo del Filósofo: Ruta zen junto al canal.",
                 icon: "fa-solid fa-scroll"
@@ -2150,14 +2117,21 @@ const travelData = [
                 type: "point",
                 title: "💤 Retorno: Bus o Taxi hacia el hotel.",
                 icon: "fa-solid fa-bed"
+            },
+            {
+                time: "19:00",
+                type: "point",
+                title: "🍱 Cena de despedida en Kioto.",
+                icon: "fa-solid fa-utensils"
             }
         ],
 
         timeline: [
             { time: "08:00", title: "Fushimi Inari", desc: "Santuario de los mil toriis. (Base)" },
             { time: "11:30", title: "Mercado Nishiki", desc: "La despensa de Kioto. (Base)" },
-            { time: "13:30", title: "Paseo del Filósofo", desc: "Camino zen junto al canal. (Base)" },
-            { time: "15:30", title: "Kinkaku-ji", desc: "El pabellón recubierto de oro. (Base)" }
+            { time: "12:30", title: "Paseo del Filósofo", desc: "Camino zen junto al canal. (Base)" },
+            { time: "15:30", title: "Kinkaku-ji", desc: "El pabellón recubierto de oro. (Base)" },
+            { time: "19:00", title: "Cena de despedida", desc: "Última noche en la capital imperial. (Base)" }
         ],
 
         prices: {
@@ -2211,7 +2185,7 @@ const travelData = [
                 },
                 {
                     id: "b3",
-                    time: "13:30",
+                    time: "12:30",
                     title: "Paseo del Filósofo",
                     description: "Paseo meditativo junto al canal siguiendo los pasos de Nishida Kitaro.",
                     image: "images/paseo-filosofo.jpg",
@@ -2243,6 +2217,18 @@ const travelData = [
                             <li><i class="fa-solid fa-camera"></i> <strong>Foto Clave:</strong> Desde la orilla opuesta del estanque para capturar el reflejo perfecto.</li>
                             <li><i class="fa-solid fa-ticket"></i> <strong>Entrada:</strong> El ticket es un amuleto (ofuda) que atrae la buena suerte.</li>
                         </ul>
+                    `
+                },
+                {
+                    id: "b5",
+                    time: "19:00",
+                    title: "Cena de despedida en Kioto",
+                    description: "Última noche antes de partir hacia los Alpes Japoneses.",
+                    image: "images/pontocho_night.jpg",
+                    price: "Variable",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-plate-wheat"></i> Cena de Despedida</h3>
+                        <p>Para cerrar este bloque de Kioto, buscad un rincón especial en Pontocho o cerca de la estación para disfrutar de los sabores locales una última vez antes del traslado a las montañas.</p>
                     `
                 }
             ]
