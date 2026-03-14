@@ -1383,7 +1383,7 @@ const travelData_00_08 = [
             events: [
                 {
                     id: "b1",
-                    time: "09:30",
+                    time: "10:00",
                     title: "Traslado: Osaka ➔ Kioto",
                     description: "JR Special Rapid Service. Rápido, eficiente y sin reserva.",
                     image: "images/hotel-kyoto-tower.jpg",
@@ -1401,7 +1401,21 @@ const travelData_00_08 = [
                 },
                 {
                     id: "b2",
-                    time: "14:30",
+                    time: "11:30",
+                    title: "Palacio Imperial de Kioto",
+                    description: "Residencia histórica de la familia imperial con jardines extensos. (Gratis)",
+                    image: "images/palacio-imperial-kyoto.jpg",
+                    price: "Gratis",
+                    link: "https://www.google.com/maps/search/?api=1&query=Kyoto+Imperial+Palace",
+                    tacticalGuideId: "mission_imperial_palace",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-crown"></i> Palacio Imperial de Kioto (Kyoto Gosho)</h3>
+                        <p>Fue la residencia de la familia imperial de Japón hasta 1868, cuando la capital se trasladó a Tokio. Ubicado en el inmenso Parque Imperial (Kyoto Gyoen).</p>
+                    `
+                },
+                {
+                    id: "b3",
+                    time: "15:00",
                     title: "Castillo de Nijo",
                     description: "Fortaleza de los Shoguns con suelos 'ruiseñor' antininja.",
                     image: "images/dia6-despliegue-capital-imperial.jpg",
@@ -1410,20 +1424,29 @@ const travelData_00_08 = [
                     tacticalGuideId: "mission_nijo",
                     fullDesc: `
                         <h3><i class="fa-solid fa-fort-awesome"></i> Castillo de Nijo-jo</h3>
-                        <p>Construido en 1603 como la residencia oficial en Kioto del primer Shogún del periodo Edo, Tokugawa Ieyasu. El complejo es un testimonio del poder y la opulencia del shogunato, contrastando con la relativa sencillez del Palacio Imperial de Kioto.</p>
-                        <p><em>La joya del castillo es el Palacio Ninomaru, donde destaca el ingenioso "suelo de ruiseñor" (uguisubari). Estos tablones de madera fueron diseñados deliberadamente para emitir un chirrido similar al canto de un pájaro al ser pisados, funcionando como un sistema de alarma natural contra posibles intrusos o asesinos ninja. El interior del palacio está decorado con impresionantes biombos pintados por la escuela Kanō, representando tigres y pinos que simbolizaban la fuerza del Shogún.</em></p>
-                        <ul>
-                            <li><i class="fa-solid fa-bird"></i> <strong>Suelos de Ruiseñor:</strong> Una obra maestra de la carpintería defensiva antigua.</li>
-                            <li><i class="fa-solid fa-leaf"></i> <strong>Jardín Ninomaru:</strong> Diseñado por el maestro de té Kobori Enshu, con rocas masivas que representan la longevidad.</li>
-                        </ul>
+                        <p>Construido en 1603 como la residencia oficial en Kioto del primer Shogún del periodo Edo.</p>
                     `,
                     video: "https://www.youtube.com/watch?v=N9AXzIbPJoE"
                 },
                 {
-                    time: "18:00",
-                    title: "Cena en Kioto",
-                    description: "Exploración libre por la zona de la estación o Pontocho.",
-                    type: "gap"
+                    id: "b4",
+                    time: "17:30",
+                    title: "Torre Kioto",
+                    description: "Vistas panorámicas desde el mirador justo frente a vuestro hotel.",
+                    image: "images/kyoto_tower.png",
+                    price: "~5€",
+                    link: "https://www.google.com/maps/search/?api=1&query=Kyoto+Tower",
+                    fullDesc: `<h3><i class="fa-solid fa-tower-observation"></i> Torre Kioto</h3><p>Vistas espectaculares de toda la ciudad al atardecer.</p>`
+                },
+                {
+                    id: "b5",
+                    time: "19:30",
+                    title: "Calle Comercial Kawaramachi",
+                    description: "Paseo nocturno por la zona de tiendas y cena en los alrededores.",
+                    image: "images/kawaramachi.jpg",
+                    price: "Gratis",
+                    link: "https://www.google.com/maps/search/?api=1&query=Kawaramachi+Kyoto",
+                    fullDesc: `<h3><i class="fa-solid fa-bag-shopping"></i> Kawaramachi</h3><p>El corazón comercial de Kioto, ideal para pasear y cenar.</p>`
                 }
             ]
         },
@@ -1918,88 +1941,54 @@ const travelData_00_08 = [
             description: "Naturaleza y templos en el oeste de Kioto.",
             events: [
                 {
-                    id: "b0",
-                    time: "09:30",
-                    title: "Tren Romántico de Sagano",
-                    description: "Paseo escénico en tren de vapor por el desfiladero del río Hozugawa.",
-                    image: "images/dia8-bambu.jpg",
-                    price: "~880 JPY",
-                    booking: { id: "bk_sagano_train", timeframe: "Exactamente 1 mes antes", required: true, link: "https://www.westjr.co.jp/global/en/ticket/route_search/" },
-                    fullDesc: `<h3><i class="fa-solid fa-train"></i> Tren Romántico (Sagano Scenic Railway)</h3><p>Un viaje de 25 minutos por la belleza natural del valle de Hozugawa.</p>`
-                },
-                {
                     id: "b1",
                     time: "08:30",
-                    title: "Bosque de Bambú",
-                    description: "Paseo icónico entre tallos gigantes. (Gratis)",
-                    image: "images/dia8-itinerario-base.jpg",
-                    price: "Gratis",
-                    fullDesc: `
-                        <h3><i class="fa-solid fa-leaf"></i> Bosque de Bambú de Sagano</h3>
-                        <p>Uno de los paisajes más fotografiados y evocadores de todo Japón. El camino serpentea a través de miles de altísimos tallos de bambú que filtran la luz del sol, creando una atmósfera verde y mágica. No es solo un espectáculo visual: el sonido del viento meciedo ligeramente los troncos de bambú ha sido designado por el Ministerio de Medio Ambiente como uno de los "100 Paisajes Sonoros de Japón" que deben ser preservados.</p>
-                        <p><em>Para disfrutar de este aura de paz y escuchar el susurro místico del bosque, es vital llegar a primera hora (antes de las 08:30), cuando el silencio todavía reina antes de la llegada de los grupos turísticos.</em></p>
-                        <ul>
-                            <li><i class="fa-solid fa-clock"></i> <strong>Tiempo:</strong> 30-45 min de paseo.</li>
-                            <li><i class="fa-solid fa-music"></i> <strong>Experiencia:</strong> Deteneos un momento en silencio para escuchar el bosque.</li>
-                        </ul>
-                    `
+                    title: "Bosque de Bambú y Templo Tenryu-ji",
+                    description: "Imprescindible llegar temprano para evitar multitudes.",
+                    image: "images/arashiyama.png",
+                    price: "500 JPY",
+                    link: "https://www.google.com/maps/search/?api=1&query=Tenryu-ji+Temple+Kyoto",
+                    fullDesc: `<h3><i class="fa-solid fa-leaf"></i> Arashiyama Zen</h3><p>Paseo por el bosque de bambú y visita al Templo Tenryu-ji, el más importante de la zona.</p>`
                 },
                 {
                     id: "b2",
-                    time: "10:00",
-                    title: "Templo Tenryū-ji",
-                    description: "El Templo del Dragón Celestial y su jardín zen del siglo XIV.",
-                    image: "images/dia8-tenryuji.jpg",
+                    time: "11:00",
+                    title: "Adashino Nembutsuji",
+                    description: "Templo con miles de figuras de piedra que honran a los fallecidos.",
+                    image: "images/adashino-nembutsuji.jpg",
                     price: "500 JPY",
-                    link: "https://www.google.com/maps/dir/Sagano+Bamboo+Forest/Tenryu-ji/",
-                    fullDesc: `
-                        <h3><i class="fa-solid fa-pagoda"></i> Templo Tenryū-ji</h3>
-                        <p>Fundado en 1339 por el Shogún Ashikaga Takauji en honor al emperador Go-Daigo, este es el templo zen más importante de Arashiyama. Aunque sus edificios han sido reconstruidos varias veces, su jardín Sogenchi es una obra maestra que se conserva en su diseño original del siglo XIV.</p>
-                        <p><em>El jardín utiliza la técnica del "paisaje prestado" (shakkei), integrando las montañas de Arashiyama y Kameyama en su propia composición. Dentro del Dharma Hall, no os perdáis la impresionante pintura del "Dragón de las Nubes" en el techo, cuya mirada parece seguirte desde cualquier punto de la sala.</em></p>
-                        <ul>
-                            <li><i class="fa-solid fa-clock"></i> <strong>Tiempo:</strong> 1 hora.</li>
-                            <li><i class="fa-solid fa-ticket"></i> <strong>Entrada:</strong> 500 JPY (Jardín) + 300 JPY (Interior).</li>
-                            <li><i class="fa-solid fa-dragon"></i> <strong>Clave:</strong> El dragón del techo y la paz del estanque central.</li>
-                        </ul>
-                    `,
-                    video: "https://www.youtube.com/watch?v=_PWIY6trR2U"
+                    link: "https://www.google.com/maps/search/?api=1&query=Adashino+Nembutsuji+Temple",
+                    fullDesc: `<h3><i class="fa-solid fa-ghost"></i> Adashino Nembutsuji</h3><p>Un lugar místico con miles de estatuas que representan las almas.</p>`
                 },
                 {
                     id: "b3",
-                    time: "11:30",
-                    title: "Puente Togetsukyō",
-                    description: "El 'Puente que cruza la Luna', icono histórico de Arashiyama.",
-                    image: "images/dia8-puente.jpg",
-                    price: "Gratis",
-                    link: "https://www.google.com/maps/dir/Tenryu-ji/Togetsukyo+Bridge/",
-                    fullDesc: `
-                        <h3><i class="fa-solid fa-bridge"></i> Puente Togetsukyō</h3>
-                        <p>Cuyo nombre poético significa "El Puente que cruza la Luna". Se dice que el emperador Kameyama del periodo Kamakura, durante una fiesta nocturna en barco, observó cómo la luna brillante parecía cruzar el puente de un lado a otro.</p>
-                        <p><em>Originalmente construido en el año 836, la versión actual de madera y hormigón (reconstruida en 1934) mantiene la estética tradicional. Ofrece una de las vistas más famosas de la zona, con las colinas boscosas de Arashiyama como telón de fondo, especialmente bellas en otoño u horizontal bajo el sol de verano mientras fluye el río Katsura.</em></p>
-                        <ul>
-                            <li><i class="fa-solid fa-camera"></i> <strong>Foto:</strong> Desde la orilla sur buscando el reflejo de la montaña.</li>
-                            <li><i class="fa-solid fa-wind"></i> <strong>Vibe:</strong> Brisa fresca junto al río, ideal para un breve descanso.</li>
-                        </ul>
-                    `
+                    time: "12:00",
+                    title: "Templo Otagi Nembutsuji",
+                    description: "El templo de las 1.200 estatuas con expresiones curiosas.",
+                    image: "images/otagi-nembutsuji.jpg",
+                    price: "300 JPY",
+                    link: "https://www.google.com/maps/search/?api=1&query=Otagi+Nembutsuji+Temple",
+                    fullDesc: `<h3><i class="fa-solid fa-face-smile"></i> Otagi Nembutsuji</h3><p>Famoso por sus 1.200 figuras talladas por devotos con rostros expresivos y variados.</p>`
                 },
                 {
                     id: "b4",
-                    time: "12:30",
-                    title: "Parque de los Monos Iwatayama",
-                    description: "Encuentro con macacos japoneses y vistas panorámicas de Kioto.",
+                    time: "14:30",
+                    title: "Puente Togetsukyo",
+                    description: "Paseo por el río y almuerzo en la zona de Arashiyama.",
+                    image: "images/dia8-puente.jpg",
+                    price: "Gratis",
+                    link: "https://www.google.com/maps/search/?api=1&query=Togetsukyo+Bridge",
+                    fullDesc: `<h3><i class="fa-solid fa-bridge"></i> Togetsukyo</h3><p>El icono de Arashiyama cruzando el río Katsura.</p>`
+                },
+                {
+                    id: "b5",
+                    time: "16:00",
+                    title: "Parque de Monos Iwatayama",
+                    description: "Subida a la colina para ver a los macacos y disfrutar de vistas panorámicas.",
                     image: "images/dia8-monos.jpg",
                     price: "600 JPY",
-                    link: "https://www.google.com/maps/dir/Togetsukyo+Bridge/Iwatayama+Monkey+Park/",
-                    fullDesc: `
-                        <h3><i class="fa-solid fa-mountain"></i> Parque de Monos Iwatayama</h3>
-                        <p>Tras una caminata cuesta arriba de unos 20 minutos por un sendero sombreado, llegaréis a la cima de la colina Arashiyama, hogar de una colonia de más de 120 macacos japoneses (monos de cara roja) que viven en libertad.</p>
-                        <p><em>A diferencia de los zoológicos tradicionales, aquí los humanos entran en un recinto vallado para alimentar a los monos, que campan a sus anchas por el exterior. Es una experiencia divertida y segura, que además recompensa el esfuerzo de la subida con una de las mejores vistas panorámicas de todo Kioto y el valle del río Hozugawa.</em></p>
-                        <ul>
-                            <li><i class="fa-solid fa-clock"></i> <strong>Subida:</strong> 20 min (paso suave).</li>
-                            <li><i class="fa-solid fa-ticket"></i> <strong>Entrada:</strong> 600 JPY.</li>
-                            <li><i class="fa-solid fa-triangle-exclamation"></i> <strong>Aviso:</strong> No mirar directamente a los ojos a los monos ni tocarles.</li>
-                        </ul>
-                    `
+                    link: "https://www.google.com/maps/search/?api=1&query=Iwatayama+Monkey+Park",
+                    fullDesc: `<h3><i class="fa-solid fa-mountain"></i> Iwatayama</h3><p>Subida de 20 min para ver a los macacos japoneses y Kioto desde arriba.</p>`
                 }
             ]
         },

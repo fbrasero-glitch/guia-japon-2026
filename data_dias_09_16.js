@@ -1,4 +1,4 @@
-﻿/* ==========================================
+/* ==========================================
    JAPÓN 2026 - DATOS DÍAS 9-16
    ========================================== */
 
@@ -97,32 +97,18 @@ const travelData_09_16 = [
                     link: "https://www.google.com/maps/dir/Kyoto+Station/Fushimi+Inari-taisha/",
                     fullDesc: `
                         <h3><i class="fa-solid fa-torii-gate"></i> Fushimi Inari-taisha</h3>
-                        <p>Dedicado a Inari, el dios Shinto del arroz y la prosperidad, este santuario es famoso por sus miles de toriis bermellón que forman túneles interminables por la ladera del monte Inari. Cada puerta es una donación de una empresa o individuo, con sus nombres grabados en negro en la parte posterior.</p>
-                        <p><em>En el camino veréis numerosas estatuas de zorros (kitsune), considerados mensajeros divinos de Inari, a menudo representados con una llave en la boca (del granero de arroz). Para disfrutar de la magia real sin multitudes, subid al menos hasta el mirador Yotsutsuji; allí la mayoría de la gente se da la vuelta, dejando los senderos superiores sumidos en un silencio sagrado y boscoso.</em></p>
-                        <ul>
-                            <li><i class="fa-solid fa-clock"></i> <strong>Estrategia:</strong> Infiltración temprana (08:00) es clave para las fotos sin gente.</li>
-                            <li><i class="fa-solid fa-mountain"></i> <strong>Vistas:</strong> El mirador Yotsutsuji ofrece una panorámica espectacular del sur de Kioto.</li>
-                        </ul>
+                        <p>Dedicado a Inari, el dios Shinto del arroz y la prosperidad, este santuario es famoso por sus miles de toriis bermellón.</p>
                     `
                 },
                 {
                     id: "b2",
                     time: "12:30",
-                    title: "Mercado de Nishiki",
-                    description: "La despensa de Kioto. Un paraíso para los amantes de la comida callejera. (Variable)",
-                    image: "images/nishiki_market.png",
-                    price: "Variable",
-                    video: "https://www.youtube.com/watch?v=1KWnkAaefbo",
-                    link: "https://www.google.com/maps/search/Nishiki+Market+Kyoto/",
-                    fullDesc: `
-                        <h3><i class="fa-solid fa-bowl-food"></i> Mercado de Nishiki (Kyoto Kitchen)</h3>
-                        <p>Con más de 400 años de historia, Nishiki es una estrecha calle comercial techada que alberga más de cien tiendas y restaurantes. Conocida como "La despensa de Kioto", aquí se encuentran los ingredientes más frescos y exquisitos de la gastronomía japonesa, desde marisco de alta calidad hasta vegetales únicos de la región y encurtidos tradicionales (tsukemono).</p>
-                        <p><em>Es un paraíso sensorial. Probad el famoso "Tako Tamago" (un pequeño pulpo asado con un huevo de codorniz dentro de su cabeza) o los pinchos de carne wagyu. Recordad la etiqueta local: no se debe caminar mientras se come; comprad el bocado, disfrutadlo en el propio puesto y luego continuad vuestra exploración.</em></p>
-                        <ul>
-                            <li><i class="fa-solid fa-clock"></i> <strong>Horario:</strong> 09:30-18:00 (la mayoría abre sobre las 10:00).</li>
-                            <li><i class="fa-solid fa-basket-shopping"></i> <strong>Souvenirs:</strong> Lugar ideal para comprar cuchillos de cocina artesanos y especias.</li>
-                        </ul>
-                    `
+                    title: "Paseo del Filósofo",
+                    description: "Sendero zen junto al canal rodeado de templos y vegetación.",
+                    image: "images/filosofo.png",
+                    price: "Gratis",
+                    link: "https://www.google.com/maps/search/?api=1&query=Philosopher's+Walk+Kyoto",
+                    fullDesc: `<h3><i class="fa-solid fa-person-walking-zen"></i> Tetsugaku no michi</h3><p>Un paseo contemplativo siguiendo el canal bajo los árboles, ideal para la reflexión.</p>`
                 },
                 {
                     id: "b3",
@@ -134,13 +120,18 @@ const travelData_09_16 = [
                     link: "https://www.google.com/maps/dir/Nishiki+Market/Kinkaku-ji/",
                     fullDesc: `
                         <h3><i class="fa-solid fa-sparkles"></i> Kinkaku-ji (Pabellón Dorado)</h3>
-                        <p>Es, sin duda, la imagen más icónica de Kioto. Este templo zen de la escuela Rinzai fue originalmente la villa de retiro del Shogún Ashikaga Yoshimitsu. Lo más impactante es que sus dos plantas superiores están completamente recubiertas de pan de oro puro, brillando intensamente sobre el "Estanque del Espejo" (Kyoko-chi) que lo rodea.</p>
-                        <p><em>Cada planta representa un estilo arquitectónico diferente: la primera es estilo palaciego Heian, la segunda estilo de casa samurái y la tercera estilo templo zen. El edificio que veis hoy es una reconstrucción fiel de 1955, después de que un joven monje fanático lo incendiara en 1950, un suceso que conmovió a Japón.</em></p>
-                        <ul>
-                            <li><i class="fa-solid fa-camera"></i> <strong>Foto Clave:</strong> Desde la orilla opuesta del estanque para capturar el reflejo perfecto.</li>
-                            <li><i class="fa-solid fa-ticket"></i> <strong>Entrada:</strong> El ticket es un amuleto (ofuda) que atrae la buena suerte.</li>
-                        </ul>
+                        <p>Es, sin duda, la imagen más icónica de Kioto. Sus dos plantas superiores están recubiertas de pan de oro puro.</p>
                     `
+                },
+                {
+                    id: "b4",
+                    time: "19:00",
+                    title: "Cena de Despedida",
+                    description: "Última cena en Kioto para celebrar vuestros días imperiales.",
+                    image: "images/cena_despedida.png",
+                    price: "Variable",
+                    link: "https://www.google.com/maps/search/?api=1&query=best+restaurants+Kyoto+Station",
+                    fullDesc: `<h3><i class="fa-solid fa-utensils"></i> Farewell Dinner</h3><p>Una cena especial para despedirse de la capital cultural de Japón antes de partir a los Alpes.</p>`
                 }
             ]
         },

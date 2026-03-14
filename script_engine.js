@@ -1034,7 +1034,7 @@ function renderCenterVisual(data, mode, optData = null) {
         let baseEventsHTML = '';
         if (data.base.events) {
             data.base.events.forEach(event => {
-                let eventImg = event.image ? `<img src = "${event.image}" class="base-event-thumb" onerror = "this.style.display='none'" style="width:200px; height:200px; object-fit:cover; border-radius:12px; margin-right:20px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);" > ` : '';
+                let eventImg = event.image ? `<img src = "${event.image}" class="base-event-thumb" onerror = "this.style.display='none'" style="width:400px; height:400px; object-fit:cover; border-radius:12px; margin-right:20px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);" > ` : '';
 
                 // Si el evento tiene ID, lo hacemos pulsable
                 if (event.id) {
