@@ -1652,39 +1652,25 @@ const travelData_00_08 = [
                     id: "b1",
                     time: "08:30",
                     title: "Templo Kiyomizu-dera",
-                    description: "El templo del agua pura. Su inmensa terraza de madera ofrece las mejores vistas de la ciudad. Patrimonio de la Humanidad.",
+                    description: "El templo del agua pura y su famosa terraza de madera.",
                     image: "images/dia7-kiyomizu.jpg",
                     price: "400 JPY",
                     link: "https://www.google.com/maps/search/?api=1&query=Kiyomizu-dera",
                     fullDesc: `
                         <h3><i class="fa-solid fa-mountain"></i> Templo Kiyomizu-dera</h3>
-                        <p>Fundado en el año 778, este templo es un tesoro del Patrimonio Mundial de la UNESCO. Su nombre, que significa "Templo del Agua Pura", proviene de la cascada Otowa que fluye por las colinas circundantes. Lo más espectacular es su gran terraza de madera, que sobresale 13 metros sobre el valle y fue construida sin utilizar un solo clavo, empleando un complejo sistema de encajes y pilares de madera de zelkova.</p>
-                        <p><em>En la base de la terraza, veréis a los visitantes bebiendo de los tres chorros de la cascada Otowa. Cada chorro tiene un significado: longevidad, éxito escolar y una vida amorosa afortunada (¡pero cuidado, se dice que beber de los tres es señal de codicia!). Es un lugar de vistas inolvidables de Kioto, especialmente hermoso cuando la luz baña la estructura al amanecer.</em></p>
-                        <ul>
-                            <li><i class="fa-solid fa-clock"></i> <strong>Horario recomendado:</strong> 08:30 para evitar el grueso de turistas.</li>
-                            <li><i class="fa-solid fa-droplet"></i> <strong>Cascada Otowa:</strong> Elegid vuestro deseo antes de beber.</li>
-                        </ul>
+                        <p>Fundado en el año 778, famoso por su inmensa terraza de madera construida sin clavos.</p>
                     `,
                     video: "https://www.youtube.com/watch?v=_a-PPFMNpdU"
                 },
                 {
                     id: "b2",
-                    time: "11:00",
-                    title: "Paseo Higashiyama (Sannenzaka/Ninenzaka)",
-                    description: "Descenso por las calles empedradas más icónicas de Kioto.",
+                    time: "10:30",
+                    title: "Sannenzaka y Ninenzaka",
+                    description: "Descenso por las cuestas tradicionales más fotogénicas.",
                     image: "images/dia7-historico.jpg",
                     price: "Gratis",
                     link: "https://www.google.com/maps/dir/Kiyomizu-dera/Yasaka+Shrine/",
-                    fullDesc: `
-                        <h3><i class="fa-solid fa-walking"></i> El Alma de Kioto: Higashiyama</h3>
-                        <p>Caminar por las pendientes de Sannenzaka y Ninenzaka es como retroceder siglos en el tiempo. Estas calles empedradas, flanqueadas por casas de madera restauradas que ahora albergan tiendas de artesanía, dulces tradicionales y casas de té, capturan la esencia del Kioto medieval.</p>
-                        <p><em>El nombre de las calles tiene un toque de superstición local: se decía que si tropezabas en Sannenzaka tendrías tres años de mala suerte. Más allá de las leyendas, el paseo es visualmente deslumbrante, con vistas que incluyen la Pagoda Yasaka (Hokan-ji) asomando entre los tejados de paja y teja oscura.</em></p>
-                        <ul>
-                            <li><i class="fa-solid fa-camera"></i> <strong>Perspectiva:</strong> Buscad el encuadre con la pagoda al fondo desde Sannenzaka.</li>
-                            <li><i class="fa-solid fa-ice-cream"></i> <strong>Tip:</strong> Probad los helados de té matcha o los dulces Yatsuhashi.</li>
-                        </ul>
-                    `,
-                    video: "https://www.youtube.com/watch?v=qS_D_M6N3XU"
+                    fullDesc: `<h3><i class="fa-solid fa-walking"></i> Sannenzaka y Ninenzaka</h3><p>El alma de Kioto: calles empedradas y arquitectura tradicional conservada.</p>`
                 },
                 {
                     id: "b3",
@@ -1706,20 +1692,22 @@ const travelData_00_08 = [
                 },
                 {
                     id: "b4",
+                    time: "15:30",
+                    title: "Puerta Roja Roui (Heian Jingu)",
+                    description: "Visita a uno de los toriis más grandes de Japón.",
+                    image: "images/heian_shrine.png",
+                    price: "Gratis (Recinto)",
+                    link: "https://www.google.com/maps/search/?api=1&query=Heian+Jingu+Shrine",
+                    fullDesc: `<h3><i class="fa-solid fa-torii-gate"></i> Heian Jingu</h3><p>Santuario construido para el 1100 aniversario de Kioto, con un torii rojo gigante visible a distancia.</p>`
+                },
+                {
+                    id: "b5",
                     time: "18:00",
-                    title: "Barrio de Gion",
-                    description: "El legendario distrito de las Geishas. Infiltración nocturna.",
-                    image: "images/dia7-gion.jpg",
-                    price: "Gratis",
-                    fullDesc: `
-                        <h3><i class="fa-solid fa-person-dress-fairy"></i> El Enigma de Gion</h3>
-                        <p>Gion es el distrito de entretenimiento más famoso de Kioto, donde el mundo de las Geiko (geishas) y Maiko (aprendices) todavía late con fuerza detrás de las celosías de madera de las ochaya (casas de té). La calle Hanamikoji es el epicentro visual, con su pavimento de piedra y edificios tradicionales perfectamente conservados.</p>
-                        <p><em>Pasear por Gion al anochecer es una experiencia de paciencia y respeto. Si tenéis suerte, podréis ver la silueta rápida de una Maiko dirigiéndose a una cita. Recordad que son artistas trabajando, no atracciones turísticas; mantened la distancia y disfrutad del aura de misterio que envuelve estas calles.</em></p>
-                        <ul>
-                            <li><i class="fa-solid fa-user-secret"></i> <strong>Código Ético:</strong> No molestar ni tocar a las Geiko/Maiko.</li>
-                            <li><i class="fa-solid fa-camera-retro"></i> <strong>Canal Shirakawa:</strong> La zona más pintoresca de Gion, paralela al canal bajo los sauces.</li>
-                        </ul>
-                    `
+                    title: "Barrio de Gion y Pontocho",
+                    description: "Búsqueda de Maikos en Hanamikoji y cena en los callejones junto al río Kamo.",
+                    image: "images/gion.png",
+                    price: "Gratis (Paseo)",
+                    fullDesc: `<h3><i class="fa-solid fa-person-dress-fairy"></i> Gion y Pontocho</h3><p>Infiltración nocturna en el distrito de las geishas y cena en los callejones atmosféricos.</p>`
                 }
             ]
         },
