@@ -20,10 +20,26 @@ const travelData_09_16 = [
 
         transportTimeline: [
             {
+                time: "07:45",
+                type: "transit",
+                title: "JR Nara Line a Inari",
+                price: "150 JPY",
+                timeLabel: "5 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Kyoto+Station&destination=Inari+Station+Kyoto&travelmode=transit"
+            },
+            {
                 time: "08:00",
                 type: "point",
                 title: "Fushimi Inari (Toriis)",
                 icon: "fa-solid fa-torii-gate"
+            },
+            {
+                type: "transit",
+                title: "JR Inari + Bus 203/204",
+                price: "150 + 230 JPY",
+                timeLabel: "40 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Inari+Station&destination=Ginkaku-ji+Temple&travelmode=transit",
+                tacticalGuideId: "mission_kyoto_center_link"
             },
             {
                 time: "12:30",
@@ -32,10 +48,25 @@ const travelData_09_16 = [
                 icon: "fa-solid fa-person-walking-zen"
             },
             {
+                type: "transit",
+                title: "Bus 102 / 204 / 205",
+                price: "230 JPY",
+                timeLabel: "45 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Ginkaku-ji&destination=Kinkaku-ji&travelmode=transit",
+                tacticalGuideId: "mission_kinkakuji_bus"
+            },
+            {
                 time: "15:30",
                 type: "point",
                 title: "Kinkaku-ji (Pabellón Oro)",
                 icon: "fa-solid fa-sparkles"
+            },
+            {
+                type: "transit",
+                title: "Bus 12 / 59 al Centro",
+                price: "230 JPY",
+                timeLabel: "35 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Kinkaku-ji&destination=Kawaramachi+Station&travelmode=transit"
             },
             {
                 time: "19:00",

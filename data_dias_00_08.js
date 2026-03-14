@@ -1300,8 +1300,16 @@ const travelData_00_08 = [
             {
                 time: "10:00",
                 type: "point",
-                title: "Traslado a Kioto (JR Special Rapid)",
+                title: "Salida Osaka Station (JR Special Rapid)",
                 icon: "fa-solid fa-train"
+            },
+            {
+                type: "transit",
+                title: "JR Special Rapid Service",
+                price: "580 JPY",
+                timeLabel: "29 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Osaka+Station&destination=Kyoto+Station&travelmode=transit",
+                tacticalGuideId: "mission_kyoto_transfer"
             },
             {
                 time: "10:30",
@@ -1310,10 +1318,24 @@ const travelData_00_08 = [
                 icon: "fa-solid fa-hotel"
             },
             {
+                type: "transit",
+                title: "Metro Karasuma Line (Hacia Marutamachi)",
+                price: "260 JPY",
+                timeLabel: "10 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Kyoto+Station&destination=Kyoto+Imperial+Palace&travelmode=transit"
+            },
+            {
                 time: "11:30",
                 type: "point",
                 title: "Palacio Imperial de Kioto",
                 icon: "fa-solid fa-crown"
+            },
+            {
+                type: "transit",
+                title: "Paseo por el Parque Imperial",
+                price: "0 JPY",
+                timeLabel: "20 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Kyoto+Imperial+Palace&destination=Nijo+Castle&travelmode=walking"
             },
             {
                 time: "15:00",
@@ -1322,10 +1344,24 @@ const travelData_00_08 = [
                 icon: "fa-solid fa-fort-awesome"
             },
             {
+                type: "transit",
+                title: "Bus 9 / 50 o Metro Karasuma",
+                price: "230 JPY",
+                timeLabel: "15 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Nijo+Castle&destination=Kyoto+Tower&travelmode=transit"
+            },
+            {
                 time: "17:30",
                 type: "point",
                 title: "Torre Kioto (Atardecer)",
                 icon: "fa-solid fa-tower-observation"
+            },
+            {
+                type: "transit",
+                title: "Paseo hacia el Centro de Tiendas",
+                price: "0 JPY",
+                timeLabel: "15 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Kyoto+Tower&destination=Kawaramachi+Station&travelmode=walking"
             },
             {
                 time: "19:30",
@@ -1550,10 +1586,26 @@ const travelData_00_08 = [
 
         transportTimeline: [
             {
+                time: "08:15",
+                type: "transit",
+                title: "Bus 206 / 100 desde Estación",
+                price: "230 JPY",
+                timeLabel: "20 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Kyoto+Tower+Hotel+Annex&destination=Kiyomizu-dera+Temple&travelmode=transit"
+            },
+            {
                 time: "08:30",
                 type: "point",
                 title: "Templo Kiyomizu-dera",
                 icon: "fa-solid fa-mountain"
+            },
+            {
+                type: "transit",
+                title: "Descenso Sannenzaka / Ninenzaka",
+                price: "0 JPY",
+                timeLabel: "Paseo",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Kiyomizu-dera&destination=Ninenzaka&travelmode=walking",
+                tacticalGuideId: "mission_higashiyama"
             },
             {
                 time: "10:30",
@@ -1562,16 +1614,37 @@ const travelData_00_08 = [
                 icon: "fa-solid fa-walking"
             },
             {
+                type: "transit",
+                title: "Caminata hacia Maruyama Park",
+                price: "0 JPY",
+                timeLabel: "15 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Ninenzaka&destination=Yasaka+Shrine&travelmode=walking"
+            },
+            {
                 time: "12:30",
                 type: "point",
                 title: "Santuario Yasaka / Almuerzo",
                 icon: "fa-solid fa-bowl-food"
             },
             {
+                type: "transit",
+                title: "Paseo al Norte o Bus 100",
+                price: "230 JPY",
+                timeLabel: "20 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Yasaka+Shrine&destination=Heian+Jingu+Shrine&travelmode=walking"
+            },
+            {
                 time: "15:30",
                 type: "point",
                 title: "Heian Jingu (Torii Gigante)",
                 icon: "fa-solid fa-torii-gate"
+            },
+            {
+                type: "transit",
+                title: "Bus 5 o Caminata a Gion",
+                price: "230 JPY",
+                timeLabel: "15 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Heian+Jingu+Shrine&destination=Gion+Kyoto&travelmode=transit"
             },
             {
                 time: "18:00",
@@ -1806,8 +1879,16 @@ const travelData_00_08 = [
             {
                 time: "07:30",
                 type: "point",
-                title: "Salida Hotel ➔ Arashiyama",
+                title: "Salida Kyoto Station (JR Sagano Line)",
                 icon: "fa-solid fa-train"
+            },
+            {
+                type: "transit",
+                title: "JR Sagano Line a Saga-Arashiyama",
+                price: "240 JPY",
+                timeLabel: "20 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Kyoto+Station&destination=Saga-Arashiyama+Station&travelmode=transit",
+                tacticalGuideId: "mission_arashiyama_transfer"
             },
             {
                 time: "08:30",
@@ -1816,10 +1897,24 @@ const travelData_00_08 = [
                 icon: "fa-solid fa-leaf"
             },
             {
+                type: "transit",
+                title: "Paseo al Norte (Caminata Zen)",
+                price: "0 JPY",
+                timeLabel: "25 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Tenryu-ji+Temple&destination=Adashino+Nenbutsuji+Temple&travelmode=walking"
+            },
+            {
                 time: "11:00",
                 type: "point",
                 title: "Adashino Nembutsuji",
                 icon: "fa-solid fa-ghost"
+            },
+            {
+                type: "transit",
+                title: "Subida por la calle tradicional",
+                price: "0 JPY",
+                timeLabel: "10 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Adashino+Nenbutsuji+Temple&destination=Otagi+Nenbutsuji+Temple&travelmode=walking"
             },
             {
                 time: "12:00",
@@ -1828,10 +1923,24 @@ const travelData_00_08 = [
                 icon: "fa-solid fa-face-smile"
             },
             {
+                type: "transit",
+                title: "Bus de bajada o Caminata",
+                price: "230 JPY",
+                timeLabel: "20 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Otagi+Nenbutsuji+Temple&destination=Togetsukyo+Bridge&travelmode=transit"
+            },
+            {
                 time: "14:30",
                 type: "point",
                 title: "Puente Togetsukyo / Almuerzo",
                 icon: "fa-solid fa-bridge"
+            },
+            {
+                type: "transit",
+                title: "Paseo cruzando el río Katsura",
+                price: "0 JPY",
+                timeLabel: "10 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Togetsukyo+Bridge&destination=Iwatayama+Monkey+Park&travelmode=walking"
             },
             {
                 time: "16:00",
