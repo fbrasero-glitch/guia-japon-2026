@@ -1705,7 +1705,7 @@ const travelData_00_08 = [
                     time: "18:00",
                     title: "Barrio de Gion y Pontocho",
                     description: "Búsqueda de Maikos en Hanamikoji y cena en los callejones junto al río Kamo.",
-                    image: "images/gion.png",
+                    image: "images/dia7-gion.png",
                     price: "Gratis (Paseo)",
                     fullDesc: `<h3><i class="fa-solid fa-person-dress-fairy"></i> Gion y Pontocho</h3><p>Infiltración nocturna en el distrito de las geishas y cena en los callejones atmosféricos.</p>`
                 }
@@ -1963,7 +1963,7 @@ const travelData_00_08 = [
                     time: "14:30",
                     title: "Puente Togetsukyo",
                     description: "Paseo por el río y almuerzo en la zona de Arashiyama.",
-                    image: "images/dia8-puente.jpg",
+                    image: "images/dia8-puente.png",
                     price: "Gratis",
                     link: "https://www.google.com/maps/search/?api=1&query=Togetsukyo+Bridge",
                     fullDesc: `<h3><i class="fa-solid fa-bridge"></i> Togetsukyo</h3><p>El icono de Arashiyama cruzando el río Katsura.</p>`
@@ -1973,7 +1973,7 @@ const travelData_00_08 = [
                     time: "16:00",
                     title: "Parque de Monos Iwatayama",
                     description: "Subida a la colina para ver a los macacos y disfrutar de vistas panorámicas.",
-                    image: "images/dia8-monos.jpg",
+                    image: "images/dia8-monos.png",
                     price: "600 JPY",
                     link: "https://www.google.com/maps/search/?api=1&query=Iwatayama+Monkey+Park",
                     fullDesc: `<h3><i class="fa-solid fa-mountain"></i> Iwatayama</h3><p>Subida de 20 min para ver a los macacos japoneses y Kioto desde arriba.</p>`
