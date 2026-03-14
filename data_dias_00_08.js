@@ -1298,69 +1298,40 @@ const travelData_00_08 = [
 
         transportTimeline: [
             {
-                time: "09:30",
+                time: "10:00",
                 type: "point",
-                title: "Check-out Osaka / Tren Kyoto",
+                title: "Traslado a Kioto (JR Special Rapid)",
                 icon: "fa-solid fa-train"
-            },
-            {
-                type: "transit",
-                title: "JR Special Rapid Service",
-                price: "580 JPY",
-                timeLabel: "29 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Osaka+Station&destination=Kyoto+Station&travelmode=transit",
-                tacticalGuideId: "mission_kyoto_transfer"
             },
             {
                 time: "10:30",
                 type: "point",
-                title: "Llegada Kyoto Station / Maletas",
-                icon: "fa-solid fa-suitcase"
+                title: "Check-in / Maletas (Kyoto Tower Annex)",
+                icon: "fa-solid fa-hotel"
             },
             {
-                time: "11:00",
-                type: "transit",
-                title: "Opción: Paseo al Templo Tō-ji",
-                price: "Gratis",
-                timeLabel: "15 min walking",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Kyoto+Tower+Hotel+Annex&destination=To-ji+Temple&travelmode=walking",
-                tacticalGuideId: "mission_toji"
-            },
-            {
-                time: "12:30",
-                type: "gap",
-                title: "Almuerzo: Kyoto Ramen Koji (Estación)",
-                icon: "fa-solid fa-bowl-food"
-            },
-            {
-                time: "14:15",
-                type: "transit",
-                title: "Bus 9 / 50 / 101 o Metro",
-                price: "230 JPY",
-                timeLabel: "15 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Kyoto+Tower+Hotel+Annex&destination=Nijo+Castle&travelmode=transit",
-                tacticalGuideId: "mission_nijo"
-            },
-            {
-                time: "14:30",
+                time: "11:30",
                 type: "point",
-                title: "Despliegue: Castillo de Nijo",
+                title: "Palacio Imperial de Kioto",
+                icon: "fa-solid fa-crown"
+            },
+            {
+                time: "15:00",
+                type: "point",
+                title: "Castillo de Nijo",
                 icon: "fa-solid fa-fort-awesome"
             },
             {
-                time: "18:00",
-                type: "transit",
-                title: "Regreso al Hotel o Cena",
-                price: "230 JPY",
-                timeLabel: "15 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Nijo+Castle&destination=Kyoto+Tower+Hotel+Annex&travelmode=transit",
-                tacticalGuideId: "mission_kyoto_return"
+                time: "17:30",
+                type: "point",
+                title: "Torre Kioto (Atardecer)",
+                icon: "fa-solid fa-tower-observation"
             },
             {
-                time: "18:30",
+                time: "19:30",
                 type: "point",
-                title: "Cena en Kioto",
-                icon: "fa-solid fa-utensils"
+                title: "Kawaramachi (Cena y Paseo)",
+                icon: "fa-solid fa-bag-shopping"
             }
         ],
 
@@ -1370,10 +1341,10 @@ const travelData_00_08 = [
         ],
 
         prices: {
-            transport: "~580 JPY",
-            entrances: "800 JPY (Castillo de Nijo)",
-            food: "~3.500 JPY",
-            total: "~4.900 JPY (Base)"
+            transport: "~1.000 JPY",
+            entrances: "800 (Nijo) + 800 (Torre) JPY",
+            food: "~4.000 JPY",
+            total: "~6.600 JPY (Est.)"
         },
 
         isFlexible: true,
@@ -1581,52 +1552,37 @@ const travelData_00_08 = [
             {
                 time: "08:30",
                 type: "point",
-                title: "🏨 Salida Hotel",
-                icon: "fa-solid fa-hotel"
-            },
-            {
-                time: "09:00",
-                type: "point",
-                title: "⛩️ Templo Kiyomizu-dera (Cima)",
+                title: "Templo Kiyomizu-dera",
                 icon: "fa-solid fa-mountain"
             },
             {
-                time: "11:00",
-                type: "transit",
-                title: "🚶 La Bajada Histórica (Sannenzaka/Ninenzaka)",
-                price: "Gratis",
-                timeLabel: "1.5 km (Paseo)",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Kiyomizu-dera&destination=Yasaka+Shrine&travelmode=walking",
-                tacticalGuideId: "mission_higashiyama"
+                time: "10:30",
+                type: "point",
+                title: "Paseo Sannenzaka / Ninenzaka",
+                icon: "fa-solid fa-walking"
             },
             {
                 time: "12:30",
                 type: "point",
-                title: "⛩️ Santuario Yasaka (Fin Paseo)",
-                icon: "fa-solid fa-torii-gate"
-            },
-            {
-                time: "13:00",
-                type: "gap",
-                title: "🍜 Almuerzo: Zona Higashiyama (Hisago/Tempura)",
+                title: "Santuario Yasaka / Almuerzo",
                 icon: "fa-solid fa-bowl-food"
             },
             {
-                time: "14:30",
+                time: "15:30",
                 type: "point",
-                title: "⏸️ Tarde Libre / Opción Kinkaku-ji",
-                icon: "fa-solid fa-hourglass-half"
+                title: "Heian Jingu (Torii Gigante)",
+                icon: "fa-solid fa-torii-gate"
             },
             {
                 time: "18:00",
                 type: "point",
-                title: "👘 Barrio de Gion (Hanamikoji)",
+                title: "Barrio de Gion y Pontocho",
                 icon: "fa-solid fa-person-dress-fairy"
             },
             {
                 time: "20:00",
                 type: "point",
-                title: "🏮 Cena en Pontocho",
+                title: "Cena Tradicional",
                 icon: "fa-solid fa-utensils"
             }
         ],
@@ -1849,63 +1805,39 @@ const travelData_00_08 = [
         transportTimeline: [
             {
                 time: "07:30",
-                type: "transit",
-                title: "Infiltración: Hotel ➔ Arashiyama",
-                price: "240 JPY",
-                timeLabel: "20 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Kyoto+Tower+Hotel+Annex&destination=Saga-Arashiyama+Station&travelmode=transit",
-                tacticalGuideId: "mission_arashiyama_transfer"
-            },
-            {
-                time: "08:00",
                 type: "point",
-                title: "🚄 Salida: Kyoto Station (JR Sagano Line)",
-                icon: "fa-solid fa-train-subway"
+                title: "Salida Hotel ➔ Arashiyama",
+                icon: "fa-solid fa-train"
             },
             {
                 time: "08:30",
                 type: "point",
-                title: "🎋 Bosque de Bambú: Caminata 10 min desde estación.",
+                title: "Bosque de Bambú / Tenryu-ji",
                 icon: "fa-solid fa-leaf"
             },
             {
-                time: "10:00",
+                time: "11:00",
                 type: "point",
-                title: "⛩️ Templo Tenryu-ji: Entrada por el jardín norte.",
-                icon: "fa-solid fa-pagoda"
+                title: "Adashino Nembutsuji",
+                icon: "fa-solid fa-ghost"
             },
             {
-                time: "11:30",
+                time: "12:00",
                 type: "point",
-                title: "🌉 Puente Togetsukyo: Paseo fotográfico.",
+                title: "Otagi Nembutsuji",
+                icon: "fa-solid fa-face-smile"
+            },
+            {
+                time: "14:30",
+                type: "point",
+                title: "Puente Togetsukyo / Almuerzo",
                 icon: "fa-solid fa-bridge"
             },
             {
-                time: "12:30",
+                time: "16:00",
                 type: "point",
-                title: "🐒 Parque Iwatayama: Subida a la colina (20 min).",
+                title: "Parque de Monos Iwatayama",
                 icon: "fa-solid fa-mountain"
-            },
-            {
-                time: "14:00",
-                type: "gap",
-                title: "🍱 Almuerzo: Zona Riverside (Arashiyama Yoshimura)",
-                icon: "fa-solid fa-utensils"
-            },
-            {
-                time: "15:30",
-                type: "point",
-                title: "🧩 Tarde Opcional: Ryoan-ji / Otagi.",
-                icon: "fa-solid fa-map-signs"
-            },
-            {
-                time: "17:30",
-                type: "transit",
-                title: "Extracción: Regreso al Hotel",
-                price: "240 JPY",
-                timeLabel: "20 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Saga-Arashiyama+Station&destination=Kyoto+Tower+Hotel+Annex&travelmode=transit",
-                tacticalGuideId: "mission_kyoto_return"
             }
         ],
 
@@ -1917,10 +1849,10 @@ const travelData_00_08 = [
         ],
 
         prices: {
-            transport: "500 JPY",
-            entrances: "1.100 JPY (Base)",
-            food: "~3.000 JPY",
-            total: "~4.600 JPY (Base)"
+            transport: "~800 JPY",
+            entrances: "500 (Tenryu) + 500 (Adashino) + 300 (Otagi) + 600 (Monos) JPY",
+            food: "~3.500 JPY",
+            total: "~6.200 JPY (Est.)"
         },
 
         isFlexible: true,

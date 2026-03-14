@@ -20,52 +20,28 @@ const travelData_09_16 = [
 
         transportTimeline: [
             {
-                time: "07:30",
-                type: "point",
-                title: "🚄 Salida: Kyoto Station (JR Nara Line) a Estación Inari",
-                icon: "fa-solid fa-train"
-            },
-            {
                 time: "08:00",
                 type: "point",
-                title: "⛩️ Fushimi Inari: Infiltración temprana. Caminata: Mirador Yotsutsuji.",
+                title: "Fushimi Inari (Toriis)",
                 icon: "fa-solid fa-torii-gate"
-            },
-            {
-                time: "11:30",
-                type: "transit",
-                title: "🚇 Traslado: JR Inari ➔ Kyoto Station ➔ Metro Shijo",
-                price: "150 + 220 JPY",
-                timeLabel: "25 min",
-                link: "https://www.google.com/maps/dir/Inari+Station/Shijo+Station/",
-                tacticalGuideId: "mission_kyoto_center_link"
             },
             {
                 time: "12:30",
                 type: "point",
-                title: "🍱 Mercado de Nishiki: Almuerzo y tapeo.",
-                icon: "fa-solid fa-bowl-food"
-            },
-            {
-                time: "14:30",
-                type: "transit",
-                title: "🚌 Salto al Norte: Bus 12 hacia Kinkaku-ji",
-                price: "230 JPY",
-                timeLabel: "35 min",
-                link: "https://www.google.com/maps/dir/Nishiki+Market/Kinkaku-ji/",
-                tacticalGuideId: "mission_kinkakuji_bus"
+                title: "Paseo del Filósofo",
+                icon: "fa-solid fa-person-walking-zen"
             },
             {
                 time: "15:30",
                 type: "point",
-                title: "✨ Kinkaku-ji: El Pabellón Dorado.",
+                title: "Kinkaku-ji (Pabellón Oro)",
                 icon: "fa-solid fa-sparkles"
             },
             {
-                time: "17:30",
+                time: "19:00",
                 type: "point",
-                title: "💤 Retorno: Bus o Taxi hacia el hotel.",
-                icon: "fa-solid fa-bed"
+                title: "Cena de Despedida Kioto",
+                icon: "fa-solid fa-utensils"
             }
         ],
 
@@ -76,10 +52,10 @@ const travelData_09_16 = [
         ],
 
         prices: {
-            transport: "~850 JPY",
-            entrances: "0 (Fushimi) + 500 (Kinkaku-ji)",
-            food: "~3.000 JPY",
-            total: "~4.350 JPY (Base)"
+            transport: "~1.000 JPY",
+            entrances: "500 (Kinkaku-ji) JPY",
+            food: "~5.000 (Cena Especial) JPY",
+            total: "~6.500 JPY (Est.)"
         },
 
         isFlexible: true,
