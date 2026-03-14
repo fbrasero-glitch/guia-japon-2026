@@ -973,7 +973,8 @@ function renderCenterVisual(data, mode, optData = null) {
     if (hotelName && hotelName !== 'Casa' && !hotelName.includes('vuelo') && !hotelName.includes('Vuelo')) {
         const hotelImage = data.hotelImage || '';
         const hotelGoogleLink = data.hotelGoogleLink || '';
-        const hotelImgHTML = hotelImage ? `<img src="${hotelImage}" style="width:100%; height:250px; object-fit:cover; border-radius:10px; margin-bottom:12px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">` : '';
+        const hotelHeight = dayIdx >= 3 ? '150px' : '60px';
+        const hotelImgHTML = hotelImage ? `<img src="${hotelImage}" style="width:100%; height:${hotelHeight}; object-fit:cover; border-radius:10px; margin-bottom:12px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">` : '';
         hotelHTML = `
             <div class="hotel-info-section" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:10px; border-radius:12px; width:100%; height:100%; display:flex; flex-direction:column; justify-content:center; box-sizing:border-box; transition: transform 0.3s ease;">
                 ${hotelImgHTML}
@@ -1091,7 +1092,7 @@ function renderCenterVisual(data, mode, optData = null) {
 
             data.complements.forEach(comp => {
                 const compImg = comp.image || '';
-                const imgHTML = compImg ? `<img src="${compImg}" class="excursion-thumb" onerror="this.style.display='none'" style="width:100%; height:450px; object-fit:cover;">` : '<div class="excursion-thumb-placeholder" style="height:450px;"><i class="fa-solid fa-image"></i></div>';
+                const imgHTML = compImg ? `<img src="${compImg}" class="excursion-thumb" onerror="this.style.display='none'" style="width:100%; height:160px; object-fit:cover;">` : '<div class="excursion-thumb-placeholder" style="height:160px;"><i class="fa-solid fa-image"></i></div>';
 
                 complementsHTML += `
                     <button class="excursion-card complement-card"
@@ -1123,9 +1124,9 @@ function renderCenterVisual(data, mode, optData = null) {
             data.additionalExcursions.forEach(exc => {
                  const img = exc.image || '';
                  if(img) {
-                     mosaicImagesHTML += `<img src="${img}" style="flex:1; height: 450px; object-fit: cover; opacity:0.8; transition: opacity 0.3s;" onerror="this.style.display='none'">`;
+                     mosaicImagesHTML += `<img src="${img}" style="flex:1; height: 160px; object-fit: cover; opacity:0.8; transition: opacity 0.3s;" onerror="this.style.display='none'">`;
                  } else {
-                     mosaicImagesHTML += `<div style="flex:1; height: 450px; background:rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:center; border-right:1px solid rgba(255,255,255,0.1);"><i class="fa-solid fa-image" style="opacity:0.5; font-size:2rem;"></i></div>`;
+                     mosaicImagesHTML += `<div style="flex:1; height: 160px; background:rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:center; border-right:1px solid rgba(255,255,255,0.1);"><i class="fa-solid fa-image" style="opacity:0.5; font-size:2rem;"></i></div>`;
                  }
             });
 
