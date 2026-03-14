@@ -63,8 +63,21 @@
         <div class="preview-title" id="preview-title">Día X</div>
     </div>
 
-    <script src="data.js"></script>
-    <script src="script.js"></script>
+    <!-- DATOS MODULARES (divididos por bloques de días para mejor rendimiento) -->
+    <script src="data_dias_00_08.js"></script>
+    <script src="data_dias_09_16.js"></script>
+    <script src="data_dias_17_24.js"></script>
+    <script src="data_combinator.js"></script>
+
+    <!-- MODAL PARA INFOGRAFÍAS -->
+    <div id="infographic-modal" class="infographic-modal" onclick="closeInfographic()">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modal-img">
+    </div>
+
+    <!-- MOTOR Y MISIONES TÁCTICAS -->
+    <script src="script_engine.js"></script>
+    <script src="script_tactical.js"></script>
 </body>
 
 </html>

@@ -6,7 +6,7 @@ const travelData = [
     // --- PREVIO: PREPARACIÓN DEL VIAJE ---
     {
         day: 0, type: "preparation",
-        date: "Preparación", title: "📋 Preparación del Viaje",
+        date: "PREPARATIVOS", title: "📋 PREPARATIVOS",
         coords: [36, 138], zoom: 5,
         hotel: "",
         image: "",
@@ -1199,16 +1199,13 @@ const travelData = [
                 icon: "fa-solid fa-suitcase"
             },
             {
-                time: "11:00",
-                type: "transit",
-                title: "Opción: Paseo al Templo Tō-ji",
-                price: "Gratis",
-                timeLabel: "15 min walking",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Kyoto+Tower+Hotel+Annex&destination=To-ji+Temple&travelmode=walking",
-                tacticalGuideId: "mission_toji"
+                time: "11:30",
+                type: "point",
+                title: "Palacio Imperial: Paseo matutino por los jardines.",
+                icon: "fa-solid fa-crown"
             },
             {
-                time: "12:30",
+                time: "13:00",
                 type: "gap",
                 title: "Almuerzo: Kyoto Ramen Koji (Estación)",
                 icon: "fa-solid fa-bowl-food"
@@ -1229,32 +1226,45 @@ const travelData = [
                 icon: "fa-solid fa-fort-awesome"
             },
             {
-                time: "18:00",
+                time: "17:00",
                 type: "transit",
-                title: "Regreso al Hotel o Cena",
+                title: "Movimiento: Nijo ➔ Kyoto Tower",
                 price: "230 JPY",
                 timeLabel: "15 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Nijo+Castle&destination=Kyoto+Tower+Hotel+Annex&travelmode=transit",
-                tacticalGuideId: "mission_kyoto_return"
+                link: "https://www.google.com/maps/dir/?api=1&origin=Nijo+Castle&destination=Kyoto+Tower&travelmode=transit"
             },
             {
-                time: "18:30",
+                time: "17:30",
                 type: "point",
-                title: "Cena en Kioto",
+                title: "Torre Kioto: Atardecer sobre la ciudad.",
+                icon: "fa-solid fa-tower-observation"
+            },
+            {
+                time: "19:00",
+                type: "gap",
+                title: "Cena: Zona Estación o Pontocho",
                 icon: "fa-solid fa-utensils"
+            },
+            {
+                time: "20:30",
+                type: "point",
+                title: "Kawaramachi: Paseo nocturno y tiendas.",
+                icon: "fa-solid fa-bag-shopping"
             }
         ],
 
         timeline: [
-            { time: "14:30", title: "Castillo de Nijo", desc: "Residencia de los Shoguns y suelos de ruiseñor. (Base)" },
-            { time: "18:00", title: "Cena Libra", desc: "Exploración gastronómica local." }
+            { time: "11:30", title: "Palacio Imperial", desc: "Residencia histórica. (Base)" },
+            { time: "14:30", title: "Castillo de Nijo", desc: "Residencia Shogun y suelos ruiseñor. (Base)" },
+            { time: "17:30", title: "Torre Kioto", desc: "Vistas panorámicas. (Base)" },
+            { time: "20:30", title: "Kawaramachi", desc: "Área comercial vibrante. (Base)" }
         ],
 
         prices: {
-            transport: "~580 JPY",
-            entrances: "800 JPY (Castillo de Nijo)",
-            food: "~3.500 JPY",
-            total: "~4.900 JPY (Base)"
+            transport: "~1.100 JPY",
+            entrances: "800 (Nijo) + 900 (Torre) JPY",
+            food: "~4.000 JPY",
+            total: "~6.800 JPY (Base)"
         },
 
         isFlexible: true,
@@ -1282,6 +1292,25 @@ const travelData = [
                 },
                 {
                     id: "b2",
+                    time: "11:30",
+                    title: "Palacio Imperial de Kioto",
+                    description: "Residencia histórica de la familia imperial con jardines extensos. (Gratis)",
+                    image: "images/palacio-imperial-kyoto.jpg",
+                    price: "Gratis",
+                    link: "https://www.google.com/maps/search/?api=1&query=Kyoto+Imperial+Palace",
+                    tacticalGuideId: "mission_imperial_palace",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-crown"></i> Palacio Imperial de Kioto (Kyoto Gosho)</h3>
+                        <p>Fue la residencia de la familia imperial de Japón hasta 1868, cuando la capital se trasladó a Tokio. Ubicado en el inmenso Parque Imperial (Kyoto Gyoen), el palacio ofrece una visión de la arquitectura aristocrática y la vida ceremonial de la corte.</p>
+                        <p><em>Aunque los edificios actuales son reconstrucciones de 1855, mantienen fielmente el estilo Heian. Podréis pasear por los jardines y admirar los salones de ceremonias desde el exterior. Es un lugar remanso de paz en el corazón de la ciudad, ideal para desconectar tras el ajetreo del traslado desde Osaka.</em></p>
+                        <ul>
+                            <li><i class="fa-solid fa-clock"></i> <strong>Horario:</strong> 09:00 - 17:00 (Cerrado lunes).</li>
+                            <li><i class="fa-solid fa-ticket"></i> <strong>Entrada:</strong> Gratuita y sin necesidad de reserva previa para los terrenos generales.</li>
+                        </ul>
+                    `
+                },
+                {
+                    id: "b3",
                     time: "14:30",
                     title: "Castillo de Nijo",
                     description: "Fortaleza de los Shoguns con suelos 'ruiseñor' antininja.",
@@ -1301,10 +1330,37 @@ const travelData = [
                     video: "https://www.youtube.com/watch?v=N9AXzIbPJoE"
                 },
                 {
-                    time: "18:00",
-                    title: "Cena en Kioto",
-                    description: "Exploración libre por la zona de la estación o Pontocho.",
-                    type: "gap"
+                    id: "b4",
+                    time: "17:30",
+                    title: "Torre de Kioto",
+                    description: "Vistas panorámicas 360° desde el edificio más alto de la ciudad.",
+                    image: "images/kyoto_tower.png",
+                    price: "900 JPY",
+                    link: "https://www.google.com/maps/dir/?api=1&origin=Nijo+Castle&destination=Kyoto+Tower&travelmode=transit",
+                    tacticalGuideId: "mission_kyoto_tower",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-tower-observation"></i> Kyoto Tower</h3>
+                        <p>Símbolo moderno de la ciudad, situada justo frente a vuestro hotel. Sus 131 metros ofrecen la mejor panorámica de Kioto, permitiendo ver desde los templos hasta las montañas que rodean el valle.</p>
+                        <p><em>El momento ideal es al atardecer, cuando las luces de la ciudad empiezan a encenderse. Podréis usar los telescopios gratuitos para localizar lugares que visitaréis los próximos días. Es el plan perfecto de transición antes de ir a cenar.</em></p>
+                        <ul>
+                            <li><i class="fa-solid fa-eye"></i> <strong>Especial:</strong> Telescopios de alta tecnología gratuitos en el observatorio.</li>
+                            <li><i class="fa-solid fa-clock"></i> <strong>Nota:</strong> Está abierta hasta las 21:00.</li>
+                        </ul>
+                    `
+                },
+                {
+                    id: "b5",
+                    time: "20:30",
+                    title: "Kawaramachi Shopping",
+                    description: "Inmersion nocturna en el centro comercial y gastronómico de Kioto.",
+                    image: "images/kawaramachi.jpg",
+                    price: "Gratis",
+                    link: "https://www.google.com/maps/search/?api=1&query=Kawaramachi+Shopping+Street+Kyoto",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-bag-shopping"></i> Kawaramachi-dori</h3>
+                        <p>La arteria principal de la vida moderna en Kioto. Un contraste fascinante con los templos visitados durante el día. Aquí encontraréis grandes almacenes, boutiques de moda, recreativos y cientos de opciones para cenar o tomar algo.</p>
+                        <p><em>Pasear por Kawaramachi de noche es una experiencia vibrante. Podéis explorar las calles transversales que llevan hacia Pontocho o el Mercado Nishiki (ya cerrado pero atmosférico) para ver el lado más cosmopolita de la antigua capital.</em></p>
+                    `
                 }
             ]
         },
@@ -1466,14 +1522,14 @@ const travelData = [
             {
                 time: "13:00",
                 type: "gap",
-                title: "🍜 Almuerzo: Zona Higashiyama (Hisago/Tempura)",
+                title: "🍜 Almuerzo: Zona Higashiyama",
                 icon: "fa-solid fa-bowl-food"
             },
             {
-                time: "14:30",
+                time: "15:30",
                 type: "point",
-                title: "⏸️ Tarde Libre / Opción Kinkaku-ji",
-                icon: "fa-solid fa-hourglass-half"
+                title: "⛩️ Heian Jingu: El gran Torii Rojo.",
+                icon: "fa-solid fa-archway"
             },
             {
                 time: "18:00",
@@ -1491,14 +1547,15 @@ const travelData = [
 
         timeline: [
             { time: "08:30", title: "Kiyomizu-dera", desc: "El gran templo del agua pura. (Base)" },
+            { time: "15:30", title: "Heian Jingu", desc: "El gran Torii Rojo de Okazaki. (Base)" },
             { time: "18:00", title: "Gion & Pontocho", desc: "Exploración del Kioto tradicional. (Base)" }
         ],
 
         prices: {
-            transport: "~500 JPY",
+            transport: "~700 JPY",
             entrances: "400 JPY (Kiyomizu)",
-            food: "~3.500 JPY",
-            total: "~4.400 JPY (Base)"
+            food: "~4.000 JPY",
+            total: "~5.100 JPY (Base)"
         },
 
         isFlexible: true,
@@ -1564,6 +1621,25 @@ const travelData = [
                 },
                 {
                     id: "b4",
+                    time: "15:30",
+                    title: "Heian Jingū",
+                    description: "El impresionante Santuario Heian y su Torii gigante de 24 metros.",
+                    image: "images/add-heian.jpg",
+                    price: "Gratis",
+                    link: "https://www.google.com/maps/search/?api=1&query=Heian+Jingu+Shrine",
+                    tacticalGuideId: "mission_heian",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-archway"></i> Santuario Heian Jingū</h3>
+                        <p>Construido en 1895 para conmemorar el 1100 aniversario de la fundación de Kioto como capital. El complejo es una réplica a escala parcial del Palacio Imperial original del periodo Heian. Lo primero que os impactará es el **O-Torii**, una de las puertas sintoístas más grandes de Japón, que se alza a 24 metros de altura sobre la avenida.</p>
+                        <p><em>El recinto del santuario es vasto y de un color rojo vibrante que contrasta con el cielo. Detrás de los edificios principales se encuentran cuatro jardines (Shin-en) que representan los estilos de diferentes periodos, famosos por sus lirios, puentes cubiertos y la paz que se respira lejos del centro.</em></p>
+                        <ul>
+                            <li><i class="fa-solid fa-torii-gate"></i> <strong>Visual:</strong> El gran torii rojo es una parada fotográfica obligatoria.</li>
+                            <li><i class="fa-solid fa-leaf"></i> <strong>Jardines:</strong> Entrada opcional (600 JPY) para ver los puentes sobre los estanques.</li>
+                        </ul>
+                    `
+                },
+                {
+                    id: "b5",
                     time: "18:00",
                     title: "Barrio de Gion",
                     description: "El legendario distrito de las Geishas. Infiltración nocturna.",
@@ -1735,38 +1811,38 @@ const travelData = [
             {
                 time: "08:30",
                 type: "point",
-                title: "🎋 Bosque de Bambú: Caminata 10 min desde estación.",
+                title: "🎋 Bosque de Bambú: Caminata matutina.",
                 icon: "fa-solid fa-leaf"
             },
             {
-                time: "10:00",
+                time: "09:30",
                 type: "point",
-                title: "⛩️ Templo Tenryu-ji: Entrada por el jardín norte.",
+                title: "⛩️ Templo Tenryu-ji: Jardín zen.",
                 icon: "fa-solid fa-pagoda"
             },
             {
-                time: "11:30",
+                time: "11:00",
                 type: "point",
-                title: "🌉 Puente Togetsukyo: Paseo fotográfico.",
-                icon: "fa-solid fa-bridge"
+                title: "⛩️ Adashino Nembutsuji: El campo de estatuas.",
+                icon: "fa-solid fa-person-praying"
             },
             {
-                time: "12:30",
+                time: "12:00",
                 type: "point",
-                title: "🐒 Parque Iwatayama: Subida a la colina (20 min).",
-                icon: "fa-solid fa-mountain"
+                title: "⛩️ Otagi Nembutsuji: Las 1.200 caras.",
+                icon: "fa-solid fa-masks-theater"
             },
             {
-                time: "14:00",
+                time: "13:30",
                 type: "gap",
-                title: "🍱 Almuerzo: Zona Riverside (Arashiyama Yoshimura)",
+                title: "🍱 Almuerzo: Zona Saga-Toriimoto",
                 icon: "fa-solid fa-utensils"
             },
             {
-                time: "15:30",
+                time: "15:00",
                 type: "point",
-                title: "🧩 Tarde Opcional: Ryoan-ji / Otagi.",
-                icon: "fa-solid fa-map-signs"
+                title: "🌉 Puente Togetsukyo y Parque de Monos.",
+                icon: "fa-solid fa-bridge"
             },
             {
                 time: "17:30",
@@ -1780,17 +1856,17 @@ const travelData = [
         ],
 
         timeline: [
-            { time: "08:30", title: "Bosque de Bambú", desc: "Inicio de la ruta. (Base)" },
-            { time: "10:00", title: "Tenryu-ji", desc: "Jardín zen y dragón celestial. (Base)" },
-            { time: "11:30", title: "Puente Togetsukyo", desc: "Icono de Arashiyama. (Base)" },
-            { time: "12:30", title: "Iwatayama", desc: "Vistas y macacos. (Base)" }
+            { time: "08:30", title: "Bosque de Bambú", desc: "El alma verde de Arashiyama. (Base)" },
+            { time: "11:00", title: "Adashino Nembutsuji", desc: "El templo de las miles de estatuas. (Base)" },
+            { time: "12:00", title: "Otagi Nembutsuji", desc: "Las 1.200 caras sonrientes. (Base)" },
+            { time: "15:00", title: "Puente y Monos", desc: "Iconos y panorámicas del sur. (Base)" }
         ],
 
         prices: {
-            transport: "500 JPY",
-            entrances: "1.100 JPY (Base)",
+            transport: "600 JPY",
+            entrances: "2.500 JPY (Base)",
             food: "~3.000 JPY",
-            total: "~4.600 JPY (Base)"
+            total: "~6.100 JPY (Base)"
         },
 
         isFlexible: true,
@@ -1847,25 +1923,56 @@ const travelData = [
                 },
                 {
                     id: "b3",
-                    time: "11:30",
-                    title: "Puente Togetsukyō",
-                    description: "El 'Puente que cruza la Luna', icono histórico de Arashiyama.",
-                    image: "images/dia8-puente.jpg",
-                    price: "Gratis",
-                    link: "https://www.google.com/maps/dir/Tenryu-ji/Togetsukyo+Bridge/",
+                    time: "11:00",
+                    title: "Adashino Nenbutsu-ji",
+                    description: "Un templo místico con 8.000 estatuas dedicadas a las almas sin nombre.",
+                    image: "images/adashino-nembutsuji.jpg",
+                    price: "500 JPY",
+                    link: "https://www.google.com/maps/search/?api=1&query=Adashino+Nenbutsuji+Temple",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-bridge"></i> Puente Togetsukyō</h3>
-                        <p>Cuyo nombre poético significa "El Puente que cruza la Luna". Se dice que el emperador Kameyama del periodo Kamakura, durante una fiesta nocturna en barco, observó cómo la luna brillante parecía cruzar el puente de un lado a otro.</p>
-                        <p><em>Originalmente construido en el año 836, la versión actual de madera y hormigón (reconstruida en 1934) mantiene la estética tradicional. Ofrece una de las vistas más famosas de la zona, con las colinas boscosas de Arashiyama como telón de fondo, especialmente bellas en otoño u horizontal bajo el sol de verano mientras fluye el río Katsura.</em></p>
+                        <h3><i class="fa-solid fa-peace"></i> Adashino Nenbutsu-ji</h3>
+                        <p>Situado al final de la pintoresca calle preservada de Saga-Toriimoto. Lo más impresionante es el "Saito-no-Kawara", un campo lleno de miles de pequeñas estatuas de piedra budistas (Jizo) que conmemoran a las almas que murieron sin familia.</p>
+                        <p><em>El templo tiene una atmósfera de paz profunda y sagrada. No os perdáis el pequeño pero denso bosque de bambú que se encuentra detrás del complejo; es mucho más tranquilo que el principal y ofrece una experiencia más íntima.</em></p>
                         <ul>
-                            <li><i class="fa-solid fa-camera"></i> <strong>Foto:</strong> Desde la orilla sur buscando el reflejo de la montaña.</li>
-                            <li><i class="fa-solid fa-wind"></i> <strong>Vibe:</strong> Brisa fresca junto al río, ideal para un breve descanso.</li>
+                            <li><i class="fa-solid fa-clock"></i> <strong>Vibe:</strong> Serena y reflexiva, lejos de las masas.</li>
+                            <li><i class="fa-solid fa-leaf"></i> <strong>Escalera Verde:</strong> El camino de piedra hacia el bosque de bambú es una joya fotográfica.</li>
                         </ul>
                     `
                 },
                 {
                     id: "b4",
-                    time: "12:30",
+                    time: "12:00",
+                    title: "Otagi Nenbutsu-ji",
+                    description: "El templo de las 1.200 caras sonrientes. Una experiencia única y creativa.",
+                    image: "images/otagi-nembutsuji.jpg",
+                    price: "300 JPY",
+                    link: "https://www.google.com/maps/search/?api=1&query=Otagi+Nenbutsu-ji+Temple",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-masks-theater"></i> Otagi Nenbutsu-ji</h3>
+                        <p>A solo 10 minutos caminando desde Adashino. Este templo es famoso por sus 1.200 estatuas de piedra (rakan), cada una grabada con una expresión facial distinta y a menudo humorística: monjes riendo, sosteniendo raquetas de tenis o bebiendo sake.</p>
+                        <p><em>Las estatuas fueron creadas por personas corrientes de todo Japón en los años 80 bajo la guía del escultor y monje Kocho Nishimura. Es un lugar que desprende alegría y calidez humana en un entorno natural precioso.</em></p>
+                        <ul>
+                            <li><i class="fa-solid fa-face-smile"></i> <strong>Búsqueda:</strong> Intentad encontrar una estatua que se parezca a alguien que conocéis.</li>
+                            <li><i class="fa-solid fa-bell"></i> <strong>Campana:</strong> Podéis ver la triple campana de la paz en la entrada.</li>
+                        </ul>
+                    `
+                },
+                {
+                    id: "b5",
+                    time: "15:00",
+                    title: "Puente Togetsukyō",
+                    description: "El 'Puente que cruza la Luna', icono histórico de Arashiyama.",
+                    image: "images/dia8-puente.jpg",
+                    price: "Gratis",
+                    link: "https://www.google.com/maps/dir/Otagi+Nenbutsuji/Togetsukyo+Bridge/",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-bridge"></i> Puente Togetsukyō</h3>
+                        <p>Símbolo central de Arashiyama. Recibe su nombre del emperador Kameyama, quien dijo ver a la luna cruzar el puente durante una noche de fiesta en barco.</p>
+                    `
+                },
+                {
+                    id: "b6",
+                    time: "16:00",
                     title: "Parque de los Monos Iwatayama",
                     description: "Encuentro con macacos japoneses y vistas panorámicas de Kioto.",
                     image: "images/dia8-monos.jpg",
@@ -1873,13 +1980,7 @@ const travelData = [
                     link: "https://www.google.com/maps/dir/Togetsukyo+Bridge/Iwatayama+Monkey+Park/",
                     fullDesc: `
                         <h3><i class="fa-solid fa-mountain"></i> Parque de Monos Iwatayama</h3>
-                        <p>Tras una caminata cuesta arriba de unos 20 minutos por un sendero sombreado, llegaréis a la cima de la colina Arashiyama, hogar de una colonia de más de 120 macacos japoneses (monos de cara roja) que viven en libertad.</p>
-                        <p><em>A diferencia de los zoológicos tradicionales, aquí los humanos entran en un recinto vallado para alimentar a los monos, que campan a sus anchas por el exterior. Es una experiencia divertida y segura, que además recompensa el esfuerzo de la subida con una de las mejores vistas panorámicas de todo Kioto y el valle del río Hozugawa.</em></p>
-                        <ul>
-                            <li><i class="fa-solid fa-clock"></i> <strong>Subida:</strong> 20 min (paso suave).</li>
-                            <li><i class="fa-solid fa-ticket"></i> <strong>Entrada:</strong> 600 JPY.</li>
-                            <li><i class="fa-solid fa-triangle-exclamation"></i> <strong>Aviso:</strong> No mirar directamente a los ojos a los monos ni tocarles.</li>
-                        </ul>
+                        <p>Tras una caminata de 20 minutos, disfrutaréis de vistas increíbles y la compañía de macacos en libertad.</p>
                     `
                 }
             ]
@@ -1887,23 +1988,19 @@ const travelData = [
         complements: [
             {
                 id: "c1",
-                title: "Opción A: Ryoan-ji (Jardín Zen)",
-                time: "15:30",
-                description: "A las 15:30. Desde Arashiyama: Tren Randen (20 min) hasta Ryoan-ji-michi. (500 JPY)",
+                title: "Opción Tarde: Ryoan-ji (Jardín Zen)",
+                time: "16:00",
+                description: "Desde Arashiyama: Tren Randen (20 min) hasta Ryoan-ji-michi. (500 JPY)",
                 price: "500 JPY",
                 image: "images/dia7-ginkakuji.jpg",
                 fullDesc: `
                     <h3><i class="fa-solid fa-peace"></i> Ryoan-ji</h3>
                     <p>Famoso por su jardín seco karesansui. El lugar perfecto para terminar el día en contemplación.</p>
-                    <div style="background:rgba(0,243,255,0.05); border:1px solid var(--neon-blue); padding:10px; border-radius:8px; margin-top:10px;">
-                        <h4 style="margin:0; font-size:0.8rem; color:var(--neon-blue);"><i class="fa-solid fa-train"></i> Conexión Randen:</h4>
-                        <p style="margin:5px 0 0; font-size:0.75rem;">De Arashiyama a Ryoan-ji usando el tranvía histórico.</p>
-                    </div>
                 `,
                 tacticalOptions: [
                     {
                         title: "ENLACE: TRANVÍA RANDEN",
-                        time: "15:30 - 17:00",
+                        time: "16:00 - 17:30",
                         description: "Trayecto panorámico en el último tranvía de Kioto.",
                         buttons: [
                             {
@@ -1912,36 +2009,6 @@ const travelData = [
                             }
                         ],
                         tacticalGuideId: "mission_ryoanji_transit"
-                    }
-                ]
-            },
-            {
-                id: "c2",
-                title: "Opción B: Otagi Nenbutsu-ji",
-                time: "16:00",
-                description: "A las 16:00. Desde Arashiyama: Bus 94 (10 min) hacia las 1200 estatuas. (300 JPY)",
-                price: "300 JPY",
-                image: "images/dia8-bambu.jpg",
-                fullDesc: `
-                    <h3><i class="fa-solid fa-masks-theater"></i> Otagi Nenbutsu-ji</h3>
-                    <p>El templo de las 1200 caras. Una de las experiencias más creativas y menos masificadas de Kioto.</p>
-                    <div style="background:rgba(255,140,0,0.05); border:1px solid #ff8c00; padding:10px; border-radius:8px; margin-top:10px;">
-                        <h4 style="margin:0; font-size:0.8rem; color:#ff8c00;"><i class="fa-solid fa-bus"></i> Bus Táctico:</h4>
-                        <p style="margin:5px 0 0; font-size:0.75rem;">Bus 94 (10 min) desde el centro de Arashiyama.</p>
-                    </div>
-                `,
-                tacticalOptions: [
-                    {
-                        title: "ENLACE: OPERACIÓN SORPRESA",
-                        time: "16:00 - 17:30",
-                        description: "Visita relámpago a las 1200 esculturas búdicas.",
-                        buttons: [
-                            {
-                                text: "Arashiyama ➔ Otagi",
-                                link: "https://www.google.com/maps/dir/?api=1&origin=Arashiyama+Station&destination=Otagi+Nenbutsu-ji+Temple&travelmode=transit"
-                            }
-                        ],
-                        tacticalGuideId: "mission_otagi"
                     }
                 ]
             }
@@ -2032,32 +2099,45 @@ const travelData = [
             {
                 time: "08:00",
                 type: "point",
-                title: "⛩️ Fushimi Inari: Infiltración temprana. Caminata: Mirador Yotsutsuji.",
+                title: "⛩️ Fushimi Inari: Infiltración temprana.",
                 icon: "fa-solid fa-torii-gate"
             },
             {
-                time: "11:30",
+                time: "11:00",
                 type: "transit",
-                title: "🚇 Traslado: JR Inari ➔ Kyoto Station ➔ Metro Shijo",
+                title: "🚇 Traslado: JR Inari ➔ Nishiki Market",
                 price: "150 + 220 JPY",
-                timeLabel: "25 min",
-                link: "https://www.google.com/maps/dir/Inari+Station/Shijo+Station/",
+                timeLabel: "30 min",
+                link: "https://www.google.com/maps/dir/Inari+Station/Nishiki+Market/",
                 tacticalGuideId: "mission_kyoto_center_link"
             },
             {
-                time: "12:30",
+                time: "11:30",
                 type: "point",
-                title: "🍱 Mercado de Nishiki: Almuerzo y tapeo.",
+                title: "🍱 Mercado de Nishiki: Almuerzo temprano.",
                 icon: "fa-solid fa-bowl-food"
             },
             {
-                time: "14:30",
+                time: "13:00",
                 type: "transit",
-                title: "🚌 Salto al Norte: Bus 12 hacia Kinkaku-ji",
+                title: "🚌 Salto al Este: Bus 32/203 hacia Paseo del Filósofo",
+                price: "230 JPY",
+                timeLabel: "25 min",
+                link: "https://www.google.com/maps/dir/Nishiki+Market/Philosopher's+Path/"
+            },
+            {
+                time: "13:30",
+                type: "point",
+                title: "🌿 Paseo del Filósofo: Ruta zen junto al canal.",
+                icon: "fa-solid fa-scroll"
+            },
+            {
+                time: "15:00",
+                type: "transit",
+                title: "🚌 Salto al Noroeste: Bus 204 hacia Kinkaku-ji",
                 price: "230 JPY",
                 timeLabel: "35 min",
-                link: "https://www.google.com/maps/dir/Nishiki+Market/Kinkaku-ji/",
-                tacticalGuideId: "mission_kinkakuji_bus"
+                link: "https://www.google.com/maps/dir/Philosopher's+Path/Kinkaku-ji/"
             },
             {
                 time: "15:30",
@@ -2074,21 +2154,22 @@ const travelData = [
         ],
 
         timeline: [
-            { time: "08:00", title: "Fushimi Inari", desc: "Miles de toriis rojos. (Base)" },
-            { time: "12:30", title: "Mercado Nishiki", desc: "Gastronomía local. (Base)" },
-            { time: "15:30", title: "Kinkaku-ji", desc: "El pabellón de oro. (Base)" }
+            { time: "08:00", title: "Fushimi Inari", desc: "Santuario de los mil toriis. (Base)" },
+            { time: "11:30", title: "Mercado Nishiki", desc: "La despensa de Kioto. (Base)" },
+            { time: "13:30", title: "Paseo del Filósofo", desc: "Camino zen junto al canal. (Base)" },
+            { time: "15:30", title: "Kinkaku-ji", desc: "El pabellón recubierto de oro. (Base)" }
         ],
 
         prices: {
-            transport: "~850 JPY",
-            entrances: "0 (Fushimi) + 500 (Kinkaku-ji)",
+            transport: "~1.100 JPY",
+            entrances: "500 JPY (Kinkaku-ji)",
             food: "~3.000 JPY",
-            total: "~4.350 JPY (Base)"
+            total: "~4.600 JPY (Base)"
         },
 
         isFlexible: true,
         base: {
-            title: "Ruta de los Contrastes",
+            title: "Kioto: Contrastes Imperdibles",
             description: "De los senderos sagrados al bullicio del mercado y la paz del pabellón dorado.",
             events: [
                 {
@@ -2111,7 +2192,7 @@ const travelData = [
                 },
                 {
                     id: "b2",
-                    time: "12:30",
+                    time: "11:30",
                     title: "Mercado de Nishiki",
                     description: "La despensa de Kioto. Un paraíso para los amantes de la comida callejera. (Variable)",
                     image: "images/nishiki_market.png",
@@ -2130,6 +2211,24 @@ const travelData = [
                 },
                 {
                     id: "b3",
+                    time: "13:30",
+                    title: "Paseo del Filósofo",
+                    description: "Paseo meditativo junto al canal siguiendo los pasos de Nishida Kitaro.",
+                    image: "images/paseo-filosofo.jpg",
+                    price: "Gratis",
+                    link: "https://www.google.com/maps/search/?api=1&query=Philosopher's+Path+Kyoto",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-scroll"></i> Tetsugaku-no-michi</h3>
+                        <p>Este sendero de piedra de 2km sigue un canal bordeado de cientos de árboles. Recibe su nombre en honor al filósofo Nishida Kitaro, quien se dice que meditaba aquí durante su trayecto diario a la Universidad de Kioto.</p>
+                        <p><em>Es uno de los paseos más evocadores de la ciudad. Aunque es famoso en primavera por los cerezos, en verano ofrece un frescor verde y una paz única. El camino conecta la zona de Ginkaku-ji (Norte) con los alrededores del templo Nanzen-ji (Sur), pasando por pequeños santuarios y cafeterías con encanto.</em></p>
+                        <ul>
+                            <li><i class="fa-solid fa-walking"></i> <strong>Distancia:</strong> Aproximadamente 2 km.</li>
+                            <li><i class="fa-solid fa-peace"></i> <strong>Concepto:</strong> Paseo ideal para la introspección y disfrutar del paisaje urbano tradicional.</li>
+                        </ul>
+                    `
+                },
+                {
+                    id: "b4",
                     time: "15:30",
                     title: "Kinkaku-ji",
                     description: "El Pabellón Dorado. Una reliquia de oro que brilla sobre un estanque espejo. (500 JPY)",
@@ -2148,6 +2247,7 @@ const travelData = [
                 }
             ]
         },
+
         complements: [
             {
                 id: "c1",
