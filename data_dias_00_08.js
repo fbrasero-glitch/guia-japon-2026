@@ -294,7 +294,9 @@ const travelData_00_08 = [
         date: "Mar, 28 Julio", title: "🎌 Aterrizaje en Japón",
         coords: [34.434, 135.244], zoom: 12,
         hotel: "Hotel Wing International Select Osaka Umeda",
-        image: "images/dia2-osaka.jpg", // Foto llegada/hotel
+        hotelImage: "",
+        hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Hotel+Wing+International+Select+Osaka+Umeda",
+        image: "images/dia2-osaka.jpg", // Foto llegada
 
         logistics: [
             { title: "Jet Lag", text: "En el avión, reloj en hora Japón (+7h). Dormir primeras 6h, aguantar las últimas 4h." },
