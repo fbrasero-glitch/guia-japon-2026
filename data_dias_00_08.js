@@ -294,7 +294,7 @@ const travelData_00_08 = [
         date: "Mar, 28 Julio", title: "🎌 Aterrizaje en Japón",
         coords: [34.434, 135.244], zoom: 12,
         hotel: "Hotel Wing International Select Osaka Umeda",
-        hotelImage: "",
+        hotelImage: "images/hotel-wing-osaka.jpg",
         hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Hotel+Wing+International+Select+Osaka+Umeda",
         image: "images/dia2-osaka.jpg", // Foto llegada
 

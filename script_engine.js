@@ -1252,9 +1252,7 @@ function renderCenterVisual(data, mode, optData = null) {
 
             // Infografía de Zona (Izquierda)
             let regionInfoSrcSel = '';
-            if (dayIdxSel === 2) {
-                regionInfoSrcSel = 'infografía/inf dia 1.png'; // Duplicado forzado en Osaka D2
-            } else if (dayIdxSel > 2) {
+            if (dayIdxSel > 2) {
                 const getRegionInfographic = (loc) => {
                     if(!loc) return '';
                     const l = loc.toLowerCase();
@@ -1275,9 +1273,6 @@ function renderCenterVisual(data, mode, optData = null) {
 
             // Infografía del Día (Derecha) + Fallback
             let dayInfoSrcSel = getBestDayInfographic(data, dayIdxSel);
-            if (dayIdxSel === 2) {
-                dayInfoSrcSel = 'infografía/inf dia 1.png'; // Duplicado forzado en Osaka D2
-            }
 
             const dayInfographicHTML = (dayIdxSel > 1) ? `
                 <div class="infographic-preview-container" onclick="openInfographic('${dayInfoSrcSel}')" style="margin-bottom:20px; width:100%; max-width:270px; transform-origin: top right;">
