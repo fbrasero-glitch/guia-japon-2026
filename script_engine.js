@@ -8,11 +8,11 @@ let introVideo; // Video de portada
 
 // --- SISTEMA DE RESERVAS (LOCALSTORAGE) ---
 window.toggleBookingStatus = function (id, dayIndex) {
-    const currentState = localStorage.getItem(id);
+    const currentState = Persistence.getItem(id);
     if (currentState === 'comprado') {
-        localStorage.setItem(id, 'pendiente');
+        Persistence.setItem(id, 'pendiente');
     } else {
-        localStorage.setItem(id, 'comprado');
+        Persistence.setItem(id, 'comprado');
     }
 
     // Forzar re-render de la vista actual (si estamos en una excursión, el modal ya está abierto, 
@@ -26,7 +26,7 @@ window.toggleBookingStatus = function (id, dayIndex) {
         // lo más seguro globalmente para mantener consistencia:
         const currentBtn = document.getElementById(id + '_btn');
         if (currentBtn) {
-            const newState = localStorage.getItem(id) === 'comprado';
+            const newState = Persistence.getItem(id) === 'comprado';
             currentBtn.innerHTML = newState ? '<i class="fa-solid fa-check-circle"></i> Comprado' : '<i class="fa-solid fa-triangle-exclamation"></i> Pendiente';
             currentBtn.style.background = newState ? 'var(--success)' : 'var(--danger)';
 
@@ -48,7 +48,7 @@ window.toggleBookingStatus = function (id, dayIndex) {
 
 window.renderBookingBadge = function (booking, dayIndex) {
     if (!booking) return '';
-    const state = localStorage.getItem(booking.id) === 'comprado' ? 'comprado' : 'pendiente';
+    const state = Persistence.getItem(booking.id) === 'comprado' ? 'comprado' : 'pendiente';
     const isComprado = state === 'comprado';
 
     return `
@@ -116,10 +116,29 @@ window.openInfographic = function(src) {
 
 window.closeInfographic = function() {
     const modal = document.getElementById('infographic-modal');
-    if (modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = ''; // Restaurar scroll
+    modal.style.display = "none";
+}
+
+// Función auxiliar para obtener la mejor infografía disponible para un día
+window.getBestDayInfographic = function(data, dayIdx) {
+    // 1. Prioridad: "inf dia X.png" (donde X es el índice del día)
+    // El usuario ha confirmado que tiene estas infografías en la carpeta (0-10)
+    const dailyInfographic = `infografía/inf dia ${dayIdx}.png`;
+    
+    // Lista de días que tienen esta infografía según la auditoría actual
+    const knownDailyInfos = [0, 1, 3, 4, 5, 6, 7, 8, 9, 10];
+    
+    if (knownDailyInfos.includes(dayIdx)) {
+        return dailyInfographic;
     }
+
+    // 2. Prioridad: Lo que venga definido en el objeto data
+    if (data.infographic) {
+        return data.infographic;
+    }
+
+    // 3. Fallback: inf dia 0.png
+    return 'infografía/inf dia 0.png';
 };
 
 function renderInfographicPreview(src) {
@@ -385,6 +404,11 @@ function init() {
     // NO cargar ningún día al inicio, dejar el video reproduciéndose como portada
     // Mostrar contador en la portada
     showCountdown();
+
+    // 4. Inicializar sincronización Cloud si está configurada
+    if (window.Persistence && window.Persistence.initCloudSync) {
+        window.Persistence.initCloudSync();
+    }
 }
 
 function loadDay(index) {
@@ -421,7 +445,7 @@ function loadDay(index) {
 
 // Función especial para renderizar la página de preparación
 // Variable global para el viajero seleccionado
-let selectedTraveler = localStorage.getItem('selectedTraveler') || 'FELIPE';
+let selectedTraveler = Persistence.getItem('selectedTraveler') || 'FELIPE';
 
 function renderPreparationPage(data) {
     const centerCard = document.getElementById('visual-card');
@@ -437,7 +461,7 @@ function renderPreparationPage(data) {
     data.preparation.sections.forEach((section, sIdx) => {
         section.items.forEach((item, iIdx) => {
             totalItems++;
-            if (localStorage.getItem(`prep-${selectedTraveler}-${sIdx}-${iIdx}`) === 'true') {
+            if (Persistence.getItem(`prep-${selectedTraveler}-${sIdx}-${iIdx}`) === 'true') {
                 completedItems++;
             }
         });
@@ -456,76 +480,78 @@ function renderPreparationPage(data) {
             </button>`;
     }).join('');
 
+    // === BLOQUE SUPERIOR V3: PLAN MAESTRO COMPACTO (ANCHO COMPLETO) ===
+    let topSectionHTML = `
+        <div class="prep-top-layout-v3" style="margin-bottom: 30px;">
+            ${data.bookingPanel ? `
+                <div class="booking-master-panel-v3" style="background: rgba(15,23,42,0.9); border: 1px solid var(--gold); border-radius: 12px; padding: 15px; box-shadow: 0 0 20px rgba(251,191,36,0.1); width: 100%;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(251,191,36,0.2); padding-bottom: 10px; margin-bottom: 15px;">
+                        <h3 style="color:var(--gold); margin:0; font-size:1rem; text-transform: uppercase; letter-spacing: 1px;">
+                            <i class="fa-solid fa-calendar-check"></i> ${data.bookingPanel.title}
+                        </h3>
+                        <span style="font-size: 0.7rem; color: rgba(255,255,255,0.4); text-transform: uppercase;">Resumen de Fechas Críticas</span>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;" class="custom-scroll">
+                        ${data.bookingPanel.phases.map(phase => `
+                            <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 8px; border-left: 3px solid ${phase.color};">
+                                <div style="font-size:0.75rem; color:${phase.color}; font-weight:900; text-transform:uppercase; margin-bottom:8px;">${phase.name}</div>
+                                <div style="display: flex; flex-direction: column; gap: 4px;">
+                                    ${phase.items.map(item => `
+                                        <div style="font-size:0.8rem; display: flex; justify-content: space-between; align-items: center;">
+                                            <span style="color:white; opacity: 0.9;">${item.name}</span>
+                                            <span style="color:rgba(255,255,255,0.4); font-size:0.7rem;">${item.date}</span>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            ` : ''}
+        </div>
+
+        <!-- BLOQUE MEDIO: SELECTOR DE VIAJEROS (UNA SOLA LÍNEA) -->
+        <div class="traveler-control-strip" style="background: rgba(255,255,255,0.05); padding: 15px 20px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 30px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <div style="color: var(--neon-blue); font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fa-solid fa-user-gear"></i> Misión de:
+                </div>
+                <div class="traveler-avatars-row" style="display: flex; gap: 6px;">
+                    ${travelerAvatarsHTML}
+                </div>
+            </div>
+
+            <div class="progress-info-compact" style="flex: 1; min-width: 200px; display: flex; align-items: center; gap: 15px;">
+                <div style="flex: 1;">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.75rem; margin-bottom: 4px;">
+                        <span style="color: white; font-weight: 800;">VIAJERO: ${selectedTraveler}</span>
+                        <span style="color: var(--neon-blue); font-weight: bold;">${completedItems}/${totalItems}</span>
+                    </div>
+                    <div class="progress-bar-container" style="height: 8px; background: rgba(0,0,0,0.3); border-radius: 4px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05);">
+                        <div class="progress-bar-fill" style="width: ${progressPercent}%; height: 100%; background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple)); transition: width 0.5s ease; box-shadow: 0 0 10px var(--neon-blue);"></div>
+                    </div>
+                </div>
+                <div style="font-size: 1.2rem; font-weight: 900; color: white; min-width: 45px; text-align: right;">${progressPercent}%</div>
+            </div>
+        </div>
+    `;
+
     // Renderizar panel central con las secciones principales
     let centerHTML = `
             <div class="preparation-container">
                 <div class="preparation-header">
-                    <div class="preparation-title-row">
-                        <h1 style="text-transform:uppercase; letter-spacing:2px;"><i class="fa-solid fa-clipboard-check"></i> PREPARATIVOS</h1>
+                    <div class="preparation-title-row" style="margin-bottom: 25px; text-align: left; border-left: 4px solid var(--neon-blue); padding-left: 15px;">
+                        <h1 style="text-transform:uppercase; font-size: 2.2rem; font-weight: 900; letter-spacing:4px; color: white; margin: 0;">
+                            PLAN DE <span style="color: var(--neon-blue);">ACCIÓN</span>
+                        </h1>
                     </div>
-
-                    ${renderInfographicPreview(data.infographic)}
-
-                    <div class="traveler-selector-box">
-                        <div class="traveler-selector-label">
-                            <i class="fa-solid fa-users"></i> Selecciona tu viajero:
-                        </div>
-                        <div class="traveler-avatars">
-                            ${travelerAvatarsHTML}
-                        </div>
-                    </div>
-
-                    <div class="progress-section">
-                        <div class="progress-header">
-                            <span class="progress-traveler"><i class="fa-solid fa-user"></i> ${selectedTraveler}</span>
-                            <span class="progress-text">${completedItems}/${totalItems} completados</span>
-                        </div>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar-fill" style="width: ${progressPercent}%;"></div>
-                        </div>
-                        <div class="progress-percent">${progressPercent}%</div>
-                    </div>
+                    
+                    ${topSectionHTML}
                 </div>
 
                 <div class="preparation-sections">
-                    `;
-
-    // === NUEVO: PANEL DE RESERVAS MAESTRO ===
-    if (data.bookingPanel) {
-        let bookingHTML = `
-                    <div style="margin-bottom:40px; background:rgba(20,20,20,0.8); border:1px solid rgba(255,255,255,0.1); border-radius:15px; padding:25px;">
-                        <h2 style="color:var(--gold); margin-bottom:20px; font-size:1.5rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:15px;">
-                            <i class="fa-solid fa-calendar-check"></i> ${data.bookingPanel.title}
-                        </h2>
-                        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:20px;">
-                            `;
-
-        data.bookingPanel.phases.forEach(phase => {
-            bookingHTML += `
-            <div style="background:rgba(0,0,0,0.4); border-top: 3px solid ${phase.color || 'var(--accent)'}; border-radius:10px; padding:20px;">
-                <h3 style="color:${phase.color || 'white'}; margin-top:0; margin-bottom:15px; font-size:1.1rem;">${phase.name}</h3>
-                <ul style="list-style:none; padding:0; margin:0;">
-            `;
-            phase.items.forEach(item => {
-                bookingHTML += `
-                <li style="margin-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.05); padding-bottom:8px;">
-                    <strong style="color:white; display:block; font-size:0.95rem;">${item.name}</strong>
-                    <span style="color:#9ca3af; font-size:0.85rem;"><i class="fa-regular fa-clock"></i> ${item.date}</span>
-                </li>
-                `;
-            });
-            bookingHTML += `
-                        </ul>
-                    </div>
-                    `;
-        });
-
-        bookingHTML += `
-                </div>
-            </div>
-            `;
-        centerHTML += bookingHTML;
-    }
+    `;
 
     data.preparation.sections.forEach((section, idx) => {
         centerHTML += `
@@ -539,13 +565,13 @@ function renderPreparationPage(data) {
 
         section.items.forEach((item, itemIdx) => {
             // Verificar si el viajero actual ha completado este item
-            const isChecked = localStorage.getItem(`prep-${selectedTraveler}-${idx}-${itemIdx}`) === 'true';
+            const isChecked = Persistence.getItem(`prep-${selectedTraveler}-${idx}-${itemIdx}`) === 'true';
             const checkIcon = isChecked ? 'fa-solid fa-circle-check' : 'fa-regular fa-circle';
             const completedClass = isChecked ? 'completed' : '';
 
             // Generar indicadores de estado de todos los viajeros
             const travelerStatusHTML = travelers.map(t => {
-                const tChecked = localStorage.getItem(`prep-${t}-${idx}-${itemIdx}`) === 'true';
+                const tChecked = Persistence.getItem(`prep-${t}-${idx}-${itemIdx}`) === 'true';
                 const initial = t.charAt(0);
                 return `<span class="traveler-status-dot ${tChecked ? 'checked' : ''}" title="${t}: ${tChecked ? 'Completado' : 'Pendiente'}">
                 ${initial}${tChecked ? '<i class="fa-solid fa-check"></i>' : ''}
@@ -660,7 +686,7 @@ function renderPreparationPage(data) {
     document.querySelectorAll('.traveler-avatar').forEach(avatar => {
         avatar.addEventListener('click', function () {
             selectedTraveler = this.dataset.traveler;
-            localStorage.setItem('selectedTraveler', selectedTraveler);
+            Persistence.setItem('selectedTraveler', selectedTraveler);
             renderPreparationPage(data);
         });
     });
@@ -671,26 +697,25 @@ function renderPreparationPage(data) {
             const icon = this.querySelector('i');
             const section = this.dataset.section;
             const item = this.dataset.item;
-            const key = `prep - ${selectedTraveler} -${section} -${item} `;
+            const key = `prep-${selectedTraveler}-${section}-${item}`;
 
-            const isCurrentlyChecked = localStorage.getItem(key) === 'true';
+            const isCurrentlyChecked = Persistence.getItem(key) === 'true';
 
             if (!isCurrentlyChecked) {
                 // Marcar como completado
                 icon.classList.remove('fa-regular', 'fa-circle');
                 icon.classList.add('fa-solid', 'fa-circle-check');
                 this.closest('.preparation-item').classList.add('completed');
-                localStorage.setItem(key, 'true');
+                Persistence.setItem(key, 'true');
             } else {
                 // Desmarcar
                 icon.classList.remove('fa-solid', 'fa-circle-check');
                 icon.classList.add('fa-regular', 'fa-circle');
                 this.closest('.preparation-item').classList.remove('completed');
-                localStorage.removeItem(key);
+                Persistence.removeItem(key);
             }
 
             // Re-renderizar para actualizar progreso y estados de los demás viajeros
-            // Usamos travelData[0] que es el objeto de preparación
             renderPreparationPage(travelData[0]);
         });
     });
@@ -722,7 +747,7 @@ window.getSmartAlertsHTML = function (data, dayIndex) {
 
     activities.forEach(act => {
         if (act && act.booking && (act.exactDate || data.exactDate)) {
-            const state = localStorage.getItem(act.booking.id);
+            const state = Persistence.getItem(act.booking.id);
             if (state !== 'comprado') {
                 const dateToUse = act.exactDate || data.exactDate;
                 const eventDate = new Date(dateToUse);
@@ -956,8 +981,8 @@ function renderCenterVisual(data, mode, optData = null) {
     ` : '';
 
     // Infografía de Día (Derecha)
-    let dayInfoSrc = (dayIdx === 0 || dayIdx === 1) ? '' : (data.infographic || 'infografía/inf dia 0.png');
-    if (dayIdx === 2) dayInfoSrc = 'infografía/inf dia 1.png';
+    let dayInfoSrc = getBestDayInfographic(data, dayIdx);
+    if (dayIdx === 2) dayInfoSrc = 'infografía/inf dia 1.png'; // Mantener hack para D2 si es necesario
 
     const dayInfographicHTML = (dayInfoSrc) ? `
         <div class="infographic-preview-container" onclick="openInfographic('${dayInfoSrc}')" style="width:100%; max-width:210px; transform-origin: top right;">
@@ -1249,7 +1274,7 @@ function renderCenterVisual(data, mode, optData = null) {
             ` : '';
 
             // Infografía del Día (Derecha) + Fallback
-            let dayInfoSrcSel = data.infographic || 'infografía/inf dia 0.png';
+            let dayInfoSrcSel = getBestDayInfographic(data, dayIdxSel);
             if (dayIdxSel === 2) {
                 dayInfoSrcSel = 'infografía/inf dia 1.png'; // Duplicado forzado en Osaka D2
             }
@@ -1379,7 +1404,7 @@ function renderCenterVisual(data, mode, optData = null) {
         card.innerHTML = `
             ${unifiedHeaderHTML}
             ${imgHTML}
-            ${renderInfographicPreview(data.infographic)}
+            ${renderInfographicPreview(getBestDayInfographic(data, travelData.indexOf(data)))}
     <div class="story-container">
         <h3 style="margin-top:0"><i class="fa-solid fa-circle-info"></i> Resumen de Operaciones</h3>
         <p>${data.visualContent.summary}</p>

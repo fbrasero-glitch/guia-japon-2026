@@ -1,4 +1,4 @@
-﻿/* ==========================================
+/* ==========================================
    JAPeON 2026 - DATOS DeIAS 17-24
    ========================================== */
 
@@ -638,7 +638,7 @@ const travelData_17_24 = [
                     time: "13:00",
                     title: "Yanaka Ginza (Barrio Gato)",
                     description: "Escapando de la guerra y los terremotos, este barrio mantiene la madera y escala de los años 50.",
-                    image: "images/dia20-museo-nacional-de-tokio-ueno.jpg",
+                    image: "images/dia20-museo-nacional-tokio.jpg",
                     price: "Gratis",
                     fullDesc: `
                         <h3><i class="fa-solid fa-cat"></i> Yanaka Ginza: El Tokio de Ayer</h3>
@@ -925,7 +925,7 @@ const travelData_17_24 = [
                     time: "12:30",
                     title: "La Avenida Principal de Ginza (Chuo Dori)",
                     description: "La zona más elitista comercial de todo el país. Flagships imponentes, boutiques de diseño y restaurantes de estrellas michelin ocultos en rascacielos.",
-                    image: "images/dia22-teatro-kabuki-za-desde-fuera.jpg",
+                    image: "images/dia22-teatro-kabuki-za.jpg",
                     price: "Gratis",
                     fullDesc: `
                         <h3><i class="fa-solid fa-gem"></i> Ginza: La Milla de Diamantes</h3>
@@ -1055,7 +1055,7 @@ const travelData_17_24 = [
                     time: "16:30",
                     title: "Operación Traslado: Taxis a Haneda",
                     description: "Se recomiendan taxis furgoneta grandes para acomodar todo vuestro equipaje final.",
-                    image: "images/dia23-terminal-3-internacional-haneda.jpg",
+                    image: "images/dia23-terminal-3-haneda.jpg",
                     price: "A dividir",
                     fullDesc: `
                         <h3><i class="fa-solid fa-taxi"></i> Ruta al Aeropuerto</h3>

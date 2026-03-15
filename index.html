@@ -75,7 +75,18 @@
         <img class="modal-content" id="modal-img">
     </div>
 
-    <!-- MOTOR Y MISIONES TÁCTICAS -->
+    <!-- CONFIGURACIÓN SUPABASE Y PERSISTENCIA -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        const SUPABASE_URL = 'https://bgnrjfanmheylutlroia.supabase.co';
+        const SUPABASE_KEY = 'sb_publishable_2YmXljKcXIsAXTZ8_XG9SA_V2sniyXQ';
+        
+        // Inicializar cliente de Supabase
+        if (window.supabaseJs) {
+            window.supabase = window.supabaseJs.createClient(SUPABASE_URL, SUPABASE_KEY);
+        }
+    </script>
+    <script src="persistence.js"></script>
     <script src="script_engine.js"></script>
     <script src="script_tactical.js"></script>
 </body>

@@ -1788,7 +1788,7 @@ const travelData_00_08 = [
             {
                 id: "add_pontocho_night",
                 title: "Paseo Nocturno Pontocho",
-                image: "images/dia7-gion.jpg",
+                image: "images/dia7-gion.png",
                 description: "Recorrido atmosférico por el callejón más famoso de Kioto de noche.",
                 time: "20:00 – 21:30",
                 price: "Gratis",

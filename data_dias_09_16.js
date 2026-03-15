@@ -973,14 +973,19 @@ const travelData_09_16 = [
                 timeLabel: "10 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Kawaguchiko+Station&destination=Toyoko+Inn+Fuji+Kawaguchiko+Ohashi"
             },
-            { time: "14:30", type: "point", title: "Check-in Hotel Toyoko Inn", icon: "fa-solid fa-bed" },
-            { time: "16:00", type: "point", title: "Exploración al Atardecer", icon: "fa-solid fa-mountain-sun" }
+            { time: "15:00", type: "point", title: "Check-in Hotel Toyoko Inn", icon: "fa-solid fa-bed" },
+            { time: "16:30", type: "point", title: "Pagoda Chureito (Luz de tarde)", icon: "fa-solid fa-vihara" },
+            { time: "18:30", type: "point", title: "Paseo por el lago", icon: "fa-solid fa-person-walking-zen" },
+            { time: "19:30", type: "point", title: "Oishi Park (Atardecer)", icon: "fa-solid fa-cloud-sun" }
         ],
 
         timeline: [
             { time: "08:30", title: "Bus a Kawaguchiko", desc: "Trayecto de casi 5h cruzando sierras. (Base)" },
             { time: "13:30", title: "Recogida Coche", desc: "Libertad total para explorar la zona alpina. (Base)" },
-            { time: "16:00", title: "Opciones Atardecer", desc: "Pagoda o Vistas del Lago. (Opcional)" }
+            { time: "15:00", title: "Check-in Hotel", desc: "Instalación en el Campo Base. (Base)" },
+            { time: "16:30", title: "Pagoda Chureito", desc: "La foto más icónica de Japón con luz de tarde. (Base)" },
+            { time: "18:30", title: "Paseo por el lago", desc: "Vistas y paz junto al agua. (Base)" },
+            { time: "19:30", title: "Atardecer en Oishi Park", desc: "El momento mágico del día. (Base)" }
         ],
 
         prices: {
@@ -991,7 +996,7 @@ const travelData_09_16 = [
         isFlexible: true,
         base: {
             title: "Itinerario Base",
-            description: "Gran traslado a la región de los Cinco Lagos y toma de control logístico con el coche.",
+            description: "Traslado a la región de los Cinco Lagos y primera toma de contacto con el coloso.",
             events: [
                 {
                     id: "b1",
@@ -1019,65 +1024,56 @@ const travelData_09_16 = [
                     booking: { id: "bk_coches", timeframe: "2-3 meses antes", required: true, link: "https://www.budgetrentacar.co.jp/en/" }
                 },
                 {
+                    id: "b3",
                     time: "15:00",
-                    title: "Acomodación y Organización",
-                    description: "Reparto de habitaciones y planificación de la tarde según la nubosidad del Fuji.",
-                    type: "gap"
+                    title: "Check-in y 'Campo Base'",
+                    description: "Instalación en el Toyoko Inn para organizar el equipaje y planificar la tarde.",
+                    image: "images/hotel-toyoko-kawaguchiko.jpg",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-bed"></i> Instalación en Kawaguchiko</h3>
+                        <p>Dejad las maletas, refrescaos y preparad las cámaras. Aquí es donde empieza vuestra aventura real en la naturaleza japonesa.</p>
+                    `
+                },
+                {
+                    id: "b4",
+                    time: "16:30",
+                    title: "Pagoda Chureito",
+                    description: "Es el momento ideal por la luz de la tarde. Al tener coche, aparcaréis en la zona (aprox. 1.000 JPY) y subiréis los 398 escalones para la foto icónica del viaje.",
+                    price: "Gratis (Parking ~1.000 JPY)",
+                    image: "images/dia13-chureito.jpg",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-vihara"></i> La Pagoda de la Paz: Chureito</h3>
+                        <p>Ubicada en el Parque Arakurayama Sengen, esta pagoda de cinco pisos es el símbolo visual de Japón por excelencia.</p>
+                        <p><em>Para llegar a la plataforma de observación, deberéis subir exactamente 398 escalones. Al llegar arriba, entenderéis por qué: la alineación perfecta de la pagoda bermellón con el Monte Fuji al fondo crea una composición que parece pintada.</em></p>
+                    `
+                },
+                {
+                    id: "b5",
+                    time: "18:30",
+                    title: "Paseo por el lago",
+                    description: "Disfrutad de la tranquilidad de las orillas del lago Kawaguchiko con el coloso de fondo.",
+                    price: "Gratis",
+                    image: "images/fuji_lago.png",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-person-walking-zen"></i> Paseo por el Lago</h3>
+                        <p>Caminad por los senderos habilitados bordeando el agua. Es el momento perfecto para capturar el reflejo del Fuji si el viento está en calma y disfrutar de la brisa alpina antes del clímax del día.</p>
+                    `
+                },
+                {
+                    id: "b6",
+                    time: "19:30",
+                    title: "Atardecer en Oishi Park",
+                    description: "El momento mágico donde el cielo se tiñe de colores sobre el Monte Fuji.",
+                    price: "Gratis",
+                    image: "images/oishi_park_atardecer.jpg",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-cloud-sun"></i> Sunset en Oishi Park</h3>
+                        <p>El Oishi Park ofrece una de las mejores vistas panorámicas. Rodeados de flores, veréis cómo el sol se oculta tras el Fuji, creando una silueta negra imponente contra un cielo encendido.</p>
+                    `
                 }
             ]
         },
-        complements: [
-            {
-                id: "c1",
-                title: "Pagoda Chureito",
-                time: "16:30",
-                description: "La foto más famosa de Japón: Pagoda roja, cerezos/pinos y el Fuji detrás.",
-                price: "Gratis (Parking ~1.000 JPY)",
-                image: "images/dia13-chureito.jpg",
-                recommended: true,
-                video: "https://www.youtube.com/watch?v=o_wU1jOudYg",
-                fullDesc: `
-                        <h3><i class="fa-solid fa-vihara"></i> La Pagoda de la Paz: Chureito</h3>
-                        <p>Ubicada en el Parque Arakurayama Sengen, esta pagoda de cinco pisos es un monumento conmemorativo de la paz construido en 1963. Aunque es relativamente moderna, se ha convertido en el símbolo visual de Japón por excelencia.</p>
-                        <p><em>Para llegar a la plataforma de observación, deberéis subir exactamente 398 escalones (conocidos como la Escalera al Éxito). Al llegar arriba, entenderéis por qué: la alineación perfecta de la pagoda bermellón con el Monte Fuji al fondo crea una composición que parece pintada. Es un lugar de meditación visual sobre el paso del tiempo y la imponente presencia del volcán.</em></p>
-                    `,
-                tacticalOptions: [
-                    {
-                        title: "SUBIDA AL ATARDECER",
-                        time: "16:30 - 18:30",
-                        description: "Conducción desde el hotel unos 15 min. La luz de la tarde ilumina frontalmente la Pagoda.",
-                        link: "https://www.google.com/maps/dir/?api=1&origin=Toyoko+Inn+Fuji+Kawaguchiko&destination=Chureito+Pagoda",
-                        tacticalGuideId: "mission_chureito"
-                    }
-                ]
-            },
-            {
-                id: "c2",
-                title: "Lago Saiko (Pueblo Iyashi)",
-                time: "16:00",
-                description: "Escape del turismo masivo. Lago misterioso y pueblo de tejados de paja.",
-                price: "Variable",
-                image: "images/dia13-saiko.jpg",
-                fullDesc: `
-                    <h3><i class="fa-solid fa-water"></i> La Cara Oculta del Fuji</h3>
-                    <p>Un paseo en coche rodeando el vecino lago Saiko buscando tranquilidad rural.</p>
-                `,
-                video: "https://www.youtube.com/watch?v=vVj4u_3n08o"
-            },
-            {
-                id: "c3",
-                title: "Oshino Hakkai",
-                time: "16:30",
-                description: "Pueblo mágico alimentado por el deshielo del Mt. Fuji (Ocho estanques transparentes).",
-                price: "Gratis",
-                image: "images/dia13-oshino.jpg",
-                fullDesc: `
-                    <h3><i class="fa-solid fa-droplet"></i> Los Estanques de Cristal</h3>
-                    <p>El agua de estos estanques tarda décadas en filtrarse desde el cráter a través de la piedra pómez porosa. Podrás beber agua sagrada súper fría.</p>
-                `,
-                video: "https://www.youtube.com/watch?v=D-w-pA8YtG8"
-            }
-        ],
+        complements: [],
         additionalExcursions: [
             {
                 id: "add_music_forest",
@@ -1174,21 +1170,59 @@ const travelData_09_16 = [
                 id: "c1",
                 title: "Trekking Ryugatake",
                 time: "08:00",
-                description: "Senderismo (2h de subida) con vistas frontales brutales. La vista del billete de 1000 yenes.",
+                description: "Senderismo (2h de subida) con la vista exacta del billete de 1.000 yenes.",
                 price: "Gratis",
                 image: "images/dia15-ryugatake.jpg",
                 recommended: true,
                 video: "https://www.youtube.com/watch?v=azaJ9W5kXfU",
                 fullDesc: `
-                        <h3><i class="fa-solid fa-person-walking-luggage"></i> El Mirador de los 1000 Yenes</h3>
-                        <p>El trekking al Monte Ryugatake ("El Dragón que surge") es la ruta preferida por los entusiastas de la fotografía. Desde su cima, se obtiene la perspectiva exacta del Fuji reflejado en el lago Motosu que aparece en el billete de 1000 yenes.</p>
-                        <p><em>Es una caminata empinada por un sendero de tierra y raíces, pero la recompensa es una vista panorámica sin las multitudes que encontraréis en la 5ª estación. Es el lugar ideal para un picnic con vistas al coloso.</em></p>
-                    `,
+                    <h3><i class="fa-solid fa-person-hiking"></i> Plan Trekking: El Mirador del Dragón</h3>
+                    <p>Una jornada diseñada para los amantes de la fotografía y la montaña. El objetivo es alcanzar la cima del Monte Ryugatake para capturar la silueta del Fuji tal como aparece en los billetes de 1.000 yenes.</p>
+                    
+                    <div class="itinerary-mini-step">
+                        <img src="images/dia15-ryugatake.jpg" alt="Trekking Ryugatake">
+                        <div class="step-content">
+                            <h4>08:00 – Inicio del Trekking</h4>
+                            <p>Ascenso de unas 2 horas entre raíces y senderos alpinos. Esfuerzo físico medio con recompensa visual máxima en la cima.</p>
+                        </div>
+                    </div>
+
+                    <div class="itinerary-mini-step">
+                        <img src="images/add-fuji-caves.jpg" alt="Cuevas del Fuji">
+                        <div class="step-content">
+                            <h4>12:15 – Bosque de Aokigahara y Cuevas</h4>
+                            <p>Infiltración en el místico "Mar de Árboles". Visitad la Cueva del Hielo o del Viento; un contraste térmico brutal (0°C) ideal para agosto.</p>
+                        </div>
+                    </div>
+
+                    <div class="itinerary-mini-step">
+                        <img src="images/saiko_lake.png" alt="Lago Saiko">
+                        <div class="step-content">
+                            <h4>13:30 – Almuerzo en la Zona de los Lagos</h4>
+                            <p>Recuperación de energía en algún restaurante local de la zona de Saiko o Kawaguchiko tras la caminata.</p>
+                        </div>
+                    </div>
+
+                    <div class="itinerary-mini-step">
+                        <img src="images/onsen_fuji.png" alt="Onsen Fuji">
+                        <div class="step-content">
+                            <h4>16:00 – Tiempo de Relax o Baños Termales</h4>
+                            <p>Tras el esfuerzo, el cuerpo pedirá descanso. Momento ideal para un onsen con vistas o relax total en el hotel.</p>
+                        </div>
+                    </div>
+                `,
                 tacticalOptions: [
                     {
                         title: "RUTA AL DRAGÓN",
-                        time: "08:00 - 13:00",
-                        description: "Conducción al Camping Motosu (40 min). Aparcar y subir unas 2 horas a buen ritmo.",
+                        time: "08:00 - 17:00",
+                        description: "Día completo de montaña y cuevas. Requiere coche para moverse ágilmente entre el camping Motosu y las cuevas.",
+                        schedule: [
+                            { time: "08:00", event: "Inicio Subida Ryugatake" },
+                            { time: "10:30", event: "Cima (Fotos Billete 1.000Y)" },
+                            { time: "12:15", event: "Exploración Cuevas" },
+                            { time: "13:30", event: "Almuerzo en Lagos" },
+                            { time: "16:00", event: "Sesión Onsen / Relax" }
+                        ],
                         link: "https://www.google.com/maps/dir/?api=1&origin=Toyoko+Inn+Kawaguchiko&destination=Lake+Motosuko+Campground",
                         tacticalGuideId: "mission_ryugatake"
                     }
@@ -1200,7 +1234,7 @@ const travelData_09_16 = [
                 time: "09:00",
                 description: "Llegar a los 2300m en bus. Tiendas, santuario milenario y mirar hacia la cumbre.",
                 price: "2.500 JPY (Shuttle Bus)",
-                image: "images/dia14-5-estaci-n-fuji.jpg",
+                image: "images/dia14-5-estacion-fuji.jpg",
                 video: "https://www.youtube.com/watch?v=4rEzBJarLoc",
                 fullDesc: `
                         <h3><i class="fa-solid fa-cloud"></i> El Umbral del Cielo: 5ª Estación</h3>

@@ -1637,7 +1637,7 @@ const travelData = [
                     time: "18:00",
                     title: "Barrio de Gion y Pontocho",
                     description: "Búsqueda de Maikos en la calle Hanamikoji y cena en los callejones junto al río Kamo.",
-                    image: "images/dia7-gion.jpg",
+                    image: "images/dia7-gion.png",
                     price: "Gratis",
                     fullDesc: `
                         <h3><i class="fa-solid fa-person-dress-fairy"></i> El Enigma de Gion y la Noche en Pontocho</h3>
@@ -1699,7 +1699,7 @@ const travelData = [
             {
                 id: "add_pontocho_night",
                 title: "Paseo Nocturno Pontocho",
-                image: "images/dia7-gion.jpg",
+                image: "images/dia7-gion.png",
                 description: "Recorrido atmosférico por el callejón más famoso de Kioto de noche.",
                 time: "20:00 – 21:30",
                 price: "Gratis",
@@ -1929,7 +1929,7 @@ const travelData = [
                     time: "14:30",
                     title: "Puente Togetsukyō",
                     description: "El 'Puente que cruza la Luna', icono histórico de Arashiyama.",
-                    image: "images/dia8-puente.jpg",
+                    image: "images/dia8-puente.png",
                     price: "Gratis",
                     link: "https://www.google.com/maps/dir/Otagi+Nenbutsuji/Togetsukyo+Bridge/",
                     fullDesc: `
@@ -1942,7 +1942,7 @@ const travelData = [
                     time: "16:00",
                     title: "Parque de los Monos Iwatayama",
                     description: "Encuentro con macacos japoneses y vistas panorámicas de Kioto.",
-                    image: "images/dia8-monos.jpg",
+                    image: "images/dia8-monos.png",
                     price: "600 JPY",
                     link: "https://www.google.com/maps/dir/Togetsukyo+Bridge/Iwatayama+Monkey+Park/",
                     fullDesc: `
@@ -2224,7 +2224,7 @@ const travelData = [
                     time: "19:00",
                     title: "Cena de despedida en Kioto",
                     description: "Última noche antes de partir hacia los Alpes Japoneses.",
-                    image: "images/pontocho_night.jpg",
+                    image: "images/dia7-pontocho.jpg",
                     price: "Variable",
                     fullDesc: `
                         <h3><i class="fa-solid fa-plate-wheat"></i> Cena de Despedida</h3>
@@ -3065,14 +3065,17 @@ const travelData = [
                 timeLabel: "10 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Kawaguchiko+Station&destination=Toyoko+Inn+Fuji+Kawaguchiko+Ohashi"
             },
-            { time: "14:30", type: "point", title: "Check-in Hotel Toyoko Inn", icon: "fa-solid fa-bed" },
-            { time: "16:00", type: "point", title: "Exploración al Atardecer", icon: "fa-solid fa-mountain-sun" }
+            { time: "15:00", type: "point", title: "Check-in Hotel Toyoko Inn", icon: "fa-solid fa-bed" },
+            { time: "16:30", type: "point", title: "Pagoda Chureito (Luz de tarde)", icon: "fa-solid fa-vihara" },
+            { time: "18:30", type: "point", title: "Oishi Park (Atardecer en el lago)", icon: "fa-solid fa-cloud-sun" }
         ],
 
         timeline: [
             { time: "08:30", title: "Bus a Kawaguchiko", desc: "Trayecto de casi 5h cruzando sierras. (Base)" },
             { time: "13:30", title: "Recogida Coche", desc: "Libertad total para explorar la zona alpina. (Base)" },
-            { time: "16:00", title: "Opciones Atardecer", desc: "Pagoda o Vistas del Lago. (Opcional)" }
+            { time: "15:00", title: "Check-in Hotel", desc: "Instalación en el Campo Base. (Base)" },
+            { time: "16:30", title: "Pagoda Chureito", desc: "La foto más icónica de Japón con luz de tarde. (Base)" },
+            { time: "18:30", title: "Atardecer Lago", desc: "Paseo por Oishi Park. (Base)" }
         ],
 
         prices: {
@@ -3083,7 +3086,7 @@ const travelData = [
         isFlexible: true,
         base: {
             title: "Itinerario Base",
-            description: "Gran traslado a la región de los Cinco Lagos y toma de control logístico con el coche.",
+            description: "Traslado a la región de los Cinco Lagos y primera toma de contacto con el coloso.",
             events: [
                 {
                     id: "b1",
@@ -3111,65 +3114,44 @@ const travelData = [
                     booking: { id: "bk_coches", timeframe: "2-3 meses antes", required: true, link: "https://www.budgetrentacar.co.jp/en/" }
                 },
                 {
+                    id: "b3",
                     time: "15:00",
-                    title: "Acomodación y Organización",
-                    description: "Reparto de habitaciones y planificación de la tarde según la nubosidad del Fuji.",
-                    type: "gap"
+                    title: "Check-in y 'Campo Base'",
+                    description: "Instalación en el Toyoko Inn para organizar el equipaje y planificar la tarde.",
+                    image: "images/hotel-toyoko-kawaguchiko.jpg",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-bed"></i> Instalación en Kawaguchiko</h3>
+                        <p>Dejad las maletas, refrescaos y preparad las cámaras. Aquí es donde empieza vuestra aventura real en la naturaleza japonesa.</p>
+                    `
+                },
+                {
+                    id: "b4",
+                    time: "16:30",
+                    title: "Pagoda Chureito",
+                    description: "Es el momento ideal por la luz de la tarde. Al tener coche, aparcaréis en la zona (aprox. 1.000 JPY) y subiréis los 398 escalones para la foto icónica del viaje.",
+                    price: "Gratis (Parking ~1.000 JPY)",
+                    image: "images/dia13-chureito.jpg",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-vihara"></i> La Pagoda de la Paz: Chureito</h3>
+                        <p>Ubicada en el Parque Arakurayama Sengen, esta pagoda de cinco pisos es el símbolo visual de Japón por excelencia.</p>
+                        <p><em>Para llegar a la plataforma de observación, deberéis subir exactamente 398 escalones. Al llegar arriba, entenderéis por qué: la alineación perfecta de la pagoda bermellón con el Monte Fuji al fondo crea una composición que parece pintada.</em></p>
+                    `
+                },
+                {
+                    id: "b5",
+                    time: "18:30",
+                    title: "Atardecer en Oishi Park",
+                    description: "Paseo por la orilla norte del lago Kawaguchiko para ver el atardecer antes de cenar.",
+                    price: "Gratis",
+                    image: "images/fuji_lago.png",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-cloud-sun"></i> Sunset en el Lago</h3>
+                        <p>El Oishi Park ofrece una de las mejores vistas del lago con el Fuji de fondo, rodeados de flores de temporada y un ambiente de paz absoluta mientras el sol se oculta tras el coloso.</p>
+                    `
                 }
             ]
         },
-        complements: [
-            {
-                id: "c1",
-                title: "Pagoda Chureito",
-                time: "16:30",
-                description: "La foto más famosa de Japón: Pagoda roja, cerezos/pinos y el Fuji detrás.",
-                price: "Gratis (Parking ~1.000 JPY)",
-                image: "images/dia13-chureito.jpg",
-                recommended: true,
-                video: "https://www.youtube.com/watch?v=o_wU1jOudYg",
-                fullDesc: `
-                        <h3><i class="fa-solid fa-vihara"></i> La Pagoda de la Paz: Chureito</h3>
-                        <p>Ubicada en el Parque Arakurayama Sengen, esta pagoda de cinco pisos es un monumento conmemorativo de la paz construido en 1963. Aunque es relativamente moderna, se ha convertido en el símbolo visual de Japón por excelencia.</p>
-                        <p><em>Para llegar a la plataforma de observación, deberéis subir exactamente 398 escalones (conocidos como la Escalera al Éxito). Al llegar arriba, entenderéis por qué: la alineación perfecta de la pagoda bermellón con el Monte Fuji al fondo crea una composición que parece pintada. Es un lugar de meditación visual sobre el paso del tiempo y la imponente presencia del volcán.</em></p>
-                    `,
-                tacticalOptions: [
-                    {
-                        title: "SUBIDA AL ATARDECER",
-                        time: "16:30 - 18:30",
-                        description: "Conducción desde el hotel unos 15 min. La luz de la tarde ilumina frontalmente la Pagoda.",
-                        link: "https://www.google.com/maps/dir/?api=1&origin=Toyoko+Inn+Fuji+Kawaguchiko&destination=Chureito+Pagoda",
-                        tacticalGuideId: "mission_chureito"
-                    }
-                ]
-            },
-            {
-                id: "c2",
-                title: "Lago Saiko (Pueblo Iyashi)",
-                time: "16:00",
-                description: "Escape del turismo masivo. Lago misterioso y pueblo de tejados de paja.",
-                price: "Variable",
-                image: "images/dia13-saiko.jpg",
-                fullDesc: `
-                    <h3><i class="fa-solid fa-water"></i> La Cara Oculta del Fuji</h3>
-                    <p>Un paseo en coche rodeando el vecino lago Saiko buscando tranquilidad rural.</p>
-                `,
-                video: "https://www.youtube.com/watch?v=vVj4u_3n08o"
-            },
-            {
-                id: "c3",
-                title: "Oshino Hakkai",
-                time: "16:30",
-                description: "Pueblo mágico alimentado por el deshielo del Mt. Fuji (Ocho estanques transparentes).",
-                price: "Gratis",
-                image: "images/dia13-oshino.jpg",
-                fullDesc: `
-                    <h3><i class="fa-solid fa-droplet"></i> Los Estanques de Cristal</h3>
-                    <p>El agua de estos estanques tarda décadas en filtrarse desde el cráter a través de la piedra pómez porosa. Podrás beber agua sagrada súper fría.</p>
-                `,
-                video: "https://www.youtube.com/watch?v=D-w-pA8YtG8"
-            }
-        ],
+        complements: [],
         additionalExcursions: [
             {
                 id: "add_music_forest",
@@ -3292,7 +3274,7 @@ const travelData = [
                 time: "09:00",
                 description: "Llegar a los 2300m en bus. Tiendas, santuario milenario y mirar hacia la cumbre.",
                 price: "2.500 JPY (Shuttle Bus)",
-                image: "images/dia14-5-estaci-n-fuji.jpg",
+                image: "images/dia14-5-estacion-fuji.jpg",
                 video: "https://www.youtube.com/watch?v=4rEzBJarLoc",
                 fullDesc: `
                         <h3><i class="fa-solid fa-cloud"></i> El Umbral del Cielo: 5ª Estación</h3>
@@ -4307,7 +4289,7 @@ const travelData = [
                     time: "13:00",
                     title: "Yanaka Ginza (Barrio Gato)",
                     description: "Escapando de la guerra y los terremotos, este barrio mantiene la madera y escala de los años 50.",
-                    image: "images/dia20-museo-nacional-de-tokio-ueno.jpg",
+                    image: "images/dia20-museo-nacional-tokio.jpg",
                     price: "Gratis",
                     fullDesc: `
                         <h3><i class="fa-solid fa-cat"></i> Yanaka Ginza: El Tokio de Ayer</h3>
@@ -4594,7 +4576,7 @@ const travelData = [
                     time: "12:30",
                     title: "La Avenida Principal de Ginza (Chuo Dori)",
                     description: "La zona más elitista comercial de todo el país. Flagships imponentes, boutiques de diseño y restaurantes de estrellas michelin ocultos en rascacielos.",
-                    image: "images/dia22-teatro-kabuki-za-desde-fuera.jpg",
+                    image: "images/dia22-teatro-kabuki-za.jpg",
                     price: "Gratis",
                     fullDesc: `
                         <h3><i class="fa-solid fa-gem"></i> Ginza: La Milla de Diamantes</h3>
@@ -4724,7 +4706,7 @@ const travelData = [
                     time: "16:30",
                     title: "Operación Traslado: Taxis a Haneda",
                     description: "Se recomiendan taxis furgoneta grandes para acomodar todo vuestro equipaje final.",
-                    image: "images/dia23-terminal-3-internacional-haneda.jpg",
+                    image: "images/dia23-terminal-3-haneda.jpg",
                     price: "A dividir",
                     fullDesc: `
                         <h3><i class="fa-solid fa-taxi"></i> Ruta al Aeropuerto</h3>
