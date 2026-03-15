@@ -81,9 +81,17 @@
         const SUPABASE_URL = 'https://bgnrjfanmheylutlroia.supabase.co';
         const SUPABASE_KEY = 'sb_publishable_2YmXljKcXIsAXTZ8_XG9SA_V2sniyXQ';
         
-        // Inicializar cliente de Supabase
-        if (window.supabaseJs) {
-            window.supabase = window.supabaseJs.createClient(SUPABASE_URL, SUPABASE_KEY);
+        // Inicializar cliente de Supabase (Probando diferentes nombres del global)
+        try {
+            const lib = window.supabase || window.supabaseJs;
+            if (lib && typeof lib.createClient === 'function') {
+                window.supabaseClient = lib.createClient(SUPABASE_URL, SUPABASE_KEY);
+                console.log('Supabase: Cliente inicializado correctamente');
+            } else {
+                console.error('Supabase: No se encontró la librería en window.supabase o window.supabaseJs');
+            }
+        } catch (e) {
+            console.error('Supabase: Error durante la inicialización:', e);
         }
     </script>
     <script src="persistence.js"></script>

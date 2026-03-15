@@ -44,10 +44,10 @@ const Persistence = {
      * @param {string|null} value 
      */
     async syncToCloud(key, value) {
-        if (!window.supabase) return;
+        if (!window.supabaseClient) return;
 
         try {
-            const { error } = await window.supabase
+            const { error } = await window.supabaseClient
                 .from('travel_checks')
                 .upsert({ 
                     key: this.BASE_KEY + key, 
@@ -55,9 +55,11 @@ const Persistence = {
                     updated_at: new Date()
                 }, { onConflict: 'key' });
 
-            if (error) console.error('Error sincronizando con la nube:', error);
+            if (error) {
+                console.error('Supabase: Error en upsert:', error);
+            }
         } catch (err) {
-            console.error('Fallo en la conexión cloud:', err);
+            console.error('Supabase: Fallo de red/conexión:', err);
         }
     },
 
@@ -65,29 +67,38 @@ const Persistence = {
      * Inicializa la sincronización descargando los datos de la nube
      */
     async initCloudSync() {
-        if (!window.supabase) return;
+        if (!window.supabaseClient) {
+            console.warn('Supabase: No se puede iniciar sincronización, cliente no disponible.');
+            return;
+        }
 
+        console.log('Supabase: Iniciando descarga de datos...');
         try {
-            const { data, error } = await window.supabase
+            const { data, error } = await window.supabaseClient
                 .from('travel_checks')
                 .select('*');
 
             if (error) throw error;
 
-            if (data) {
+            if (data && data.length > 0) {
                 data.forEach(row => {
-                    // Guardar en localStorage lo que viene de la nube si es más reciente
-                    // (Simplificación: la nube manda)
-                    localStorage.setItem(row.key, row.value);
+                    if (row.value !== null && row.value !== undefined) {
+                        localStorage.setItem(row.key, row.value);
+                    } else {
+                        localStorage.removeItem(row.key);
+                    }
                 });
-                console.log('Sincronización inicial completada');
-                // Forzar recarga si estamos en el día de preparación
-                if (window.renderPreparationPage && travelData[0]) {
-                    renderPreparationPage(travelData[0]);
+                console.log(`Supabase: Sincronizados ${data.length} ítems desde la nube`);
+                
+                // Forzar recarga de la UI si estamos en preparativos
+                if (typeof window.renderPreparationPage === 'function' && window.travelData && window.travelData[0]) {
+                    window.renderPreparationPage(window.travelData[0]);
                 }
+            } else {
+                console.log('Supabase: No hay datos remotos aún.');
             }
         } catch (err) {
-            console.warn('No se pudo sincronizar con la nube:', err);
+            console.error('Supabase: Error en descarga inicial:', err);
         }
     }
 };
