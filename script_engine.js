@@ -116,16 +116,16 @@ window.openInfographic = function(src) {
 
 window.closeInfographic = function() {
     const modal = document.getElementById('infographic-modal');
-    modal.style.display = "none";
+    if (modal) {
+        modal.style.display = "none";
+        document.body.style.overflow = 'auto'; // Restaurar scroll
+    }
 }
 
 // Función auxiliar para obtener la mejor infografía disponible para un día
 window.getBestDayInfographic = function(data, dayIdx) {
-    // 1. Prioridad: "inf dia X.png" (donde X es el índice del día)
-    // El usuario ha confirmado que tiene estas infografías en la carpeta (0-10)
+    // 1. Prioridad: "inf dia X.png" (0-10)
     const dailyInfographic = `infografía/inf dia ${dayIdx}.png`;
-    
-    // Lista de días que tienen esta infografía según la auditoría actual
     const knownDailyInfos = [0, 1, 3, 4, 5, 6, 7, 8, 9, 10];
     
     if (knownDailyInfos.includes(dayIdx)) {
@@ -133,12 +133,12 @@ window.getBestDayInfographic = function(data, dayIdx) {
     }
 
     // 2. Prioridad: Lo que venga definido en el objeto data
-    if (data.infographic) {
+    if (data && data.infographic) {
         return data.infographic;
     }
 
-    // 3. Fallback: inf dia 0.png
-    return 'infografía/inf dia 0.png';
+    // 3. NO hay fallback por defecto para evitar infografías no deseadas
+    return '';
 };
 
 function renderInfographicPreview(src) {
@@ -982,7 +982,6 @@ function renderCenterVisual(data, mode, optData = null) {
 
     // Infografía de Día (Derecha)
     let dayInfoSrc = getBestDayInfographic(data, dayIdx);
-    if (dayIdx === 2) dayInfoSrc = 'infografía/inf dia 1.png'; // Mantener hack para D2 si es necesario
 
     const dayInfographicHTML = (dayInfoSrc) ? `
         <div class="infographic-preview-container" onclick="openInfographic('${dayInfoSrc}')" style="width:100%; max-width:210px; transform-origin: top right;">
