@@ -38,6 +38,11 @@
     --success: #10b981;
     /* Verde para completado */
 
+    /* Colores Gastronomía (Ámbar/Oro) */
+    --gastro-gold: #fbbf24;
+    --gastro-bg: rgba(251, 191, 36, 0.1);
+    --gastro-glow: 0 0 15px rgba(251, 191, 36, 0.3);
+
     /* Tipografía - Escala modular */
     --font-base: 16px;
     --font-small: 0.875rem;
@@ -3520,4 +3525,132 @@ body:not(.day-selected) .right-panel {
 @keyframes slideDownFade {
     from { transform: translateY(-10px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
+}
+
+/* ==========================================
+   RADAR GASTRONÓMICO
+   ========================================== */
+.gastro-radar-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin: 0 15px;
+}
+
+.gastro-radar-btn {
+    position: relative;
+    background: var(--gastro-bg);
+    border: 2px solid var(--gastro-gold);
+    color: var(--gastro-gold);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 15px rgba(251, 191, 36, 0.4);
+    font-size: 1.5rem;
+}
+
+.gastro-radar-label {
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: var(--gastro-gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.gastro-radar-btn:hover {
+    transform: scale(1.1) rotate(5deg);
+    background: var(--gastro-gold);
+    color: black;
+    box-shadow: 0 0 25px rgba(251, 191, 36, 0.6);
+}
+
+.gastro-radar-btn.pulse::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid var(--gastro-gold);
+    animation: gastro-pulse 2s infinite;
+}
+
+@keyframes gastro-pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+.restaurant-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(251, 191, 36, 0.2);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.restaurant-card:hover {
+    border-color: var(--gastro-gold);
+    background: rgba(251, 191, 36, 0.05);
+    transform: translateY(-5px);
+}
+
+.restaurant-badge {
+    background: var(--gastro-gold);
+    color: black;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.contextual-gastro-box {
+    margin-top: 30px;
+    padding: 20px;
+    background: linear-gradient(145deg, rgba(251, 191, 36, 0.05), rgba(17, 24, 39, 0.5));
+    border-left: 4px solid var(--gastro-gold);
+    border-radius: 0 12px 12px 0;
+}
+
+/* Sugerencias en Timeline Lateral */
+.timeline-gastro-suggestion {
+    background: rgba(251, 191, 36, 0.08);
+    border-left: 3px solid var(--gastro-gold);
+    padding: 12px 15px;
+    border-radius: 0 8px 8px 0;
+    margin: 15px 0 15px 75px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    animation: slideInRight 0.5s ease-out;
+}
+
+.timeline-gastro-thumb {
+    width: 45px;
+    height: 45px;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.timeline-gastro-info h4 {
+    color: var(--gastro-gold);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.timeline-gastro-info p {
+    font-size: 0.75rem;
+    color: #cbd5e1;
+    margin: 3px 0 0 0;
+    line-height: 1.2;
 }

@@ -141,6 +141,181 @@ window.getBestDayInfographic = function(data, dayIdx) {
     return '';
 };
 
+// --- GASTRO TIPS & TIMELINE SUGGESTIONS ---
+
+// Sugerencia para el Timeline (Derecha) - Intenta ser contextual o aleatoria
+window.getTimelineGastroSuggestion = function(city, contextLabel = '') {
+    if (!window.restaurantData) return '';
+    if (!window.usedGastroIds) window.usedGastroIds = new Set();
+    
+    const cityUpper = (city || '').toUpperCase();
+    const cityRestaurants = window.restaurantData.filter(r => r.city === cityUpper);
+    if (cityRestaurants.length === 0) return '';
+    
+    // Buscar candidatos no usados
+    let candidates = cityRestaurants.filter(r => !window.usedGastroIds.has(r.id));
+    
+    // Si no hay candidatos nuevos, el usuario prefiere no poner nada que repetir
+    if (candidates.length === 0) return '';
+    
+    // Intentar contextual entre los candidatos
+    let target = null;
+    if (contextLabel) {
+        target = candidates.find(r => r.nearTo && r.nearTo.some(n => contextLabel.includes(n)));
+    }
+    
+    const rest = target || candidates[Math.floor(Math.random() * candidates.length)];
+    window.usedGastroIds.add(rest.id);
+    
+    return `
+        <div class="timeline-gastro-suggestion">
+            <img src="${rest.image}" class="timeline-gastro-thumb" onerror="this.src='images/placeholder-food.jpg'">
+            <div class="timeline-gastro-info">
+                <h4>${rest.name}</h4>
+                <p><strong>${rest.category}</strong> · ${rest.area}</p>
+                <div style="margin-top:5px;">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Google&query_place_id=${rest.google_maps_place_id}" target="_blank" 
+                       style="font-size:0.65rem; color:var(--gastro-gold); text-decoration:none; font-weight:bold; text-transform:uppercase; letter-spacing:0.5px;">
+                       GOOGLE MAPS <i class="fa-solid fa-external-link" style="font-size:0.6rem;"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    `;
+};
+
+// Tip aleatorio para la parte superior del panel derecho
+window.renderGastroTips = function(data) {
+    if (!window.restaurantData || !data) return '';
+    if (!window.usedGastroIds) window.usedGastroIds = new Set();
+    
+    const city = getLocation(data);
+    const cityRestaurants = window.restaurantData.filter(r => r.city === city.toUpperCase());
+    if (cityRestaurants.length === 0) return '';
+
+    // Filtrar para no repetir con los de abajo
+    const candidates = cityRestaurants.filter(r => !window.usedGastroIds.has(r.id));
+    
+    // Si no hay candidatos, no mostramos nada (la limpieza es salud visual)
+    if (candidates.length === 0) return '';
+    
+    const tip = candidates[Math.floor(Math.random() * candidates.length)];
+    window.usedGastroIds.add(tip.id);
+    
+    return `
+        <div class="contextual-gastro-box" style="margin-top:20px; border-color:var(--gastro-gold); background:rgba(251,191,36,0.05); display:flex; gap:12px; align-items:center; padding:10px; border-radius:12px; border:1px solid rgba(251,191,36,0.2);">
+            <img src="${tip.image}" style="width:40px; height:40px; border-radius:6px; object-fit:cover; border:1px solid var(--gastro-gold);" onerror="this.src='images/placeholder-food.jpg'">
+            <div style="flex:1;">
+                <div style="font-size:0.6rem; color:var(--gastro-gold); font-weight:800; text-transform:uppercase; margin-bottom:2px; letter-spacing:1px; opacity:0.8;">[ GASTRO_TIP ]</div>
+                <div style="font-size:0.8rem; color:white; line-height:1.2;">${tip.name} en <strong>${tip.area}</strong></div>
+            </div>
+        </div>
+    `;
+};
+
+// Recomendaciones contextuales para la ficha central (Center Card)
+window.renderContextualRestaurants = function(data) {
+    if (!window.restaurantData || !data) return '';
+    
+    const activityName = data.title || data.name || '';
+    const suggested = window.restaurantData.filter(r => 
+        r.nearTo && r.nearTo.some(n => activityName.includes(n))
+    );
+
+    if (suggested.length === 0) return '';
+
+    return `
+        <div class="contextual-gastro-box">
+            <h3 style="color:var(--gastro-gold); margin-bottom:15px; font-size:1.1rem;">
+                <i class="fa-solid fa-lightbulb"></i> ¿DÓNDE COMER CERCA?
+            </h3>
+            <div style="display:flex; flex-direction:column; gap:15px;">
+                ${suggested.map(rest => `
+                    <div style="display:flex; gap:15px; align-items:center; background:rgba(255,255,255,0.03); padding:10px; border-radius:8px;">
+                        <img src="${rest.image}" style="width:60px; height:60px; border-radius:6px; object-fit:cover;">
+                        <div style="flex:1;">
+                            <div style="font-size:0.7rem; color:var(--gastro-gold); font-weight:bold;">${rest.category}</div>
+                            <div style="font-size:0.9rem; color:white; font-weight:bold;">${rest.name}</div>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Google&query_place_id=${rest.google_maps_place_id}" target="_blank" 
+                               style="font-size:0.75rem; color:var(--gastro-gold); text-decoration:none;">Ver en Maps <i class="fa-solid fa-external-link"></i></a>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+};
+
+// --- GASTRO TIPS (Para el panel lateral) ---
+window.renderGastroTips = function(data) {
+    if (!window.restaurantData || !data) return '';
+    const city = getLocation(data);
+    const dayRestaurants = window.restaurantData.filter(r => r.city === city);
+    if (dayRestaurants.length === 0) return '';
+
+    // Seleccionar uno al azar o el primero para el "Tip" del panel derecho
+    const tip = dayRestaurants[Math.floor(Math.random() * dayRestaurants.length)];
+    
+    return `
+        <div class="contextual-gastro-box" style="margin-top:20px; border-color:var(--gastro-gold); background:rgba(251,191,36,0.05);">
+            <div style="font-size:0.7rem; color:var(--gastro-gold); font-weight:800; text-transform:uppercase; margin-bottom:5px;">[ GASTRO_ADVISORY ]</div>
+            <div style="display:flex; gap:10px; align-items:center;">
+                <i class="fa-solid fa-utensils" style="color:var(--gastro-gold);"></i>
+                <div style="font-size:0.85rem; color:white;">¿Hambre? Prueba <strong>${tip.name}</strong> en ${tip.area}.</div>
+            </div>
+        </div>
+    `;
+};
+
+// --- RADAR GASTRONÓMICO ---
+window.renderRestaurantPanel = function(city, dayIndex) {
+    if (!window.restaurantData) return;
+    
+    const cityUpper = city.toUpperCase();
+    const restaurants = window.restaurantData.filter(r => r.city === cityUpper);
+    
+    if (restaurants.length === 0) {
+        alert("No tenemos recomendaciones específicas para esta ciudad aún.");
+        return;
+    }
+
+    const modal = document.getElementById('visual-card'); // Usamos el card central para la lista
+    
+    let html = `
+        <button onclick="loadDay(${dayIndex})" style="background:transparent; border:none; color:var(--accent); cursor:pointer; font-size:1.1rem; margin-bottom:20px; display:flex; align-items:center;">
+            <i class="fa-solid fa-arrow-left" style="margin-right:8px;"></i> Volver al Itinerario
+        </button>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:30px; border-bottom:1px solid var(--gastro-gold); padding-bottom:15px;">
+            <h1 style="color:var(--gastro-gold); margin:0; font-size:2.5rem;"><i class="fa-solid fa-utensils"></i> RADAR GASTRONÓMICO: ${cityUpper}</h1>
+        </div>
+        <div class="restaurants-list-grid" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap:25px;">
+    `;
+
+    restaurants.forEach(rest => {
+        html += `
+            <div class="restaurant-card" style="border: 1px solid rgba(251, 191, 36, 0.3); border-radius:16px; overflow:hidden; background:rgba(255,255,255,0.02);">
+                <img src="${rest.image}" style="width:100%; height:180px; object-fit:cover;" onerror="this.src='images/placeholder-food.jpg'">
+                <div style="padding:20px;">
+                    <span class="restaurant-badge" style="background:var(--gastro-gold); color:black; font-size:0.7rem; font-weight:bold; padding:2px 8px; border-radius:4px;">${rest.category}</span>
+                    <h3 style="color:white; margin:10px 0 5px 0; font-size:1.3rem;">${rest.name}</h3>
+                    <p style="color:#94a3b8; font-size:0.9rem; margin-bottom:15px; line-height:1.4;">${rest.description}</p>
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <span style="color:#cbd5e1; font-size:0.8rem;"><i class="fa-solid fa-location-dot"></i> ${rest.area}</span>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Google&query_place_id=${rest.google_maps_place_id}" target="_blank" 
+                           style="color:var(--gastro-gold); text-decoration:none; font-weight:bold; font-size:0.85rem;">
+                           Ver en Maps <i class="fa-solid fa-external-link"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+
+    html += `</div>`;
+    modal.innerHTML = html;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
 function renderInfographicPreview(src) {
     if (!src) return '';
     return `
@@ -791,6 +966,10 @@ function renderRightPanel(data) {
     const container = document.getElementById('info-content');
     const dayIndex = travelData.indexOf(data);
     let alerts = getSmartAlertsHTML(data, dayIndex);
+    
+    // Resetear trackers de inyección gastro para este re-render
+    window.timelineGastroTrackers = {};
+    window.usedGastroIds = new Set();
 
     let html = `
         ${alerts}
@@ -798,6 +977,8 @@ function renderRightPanel(data) {
         <span style="color:var(--accent); font-weight:800; text-transform:uppercase;">${data.date}</span>
         <h2 style="font-size:1.6rem; color:white;">${data.title}</h2>
     </div>
+
+    ${renderGastroTips(data)}
     `;
 
     if (data.logistics) {
@@ -857,20 +1038,46 @@ function renderRightPanel(data) {
             } else if (item.type === 'gap') {
                 html += `
         <div class="transport-point" style="display:flex; align-items:center; margin-bottom:15px; opacity: 0.8;" >
-                        <span style="color:rgba(255,255,255,0.4); font-weight:bold; min-width:55px; font-family:monospace;">${item.time}</span>
+                        <span style="color:rgba(255,255,255,0.4); font-weight:bold; min-width:55px; font-family:monospace;">${item.time || '...'}</span>
                         <div style="background:rgba(255,255,255,0.03); padding:8px 12px; border-radius:8px; border:1px dashed rgba(255,255,255,0.15); display:flex; align-items:center; flex:1;">
-                            <i class="${item.icon}" style="color:rgba(255,255,255,0.4); margin-right:10px;"></i>
+                            <i class="${item.icon || 'fa-solid fa-ellipsis'}" style="color:rgba(255,255,255,0.4); margin-right:10px;"></i>
                             <span style="color:rgba(255,255,255,0.5); font-size:0.85rem; font-style:italic;">${item.title}</span>
                         </div>
                     </div>
         `;
             }
+
+            // --- INYECCIÓN GASTRO EN TRANSPORT TIMELINE ---
+            const fullLabel = (item.time || '') + (item.timeLabel || '');
+            const isLunchTime = fullLabel.includes('12:') || fullLabel.includes('13:') || fullLabel.includes('14:');
+            const isDinnerTime = fullLabel.includes('19:') || fullLabel.includes('20:') || fullLabel.includes('21:');
+            
+            if ((isLunchTime || isDinnerTime) && !window.timelineGastroTrackers[dayIndex + "_" + (isLunchTime ? 'L' : 'D')]) {
+                html += window.getTimelineGastroSuggestion(getLocation(data), item.title);
+                window.timelineGastroTrackers[dayIndex + "_" + (isLunchTime ? 'L' : 'D')] = true;
+            }
         });
         html += `</div> `;
-    } else {
-        html += `<div class="timeline-container" style="margin-top:20px;" > `;
+    } else if (data.timeline) {
+        let lunchAdded = false;
+        let dinnerAdded = false;
+        
         data.timeline.forEach(t => {
             html += `<div class="timeline-item" ><div class="time-tag">${t.time}</div><strong class="timeline-title">${t.title}</strong><div class="timeline-desc">${t.desc}</div></div> `;
+            
+            const isLunchTime = t.time.includes('12:') || t.time.includes('13:') || t.time.includes('14:');
+            const isDinnerTime = t.time.includes('19:') || t.time.includes('20:') || t.time.includes('21:');
+
+            // Inyectar sugerencia de comida
+            if (!lunchAdded && isLunchTime) {
+                html += window.getTimelineGastroSuggestion(getLocation(data), t.title + ' ' + t.desc);
+                lunchAdded = true;
+            }
+            // Inyectar sugerencia de cena
+            if (!dinnerAdded && isDinnerTime) {
+                html += window.getTimelineGastroSuggestion(getLocation(data), t.title + ' ' + t.desc);
+                dinnerAdded = true;
+            }
         });
         html += `</div> `;
     }
@@ -1029,6 +1236,16 @@ function renderCenterVisual(data, mode, optData = null) {
         </div>
     `;
 
+    // Botón Radar Gastronómico (Flotante o Integrado)
+    const gastroRadarHTML = location ? `
+        <div class="gastro-radar-wrapper">
+            <button class="gastro-radar-btn pulse" onclick="renderRestaurantPanel('${location}', ${dayIdx})" title="Radar Gastronómico">
+                <i class="fa-solid fa-utensils"></i>
+            </button>
+            <span class="gastro-radar-label">Radar Gastronómico</span>
+        </div>
+    ` : '';
+
     // ESTRUCTURA FINAL DE CABECERA (3 COLUMNAS)
     const unifiedHeaderHTML = `
         <div class="excursion-page-header" style="display:flex; justify-content:space-between; align-items:stretch; width:100%; gap:20px; margin-bottom:30px;">
@@ -1039,8 +1256,9 @@ function renderCenterVisual(data, mode, optData = null) {
             </div>
             
             <!-- Centro: Ciudad y Actividad -->
-            <div class="header-col-center" style="width:60%; display:flex; align-items:center; justify-content:center;">
+            <div class="header-col-center" style="width:60%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;">
                 ${headerTitleHTML}
+                ${gastroRadarHTML}
             </div>
             
             <!-- Derecha: Infografía Día + Mapas/PDFs -->
@@ -1433,6 +1651,8 @@ function renderCenterVisual(data, mode, optData = null) {
 
         ${optData.fullDesc || ''}
 
+        ${renderContextualRestaurants(optData)}
+
         ${optData.ivanChallenge ? `
                     <div style="margin-top:30px; background:rgba(239,68,68,0.1); border:1px solid var(--danger); padding:20px; border-radius:12px;">
                         <strong style="color:var(--danger); display:block; margin-bottom:10px; font-size:1.1rem;">
@@ -1506,6 +1726,8 @@ function renderCenterVisual(data, mode, optData = null) {
                 // Fallback si no hay fullDesc: usar description y quizás generar algo genérico
                 `<p>${optData.description}</p>`
             }
+
+        ${renderContextualRestaurants(optData)}
 
         ${optData.ivanChallenge ? `
                      <div style="margin-top:30px; background:rgba(239,68,68,0.1); border:1px solid var(--danger); padding:20px; border-radius:12px;">
