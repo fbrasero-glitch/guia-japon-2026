@@ -123,22 +123,29 @@ window.closeInfographic = function() {
 }
 
 // Función auxiliar para obtener la mejor infografía disponible para un día
-window.getBestDayInfographic = function(data, dayIdx) {
-    // 1. Prioridad: "inf dia X.png" (0-10)
-    const dailyInfographic = `infografía/inf dia ${dayIdx}.png`;
-    const knownDailyInfos = [0, 1, 3, 4, 5, 6, 7, 8, 9, 10];
+window.getBestDayInfographic = function(data) {
+    const infos = [];
+    const dayNum = data.day;
     
-    if (knownDailyInfos.includes(dayIdx)) {
-        return dailyInfographic;
+    // 1. Prioridad: "inf dia X.png" y "inf dia X 1.png"
+    const knownDays = [0, 1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15];
+    if (knownDays.includes(dayNum)) {
+        infos.push(`infografía/inf dia ${dayNum}.png`);
+        
+        // Verificar si hay una segunda (0, 3 y 4 tienen extras)
+        if ([0, 3, 4].includes(dayNum)) {
+            infos.push(`infografía/inf dia ${dayNum} 1.png`);
+        }
     }
 
     // 2. Prioridad: Lo que venga definido en el objeto data
     if (data && data.infographic) {
-        return data.infographic;
+        if (!infos.includes(data.infographic)) {
+            infos.push(data.infographic);
+        }
     }
 
-    // 3. NO hay fallback por defecto para evitar infografías no deseadas
-    return '';
+    return infos; // Devuelve un array
 };
 
 // --- GASTRO TIPS & TIMELINE SUGGESTIONS ---
@@ -606,6 +613,9 @@ function loadDay(index) {
     document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('.day-btn')[index].classList.add('active');
 
+    // Limpiar modo excursión al cargar un día
+    document.body.classList.remove('mode-excursion-active');
+
     // 1. PANEL DERECHO
     renderRightPanel(data);
 
@@ -716,10 +726,19 @@ function renderPreparationPage(data) {
     let centerHTML = `
             <div class="preparation-container">
                 <div class="preparation-header">
-                    <div class="preparation-title-row" style="margin-bottom: 25px; text-align: left; border-left: 4px solid var(--neon-blue); padding-left: 15px;">
+                    <div class="preparation-title-row" style="margin-bottom: 25px; text-align: left; border-left: 4px solid var(--neon-blue); padding-left: 15px; display: flex; justify-content: space-between; align-items: center;">
                         <h1 style="text-transform:uppercase; font-size: 2.2rem; font-weight: 900; letter-spacing:4px; color: white; margin: 0;">
                             PLAN DE <span style="color: var(--neon-blue);">ACCIÓN</span>
                         </h1>
+                        
+                        <!-- Infografías en cabecera de preparación -->
+                        <div class="infographic-stack" style="display:flex; gap:10px;">
+                            ${(window.getBestDayInfographic ? window.getBestDayInfographic(data) : []).map(src => `
+                                <div class="infographic-preview-container" onclick="openInfographic('${src}')" style="width:100%; max-width:120px;">
+                                    <img src="${src}" class="infographic-thumb" alt="Infografía" style="width:100%; height:auto; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;">
+                                </div>
+                            `).join('')}
+                        </div>
                     </div>
                     
                     ${topSectionHTML}
@@ -1151,13 +1170,15 @@ function renderCenterVisual(data, mode, optData = null) {
         if (pdfs.length === 0) return '';
 
         return `
-            <div class="pdf-downloads-orange" style="display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; margin-top:10px;">
-                ${pdfs.map(p => `
-                    <a href="pdf/${p.file}" download title="${p.title}" 
-                       style="background:rgba(249, 115, 22, 0.15); border:1px solid #f97316; color:#f97316; width:45px; height:45px; border-radius:10px; display:flex; align-items:center; justify-content:center; text-decoration:none; transition:all 0.3s ease; font-size:1.3rem; box-shadow: 0 0 10px rgba(249, 115, 22, 0.2);">
-                        <i class="fa-solid ${p.icon}"></i>
-                    </a>
-                `).join('')}
+            <div class="pdf-downloads-wrapper" style="width:100%; display:flex; justify-content:flex-end; max-width:100%;">
+                <div class="pdf-downloads-orange" style="display:flex; gap:8px; flex-wrap:nowrap; overflow-x:auto; overflow-y:visible; justify-content:flex-start; margin-top:10px; padding-bottom:5px; scrollbar-width:none; max-width:100%;">
+                    ${pdfs.map(p => `
+                        <a href="pdf/${p.file}" download title="${p.title}" 
+                           style="background:rgba(249, 115, 22, 0.15); border:1px solid #f97316; color:#f97316; padding:6px 12px; border-radius:10px; display:flex; align-items:center; justify-content:center; gap:6px; text-decoration:none; transition:all 0.3s ease; box-shadow: 0 0 10px rgba(249, 115, 22, 0.2); white-space:nowrap; min-width: 35px; flex-shrink: 0;">
+                            <i class="fa-solid ${p.icon}" style="font-size:1.0rem;"></i>
+                        </a>
+                    `).join('')}
+                </div>
             </div>
         `;
     };
@@ -1166,52 +1187,65 @@ function renderCenterVisual(data, mode, optData = null) {
     
     // Infografía Regional (Izquierda)
     let regionInfoSrc = '';
-    if (dayIdx === 2) {
+    if (data.day === 2) {
         regionInfoSrc = 'infografía/inf dia 1.png'; // Duplicado en Osaka D2
-    } else if (dayIdx > 2) {
+    } else if (data.day > 2) {
         const getRegionPath = (loc) => {
             if (!loc) return '';
             const l = loc.toLowerCase();
             if (l.includes('tokyo') || l.includes('tokio')) return 'infografía/inf TOKIO.png';
             if (l.includes('osaka')) return 'infografía/inf osaka.png';
             if (l.includes('kyoto') || l.includes('kioto')) return 'infografía/inf kyoto.png';
-            if (l.includes('alpes') || l.includes('takayama') || l.includes('shirakawa')) return 'infografía/inf alpes.png';
-            return '';
+            if (l.includes('alpes') || l.includes('takayama') || l.includes('shirakawa') || l.includes('kazeya')) return 'infografía/inf alpes.png';
+            return 'infografía/inf.png'; // Fallback genérico si existe
         };
         regionInfoSrc = getRegionPath(location);
     }
 
-    const regionInfographicHTML = (regionInfoSrc && dayIdx > 1) ? `
+    const regionInfographicHTML = (regionInfoSrc && data.day > 0) ? `
         <div class="infographic-preview-container" onclick="openInfographic('${regionInfoSrc}')" style="width:100%; max-width:210px; transform-origin: top left;">
             <img src="${regionInfoSrc}" class="infographic-thumb" alt="Infografía Zona" style="width:100%; height:auto; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1);">
         </div>
     ` : '';
 
-    // Infografía de Día (Derecha)
-    let dayInfoSrc = getBestDayInfographic(data, dayIdx);
+    // Infografía de Día (Derecha) - Soporta múltiples
+    let dayInfoSrcs = getBestDayInfographic(data);
 
-    const dayInfographicHTML = (dayInfoSrc) ? `
-        <div class="infographic-preview-container" onclick="openInfographic('${dayInfoSrc}')" style="width:100%; max-width:210px; transform-origin: top right;">
-            <img src="${dayInfoSrc}" class="infographic-thumb" alt="Infografía Día" style="width:100%; height:auto; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1);">
+    const dayInfographicHTML = (dayInfoSrcs.length > 0) ? `
+        <div class="infographic-stack" style="display:flex; flex-direction:column; gap:10px;">
+            ${dayInfoSrcs.map(src => `
+                <div class="infographic-preview-container" onclick="openInfographic('${src}')" style="width:100%; max-width:210px; transform-origin: top right;">
+                    <img src="${src}" class="infographic-thumb" alt="Infografía Día" style="width:100%; height:auto; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1);">
+                </div>
+            `).join('')}
         </div>
     ` : '';
 
-    // --- 3. COMPONENTES DE CABECERA ---
-    
     // Hotel (Caja dinámica con altura 100%)
     const hotelName = data.hotel || '';
     let hotelHTML = '';
     if (hotelName && hotelName !== 'Casa' && !hotelName.includes('vuelo') && !hotelName.includes('Vuelo')) {
         const hotelImage = data.hotelImage || '';
         const hotelGoogleLink = data.hotelGoogleLink || '';
-        const hotelHeight = dayIdx >= 3 ? '150px' : '60px';
-        const hotelImgHTML = hotelImage ? `<img src="${hotelImage}" style="width:100%; height:${hotelHeight}; object-fit:cover; border-radius:10px; margin-bottom:12px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">` : '';
+        const hotelImgHTML = hotelImage ? `<img src="${hotelImage}" class="hotel-image" onerror="this.style.display='none'">` : '<div class="hotel-image-placeholder"><i class="fa-solid fa-hotel"></i></div>';
+        
+        // Fluid typography formula: container width / (chars * ratio)
+        const nameLen = Math.max(hotelName.length, 5); // Avoid div by zero
+
         hotelHTML = `
-            <div class="hotel-info-section" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:10px; border-radius:12px; width:100%; height:100%; display:flex; flex-direction:column; justify-content:center; box-sizing:border-box; transition: transform 0.3s ease;">
+            <div class="hotel-info-section">
                 ${hotelImgHTML}
                 <div class="hotel-details">
-                    <h3 class="hotel-name" style="font-size:0.9rem; margin:0; color:white;"><i class="fa-solid fa-bed"></i> ${hotelName}</h3>
-                    ${hotelGoogleLink ? `<a href="${hotelGoogleLink}" target="_blank" style="color:var(--neon-blue); font-size:0.75rem; text-decoration:none;"><i class="fa-solid fa-map-location"></i> Ver en Maps</a>` : ''}
+                    <h3 class="hotel-name">
+                        ${hotelName}
+                    </h3>
+                </div>
+                
+                <div class="hotel-actions">
+                    <div class="hotel-badge">
+                        <i class="fa-solid fa-bed"></i>
+                    </div>
+                    ${hotelGoogleLink ? `<a href="${hotelGoogleLink}" target="_blank" class="hotel-google-link"><i class="fa-solid fa-map-location"></i> Maps</a>` : ''}
                 </div>
             </div>
         `;
@@ -1220,8 +1254,8 @@ function renderCenterVisual(data, mode, optData = null) {
     // Mapas / PDFs (Caja dinámica con altura 100%)
     const pdfIconsHTML = getPDFIcons(location);
     const mapsSectionHTML = `
-        <div class="maps-section-column" style="width:100%; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:flex-end; box-sizing:border-box;">
-            ${location ? `<div style="color:#f97316; font-size:1.1rem; font-weight:bold; margin-bottom:5px; text-transform:uppercase; text-align:right;"><i class="fa-solid fa-location-dot"></i> ${location}</div>` : ''}
+        <div class="maps-section-column">
+            ${location ? `<div class="header-city-name"><i class="fa-solid fa-location-dot"></i> ${location}</div>` : ''}
             ${pdfIconsHTML}
         </div>
     `;
@@ -1230,9 +1264,9 @@ function renderCenterVisual(data, mode, optData = null) {
     const titleMatch = data.title.match(/:\s*(.+)/);
     const subHeroText = titleMatch ? titleMatch[1] : data.title;
     const headerTitleHTML = `
-        <div class="header-titles-center" style="text-align:center;">
-            ${location ? `<h1 style="font-size:4.5rem; letter-spacing:8px; text-transform:uppercase; color:var(--neon-blue); text-shadow:0 0 20px rgba(0,243,255,0.5); margin:0;">${location}</h1>` : ''}
-            <p style="font-size:1.6rem; font-weight:800; color:white; text-transform:uppercase; margin-top:5px;">${subHeroText}</p>
+        <div class="header-titles-center">
+            ${location ? `<h1 class="city-hero-title">${location}</h1>` : ''}
+            <p class="city-hero-subtitle">${subHeroText}</p>
         </div>
     `;
 
@@ -1246,28 +1280,32 @@ function renderCenterVisual(data, mode, optData = null) {
         </div>
     ` : '';
 
-    // ESTRUCTURA FINAL DE CABECERA (3 COLUMNAS)
+    // ESTRUCTURA FINAL DE CABECERA (Rediseñada para Grid Móvil)
     const unifiedHeaderHTML = `
-        <div class="excursion-page-header" style="display:flex; justify-content:space-between; align-items:stretch; width:100%; gap:20px; margin-bottom:30px;">
-            <!-- Izquierda: Infografía Regional + Hotel -->
-            <div class="header-col-left" style="width:20%; display:flex; flex-direction:column; gap:15px;">
-                ${regionInfographicHTML}
-                <div style="flex-grow:1; display:flex; align-items:stretch;">${hotelHTML}</div>
-            </div>
+        <div class="excursion-page-header">
+            <!-- Infografías Flanqueando (Fila 1 en móvil) -->
+            <div class="header-infog-left">${regionInfographicHTML}</div>
             
-            <!-- Centro: Ciudad y Actividad -->
-            <div class="header-col-center" style="width:60%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;">
+            <div class="header-title-container">
                 ${headerTitleHTML}
                 ${gastroRadarHTML}
             </div>
             
-            <!-- Derecha: Infografía Día + Mapas/PDFs -->
-            <div class="header-col-right" style="width:20%; display:flex; flex-direction:column; gap:15px; align-items:flex-end;">
-                ${dayInfographicHTML}
-                <div style="flex-grow:1; width:100%; display:flex; align-items:stretch; justify-content:flex-end;">${mapsSectionHTML}</div>
-            </div>
+            <div class="header-infog-right">${dayInfographicHTML}</div>
+            
+            <!-- Hotel e Iconos (Fila 2 en móvil) -->
+            <div class="header-hotel-container">${hotelHTML}</div>
+            <div class="header-icons-container">${mapsSectionHTML}</div>
         </div>
     `;
+
+    // Gestionar clase de pantalla completa para excursiones
+    const isExcursionMode = (mode === 'option' || mode === 'option-flexible' || mode === 'additional-excursions-list');
+    if (isExcursionMode) {
+        document.body.classList.add('mode-excursion-active');
+    } else {
+        document.body.classList.remove('mode-excursion-active');
+    }
 
     // 0. MODO "FLEXIBLE" (Nuevo sistema Base + Complementos)
     if (data.isFlexible && mode === 'selector') {
@@ -1276,7 +1314,7 @@ function renderCenterVisual(data, mode, optData = null) {
         let baseEventsHTML = '';
         if (data.base.events) {
             data.base.events.forEach(event => {
-                let eventImg = event.image ? `<img src = "${event.image}" class="base-event-thumb" onerror = "this.style.display='none'" style="width:200px; height:200px; object-fit:cover; border-radius:12px; margin-right:20px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);" > ` : '';
+                let eventImg = event.image ? `<img src = "${event.image}" class="base-event-thumb" onerror = "this.style.display='none'" > ` : '';
 
                 // Si el evento tiene ID, lo hacemos pulsable
                 if (event.id) {

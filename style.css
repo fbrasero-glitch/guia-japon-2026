@@ -980,42 +980,44 @@ body:not(.day-selected) .right-panel {
    ========================================== */
 
 .excursion-page-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: minmax(60px, auto) 1fr minmax(60px, auto);
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "img-left title img-right"
+        "hotel hotel icons";
+    gap: 20px;
     margin-bottom: 30px;
     padding-bottom: 25px;
     border-bottom: 2px solid rgba(56, 189, 248, 0.2);
+    align-items: center;
 }
 
-.header-left {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.header-right {
-    display: flex;
-    align-items: flex-start;
-}
+.header-infog-left { grid-area: img-left; justify-self: start; }
+.header-title-container { grid-area: title; justify-self: center; text-align: center; width: 100%; }
+.header-infog-right { grid-area: img-right; justify-self: end; }
+.header-hotel-container { grid-area: hotel; justify-self: stretch; width: 100%; max-width: none; min-width: 300px; }
+.header-icons-container { grid-area: icons; justify-self: end; width: 100%; }
 
 /* Hotel Info Section */
 .hotel-info-section {
     display: flex;
-    gap: 20px;
-    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
     background: rgba(15, 23, 42, 0.6);
-    padding: 20px;
+    padding: 15px 25px;
     border-radius: 12px;
     border: 1px solid rgba(56, 189, 248, 0.2);
     backdrop-filter: blur(5px);
+    width: 100%;
+    min-width: 250px;
+    box-sizing: border-box;
 }
 
 .hotel-image {
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    height: 240px;
     object-fit: cover;
     border-radius: 10px;
     border: 2px solid rgba(56, 189, 248, 0.3);
@@ -1024,8 +1026,8 @@ body:not(.day-selected) .right-panel {
 }
 
 .hotel-image-placeholder {
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    height: 240px;
     background: rgba(30, 41, 59, 0.5);
     border-radius: 10px;
     display: flex;
@@ -1038,19 +1040,23 @@ body:not(.day-selected) .right-panel {
 }
 
 .hotel-details {
-    flex: 1;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    align-items: center;
+    gap: 8px;
 }
 
 .hotel-name {
     color: white;
-    font-size: 1.3rem;
+    font-size: 1.05rem;
     font-weight: 700;
     margin: 0;
     display: flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
     gap: 10px;
 }
 
@@ -1064,8 +1070,8 @@ body:not(.day-selected) .right-panel {
     gap: 8px;
     color: var(--accent);
     text-decoration: none;
-    font-size: 0.95rem;
-    padding: 8px 15px;
+    font-size: 0.85rem;
+    padding: 6px 12px;
     background: rgba(56, 189, 248, 0.1);
     border: 1px solid rgba(56, 189, 248, 0.3);
     border-radius: 6px;
@@ -1195,26 +1201,46 @@ body:not(.day-selected) .right-panel {
     margin-top: 20px;
 }
 
-/* Responsive para nuevo layout */
 @media (max-width: 1200px) {
     .excursion-page-header {
+        display: flex;
         flex-direction: column;
         gap: 20px;
+        align-items: center;
     }
 
-    .header-right {
+    .header-hotel-container, .header-icons-container {
         width: 100%;
-        justify-content: flex-start;
+        justify-self: center;
+    }
+
+    .maps-section-column {
+        align-items: center !important;
+    }
+
+    .pdf-downloads-wrapper {
+        justify-content: center !important;
+    }
+
+    .header-city-name {
+        text-align: center !important;
+    }
+
+    .pdf-downloads-orange {
+        justify-content: flex-start !important;
+        width: 100%;
+        padding-bottom: 10px;
     }
 
     .hotel-info-section {
         flex-direction: column;
+        padding: 15px;
     }
 
     .hotel-image,
     .hotel-image-placeholder {
         width: 100%;
-        height: 200px;
+        height: 110px;
     }
 }
 
@@ -3653,4 +3679,444 @@ body:not(.day-selected) .right-panel {
     color: #cbd5e1;
     margin: 3px 0 0 0;
     line-height: 1.2;
+}
+
+/* ==========================================
+   NUEVOS ESTILOS DESKTOP (desde JS inline)
+   ========================================== */
+
+/* --- Cabecera Grid (Desktop) --- */
+.excursion-page-header {
+    display: grid;
+    grid-template-areas: 
+        "infog-l title infog-r"
+        "hotel   title icons";
+    grid-template-columns: 280px 1fr 280px; /* Incrementado de 220px para mayor visibilidad horizontal */
+    width: 100%;
+    gap: 15px 25px;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+.hotel-image {
+    width: 100%;
+    height: 180px; /* Más alta y horizontal */
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.header-infog-left { grid-area: infog-l; display: flex; align-items: center; }
+.header-title-container { grid-area: title; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
+.header-infog-right { grid-area: infog-r; display: flex; align-items: center; justify-content: flex-end; }
+.header-hotel-container { grid-area: hotel; display: flex; align-items: stretch; }
+.header-icons-container { grid-area: icons; display: flex; align-items: center; justify-content: flex-end; }
+
+/* --- Título de ciudad (Desktop) --- */
+.header-titles-center {
+    text-align: center;
+}
+
+.city-hero-title {
+    font-size: 4.5rem;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: var(--neon-blue);
+    text-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
+    margin: 0;
+    background: none;
+    -webkit-text-fill-color: var(--neon-blue);
+}
+
+.city-hero-subtitle {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: white;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+/* --- Hotel Info Styles (Moved from inline) --- */
+.hotel-info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    align-items: center;
+}
+
+.hotel-details {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    container-type: inline-size;
+}
+
+.hotel-name {
+    line-height: 1.2;
+    font-size: clamp(0.7rem, 2.5cqi, 1.5rem); /* Simplificado para mejor control */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    color: white;
+    margin: 0;
+    width: 100%;
+}
+
+.hotel-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.hotel-badge {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    color: var(--accent);
+    padding: 4px 10px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hotel-badge i {
+    font-size: 0.75rem;
+}
+
+.hotel-google-link {
+    margin: 0;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    border-radius: 6px;
+    background: rgba(15, 23, 42, 0.6);
+    color: var(--accent);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.hotel-google-link i {
+    font-size: 0.75rem;
+}
+
+/* --- City Name Styles --- */
+.header-city-name {
+    color: #f97316;
+    font-size: 1.45rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    text-align: right;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* --- Base Event Thumb (Desktop) --- */
+.base-event-thumb {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-right: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    flex-shrink: 0;
+}
+
+/* ==========================================
+   MOBILE OVERRIDES - CABECERA Y CENTRO
+   ========================================== */
+
+@media (max-width: 767px) {
+
+    /* --- CABECERA GRID REDISEÑADA EN MÓVIL --- */
+    .excursion-page-header {
+        grid-template-areas: 
+            "infog-l title infog-r"
+            "hotel   hotel hotel"
+            "icons   icons icons"; /* Movido a una nueva fila para evitar cortes */
+        grid-template-columns: 48px 1fr 48px;
+        grid-template-rows: auto auto auto;
+        gap: 15px;
+        margin-bottom: 25px;
+    }
+
+    .header-infog-left,
+    .header-infog-right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 5px; /* Alineación visual con el título */
+    }
+
+    /* Infografías pequeñas tipo radar */
+    .header-infog-left .infographic-preview-container,
+    .header-infog-right .infographic-preview-container {
+        width: 48px !important;
+        height: 48px !important;
+        max-width: 48px !important;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 2px solid var(--accent);
+        box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+    }
+
+    .header-infog-left .infographic-thumb,
+    .header-infog-right .infographic-thumb {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover;
+    }
+
+    .header-title-container {
+        padding: 0;
+    }
+
+    /* Hotel e Iconos en la fila inferior */
+    .header-hotel-container {
+        justify-content: flex-start;
+    }
+
+    .header-hotel-container .hotel-info-section {
+        height: auto;
+        padding: 15px;
+        width: 100%;
+        border-radius: 10px;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    .header-hotel-container .hotel-image,
+    .header-hotel-container .hotel-image-placeholder {
+        width: 100% !important;
+        height: 75px !important; /* Reducido a 2/3 (aprox) de 110px */
+        flex-shrink: 0;
+        margin-bottom: 0 !important;
+    }
+
+    .header-icons-container {
+        justify-content: center !important;
+        width: 100%;
+    }
+
+    body.mode-excursion-active .excursion-page-header,
+    body.mode-excursion-active .mobile-nav-toggle,
+    body.mode-excursion-active .mobile-hud-toggle {
+        display: none !important;
+    }
+
+    body.mode-excursion-active .right-panel {
+        display: none !important;
+    }
+
+    body.mode-excursion-active .center-stage {
+        padding-top: 10px;
+    }
+
+    body.mode-excursion-active #visual-card {
+        padding-top: 0;
+    }
+
+    /* Ajuste para el botón de volver en modo excursión */
+    body.mode-excursion-active .visual-card button[onclick*="loadDay"],
+    body.mode-excursion-active .visual-card button[onclick*="renderCenterVisual"] {
+        margin-top: 10px;
+        margin-left: 10px;
+        padding: 5px 10px;
+        background: rgba(0,0,0,0.3) !important;
+        border-radius: 8px !important;
+    }
+
+    /* --- TÍTULO DE CIUDAD EN MÓVIL --- */
+    .city-hero-title {
+        font-size: 2rem !important;
+        letter-spacing: 3px !important;
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .city-hero-subtitle {
+        font-size: 1.1rem !important;
+    }
+
+    .header-titles-center {
+        text-align: center;
+        padding: 0 10px;
+    }
+
+    /* --- BASE EVENT ITEMS EN MÓVIL --- */
+    .base-event-item {
+        flex-direction: column !important;
+        gap: 10px;
+    }
+
+    .base-event-content {
+        flex-direction: column !important;
+        width: 100%;
+    }
+
+    .base-event-thumb {
+        width: 100% !important;
+        height: 180px !important;
+        margin-right: 0 !important;
+        margin-bottom: 10px;
+        border-radius: 10px;
+    }
+
+    .base-event-text {
+        width: 100%;
+    }
+
+    /* --- GASTRO RADAR EN MÓVIL --- */
+    .gastro-radar-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 1.2rem;
+    }
+
+    .gastro-radar-label {
+        font-size: 0.55rem;
+    }
+
+    .gastro-radar-wrapper {
+        margin: 0 8px;
+    }
+
+    /* --- GASTRO SUGGESTIONS EN TIMELINE MÓVIL --- */
+    .timeline-gastro-suggestion {
+        margin-left: 20px !important;
+        margin-right: 0;
+        padding: 10px 12px;
+    }
+
+    /* --- PDF ICONS EN MÓVIL --- */
+    .pdf-downloads-orange a {
+        padding: 6px 12px !important;
+        border-radius: 8px !important;
+    }
+
+    .pdf-downloads-orange a span {
+        font-size: 0.75rem !important;
+    }
+
+    /* --- INFOGRAPHIC PREVIEWS EN MÓVIL --- */
+    .infographic-preview-container {
+        max-width: 100% !important;
+    }
+
+    .infographic-thumb {
+        max-height: 200px;
+    }
+
+    /* --- TRANSPORT TIMELINE EN MÓVIL --- */
+    .transport-transit {
+        margin-left: 30px !important;
+    }
+
+    .transport-point .time-tag,
+    .transport-point span[style*="min-width:55px"] {
+        min-width: 45px !important;
+        font-size: 0.75rem !important;
+    }
+
+    /* --- BASE ITINERARY BOX EN MÓVIL --- */
+    .base-itinerary-box {
+        padding: 16px !important;
+        border-radius: 12px !important;
+    }
+
+    /* --- COMPLEMENT CARDS EN MÓVIL --- */
+    .complement-card .excursion-thumb {
+        height: 140px;
+    }
+
+    /* --- MOSAICO DE EXCURSIONES ADICIONALES EN MÓVIL --- */
+    .excursion-mosaic-btn div[style*="display:flex"] img {
+        height: 100px !important;
+    }
+
+    /* --- ADDITIONAL EXCURSIONS SEC EN MÓVIL --- */
+    .additional-excursions-gateway h3 {
+        font-size: 1.1rem;
+    }
+
+    /* --- RESTAURANT PANEL EN MÓVIL --- */
+    .restaurants-list-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* --- DATAPAD EN MÓVIL --- */
+    .datapad-container {
+        padding: 16px;
+    }
+
+    .datapad-title {
+        font-size: 1.2rem;
+    }
+
+    .tactical-data-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px;
+    }
+
+    /* --- CONTEXTUAL GASTRO BOX EN MÓVIL --- */
+    .contextual-gastro-box {
+        margin-top: 15px !important;
+        padding: 12px !important;
+    }
+
+    /* --- MAPA SECTION EN MÓVIL --- */
+    .maps-section-column {
+        align-items: center !important; /* Centrado para mejor visibilidad en su nueva fila */
+        text-align: center !important;
+        width: 100% !important;
+    }
+
+    .maps-section-column > div:first-child {
+        text-align: center !important;
+        margin-bottom: 10px !important;
+    }
+
+    /* Asegurar que el contenido del center-stage no se desborda */
+    .center-stage {
+        overflow-x: hidden;
+    }
+
+    .visual-card {
+        overflow-x: hidden;
+        word-break: break-word;
+    }
+}
+
+/* --- TABLET OVERRIDES (768px-1023px) --- */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .header-col-left,
+    .header-col-right {
+        width: 22%;
+    }
+
+    .header-col-center {
+        width: 56%;
+    }
+
+    .city-hero-title {
+        font-size: 3rem;
+        letter-spacing: 5px;
+    }
+
+    .city-hero-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .base-event-thumb {
+        width: 150px;
+        height: 150px;
+    }
 }
