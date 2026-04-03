@@ -87,7 +87,7 @@ function getLocation(data) {
         const hotel = data.hotel.toUpperCase();
 
         // Buscar ciudades principales en el nombre del hotel
-        if (hotel.includes('OSAKA')) return 'OSAKA';
+        if (hotel.includes('OSAKA') || hotel.includes('DC桜') || hotel.includes('NAMBA')) return 'OSAKA';
         if (hotel.includes('KYOTO')) return 'KYOTO';
         if (hotel.includes('TOKYO')) return 'TOKYO';
         if (hotel.includes('FUJI') || hotel.includes('KAWAGUCHIKO')) return 'MONTE FUJI';
@@ -127,25 +127,22 @@ window.getBestDayInfographic = function(data) {
     const infos = [];
     const dayNum = data.day;
     
-    // 1. Prioridad: "inf dia X.png" y "inf dia X 1.png"
-    const knownDays = [0, 1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15];
+    // 1. Días que exactamente tienen una infografía principal en la carpeta "infografía"
+    const knownDays = [0, 1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 19];
+    
     if (knownDays.includes(dayNum)) {
         infos.push(`infografía/inf dia ${dayNum}.png`);
         
-        // Verificar si hay una segunda (0, 3 y 4 tienen extras)
-        if ([0, 3, 4].includes(dayNum)) {
-            infos.push(`infografía/inf dia ${dayNum} 1.png`);
-        }
+        // NOTA: Ignoramos explícitamente las versiones "1" (ej: inf dia 3 1.png) 
+        // para asegurar que solo se muestre una infografía a la derecha 
+        // y mantener el layout limpio (como en el día 7).
+    } else if (data && data.infographic) {
+        // 2. Prioridad: Lo que venga definido en el objeto data en caso de que no esté en la lista hardcodeada
+        infos.push(data.infographic);
     }
 
-    // 2. Prioridad: Lo que venga definido en el objeto data
-    if (data && data.infographic) {
-        if (!infos.includes(data.infographic)) {
-            infos.push(data.infographic);
-        }
-    }
-
-    return infos; // Devuelve un array
+    // Limitamos estrictamente a 1 para no romper la visualización apilando dos mapas
+    return infos.slice(0, 1);
 };
 
 // --- GASTRO TIPS & TIMELINE SUGGESTIONS ---
@@ -1675,7 +1672,6 @@ function renderCenterVisual(data, mode, optData = null) {
             `<div class="photo-placeholder"><i class="fa-solid fa-image"></i> Sin imagen</div>`;
 
         card.innerHTML = `
-            ${unifiedHeaderHTML}
         <button onclick="loadDay(${travelData.indexOf(data)})" style="background:transparent; border:none; color:var(--accent); cursor:pointer; font-size:1.1rem; margin-bottom:15px; display:flex; align-items:center;">
             <i class="fa-solid fa-arrow-left" style="margin-right:8px;"></i> Volver al Itinerario
             </button>
@@ -1749,7 +1745,6 @@ function renderCenterVisual(data, mode, optData = null) {
         }
 
         card.innerHTML = `
-             ${unifiedHeaderHTML}
              ${backBtnHTML}
              
              ${imgHTML}

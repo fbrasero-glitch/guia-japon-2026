@@ -104,7 +104,12 @@ const travelData_09_16 = [
                     link: "https://www.google.com/maps/dir/Kyoto+Station/Fushimi+Inari-taisha/",
                     fullDesc: `
                         <h3><i class="fa-solid fa-torii-gate"></i> Fushimi Inari-taisha</h3>
-                        <p>Dedicado a Inari, el dios Shinto del arroz y la prosperidad, este santuario es famoso por sus miles de toriis bermellón.</p>
+                        <p>Dedicado a Inari, el dios Shinto del arroz y la prosperidad, este santuario es famoso por sus miles de toriis bermellón que forman túneles sobre la montaña sagrada.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-person-hiking"></i> <strong>Ascenso:</strong> El camino completo hasta la cima lleva unas 2-3 horas, pero el tramo más denso de toriis (Senbon Torii) está justo al principio.</li>
+                            <li><i class="fa-solid fa-fox"></i> <strong>Zorros Protectores:</strong> Veréis estatuas de zorros (kitsune) por todas partes, llevando la llave del granero en la boca o una joya sagrada.</li>
+                            <li><i class="fa-solid fa-camera"></i> <strong>Fotografía:</strong> Llegar a las 08:00 AM os garantiza fotos limpias de los densos túneles rojos sin aglomeraciones.</li>
+                        </ul>
                     `
                 },
                 {
@@ -115,7 +120,15 @@ const travelData_09_16 = [
                     image: "images/filosofo.png",
                     price: "Gratis",
                     link: "https://www.google.com/maps/search/?api=1&query=Philosopher's+Walk+Kyoto",
-                    fullDesc: `<h3><i class="fa-solid fa-person-walking-zen"></i> Tetsugaku no michi</h3><p>Un paseo contemplativo siguiendo el canal bajo los árboles, ideal para la reflexión.</p>`
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-person-walking-zen"></i> Tetsugaku no michi</h3>
+                        <p>Llamado así por el influyente filósofo japonés del siglo XX, Nishida Kitaro, quien solía meditar aquí mientras caminaba hacia la universidad de Kioto diariamente.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-water"></i> <strong>El Canal:</strong> El sendero empedrado sigue un pequeño canal que conecta Ginkaku-ji con la zona de Nanzen-ji.</li>
+                            <li><i class="fa-solid fa-leaf"></i> <strong>Vegetación:</strong> Famoso por sus cientos de cerezos que forman un dosel floral en primavera, y por el intenso verde que da sombra fresca en verano.</li>
+                            <li><i class="fa-solid fa-cat"></i> <strong>Ambiente:</strong> Encontraréis pequeñas cafeterías encantadoras, tiendas de artesanía local y bastantes gatos descansando.</li>
+                        </ul>
+                    `
                 },
                 {
                     id: "b3",
@@ -127,7 +140,12 @@ const travelData_09_16 = [
                     link: "https://www.google.com/maps/dir/Nishiki+Market/Kinkaku-ji/",
                     fullDesc: `
                         <h3><i class="fa-solid fa-sparkles"></i> Kinkaku-ji (Pabellón Dorado)</h3>
-                        <p>Es, sin duda, la imagen más icónica de Kioto. Sus dos plantas superiores están recubiertas de pan de oro puro.</p>
+                        <p>Originalmente una villa de descanso del shogun Ashikaga Yoshimitsu, se convirtió en templo Zen tras su muerte. Sus dos pisos superiores están completamente recubiertos de pan de oro.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-camera-retro"></i> <strong>El Reflejo:</strong> En días despejados, el edificio dorado se refleja perfectamente en el agua del lago Kyoko-chi.</li>
+                            <li><i class="fa-solid fa-fire"></i> <strong>Historia:</strong> El actual pabellón es de 1955; el original fue quemado en 1950 por un monje novicio obsesionado, historia contada en la novela de Mishima.</li>
+                            <li><i class="fa-solid fa-tree"></i> <strong>Jardín Strolling:</strong> Tras admirar el pabellón, caminaréis por su cuidado jardín de estilo Muromachi.</li>
+                        </ul>
                     `
                 },
                 {
@@ -152,7 +170,12 @@ const travelData_09_16 = [
                 image: "images/dia7-ginkakuji.jpg",
                 fullDesc: `
                     <h3><i class="fa-solid fa-peace"></i> Ryoan-ji</h3>
-                    <p>A solo 15 min caminando desde Kinkaku-ji. Contempla las 15 piedras místicas de su jardín zen.</p>
+                    <p>A solo 15 min caminando desde Kinkaku-ji, este templo alberga el karesansui (jardín de roca seco) más icónico y enigmático de Japón.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-hand-holding-hand"></i> <strong>Las 15 Piedras:</strong> En el mar de grava blanca hay 15 rocas dispuestas en grupos. El diseño es tal que, te sientes donde te sientes, nunca podrás ver las 15 a la vez.</li>
+                        <li><i class="fa-solid fa-brain"></i> <strong>Significado:</strong> Se cree que representa el infinito o islas en el mar, pero no tiene una explicación oficial única, invitando a la meditación.</li>
+                        <li><i class="fa-solid fa-water"></i> <strong>Tsukubai:</strong> Buscad la palangana de piedra para purificarse que tiene la inscripción zen oculta: "Solo sé lo que es suficiente".</li>
+                    </ul>
                 `,
                 link: "https://www.google.com/maps/dir/Kinkaku-ji/Ryoan-ji/"
             }
@@ -634,10 +657,14 @@ const travelData_09_16 = [
                 price: "Donación",
                 image: "images/dia11-shinhotaka.jpg",
                 video: "https://www.youtube.com/watch?v=mG0oR74fL1A",
-                fullDesc: `
-                    <h3><i class="fa-solid fa-water"></i> Onsen Salvaje junto al río</h3>
-                    <p>Un baño rústico al aire libre literalmente pegado al río. Es mixto y los bañadores suelen estar prohibidos (usar toalla grande).</p>
-                `,
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-water"></i> Onsen Salvaje junto al río</h3>
+                        <p>Un baño rústico al aire libre literalmente pegado al río. Es mixto y los bañadores suelen estar prohibidos (usar toalla grande).</p>
+                        <ul>
+                            <li><i class="fa-solid fa-leaf"></i> <strong>Naturaleza Pura:</strong> El agua puede estar muy caliente, pero la brisa fresca del río y las vistas a la montaña compensan.</li>
+                            <li><i class="fa-solid fa-eye-slash"></i> <strong>Privacidad:</strong> Al ser mixto y público, requiere quitarse pudores y fundirse con la costumbre local en un entorno único.</li>
+                        </ul>
+                    `,
                 tacticalOptions: [
                     {
                         title: "PASEO AL ONSEN PÚBLICO",
@@ -656,10 +683,14 @@ const travelData_09_16 = [
                 price: "2.900 JPY",
                 image: "images/dia11-teleferico.jpg",
                 video: "https://www.youtube.com/watch?v=c7vvq-x5T2g",
-                fullDesc: `
-                    <h3><i class="fa-solid fa-cable-car"></i> Teleférico de Dos Pisos</h3>
-                    <p>Sube a más de 2.000 metros para una vista panorámica de los Alpes del Norte. Cierra a las 16:45, la logística debe ser perfecta.</p>
-                `,
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-cable-car"></i> Teleférico de Dos Pisos</h3>
+                        <p>Sube a más de 2.000 metros para una vista panorámica de los Alpes del Norte. Cierra a las 16:45, la logística debe ser perfecta.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-camera"></i> <strong>Vistas de 360°:</strong> Desde la plataforma de observación se ven picos imponentes que rozan los 3.000 metros.</li>
+                            <li><i class="fa-solid fa-snowflake"></i> <strong>Temperatura:</strong> Llevar chaqueta, la temperatura baja drásticamente al cruzar el mar de nubes.</li>
+                        </ul>
+                    `,
                 tacticalOptions: [
                     {
                         title: "CARRERA A LAS NUBES",
@@ -685,6 +716,10 @@ const travelData_09_16 = [
                 fullDesc: `
                     <h3><i class="fa-solid fa-train"></i> El Rayo Escénico</h3>
                     <p>Un vídeo que captura el momento mágico en que el volcán aparece tras la ventana del Shinkansen.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-chair"></i> <strong>El Mejor Asiento:</strong> Si viajáis de Nagoya/Kioto a Tokio, el Fuji aparecerá por las ventanas del lado izquierdo (Asientos E).</li>
+                        <li><i class="fa-solid fa-cloud"></i> <strong>Suerte climática:</strong> Verlo requiere suerte, ya que las nubes suelen cubrirlo velózmente.</li>
+                    </ul>
                 `
             },
             {
@@ -700,6 +735,9 @@ const travelData_09_16 = [
                 fullDesc: `
                     <h3><i class="fa-solid fa-water"></i> Cascada Hirayu</h3>
                     <p>Una de las mejores cascadas de Japón. El entorno es muy fresco y el sonido del agua cayendo entre las rocas volcánicas es revitalizante.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-person-hiking"></i> <strong>Caminata Fácil:</strong> Un paseo pavimentado de 15 minutos desde la parada de autobús os dejará a sus pies.</li>
+                    </ul>
                 `
             },
             {
@@ -731,6 +769,9 @@ const travelData_09_16 = [
                 fullDesc: `
                     <h3><i class="fa-solid fa-moon"></i> Paseo Nocturno</h3>
                     <p>Un plan de 'desconexión total' tras la cena Kaiseki. El silencio de la montaña y el vapor de las aguas termales crean un ambiente único.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-shoe-prints"></i> <strong>Vestimenta:</strong> Salid en Yukata y Geta (sandalias de madera). Escuchar el cloc-cloc de la madera en la noche es puramente japonés.</li>
+                    </ul>
                 `
             }
         ]
@@ -847,7 +888,11 @@ const travelData_09_16 = [
                 video: "https://www.youtube.com/watch?v=jDMq_m1fpzI",
                 fullDesc: `
                     <h3><i class="fa-solid fa-landmark"></i> Takayama Jinya</h3>
-                    <p>Única oficina del gobierno del periodo Edo que queda en pie. Incluye el pabellón de justicia (con herramientas de interrogatorio) y enormes almacenes de arroz.</p>
+                    <p>Única oficina del gobierno del periodo Edo que queda en pie, instalada directamente por el shogunato Tokugawa para administrar sus ricas tierras madereras.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-scale-balanced"></i> <strong>Justicia:</strong> Se puede ver la sala de interrogatorios de madera.</li>
+                        <li><i class="fa-solid fa-warehouse"></i> <strong>Graneros de Arroz:</strong> Solían almacenar el impuesto de la región, que se cobraba en arroz en lugar de dinero.</li>
+                    </ul>
                 `,
                 tacticalOptions: [
                     {
@@ -869,7 +914,10 @@ const travelData_09_16 = [
                 video: "https://www.youtube.com/watch?v=4U0_0R4R_A0",
                 fullDesc: `
                     <h3><i class="fa-solid fa-masks-theater"></i> Exposición de Carrozas</h3>
-                    <p>Muestra las espectaculares y gigantescas carrozas de madera adornadas que desfilan en los festivales de primavera y otoño.</p>
+                    <p>Muestra las espectaculares y gigantescas carrozas de madera adornadas que desfilan en los festivales de Takayama, considerados de los más bellos de Japón.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-gem"></i> <strong>Detalle Extremo:</strong> Apreciaréis de cerca las intrincadas tallas, trabajos de orfebrería y complejas marionetas mecánicas.</li>
+                    </ul>
                 `
             },
             {
@@ -882,7 +930,10 @@ const travelData_09_16 = [
                 video: "https://www.youtube.com/watch?v=x7Eof_uWkic",
                 fullDesc: `
                     <h3><i class="fa-solid fa-tree"></i> Ruta de Templos</h3>
-                    <p>Un paseo tranquilo alejado de las rutas comerciales comerciales, siguiendo en parte el diseño del Kioto original.</p>
+                    <p>Un paseo tranquilo alejado de las rutas comerciales, diseñado en el siglo XVI para emular los templos de la zona de Higashiyama en Kioto.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-person-walking"></i> <strong>Paz Absoluta:</strong> Un sendero de varios km que serpentea por laderas boscosas y panteones centenarios llenos de musgo.</li>
+                    </ul>
                 `
             }
         ],
@@ -899,7 +950,10 @@ const travelData_09_16 = [
                 video: "https://www.youtube.com/watch?v=M9-y_fG25m4",
                 fullDesc: `
                     <h3><i class="fa-solid fa-house-chimney"></i> Aldea Folclórica de Hida</h3>
-                    <p>Gemelo de Shirakawa-go pero en Takayama. Podréis entrar en casas reales y ver demostraciones de artesanía.</p>
+                    <p>Museo al aire libre. Podréis entrar en decenas de casas reales desmontadas de los alpes y reensambladas aquí, con sus enormes tejados de paja (estilo Gassho-zukuri).</p>
+                    <ul>
+                        <li><i class="fa-solid fa-fire"></i> <strong>Vida Tradicional:</strong> En el interior de las casas aún encienden los hogares (irori) haciéndoos sentir en el Japón rural de hace siglos.</li>
+                    </ul>
                 `
             },
             {
@@ -914,8 +968,11 @@ const travelData_09_16 = [
                 link: "https://www.google.com/maps/search/?api=1&query=Matsuri+no+Mori",
                 tacticalGuideId: "mission_matsuri_no_mori",
                 fullDesc: `
-                    <h3><i class="fa-solid fa-masks-theater"></i> Museo del Festival</h3>
-                    <p>Alberga las carrozas más modernas con autómatas mecánicos que realizan demostraciones.</p>
+                    <h3><i class="fa-solid fa-masks-theater"></i> Museo del Festival Subterráneo</h3>
+                    <p>Alberga las carrozas más modernas con autómatas mecánicos (karakuri) que realizan demostraciones.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-drum"></i> <strong>Tambores Gigantes:</strong> Escondido en una cueva excavada en la montaña, encontraréis los tambores Taiko más grandes del mundo.</li>
+                    </ul>
                 `
             },
             {
@@ -930,7 +987,10 @@ const travelData_09_16 = [
                 video: "https://www.youtube.com/watch?v=mD-mG8zM8Gk",
                 fullDesc: `
                     <h3><i class="fa-solid fa-peace"></i> Sakurayama Hachimangu</h3>
-                    <p>Un santuario que ofrece paz absoluta. Es el lugar donde se celebra el festival de otoño de Takayama.</p>
+                    <p>Un santuario que ofrece paz absoluta, guardián del norte de la ciudad. Es el lugar donde se celebra el espectacular festival de otoño de Takayama.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-tree"></i> <strong>Naturaleza:</strong> Su recinto está flanqueado por gigantescos cedros centenarios, creando una atmósfera de profundo misticismo.</li>
+                    </ul>
                 `
             }
         ]
@@ -1008,6 +1068,9 @@ const travelData_09_16 = [
                     fullDesc: `
                         <h3><i class="fa-solid fa-bus"></i> Expreso Takayama ➔ Kawaguchiko</h3>
                         <p>Aprovechad para dormir. A medio camino el paisaje cambia radicalmente revelando poco a poco la inmensa silueta cónica del Fuji.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-mountain-sun"></i> <strong>Lado Izquierdo:</strong> Las mejores vistas al aproximarse a Kawaguchiko suelen estar en las ventanillas izquierdas.</li>
+                        </ul>
                     `
                 },
                 {
@@ -1019,7 +1082,10 @@ const travelData_09_16 = [
                     price: "Coche Alquiler",
                     fullDesc: `
                         <h3><i class="fa-solid fa-car-side"></i> Operación Conducción Nipona</h3>
-                        <p>Iván o Felipe: Os tocará conducir por la izquierda. El GPS vendrá configurado. La velocidad máxima suele ser 60km/h en estas vías montañosas. ¡Precaución máxima!</p>
+                        <p>Iván o Felipe: Os tocará conducir por la izquierda. El coche proporciona la única forma de moverse libremente alrededor de los lagos.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-traffic-light"></i> <strong>Tráfico:</strong> Las carreteras son estupendas, pero los límites de velocidad rondan 40-50 km/h y hay que pararse 100% en pasos a nivel.</li>
+                        </ul>
                     `,
                     booking: { id: "bk_coches", timeframe: "2-3 meses antes", required: true, link: "https://www.budgetrentacar.co.jp/en/" }
                 },
@@ -1032,6 +1098,9 @@ const travelData_09_16 = [
                     fullDesc: `
                         <h3><i class="fa-solid fa-bed"></i> Instalación en Kawaguchiko</h3>
                         <p>Dejad las maletas, refrescaos y preparad las cámaras. Aquí es donde empieza vuestra aventura real en la naturaleza japonesa.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-cloud"></i> <strong>El Clima:</strong> El Fuji crea su propio microclima; revisad la cámara 'Fuji Live Cam' antes de salir.</li>
+                        </ul>
                     `
                 },
                 {
@@ -1056,7 +1125,10 @@ const travelData_09_16 = [
                     image: "images/fuji_lago.png",
                     fullDesc: `
                         <h3><i class="fa-solid fa-person-walking-zen"></i> Paseo por el Lago</h3>
-                        <p>Caminad por los senderos habilitados bordeando el agua. Es el momento perfecto para capturar el reflejo del Fuji si el viento está en calma y disfrutar de la brisa alpina antes del clímax del día.</p>
+                        <p>Caminad por los senderos habilitados bordeando el agua. Es el momento perfecto para estirar las piernas tras el largo viaje.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-camera"></i> <strong>El Reflejo:</strong> Si el viento está en calma al atardecer, es posible capturar el raro "Fuji Invertido" reflejado en el agua.</li>
+                        </ul>
                     `
                 },
                 {
@@ -1068,7 +1140,10 @@ const travelData_09_16 = [
                     image: "images/oishi_park_atardecer.jpg",
                     fullDesc: `
                         <h3><i class="fa-solid fa-cloud-sun"></i> Sunset en Oishi Park</h3>
-                        <p>El Oishi Park ofrece una de las mejores vistas panorámicas. Rodeados de flores, veréis cómo el sol se oculta tras el Fuji, creando una silueta negra imponente contra un cielo encendido.</p>
+                        <p>El Oishi Park ofrece una de las mejores vistas panorámicas, famoso por sus mantos de flores estacionales (lavanda, kochia).</p>
+                        <ul>
+                            <li><i class="fa-solid fa-image"></i> <strong>Momento Mágico:</strong> Veréis cómo el sol se oculta tras el Fuji, creando una silueta negra imponente contra un cielo encendido.</li>
+                        </ul>
                     `
                 }
             ]
@@ -1087,7 +1162,10 @@ const travelData_09_16 = [
                 video: "https://www.youtube.com/watch?v=vN3p7qBAnIs",
                 fullDesc: `
                     <h3><i class="fa-solid fa-music"></i> Bosque de la Música</h3>
-                    <p>Jardines con estética suiza y una de las mejores vistas encuadradas del Monte Fuji.</p>
+                    <p>Jardines con estética europea del siglo XIX y panorámicas espectaculares al Fuji.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-clock-rotate-left"></i> <strong>Cajas Mágicas:</strong> El museo exhibe impresionantes órganos mecánicos antiguos, algunos pensados originalmente para el Titanic.</li>
+                    </ul>
                 `
             }
         ]
@@ -1254,10 +1332,13 @@ const travelData_09_16 = [
                 video: "https://www.youtube.com/watch?v=VJEA0kMdaV0",
                 link: "https://www.google.com/maps/search/?api=1&query=Aokigahara+Forest",
                 tacticalGuideId: "mission_fuji_caves",
-                fullDesc: `
-                    <h3><i class="fa-solid fa-snowflake"></i> Cuevas del Fuji</h3>
-                    <p>Experiencia de aventura suave en las profundidades de la lava del Fuji. Un alivio térmico increíble.</p>
-                `
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-snowflake"></i> Cuevas del Fuji</h3>
+                        <p>Experiencia de aventura suave en las profundidades de la lava del Fuji. Un alivio térmico increíble.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-icicles"></i> <strong>Cueva del Viento/Hielo:</strong> Con temperaturas medias de 3°C en verano, fue usada históricamente como almacén natural.</li>
+                        </ul>
+                    `
             }
         ]
     },
@@ -1371,10 +1452,13 @@ const travelData_09_16 = [
                 image: "images/dia14-shiraito.jpg",
                 recommended: true,
                 video: "https://www.youtube.com/watch?v=K-lEnA7-QpY",
-                fullDesc: `
-                    <h3><i class="fa-solid fa-water"></i> Cascadas de Hilo Blanco</h3>
-                    <p>Un muro curvo de 150 metros de ancho por donde se vierten las aguas del deshielo del monte Fuji creando innumerables cascadas finas como hilos de seda. Temperatura fresca incluso en verano.</p>
-                `,
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-water"></i> Cascadas de Hilo Blanco</h3>
+                        <p>Un muro curvo de 150 metros de ancho por donde se vierten las aguas del deshielo del monte Fuji creando innumerables saltos finos como hilos de seda.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-camera"></i> <strong>Brisa Refrescante:</strong> El rocío constante de las cataratas ofrece un alivio térmico perfecto frente al sol estival y forma arcoíris espectaculares.</li>
+                        </ul>
+                    `,
                 tacticalOptions: [
                     {
                         title: "RUTA AL SUROESTE",
@@ -1393,10 +1477,13 @@ const travelData_09_16 = [
                 price: "500 JPY",
                 image: "images/dia15-iyashi.jpg",
                 video: "https://www.youtube.com/watch?v=e_B64Y07SV0",
-                fullDesc: `
-                    <h3><i class="fa-solid fa-house"></i> Alda Museo Saiko Iyashi</h3>
-                    <p>Antiguo poblado agrícola reconstruido tras un tifón de los 60. Preciosas fotos de paja contra el volcán y posibilidad ridícula (¡y obligatoria!) de probarse armaduras de papel maché samurai.</p>
-                `
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-house"></i> Alda Museo Saiko Iyashi</h3>
+                        <p>Antiguo poblado agrícola a orillas del lago Saiko reconstruido maravillosamente con casas de tejados de paja (kayabuki).</p>
+                        <ul>
+                            <li><i class="fa-solid fa-mask"></i> <strong>Armaduras Samurái:</strong> Podréis alquilar kimonos o armaduras por 500 JPY y haceros fotos épicas con el pueblo medieval y volcán Fuji de fondo.</li>
+                        </ul>
+                    `
             },
             {
                 id: "c3",
@@ -1406,10 +1493,13 @@ const travelData_09_16 = [
                 price: "Gratis",
                 image: "images/dia15-honcho-street.jpg",
                 video: "https://www.youtube.com/watch?v=2rrUQEVWKVE",
-                fullDesc: `
-                    <h3><i class="fa-solid fa-camera"></i> La Calle de Instagram</h3>
-                    <p>Honcho Street tiene esa vibra noventera retro. Ojo con el tráfico, la policía local está cansada de los turistas parando en medio de la calle principal para hacer fotos. Disparad rápido desde las aceras laterales.</p>
-                `
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-camera"></i> La Calle de Instagram</h3>
+                        <p>Honcho Street tiene esa vibra noventera retro. La avenida de cables y rótulos enmarca maravillosamente el imponente Monte Fuji.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-triangle-exclamation"></i> <strong>Peligro Vehicular:</strong> Ojo con el tráfico, la policía local está cansada de los turistas parando en medio. Disparad desde aceras.</li>
+                        </ul>
+                    `
             }
         ],
         additionalExcursions: [
@@ -1423,10 +1513,13 @@ const travelData_09_16 = [
                 link: "https://www.google.com/maps/search/?api=1&query=Fujisan+Hongu+Sengen+Taisha",
                 tacticalGuideId: "mission_fujinomiya_shrine",
                 video: "https://www.youtube.com/watch?v=rBJpHPcVj0k",
-                fullDesc: `
-                    <h3><i class="fa-solid fa-water"></i> Santuario de Fujinomiya</h3>
-                    <p>Posee el estanque Wakutama-ike de agua cristalina que brota directamente de la roca volcánica.</p>
-                `
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-water"></i> Santuario de Fujinomiya</h3>
+                        <p>El santuario principal de los más de 1.300 dedicados a Sengen en todo Japón, protector tradicional del cráter del volcán.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-droplet"></i> <strong>Wakutama-ike:</strong> Posee un estanque de agua cristalina que brota directamente de la roca volcánica tras décadas de filtrado.</li>
+                        </ul>
+                    `
             }
         ]
     },
@@ -1504,10 +1597,13 @@ const travelData_09_16 = [
                     description: "En Kawaguchiko Station. Último trámite antes de subir al tren.",
                     image: "images/dia16-coche.jpg",
                     price: "Llenar depósito",
-                    fullDesc: `
-                        <h3><i class="fa-solid fa-gas-pump"></i> Operación Repostaje</h3>
-                        <p>Llenad el depósito en la gasolinera (ENEOS u otra) más cercana a la oficina de Budget. ¡Misión cumplida en la carretera montañosa! <strong>Atención:</strong> Las agencias piden revisar el tapón llenado y a veces ver el ticket final de compra de gasolina.</p>
-                    `
+                        fullDesc: `
+                            <h3><i class="fa-solid fa-gas-pump"></i> Operación Repostaje</h3>
+                            <p>Llenad el depósito en la gasolinera (ENEOS u otra) más cercana a la oficina de Budget en Kawaguchiko.</p>
+                            <ul>
+                                <li><i class="fa-solid fa-receipt"></i> <strong>Justificante:</strong> Guardad con mucho cuidado el ticket de compra de gasolina de la estación, los agentes de rent-a-car suelen exigirlo.</li>
+                            </ul>
+                        `
                 },
                 {
                     id: "b2",
@@ -1516,10 +1612,13 @@ const travelData_09_16 = [
                     description: "Tren Expreso Especial que no requiere transbordos. Fin del descanso.",
                     image: "images/tokio_skyline.png",
                     price: "JR Pass + Supl",
-                    fullDesc: `
-                        <h3><i class="fa-solid fa-train"></i> Rumbo a la Capital del Mundo Orientral</h3>
-                        <p>Traslado directo a la estación de Shinjuku. Entrar en Tokio por Shinjuku es un golpe frontal: neones incesantes, multitudes cruzando en todas direcciones, publicidad auditiva. Bienvenidos a Cyberpunk.</p>
-                    `
+                        fullDesc: `
+                            <h3><i class="fa-solid fa-train"></i> Rumbo a la Capital Ciberpunk</h3>
+                            <p>Traslado directo a la estación de Shinjuku mediante el Fuji Excursion. Entrar en Tokio por Shinjuku es un golpe frontal.</p>
+                            <ul>
+                                <li><i class="fa-solid fa-people-arrows"></i> <strong>Choque Cultural:</strong> Tras días de paz alpina, la multitud de Shinjuku, sus neones incesantes y el volumen general serán apabullantes.</li>
+                            </ul>
+                        `
                 },
                 {
                     time: "14:00",
@@ -1550,10 +1649,14 @@ const travelData_09_16 = [
                 description: "Edificio del Gobierno Metropolitano en Shinjuku. Vistas gratis 360º desde la planta 45.",
                 price: "Gratis",
                 image: "images/dia18-tocho.jpg",
-                fullDesc: `
-                    <h3><i class="fa-solid fa-building"></i> Ascensor a las Estrellas</h3>
-                    <p>Subida hiperveloz gratuita al mirador (observatorio Sur o Norte). Al ser gratis suele haber una cola manejable de 20-30 mins de subida. Vistas que dominan hasta el monte Fuji si el cielo está despejado. Hay un piano público decorado por Yayoi Kusama arriba.</p>
-                `,
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-building"></i> Ascensor a las Estrellas</h3>
+                        <p>Subida hiperveloz gratuita al mirador del Edificio Metropolitano del Gobierno (observatorio Sur o Norte).</p>
+                        <ul>
+                            <li><i class="fa-solid fa-mountain"></i> <strong>Vistas Gratis:</strong> A diferencia de la Tokyo Skytree, la entrada es libre. En días despejados domina hasta el monte Fuji.</li>
+                            <li><i class="fa-solid fa-music"></i> <strong>Piano Público:</strong> Arriba suele haber un grandioso piano decorado por Yayoi Kusama.</li>
+                        </ul>
+                    `,
                 tacticalOptions: [
                     {
                         title: "MIRADOR EN SHINJUKU",
@@ -1576,10 +1679,13 @@ const travelData_09_16 = [
                 video: "https://www.youtube.com/watch?v=oR7AAgVv0_g",
                 link: "https://www.google.com/maps/search/?api=1&query=Samurai+Restaurant+Time+Shinjuku",
                 tacticalGuideId: "mission_samurai_show",
-                fullDesc: `
-                    <h3><i class="fa-solid fa-drum"></i> Locura en Kabukicho</h3>
-                    <p>Un espectáculo de luces, tambores Taiko y coreografías samurái modernas en el corazón de Shinjuku.</p>
-                `
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-drum"></i> Locura en Kabukicho</h3>
+                        <p>Un espectáculo de luces, tambores Taiko y coreografías samurái modernas en el corazón del distrito rojo de Shinjuku.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-bolt"></i> <strong>Kitsch de Neón:</strong> Es el heredero del mítico 'Robot Restaurant'. Muy turístico, escandaloso e increíblemente extravagante y divertido.</li>
+                        </ul>
+                    `
             },
             {
                 id: "add_koishikawa",
@@ -1591,10 +1697,13 @@ const travelData_09_16 = [
                 link: "https://www.google.com/maps/search/?api=1&query=Koishikawa+Korakuen+Garden",
                 tacticalGuideId: "mission_koishikawa",
                 video: "https://www.youtube.com/watch?v=ZiE9L77S_pk",
-                fullDesc: `
-                    <h3><i class="fa-solid fa-tree"></i> Jardín Koishikawa Korakuen</h3>
-                    <p>Construido por el clan Tokugawa. Utiliza elementos chinos y japoneses. Un oasis de paz al lado de vuestro hotel para vuestro primer contacto con Tokio.</p>
-                `
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-tree"></i> Jardín Koishikawa Korakuen</h3>
+                        <p>Construido en el periodo Edo por el clan Tokugawa, es uno de los pulmones verdes con más historia de la ciudad.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-yin-yang"></i> <strong>Diseño Dual:</strong> Utiliza técnicas de paisajismo que reproducen famosos escenarios naturales chinos y japoneses en forma miniatura.</li>
+                        </ul>
+                    `
             },
             {
                 id: "add_shinjuku_gyoen",
@@ -1606,10 +1715,13 @@ const travelData_09_16 = [
                 link: "https://www.google.com/maps/search/?api=1&query=Shinjuku+Gyoen+National+Garden",
                 tacticalGuideId: "mission_shinjuku_gyoen",
                 video: "https://www.youtube.com/watch?v=dvIxjRdvbeo",
-                fullDesc: `
-                    <h3><i class="fa-solid fa-leaf"></i> Shinjuku Gyoen</h3>
-                    <p>Un pulmón de paz en medio de los rascacielos. Ideal para caminar en grupo sin agobios.</p>
-                `
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-leaf"></i> Parque Imperial Shinjuku Gyoen</h3>
+                        <p>Un inmenso parque en medio de los rascacielos. Ideal para caminar en grupo sin agobios y organizar un pícnic bajo los árboles.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-seedling"></i> <strong>Tres Estilos:</strong> Combina un meticuloso jardín tradicional japonés, un geométrico jardín formal francés y un amplio paisaje paisajista inglés.</li>
+                        </ul>
+                    `
             }
         ]
     },

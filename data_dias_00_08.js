@@ -182,7 +182,7 @@ const travelData_00_08 = [
                         },
                         {
                             title: "Confirmar transporte local y reservas",
-                            desc: "Revisar horarios Haruka/limousine bus, confirmar vans y reservas de taxis para llegada y salida.",
+                            desc: "Comprobar confirmación de vans y taxis reservados previamente para llegada directa al hotel y salidas.",
                             who: "Responsable de logística."
                         }
                     ]
@@ -293,9 +293,9 @@ const travelData_00_08 = [
         day: 2, type: "travel",
         date: "Mar, 28 Julio", title: "🎌 Aterrizaje en Japón",
         coords: [34.434, 135.244], zoom: 12,
-        hotel: "Hotel Wing International Select Osaka Umeda",
-        hotelImage: "images/hotel-wing-osaka.jpg",
-        hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Hotel+Wing+International+Select+Osaka+Umeda",
+        hotel: "Dc桜の苑-難波南店",
+        hotelImage: "images/hotel-dc-sakura.jpg",
+        hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Dc桜の苑-難波南店",
         image: "images/dia2-osaka.jpg", // Foto llegada
 
         logistics: [
@@ -310,16 +310,16 @@ const travelData_00_08 = [
         ],
 
         prices: {
-            transport: "~3.600-4.800 JPY (3-4 taxis o van de 8 plazas desde Osaka Station, dividido entre 8 = ~450-600 JPY por persona)",
+            transport: "~15.000-20.000 JPY (Reserva de taxi/van directa desde el aeropuerto hasta el hotel, dividido entre 8 = ~2000-2500 JPY por persona)",
             food: "~500 JPY (Onigiri/Sándwich)",
-            total: "~950-1.100 JPY (6-7€) por persona"
+            total: "~2500-3000 JPY por persona"
         },
 
         timeline: [
             { time: "08:40", title: "Vuelo a Osaka", desc: "Salida TK86. Duración 11h 10m." },
             { time: "18:50", title: "Aterrizaje KIX", desc: "Inmigración (QR Visit Japan) y recogida de maletas." },
-            { time: "20:15", title: "Tren Haruka Express", desc: "Ticket hasta Osaka Station. ~50 min trayecto reservado." },
-            { time: "21:30", title: "Taxi al Hotel", desc: "Desde Osaka Station. Reservad 3-4 taxis o una van de 8 plazas. Enseñad dirección en japonés. Coste ~1.200 JPY por taxi (total ~3.600-4.800 JPY para grupo de 8)." },
+            { time: "20:15", title: "Taxi Directo al Hotel", desc: "Nos recoge el taxi/van que hemos reservado previamente en el aeropuerto de Kansai (KIX)." },
+            { time: "21:30", title: "Llegada al Hotel", desc: "Llegada directa al hotel Dc桜の苑-難波南店 en el taxi reservado." },
             { time: "22:00", title: "Cena y Dormir", desc: "Onigiri/Sándwich en Lawson. Dormir inmediatamente para vencer al jet lag." }
         ],
 
@@ -334,9 +334,9 @@ const travelData_00_08 = [
         day: 3, type: "stay",
         date: "Mié, 29 Julio", title: "🏯 Osaka: Samuráis y Neones",
         coords: [34.687, 135.526], zoom: 13,
-        hotel: "Hotel Wing International Select Osaka Umeda",
-        hotelImage: "images/hotel-wing-osaka.jpg",
-        hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Hotel+Wing+International+Select+Osaka+Umeda",
+        hotel: "Dc桜の苑-難波南店",
+        hotelImage: "images/hotel-dc-sakura.jpg",
+        hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Dc桜の苑-難波南店",
         image: "images/dia3-portada.jpg",
 
         logistics: [
@@ -368,7 +368,7 @@ const travelData_00_08 = [
                 title: "Tren: JR Osaka Loop Line (Rojo)",
                 price: "180 JPY",
                 timeLabel: "~25 min total",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Wing+International+Select+Osaka+Umeda&destination=Osakajokoen+Station&travelmode=transit",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Dc桜の苑-難波南店&destination=Osakajokoen+Station&travelmode=transit",
                 tacticalGuideId: "mission01"
             },
             { time: "09:30", type: "point", title: "Llegada a Castillo Osaka", icon: "fa-solid fa-fort-awesome" },
@@ -413,10 +413,10 @@ const travelData_00_08 = [
             {
                 time: "",
                 type: "transit",
-                title: "Línea Midosuji (Namba → Umeda) + Caminata",
-                price: "230 JPY",
-                timeLabel: "~20 min total",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Dotonbori&destination=Hotel+Wing+International+Select+Osaka+Umeda&travelmode=transit",
+                title: "JR Yamatoji Line (JR Namba → Imamiya) o caminar",
+                price: "140 JPY",
+                timeLabel: "~15 min total",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Dotonbori&destination=Dc桜の苑-難波南店&travelmode=transit",
                 tacticalGuideId: "mission04"
             },
             { time: "22:00", type: "point", title: "Retorno al Hotel", icon: "fa-solid fa-bed" }
@@ -434,7 +434,7 @@ const travelData_00_08 = [
                     description: "Construido en 1583. Torres, murallas y museo histórico.",
                     image: "images/dia3-itinerario-base.jpg",
                     price: "600 JPY",
-                    link: "https://www.google.com/maps/dir/Hotel+Wing+International+Select+Osaka+Umeda/Osaka+Castle/",
+                    link: "https://www.google.com/maps/dir/Dc桜の苑-難波南店/Osaka+Castle/",
                     fullDesc: `
                         <h3><i class="fa-solid fa-castle"></i> Castillo de Osaka</h3>
                         <p>Símbolo innegable de la ciudad. Originalmente construido en 1583 por el señor de la guerra Toyotomi Hideyoshi, fue diseñado para ser el centro de una nueva y unificada nación japonesa bajo su dominio. Aunque la imponente torre actual es una reconstrucción de 1931 (restaurada en 1997), se asienta sobre las formidables murallas y fosos de piedra originales de la era Tokugawa.</p>
@@ -544,7 +544,7 @@ const travelData_00_08 = [
                     time: "22:00",
                     title: "Retorno al Hotel",
                     description: "Fin de la jornada. Descanso en el Cuartel General.",
-                    image: "images/hotel-wing-osaka.jpg",
+                    image: "images/hotel-dc-sakura.jpg",
                     price: "Gratis"
                 }
             ]
@@ -664,9 +664,9 @@ const travelData_00_08 = [
         day: 4, exactDate: "2026-07-30", type: "stay",
         date: "Jue, 30 Julio", title: "🐙 Osaka: Sabores y Compras",
         coords: [34.665, 135.502], zoom: 14,
-        hotel: "Hotel Wing International Select Osaka Umeda",
-        hotelImage: "images/hotel-wing-osaka.jpg",
-        hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Hotel+Wing+International+Select+Osaka+Umeda",
+        hotel: "Dc桜の苑-難波南店",
+        hotelImage: "images/hotel-dc-sakura.jpg",
+        hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Dc桜の苑-難波南店",
         image: "images/dia3-portada.jpg",
         infographic: "infografía/inf dia 4.png",
 
@@ -676,14 +676,14 @@ const travelData_00_08 = [
         ],
 
         transportTimeline: [
-            { time: "08:30", type: "point", title: "Hotel Wing (Umeda)", icon: "fa-solid fa-hotel" },
+            { time: "08:30", type: "point", title: "Hotel (Nakahiraki)", icon: "fa-solid fa-hotel" },
             {
                 time: "",
                 type: "transit",
-                title: "Tren: Línea Midosuji + Nankai Main Line",
-                price: "490 JPY",
-                timeLabel: "~35 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Wing+International+Select+Osaka+Umeda&destination=Sumiyoshi+Taisha&travelmode=transit"
+                title: "Tren: Nankai Koya Line hasta Sumiyoshihigashi o JR",
+                price: "240 JPY",
+                timeLabel: "~20 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Dc桜の苑-難波南店&destination=Sumiyoshi+Taisha&travelmode=transit"
             },
             { time: "09:00", type: "point", title: "Sumiyoshi Taisha e Isshinji", icon: "fa-solid fa-archway" },
             {
@@ -742,12 +742,12 @@ const travelData_00_08 = [
             {
                 time: "",
                 type: "transit",
-                title: "Línea Midosuji (Namba → Umeda)",
-                price: "240 JPY",
-                timeLabel: "~15 min",
+                title: "JR Yamatoji Line (JR Namba → Imamiya)",
+                price: "140 JPY",
+                timeLabel: "~5 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Namba+Station&destination=Umeda+Station&travelmode=transit"
             },
-            { time: "22:00", type: "point", title: "Retorno al Hotel Wing (Umeda)", icon: "fa-solid fa-bed" }
+            { time: "22:00", type: "point", title: "Retorno al Hotel", icon: "fa-solid fa-bed" }
         ],
 
         timeline: [
@@ -816,8 +816,13 @@ const travelData_00_08 = [
                     image: "images/dia3-shinsekai.jpg",
                     price: "~1.500 JPY",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-users"></i> Punto de Encuentro: Shinsekai</h3>
-                        <p>Aquí os reunís con el grupo del acuario. Disfrutáis del ambiente retro y coméis las famosas brochetas <strong>Kushikatsu</strong> bajo la Torre Tsutenkaku.</p>
+                        <h3><i class="fa-solid fa-ghost"></i> Shinsekai: El "Mundo Nuevo" Retro</h3>
+                        <p>Inaugurado en 1912 como un ambicioso distrito de entretenimiento, Shinsekai se inspiró en París (mitad norte) y Nueva York (mitad sur). Hoy es el alma retro de Osaka, un lugar que parece haberse detenido en la posguerra japonesa.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-tower-observation"></i> <strong>Torre Tsutenkaku:</strong> El símbolo del barrio. Frotad los pies de la estatua de Billiken para tener buena suerte.</li>
+                            <li><i class="fa-solid fa-bowl-food"></i> <strong>Kushikatsu:</strong> La especialidad local. Pinchos fritos deliciosos. ¡Prohibido mojar dos veces en la salsa!</li>
+                            <li><i class="fa-solid fa-gamepad"></i> <strong>Arcades Retro:</strong> El Janjan Yokocho está lleno de salones de juego de los años 80 y 90.</li>
+                        </ul>
                     `
                 },
                 {
@@ -829,8 +834,13 @@ const travelData_00_08 = [
                     price: "Gratis",
                     link: "https://www.google.com/maps/search/?api=1&query=Nipponbashi+Den+Den+Town",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-robot"></i> Den Den Town</h3>
-                        <p>Caminando hacia el norte desde Shinsekai entraréis en el paraíso otaku. Figuras, videojuegos retro y electrónica.</p>
+                        <h3><i class="fa-solid fa-microchip"></i> Den Den Town: El Paraíso Otaku</h3>
+                        <p>Conocido como el Akihabara de Osaka, este distrito es el centro neurálgico para los amantes de la tecnología, el anime y el manga en el oeste de Japón. Menos masificado que su contraparte de Tokio, pero igual de fascinante.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-plug"></i> <strong>Electrónica:</strong> Desde componentes de PC raros hasta gadgets de última generación en tiendas como Joshin o Sofmap.</li>
+                            <li><i class="fa-solid fa-robot"></i> <strong>Cultura Pop:</strong> Tiendas inmensas de figuras (Jungle, Animate) y centros de gachapon gigantescos.</li>
+                            <li><i class="fa-solid fa-dragon"></i> <strong>Lawson Dragon Quest:</strong> Una tienda de conveniencia temática única que merece una foto rápida.</li>
+                        </ul>
                     `
                 },
                 {
@@ -842,8 +852,13 @@ const travelData_00_08 = [
                     price: "Gratis",
                     link: "https://www.google.com/maps/search/?api=1&query=Namba+Parks",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-tree"></i> Namba Parks</h3>
-                        <p>Relax en el bosque ascendente entre rascacielos. Perfecto para ver el atardecer.</p>
+                        <h3><i class="fa-solid fa-tree"></i> Namba Parks: Un Cañón Urbano</h3>
+                        <p>Construido sobre el antiguo estadio de béisbol de Osaka, este complejo rompe la rigidez del cemento con una arquitectura inspirada en un cañón natural esculpido por el viento y el agua.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-cloud-sun"></i> <strong>Jardín Colgante:</strong> 8 niveles de terrazas, cascadas y más de 70,000 plantas que crean un microclima fresco en plena ciudad.</li>
+                            <li><i class="fa-solid fa-compass"></i> <strong>Exploración:</strong> Un laberinto de tiendas y restaurantes que se integran con la naturaleza en cada piso.</li>
+                            <li><i class="fa-solid fa-moon"></i> <strong>Iluminación:</strong> Visita recomendada al atardecer para ver el jardín iluminado.</li>
+                        </ul>
                     `
                 },
                 {
@@ -853,7 +868,15 @@ const travelData_00_08 = [
                     description: "Gran cena de carne planificada para todo el grupo.",
                     image: "images/dia3-portada.jpg",
                     price: "~5.000 JPY",
-                    fullDesc: `<h3><i class="fa-solid fa-drumstick-bite"></i> Comilona de Carnaca</h3><p>Cierre épico gastronómico para todo el grupo.</p>`,
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-utensils"></i> Festín de Carne en Namba</h3>
+                        <p>Osaka es conocida como "la cocina de Japón" and el barrio de Namba es su epicentro. Aquí la carne no es solo comida, es una experiencia religiosa de veteado and sabor.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-fire"></i> <strong>Yakiniku:</strong> Barbacoa japonesa donde cocináis vuestros propios cortes de carne sobre brasas de carbón.</li>
+                            <li><i class="fa-solid fa-gem"></i> <strong>Cortes Premium:</strong> Buscad los locales que ofrecen ternera de calidad A5 para una explosión de sabor en boca.</li>
+                            <li><i class="fa-solid fa-beer-mug-empty"></i> <strong>Izakaya:</strong> El ambiente ruidoso and alegre de los callejones de Namba es el acompañamiento perfecto para este banquete.</li>
+                        </ul>
+                    `,
                     video: "https://www.youtube.com/watch?v=sOidw_0XqP4"
                 }
             ]
@@ -869,9 +892,13 @@ const travelData_00_08 = [
                 image: "images/dia3-acuario.jpg",
                 recommended: true,
                 fullDesc: `
-                    <h3><i class="fa-solid fa-water"></i> Acuario Kaiyukan (Opción Mañana)</h3>
-                    <p>Uno de los acuarios más grandes del mundo. El centro abre a las 10:00.</p>
-                    <p><strong>IMPORTANTE:</strong> Debéis salir hacia las 12:30 para estar en Shinsekai a las 13:00 para reuniros con el grupo principal.</p>
+                    <h3><i class="fa-solid fa-fish"></i> Acuario Kaiyukan: El Océano Pacífico</h3>
+                    <p>Considerado uno de los mejores acuarios del mundo, el Kaiyukan recrea los ecosistemas del Anillo de Fuego del Pacífico con una fidelidad asombrosa.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-water"></i> <strong>Tanque Central:</strong> Una colosal estructura de 9 metros de profundidad que alberga a "Kai" y "Yu", los tiburones ballena residentes.</li>
+                        <li><i class="fa-solid fa-person-arrow-down"></i> <strong>Recorrido Espiral:</strong> Empezaréis en el nivel superior y descenderéis rodeando el gran tanque central, viendo cómo cambian las especies según la profundidad.</li>
+                        <li><i class="fa-solid fa-otter"></i> <strong>Zonas Destacadas:</strong> No os perdáis el Bosque de Japón con sus nutrias, ni la zona de pingüinos de la Antártida.</li>
+                    </ul>
                 `,
                 video: "https://www.youtube.com/watch?v=1uPcdj8V_8g",
                 tacticalOptions: [
@@ -1026,7 +1053,12 @@ const travelData_00_08 = [
                 tacticalGuideId: "mission_okawa_cruise",
                 fullDesc: `
                     <h3><i class="fa-solid fa-ship"></i> Crucero Fluvial Okawa</h3>
-                    <p>Un excelente recorrido visual para que veáis la ciudad desde otra perspectiva. Especialmente mágico con las luces del atardecer.</p>
+                    <p>Un excelente recorrido visual para que veáis la ciudad desde otra perspectiva. El río Okawa ha sido el eje vital de Osaka durante siglos, conectando sus castillos con los distritos comerciales.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-camera"></i> <strong>Skylines:</strong> Disfrutad de las vistas de los rascacielos de Nakanoshima y el parque del castillo desde el agua.</li>
+                        <li><i class="fa-solid fa-sun-plant-wilt"></i> <strong>Atardecer:</strong> La luz dorada reflejada en los edificios de cristal crea un ambiente único.</li>
+                        <li><i class="fa-solid fa-chair"></i> <strong>Comodidad:</strong> Una forma relajada de descansar las piernas tras caminar por Osaka.</li>
+                    </ul>
                 `
             }
         ]
@@ -1038,9 +1070,9 @@ const travelData_00_08 = [
         day: 5, exactDate: "2026-07-31", type: "stay",
         date: "Vie, 31 Julio", title: "🦌 Nara: El Bosque de los Dioses",
         coords: [34.685, 135.805], zoom: 13,
-        hotel: "Hotel Wing International Select Osaka Umeda",
-        hotelImage: "images/hotel-wing-osaka.jpg",
-        hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Hotel+Wing+International+Select+Osaka+Umeda",
+        hotel: "Dc桜の苑-難波南店",
+        hotelImage: "images/hotel-dc-sakura.jpg",
+        hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Dc桜の苑-難波南店",
         image: "images/dia4-portada.jpg",
 
         logistics: [
@@ -1052,7 +1084,7 @@ const travelData_00_08 = [
             {
                 time: "09:00",
                 type: "point",
-                title: "Salida Hotel Wing (Umeda)",
+                title: "Salida Hotel",
                 icon: "fa-solid fa-hotel"
             },
             {
@@ -1060,7 +1092,7 @@ const travelData_00_08 = [
                 title: "JR Yamatoji Line (Rapid)",
                 price: "820 JPY",
                 timeLabel: "50 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Wing+International+Select+Osaka+Umeda&destination=Nara+Park&travelmode=transit",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Dc桜の苑-難波南店&destination=Nara+Park&travelmode=transit",
                 tacticalGuideId: "mission_nara"
             },
             {
@@ -1093,12 +1125,12 @@ const travelData_00_08 = [
                 title: "Regreso a Osaka",
                 price: "820 JPY",
                 timeLabel: "50 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Nara+Station&destination=Hotel+Wing+International+Select+Osaka+Umeda&travelmode=transit"
+                link: "https://www.google.com/maps/dir/?api=1&origin=Nara+Station&destination=Dc桜の苑-難波南店&travelmode=transit"
             },
             {
                 time: "18:30",
                 type: "point",
-                title: "Extracción al Hotel Umeda",
+                title: "Extracción al Hotel",
                 icon: "fa-solid fa-bed"
             }
         ],
@@ -1216,8 +1248,13 @@ const travelData_00_08 = [
                 link: "https://www.google.com/maps/search/?api=1&query=Nara+Park",
                 tacticalGuideId: "mission_nara_deer",
                 fullDesc: `
-                    <h3><i class="fa-solid fa-deer"></i> Encuentro con los Ciervos</h3>
-                    <p>Un recorrido visual por el parque de Nara, mostrando la interacción con los ciervos y los rincones más tranquilos del bosque.</p>
+                    <h3><i class="fa-solid fa-deer"></i> Nara Park: Encuentro Sagrado</h3>
+                    <p>Hogar de más de 1,200 ciervos Sika que campan a sus anchas, Nara Park es uno de los lugares más mágicos de Japón. Según la leyenda, los ciervos son mensajeros divinos del dios Takemikazuchi, quien llegó a Nara cabalgando un ciervo blanco hace 1,300 años.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-cookie"></i> <strong>Shika Senbei:</strong> Comprad galletas especiales en los puestos (aprox. 200 JPY). ¡No les deis comida humana!</li>
+                        <li><i class="fa-solid fa-person-bowing"></i> <strong>El Saludo:</strong> Si les hacéis una reverencia, muchos ciervos os la devolverán antes de pedir su galleta.</li>
+                        <li><i class="fa-solid fa-triangle-exclamation"></i> <strong>Cuidado:</strong> Son animales salvajes. Si os ven con comida, pueden ser insistentes. Mostrad las manos vacías para que os dejen tranquilos.</li>
+                    </ul>
                 `
             },
             {
@@ -1419,7 +1456,12 @@ const travelData_00_08 = [
                     tacticalGuideId: "mission_imperial_palace",
                     fullDesc: `
                         <h3><i class="fa-solid fa-crown"></i> Palacio Imperial de Kioto (Kyoto Gosho)</h3>
-                        <p>Fue la residencia de la familia imperial de Japón hasta 1868, cuando la capital se trasladó a Tokio. Ubicado en el inmenso Parque Imperial (Kyoto Gyoen).</p>
+                        <p>Residencia oficial de la Familia Imperial hasta 1868. El recinto actual, aunque reconstruido en 1855, mantiene la elegancia del estilo Shinden-zukuri del periodo Heian.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-landmark"></i> <strong>Shishinden:</strong> El salón de ceremonias más importante, donde se celebraron las entronizaciones de los emperadores Taisho y Showa.</li>
+                            <li><i class="fa-solid fa-leaf"></i> <strong>Jardín Oikeniwa:</strong> Un jardín de paseo clásico con un estanque que refleja la arquitectura palaciega.</li>
+                            <li><i class="fa-solid fa-camera"></i> <strong>Arquitectura:</strong> Fijaos en los tejados de corteza de ciprés y las paredes de madera clara sin tratar.</li>
+                        </ul>
                     `
                 },
                 {
@@ -1433,7 +1475,12 @@ const travelData_00_08 = [
                     tacticalGuideId: "mission_nijo",
                     fullDesc: `
                         <h3><i class="fa-solid fa-fort-awesome"></i> Castillo de Nijo-jo</h3>
-                        <p>Construido en 1603 como la residencia oficial en Kioto del primer Shogún del periodo Edo.</p>
+                        <p>Construido en 1603 por Tokugawa Ieyasu, el primer shogun. Fue aquí donde, en 1867, el último shogun devolvió el poder al Emperador, cerrando 265 años de dominio militar.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-music"></i> <strong>Suelos Ruiseñor:</strong> Los pasillos chirrían deliberadamente al caminar para alertar de la presencia de intrusos o ninjas.</li>
+                            <li><i class="fa-solid fa-palette"></i> <strong>Palacio Ninomaru:</strong> Sus estancias están decoradas con pinturas de la escuela Kano sobre pan de oro, símbolo del poder del shogun.</li>
+                            <li><i class="fa-solid fa-tree"></i> <strong>Jardín Ninomaru:</strong> Diseñado por el maestro Kobori Enshu, con rocas ornamentadas y pinos meticulosamente cuidados.</li>
+                        </ul>
                     `,
                     video: "https://www.youtube.com/watch?v=N9AXzIbPJoE"
                 },
@@ -1445,7 +1492,15 @@ const travelData_00_08 = [
                     image: "images/kyoto_tower.png",
                     price: "~5€",
                     link: "https://www.google.com/maps/search/?api=1&query=Kyoto+Tower",
-                    fullDesc: `<h3><i class="fa-solid fa-tower-observation"></i> Torre Kioto</h3><p>Vistas espectaculares de toda la ciudad al atardecer.</p>`
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-tower-observation"></i> Kyoto Tower</h3>
+                        <p>Con 131 metros, es la estructura más alta de la ciudad. Su diseño minimalista y blanco está inspirado en una vela budista tradicional.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-binoculars"></i> <strong>Vistas 360°:</strong> La plataforma a 100 metros ofrece vistas de los templos de Higashiyama, Arashiyama y, en días claros, hasta Osaka.</li>
+                            <li><i class="fa-solid fa-train"></i> <strong>Kyoto Station:</strong> Una perspectiva única de la gigantesca y moderna estación de Kioto desde el aire.</li>
+                            <li><i class="fa-solid fa-cloud-sun"></i> <strong>Atardecer:</strong> El momento ideal para ver cómo las luces de neón empiezan a salpicar el trazado milenario de la ciudad.</li>
+                        </ul>
+                    `
                 },
                 {
                     id: "b5",
@@ -1455,7 +1510,15 @@ const travelData_00_08 = [
                     image: "images/kawaramachi.jpg",
                     price: "Gratis",
                     link: "https://www.google.com/maps/search/?api=1&query=Kawaramachi+Kyoto",
-                    fullDesc: `<h3><i class="fa-solid fa-bag-shopping"></i> Kawaramachi</h3><p>El corazón comercial de Kioto, ideal para pasear y cenar.</p>`
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-bag-shopping"></i> Kawaramachi</h3>
+                        <p>El corazón comercial de Kioto, ideal para pasear y cenar. Sus galerías (como Teramachi) mezclan tiendas de última moda con pequeños templos y puestos de té tradicionales.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-utensils"></i> <strong>Gastronomía:</strong> Cientos de opciones para todos los presupuestos en sus estrechos callejones.</li>
+                            <li><i class="fa-solid fa-shirt"></i> <strong>Compras:</strong> Desde grandes almacenes (Daimaru, Takashimaya) hasta souvenirs únicos.</li>
+                            <li><i class="fa-solid fa-bolt"></i> <strong>Energía:</strong> El lugar perfecto para sentir el pulso de la ciudad moderna.</li>
+                        </ul>
+                    `
                 }
             ]
         },
@@ -1689,7 +1752,12 @@ const travelData_00_08 = [
                     link: "https://www.google.com/maps/search/?api=1&query=Kiyomizu-dera",
                     fullDesc: `
                         <h3><i class="fa-solid fa-mountain"></i> Templo Kiyomizu-dera</h3>
-                        <p>Fundado en el año 778, famoso por su inmensa terraza de madera construida sin clavos.</p>
+                        <p>Uno de los templos más célebres de Japón, fundado en 778 en el lugar de la cascada Otowa. Su nombre significa "Templo del Agua Pura".</p>
+                        <ul>
+                            <li><i class="fa-solid fa-layer-group"></i> <strong>La Terraza de Madera:</strong> Sostenida por pilares de 13 metros de altura ensamblados sin un solo clavo, ofrece vistas espectaculares de todo Kioto.</li>
+                            <li><i class="fa-solid fa-droplet"></i> <strong>Cascada Otowa:</strong> Beber de sus tres chorros supuestamente otorga longevidad, éxito escolar o suerte en el amor. (¡Elegid solo uno!)</li>
+                            <li><i class="fa-solid fa-heart"></i> <strong>Santuario Jishu:</strong> Dedicado al amor. Si podéis caminar entre sus dos 'piedras del amor' con los ojos cerrados, encontraréis a vuestra alma gemela.</li>
+                        </ul>
                     `,
                     video: "https://www.youtube.com/watch?v=_a-PPFMNpdU"
                 },
@@ -1701,7 +1769,15 @@ const travelData_00_08 = [
                     image: "images/dia7-historico.jpg",
                     price: "Gratis",
                     link: "https://www.google.com/maps/dir/Kiyomizu-dera/Yasaka+Shrine/",
-                    fullDesc: `<h3><i class="fa-solid fa-walking"></i> Sannenzaka y Ninenzaka</h3><p>El alma de Kioto: calles empedradas y arquitectura tradicional conservada.</p>`
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-walking"></i> Sannenzaka y Ninenzaka</h3>
+                        <p>Estas cuestas empedradas bellamente conservadas son el alma del distrito de Higashiyama, repletas de edificios de madera tradicionales, tiendas de té y artesanía.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-store"></i> <strong>Compras:</strong> Perfecto para comprar cerámica Kiyomizu-yaki, incienso, dulces tradicionales o alquilar un kimono.</li>
+                            <li><i class="fa-solid fa-mug-hot"></i> <strong>Starbucks Ninenzaka:</strong> Ubicado en una antigua casa de té de madera (machiya). Podéis tomaros un café sentados sobre tatami en la planta superior.</li>
+                            <li><i class="fa-solid fa-camera"></i> <strong>Fotografía:</strong> Calles mágicas al amanecer, antes de que lleguen las multitudes, o al atardecer bajo la luz de las linternas calientes.</li>
+                        </ul>
+                    `
                 },
                 {
                     id: "b3",
@@ -1729,7 +1805,15 @@ const travelData_00_08 = [
                     image: "images/heian_shrine.png",
                     price: "Gratis (Recinto)",
                     link: "https://www.google.com/maps/search/?api=1&query=Heian+Jingu+Shrine",
-                    fullDesc: `<h3><i class="fa-solid fa-torii-gate"></i> Heian Jingu</h3><p>Santuario construido para el 1100 aniversario de Kioto, con un torii rojo gigante visible a distancia.</p>`
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-torii-gate"></i> Heian Jingu</h3>
+                        <p>Santuario sintoísta construido a escala parcial recreando el antiguo Palacio Imperial (del periodo Heian), erigido para celebrar el 1.100 aniversario de la fundación de Kioto.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-archway"></i> <strong>El Gran Torii:</strong> Su puerta de acceso es colosal, de casi 25 metros de altura, marcando la entrada visual al recinto desde lejos.</li>
+                            <li><i class="fa-solid fa-leaf"></i> <strong>Jardines Shin-en:</strong> Un espectacular jardín de paseo rodeando los edificios del santuario, diseñado en el estilo Meiji y famoso por sus lirios y cerezos llorones.</li>
+                            <li><i class="fa-solid fa-building"></i> <strong>Arquitectura Colorida:</strong> El brillante bermellón de sus pilares y los techos de tejas verdes vidriadas contrastan fuertemente con el cielo azul.</li>
+                        </ul>
+                    `
                 },
                 {
                     id: "b5",
@@ -1738,7 +1822,15 @@ const travelData_00_08 = [
                     description: "Búsqueda de Maikos en Hanamikoji y cena en los callejones junto al río Kamo.",
                     image: "images/dia7-gion.png",
                     price: "Gratis (Paseo)",
-                    fullDesc: `<h3><i class="fa-solid fa-person-dress-fairy"></i> Gion y Pontocho</h3><p>Infiltración nocturna en el distrito de las geishas y cena en los callejones atmosféricos.</p>`
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-person-dress-fairy"></i> Gion y Pontocho</h3>
+                        <p>Los barrios de entretenimiento más afamados de Kioto. Gion es el dominio absoluto de las geishas (geiko) y maikos, mientras Pontocho es un estrecho callejón gastronómico pegado al río.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-eye"></i> <strong>Hanamikoji:</strong> La calle principal de Gion. Con suerte e inmenso respeto, podríais ver a una maiko apresurándose a su compromiso nocturno.</li>
+                            <li><i class="fa-solid fa-bowl-food"></i> <strong>Cena en Pontocho:</strong> Un largo y atmosférico callejón lleno de farolillos, escondiendo restaurantes de madera y terrazas sobre el agua (yuka).</li>
+                            <li><i class="fa-solid fa-bridge"></i> <strong>El Río Kamo:</strong> Separando Pontocho y Gion, ofreciendo una brisa ideal para un paseo relajado de noche.</li>
+                        </ul>
+                    `
                 }
             ]
         },
@@ -1979,7 +2071,15 @@ const travelData_00_08 = [
                     image: "images/arashiyama.png",
                     price: "500 JPY",
                     link: "https://www.google.com/maps/search/?api=1&query=Tenryu-ji+Temple+Kyoto",
-                    fullDesc: `<h3><i class="fa-solid fa-leaf"></i> Arashiyama Zen</h3><p>Paseo por el bosque de bambú y visita al Templo Tenryu-ji, el más importante de la zona.</p>`
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-leaf"></i> Arashiyama Zen</h3>
+                        <p>El Templo Tenryu-ji (sede de la secta Rinzai Zen) y su famoso bosque de bambú adyacente forman el corazón de esta zona occidental de Kioto.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-tree"></i> <strong>Bosque de Bambú:</strong> Entrad antes de las 8:30 am para poder escuchar el susurro del viento entre los inmensos tallos (un sonido protegido por el gobierno).</li>
+                            <li><i class="fa-solid fa-dragon"></i> <strong>Pintura del Dragón:</strong> En el techo del Hatto (Salón de la Doctrina) del Tenryu-ji hay un dragón que parece seguirte con la mirada desde cualquier ángulo.</li>
+                            <li><i class="fa-solid fa-water"></i> <strong>Jardín Sogenchi:</strong> Diseñado en el siglo XIV, es uno de los primeros jardines de japón en utilizar la técnica del "paisaje prestado", integrando las montañas de Arashiyama.</li>
+                        </ul>
+                    `
                 },
                 {
                     id: "b2",
@@ -1989,7 +2089,15 @@ const travelData_00_08 = [
                     image: "images/adashino-nembutsuji.jpg",
                     price: "500 JPY",
                     link: "https://www.google.com/maps/search/?api=1&query=Adashino+Nembutsuji+Temple",
-                    fullDesc: `<h3><i class="fa-solid fa-ghost"></i> Adashino Nembutsuji</h3><p>Un lugar místico con miles de estatuas que representan las almas.</p>`
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-ghost"></i> Adashino Nembutsuji</h3>
+                        <p>Fundado hace más de 1200 años en un lugar donde antiguamente se dejaban los cuerpos de los fallecidos sin familiares a la intemperie.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-chess-pawn"></i> <strong>8.000 Estatuas de Piedra:</strong> Representan las almas de los difuntos abandonados, reunidas y colocadas aquí hace un siglo por los locales.</li>
+                            <li><i class="fa-solid fa-leaf"></i> <strong>Su Propio Bosque:</strong> Tiene un pequeño pero espectacular bosque de bambú en su parte trasera, sin las multitudes del bosque principal.</li>
+                            <li><i class="fa-solid fa-moon"></i> <strong>Sento Kuyo:</strong> En agosto se encienden miles de velas entre las estatuas, creando una atmósfera de otro mundo.</li>
+                        </ul>
+                    `
                 },
                 {
                     id: "b3",
@@ -1999,7 +2107,15 @@ const travelData_00_08 = [
                     image: "images/otagi-nembutsuji.jpg",
                     price: "300 JPY",
                     link: "https://www.google.com/maps/search/?api=1&query=Otagi+Nembutsuji+Temple",
-                    fullDesc: `<h3><i class="fa-solid fa-face-smile"></i> Otagi Nembutsuji</h3><p>Famoso por sus 1.200 figuras talladas por devotos con rostros expresivos y variados.</p>`
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-face-smile"></i> Otagi Nembutsuji</h3>
+                        <p>El templo más peculiar y entrañable de Arashiyama, reconstruido en los años 80 por un monje escultor que enseñó a cientos de aficionados a tallar piedra.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-masks-theater"></i> <strong>1.200 Rakan:</strong> Figuras budistas talladas por devotos comunes. Cada una es diferente: algunas ríen a carcajadas, otras beben sake, y ¡hasta hay alguna con cámara de fotos!</li>
+                            <li><i class="fa-solid fa-peace"></i> <strong>Atmósfera:</strong> Ubicado en una ladera boscosa, cubierto de musgo verde brillante. Es increíblemente tranquilo.</li>
+                            <li><i class="fa-solid fa-magnifying-glass"></i> <strong>Juego:</strong> Intentad encontrar la estatua que más se parezca a vosotros.</li>
+                        </ul>
+                    `
                 },
                 {
                     id: "b4",
@@ -2009,7 +2125,15 @@ const travelData_00_08 = [
                     image: "images/dia8-puente.png",
                     price: "Gratis",
                     link: "https://www.google.com/maps/search/?api=1&query=Togetsukyo+Bridge",
-                    fullDesc: `<h3><i class="fa-solid fa-bridge"></i> Togetsukyo</h3><p>El icono de Arashiyama cruzando el río Katsura.</p>`
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-bridge"></i> Puente Togetsukyo</h3>
+                        <p>Su nombre romántico significa "Puente que cruza la luna". Su icónica silueta de madera sobre el río Katsura con las montañas de fondo es la postal clásica de Arashiyama.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-fish"></i> <strong>Pesca Ukai:</strong> En las noches de verano se puede ver la pesca tradicional con cormoranes desde pequeñas barcas iluminadas con fuego.</li>
+                            <li><i class="fa-solid fa-camera"></i> <strong>Fotografía:</strong> Impresionante en otoño con los arces rojos, o en primavera con el cerezo llorón gigante en la orilla norte.</li>
+                            <li><i class="fa-solid fa-ice-cream"></i> <strong>Descanso:</strong> Comprad un helado de matcha o yuba y sentaos a la orilla del río a observar las barcas pasar.</li>
+                        </ul>
+                    `
                 },
                 {
                     id: "b5",
@@ -2019,7 +2143,15 @@ const travelData_00_08 = [
                     image: "images/dia8-monos.png",
                     price: "600 JPY",
                     link: "https://www.google.com/maps/search/?api=1&query=Iwatayama+Monkey+Park",
-                    fullDesc: `<h3><i class="fa-solid fa-mountain"></i> Iwatayama</h3><p>Subida de 20 min para ver a los macacos japoneses y Kioto desde arriba.</p>`
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-mountain"></i> Parque de Monos Iwatayama</h3>
+                        <p>Una divertida excursión de naturaleza que requiere subir una cuesta boscosa de unos 20 minutos desde la orilla sur del río.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-disease"></i> <strong>Macacos Japoneses:</strong> Veréis a más de 120 monos de cara roja en libertad.</li>
+                            <li><i class="fa-solid fa-apple-whole"></i> <strong>Interacción Segura:</strong> Estáis en su territorio, pero podéis darles comida (cacahuetes o manzanas) desde dentro de una cabaña vallada (¡vosotros estáis en la jaula, ellos libres!).</li>
+                            <li><i class="fa-solid fa-city"></i> <strong>Vistas Panorámicas:</strong> El mirador ofrece una de las panorámicas más amplias y despejadas de toda la ciudad de Kioto.</li>
+                        </ul>
+                    `
                 }
             ]
         },

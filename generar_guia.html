@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Guía en Texto</title>
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; margin: 40px; background: #0f172a; color: #f8fafc; }
+        h1 { color: #38bdf8; }
+        textarea { width: 100%; height: 60vh; font-family: monospace; padding: 15px; background: #1e293b; color: #e2e8f0; border: 1px solid #475569; border-radius: 8px; font-size: 14px; }
+        .btn { display: inline-block; padding: 12px 24px; background: #3b82f6; color: white; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 20px; text-align: center; border: none; cursor: pointer; }
+        .btn:hover { background: #2563eb; }
+    </style>
+</head>
+<body>
+    <h1>Guía de Viaje a Japón 2026</h1>
+    <p>He consolidado todos los datos de los días (0-16) en texto. La descarga del archivo Markdown debería haber comenzado automáticamente.</p>
+    
+    <button id="downloadBtn" class="btn">Descargar Guía Manualmente (.md)</button>
+    <button id="copyBtn" class="btn" style="background:#10b981; margin-left:10px;">Copiar al Portapapeles</button>
+    
+    <h3 style="margin-top: 30px;">Vista Previa (Texto Completo):</h3>
+    <textarea id="output" readonly>Generando...</textarea>
+
+    <!-- Cargamos los datos -->
+    <script src="data_dias_00_08.js"></script>
+    <script src="data_dias_09_16.js"></script>
+    <script src="data_dias_17_24.js"></script>
+    <script>
+        window.onload = function() {
+            try {
+                // Combinamos todos los arrays
+                const allData = travelData_00_08.concat(travelData_09_16, travelData_17_24);
+                
+                let md = "# GUÍA COMPLETA DE VIAJE A JAPÓN 2026\n\n";
+                md += "Esta guía contiene toda la información detallada de la web estructurada por días, incluyendo transporte, rutas base y excursiones alternativas.\n\n---\n\n";
+
+                allData.forEach(dayInfo => {
+                    md += `## Día ${dayInfo.day}: ${dayInfo.title} (${dayInfo.date || ''})\n\n`;
+                    
+                    if (dayInfo.hotel) {
+                        md += `**🏨 Alojamiento:** ${dayInfo.hotel}\n\n`;
+                    }
+
+                    if (dayInfo.preparation) {
+                        md += `### 📋 Preparación General\n\n`;
+                        if (dayInfo.preparation.sections) {
+                            dayInfo.preparation.sections.forEach(sec => {
+                                md += `#### ${sec.title}\n`;
+                                sec.items.forEach(item => {
+                                    md += `- **${item.title}**: ${item.desc} (Resp: ${item.who || 'Todos'})\n`;
+                                });
+                                md += '\n';
+                            });
+                        }
+                        if (dayInfo.preparation.specialNotes) {
+                            dayInfo.preparation.specialNotes.forEach(note => {
+                                md += `#### ${note.title}\n`;
+                                note.items.forEach(item => {
+                                    md += `- ${item}\n`;
+                                });
+                                md += '\n';
+                            });
+                        }
+                        if (dayInfo.preparation.tips) {
+                            md += `#### Consejos\n`;
+                            dayInfo.preparation.tips.forEach(tip => md += `- ${tip}\n`);
+                            md += '\n';
+                        }
+                    }
+
+                    if (dayInfo.logistics && dayInfo.logistics.length > 0) {
+                        md += `### ⚙️ Logística y Tips\n`;
+                        dayInfo.logistics.forEach(log => {
+                            md += `- **${log.title}:** ${log.text}\n`;
+                        });
+                        md += '\n';
+                    }
+
+                    if (dayInfo.additions && dayInfo.additions.length > 0) {
+                        md += `### 📌 Notas Adicionales\n`;
+                        dayInfo.additions.forEach(add => {
+                            md += `- ${add}\n`;
+                        });
+                        md += '\n';
+                    }
+
+                    if (dayInfo.prices) {
+                        md += `### 💰 Estimación de Precios\n`;
+                        if (dayInfo.prices.transport) md += `- **Transporte:** ${dayInfo.prices.transport}\n`;
+                        if (dayInfo.prices.entrances) md += `- **Entradas:** ${dayInfo.prices.entrances}\n`;
+                        if (dayInfo.prices.food) md += `- **Comida:** ${dayInfo.prices.food}\n`;
+                        if (dayInfo.prices.total) md += `- **Total:** ${dayInfo.prices.total}\n`;
+                        md += '\n';
+                    }
+
+                    if (dayInfo.timeline && dayInfo.timeline.length > 0) {
+                        md += `### ⏱️ Resumen del Día\n`;
+                        dayInfo.timeline.forEach(t => {
+                            md += `- **${t.time}** - ${t.title}: ${t.desc}\n`;
+                        });
+                        md += '\n';
+                    }
+
+                    if (dayInfo.transportTimeline && dayInfo.transportTimeline.length > 0) {
+                        md += `### 🚆 Transporte Detallado\n`;
+                        dayInfo.transportTimeline.forEach(t => {
+                            let line = `- `;
+                            if (t.time) line += `**${t.time}** `;
+                            line += `**${t.title}**`;
+                            if (t.timeLabel) line += ` (${t.timeLabel})`;
+                            if (t.price) line += ` [${t.price}]`;
+                            md += line + '\n';
+                        });
+                        md += '\n';
+                    }
+
+                    if (dayInfo.base && dayInfo.base.events) {
+                        md += `### 🗺️ Itinerario Base (Ruta Central)\n`;
+                        if (dayInfo.base.description) md += `_${dayInfo.base.description}_\n\n`;
+                        dayInfo.base.events.forEach(ev => {
+                            md += `#### ${ev.time || ''} - ${ev.title || ''}\n`;
+                            if (ev.description) md += `${ev.description}\n\n`;
+                            if (ev.fullDesc) {
+                                let fd = ev.fullDesc.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+                                md += `*Detalle:* ${fd}\n\n`;
+                            }
+                            if (ev.price) md += `- **Precio:** ${ev.price}\n\n`;
+                        });
+                    }
+
+                    if (dayInfo.complements && dayInfo.complements.length > 0) {
+                        md += `### 🔄 Complementos / Alternativas\n`;
+                        dayInfo.complements.forEach(comp => {
+                            md += `#### ${comp.time || ''} - ${comp.title || ''}\n`;
+                            if (comp.description) md += `${comp.description}\n\n`;
+                             if (comp.fullDesc) {
+                                let fd = comp.fullDesc.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+                                md += `*Detalle:* ${fd}\n\n`;
+                            }
+                            if (comp.price) md += `- **Precio:** ${comp.price}\n\n`;
+                        });
+                    }
+
+                    if (dayInfo.additionalExcursions && dayInfo.additionalExcursions.length > 0) {
+                        md += `### ✨ Excursiones Adicionales\n`;
+                        dayInfo.additionalExcursions.forEach(exc => {
+                            md += `#### ${exc.time || ''} - ${exc.title || ''}\n`;
+                            if (exc.description) md += `${exc.description}\n\n`;
+                            if (exc.fullDesc) {
+                                let fd = exc.fullDesc.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+                                md += `*Detalle:* ${fd}\n\n`;
+                            }
+                            if (exc.price) md += `- **Precio:** ${exc.price}\n\n`;
+                        });
+                    }
+
+                    md += `---\n\n`;
+                });
+
+                // Mostrar en el textarea
+                const textArea = document.getElementById('output');
+                textArea.value = md;
+
+                // Función para descargar
+                const downloadGuide = () => {
+                    const blob = new Blob([md], {type: "text/markdown;charset=utf-8"});
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = "guia_viaje_japon.md";
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                };
+
+                // Auto-descargar
+                setTimeout(downloadGuide, 1000);
+
+                // Configurar botones
+                document.getElementById('downloadBtn').onclick = downloadGuide;
+                document.getElementById('copyBtn').onclick = function() {
+                    textArea.select();
+                    document.execCommand('copy');
+                    alert("¡Guía copiada al portapapeles!");
+                };
+
+            } catch (e) {
+                document.getElementById('output').value = "Error al generar la guía: " + e.message;
+            }
+        };
+    </script>
+</body>
+</html>

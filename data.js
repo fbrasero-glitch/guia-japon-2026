@@ -291,7 +291,7 @@ const travelData = [
         day: 2, type: "travel",
         date: "Mar, 28 Julio", title: "🎌 Aterrizaje en Japón",
         coords: [34.434, 135.244], zoom: 12,
-        hotel: "Hotel Wing International Select Osaka Umeda",
+        hotel: "Dc桜の苑-難波南店",
         image: "images/dia2-osaka.jpg", // Foto llegada/hotel
 
         logistics: [
@@ -314,8 +314,8 @@ const travelData = [
         timeline: [
             { time: "08:40", title: "Vuelo a Osaka", desc: "Salida TK86. Duración 11h 10m." },
             { time: "18:50", title: "Aterrizaje KIX", desc: "Inmigración (QR Visit Japan) y recogida de maletas." },
-            { time: "20:15", title: "Tren Haruka Express", desc: "Ticket hasta Osaka Station. ~50 min trayecto reservado." },
-            { time: "21:30", title: "Taxi al Hotel", desc: "Desde Osaka Station. Reservad 3-4 taxis o una van de 8 plazas. Enseñad dirección en japonés. Coste ~1.200 JPY por taxi (total ~3.600-4.800 JPY para grupo de 8)." },
+            { time: "20:15", title: "Tren Haruka Express / Rapit", desc: "Ticket hasta Tennoji Station (JR) o Namba (Nankai). ~40 min trayecto." },
+            { time: "21:30", title: "Llegada al Hotel", desc: "Desde Tennoji/Namba coged el tren 1-2 paradas o taxi. El hotel está al lado de la estación JR Imamiya." },
             { time: "22:00", title: "Cena y Dormir", desc: "Onigiri/Sándwich en Lawson. Dormir inmediatamente para vencer al jet lag." }
         ],
 
@@ -330,9 +330,9 @@ const travelData = [
         day: 3, type: "stay",
         date: "Mié, 29 Julio", title: "🏯 Osaka: Samuráis y Neones",
         coords: [34.687, 135.526], zoom: 13,
-        hotel: "Hotel Wing International Select Osaka Umeda",
-        hotelImage: "images/hotel-wing-osaka.jpg",
-        hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Hotel+Wing+International+Select+Osaka+Umeda",
+        hotel: "Dc桜の苑-難波南店",
+        hotelImage: "images/hotel-dc-sakura.jpg",
+        hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Dc桜の苑-難波南店",
         image: "images/dia3-portada.jpg",
 
         logistics: [
@@ -361,7 +361,7 @@ const travelData = [
                 title: "Tren: JR Osaka Loop Line (Rojo)",
                 price: "180 JPY",
                 timeLabel: "~25 min total",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Wing+International+Select+Osaka+Umeda&destination=Osakajokoen+Station&travelmode=transit",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Dc桜の苑-難波南店&destination=Osakajokoen+Station&travelmode=transit",
                 tacticalGuideId: "mission01"
             },
             { time: "09:30", type: "point", title: "Llegada a Castillo Osaka", icon: "fa-solid fa-fort-awesome" },
@@ -388,10 +388,10 @@ const travelData = [
             {
                 time: "",
                 type: "transit",
-                title: "Línea Midosuji (Namba → Umeda) + Caminata",
-                price: "230 JPY",
-                timeLabel: "~20 min total",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Dotonbori&destination=Hotel+Wing+International+Select+Osaka+Umeda&travelmode=transit",
+                title: "JR Yamatoji Line (JR Namba → Imamiya) o caminar",
+                price: "140 JPY",
+                timeLabel: "~15 min total",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Dotonbori&destination=Dc桜の苑-難波南店&travelmode=transit",
                 tacticalGuideId: "mission04"
             },
             { time: "22:00", type: "point", title: "Retorno al Hotel", icon: "fa-solid fa-bed" }
@@ -409,7 +409,7 @@ const travelData = [
                     description: "Construido en 1583. Torres, murallas y museo histórico.",
                     image: "images/dia3-itinerario-base.jpg",
                     price: "600 JPY",
-                    link: "https://www.google.com/maps/dir/Hotel+Wing+International+Select+Osaka+Umeda/Osaka+Castle/",
+                    link: "https://www.google.com/maps/dir/Dc桜の苑-難波南店/Osaka+Castle/",
                     fullDesc: `
                         <h3><i class="fa-solid fa-castle"></i> Castillo de Osaka</h3>
                         <p>Símbolo innegable de la ciudad. Originalmente construido en 1583 por el señor de la guerra Toyotomi Hideyoshi, fue diseñado para ser el centro de una nueva y unificada nación japonesa bajo su dominio. Aunque la imponente torre actual es una reconstrucción de 1931 (restaurada en 1997), se asienta sobre las formidables murallas y fosos de piedra originales de la era Tokugawa.</p>
@@ -463,7 +463,7 @@ const travelData = [
                     time: "22:00",
                     title: "Retorno al Hotel",
                     description: "Fin de la jornada. Descanso en el Cuartel General.",
-                    image: "images/hotel-wing-osaka.jpg",
+                    image: "images/hotel-dc-sakura.jpg",
                     price: "Gratis"
                 }
             ]
@@ -583,9 +583,9 @@ const travelData = [
         day: 4, exactDate: "2026-07-30", type: "stay",
         date: "Jue, 30 Julio", title: "🐙 Osaka: Sabores y Compras",
         coords: [34.665, 135.502], zoom: 14,
-        hotel: "Hotel Wing International Select Osaka Umeda",
-        hotelImage: "images/hotel-wing-osaka.jpg",
-        hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Hotel+Wing+International+Select+Osaka+Umeda",
+        hotel: "Dc桜の苑-難波南店",
+        hotelImage: "images/hotel-dc-sakura.jpg",
+        hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Dc桜の苑-難波南店",
         image: "images/dia3-portada.jpg",
 
         logistics: [
@@ -594,13 +594,13 @@ const travelData = [
         ],
 
         transportTimeline: [
-            { time: "09:00", type: "point", title: "Hotel Wing (Umeda)", icon: "fa-solid fa-hotel" },
+            { time: "09:00", type: "point", title: "Hotel (Nakahiraki)", icon: "fa-solid fa-hotel" },
             {
                 time: "",
                 type: "transit",
-                title: "Línea Midosuji (Umeda → Shinsekai)",
-                price: "240 JPY",
-                timeLabel: "~20 min",
+                title: "JR Yamatoji Line (Imamiya → Shin-Imamiya) o caminar",
+                price: "140 JPY",
+                timeLabel: "~15 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Umeda+Station&destination=Tsutenkaku+Tower&travelmode=transit",
                 tacticalGuideId: "mission05"
             },
@@ -625,13 +625,13 @@ const travelData = [
             {
                 time: "",
                 type: "transit",
-                title: "Línea Midosuji (Namba → Umeda)",
-                price: "240 JPY",
-                timeLabel: "~15 min",
+                title: "JR Yamatoji Line (JR Namba → Imamiya)",
+                price: "140 JPY",
+                timeLabel: "~5 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Namba+Station&destination=Umeda+Station&travelmode=transit",
                 tacticalGuideId: "mission08"
             },
-            { time: "22:00", type: "point", title: "Retorno al Hotel Wing (Umeda)", icon: "fa-solid fa-bed" }
+            { time: "22:00", type: "point", title: "Retorno al Hotel", icon: "fa-solid fa-bed" }
         ],
 
         timeline: [
@@ -677,7 +677,7 @@ const travelData = [
                             time: "09:30 - 13:00",
                             description: "Exploración de Tsutenkaku y callejones. Recomendado: Comer Kushikatsu.",
                             schedule: [
-                                { time: "09:00", event: "Salida Hotel (Umeda)" },
+                                { time: "09:00", event: "Salida Hotel" },
                                 { time: "09:30", event: "Llegada Shinsekai" },
                                 { time: "12:00", event: "Inicio Tiempo Libre / Almuerzo" }
                             ],
@@ -759,12 +759,12 @@ const travelData = [
                         time: "09:00 - 15:30",
                         description: "Infiltración en el Puerto de Osaka. Incluye almuerzo en zona temática de los 60.",
                         schedule: [
-                            { time: "09:00", event: "Salida Hotel Wing (Umeda)" },
+                            { time: "09:00", event: "Salida Hotel" },
                             { time: "09:45", event: "Llegada Acuario Kaiyukan" },
                             { time: "13:00", event: "Almuerzo: Naniwa Kuishinbo Yokocho" },
                             { time: "14:45", event: "Extracción hacia Shinsaibashi" }
                         ],
-                        link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Wing+International+Select+Osaka+Umeda&destination=Osaka+Aquarium+Kaiyukan&travelmode=transit",
+                        link: "https://www.google.com/maps/dir/?api=1&origin=Dc桜の苑-難波南店&destination=Osaka+Aquarium+Kaiyukan&travelmode=transit",
                         tacticalGuideId: "mission_aquarium",
                     }
                 ]
@@ -917,9 +917,9 @@ const travelData = [
         day: 5, exactDate: "2026-07-31", type: "stay",
         date: "Vie, 31 Julio", title: "🦌 Nara: El Bosque de los Dioses",
         coords: [34.685, 135.805], zoom: 13,
-        hotel: "Hotel Wing International Select Osaka Umeda",
-        hotelImage: "images/hotel-wing-osaka.jpg",
-        hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Hotel+Wing+International+Select+Osaka+Umeda",
+        hotel: "Dc桜の苑-難波南店",
+        hotelImage: "images/hotel-dc-sakura.jpg",
+        hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Dc桜の苑-難波南店",
         image: "images/dia4-portada.jpg",
 
         logistics: [
@@ -931,7 +931,7 @@ const travelData = [
             {
                 time: "09:00",
                 type: "point",
-                title: "Salida Hotel Wing (Umeda)",
+                title: "Salida Hotel",
                 icon: "fa-solid fa-hotel"
             },
             {
@@ -939,7 +939,7 @@ const travelData = [
                 title: "JR Yamatoji Line (Rapid)",
                 price: "820 JPY",
                 timeLabel: "50 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Wing+International+Select+Osaka+Umeda&destination=Nara+Park&travelmode=transit",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Dc桜の苑-難波南店&destination=Nara+Park&travelmode=transit",
                 tacticalGuideId: "mission_nara"
             },
             {
@@ -972,12 +972,12 @@ const travelData = [
                 title: "Regreso a Osaka",
                 price: "820 JPY",
                 timeLabel: "50 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Nara+Station&destination=Hotel+Wing+International+Select+Osaka+Umeda&travelmode=transit"
+                link: "https://www.google.com/maps/dir/?api=1&origin=Nara+Station&destination=Dc桜の苑-難波南店&travelmode=transit"
             },
             {
                 time: "18:30",
                 type: "point",
-                title: "Extracción al Hotel Umeda",
+                title: "Extracción al Hotel",
                 icon: "fa-solid fa-bed"
             }
         ],
@@ -1172,7 +1172,7 @@ const travelData = [
         image: "images/dia7-portada.jpg",
 
         logistics: [
-            { title: "Traslado", text: "JR Special Rapid Service. Salida: JR Osaka (Andén 7-9). Cada 15 min." },
+            { title: "Traslado", text: "Id en Loop Line desde Imamiya hasta Osaka Station (o Tennoji) y empalmad con el JR Kyoto Line o Haruka." },
             { title: "Equipaje", text: "Llevad maletas con vosotros. Subid al primer o último vagón para más sitio." },
             { title: "Hotel", text: "Kyoto Tower Annex: A 3 min andando de la salida central de la estación." }
         ],
