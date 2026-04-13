@@ -1229,6 +1229,13 @@ function renderCenterVisual(data, mode, optData = null) {
         // Fluid typography formula: container width / (chars * ratio)
         const nameLen = Math.max(hotelName.length, 5); // Avoid div by zero
 
+        let extraAction = '';
+        let badgeStyle = '';
+        if (hotelName.includes('Dc桜の苑') || hotelName.includes('Dc Sakura')) {
+            extraAction = `onclick="window.showHotelMessage()" title="Ver Instrucciones de Check-in"`;
+            badgeStyle = `cursor:pointer; box-shadow: 0 0 15px rgba(249, 115, 22, 0.6); border: 2px solid var(--accent); animation: pulse 2s infinite;`;
+        }
+
         hotelHTML = `
             <div class="hotel-info-section">
                 ${hotelImgHTML}
@@ -1239,7 +1246,7 @@ function renderCenterVisual(data, mode, optData = null) {
                 </div>
                 
                 <div class="hotel-actions">
-                    <div class="hotel-badge">
+                    <div class="hotel-badge" ${extraAction} style="${badgeStyle}">
                         <i class="fa-solid fa-bed"></i>
                     </div>
                     ${hotelGoogleLink ? `<a href="${hotelGoogleLink}" target="_blank" class="hotel-google-link"><i class="fa-solid fa-map-location"></i> Maps</a>` : ''}
@@ -1250,10 +1257,20 @@ function renderCenterVisual(data, mode, optData = null) {
 
     // Mapas / PDFs (Caja dinámica con altura 100%)
     const pdfIconsHTML = getPDFIcons(location);
+    const routeMapsHTML = data.routeMapsLink ? `
+        <div class="route-maps-wrapper" style="margin-top:10px; display:flex; justify-content:flex-end;">
+            <a href="${data.routeMapsLink}" target="_blank" title="MAPS RUTA POR OSAKA" 
+               style="cursor:pointer; background:rgba(0, 243, 255, 0.15); border:2px solid var(--neon-blue); color:var(--neon-blue); width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; text-decoration:none; animation: pulse 2s infinite; box-shadow: 0 0 15px rgba(0, 243, 255, 0.6);">
+                <i class="fa-solid fa-map-location-dot" style="font-size:1.2rem;"></i>
+            </a>
+        </div>
+    ` : '';
+    
     const mapsSectionHTML = `
         <div class="maps-section-column">
             ${location ? `<div class="header-city-name"><i class="fa-solid fa-location-dot"></i> ${location}</div>` : ''}
             ${pdfIconsHTML}
+            ${routeMapsHTML}
         </div>
     `;
 
@@ -1914,3 +1931,62 @@ function selectExcursionFromCard(dayIndex, optionId, cardElement) {
 
 window.onload = init;
 
+window.showHotelMessage = function() {
+    const existing = document.getElementById('hotel-msg-modal');
+    if (existing) existing.remove();
+
+    const overlay = document.createElement('div');
+    overlay.id = 'hotel-msg-modal';
+    overlay.style.position = 'fixed';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100vw';
+    overlay.style.height = '100vh';
+    overlay.style.backgroundColor = 'rgba(0,0,0,0.85)';
+    overlay.style.zIndex = '9999';
+    overlay.style.display = 'flex';
+    overlay.style.justifyContent = 'center';
+    overlay.style.alignItems = 'center';
+    overlay.style.backdropFilter = 'blur(5px)';
+    
+    // Close modal on outside click
+    overlay.onclick = function(e) {
+        if(e.target === overlay) overlay.remove();
+    };
+
+    const content = `
+        <div style="background: linear-gradient(145deg, #1e293b, #0f172a); border: 2px solid var(--accent); border-radius: 15px; padding: 30px; max-width: 500px; width: 90%; color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.5); position:relative; animation: slideIn 0.3s ease-out;">
+            <button onclick="document.getElementById('hotel-msg-modal').remove()" style="position:absolute; top:15px; right:15px; background:transparent; border:none; color:white; font-size:1.5rem; cursor:pointer; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'"><i class="fa-solid fa-times"></i></button>
+            
+            <div style="text-align:center; margin-bottom:20px;">
+                <i class="fa-solid fa-envelope-open-text" style="font-size:3rem; color:var(--accent); margin-bottom:10px;"></i>
+                <h2 style="margin:0; font-size:1.5rem; color:var(--neon-blue);">Información Importante</h2>
+                <h3 style="margin:5px 0 0 0; color:#cbd5e1; font-size:1rem;">Dc桜の苑 - 難波南店</h3>
+                <p style="color:var(--gold); font-weight:bold; margin-top:5px; font-size:0.9rem;">28 Jul 15:00 - 01 Ago 10:00</p>
+            </div>
+            
+            <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 10px; border-left: 4px solid var(--neon-blue); margin-bottom: 20px; font-size: 0.95rem; line-height: 1.5; color:#cbd5e1;">
+                <p style="margin-top:0;"><strong>Estimado huésped,</strong></p>
+                <p>Gracias por elegirnos. Nos pondremos en contacto con usted a través de esta misma reserva para enviarle las <strong>instrucciones de check-in 3 días antes</strong> de su llegada (25 de julio).</p>
+                <p>Si tiene alguna opción o petición especial:<br/>
+                • <strong>Booking / Airbnb</strong>: Por favor, deje un mensaje en el chat de la reserva.<br/>
+                • <strong>Agoda</strong>: Envíenos un email directo a <a href="mailto:M@dctaisei.com" style="color:var(--neon-blue); text-decoration:none;"><strong>M@dctaisei.com</strong></a>.</p>
+                <p style="margin-bottom:0; color:white;">Esperamos conocerle pronto.</p>
+            </div>
+
+            <div style="background: rgba(239, 68, 68, 0.15); padding: 10px 15px; border-radius: 8px; border: 1px solid var(--danger); text-align:center;">
+                <i class="fa-solid fa-triangle-exclamation" style="color:var(--danger); margin-right:5px; font-size:1.2rem;"></i>
+                <span style="color:white; font-size:0.9rem; display:inline-block; vertical-align:top;"><strong>¡CUIDADO AL BUSCAR LA DIRECCIÓN!</strong><br/>Tenemos 8 sucursales diferentes. Asegúrese de dirigirse exactamente a:<br/><em style="color:var(--gold);">〒557-0022，大阪市西成区中開一丁目3番17号</em></span>
+            </div>
+        </div>
+        <style>
+            @keyframes slideIn {
+                from { opacity: 0; transform: translateY(-20px) scale(0.95); }
+                to { opacity: 1; transform: translateY(0) scale(1); }
+            }
+        </style>
+    `;
+
+    overlay.innerHTML = content;
+    document.body.appendChild(overlay);
+};

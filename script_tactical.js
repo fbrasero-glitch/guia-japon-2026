@@ -1,4 +1,4 @@
-﻿// --- MISIONES TÁCTICAS (Guías detalladas por misión) ---
+// --- MISIONES TÁCTICAS (Guías detalladas por misión) ---
 // Este archivo se separa de script.js por tamaño. Contiene renderTacticalMission().
 // --- FASE 2 & 3: LÓGICA DE INTERFACE TÁCTICA ---
 function renderTacticalMission(missionId, dayIndex) {
@@ -27,10 +27,10 @@ function renderTacticalMission(missionId, dayIndex) {
                     <div class="holographic-schema">
                         <svg viewBox="0 0 400 120" class="schema-svg">
                             <circle cx="50" cy="60" r="8" class="schema-point" />
-                            <text x="35" y="40" class="schema-label">JR OSAKA STATION</text>
+                            <text x="35" y="40" class="schema-label">ESTACIÓN IMAMIYA</text>
                             
                             <line x1="58" y1="60" x2="342" y2="60" class="schema-line loop-line" />
-                            <text x="150" y="80" class="schema-meta">LOOP LINE (Outer Track 2)</text>
+                            <text x="150" y="80" class="schema-meta">LOOP LINE (Inner Track 3)</text>
                             
                             <circle cx="350" cy="60" r="8" class="schema-point-target" />
                             <text x="310" y="40" class="schema-label">OSAKAJOKOEN</text>
@@ -41,10 +41,10 @@ function renderTacticalMission(missionId, dayIndex) {
                         <div class="data-block">
                             <div class="data-label"><i class="fa-solid fa-clipboard-list"></i> PROCEDIMIENTO:</div>
                             <ul class="data-list">
-                                <li><strong>BUSCAR:</strong> Línea Circular Roja (Osaka Loop Line)</li>
-                                <li><strong>ANDÉN:</strong> Track 2</li>
-                                <li><strong>DIRECCIÓN:</strong> "For Kyobashi" en pantallas</li>
-                                <li><strong>BAJAR:</strong> 4ª Parada (Osakajokoen)</li>
+                                <li><strong>INICIO:</strong> Estación Imamiya (cerca del hotel)</li>
+                                <li><strong>BUSCAR:</strong> Andén Loop Line (Inner/Anti-clockwise)</li>
+                                <li><strong>DIRECCIÓN:</strong> For Tennoji/Tsuruhashi</li>
+                                <li><strong>BAJAR:</strong> Estación Osakajokoen (~18 min)</li>
                             </ul>
                         </div>
                         <div class="data-block">
@@ -125,7 +125,7 @@ function renderTacticalMission(missionId, dayIndex) {
                             <text x="150" y="80" class="schema-meta">MIDOSUJI LINE (Red Line)</text>
                             
                             <circle cx="350" cy="60" r="8" class="schema-point-target" />
-                            <text x="310" y="40" class="schema-label">ESTACIÓN NAMBA</text>
+                            <text x="310" y="40" class="schema-label">ESTACIÓN SHINSAIBASHI</text>
                         </svg>
                     </div>
 
@@ -136,12 +136,12 @@ function renderTacticalMission(missionId, dayIndex) {
                                 <li><strong>DESPLAZAMIENTO:</strong> Caminar desde Umeda Sky a Est. Umeda</li>
                                 <li><strong>LÍNEA:</strong> Midosuji Line (Roja)</li>
                                 <li><strong>DIRECCIÓN:</strong> "For Nakamozu / Tennoji"</li>
-                                <li><strong>BAJAR:</strong> Estación Namba (Salida 14)</li>
+                                <li><strong>BAJAR:</strong> Estación Shinsaibashi</li>
                             </ul>
                         </div>
                         <div class="data-block">
                             <div class="data-label"><i class="fa-solid fa-lightbulb"></i> OBJETIVO:</div>
-                            <div class="status-box">DOTONBORI_LOCALIZED</div>
+                            <div class="status-box">SHINSAIBASHI_PARCO_LOCALIZED</div>
                         </div>
                     </div>
                     
@@ -163,16 +163,16 @@ function renderTacticalMission(missionId, dayIndex) {
                     <div class="holographic-schema">
                         <svg viewBox="0 0 400 160" class="schema-svg">
                             <circle cx="50" cy="120" r="8" class="schema-point" />
-                            <text x="35" y="105" class="schema-label">ESTACIÓN NAMBA</text>
+                            <text x="35" y="105" class="schema-label">JR NAMBA</text>
                             
-                            <line x1="58" y1="120" x2="342" y2="40" class="schema-line" style="stroke:#ef4444; filter:drop-shadow(0 0 5px #ef4444);" />
-                            <text x="130" y="70" class="schema-meta" transform="rotate(-15 130 70)">MIDOSUJI LINE (Red)</text>
+                            <line x1="58" y1="120" x2="342" y2="40" class="schema-line" style="stroke:#22c55e; filter:drop-shadow(0 0 5px #22c55e);" />
+                            <text x="130" y="70" class="schema-meta" transform="rotate(-15 130 70)">JR YAMATOJI LINE</text>
                             
                             <circle cx="350" cy="40" r="8" class="schema-point" />
-                            <text x="310" y="25" class="schema-label">ESTACIÓN UMEDA</text>
+                            <text x="310" y="25" class="schema-label">ESTACIÓN IMAMIYA</text>
                             
                             <path d="M 350 48 Q 380 90 350 140" class="schema-line-dotted" fill="none" stroke-dasharray="4,4" />
-                            <text x="310" y="155" class="schema-meta">WALK TO HQ (10 MIN)</text>
+                            <text x="310" y="155" class="schema-meta">WALK TO HQ (3 MIN)</text>
                             
                             <circle cx="350" cy="140" r="8" class="schema-point-target" />
                             <text x="300" y="130" class="schema-label">HOTEL_HQ</text>
@@ -183,11 +183,11 @@ function renderTacticalMission(missionId, dayIndex) {
                         <div class="data-block">
                             <div class="data-label"><i class="fa-solid fa-door-open"></i> EXTRACCIÓN:</div>
                             <ul class="data-list">
-                                <li><strong>INICIO:</strong> Caminar a Est. Namba</li>
-                                <li><strong>LÍNEA:</strong> Midosuji Line (Roja)</li>
-                                <li><strong>DIRECCIÓN:</strong> "For Umeda / Senri-Chuo"</li>
-                                <li><strong>BAJAR:</strong> Estación Umeda</li>
-                                <li><strong>FINAL:</strong> Caminar 10 min al Hotel</li>
+                                <li><strong>OPCIÓN A:</strong> Caminar directo al hotel (~15-20 min)</li>
+                                <li><strong>OPCIÓN B (METRO/TREN):</strong></li>
+                                <li><strong>ESTACIÓN:</strong> JR Namba (1 parada)</li>
+                                <li><strong>BAJAR:</strong> Estación Imamiya</li>
+                                <li><strong>FINAL:</strong> Caminar 3 min al Hotel (Dc桜の苑)</li>
                             </ul>
                         </div>
                         <div class="data-block">

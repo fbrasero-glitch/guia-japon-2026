@@ -867,11 +867,16 @@ function renderCenterVisual(data, mode, optData = null) {
         <i class="fa-solid fa-map-marker-alt"></i> Ver en Google Maps
                  </a> ` : '';
 
+            let extraAction = '';
+            if (hotelName.includes('Dc桜の苑') || hotelName.includes('Dc Sakura')) {
+                extraAction = `onclick="window.showHotelMessage()" style="cursor:pointer; text-decoration: underline; text-decoration-color: var(--accent); color: var(--gold);" title="Ver Instrucciones de Check-in"`;
+            }
+
             hotelHTML = `
         <div class="hotel-info-section" >
             ${hotelImgHTML}
     <div class="hotel-details">
-        <h3 class="hotel-name"><i class="fa-solid fa-bed"></i> ${hotelName}</h3>
+        <h3 class="hotel-name" ${extraAction}><i class="fa-solid fa-bed" ${extraAction ? 'style="animation: pulse 2s infinite;"' : ''}></i> ${hotelName}</h3>
         ${hotelLinkHTML}
     </div>
                  </div>
@@ -1075,11 +1080,16 @@ function renderCenterVisual(data, mode, optData = null) {
         <i class="fa-solid fa-map-marker-alt"></i> Ver en Google Maps
                     </a> ` : '';
 
+                let extraAction = '';
+                if (hotelName.includes('Dc桜の苑') || hotelName.includes('Dc Sakura')) {
+                    extraAction = `onclick="window.showHotelMessage()" style="cursor:pointer; text-decoration: underline; text-decoration-color: var(--accent); color: var(--gold);" title="Ver Instrucciones de Check-in"`;
+                }
+
                 hotelHTML = `
         <div class="hotel-info-section" >
             ${hotelImgHTML}
     <div class="hotel-details">
-        <h3 class="hotel-name"><i class="fa-solid fa-bed"></i> ${hotelName}</h3>
+        <h3 class="hotel-name" ${extraAction}><i class="fa-solid fa-bed" ${extraAction ? 'style="animation: pulse 2s infinite;"' : ''}></i> ${hotelName}</h3>
         ${hotelLinkHTML}
     </div>
                     </div>

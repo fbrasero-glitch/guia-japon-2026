@@ -273,13 +273,13 @@ const travelData_00_08 = [
         logistics: [
             { title: "Documentación", text: "Pasaportes, permiso conducir internacional y QR Visit Japan Web listos." },
             { title: "Salud", text: "Llevad botiquín (analgésicos, antidiarreicos) y seguro médico a mano." },
-            { title: "Estrategia Sueño", text: "Intentad relajaros pero NO dormir profundamente en el primer vuelo para ajustar el sueño luego." }
+            { title: "Estrategia de Sueño", text: "Vuelo VLC-IST: NO dormir (coincide con tarde/noche en España). Relajaros, cenad a bordo y estirad piernas en escala." }
         ],
 
         timeline: [
-            { time: "22:30", title: "Aeropuerto Valencia (VLC)", desc: "Mostradores Turkish Airlines. Facturar maletas hasta destino final (KIX)." },
-            { time: "01:45", title: "Salida Vuelo TK1314", desc: "Duración 3h 40m. Cena a bordo. Destino Estambul." },
-            { time: "06:05", title: "Escala en Estambul", desc: "Seguir carteles púrpuras 'International Transfers'. No recoger maletas. Buscar puerta vuelo TK86." }
+            { time: "16:00", title: "Aeropuerto Valencia (VLC)", desc: "Hora España. Recomendado llegar 3 horas antes. Facturación hasta destino final (KIX)." },
+            { time: "18:55", title: "Salida Vuelo TK1314", desc: "Hora España / Local. Duración 3h 45m. Actividad: Cenar a bordo, ver películas y ¡no dormir!" },
+            { time: "23:40", title: "Escala Estambul (22:40h Esp)", desc: "Llegada hora local IST. Escala corta de 2h 45m. Seguir carteles 'International Transfers'. Caminad para estirar las piernas." }
         ],
 
         visualContent: {
@@ -299,7 +299,7 @@ const travelData_00_08 = [
         image: "images/dia2-osaka.jpg", // Foto llegada
 
         logistics: [
-            { title: "Jet Lag", text: "En el avión, reloj en hora Japón (+7h). Dormir primeras 6h, aguantar las últimas 4h." },
+            { title: "Estrategia Jet Lag (Vuelo)", text: "Dormid las primeras 5-6h del vuelo IST-KIX (noche de España). Despertad las últimas 4-5h para adaptaros a la llegada a Japón en horario de tarde/noche." },
             { title: "Dinero", text: "Sacad efectivo en cajero '7-Bank' (7-Eleven) en llegadas." },
             { title: "Transporte", text: "Comprad tarjeta ICOCA en máquinas JR o llevad Suica en iPhone." }
         ],
@@ -316,11 +316,11 @@ const travelData_00_08 = [
         },
 
         timeline: [
-            { time: "08:40", title: "Vuelo a Osaka", desc: "Salida TK86. Duración 11h 10m." },
-            { time: "18:50", title: "Aterrizaje KIX", desc: "Inmigración (QR Visit Japan) y recogida de maletas." },
-            { time: "20:15", title: "Taxi Directo al Hotel", desc: "Nos recoge el taxi/van que hemos reservado previamente en el aeropuerto de Kansai (KIX)." },
-            { time: "21:30", title: "Llegada al Hotel", desc: "Llegada directa al hotel Dc桜の苑-難波南店 en el taxi reservado." },
-            { time: "22:00", title: "Cena y Dormir", desc: "Onigiri/Sándwich en Lawson. Dormir inmediatamente para vencer al jet lag." }
+            { time: "02:25", title: "Vuelo TK86 rumbo Osaka", desc: "Salida hora local IST (01:25h Esp). Duración 10h 40m. ¡A dormir las primeras 5-6 horas! (Madrugada española)." },
+            { time: "19:05", title: "Aterrizaje KIX", desc: "Llegada hora local JPN (12:05h Esp). Inmigración (QR Visit Japan) y recogida de equipajes." },
+            { time: "20:30", title: "Taxi al Hotel", desc: "Hora local JPN (13:30h Esp). Nos recoge el taxi/van que hemos reservado en el aeropuerto de Kansai." },
+            { time: "21:30", title: "Llegada al Hotel", desc: "Hora local JPN (14:30h Esp). Llegada directa al hotel Dc桜の苑-難波南店 y check-in." },
+            { time: "22:00", title: "Cena y Dormir", desc: "Hora local JPN (15:00h Esp). Cena ligera en konbini. Acostarse rápido para adaptar el cuerpo al horario japonés de la noche." }
         ],
 
         visualContent: {
@@ -337,6 +337,7 @@ const travelData_00_08 = [
         hotel: "Dc桜の苑-難波南店",
         hotelImage: "images/hotel-dc-sakura.jpg",
         hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Dc桜の苑-難波南店",
+        routeMapsLink: "https://maps.app.goo.gl/btmUoBxhwRtg74So8",
         image: "images/dia3-portada.jpg",
 
         logistics: [
@@ -345,12 +346,13 @@ const travelData_00_08 = [
         ],
 
         timeline: [
-            { time: "09:00", title: "Castillo de Osaka", desc: "Visita jardines y museo. (Base)" },
-            { time: "16:30", title: "Umeda Sky Building", desc: "Vistas panorámicas al atardecer. (Base)" },
-            { time: "17:30", title: "Shinsaibashi Parco", desc: "Cultura pop: Capcom, Godzilla y Lego Store." },
-            { time: "18:30", title: "Santuario Namba Yasaka", desc: "La icónica cabeza de león gigante." },
-            { time: "19:30", title: "Calle Ebisubashisuji", desc: "Paseo techado histórico hacia Dotonbori." },
-            { time: "20:00", title: "Cena Comilona", desc: "Evento fijo de la ruta." }
+            { time: "08:00", title: "Castillo de Osaka", desc: "Visita jardines y museo. (Base)" },
+            { time: "11:00", title: "Umeda Sky Building", desc: "Vistas panorámicas de la ciudad. (Base)" },
+            { time: "12:30", title: "Almuerzo en Umeda", desc: "Recomendación: Callejón Takimi Koji (bajo el Umeda Sky)." },
+            { time: "14:30", title: "Shinsaibashi Parco", desc: "Cultura pop: Capcom, Godzilla y Lego Store." },
+            { time: "17:30", title: "Santuario Namba Yasaka", desc: "La icónica cabeza de león gigante." },
+            { time: "18:30", title: "Ebisubashisuji y Dotonbori", desc: "Paseo histórico hacia el canal." },
+            { time: "20:00", title: "Cena en Dotonbori", desc: "Evento fijo de la ruta." }
         ],
 
         prices: {
@@ -361,45 +363,47 @@ const travelData_00_08 = [
         },
 
         transportTimeline: [
-            { time: "09:00", type: "point", title: "Inicio en Hotel", icon: "fa-solid fa-bed" },
+            { time: "08:00", type: "point", title: "Inicio en Hotel", icon: "fa-solid fa-bed" },
             {
                 time: "",
                 type: "transit",
-                title: "Tren: JR Osaka Loop Line (Rojo)",
+                title: "Tren: JR Osaka Loop Line (Inner)",
                 price: "180 JPY",
-                timeLabel: "~25 min total",
+                timeLabel: "~18 min total",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Dc桜の苑-難波南店&destination=Osakajokoen+Station&travelmode=transit",
                 tacticalGuideId: "mission01"
             },
-            { time: "09:30", type: "point", title: "Llegada a Castillo Osaka", icon: "fa-solid fa-fort-awesome" },
+            { time: "08:30", type: "point", title: "Llegada al Castillo de Osaka", icon: "fa-solid fa-fort-awesome" },
             {
                 time: "",
                 type: "transit",
-                title: "JR Loop Line (Retorno) + Caminata",
+                title: "JR Loop Line (Retorno a Umeda) + Caminata",
                 price: "170 JPY",
                 timeLabel: "~30 min total",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Osakajokoen+Station&destination=Umeda+Sky+Building&travelmode=transit",
                 tacticalGuideId: "mission02"
             },
-            { time: "16:30", type: "point", title: "Llegada Umeda Sky", icon: "fa-solid fa-building" },
+            { time: "11:00", type: "point", title: "Llegada Umeda Sky", icon: "fa-solid fa-building" },
+            { time: "12:30", type: "point", title: "Almuerzo en Umeda (Takimi Koji)", icon: "fa-solid fa-utensils" },
             {
                 time: "",
                 type: "transit",
                 title: "Línea Midosuji (Umeda → Shinsaibashi)",
-                price: "230 JPY",
-                timeLabel: "~10 min tren",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Umeda+Sky+Building&destination=Shinsaibashi+Parco&travelmode=transit"
+                price: "240 JPY",
+                timeLabel: "~15 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Umeda+Station&destination=Shinsaibashi+Parco&travelmode=transit",
+                tacticalGuideId: "mission03"
             },
-            { time: "17:30", type: "point", title: "Shinsaibashi Parco", icon: "fa-solid fa-gamepad" },
+            { time: "14:30", type: "point", title: "Shinsaibashi Parco", icon: "fa-solid fa-gamepad" },
             {
                 time: "",
                 type: "transit",
-                title: "Caminata (Sur)",
-                price: "Gratis",
-                timeLabel: "~15 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Shinsaibashi+Parco&destination=Namba+Yasaka+Shrine&travelmode=walking"
+                title: "Caminata o Metro a Namba Yasaka",
+                price: "Gratis / 190 JPY",
+                timeLabel: "~15-20 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Shinsaibashi+Parco&destination=Namba+Yasaka+Shrine&travelmode=transit"
             },
-            { time: "18:30", type: "point", title: "Santuario Namba Yasaka", icon: "fa-solid fa-mask" },
+            { time: "17:30", type: "point", title: "Santuario Namba Yasaka", icon: "fa-solid fa-mask" },
             {
                 time: "",
                 type: "transit",
@@ -408,13 +412,13 @@ const travelData_00_08 = [
                 timeLabel: "~10 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Namba+Yasaka+Shrine&destination=Ebisubashisuji+Shopping+Street&travelmode=walking"
             },
-            { time: "19:30", type: "point", title: "Calle Ebisubashisuji", icon: "fa-solid fa-person-walking-luggage" },
+            { time: "18:30", type: "point", title: "Ebisubashisuji y Dotonbori", icon: "fa-solid fa-person-walking-luggage" },
             { time: "20:00", type: "point", title: "Cena en Dotonbori", icon: "fa-solid fa-utensils" },
             {
                 time: "",
                 type: "transit",
-                title: "JR Yamatoji Line (JR Namba → Imamiya) o caminar",
-                price: "140 JPY",
+                title: "JR Yamatoji Line o caminar",
+                price: "170 JPY",
                 timeLabel: "~15 min total",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Dotonbori&destination=Dc桜の苑-難波南店&travelmode=transit",
                 tacticalGuideId: "mission04"
@@ -429,7 +433,7 @@ const travelData_00_08 = [
             events: [
                 {
                     id: "b1",
-                    time: "09:00",
+                    time: "08:00",
                     title: "Castillo de Osaka",
                     description: "Construido en 1583. Torres, murallas y museo histórico.",
                     image: "images/dia3-itinerario-base.jpg",
@@ -448,7 +452,7 @@ const travelData_00_08 = [
                 },
                 {
                     id: "b2",
-                    time: "16:30",
+                    time: "11:00",
                     title: "Umeda Sky Building",
                     description: "Edificio con observatorio flotante. Vistas espectaculares.",
                     image: "images/umeda.png",
@@ -467,7 +471,7 @@ const travelData_00_08 = [
                 },
                 {
                     id: "b3",
-                    time: "17:30",
+                    time: "14:30",
                     title: "Shinsaibashi Parco",
                     description: "Epicentro friki con las tiendas oficiales de Capcom, Godzilla y Lego.",
                     image: "images/shinsaibashi-parco.jpg",
@@ -485,8 +489,8 @@ const travelData_00_08 = [
                     `
                 },
                 {
-                    id: "b_namba_yasaka",
-                    time: "18:30",
+                    id: "b4",
+                    time: "17:30",
                     title: "Santuario Namba Yasaka",
                     description: "Famoso por su enorme edificio en forma de cabeza de león que 'traga' los malos espíritus.",
                     image: "images/add-namba-yasaka.jpg",
@@ -504,8 +508,8 @@ const travelData_00_08 = [
                     `
                 },
                 {
-                    id: "b_ebisubashi",
-                    time: "19:30",
+                    id: "b5",
+                    time: "18:30",
                     title: "Calle Ebisubashisuji",
                     description: "Galería comercial histórica que sirve de entrada triunfal a Dotonbori.",
                     image: "images/ebisubashi-suji.jpg",
@@ -522,7 +526,7 @@ const travelData_00_08 = [
                     `
                 },
                 {
-                    id: "b4",
+                    id: "b6",
                     time: "20:00",
                     title: "Cena en Dotonbori",
                     description: "Ver el cartel de Glico iluminado. Gastronomía local (Takoyaki, Kushikatsu).",
@@ -540,7 +544,7 @@ const travelData_00_08 = [
                     `
                 },
                 {
-                    id: "b5",
+                    id: "b7",
                     time: "22:00",
                     title: "Retorno al Hotel",
                     description: "Fin de la jornada. Descanso en el Cuartel General.",
@@ -667,6 +671,7 @@ const travelData_00_08 = [
         hotel: "Dc桜の苑-難波南店",
         hotelImage: "images/hotel-dc-sakura.jpg",
         hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Dc桜の苑-難波南店",
+        routeMapsLink: "https://maps.app.goo.gl/X56rv4yvkFGXvDdY6",
         image: "images/dia3-portada.jpg",
         infographic: "infografía/inf dia 4.png",
 
@@ -1084,16 +1089,45 @@ const travelData_00_08 = [
             {
                 time: "09:00",
                 type: "point",
-                title: "Salida Hotel",
+                title: "Salida Hotel (Dc桜の苑)",
                 icon: "fa-solid fa-hotel"
             },
             {
+                time: "",
                 type: "transit",
-                title: "JR Yamatoji Line (Rapid)",
-                price: "820 JPY",
-                timeLabel: "50 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Dc桜の苑-難波南店&destination=Nara+Park&travelmode=transit",
+                title: "Caminar (~8 min) a Est. Shin-Imamiya",
+                price: "Gratis",
+                timeLabel: "8 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Dc桜の苑-難波南店&destination=Shin-Imamiya+Station&travelmode=walking"
+            },
+            {
+                time: "09:10",
+                type: "point",
+                title: "Estación Shin-Imamiya (JR)",
+                icon: "fa-solid fa-train"
+            },
+            {
+                time: "",
+                type: "transit",
+                title: "JR Yamatoji Line (Rapid) - Dir. Nara",
+                price: "570 JPY",
+                timeLabel: "38 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Shin-Imamiya+Station&destination=Nara+Station&travelmode=transit",
                 tacticalGuideId: "mission_nara"
+            },
+            {
+                time: "09:50",
+                type: "point",
+                title: "Estación JR Nara (Caminar/Bus a Parque)",
+                icon: "fa-solid fa-location-dot"
+            },
+            {
+                time: "",
+                type: "transit",
+                title: "Caminar a Nara Park o Bus a Todaiji",
+                price: "Gratis / 220 JPY",
+                timeLabel: "15-20 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Nara+Station&destination=Nara+Park&travelmode=transit"
             },
             {
                 time: "10:30",
@@ -1337,14 +1371,43 @@ const travelData_00_08 = [
 
         transportTimeline: [
             {
-                time: "10:00",
+                time: "09:00",
                 type: "point",
-                title: "Salida Osaka Station (JR Special Rapid)",
+                title: "Salida Hotel (Dc桜の苑)",
+                icon: "fa-solid fa-hotel"
+            },
+            {
+                time: "",
+                type: "transit",
+                title: "Caminar (~8 min) a Est. Shin-Imamiya",
+                price: "Gratis",
+                timeLabel: "8 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Dc桜の苑-難波南店&destination=Shin-Imamiya+Station&travelmode=walking"
+            },
+            {
+                time: "09:15",
+                type: "point",
+                title: "Estación Shin-Imamiya (JR)",
                 icon: "fa-solid fa-train"
             },
             {
+                time: "",
                 type: "transit",
-                title: "JR Special Rapid Service",
+                title: "JR Osaka Loop Line (Inner) hacia Osaka Station",
+                price: "190 JPY",
+                timeLabel: "15 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Shin-Imamiya+Station&destination=Osaka+Station&travelmode=transit"
+            },
+            {
+                time: "09:40",
+                type: "point",
+                title: "Llegada a Osaka Station (Cambio Andén 7-9)",
+                icon: "fa-solid fa-person-walking-luggage"
+            },
+            {
+                time: "",
+                type: "transit",
+                title: "JR Special Rapid Service (Kyoto Line)",
                 price: "580 JPY",
                 timeLabel: "29 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Osaka+Station&destination=Kyoto+Station&travelmode=transit",
