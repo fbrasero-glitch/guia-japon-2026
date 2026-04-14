@@ -1087,6 +1087,12 @@ const travelData_00_08 = [
 
         transportTimeline: [
             {
+                time: "08:00",
+                type: "point",
+                title: "Lawson: Enviar maletas a Kioto",
+                icon: "fa-solid fa-suitcase-rolling"
+            },
+            {
                 time: "09:00",
                 type: "point",
                 title: "Salida Hotel (Dc桜の苑)",
@@ -1181,6 +1187,26 @@ const travelData_00_08 = [
             title: "Nara Tradicional",
             description: "La primera capital permanente de Japón y sus ciervos sagrados.",
             events: [
+                {
+                    id: "b0",
+                    time: "08:00",
+                    title: "Envío de Maletas a Kioto",
+                    description: "Enviamos las 8 maletas grandes por Yu-Pack al Kyoto Tower Hotel Annex.",
+                    image: "images/hotel-dc-sakura.jpg",
+                    price: "115€-140€",
+                    link: "https://maps.app.goo.gl/E6DavWXsZnCTgWZT7",
+                    tacticalGuideId: "mission_luggage",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-suitcase-rolling"></i> Envío de Maletas (Yu-Pack)</h3>
+                        <p>Para no cargar con las 8 maletas grandes en los trenes hacia Nara y luego a Kioto, las enviaremos directamente desde el Lawson hasta el Kyoto Tower Hotel Annex.</p>
+                        <p><em>Esta es una maniobra logística crucial que nos permitirá movernos con total libertad. Al llegar a Kioto mañana, las maletas ya estarán esperando.</em></p>
+                        <ul>
+                            <li><i class="fa-solid fa-clock"></i> <strong>Hora:</strong> 08:00 AM (Primera hora para evitar aglomeraciones en la tienda).</li>
+                            <li><i class="fa-solid fa-location-dot"></i> <strong>Lugar:</strong> Lawson cercano (Ver mapa: Dawson/Lawson).</li>
+                            <li><i class="fa-solid fa-circle-info"></i> <strong>Instrucciones:</strong> Abre la guía táctica para ver el paso a paso y la "chuleta" para el dependiente.</li>
+                        </ul>
+                    `
+                },
                 {
                     id: "b1",
                     time: "11:30",

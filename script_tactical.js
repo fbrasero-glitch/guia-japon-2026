@@ -769,6 +769,64 @@ function renderTacticalMission(missionId, dayIndex) {
                     <div class="scanline-overlay"></div>
                 </div>
         `;
+        } else if (missionId === 'mission_luggage') {
+            missionHTML = `
+        <div class="datapad-container animate-fade-in" >
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: YU-PACK_LUGGAGE</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    
+                    <h1 class="datapad-title">> GUÍA DEFINITIVA: ENVÍO DE 8 MALETAS AL KYOTO TOWER HOTEL ANNEX</h1>
+                    
+                    <div class="holographic-schema" style="height: auto; padding: 20px;">
+                        <div style="font-family: monospace; color: var(--neon-blue); font-size: 1.1rem; line-height: 1.5;">
+                            > INSTRUCCIONES PARA EL DEPENDIENTE (LA CHULETA)<br><br>
+                            <span style="color: #fff; font-size: 1.2rem;">
+                            スペイン人観光客です。<br>
+                            荷物8個を京都のホテルへ送りたいです。<br>
+                            [Yu-Pack / ゆうパック] の元払い伝票を8枚お願いします。<br>
+                            荷物は全て大きなスーツケースです。
+                            </span>
+                            <br><br>
+                            (Traducción: Soy un turista español. Quiero enviar 8 bultos a un hotel de Kioto. Por favor, 8 formularios de Yu-Pack de pago por adelantado. Todas son maletas grandes).
+                        </div>
+                    </div>
+
+                    <div class="tactical-data-grid" style="grid-template-columns: 1fr;">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-pen-to-square"></i> CÓMO RELLENAR EL FORMULARIO (MAYÚSCULAS CLARAS):</div>
+                            <ul class="data-list">
+                                <li><strong>A. DESTINATARIO (To / お届け先):</strong></li>
+                                <li>Código Postal: <strong>600-8216</strong> | Teléfono: <strong>075-343-3111</strong></li>
+                                <li>Dirección: <strong>595-1 Higashishiokojicho, Shimogyo Ward, Kyoto</strong> (Añade abajo: Kyoto Tower Hotel Annex)</li>
+                                <li>Nombre: Tu nombre completo (el de la reserva) + <strong>"CHECK-IN: 1 de Agosto"</strong></li>
+                                <li>---</li>
+                                <li><strong>B. REMITENTE (From / ご依頼主):</strong></li>
+                                <li>Código Postal / Tel: 557-0033 / Teléfono Hotel Osaka o tuyo</li>
+                                <li>Dirección: Dc Sakura no Sono, Nishinari, Osaka</li>
+                                <li>Nombre: Tu nombre</li>
+                                <li>---</li>
+                                <li><strong>C. DETALLES (Content / 品名):</strong></li>
+                                <li>Contenido: <strong>Suitcases / Clothes</strong></li>
+                                <li>Fecha de entrega: <strong>1 de Agosto (Día de llegada a Kioto)</strong></li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-money-bill-wave"></i> PROCESO Y CONSEJOS:</div>
+                            <ul class="data-list">
+                                <li><strong>QUÉ PEDIR:</strong> "Yu-Pack, motobarai, onegaishimasu" (8 formularios blancos y azules).</li>
+                                <li><strong>PAGO:</strong> ~2.200 a 2.800 JPY (Aprox 14-18€) por maleta de tamaño "140" o "160". Total 8 maletas: 115€-140€. Puedes pagar en efectivo, tarjeta o Suica/ICOCA.</li>
+                                <li><strong>CONSEJO LOGÍSTICO:</strong> Evitar horas punta. Ir a las 08:00 AM es ideal. Si el Lawson es pequeño y os cuesta, llevad las maletas de 4 en 4 en dos viajes.</li>
+                                <li><strong>CONFIRMACIÓN:</strong> Te darán una copia de cada formulario. ¡No los pierdas! Al llegar al Kyoto Tower Hotel Annex, solo di: "We sent 8 suitcases by Yu-Pack".</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+        `;
         } else if (missionId === 'mission06') {
             missionHTML = `
         <div class="datapad-container animate-fade-in" >
