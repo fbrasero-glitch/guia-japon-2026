@@ -679,7 +679,7 @@ function renderPreparationPage(data) {
                         <span style="font-size: 0.7rem; color: rgba(255,255,255,0.4); text-transform: uppercase;">Resumen de Fechas Críticas</span>
                     </div>
                     
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;" class="custom-scroll">
+                    <div class="booking-grid-v3 custom-scroll">
                         ${data.bookingPanel.phases.map(phase => `
                             <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 8px; border-left: 3px solid ${phase.color};">
                                 <div style="font-size:0.75rem; color:${phase.color}; font-weight:900; text-transform:uppercase; margin-bottom:8px;">${phase.name}</div>
@@ -720,8 +720,8 @@ function renderPreparationPage(data) {
         </div>
 
         <!-- BLOQUE MEDIO: SELECTOR DE VIAJEROS (UNA SOLA LÍNEA) -->
-        <div class="traveler-control-strip" style="background: rgba(255,255,255,0.05); padding: 15px 20px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 30px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
-            <div style="display: flex; align-items: center; gap: 15px;">
+        <div class="traveler-control-strip">
+            <div class="traveler-selector-v3">
                 <div style="color: var(--neon-blue); font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">
                     <i class="fa-solid fa-user-gear"></i> Misión de:
                 </div>

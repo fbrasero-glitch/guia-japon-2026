@@ -3340,29 +3340,86 @@ body:not(.day-selected) .right-panel {
 /* Mobile Responsiveness */
 @media (max-width: 767px) {
     .preparation-container {
-        padding: 10px;
+        padding: 5px; /* Reducido de 10px */
     }
 
     .preparation-title-row h1 {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
+        margin-bottom: 10px;
     }
 
     .traveler-avatar {
-        width: 38px;
-        height: 38px;
-        font-size: 0.9rem;
+        width: 32px; /* Reducido de 38px */
+        height: 32px;
+        font-size: 0.8rem;
+    }
+
+    .preparation-section-header {
+        padding: 12px 15px;
     }
 
     .preparation-section-header h2 {
-        font-size: 1rem;
+        font-size: 0.95rem;
+    }
+
+    .preparation-items {
+        padding: 0 10px 10px;
+        gap: 10px;
+    }
+
+    .preparation-item {
+        padding: 12px;
+    }
+
+    .preparation-item-header {
+        gap: 10px;
     }
 
     .preparation-item-header h3 {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
+    }
+
+    .preparation-item-content {
+        margin-left: 0; /* Eliminado el margen izquierdo grande */
+        padding-top: 5px;
+    }
+
+    .preparation-desc {
+        font-size: 0.85rem;
     }
 
     .traveler-status-row {
         margin-left: 0;
+        padding-top: 8px;
+        justify-content: flex-start;
+    }
+
+    /* Ajustes para el panel de booking V3 en móvil */
+    .booking-master-panel-v3 {
+        padding: 10px !important;
+    }
+
+    .booking-master-panel-v3 h3 {
+        font-size: 0.85rem !important;
+    }
+
+    .traveler-control-strip {
+        padding: 12px 15px !important;
+        flex-direction: column;
+        align-items: stretch !important;
+        gap: 15px !important;
+    }
+
+    .traveler-control-strip > div {
+        justify-content: center;
+    }
+
+    .progress-info-compact {
+        min-width: 100% !important;
+    }
+
+    .booking-grid-v3 {
+        grid-template-columns: 1fr !important;
     }
 }
 /* ==========================================
@@ -3509,13 +3566,35 @@ body:not(.day-selected) .right-panel {
 }
 
 .traveler-control-strip {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     position: sticky;
-    top: -1px; /* Para evitar huecos al hacer scroll */
+    top: -1px;
     z-index: 100;
     backdrop-filter: blur(15px);
     border-bottom: 2px solid var(--neon-blue);
     animation: slideDownFade 0.4s ease-out;
+}
+
+.traveler-selector-v3 {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.booking-grid-v3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
 }
 
 .traveler-avatar {
