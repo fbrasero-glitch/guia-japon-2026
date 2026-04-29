@@ -1,4 +1,4 @@
-const CACHE_NAME = 'japon-2026-v3';
+const CACHE_NAME = 'japon-2026-v4';
 
 // Esta lista será reemplazada automáticamente por el script de Python.
 const ASSETS_TO_CACHE = [
