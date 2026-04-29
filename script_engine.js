@@ -749,8 +749,8 @@ function renderPreparationPage(data) {
     let centerHTML = `
             <div class="preparation-container">
                 <div class="preparation-header">
-                    <div class="preparation-title-row" style="margin-bottom: 25px; text-align: left; border-left: 4px solid var(--neon-blue); padding-left: 15px; display: flex; justify-content: space-between; align-items: center;">
-                        <h1 style="text-transform:uppercase; font-size: 2.2rem; font-weight: 900; letter-spacing:4px; color: white; margin: 0;">
+                    <div class="preparation-title-row">
+                        <h1>
                             PLAN DE <span style="color: var(--neon-blue);">ACCIÓN</span>
                         </h1>
                         

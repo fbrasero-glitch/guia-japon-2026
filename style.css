@@ -3055,6 +3055,29 @@ body:not(.day-selected) .right-panel {
     font-size: 0.9rem;
 }
 
+.preparation-header {
+    margin-bottom: 30px;
+}
+
+.preparation-title-row {
+    margin-bottom: 25px;
+    text-align: left;
+    border-left: 4px solid var(--neon-blue);
+    padding-left: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.preparation-title-row h1 {
+    text-transform: uppercase;
+    font-size: 2.2rem;
+    font-weight: 900;
+    letter-spacing: 4px;
+    color: white;
+    margin: 0;
+}
+
 /* Preparation Sections */
 .preparation-sections {
     display: flex;
@@ -3343,9 +3366,27 @@ body:not(.day-selected) .right-panel {
         padding: 5px; /* Reducido de 10px */
     }
 
+    .preparation-title-row {
+        flex-direction: column;
+        text-align: center;
+        border-left: none;
+        padding-left: 0;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
     .preparation-title-row h1 {
-        font-size: 1.3rem;
-        margin-bottom: 10px;
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+        line-height: 1.2;
+        margin-bottom: 5px;
+        width: 100%;
+        display: block;
+    }
+
+    .infographic-stack {
+        justify-content: center;
+        width: 100%;
     }
 
     .traveler-avatar {
