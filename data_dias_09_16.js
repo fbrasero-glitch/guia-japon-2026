@@ -11,6 +11,7 @@ const travelData_09_16 = [
         hotel: "Kyoto Tower Hotel Annex",
         hotelImage: "images/hotel-kyoto-tower.jpg",
         hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Kyoto+Tower+Hotel+Annex",
+        routeMapsLink: "https://www.google.com/maps/d/u/0/edit?mid=1QX0oai9XsdBCPdWuGd-wQ8nP3Zgqvrw&usp=sharing",
         image: "images/fushimi_inari.png",
 
         logistics: [
@@ -247,6 +248,7 @@ const travelData_09_16 = [
         hotel: "Kyoto Tower Hotel Annex",
         hotelImage: "images/hotel-kyoto-tower.jpg",
         hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Kyoto+Tower+Hotel+Annex",
+        routeMapsLink: "https://www.google.com/maps/d/u/0/edit?mid=1JqenywGFFB_5RJcd9AeQDmCX82vuECw&usp=sharing",
         image: "images/dia10-itinerario-base.jpg",
 
         logistics: [
@@ -568,7 +570,13 @@ const travelData_09_16 = [
                 tacticalGuideId: "mission_alpes_1",
                 booking: { id: "bk_shinkansen", timeframe: "1 mes antes (App SmartEX)", required: true, link: "https://smart-ex.jp/en/index.php" }
             },
-            { time: "09:30", type: "point", title: "Transbordo en Nagoya", icon: "fa-solid fa-person-walking-arrow-right" },
+            { 
+                time: "09:30", 
+                type: "point", 
+                title: "⚠️ CRÍTICO: Transbordo en Nagoya", 
+                icon: "fa-solid fa-triangle-exclamation",
+                desc: "Punto crítico. Salir de tornos Shinkansen y buscar señales AMARILLAS hacia vías 10-11 (Hida). Moverse como bloque de 8."
+            },
             {
                 time: "10:00",
                 type: "transit",
@@ -1024,7 +1032,7 @@ const travelData_09_16 = [
                 tacticalGuideId: "mission_fuji_bus"
             },
             { time: "13:15", type: "point", title: "Llegada Kawaguchiko Station", icon: "fa-solid fa-flag-checkered" },
-            { time: "13:30", type: "point", title: "Recogida Coche en Budget", icon: "fa-solid fa-car" },
+            { time: "13:30", type: "point", title: "Recogida Coche: Toyota/Budget Fuji Kawaguchiko", icon: "fa-solid fa-car" },
             {
                 time: "14:15",
                 type: "transit",
@@ -1084,7 +1092,8 @@ const travelData_09_16 = [
                         <h3><i class="fa-solid fa-car-side"></i> Operación Conducción Nipona</h3>
                         <p>Iván o Felipe: Os tocará conducir por la izquierda. El coche proporciona la única forma de moverse libremente alrededor de los lagos.</p>
                         <ul>
-                            <li><i class="fa-solid fa-traffic-light"></i> <strong>Tráfico:</strong> Las carreteras son estupendas, pero los límites de velocidad rondan 40-50 km/h y hay que pararse 100% en pasos a nivel.</li>
+                            <li><i class="fa-solid fa-traffic-light"></i> <strong>Tráfico:</strong> Las carreteras son estupendas, pero los límites de velocidad son estrictos (40-50 km/h).</li>
+                            <li><i class="fa-solid fa-stop"></i> <strong>Pasos a Nivel:</strong> Es OBLIGATORIO detener el coche completamente (Stop) antes de cualquier vía de tren, aunque no haya barreras o luces.</li>
                         </ul>
                     `,
                     booking: { id: "bk_coches", timeframe: "2-3 meses antes", required: true, link: "https://www.budgetrentacar.co.jp/en/" }
@@ -1536,7 +1545,7 @@ const travelData_09_16 = [
 
         logistics: [
             { title: "Coche", text: "Llenad depósito de gasolina y devolved en Budget Kawaguchiko Station (10:30 max). Guardad ticket." },
-            { title: "Transporte", text: "Tren Expreso Fuji Excursion directo a Shinjuku (imprescindible reservar). Alternativa: Highway Bus." },
+            { title: "Transporte", text: "Tren Expreso Fuji Excursion directo a Shinjuku (RESERVA CRÍTICA 30 días antes). Alternativa: Highway Bus." },
             { title: "Equipaje", text: "Maletas grandes enviadas desde Kioto u Osaka os estarán esperando en el lobby o habitación del hotel." }
         ],
 
@@ -1555,8 +1564,8 @@ const travelData_09_16 = [
             {
                 time: "13:30",
                 type: "transit",
-                title: "Taxis a Iidabashi",
-                price: "~2.000 JPY por taxi (a dividir)",
+                title: "Taxis a Iidabashi (x2 furgonetas)",
+                price: "~4.000 JPY total (2 taxis)",
                 timeLabel: "15 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Shinjuku+Station&destination=Hotel+Metropolitan+Edmont+Tokyo"
             },

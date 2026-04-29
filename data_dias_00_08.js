@@ -13,34 +13,33 @@ const travelData_00_08 = [
         infographic: "infografía/inf dia 0.png",
 
         bookingPanel: {
-            title: "Control Maestro de Reservas Críticas",
+            title: "Control Maestro de Reservas Críticas (Grupo 8 Pax)",
             phases: [
                 {
-                    name: "FASE 1: 2-3 Meses Antes",
+                    name: "FASE 1: 2 Meses Antes",
                     color: "var(--neon-purple)",
                     items: [
-                        { name: "Coches de Alquiler en Fuji (2 Honda Fit)", status: "pending", date: "2-3 meses antes" },
-                        { name: "TeamLab Planets (Tokio)", status: "pending", date: "Exactamente 2 meses antes" },
-                        { name: "Palacio Imperial de Kioto", status: "pending", date: "Exactamente 2 meses antes" }
+                        { id: "bk_teamlab", name: "TeamLab Planets (Tokio)", status: "pending", date: "Exactamente 2 meses antes", link: "https://planets.teamlab.art/tokyo/es/tickets" },
+                        { id: "bk_palacio", name: "Palacio Imperial de Kioto", status: "pending", date: "Exactamente 2 meses antes", link: "https://sankan.kunaicho.go.jp/english/index.html" }
                     ]
                 },
                 {
-                    name: "FASE 2: 1 Mes Antes (CRÍTICA)",
+                    name: "FASE 2: 1 Mes Antes (BLOQUE CRÍTICO)",
                     color: "var(--danger)",
                     items: [
-                        { name: "Bus Takayama-Fuji (Highwaybus)", status: "pending", date: "Exactamente 1 mes antes" },
-                        { name: "Shibuya Sky (Atardecer)", status: "pending", date: "Exactamente 4 semanas antes" },
-                        { name: "Tren Romántico de Arashiyama", status: "pending", date: "Exactamente 1 mes antes" },
-                        { name: "Shinkansen Kioto-Nagoya", status: "pending", date: "Exactamente 1 mes antes" },
-                        { name: "Bus Nohi Shirakawa-go", status: "pending", date: "Exactamente 1 mes antes" }
+                        { id: "bk_shinkansen", name: "Shinkansen Kioto-Nagoya (SmartEX)", status: "pending", date: "Exactamente 30 días antes", link: "https://smart-ex.jp/en/index.php" },
+                        { id: "bk_hida", name: "Wide View Hida (Nagoya-Takayama)", status: "pending", date: "1 mes antes", link: "https://www.westjr.co.jp/global/en/ticket/route_search/" },
+                        { id: "bk_fuji_excursion", name: "Tren Fuji Excursion (Regreso Tokio)", status: "pending", date: "Exactamente 1 mes antes", link: "https://www.eki-net.com/en/jreast-train-reservation/Top/Index" },
+                        { id: "bk_bus_takayama_fuji", name: "Bus Takayama-Fuji (Highwaybus)", status: "pending", date: "1 mes antes", link: "https://www.highwaybus.com/gp/inbound/index" },
+                        { id: "bk_bus_nohi", name: "Bus Nohi (Shirakawa-go)", status: "pending", date: "1 mes antes", link: "https://www.nouhibus.co.jp/english/" }
                     ]
                 },
                 {
-                    name: "FASE 3: 2-3 Semanas Antes",
+                    name: "FASE 3: 4 Semanas / 2 Semanas Antes",
                     color: "var(--gold)",
                     items: [
-                        { name: "Samurai & Ninja Museum (Kioto)", status: "pending", date: "2-3 semanas antes" },
-                        { name: "Acuario Kaiyukan (Osaka)", status: "pending", date: "1-2 semanas antes" }
+                        { id: "bk_shibuya", name: "Shibuya Sky (Atardecer)", status: "pending", date: "Exactamente 4 semanas antes (00:00 JST)", link: "https://www.shibuya-scramble-square.com/en/sky/ticket/" },
+                        { id: "bk_kaiyukan", name: "Acuario Kaiyukan (Osaka)", status: "pending", date: "1-2 semanas antes", link: "https://www.kaiyukan.com/language/eng/" }
                     ]
                 }
             ]
@@ -146,6 +145,64 @@ const travelData_00_08 = [
                 {
                     title: "2–3 Semanas Antes",
                     icon: "fa-solid fa-file-lines",
+                    color: "#8b5cf6",
+                    items: [
+                        {
+                            title: "Check-in Vuelos y Asignación de Asientos",
+                            desc: "Asegurar que el grupo de 8 vuele junto. Confirmar dietas especiales si se requiere.",
+                            who: "Todos los viajeros."
+                        },
+                        {
+                            title: "Preparar 'Carpeta de Supervivencia'",
+                            desc: "Imprimir reservas, mapas offline y PDFs de la guía técnica por si falla el digital.",
+                            who: "Logística."
+                        }
+                    ]
+                },
+                {
+                    title: "Logística y Transporte (Guía Técnica)",
+                    icon: "fa-solid fa-truck-fast",
+                    color: "#38bdf8",
+                    items: [
+                        {
+                            title: "Configuración de Tarjetas IC (Suica/Pasmo)",
+                            desc: "Añadir tarjeta al Apple Wallet (iPhone) o Google Pay. Carga inicial recomendada: 5.000 JPY.",
+                            who: "Todos los viajeros.",
+                            why: "Evita colas en máquinas y permite pagar en trenes, buses y máquinas de vending."
+                        },
+                        {
+                            title: "Protocolo de Maletas (Takkyubin)",
+                            desc: "Planificar los días de envío de maletas (Días 10 y 16). Las maletas tardan 24h en llegar.",
+                            who: "Responsable de equipaje.",
+                            why: "Crucial para los Alpes y Fuji donde no caben maletas grandes en el transporte local."
+                        }
+                    ]
+                },
+                {
+                    title: "Compras Necesarias (Transporte)",
+                    icon: "fa-solid fa-cart-shopping",
+                    color: "#ec4899",
+                    items: [
+                        {
+                            title: "Conectividad: eSIM o Pocket WiFi",
+                            desc: "Contratar Holafly/Airalo para datos ilimitados. Es vital para el uso de Google Maps 'Last Mile'.",
+                            who: "Todos los viajeros."
+                        },
+                        {
+                            title: "Efectivo Físico (Yenes)",
+                            desc: "Cambiar 40.000 - 50.000 JPY iniciales. Útil para cargar tarjetas IC físicas y sitios tradicionales.",
+                            who: "Todos los viajeros."
+                        },
+                        {
+                            title: "Tarjeta Welcome Suica (Si no hay stock digital)",
+                            desc: "Si no tenéis iPhone, comprar la Welcome Suica roja al llegar al aeropuerto (KIX).",
+                            who: "Viajeros Android."
+                        }
+                    ]
+                },
+                {
+                    title: "Documentación y Salud",
+                    icon: "fa-solid fa-file-shield",
                     color: "#8b5cf6",
                     items: [
                         {
@@ -301,26 +358,39 @@ const travelData_00_08 = [
         logistics: [
             { title: "Estrategia Jet Lag (Vuelo)", text: "Dormid las primeras 5-6h del vuelo IST-KIX (noche de España). Despertad las últimas 4-5h para adaptaros a la llegada a Japón en horario de tarde/noche." },
             { title: "Dinero", text: "Sacad efectivo en cajero '7-Bank' (7-Eleven) en llegadas." },
-            { title: "Transporte", text: "Comprad tarjeta ICOCA en máquinas JR o llevad Suica en iPhone." }
+            { title: "Transporte VIP", text: "Tenemos reservados 2 taxis (vía Booking) directos al hotel. Capacidad total sobrada para el grupo y maletas." }
         ],
 
         additions: [
-            "Llevad efectivo: recomendación inicial 30.000–50.000 JPY por persona. Usad cajeros 7‑Bank (7‑Eleven) o Japan Post ATM para retirar con tarjeta extranjera.",
-            "Contratad eSIM o pocket Wi‑Fi para datos; en zonas montañosas la cobertura puede ser limitada. Instalad y descargad offline: Google Maps, Google Translate."
+            "Transporte Reservado: 2 Taxis a través de Booking. Capacidad por taxi: 9 personas y 9 maletas medianas.",
+            "Punto de encuentro: Seguid las instrucciones de Booking/Chofer en la terminal de llegadas de KIX.",
+            "Llevad efectivo: recomendación inicial 30.000–50.000 JPY por persona para gastos diarios y tarjetas IC."
         ],
 
         prices: {
-            transport: "~15.000-20.000 JPY (Reserva de taxi/van directa desde el aeropuerto hasta el hotel, dividido entre 8 = ~2000-2500 JPY por persona)",
+            transport: "Pagado (Reserva Booking)",
             food: "~500 JPY (Onigiri/Sándwich)",
-            total: "~2500-3000 JPY por persona"
+            total: "~500 JPY (Gastos día 2)"
         },
 
         timeline: [
             { time: "02:25", title: "Vuelo TK86 rumbo Osaka", desc: "Salida hora local IST (01:25h Esp). Duración 10h 40m. ¡A dormir las primeras 5-6 horas! (Madrugada española)." },
-            { time: "19:05", title: "Aterrizaje KIX", desc: "Llegada hora local JPN (12:05h Esp). Inmigración (QR Visit Japan) y recogida de equipajes." },
-            { time: "20:30", title: "Taxi al Hotel", desc: "Hora local JPN (13:30h Esp). Nos recoge el taxi/van que hemos reservado en el aeropuerto de Kansai." },
-            { time: "21:30", title: "Llegada al Hotel", desc: "Hora local JPN (14:30h Esp). Llegada directa al hotel Dc桜の苑-難波南店 y check-in." },
-            { time: "22:00", title: "Cena y Dormir", desc: "Hora local JPN (15:00h Esp). Cena ligera en konbini. Acostarse rápido para adaptar el cuerpo al horario japonés de la noche." }
+            { time: "19:05", title: "Aterrizaje KIX", desc: "Llegada hora local JPN. Inmigración (QR Visit Japan) y recogida de equipajes." },
+            { time: "20:15", title: "Recogida Taxi Booking", desc: "Encuentro con los choferes de los 2 taxis reservados. Traslado directo sin esperas." },
+            { time: "21:15", title: "Llegada al Hotel", desc: "Check-in directo en Dc桜の苑-難波南店. Sin transbordos de tren ni maletas por la calle." },
+            { time: "22:00", title: "Cena y Dormir", desc: "Hora local JPN. Cena ligera en konbini cercano. Acostarse rápido para adaptar el cuerpo." }
+        ],
+
+        transportTimeline: [
+            {
+                time: "20:15",
+                type: "transit",
+                title: "2 Taxis Reservados (Booking.com)",
+                price: "PRE-PAGADO",
+                timeLabel: "60 min (Directo)",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Kansai+International+Airport&destination=Dc桜の苑-難波南店&travelmode=driving",
+                desc: "Transporte directo KIX → Hotel. Capacidad: 9 pax + 9 maletas por vehículo."
+            }
         ],
 
         visualContent: {
@@ -1113,13 +1183,13 @@ const travelData_00_08 = [
                 icon: "fa-solid fa-train"
             },
             {
-                time: "",
+                time: "09:10",
                 type: "transit",
-                title: "JR Yamatoji Line (Rapid) - Dir. Nara",
-                price: "570 JPY",
-                timeLabel: "38 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Shin-Imamiya+Station&destination=Nara+Station&travelmode=transit",
-                tacticalGuideId: "mission_nara"
+                title: "Tren: Kintetsu Nara Line (Expresso)",
+                price: "680 JPY",
+                timeLabel: "40 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Osaka-Namba+Station&destination=Kintetsu-Nara+Station&travelmode=transit",
+                tacticalGuideId: "mission_nara_kintetsu"
             },
             {
                 time: "09:50",
@@ -1387,6 +1457,7 @@ const travelData_00_08 = [
         hotel: "Kyoto Tower Hotel Annex",
         hotelImage: "images/hotel-kyoto-tower.jpg",
         hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Kyoto+Tower+Hotel+Annex",
+        routeMapsLink: "https://www.google.com/maps/d/u/0/edit?mid=1ttxIE3lbi8hmEP_7xvVZLvVINXgbRpA&usp=sharing",
         image: "images/dia7-portada.jpg",
 
         logistics: [
@@ -1431,13 +1502,11 @@ const travelData_00_08 = [
                 icon: "fa-solid fa-person-walking-luggage"
             },
             {
-                time: "",
-                type: "transit",
-                title: "JR Special Rapid Service (Kyoto Line)",
+                title: "Tren: JR Special Rapid Service (Tokaido Line)",
                 price: "580 JPY",
-                timeLabel: "29 min",
+                timeLabel: "30 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Osaka+Station&destination=Kyoto+Station&travelmode=transit",
-                tacticalGuideId: "mission_kyoto_transfer"
+                tacticalGuideId: "mission_osaka_kyoto_fast"
             },
             {
                 time: "10:30",
@@ -1731,6 +1800,7 @@ const travelData_00_08 = [
         hotel: "Kyoto Tower Hotel Annex",
         hotelImage: "images/hotel-kyoto-tower.jpg",
         hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Kyoto+Tower+Hotel+Annex",
+        routeMapsLink: "https://www.google.com/maps/d/u/0/edit?mid=1Qgoj0B-HAAespWxZLEfWDcVpuCMuNlY&usp=sharing",
         image: "images/dia7-kiyomizu.jpg",
 
         logistics: [
@@ -2050,6 +2120,7 @@ const travelData_00_08 = [
         hotel: "Kyoto Tower Hotel Annex",
         hotelImage: "images/hotel-kyoto-tower.jpg",
         hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Kyoto+Tower+Hotel+Annex",
+        routeMapsLink: "https://www.google.com/maps/d/u/0/edit?mid=1L8-Oklw3BvF6Xr_APHVF7Ytqbk1URVI&usp=sharing",
         image: "images/arashiyama.png",
 
         logistics: [

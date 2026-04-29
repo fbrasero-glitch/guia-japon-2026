@@ -997,11 +997,12 @@ const travelData_17_24 = [
             {
                 time: "16:30",
                 type: "transit",
-                title: "Taxis hacia Aeropuerto de Haneda",
+                title: "Taxis hacia Aeropuerto de Haneda (x2 Van reservadas)",
                 price: "Efectivo/Tarjeta (~8.000 JPY por taxi)",
                 timeLabel: "45 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Metropolitan+Edmont+Tokyo&destination=Haneda+Airport",
-                tacticalGuideId: "mission_haneda"
+                tacticalGuideId: "mission_haneda",
+                desc: "IMPORTANTE: Reservar 24h antes en recepción del hotel. Pedir taxis tipo 'Van' o furgoneta para 8 pax + 8 maletas."
             },
             { time: "17:45", type: "point", title: "Llegada a Terminal / Check-in", icon: "fa-solid fa-plane-arrival" },
             {
@@ -1058,8 +1059,9 @@ const travelData_17_24 = [
                     image: "images/dia23-terminal-3-haneda.jpg",
                     price: "A dividir",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-taxi"></i> Ruta al Aeropuerto</h3>
-                        <p>Pedid en el hotel que os llamen a un par de taxis adaptados para volumen (tipo Nissan NV200 que abundan). Haneda está cerca de la ciudad (al sur, a diferencia de Narita que está lejísmos). Serán unos 45 minutos cómodos por autopista.</p>
+                        <h3><i class="fa-solid fa-taxi"></i> Ruta al Aeropuerto: Logística de Salida</h3>
+                        <p><strong>Proceso de Reserva:</strong> Debéis bajar a la recepción del Hotel Metropolitan Edmont la mañana anterior (Día 22) y solicitar la reserva de dos taxis tipo furgoneta (Van) para las 16:30 del Día 23. Indicad que sois 8 personas con equipaje voluminoso.</p>
+                        <p>Haneda está cerca de la ciudad (al sur, a diferencia de Narita que está lejísmos). Serán unos 45 minutos cómodos por autopista.</p>
                         <ul>
                             <li><i class="fa-solid fa-plane"></i> <strong>Haneda:</strong> El aeropuerto de Haneda es excelente. Tiene un puente de madera estilo Edo en la planta superior y muchas opciones de comida y tiendas si llegáis con tiempo extra.</li>
                         </ul>

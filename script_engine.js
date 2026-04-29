@@ -509,16 +509,21 @@ function init() {
     }
 
     // 3. Mapas (Igual que antes)
-    map = L.map('map', { zoomControl: false, attributionControl: false }).setView([36, 138], 5);
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png').addTo(map);
+    if (typeof L !== 'undefined') {
+        map = L.map('map', { zoomControl: false, attributionControl: false }).setView([36, 138], 5);
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png').addTo(map);
 
-    previewMap = L.map('preview-map-container', {
-        zoomControl: false, attributionControl: false, dragging: false, scrollWheelZoom: false
-    }).setView([36, 138], 5);
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png').addTo(previewMap);
+        previewMap = L.map('preview-map-container', {
+            zoomControl: false, attributionControl: false, dragging: false, scrollWheelZoom: false
+        }).setView([36, 138], 5);
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png').addTo(previewMap);
+    } else {
+        console.warn("Leaflet (L) no está cargado. Mapas desactivados.");
+    }
 
     // 4. Botones con Lógica de Posición Dinámica
     const menu = document.getElementById('day-list');
+    console.log("Iniciando carga de sidebar. travelData length:", travelData.length);
 
     travelData.forEach((d, i) => {
         const btn = document.createElement('button');
@@ -679,12 +684,33 @@ function renderPreparationPage(data) {
                             <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 8px; border-left: 3px solid ${phase.color};">
                                 <div style="font-size:0.75rem; color:${phase.color}; font-weight:900; text-transform:uppercase; margin-bottom:8px;">${phase.name}</div>
                                 <div style="display: flex; flex-direction: column; gap: 4px;">
-                                    ${phase.items.map(item => `
-                                        <div style="font-size:0.8rem; display: flex; justify-content: space-between; align-items: center;">
-                                            <span style="color:white; opacity: 0.9;">${item.name}</span>
-                                            <span style="color:rgba(255,255,255,0.4); font-size:0.7rem;">${item.date}</span>
+                                    ${phase.items.map(item => {
+                                        const isComprado = Persistence.getItem(item.id) === 'comprado';
+                                        return `
+                                        <div style="font-size:0.8rem; display: flex; flex-direction: column; gap: 4px; background: rgba(255,255,255,0.03); padding: 8px; border-radius: 6px; margin-bottom: 5px;">
+                                            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                                                <span style="color:white; opacity: 0.9; font-weight: bold; flex: 1;">${item.name}</span>
+                                                <span style="color:rgba(255,255,255,0.4); font-size:0.65rem; margin-left: 10px;">${item.date}</span>
+                                            </div>
+                                            <div style="display: flex; gap: 6px; margin-top: 4px;">
+                                                <button onclick="window.toggleBookingStatus('${item.id}', 0)" 
+                                                        style="background: ${isComprado ? 'var(--success)' : 'rgba(239, 68, 68, 0.2)'}; 
+                                                               color: white; border: 1px solid ${isComprado ? 'var(--success)' : 'var(--danger)'}; 
+                                                               padding: 3px 8px; border-radius: 4px; font-size: 0.65rem; cursor: pointer; flex: 1; transition: all 0.3s;">
+                                                    <i class="fa-solid ${isComprado ? 'fa-check-double' : 'fa-clock'}"></i> 
+                                                    ${isComprado ? 'COMPRADO' : 'PENDIENTE'}
+                                                </button>
+                                                ${item.link ? `
+                                                    <a href="${item.link}" target="_blank" 
+                                                       style="background: rgba(56,189,248,0.1); color: #38bdf8; border: 1px solid #38bdf8; 
+                                                              padding: 3px 8px; border-radius: 4px; font-size: 0.65rem; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 4px;">
+                                                        <i class="fa-solid fa-link"></i> WEB
+                                                    </a>
+                                                ` : ''}
+                                            </div>
                                         </div>
-                                    `).join('')}
+                                        `;
+                                    }).join('')}
                                 </div>
                             </div>
                         `).join('')}
@@ -1259,7 +1285,7 @@ function renderCenterVisual(data, mode, optData = null) {
     const pdfIconsHTML = getPDFIcons(location);
     const routeMapsHTML = data.routeMapsLink ? `
         <div class="route-maps-wrapper" style="margin-top:10px; display:flex; justify-content:flex-end;">
-            <a href="${data.routeMapsLink}" target="_blank" title="MAPS RUTA POR OSAKA" 
+            <a href="${data.routeMapsLink}" target="_blank" title="VER RUTA DEL DÍA EN GOOGLE MAPS" 
                style="cursor:pointer; background:rgba(0, 243, 255, 0.15); border:2px solid var(--neon-blue); color:var(--neon-blue); width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; text-decoration:none; animation: pulse 2s infinite; box-shadow: 0 0 15px rgba(0, 243, 255, 0.6);">
                 <i class="fa-solid fa-map-location-dot" style="font-size:1.2rem;"></i>
             </a>

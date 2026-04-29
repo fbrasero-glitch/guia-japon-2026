@@ -5,7 +5,7 @@
    ========================================== */
 
 const travelData = [
-    ...travelData_00_08,
-    ...travelData_09_16,
-    ...travelData_17_24
+    ...(typeof travelData_00_08 !== 'undefined' ? travelData_00_08 : []),
+    ...(typeof travelData_09_16 !== 'undefined' ? travelData_09_16 : []),
+    ...(typeof travelData_17_24 !== 'undefined' ? travelData_17_24 : [])
 ];

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Load</title>
+</head>
+<body>
+    <script src="data_restaurants.js"></script>
+    <script src="data_dias_00_08.js"></script>
+    <script src="data_dias_09_16.js"></script>
+    <script src="data_dias_17_24.js"></script>
+    <script src="data_combinator.js"></script>
+    <script>
+        console.log("travelData:", typeof travelData);
+        if (typeof travelData !== 'undefined') {
+            console.log("Length:", travelData.length);
+            console.log("First day:", travelData[0].day);
+        } else {
+            console.error("travelData is UNDEFINED");
+        }
+    </script>
+</body>
+</html>
