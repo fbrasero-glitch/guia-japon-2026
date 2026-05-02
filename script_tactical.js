@@ -1466,32 +1466,6 @@ function renderTacticalMission(missionId, dayIndex) {
                     </div>
                 </div>
         `;
-        } else if (missionId === 'mission_fuji_excursion') {
-            missionHTML = `
-        <div class="datapad-container animate-fade-in" >
-                    <div class="datapad-header">
-                        <div class="datapad-mission-id">> MISSION_FILE: FUJI_EXCURSION</div>
-                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
-                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
-                        </button>
-                    </div>
-                    <h1 class="datapad-title">> EXTRACCIÓN: TREN 'FUJI EXCURSION'</h1>
-                    <div class="tactical-data-grid">
-                        <div class="data-block">
-                            <div class="data-label"><i class="fa-solid fa-train-subway"></i> NAVEGACIÓN DIRECTA:</div>
-                            <ul class="data-list">
-                                <li><strong>RUTA:</strong> Kawaguchiko ➔ Shinjuku (2h).</li>
-                                <li><strong>RESERVA:</strong> Obligatoria (Tren muy demandado).</li>
-                                <li><strong>PAGO:</strong> ~1.600 JPY extra si usas JR Pass.</li>
-                            </ul>
-                        </div>
-                        <div class="data-block">
-                            <div class="data-label"><i class="fa-solid fa-city"></i> OBJETIVO:</div>
-                            <div class="status-box danger">TOKYO_RE_ENTRY</div>
-                        </div>
-                    </div>
-                </div>
-        `;
         } else if (missionId === 'mission_tocho') {
             missionHTML = `
         <div class="datapad-container animate-fade-in" >
@@ -3227,32 +3201,6 @@ function renderTacticalMission(missionId, dayIndex) {
                         <div class="data-block">
                             <div class="data-label"><i class="fa-solid fa-person-hiking"></i> STATUS:</div>
                             <div class="status-box warning">DESAFÍO_FÍSICO_ACTIVO</div>
-                        </div>
-                    </div>
-                </div>
-        `;
-        } else if (missionId === 'mission_fuji_excursion') {
-            missionHTML = `
-        <div class="datapad-container animate-fade-in" >
-                    <div class="datapad-header">
-                        <div class="datapad-mission-id">> MISSION_FILE: FUJI_EXCURSION</div>
-                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
-                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
-                        </button>
-                    </div>
-                    <h1 class="datapad-title">> LOGÍSTICA: FUJI EXCURSION TRAIN</h1>
-                    <div class="tactical-data-grid">
-                        <div class="data-block">
-                            <div class="data-label"><i class="fa-solid fa-train"></i> TRANSPORTE RÁPIDO:</div>
-                            <ul class="data-list">
-                                <li><strong>HITO:</strong> Tren directo de Shinjuku a Kawaguchiko.</li>
-                                <li><strong>VENTAJA:</strong> Cómodo, moderno y evita atascos de bus.</li>
-                                <li><strong>ALERTA:</strong> Requiere reserva previa obligatoria.</li>
-                            </ul>
-                        </div>
-                        <div class="data-block">
-                            <div class="data-label"><i class="fa-solid fa-ticket"></i> STATUS:</div>
-                            <div class="status-box info">LOGÍSTICA_OPTIMIZADA</div>
                         </div>
                     </div>
                 </div>
@@ -5070,6 +5018,68 @@ function renderTacticalMission(missionId, dayIndex) {
                     <div class="datapad-footer-warning" style="margin-top: 20px; padding: 15px; background: rgba(239, 68, 68, 0.1); border: 1px solid var(--danger); border-radius: 8px;">
                         <strong style="color: var(--danger);"><i class="fa-solid fa-triangle-exclamation"></i> CRÍTICO:</strong>
                         <span style="color: #fca5a5; font-size: 0.85rem; margin-left: 10px;">La hidratación es clave. Bebed agua cada hora. Evitad el alcohol en los vuelos para una recuperación 2x más rápida.</span>
+                    </div>
+                    
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_fuji_excursion') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: OP_RETORNO</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    
+                    <h1 class="datapad-title">> Operación Retorno (De los Lagos a la Jungla de Neón)</h1>
+
+                    <div class="tactical-data-grid" style="grid-template-columns: 1fr; gap: 20px;">
+                        <!-- PASO 1 -->
+                        <div class="data-block" style="border-left: 4px solid var(--neon-blue); background: rgba(0, 243, 255, 0.03);">
+                            <div class="data-label" style="color:var(--neon-blue);"><i class="fa-solid fa-gas-pump"></i> Paso 1: ⛽ Operación Repostaje (09:00 – 09:30)</div>
+                            <div style="padding: 10px; color: #e2e8f0; font-size: 0.9rem;">
+                                <p style="margin-bottom:10px;"><strong>Qué hacer:</strong> Llenar el depósito en la gasolinera más cercana a la oficina de Budget en la estación de Kawaguchiko (buscad una ENEOS u otra similar).</p>
+                                <div style="background:rgba(239, 68, 68, 0.15); border:1px solid var(--danger); padding:12px; border-radius:6px; margin-top:10px;">
+                                    <strong style="color:var(--danger);"><i class="fa-solid fa-circle-exclamation"></i> ⚠️ Punto Crítico:</strong>
+                                    <span style="color:#fca5a5;"> Guardad el ticket de la gasolina. Los agentes de la oficina de alquiler suelen exigirlo como prueba visual de que el depósito está lleno.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PASO 2 -->
+                        <div class="data-block" style="border-left: 4px solid var(--gold); background: rgba(255, 184, 0, 0.03);">
+                            <div class="data-label" style="color:var(--gold);"><i class="fa-solid fa-car"></i> Paso 2: 🚗 Devolución de los Coches (09:30 – 10:30)</div>
+                            <div style="padding: 10px; color: #e2e8f0; font-size: 0.9rem;">
+                                <p style="margin-bottom:10px;"><strong>Lugar:</strong> Oficina de Budget Rent a Car (justo al lado de la estación de Kawaguchiko).</p>
+                                <p><strong>Horario Límite:</strong> Se recomienda completar el trámite antes de las <strong>10:30</strong> para tener margen de sobra antes de que salga el tren.</p>
+                            </div>
+                        </div>
+
+                        <!-- PASO 3 -->
+                        <div class="data-block" style="border-left: 4px solid var(--neon-purple); background: rgba(188, 19, 254, 0.03);">
+                            <div class="data-label" style="color:var(--neon-purple);"><i class="fa-solid fa-train"></i> Paso 3: 🚄 El Tren "Fuji Excursion" (10:55 – 12:55)</div>
+                            <div style="padding: 10px; color: #e2e8f0; font-size: 0.9rem;">
+                                <p style="margin-bottom:10px;"><strong>El Transporte:</strong> Es el medio más eficiente, conectando la zona de los lagos con el centro de Tokio de forma directa (sin transbordos).</p>
+                                <p style="margin-bottom:5px;"><strong>Salida:</strong> Estación de Kawaguchiko a las 10:55 AM.</p>
+                                <p style="margin-bottom:10px;"><strong>Destino:</strong> Estación de Shinjuku.</p>
+                                <div style="background:rgba(56, 189, 248, 0.1); border:1px solid var(--neon-blue); padding:12px; border-radius:6px; margin-top:10px;">
+                                    <strong style="color:var(--neon-blue);"><i class="fa-solid fa-ticket"></i> ⚠️ Reserva:</strong>
+                                    <span> Es <strong>IMPRESCINDIBLE</strong> reservar asiento con antelación por internet (aprox. 1 mes antes). Al ser un tren directo y no disponer de JR Pass, comprad el billete completo. Las plazas vuelan.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PASO 4 -->
+                        <div class="data-block" style="border-left: 4px solid var(--accent); background: rgba(249, 115, 22, 0.03);">
+                            <div class="data-label" style="color:var(--accent);"><i class="fa-solid fa-taxi"></i> Paso 4: 🚕 Llegada a Tokio y Traslado al Hotel (13:00 – 14:00)</div>
+                            <div style="padding: 10px; color: #e2e8f0; font-size: 0.9rem;">
+                                <p style="margin-bottom:10px;"><strong>El Choque Cultural:</strong> A las 12:55 llegaréis a Shinjuku, la estación más concurrida del mundo. Mover a 8 personas con equipaje por el metro tras días de paz en las montañas puede ser abrumador.</p>
+                                <p style="margin-bottom:10px;"><strong>Transporte recomendado:</strong> Evitad el metro. Tomad <strong>2 taxis furgoneta grandes</strong> hacia el barrio de Iidabashi.</p>
+                                <p><strong>Tiempo y Coste:</strong> El trayecto al hotel dura unos 15 minutos y cuesta aproximadamente <strong>2.000 JPY por taxi</strong> (unos 4.000 JPY en total para el grupo). La comodidad lo vale.</p>
+                            </div>
+                        </div>
                     </div>
                     
                     <div class="scanline-overlay"></div>

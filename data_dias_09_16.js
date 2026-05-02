@@ -1231,11 +1231,84 @@ const travelData_09_16 = [
         ],
 
         prices: {
-            transport: "Gasolina + Peaje/Shuttle (~2.500 JPY Opción A)",
-            entrances: "350 JPY (Cuevas) + Onsen",
-            food: "~2.500 JPY",
-            total: "~6.000 JPY"
+            transport: "Gasolina + Peaje/Shuttle",
+            activityCosts: [
+                { name: "Tasa Cima (QR)", price: "4.000 JPY" },
+                { name: "Bus 5ª Estación", price: "2.500 JPY" },
+                { name: "Cuevas Aokigahara", price: "350 JPY" }
+            ],
+            food: "~2.500 JPY"
         },
+
+        customRightHTML: `
+            <div class="sidebar-fuji-custom">
+                <div style="margin-bottom:20px; border-bottom:1px solid #334155; padding-bottom:10px;">
+                    <span style="color:var(--accent); font-weight:800; text-transform:uppercase;">Dom, 9 Agosto</span>
+                    <h2 style="font-size:1.6rem; color:white;">⛰️ El Gigante Sagrado</h2>
+                </div>
+
+                <!-- BLOQUE 1: COCHE BASE (A/B/C) -->
+                <div class="transport-timeline-container" style="margin-top:10px; background:rgba(56,189,248,0.05); padding:15px; border-radius:12px; border:1px solid rgba(56,189,248,0.2);">
+                    <div class="logistics-title" style="margin-bottom:15px; color:var(--neon-blue);"><i class="fa-solid fa-car-side"></i> COCHE BASE (A/B/C)</div>
+                    <div class="transport-point" style="display:flex; align-items:center; margin-bottom:12px;">
+                        <span style="color:var(--neon-blue); font-weight:bold; min-width:55px; font-family:monospace;">08:30</span>
+                        <div style="background:rgba(255,255,255,0.05); padding:6px 10px; border-radius:6px; display:flex; align-items:center; flex:1;">
+                            <i class="fa-solid fa-split" style="color:var(--gold); margin-right:8px;"></i>
+                            <span style="color:#f0f0f0; font-size:0.9rem;">División de Grupos</span>
+                        </div>
+                    </div>
+                    <div class="transport-point" style="display:flex; align-items:center; margin-bottom:12px;">
+                        <span style="color:var(--neon-blue); font-weight:bold; min-width:55px; font-family:monospace;">13:30</span>
+                        <div style="background:rgba(255,255,255,0.05); padding:6px 10px; border-radius:6px; display:flex; align-items:center; flex:1;">
+                            <i class="fa-solid fa-utensils" style="color:var(--gold); margin-right:8px;"></i>
+                            <span style="color:#f0f0f0; font-size:0.9rem;">Comida y Reencuentro</span>
+                        </div>
+                    </div>
+                    <div class="transport-point" style="display:flex; align-items:center;">
+                        <span style="color:var(--neon-blue); font-weight:bold; min-width:55px; font-family:monospace;">16:00</span>
+                        <div style="background:rgba(255,255,255,0.05); padding:6px 10px; border-radius:6px; display:flex; align-items:center; flex:1;">
+                            <i class="fa-solid fa-hot-tub-person" style="color:var(--gold); margin-right:8px;"></i>
+                            <span style="color:#f0f0f0; font-size:0.9rem;">Relax y Onsen</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BLOQUE 2: COCHE CUMBRE (OPCIÓN D) -->
+                <div class="transport-timeline-container" style="margin-top:20px; background:rgba(239,68,68,0.05); padding:15px; border-radius:12px; border:1px solid rgba(239,68,68,0.2);">
+                    <div class="logistics-title" style="margin-bottom:15px; color:var(--danger);"><i class="fa-solid fa-volcano"></i> COCHE CUMBRE (OPC. D)</div>
+                    <div class="transport-point" style="display:flex; align-items:center; margin-bottom:12px;">
+                        <span style="color:var(--danger); font-weight:bold; min-width:55px; font-family:monospace;">05:00</span>
+                        <div style="background:rgba(255,255,255,0.05); padding:6px 10px; border-radius:6px; display:flex; align-items:center; flex:1;">
+                            <i class="fa-solid fa-bolt" style="color:var(--gold); margin-right:8px;"></i>
+                            <span style="color:#f0f0f0; font-size:0.9rem;">Salida Extrema (Parking)</span>
+                        </div>
+                    </div>
+                    <div class="transport-point" style="display:flex; align-items:center; margin-bottom:12px;">
+                        <span style="color:var(--danger); font-weight:bold; min-width:55px; font-family:monospace;">12:30</span>
+                        <div style="background:rgba(255,255,255,0.05); padding:6px 10px; border-radius:6px; display:flex; align-items:center; flex:1;">
+                            <i class="fa-solid fa-mountain" style="color:var(--gold); margin-right:8px;"></i>
+                            <span style="color:#f0f0f0; font-size:0.9rem;">¡Cima del Monte Fuji!</span>
+                        </div>
+                    </div>
+                    <div class="transport-point" style="display:flex; align-items:center;">
+                        <span style="color:var(--danger); font-weight:bold; min-width:55px; font-family:monospace;">19:00</span>
+                        <div style="background:rgba(255,255,255,0.05); padding:6px 10px; border-radius:6px; display:flex; align-items:center; flex:1;">
+                            <i class="fa-solid fa-hotel" style="color:var(--gold); margin-right:8px;"></i>
+                            <span style="color:#f0f0f0; font-size:0.9rem;">Regreso Directo Hotel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GASTOS POR ACTIVIDAD -->
+                <div class="prices-box" style="margin-top:20px;">
+                    <div class="prices-title"><i class="fa-solid fa-yen-sign"></i> COSTES POR ACTIVIDAD</div>
+                    <div class="prices-item"><strong>Tasa Cima (QR):</strong> 4.000 JPY</div>
+                    <div class="prices-item"><strong>Bus 5ª Estación:</strong> 2.500 JPY</div>
+                    <div class="prices-item"><strong>Cuevas Aokigahara:</strong> 350 JPY</div>
+                    <div class="prices-item" style="margin-top:5px; font-size:0.8rem; color:rgba(255,255,255,0.5);">* Gasolina y comida aparte.</div>
+                </div>
+            </div>
+        `,
 
         isFlexible: true,
         base: { 
@@ -1261,18 +1334,18 @@ const travelData_09_16 = [
                 },
                 {
                     id: "opt-b",
-                    title: "OPCIÓN B: Billete de 1.000¥",
+                    title: "OPCIÓN B: Nakanokura Pass",
                     time: "08:00",
-                    description: "Trekking Ryugatake + Cuevas de Lava.",
+                    description: "Trekking Nakanokura Pass + Cuevas de Lava.",
                     price: "Gratis (+350 JPY Cueva)",
-                    image: "images/dia15-ryugatake.jpg",
+                    image: "images/fuji-motosu-1000yen.png",
                     link: "https://es.wikiloc.com/rutas-senderismo/billete-100-yenes-lago-japon-262052990",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-person-hiking"></i> Trekking Ryugatake</h3>
-                        <p>Para los más activos que buscan la "foto perfecta" del billete de 1.000 yenes.</p>
+                        <h3><i class="fa-solid fa-person-hiking"></i> Trekking Nakanokura Pass</h3>
+                        <p>Para los más activos que buscan la "foto perfecta" del billete de 1.000 yenes sin aglomeraciones.</p>
                         <ul>
-                            <li><i class="fa-solid fa-mountain"></i> <strong>Ascenso:</strong> 2 horas de caminata media entre raíces y senderos alpinos.</li>
-                            <li><i class="fa-solid fa-money-bill-1"></i> <strong>El Hito:</strong> Silueta del Fuji reflejada en el lago Motosu (imagen del billete de 1.000 yenes).</li>
+                            <li><i class="fa-solid fa-mountain"></i> <strong>Ascenso:</strong> 2 horas de caminata media desde el camping Motosuko.</li>
+                            <li><i class="fa-solid fa-money-bill-1"></i> <strong>El Hito:</strong> Mirador Nakanokura, con la vista exacta del billete de 1.000 yenes.</li>
                         </ul>
                     `
                 },
@@ -1346,10 +1419,10 @@ const travelData_09_16 = [
         additionalExcursions: [],
         customCenterHTML: `
             <!-- BLOQUE 1: PORTADA CENTRAL -->
-            <div style="position:relative; border-radius:12px; overflow:hidden; margin-bottom:30px; border:1px solid rgba(255,255,255,0.1); box-shadow:0 10px 30px rgba(0,0,0,0.5);">
-                <img src="images/dia15-portada.jpg" style="width:100%; height:250px; object-fit:cover; opacity:0.8;" alt="Monte Fuji">
-                <div style="position:absolute; bottom:0; left:0; right:0; padding:30px 20px 20px; background:linear-gradient(to top, rgba(15,23,42,1) 10%, transparent);">
-                    <h2 style="margin:0; font-size:1.8rem; color:var(--neon-blue); text-transform:uppercase; letter-spacing:2px; text-shadow:0 0 10px rgba(0,243,255,0.5);">El Día del Fuji: 4 Caminos, 2 Coches</h2>
+            <div class="fuji-custom-hero">
+                <img src="images/dia15-portada.jpg" class="fuji-custom-hero-img" alt="Monte Fuji">
+                <div class="fuji-custom-hero-content">
+                    <h2 style="margin:0; color:var(--neon-blue); text-transform:uppercase; letter-spacing:2px; text-shadow:0 0 10px rgba(0,243,255,0.5);">El Día del Fuji: 4 Caminos, 2 Coches</h2>
                     <p style="color:#e2e8f0; margin-top:10px; font-size:1rem; line-height:1.5;">Hoy dividimos el grupo según la energía de cada uno. Tenemos 2 coches de alquiler y 4 excursiones posibles. Podéis elegir una excursión relajada, combinar un par de ellas si queréis aprovechar a tope, o uniros al 'Equipo Cumbre' para intentar llegar a lo más alto.</p>
                 </div>
             </div>
@@ -1373,14 +1446,14 @@ const travelData_09_16 = [
                 </div>
                 <!-- Opción B -->
                 <div class="fuji-card" onclick="selectExcursionFromCard(14, 'opt-b', this)" style="border:none; text-align:left; cursor:pointer; width:100%; padding:0; display:block;">
-                    <img src="images/dia15-ryugatake.jpg" class="fuji-card-img" alt="Ryugatake">
+                    <img src="images/fuji-motosu-1000yen.png" class="fuji-card-img" alt="Nakanokura Pass">
                     <div class="fuji-card-content">
                         <div style="background:rgba(251,191,36,0.2); color:var(--gold); display:inline-block; padding:3px 8px; border-radius:4px; font-size:0.75rem; font-weight:bold; margin-bottom:10px; width:fit-content;">OPCIÓN B (MEDIO)</div>
-                        <h4 style="margin:0 0 10px 0; color:white; font-size:1.1rem;">Billete de 1.000¥</h4>
-                        <p style="color:#94a3b8; font-size:0.85rem; margin:0; line-height:1.4;">Trekking Ryugatake. Caminata de 2-3h para la foto icónica del reflejo.</p>
+                        <h4 style="margin:0 0 10px 0; color:white; font-size:1.1rem;">Nakanokura Pass</h4>
+                        <p style="color:#94a3b8; font-size:0.85rem; margin:0; line-height:1.4;">Vista del billete de 1.000¥. Trekking de 2h con el reflejo perfecto.</p>
                         <div style="display:flex; gap:10px; margin-top:15px; flex-wrap:wrap;">
                             <a href="https://es.wikiloc.com/rutas-senderismo/billete-100-yenes-lago-japon-262052990" target="_blank" onclick="event.stopPropagation()" style="background:rgba(34,197,94,0.1); color:#4ade80; border:1px solid #4ade80; padding:5px 10px; border-radius:4px; font-size:0.75rem; text-decoration:none; display:flex; align-items:center; gap:5px;"><i class="fa-solid fa-route"></i> Wikiloc</a>
-                            <a href="https://www.google.com/maps/search/?api=1&query=Ryugatake+Trailhead" target="_blank" onclick="event.stopPropagation()" style="background:rgba(56,189,248,0.1); color:var(--neon-blue); border:1px solid var(--neon-blue); padding:5px 10px; border-radius:4px; font-size:0.75rem; text-decoration:none; display:flex; align-items:center; gap:5px;"><i class="fa-solid fa-map-location-dot"></i> Maps</a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Motosuko+Camping+Ground" target="_blank" onclick="event.stopPropagation()" style="background:rgba(56,189,248,0.1); color:var(--neon-blue); border:1px solid var(--neon-blue); padding:5px 10px; border-radius:4px; font-size:0.75rem; text-decoration:none; display:flex; align-items:center; gap:5px;"><i class="fa-solid fa-map-location-dot"></i> Maps</a>
                         </div>
                     </div>
                 </div>
@@ -1406,25 +1479,22 @@ const travelData_09_16 = [
                         <p style="color:#94a3b8; font-size:0.85rem; margin:0; line-height:1.4;">La Ascensión a la Cima (3.776m). 10-12 horas intensas. Opción excluyente.</p>
                         <div style="display:flex; gap:10px; margin-top:15px; flex-wrap:wrap;">
                             <a href="https://es.wikiloc.com/rutas-senderismo/mt-fuji-japan-141555584" target="_blank" onclick="event.stopPropagation()" style="background:rgba(34,197,94,0.1); color:#4ade80; border:1px solid #4ade80; padding:5px 10px; border-radius:4px; font-size:0.75rem; text-decoration:none; display:flex; align-items:center; gap:5px;"><i class="fa-solid fa-route"></i> Wikiloc</a>
-                            <a href="https://www.google.com/maps/search/?api=1&query=Mt+Fuji+Yoshida+Trail" target="_blank" onclick="event.stopPropagation()" style="background:rgba(56,189,248,0.1); color:var(--neon-blue); border:1px solid var(--neon-blue); padding:5px 10px; border-radius:4px; font-size:0.75rem; text-decoration:none; display:flex; align-items:center; gap:5px;"><i class="fa-solid fa-map-location-dot"></i> Maps</a>
                         </div>
                     </div>
                 </div>
             </div>
-
             <!-- BLOQUE 3: COMBINACIONES LOGÍSTICAS (TABS) -->
             <h3 style="color:var(--accent); margin-bottom:20px; border-bottom:1px solid rgba(249, 115, 22, 0.3); padding-bottom:10px; margin-top:40px;">
                 <i class="fa-solid fa-code-merge"></i> Combinaciones Logísticas
             </h3>
-            <p style="color:#94a3b8; margin-bottom:15px; font-size:0.9rem;">Elige una estrategia para tu coche y descubre el timeline exacto (Opciones A, B, C):</p>
+            <p style="color:#94a3b8; margin-bottom:15px; font-size:0.9rem;">Estrategias recomendadas para los vehículos (Opciones A, B, C):</p>
             
             <div class="fuji-tabs-container">
                 <div class="fuji-tabs-header">
                     <button class="fuji-tab-btn active" onclick="window.switchFujiTab('tab-solo')"><i class="fa-solid fa-mug-hot"></i> Modo Relax (A/B/C)</button>
+                    <button class="fuji-tab-btn" onclick="window.switchFujiTab('tab-ab')"><i class="fa-solid fa-cloud"></i> + <i class="fa-solid fa-mountain"></i> Combo A+B</button>
                     <button class="fuji-tab-btn" onclick="window.switchFujiTab('tab-ac')"><i class="fa-solid fa-cloud"></i> + <i class="fa-solid fa-tree"></i> Combo A+C</button>
                     <button class="fuji-tab-btn" onclick="window.switchFujiTab('tab-bc')"><i class="fa-solid fa-mountain"></i> + <i class="fa-solid fa-tree"></i> Combo B+C</button>
-                    <button class="fuji-tab-btn" onclick="window.switchFujiTab('tab-ab')"><i class="fa-solid fa-cloud"></i> + <i class="fa-solid fa-mountain"></i> Combo A+B</button>
-                    <button class="fuji-tab-btn" onclick="window.switchFujiTab('tab-abc')"><i class="fa-solid fa-layer-group"></i> Combo A+B+C</button>
                 </div>
                 
                 <!-- Tab: Modo Relax -->
@@ -1432,63 +1502,19 @@ const travelData_09_16 = [
                     <div class="timeline-container" style="border-left:2px solid rgba(56, 189, 248, 0.3); padding-left:20px;">
                         <div class="timeline-item" style="margin-bottom:15px;">
                             <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">08:30 - Salida Tranquila</strong>
-                            <span style="color:#cbd5e1; font-size:0.9rem;">Conducción sin prisa hacia la excursión elegida (A, B o C).</span>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Conducción hacia la excursión elegida (A, B o C).</span>
                         </div>
                         <div class="timeline-item" style="margin-bottom:15px;">
                             <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">09:30 - Actividad Principal</strong>
-                            <span style="color:#cbd5e1; font-size:0.9rem;">Disfrute total y fotos de la excursión seleccionada con calma.</span>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Disfrute total de la excursión seleccionada.</span>
                         </div>
                         <div class="timeline-item" style="margin-bottom:15px;">
-                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">13:30 - Comida Temprana</strong>
-                            <span style="color:#cbd5e1; font-size:0.9rem;">Búsqueda de Hoto Noodles en los alrededores de Kawaguchiko.</span>
+                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">13:30 - Comida y Reencuentro</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Hoto Noodles en Kawaguchiko.</span>
                         </div>
                         <div class="timeline-item">
-                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">16:00 - Tarde Libre/Onsen</strong>
-                            <span style="color:#cbd5e1; font-size:0.9rem;">Regreso al hotel o relax absoluto en un onsen local.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tab: Combo A+C -->
-                <div id="tab-ac" class="fuji-tab-content">
-                    <div class="timeline-container" style="border-left:2px solid rgba(56, 189, 248, 0.3); padding-left:20px;">
-                        <div class="timeline-item" style="margin-bottom:15px;">
-                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">08:00 - Parking Fujihoku-roku</strong>
-                            <span style="color:#cbd5e1; font-size:0.9rem;">Aparcar el coche y tomar el Shuttle Bus hacia la 5ª Estación.</span>
-                        </div>
-                        <div class="timeline-item" style="margin-bottom:15px;">
-                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">09:00 - Exploración 5ª Estación (A)</strong>
-                            <span style="color:#cbd5e1; font-size:0.9rem;">Visita al Santuario Komitake y vistas panorámicas.</span>
-                        </div>
-                        <div class="timeline-item" style="margin-bottom:15px;">
-                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">12:00 - Retorno y Comida</strong>
-                            <span style="color:#cbd5e1; font-size:0.9rem;">Bajar en Shuttle, recoger coche y comer por la zona.</span>
-                        </div>
-                        <div class="timeline-item">
-                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">14:30 - Cuevas de Hielo (C)</strong>
-                            <span style="color:#cbd5e1; font-size:0.9rem;">Traslado a Aokigahara para entrar en la Cueva del Hielo y Viento.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tab: Combo B+C -->
-                <div id="tab-bc" class="fuji-tab-content">
-                    <div class="timeline-container" style="border-left:2px solid rgba(56, 189, 248, 0.3); padding-left:20px;">
-                        <div class="timeline-item" style="margin-bottom:15px;">
-                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">07:30 - Despliegue Temprano</strong>
-                            <span style="color:#cbd5e1; font-size:0.9rem;">Conducción hacia el lago Motosu para iniciar ruta.</span>
-                        </div>
-                        <div class="timeline-item" style="margin-bottom:15px;">
-                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">08:30 - Trekking Ryugatake (B)</strong>
-                            <span style="color:#cbd5e1; font-size:0.9rem;">Ascenso de 2h para conseguir la foto icónica del billete.</span>
-                        </div>
-                        <div class="timeline-item" style="margin-bottom:15px;">
-                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">13:00 - Descenso y Comida Rápida</strong>
-                            <span style="color:#cbd5e1; font-size:0.9rem;">Almuerzo ligero o bento cerca del lago.</span>
-                        </div>
-                        <div class="timeline-item">
-                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">15:00 - Bosque Aokigahara (C)</strong>
-                            <span style="color:#cbd5e1; font-size:0.9rem;">Ruta corta por el Mar de Árboles antes de que cierre.</span>
+                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">16:00 - Tarde Relax</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Onsen Fujiyama o descanso en el hotel.</span>
                         </div>
                     </div>
                 </div>
@@ -1497,50 +1523,56 @@ const travelData_09_16 = [
                 <div id="tab-ab" class="fuji-tab-content">
                     <div class="timeline-container" style="border-left:2px solid rgba(56, 189, 248, 0.3); padding-left:20px;">
                         <div class="timeline-item" style="margin-bottom:15px;">
-                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">08:00 - Parking Fujihoku-roku</strong>
-                            <span style="color:#cbd5e1; font-size:0.9rem;">Aparcar y tomar el bus a la 5ª Estación (A).</span>
+                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">08:00 - 5ª Estación (A)</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Vistas panorámicas y Santuario Komitake.</span>
                         </div>
                         <div class="timeline-item" style="margin-bottom:15px;">
-                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">09:00 - Vistas sin esfuerzo (A)</strong>
-                            <span style="color:#cbd5e1; font-size:0.9rem;">Visita rápida al Santuario Komitake y panorámicas.</span>
-                        </div>
-                        <div class="timeline-item" style="margin-bottom:15px;">
-                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">11:30 - Traslado a Ryugatake</strong>
-                            <span style="color:#cbd5e1; font-size:0.9rem;">Recoger coche y acercarse al inicio de la ruta del billete de 1.000 yenes.</span>
-                        </div>
-                        <div class="timeline-item" style="margin-bottom:15px;">
-                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">12:30 - Inicio Trekking (B)</strong>
-                            <span style="color:#cbd5e1; font-size:0.9rem;">Ascenso ágil de 2 horas.</span>
+                            <strong style="color:var(--gold); display:block; margin-bottom:5px;">11:30 - Nakanokura Pass (B)</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Trekking del billete de 1.000¥.</span>
+                            <a href="https://es.wikiloc.com/rutas-senderismo/billete-100-yenes-lago-japon-262052990" target="_blank" style="display:inline-flex; align-items:center; gap:5px; margin-top:8px; background:rgba(34,197,94,0.1); color:#4ade80; border:1px solid #4ade80; padding:4px 10px; border-radius:4px; font-size:0.75rem; text-decoration:none; font-weight:bold;"><i class="fa-solid fa-route"></i> VER RUTA WIKILOC (MIRADOR)</a>
                         </div>
                         <div class="timeline-item">
-                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">15:30 - Comida y Relax</strong>
-                            <span style="color:#cbd5e1; font-size:0.9rem;">Comida tardía en Kawaguchiko y búsqueda de un merecido Onsen.</span>
+                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">16:00 - Regreso y Onsen</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Cierre de jornada en Kawaguchiko.</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Tab: Combo A+B+C -->
-                <div id="tab-abc" class="fuji-tab-content">
+                <!-- Tab: Combo A+C -->
+                <div id="tab-ac" class="fuji-tab-content">
                     <div class="timeline-container" style="border-left:2px solid rgba(56, 189, 248, 0.3); padding-left:20px;">
                         <div class="timeline-item" style="margin-bottom:15px;">
-                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">07:00 - ¡Madrugón! Parking</strong>
-                            <span style="color:#cbd5e1; font-size:0.9rem;">Día muy apretado. Tomar el primer Shuttle a la 5ª Estación.</span>
+                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">09:00 - 5ª Estación (A)</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Mirador del Umbral del Cielo.</span>
                         </div>
                         <div class="timeline-item" style="margin-bottom:15px;">
-                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">08:00 - Visita Exprés (A)</strong>
-                            <span style="color:#cbd5e1; font-size:0.9rem;">Fotos en la 5ª Estación y bajada rápida.</span>
-                        </div>
-                        <div class="timeline-item" style="margin-bottom:15px;">
-                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">10:30 - Trekking Ryugatake (B)</strong>
-                            <span style="color:#cbd5e1; font-size:0.9rem;">Comienzo rápido de la ruta. Ascenso a buen ritmo.</span>
-                        </div>
-                        <div class="timeline-item" style="margin-bottom:15px;">
-                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">13:30 - Bento Rápido</strong>
-                            <span style="color:#cbd5e1; font-size:0.9rem;">Comer algo sobre la marcha tras bajar del Ryugatake.</span>
+                            <strong style="color:#4ade80; display:block; margin-bottom:5px;">14:30 - Bosque y Cuevas (C)</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Aokigahara y Cuevas de Hielo.</span>
+                            <a href="https://es.wikiloc.com/rutas-a-pie/lake-saiko-bat-cave-aokigahara-suicide-forest-narusawa-ice-cave-saikominami-yakema-197462852" target="_blank" style="display:inline-flex; align-items:center; gap:5px; margin-top:8px; background:rgba(34,197,94,0.1); color:#4ade80; border:1px solid #4ade80; padding:4px 10px; border-radius:4px; font-size:0.75rem; text-decoration:none; font-weight:bold;"><i class="fa-solid fa-route"></i> VER RUTA WIKILOC (BOSQUE)</a>
                         </div>
                         <div class="timeline-item">
-                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">14:30 - Aokigahara y Cuevas (C)</strong>
-                            <span style="color:#cbd5e1; font-size:0.9rem;">Última visita de la jornada a las cuevas milenarias antes del cierre.</span>
+                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">17:30 - Fin de Ruta</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Retorno al hotel.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab: Combo B+C -->
+                <div id="tab-bc" class="fuji-tab-content">
+                    <div class="timeline-container" style="border-left:2px solid rgba(56, 189, 248, 0.3); padding-left:20px;">
+                        <div class="timeline-item" style="margin-bottom:15px;">
+                            <strong style="color:var(--gold); display:block; margin-bottom:5px;">08:30 - Nakanokura Pass (B)</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Mirador del billete de 1.000¥.</span>
+                            <a href="https://es.wikiloc.com/rutas-senderismo/billete-100-yenes-lago-japon-262052990" target="_blank" style="display:inline-flex; align-items:center; gap:5px; margin-top:8px; background:rgba(34,197,94,0.1); color:#4ade80; border:1px solid #4ade80; padding:4px 10px; border-radius:4px; font-size:0.75rem; text-decoration:none; font-weight:bold;"><i class="fa-solid fa-route"></i> VER RUTA WIKILOC (MIRADOR)</a>
+                        </div>
+                        <div class="timeline-item" style="margin-bottom:15px;">
+                            <strong style="color:#4ade80; display:block; margin-bottom:5px;">14:30 - Mar de Árboles (C)</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Cuevas de Lava en Aokigahara.</span>
+                            <a href="https://es.wikiloc.com/rutas-a-pie/lake-saiko-bat-cave-aokigahara-suicide-forest-narusawa-ice-cave-saikominami-yakema-197462852" target="_blank" style="display:inline-flex; align-items:center; gap:5px; margin-top:8px; background:rgba(34,197,94,0.1); color:#4ade80; border:1px solid #4ade80; padding:4px 10px; border-radius:4px; font-size:0.75rem; text-decoration:none; font-weight:bold;"><i class="fa-solid fa-route"></i> VER RUTA WIKILOC (BOSQUE)</a>
+                        </div>
+                        <div class="timeline-item">
+                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">17:00 - Relax Final</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Retorno y Onsen.</span>
                         </div>
                     </div>
                 </div>
@@ -1570,13 +1602,13 @@ const travelData_09_16 = [
                     </div>
                 </div>
 
-                <div class="fuji-warning-box">
-                    <h4 style="color:var(--danger); margin:0 0 10px 0;"><i class="fa-solid fa-triangle-exclamation"></i> Logística Crítica:</h4>
-                    <ul style="color:#cbd5e1; font-size:0.9rem; padding-left:20px; margin:0;">
-                        <li style="margin-bottom:5px;"><strong>Reserva Obligatoria:</strong> Tasa de acceso (4.000 JPY) debe reservarse en la web oficial en mayo. Límite de 4.000 personas/día.</li>
-                        <li style="margin-bottom:5px;"><strong>Equipamiento:</strong> Botas de montaña impermeables, ropa por capas (hace frío arriba), linterna frontal, min. 2L agua, chubasquero.</li>
-                        <li><strong>Precaución:</strong> Si hay síntomas fuertes de mal de altura, es obligatorio darse la vuelta.</li>
-                    </ul>
+                <div class="fuji-warning-box" style="background:rgba(239,68,68,0.15); border:1px solid var(--danger);">
+                    <h4 style="color:var(--danger); margin:0 0 10px 0; text-transform:uppercase;"><i class="fa-solid fa-ticket"></i> Trámite Crítico: Reserva QR Obligatoria</h4>
+                    <p style="color:#cbd5e1; font-size:0.9rem; margin-bottom:10px;">La reserva online de <strong>4.000 JPY</strong> es obligatoria a finales de mayo en la web oficial para obtener el código QR de acceso.</p>
+                    <div style="display:flex; gap:10px;">
+                        <a href="https://es.wikiloc.com/rutas-senderismo/mt-fuji-japan-141555584" target="_blank" style="flex:1; display:inline-flex; align-items:center; gap:5px; background:rgba(34,197,94,0.1); color:#4ade80; border:1px solid #4ade80; padding:6px 10px; border-radius:4px; font-size:0.75rem; text-decoration:none; font-weight:bold; justify-content:center;"><i class="fa-solid fa-route"></i> VER RUTA WIKILOC (CIMA)</a>
+                        <a href="https://www.fujisan-climb.jp/en/" target="_blank" style="flex:1; display:inline-flex; align-items:center; gap:5px; background:rgba(239,68,68,0.1); color:white; border:1px solid var(--danger); padding:6px 10px; border-radius:4px; font-size:0.75rem; text-decoration:none; font-weight:bold; justify-content:center;"><i class="fa-solid fa-globe"></i> WEB OFICIAL FUJI</a>
+                    </div>
                 </div>
             </div>
         `
@@ -1642,125 +1674,218 @@ const travelData_09_16 = [
             total: "~1.500 JPY +"
         },
 
-        isFlexible: true,
+        isFlexible: false,
         base: {
-            title: "Itinerario Base",
+            title: "El Gran Roadtrip del Fuji",
             description: "Día de carretera para explorar la cultura y misticismo alrededor del volcán.",
-            events: [
-                {
-                    id: "b1",
-                    time: "09:15",
-                    title: "Kitaguchi Hongu Sengen Jinja",
-                    description: "Santuario histórico. Inicio original de la peregrinación ritual al Fuji.",
-                    image: "images/dia14-sengen.jpg",
-                    price: "Gratis",
-                    fullDesc: `
-                        <h3><i class="fa-solid fa-torii-gate"></i> Santuario Kitaguchi Hongu Sengen Jinja</h3>
-                        <p>Este majestuoso santuario, rodeado de cedros centenarios, ha sido el punto de partida espiritual para la ascensión al Monte Fuji durante siglos. Tras cruzar su gigantesco Torii rojo (uno de los más grandes de madera en Japón), caminaréis por una avenida de faroles de piedra cubiertos de musgo que os transportará a otra época.</p>
-                        <p><em>En el recinto principal, buscad el enorme cedro sagrado atado con una cuerda shimenawa; se dice que tiene más de mil años. Es el lugar donde los peregrinos pedían protección al espíritu de la montaña antes de adentrarse en sus laderas.</em></p>
-                    `
-                },
-                {
-                    id: "b2",
-                    time: "11:30",
-                    title: "Hoto Noodles",
-                    description: "Plato de supervivencia invernal: fideos tremendos en sopa de miso y calabaza.",
-                    image: "images/dia15-itinerario-base.jpg",
-                    price: "~1.500 JPY",
-                    fullDesc: `
-                        <h3><i class="fa-solid fa-fire-burner"></i> Hoto Fudo: La Gastronomía Samurái</h3>
-                        <p>El Hoto es un plato reconfortante único de la prefectura de Yamanashi. Consiste en fideos de trigo planos y anchos, similares al udon pero con una textura más rústica, cocinados a fuego lento en un caldo de miso con calabaza (kabocha) y verduras de montaña.</p>
-                        <p><em>Cuenta la leyenda que el daimyo Takeda Shingen comía este contundente guiso con sus tropas para ganar fuerza antes de las batallas. Hoy es un ritual imperdible en la zona; se sirve en pesadas ollas de hierro que mantienen el calor durante toda la comida. El local frente a la estación de Kawaguchiko es famoso por su arquitectura blanca con forma de nube.</em></p>
-                    `
-                },
-                {
-                    time: "13:30",
-                    title: "Tarde de Carretera / Lagos",
-                    description: "Tiempo libre usando el coche para buscar tesoros fuera del radio de los buses turísticos.",
-                    type: "gap"
-                }
-            ]
+            events: []
         },
-        complements: [
-            {
-                id: "c1",
-                title: "Cascada Shiraito",
-                time: "14:30",
-                description: "Patrimonio UNESCO. Cientos de finos hilos de agua cayendo en herradura (1h en coche).",
-                price: "300 JPY",
-                image: "images/dia14-shiraito.jpg",
-                recommended: true,
-                video: "https://www.youtube.com/watch?v=K-lEnA7-QpY",
-                    fullDesc: `
-                        <h3><i class="fa-solid fa-water"></i> Cascadas de Hilo Blanco</h3>
-                        <p>Un muro curvo de 150 metros de ancho por donde se vierten las aguas del deshielo del monte Fuji creando innumerables saltos finos como hilos de seda.</p>
-                        <ul>
-                            <li><i class="fa-solid fa-camera"></i> <strong>Brisa Refrescante:</strong> El rocío constante de las cataratas ofrece un alivio térmico perfecto frente al sol estival y forma arcoíris espectaculares.</li>
-                        </ul>
-                    `,
-                tacticalOptions: [
-                    {
-                        title: "RUTA AL SUROESTE",
-                        time: "13:30 - 16:30",
-                        description: "Bonito trayecto en coche por autopista escénica bordeando la base del Fuji por el oeste.",
-                        link: "https://www.google.com/maps/dir/?api=1&origin=Kawaguchiko+Station&destination=Shiraito+Falls",
-                        tacticalGuideId: "mission_shiraito"
-                    }
-                ]
-            },
-            {
-                id: "c2",
-                title: "Iyashi no Sato",
-                time: "10:30",
-                description: "Pueblo museo en el lago Saiko con casas de tejados de paja. Alquiler de armaduras.",
-                price: "500 JPY",
-                image: "images/dia15-iyashi.jpg",
-                video: "https://www.youtube.com/watch?v=e_B64Y07SV0",
-                    fullDesc: `
-                        <h3><i class="fa-solid fa-house"></i> Alda Museo Saiko Iyashi</h3>
-                        <p>Antiguo poblado agrícola a orillas del lago Saiko reconstruido maravillosamente con casas de tejados de paja (kayabuki).</p>
-                        <ul>
-                            <li><i class="fa-solid fa-mask"></i> <strong>Armaduras Samurái:</strong> Podréis alquilar kimonos o armaduras por 500 JPY y haceros fotos épicas con el pueblo medieval y volcán Fuji de fondo.</li>
-                        </ul>
-                    `
-            },
-            {
-                id: "c3",
-                title: "Honcho Street",
-                time: "16:00",
-                description: "Calle mítica (Fujiyoshida) con viejos negocios y el Fuji gigante de fondo.",
-                price: "Gratis",
-                image: "images/dia15-honcho-street.jpg",
-                video: "https://www.youtube.com/watch?v=2rrUQEVWKVE",
-                    fullDesc: `
-                        <h3><i class="fa-solid fa-camera"></i> La Calle de Instagram</h3>
-                        <p>Honcho Street tiene esa vibra noventera retro. La avenida de cables y rótulos enmarca maravillosamente el imponente Monte Fuji.</p>
-                        <ul>
-                            <li><i class="fa-solid fa-triangle-exclamation"></i> <strong>Peligro Vehicular:</strong> Ojo con el tráfico, la policía local está cansada de los turistas parando en medio. Disparad desde aceras.</li>
-                        </ul>
-                    `
-            }
-        ],
-        additionalExcursions: [
-            {
-                id: "add_fujinomiya_shrine",
-                title: "Santuario Fujisan Hongu Sengen Taisha",
-                image: "images/add-fujinomiya.jpg",
-                description: "Santuario principal de los 1.300 Sengen de Japón con agua de deshielo.",
-                time: "15:30 – 17:30",
-                price: "Gratis",
-                link: "https://www.google.com/maps/search/?api=1&query=Fujisan+Hongu+Sengen+Taisha",
-                tacticalGuideId: "mission_fujinomiya_shrine",
-                video: "https://www.youtube.com/watch?v=rBJpHPcVj0k",
-                    fullDesc: `
-                        <h3><i class="fa-solid fa-water"></i> Santuario de Fujinomiya</h3>
-                        <p>El santuario principal de los más de 1.300 dedicados a Sengen en todo Japón, protector tradicional del cráter del volcán.</p>
-                        <ul>
-                            <li><i class="fa-solid fa-droplet"></i> <strong>Wakutama-ike:</strong> Posee un estanque de agua cristalina que brota directamente de la roca volcánica tras décadas de filtrado.</li>
-                        </ul>
-                    `
-            }
-        ]
+        complements: [],
+        additionalExcursions: [],
+        
+        routeMapsLink: "https://www.google.com/maps/d/u/0/edit?mid=1rR2qzulSCq9o9t_rJ4cQkIqg_9x0CKM&usp=sharing",
+        customRightHTML: `
+            <div class="sidebar-fuji-custom">
+                <div style="margin-bottom:20px; border-bottom:1px solid #334155; padding-bottom:10px;">
+                    <span style="color:var(--accent); font-weight:800; text-transform:uppercase;">Lun, 10 Agosto</span>
+                    <h2 style="font-size:1.6rem; color:white;">🚙 El Gran Roadtrip</h2>
+                </div>
+
+                <!-- Caja 1 - INFO VEHÍCULOS -->
+                <div style="background:rgba(15, 23, 42, 0.6); border:1px solid var(--accent); border-radius:8px; padding:15px; margin-bottom:20px;">
+                    <h4 style="color:var(--accent); margin:0 0 10px 0; font-size:1rem; display:flex; align-items:center; gap:8px;">
+                        <i class="fa-solid fa-car-side"></i> Info Vehículos
+                    </h4>
+                    <p style="color:#cbd5e1; font-size:0.9rem; margin:0; line-height:1.5;">
+                        Dos coches en movimiento. Total conducción estimada hoy: <strong>2 horas</strong> (repartidas en tramos cortos de 15-30 mins). Precaución extrema en los cruces urbanos en Fujiyoshida.
+                    </p>
+                </div>
+
+                <!-- Caja 2 - PARKINGS -->
+                <div style="background:rgba(15, 23, 42, 0.6); border:1px solid #38bdf8; border-radius:8px; padding:15px; margin-bottom:20px;">
+                    <h4 style="color:#38bdf8; margin:0 0 10px 0; font-size:1rem; display:flex; align-items:center; gap:8px;">
+                        <i class="fa-solid fa-square-parking"></i> Puntos de Estacionamiento
+                    </h4>
+                    <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px;">
+                        <li>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Honcho+Street+Parking+Fujiyoshida" target="_blank" style="display:flex; justify-content:space-between; align-items:center; background:rgba(56, 189, 248, 0.1); padding:10px; border-radius:6px; color:#cbd5e1; text-decoration:none; font-size:0.9rem; border:1px solid rgba(56, 189, 248, 0.3); transition:all 0.2s;">
+                                <span><i class="fa-solid fa-location-dot" style="color:#38bdf8; margin-right:8px;"></i> Parking Honcho St.</span>
+                                <i class="fa-solid fa-diamond-turn-right"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Oshino+Hakkai+Parking" target="_blank" style="display:flex; justify-content:space-between; align-items:center; background:rgba(56, 189, 248, 0.1); padding:10px; border-radius:6px; color:#cbd5e1; text-decoration:none; font-size:0.9rem; border:1px solid rgba(56, 189, 248, 0.3); transition:all 0.2s;">
+                                <span><i class="fa-solid fa-location-dot" style="color:#38bdf8; margin-right:8px;"></i> Parking Oshino Hakkai</span>
+                                <i class="fa-solid fa-diamond-turn-right"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Shiraito+Falls+Parking" target="_blank" style="display:flex; justify-content:space-between; align-items:center; background:rgba(56, 189, 248, 0.1); padding:10px; border-radius:6px; color:#cbd5e1; text-decoration:none; font-size:0.9rem; border:1px solid rgba(56, 189, 248, 0.3); transition:all 0.2s;">
+                                <span><i class="fa-solid fa-location-dot" style="color:#38bdf8; margin-right:8px;"></i> Parking Shiraito Falls</span>
+                                <i class="fa-solid fa-diamond-turn-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Caja 3 - PRESUPUESTO DEL DÍA -->
+                <div style="background:rgba(15, 23, 42, 0.6); border:1px solid #4ade80; border-radius:8px; padding:15px;">
+                    <h4 style="color:#4ade80; margin:0 0 10px 0; font-size:1rem; display:flex; align-items:center; gap:8px;">
+                        <i class="fa-solid fa-wallet"></i> Presupuesto del Día
+                    </h4>
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div style="display:flex; justify-content:space-between; border-bottom:1px solid rgba(74, 222, 128, 0.2); padding-bottom:5px;">
+                            <span style="color:#cbd5e1; font-size:0.85rem;">Iyashi no Sato (Entrada)</span>
+                            <strong style="color:white; font-size:0.85rem;">500 JPY</strong>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; border-bottom:1px solid rgba(74, 222, 128, 0.2); padding-bottom:5px;">
+                            <span style="color:#cbd5e1; font-size:0.85rem;">Alquiler Samurai/Kimono</span>
+                            <strong style="color:white; font-size:0.85rem;">~2.000 JPY</strong>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; border-bottom:1px solid rgba(74, 222, 128, 0.2); padding-bottom:5px;">
+                            <span style="color:#cbd5e1; font-size:0.85rem;">Parking Cascadas Shiraito</span>
+                            <strong style="color:white; font-size:0.85rem;">300 JPY</strong>
+                        </div>
+                        <div style="display:flex; justify-content:space-between;">
+                            <span style="color:#cbd5e1; font-size:0.85rem;">Comida Hoto Fudo</span>
+                            <strong style="color:white; font-size:0.85rem;">~1.500 JPY / px</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `,
+        customCenterHTML: `
+            <!-- BLOQUE 1: PORTADA CENTRAL -->
+            <div class="fuji-custom-hero">
+                <img src="images/oshino_hakkai_realistic.png" class="fuji-custom-hero-img" alt="Roadtrip Fuji">
+                <div class="fuji-custom-hero-content">
+                    <h2 style="margin:0; color:var(--neon-blue); text-transform:uppercase; letter-spacing:2px; text-shadow:0 0 10px rgba(0,243,255,0.5);">El Gran Roadtrip del Fuji</h2>
+                    <p style="color:#e2e8f0; margin-top:10px; font-size:1rem; line-height:1.5;">Una expedición unificada en vehículos de alquiler alrededor del gigante sagrado. Exploración, fotografía y gastronomía a tu propio ritmo.</p>
+                </div>
+            </div>
+
+            <!-- BOTÓN MAPA DEL DÍA (CENTRAL IZQUIERDA) -->
+            <div style="display:flex; justify-content:center; width:100%; margin-top:-25px; margin-bottom:30px; position:relative; z-index:20;">
+                <div style="width:100%; max-width:800px; display:flex; justify-content:flex-start; padding-left:20px;">
+                    <a href="https://www.google.com/maps/d/u/0/edit?mid=1rR2qzulSCq9o9t_rJ4cQkIqg_9x0CKM&usp=sharing" target="_blank" title="VER RUTA DEL ROADTRIP EN GOOGLE MAPS" 
+                       style="cursor:pointer; background:rgba(0, 243, 255, 0.2); border:2px solid var(--neon-blue); color:white; padding:10px 20px; border-radius:12px; display:flex; align-items:center; gap:10px; text-decoration:none; animation: pulse-cyan 2s infinite; box-shadow: 0 0 20px rgba(0, 243, 255, 0.4); font-weight:bold; font-size:0.9rem; text-transform:uppercase; letter-spacing:1px;">
+                        <i class="fa-solid fa-map-location-dot" style="font-size:1.2rem;"></i> MAPA INTERACTIVO ROADTRIP
+                    </a>
+                </div>
+            </div>
+
+            <!-- BLOQUE 2: TIMELINE VERTICAL -->
+            <div class="roadtrip-timeline-container" style="margin-top:40px;">
+                
+                <!-- Parada 1 -->
+                <div class="roadtrip-stop-card" style="background:rgba(15,23,42,0.8); border:1px solid rgba(56, 189, 248, 0.3); border-radius:12px; margin-bottom:30px; overflow:hidden;">
+                    <img src="images/dia15-honcho-street.jpg" style="width:100%; height:250px; object-fit:cover; display:block;" alt="Honcho Street">
+                    <div style="padding:20px;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; flex-wrap:wrap; gap:10px;">
+                            <h3 style="color:white; margin:0; font-size:1.4rem;"><span style="color:var(--neon-blue); margin-right:10px;">08:30</span>Honcho Street (Fujiyoshida)</h3>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Honcho+Street+Fujiyoshida" target="_blank" style="background:rgba(56,189,248,0.1); color:var(--neon-blue); border:1px solid var(--neon-blue); padding:6px 15px; border-radius:6px; text-decoration:none; font-weight:bold; font-size:0.85rem; display:flex; align-items:center; gap:8px;"><i class="fa-solid fa-map-location-dot"></i> ABRIR EN GOOGLE MAPS</a>
+                        </div>
+                        <p style="color:#cbd5e1; font-size:0.95rem; line-height:1.6; margin-bottom:15px;">
+                            Esta calle comercial de estética retro (Showa) se ha hecho mundialmente famosa porque crea un efecto de túnel visual que enmarca perfectamente la inmensidad del Monte Fuji al fondo. Los faroles tradicionales, los cables eléctricos y los carteles de las tiendas en contraste con el volcán sagrado representan la postal definitiva del Japón moderno conviviendo con la naturaleza.
+                        </p>
+                        <div style="background:rgba(245, 158, 11, 0.15); border-left:4px solid var(--gold); padding:12px 15px; border-radius:4px;">
+                            <h4 style="margin:0 0 5px 0; color:var(--gold); font-size:0.95rem;"><i class="fa-solid fa-lightbulb"></i> Pro-Tip Logístico</h4>
+                            <p style="margin:0; color:#e2e8f0; font-size:0.85rem; line-height:1.4;">¡Mucho cuidado! Es una calle con tráfico real y constante. La foto perfecta se toma desde las aceras o en los pasos de cebra cruzando rápido, <strong>NUNCA</strong> deteniéndose en medio de la calzada. La policía local patrulla la zona debido a los turistas imprudentes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Parada 2 -->
+                <div class="roadtrip-stop-card" style="background:rgba(15,23,42,0.8); border:1px solid rgba(56, 189, 248, 0.3); border-radius:12px; margin-bottom:30px; overflow:hidden;">
+                    <img src="images/dia14-sengen.jpg" style="width:100%; height:250px; object-fit:cover; display:block;" alt="Sengen Jinja">
+                    <div style="padding:20px;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; flex-wrap:wrap; gap:10px;">
+                            <h3 style="color:white; margin:0; font-size:1.4rem;"><span style="color:var(--neon-blue); margin-right:10px;">09:30</span>Kitaguchi Hongu Sengen Jinja</h3>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Kitaguchi+Hongu+Fuji+Sengen+Jinja" target="_blank" style="background:rgba(56,189,248,0.1); color:var(--neon-blue); border:1px solid var(--neon-blue); padding:6px 15px; border-radius:6px; text-decoration:none; font-weight:bold; font-size:0.85rem; display:flex; align-items:center; gap:8px;"><i class="fa-solid fa-map-location-dot"></i> GOOGLE MAPS</a>
+                        </div>
+                        <p style="color:#cbd5e1; font-size:0.95rem; line-height:1.6; margin-bottom:15px;">
+                            Con más de 1.900 años de historia, este es uno de los santuarios más importantes de Japón. Está dedicado a la deidad sintoísta del Monte Fuji (la princesa Konohanasakuya). Históricamente, este era el punto de partida original para los peregrinos que iban a subir al volcán por el sendero Yoshidaguchi. Está enclavado en un bosque profundo y oscuro.
+                        </p>
+                        <div style="background:rgba(245, 158, 11, 0.15); border-left:4px solid var(--gold); padding:12px 15px; border-radius:4px;">
+                            <h4 style="margin:0 0 5px 0; color:var(--gold); font-size:0.95rem;"><i class="fa-solid fa-lightbulb"></i> Pro-Tip Logístico</h4>
+                            <p style="margin:0; color:#e2e8f0; font-size:0.85rem; line-height:1.4;">Fijaos en los inmensos cedros a la entrada y junto al edificio principal; el "Fuji Taro Sugi" tiene más de 1.000 años de antigüedad. Pasear por el largo camino de linternas de piedra en silencio es la mejor forma de absorber la energía mística del lugar antes de que lleguen los autobuses.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Parada 3 -->
+                <div class="roadtrip-stop-card" style="background:rgba(15,23,42,0.8); border:1px solid rgba(56, 189, 248, 0.3); border-radius:12px; margin-bottom:30px; overflow:hidden;">
+                    <img src="images/oshino_hakkai_realistic.png" style="width:100%; height:250px; object-fit:cover; display:block;" alt="Oshino Hakkai">
+                    <div style="padding:20px;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; flex-wrap:wrap; gap:10px;">
+                            <h3 style="color:white; margin:0; font-size:1.4rem;"><span style="color:var(--neon-blue); margin-right:10px;">11:00</span>Oshino Hakkai (Los 8 Estanques)</h3>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Oshino+Hakkai" target="_blank" style="background:rgba(56,189,248,0.1); color:var(--neon-blue); border:1px solid var(--neon-blue); padding:6px 15px; border-radius:6px; text-decoration:none; font-weight:bold; font-size:0.85rem; display:flex; align-items:center; gap:8px;"><i class="fa-solid fa-map-location-dot"></i> GOOGLE MAPS</a>
+                        </div>
+                        <p style="color:#cbd5e1; font-size:0.95rem; line-height:1.6; margin-bottom:15px;">
+                            Hace siglos, aquí había un sexto lago del Fuji que se secó. Quedaron 8 estanques sagrados alimentados por la nieve que se derrite en la cima del volcán. El agua tarda décadas en filtrarse a través de las capas de lava porosa subterránea, lo que resulta en un agua de manantial tan pura y transparente que parece que los peces vuelan en el vacío.
+                        </p>
+                        <div style="background:rgba(34, 197, 94, 0.15); border-left:4px solid #4ade80; padding:12px 15px; border-radius:4px;">
+                            <h4 style="margin:0 0 5px 0; color:#4ade80; font-size:0.95rem;"><i class="fa-solid fa-utensils"></i> Pro-Tip Gastronómico</h4>
+                            <p style="margin:0; color:#e2e8f0; font-size:0.85rem; line-height:1.4;">Además de maravillaros con los estanques azules, esta zona es un paraíso de la comida callejera. No os vayáis sin probar el <strong>Kusa Mochi</strong> (pastel de arroz verde tostado) y el pescado de río asado con sal en las parrillas de carbón.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Parada 4 -->
+                <div class="roadtrip-stop-card" style="background:rgba(15,23,42,0.8); border:1px solid rgba(56, 189, 248, 0.3); border-radius:12px; margin-bottom:30px; overflow:hidden;">
+                    <img src="images/hoto_fudo_cloud.png" style="width:100%; height:250px; object-fit:cover; display:block;" alt="Hoto Fudo">
+                    <div style="padding:20px;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; flex-wrap:wrap; gap:10px;">
+                            <h3 style="color:white; margin:0; font-size:1.4rem;"><span style="color:var(--neon-blue); margin-right:10px;">12:30</span>Almuerzo en Hoto Fudo (Higashikoiji)</h3>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Hoto+Fudo+Higashikoiji" target="_blank" style="background:rgba(56,189,248,0.1); color:var(--neon-blue); border:1px solid var(--neon-blue); padding:6px 15px; border-radius:6px; text-decoration:none; font-weight:bold; font-size:0.85rem; display:flex; align-items:center; gap:8px;"><i class="fa-solid fa-map-location-dot"></i> GOOGLE MAPS</a>
+                        </div>
+                        <p style="color:#cbd5e1; font-size:0.95rem; line-height:1.6; margin-bottom:15px;">
+                            Diseñado por el arquitecto Takeshi Hosaka, este edificio blanco con forma de nube (o iglú sin puertas) está diseñado para que el aire circule de forma natural, sin aire acondicionado. Es la sucursal más espectacular de la cadena Hoto Fudo, famosa por servir los "Hoto Noodles", el plato de supervivencia de los antiguos samuráis de la región de Yamanashi.
+                        </p>
+                        <div style="background:rgba(245, 158, 11, 0.15); border-left:4px solid var(--gold); padding:12px 15px; border-radius:4px;">
+                            <h4 style="margin:0 0 5px 0; color:var(--gold); font-size:0.95rem;"><i class="fa-solid fa-lightbulb"></i> Pro-Tip Logístico</h4>
+                            <p style="margin:0; color:#e2e8f0; font-size:0.85rem; line-height:1.4;">El plato principal son unos fideos planos (parecidos al udon) en una sopa de miso con calabaza y verduras. Ojo al comer: se sirve en una olla de hierro fundido que quema muchísimo. Pedid también el Inari Sushi (arroz envuelto en tofu frito dulce) para acompañar.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Parada 5 -->
+                <div class="roadtrip-stop-card" style="background:rgba(15,23,42,0.8); border:1px solid rgba(56, 189, 248, 0.3); border-radius:12px; margin-bottom:30px; overflow:hidden;">
+                    <img src="images/dia15-iyashi.jpg" style="width:100%; height:250px; object-fit:cover; display:block;" alt="Iyashi no Sato">
+                    <div style="padding:20px;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; flex-wrap:wrap; gap:10px;">
+                            <h3 style="color:white; margin:0; font-size:1.4rem;"><span style="color:var(--neon-blue); margin-right:10px;">14:30</span>Iyashi no Sato (Lago Saiko)</h3>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Iyashi+no+Sato" target="_blank" style="background:rgba(56,189,248,0.1); color:var(--neon-blue); border:1px solid var(--neon-blue); padding:6px 15px; border-radius:6px; text-decoration:none; font-weight:bold; font-size:0.85rem; display:flex; align-items:center; gap:8px;"><i class="fa-solid fa-map-location-dot"></i> GOOGLE MAPS</a>
+                        </div>
+                        <p style="color:#cbd5e1; font-size:0.95rem; line-height:1.6; margin-bottom:15px;">
+                            Originalmente era un antiguo pueblo agrícola, pero un corrimiento de tierras provocado por un tifón lo destruyó en 1966. Cuarenta años después, se reconstruyó como un museo al aire libre para preservar la arquitectura tradicional Minka (tejados de paja). Hoy en día, cada casa es un taller de artesanía, galería o restaurante, con unas vistas inmejorables del Fuji.
+                        </p>
+                        <div style="background:rgba(236, 72, 153, 0.15); border-left:4px solid #ec4899; padding:12px 15px; border-radius:4px;">
+                            <h4 style="margin:0 0 5px 0; color:#ec4899; font-size:0.95rem;"><i class="fa-solid fa-camera-retro"></i> Pro-Tip Familiar</h4>
+                            <p style="margin:0; color:#e2e8f0; font-size:0.85rem; line-height:1.4;">Esta parada es el clímax para las fotos divertidas. En una de las casas podéis alquilar armaduras samurái de calidad, kimonos de princesa o trajes ninja por muy poco dinero (unos 2.000 JPY), vestiros todos y haceros fotos por el pueblo con el volcán de fondo. A la niña de 9 años le encantará.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Parada 6 -->
+                <div class="roadtrip-stop-card" style="background:rgba(15,23,42,0.8); border:1px solid rgba(56, 189, 248, 0.3); border-radius:12px; margin-bottom:30px; overflow:hidden;">
+                    <img src="images/dia14-shiraito.jpg" style="width:100%; height:250px; object-fit:cover; display:block;" alt="Cascadas Shiraito">
+                    <div style="padding:20px;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; flex-wrap:wrap; gap:10px;">
+                            <h3 style="color:white; margin:0; font-size:1.4rem;"><span style="color:var(--neon-blue); margin-right:10px;">16:30</span>Cascadas Shiraito</h3>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Shiraito+Falls+Fujinomiya" target="_blank" style="background:rgba(56,189,248,0.1); color:var(--neon-blue); border:1px solid var(--neon-blue); padding:6px 15px; border-radius:6px; text-decoration:none; font-weight:bold; font-size:0.85rem; display:flex; align-items:center; gap:8px;"><i class="fa-solid fa-map-location-dot"></i> GOOGLE MAPS</a>
+                        </div>
+                        <p style="color:#cbd5e1; font-size:0.95rem; line-height:1.6; margin-bottom:15px;">
+                            Su nombre significa "Hilos de Seda Blancos". A diferencia de la mayoría de las cascadas, esta no proviene de un río, sino que brota directamente de la pared de roca volcánica en un arco de 150 metros de ancho. Es el agua subterránea del deshielo del Monte Fuji que encuentra una capa impermeable de lava y sale a la superficie.
+                        </p>
+                        <div style="background:rgba(245, 158, 11, 0.15); border-left:4px solid var(--gold); padding:12px 15px; border-radius:4px;">
+                            <h4 style="margin:0 0 5px 0; color:var(--gold); font-size:0.95rem;"><i class="fa-solid fa-lightbulb"></i> Pro-Tip Logístico</h4>
+                            <p style="margin:0; color:#e2e8f0; font-size:0.85rem; line-height:1.4;">Hay que bajar bastantes escaleras para llegar a la base de la cascada, así que tenedlo en cuenta para los miembros de 70 años del grupo (la bajada es fácil, la subida hay que hacerla con calma). El microclima allí abajo es súper refrescante, ideal para cerrar la tarde de agosto.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `
     },
 
     // --- DÍA 16: ÚLTIMO DÍA FUJI Y TOKIO (ESTRUCTURA BASE + COMPLEMENTOS) ---
@@ -1785,10 +1910,11 @@ const travelData_09_16 = [
                 time: "10:55",
                 type: "transit",
                 title: "Tren Expréss 'Fuji Excursion' a Tokio",
-                price: "Cubierto por JR Pass + Suplemento (~1.740 JPY)",
+                price: "Billete completo (Tarifa base + Asiento reservado). Sin JR Pass.",
                 timeLabel: "1h 55m",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Kawaguchiko+Station&destination=Shinjuku+Station&travelmode=transit",
-                tacticalGuideId: "mission_fuji_excursion"
+                tacticalGuideId: "mission_fuji_excursion",
+                tacticalBtnText: "🚀 ABRIR MANUAL DE TRASLADO (Operación Retorno)"
             },
             { time: "12:55", type: "point", title: "Llegada al caos de Shinjuku (Tokio)", icon: "fa-solid fa-city" },
             {
@@ -1824,6 +1950,19 @@ const travelData_09_16 = [
             total: "~3.800 JPY"
         },
 
+        transportTimeline: [
+            { time: "09:00", type: "point", icon: "fa-solid fa-gas-pump", title: "Repostaje en Gasolinera" },
+            { time: "09:30", type: "point", icon: "fa-solid fa-car-side", title: "Devolución de Coches (Budget)" },
+            { 
+                title: "Tren Express 'Fuji Excursion'", 
+                type: "transit", 
+                price: "Billete completo (Tarifa base + Asiento reservado). Sin JR Pass.", 
+                timeLabel: "10:55 - 12:55",
+                tacticalGuideId: "mission_fuji_excursion",
+                tacticalBtnText: "ABRIR MANUAL DE TRASLADO (Operación Retorno)"
+            },
+            { time: "13:00", type: "point", icon: "fa-solid fa-taxi", title: "Taxi a Hotel (Iidabashi)" }
+        ],
         isFlexible: true,
         base: {
             title: "Itinerario Base",

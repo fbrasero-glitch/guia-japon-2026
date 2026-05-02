@@ -2801,12 +2801,12 @@ function renderTacticalMission(missionId, dayIndex) {
             missionHTML = `
         <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
-                        <div class="datapad-mission-id">> MISSION_FILE: RYUGATAKE</div>
+                        <div class="datapad-mission-id">> MISSION_FILE: NAKANOKURA</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
                             <i class="fa-solid fa-xmark"></i> CLOSE_FILE
                         </button>
                     </div>
-                    <h1 class="datapad-title">> TREKKING: MONTE RYUGATAKE</h1>
+                    <h1 class="datapad-title">> TREKKING: NAKANOKURA PASS</h1>
                     <div class="tactical-data-grid">
                         <div class="data-block">
                             <div class="data-label"><i class="fa-solid fa-mountain"></i> RUTA TÁCTICA:</div>
@@ -4644,12 +4644,12 @@ function renderTacticalMission(missionId, dayIndex) {
             missionHTML = `
         <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
-                        <div class="datapad-mission-id">> MISSION_FILE: MT_RYUGATAKE</div>
+                        <div class="datapad-mission-id">> MISSION_FILE: NAKANOKURA</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
                             <i class="fa-solid fa-xmark"></i> CLOSE_FILE
                         </button>
                     </div>
-                    <h1 class="datapad-title">> ASCENSO: MONTE RYUGATAKE</h1>
+                    <h1 class="datapad-title">> ASCENSO: NAKANOKURA PASS</h1>
                     <div class="tactical-data-grid">
                         <div class="data-block">
                             <div class="data-label"><i class="fa-solid fa-mountain-sun"></i> TREKKING TÁCTICO:</div>
