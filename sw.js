@@ -1,4 +1,4 @@
-const CACHE_NAME = 'japon-2026-v5';
+const CACHE_NAME = 'japon-2026-v2';
 
 // Esta lista será reemplazada automáticamente por el script de Python.
 const ASSETS_TO_CACHE = [
@@ -24,6 +24,7 @@ const ASSETS_TO_CACHE = [
     "script_engine.js",
     "script_tactical.js",
     "style.css",
+    "test_load.html",
     "images/adashino-nembutsuji.jpg",
     "images/add-anamori.jpg",
     "images/add-bear-park.jpg",
@@ -254,6 +255,8 @@ const ASSETS_TO_CACHE = [
     "images/hotel-wing-osaka.jpg",
     "images/hotel_osaka.jpg",
     "images/hotel_osaka.png",
+    "images/icon-192.png",
+    "images/icon-512.png",
     "images/isshinji-temple.jpg",
     "images/iyashi_sato.png",
     "images/izakaya.png",
@@ -300,6 +303,7 @@ const ASSETS_TO_CACHE = [
     "images/shoji_lake.png",
     "images/skytree.png",
     "images/skytree_noche.png",
+    "images/subir futji.png",
     "images/sushi.png",
     "images/takayama.png",
     "images/takayama_jinya.png",

@@ -1180,10 +1180,10 @@ const travelData_09_16 = [
         ]
     },
 
-    // --- DÍA 14: EL MONTE FUJI (ESTRUCTURA BASE + COMPLEMENTOS) ---
+    // --- DÍA 14: EL MONTE FUJI (ESTRUCTURA FLEXIBLE: RELAX VS TREKKING) ---
     {
         day: 14, type: "stay",
-        date: "Dom, 9 Agosto", title: "⛰️ El Gigante Sagrado",
+        date: "Dom, 9 Agosto", title: "⛰️ Inmersión en el Gigante Sagrado",
         coords: [35.360, 138.727], zoom: 12,
         hotel: "Toyoko Inn Fuji Kawaguchiko Ohashi",
         hotelImage: "images/hotel-toyoko-kawaguchiko.jpg",
@@ -1191,165 +1191,395 @@ const travelData_09_16 = [
         image: "images/dia15-portada.jpg",
 
         logistics: [
-            { title: "Vertical", text: "Si subís a la 5ª estación, llevad cortavientos (hace frío)." },
-            { title: "Transporte", text: "Shuttle bus obligatorio desde el parking del volcán en agosto." },
-            { title: "Coche", text: "El Ryugatake requiere conducir unos 40 minutos bordeando el lago Motosu." }
+            { title: "Transporte", text: "2 Vehículos de alquiler (Iván y Felipe). Conducción por la izquierda, velocidad 40-50 km/h." },
+            { title: "Fuji Subaru Line", text: "En agosto, acceso prohibido a coches privados. Usar Shuttle Bus desde Parking Fujihoku-roku." },
+            { title: "Equipaje", text: "Vuestras maletas grandes ya habrán llegado al hotel por Takkyubin; ropa limpia esperándoos tras el onsen." }
         ],
 
         transportTimeline: [
-            { time: "07:30", type: "point", title: "Salida del Hotel (Coche)", icon: "fa-solid fa-car" },
+            { time: "07:30", type: "point", title: "Salida del Hotel (Coches A y B)", icon: "fa-solid fa-car-side" },
             {
-                time: "07:45",
-                type: "transit",
-                title: "Conducción hacia destino alpino",
-                price: "Gasolina",
-                timeLabel: "15m - 40m",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Toyoko+Inn+Kawaguchiko&destination=Mt+Fuji+Subaru+Line",
-                tacticalGuideId: "mission_fuji_drive"
+                time: "08:30",
+                type: "point",
+                title: "División de Misiones: 5ª Estación vs Trekking",
+                icon: "fa-solid fa-split"
             },
-            { time: "08:30", type: "point", title: "Inicio Excursión Elegida (5ª Estación o Ryugatake)", icon: "fa-solid fa-person-hiking" },
-            { time: "13:30", type: "point", title: "Almuerzo libre por la zona de los lagos", icon: "fa-solid fa-burger" },
-            { time: "15:30", type: "point", title: "Tarde de Baños Termales o relax frontal", icon: "fa-solid fa-hot-tub-person" }
+            {
+                time: "13:30",
+                type: "point",
+                title: "Reencuentro en zona de los lagos",
+                icon: "fa-solid fa-handshake"
+            },
+            {
+                time: "16:00",
+                type: "point",
+                title: "Relax en Onsen Fujiyama",
+                icon: "fa-solid fa-hot-tub-person"
+            },
+            {
+                time: "18:30",
+                type: "point",
+                title: "Retorno al Hotel",
+                icon: "fa-solid fa-hotel"
+            }
         ],
 
         timeline: [
-            { time: "08:00", title: "Excursión al Fuji", desc: "Acercarse al cráter o trekking RYUGATAKE. (Base)" },
-            { time: "13:30", title: "Almuerzo", desc: "Comida reconfortante tras la montaña. (Base)" },
-            { time: "16:00", title: "Opciones Tarde", desc: "Onsen Fujiyama u otras vistas. (Opcional)" }
+            { time: "07:30", title: "Salida y División", desc: "Inicio de jornada según preferencia. (Base)" },
+            { time: "13:30", title: "Reencuentro y Almuerzo", desc: "Puesta en común en restaurante local. (Base)" },
+            { time: "16:00", title: "Protocolo Relax", desc: "Onsen Fujiyama (Baños volcánicos). (Base)" }
         ],
 
         prices: {
-            transport: "Gasolina + Peaje/Shuttle (~2.500 JPY)",
-            total: "Base +"
+            transport: "Gasolina + Peaje/Shuttle (~2.500 JPY Opción A)",
+            entrances: "350 JPY (Cuevas) + Onsen",
+            food: "~2.500 JPY",
+            total: "~6.000 JPY"
         },
 
         isFlexible: true,
-        base: {
-            title: "Itinerario Base",
-            description: "Día físico. Tocar el volcán de cerca o caminar para conseguir la vista perfecta.",
+        base: { 
+            description: "", 
             events: [
                 {
-                    id: "b1",
+                    id: "opt-a",
+                    title: "OPCIÓN A: Umbral del Cielo",
                     time: "08:30",
-                    title: "Aproximación al Fuji",
-                    description: "Elegid entre subir a los 2300m o hacer el trekking del billete de 1000 yenes.",
-                    image: "images/dia14-itinerario-base.jpg",
-                    price: "Variable",
+                    description: "5ª Estación (2.305m). Tocar el volcán sin esfuerzo físico.",
+                    price: "~2.500 JPY (Bus)",
+                    image: "images/dia14-5-estacion-fuji.jpg",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-mountain"></i> Shinkō: La Devoción al Fuji</h3>
-                        <p>El Fuji no es solo una montaña; es un ser sagrado. Durante siglos, peregrinos vestidos de blanco han ascendido por sus laderas como un acto de purificación. Hoy tenéis dos formas de conectar con su energía: subiendo por la Subaru Line (comodidad táctica) o alejándoos por el Ryugatake para contemplar su magnitud desde la distancia, tal como hacían los antiguos artistas de Grabados Ukiyo-e.</p>
-                        <div style="background:rgba(255,255,255,0.1); border:1px solid #ffffff; padding:10px; border-radius:8px; margin-top:10px;">
-                            <h4 style="margin:0; font-size:0.8rem; color:#ffffff;"><i class="fa-solid fa-triangle-exclamation"></i> Logística de Agosto:</h4>
-                            <p style="margin:5px 0 0; font-size:0.75rem;">Debido a la alta afluencia, los vehículos privados tienen prohibido el paso a la Subaru Line. Deberéis aparcar en el <strong>Parking Fujihoku-roku</strong> y tomar el bus lanzadera (shuttle) que sale cada 30 min aprox.</p>
-                        </div>
+                        <h3><i class="fa-solid fa-cloud"></i> Fuji 5ª Estación (Yoshida Line)</h3>
+                        <p>Ideal para quienes quieran "tocar" el volcán sin esfuerzo físico. Estaréis por encima de las nubes.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-car"></i> <strong>Trayecto:</strong> 15 min al Parking Fujihoku-roku.</li>
+                            <li><i class="fa-solid fa-bus"></i> <strong>Shuttle:</strong> Autobús lanzadera (45 min) hasta la cima accesible.</li>
+                            <li><i class="fa-solid fa-shrine"></i> <strong>Santuario Komitake:</strong> Con 1.000 años de historia, comprad amuletos para montañeros.</li>
+                            <li><i class="fa-solid fa-camera"></i> <strong>Vistas:</strong> Disfrutad del cráter desde la base de ascenso. Recordad hidrataros bien para la altitud.</li>
+                        </ul>
                     `
                 },
                 {
-                    time: "13:00",
-                    title: "Tiempo Libre / Almuerzo",
-                    description: "Pausa en algún pueblo u orilla del lago para reponer calorías.",
-                    type: "gap"
+                    id: "opt-b",
+                    title: "OPCIÓN B: Billete de 1.000¥",
+                    time: "08:00",
+                    description: "Trekking Ryugatake + Cuevas de Lava.",
+                    price: "Gratis (+350 JPY Cueva)",
+                    image: "images/dia15-ryugatake.jpg",
+                    link: "https://es.wikiloc.com/rutas-senderismo/billete-100-yenes-lago-japon-262052990",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-person-hiking"></i> Trekking Ryugatake</h3>
+                        <p>Para los más activos que buscan la "foto perfecta" del billete de 1.000 yenes.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-mountain"></i> <strong>Ascenso:</strong> 2 horas de caminata media entre raíces y senderos alpinos.</li>
+                            <li><i class="fa-solid fa-money-bill-1"></i> <strong>El Hito:</strong> Silueta del Fuji reflejada en el lago Motosu (imagen del billete de 1.000 yenes).</li>
+                        </ul>
+                    `
+                },
+                {
+                    id: "opt-c",
+                    title: "OPCIÓN C: Mar de Árboles",
+                    time: "14:30",
+                    description: "Bosque Aokigahara y exploración de las milenarias Cuevas de Hielo.",
+                    price: "350 JPY",
+                    image: "images/add-fuji-caves.jpg",
+                    link: "https://es.wikiloc.com/rutas-a-pie/lake-saiko-bat-cave-aokigahara-suicide-forest-narusawa-ice-cave-saikominami-yakema-197462852",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-tree"></i> Bosque Aokigahara y Cuevas</h3>
+                        <p>Exploración del místico Mar de Árboles, crecido sobre la lava de erupciones milenarias, y descenso a las frías cuevas subterráneas.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-snowflake"></i> <strong>Aventura Subterránea:</strong> Cueva del Hielo o del Viento en Aokigahara. Temperatura de 0°C a 3°C incluso en verano.</li>
+                        </ul>
+                    `
+                },
+                {
+                    id: "opt-d",
+                    title: "OPCIÓN D: Ascensión al Monte Fuji",
+                    time: "04:30",
+                    description: "Ascensión a la cima en 1 día por la Ruta Yoshida.",
+                    price: "4.000 JPY",
+                    image: "images/subir futji.png",
+                    link: "https://es.wikiloc.com/rutas-senderismo/mt-fuji-japan-141555584",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-volcano" style="color:var(--danger);"></i> Ascensión al Monte Fuji en 1 Día (Ruta Yoshida)</h3>
+                        
+                        <div style="background: rgba(239, 68, 68, 0.1); border-left: 4px solid var(--danger); padding: 15px; margin-bottom: 20px; border-radius: 8px;">
+                            <h4 style="color:var(--danger); margin-top:0;"><i class="fa-solid fa-bullhorn"></i> RECOMENDACIONES TÁCTICAS</h4>
+                            <p style="margin-bottom:8px;"><strong>Ritmo y altitud:</strong> Sube a un ritmo constante y lento, haciendo pausas breves. El mal de altura es el mayor riesgo; si alguien se marea o tiene náuseas, debe perder altitud.</p>
+                            <p style="margin-bottom:8px;"><strong>Dinero en efectivo:</strong> Lleva suficientes monedas de 100 yenes. Los baños en la montaña son de pago (200-300 yenes) y el agua en los refugios es cara.</p>
+                            <p style="margin-bottom:0;"><strong>Agua:</strong> Lleva al menos 2-3 litros por persona desde abajo, hidratarse bien es clave contra la altitud.</p>
+                        </div>
+
+                        <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid var(--neon-blue); padding: 15px; margin-bottom: 20px; border-radius: 8px;">
+                            <h4 style="color:var(--neon-blue); margin-top:0;"><i class="fa-solid fa-shoe-prints"></i> ROPA RECOMENDADA</h4>
+                            <p style="margin-bottom:8px;"><strong>Sistema de 3 capas:</strong> Camiseta térmica transpirable (evitar algodón), forro polar/plumífero ligero, y chaqueta cortavientos/impermeable tipo Gore-Tex (arriba hace frío y viento).</p>
+                            <p style="margin-bottom:8px;"><strong>Pies:</strong> Botas de montaña de caña media/alta (nada de zapatillas de ciudad) y polainas (gaiters) obligatorias para evitar que las piedras volcánicas entren en las botas durante el descenso.</p>
+                            <p style="margin-bottom:0;"><strong>Accesorios imprescindibles:</strong> Linterna frontal, gafas de sol (alta radiación UV), gorro, guantes y bastones de trekking para proteger las rodillas al bajar.</p>
+                        </div>
+
+                        <div style="background: rgba(251, 191, 36, 0.1); border: 1px solid var(--gold); padding: 20px; border-radius: 12px; margin-bottom: 20px;">
+                            <h4 style="color:var(--gold); margin-top:0; text-transform:uppercase;"><i class="fa-solid fa-ticket"></i> Trámite Obligatorio (Booking)</h4>
+                            <p>Enlace oficial: <a href="https://www.fujisan-climb.jp/en/" target="_blank" style="color:var(--neon-blue);">Fuji Mountain Climbing Official Website</a></p>
+                            <ul style="padding-left: 20px; margin-bottom:0;">
+                                <li style="margin-bottom:8px;"><strong>Paso 1:</strong> Entrar en la web oficial (generalmente abre a finales de mayo para reservas de agosto).</li>
+                                <li style="margin-bottom:8px;"><strong>Paso 2:</strong> Seleccionar la opción de "Day Trip" (Excursión de 1 día) para la Ruta Yoshida (Prefectura de Yamanashi).</li>
+                                <li style="margin-bottom:8px;"><strong>Paso 3:</strong> Pagar la tarifa obligatoria (4.000 yenes aprox., que incluye acceso y donación para conservación) para las 8 personas.</li>
+                                <li><strong>Paso 4:</strong> Guardar en el móvil el Código QR generado, que será exigido en la barrera de la 5ª Estación para poder acceder al sendero.</li>
+                            </ul>
+                        </div>
+                    `,
+                    timeline: [
+                        { time: "04:30", title: "Salida del hotel", desc: "Conducción en los coches de alquiler (aprox. desde la zona de Kawaguchiko)." },
+                        { time: "05:00", title: "Fujihokuroku Parking Lot", desc: "Aparcamiento obligatorio de los coches privados. Toma del Shuttle Bus oficial hacia la montaña." },
+                        { time: "06:15", title: "Llegada a la 5ª Estación (2.300m)", desc: "Desayuno y tiempo de espera de 1 hora estrictamente necesario para la aclimatación a la altitud." },
+                        { time: "07:15", title: "Inicio del ascenso", desc: "Comienzo de la caminata por el Sendero Yoshida enseñando el código QR en la barrera." },
+                        { time: "12:30", title: "¡La Cima (3.776m)!", desc: "Llegada a la cumbre. Tiempo para fotos, descansar y comer el bento a gran altitud." },
+                        { time: "14:00", title: "Inicio del descenso", desc: "Bajada por la ruta exclusiva de descenso (zigzags de arena y grava volcánica)." },
+                        { time: "17:30", title: "Fin del trekking", desc: "Llegada de vuelta a la 5ª Estación y embarque en el autobús de bajada." },
+                        { time: "18:45", title: "Recuperación de vehículos", desc: "Llegada al parking Fujihokuroku, recogida de los coches de alquiler." },
+                        { time: "19:30", title: "Regreso al hotel", desc: "Fin de la jornada (¡tiempo de buscar un onsen!)." }
+                    ]
                 }
             ]
         },
-        complements: [
-            {
-                id: "c1",
-                title: "Trekking Ryugatake",
-                time: "08:00",
-                description: "Senderismo (2h de subida) con la vista exacta del billete de 1.000 yenes.",
-                price: "Gratis",
-                image: "images/dia15-ryugatake.jpg",
-                recommended: true,
-                video: "https://www.youtube.com/watch?v=azaJ9W5kXfU",
-                fullDesc: `
-                    <h3><i class="fa-solid fa-person-hiking"></i> Plan Trekking: El Mirador del Dragón</h3>
-                    <p>Una jornada diseñada para los amantes de la fotografía y la montaña. El objetivo es alcanzar la cima del Monte Ryugatake para capturar la silueta del Fuji tal como aparece en los billetes de 1.000 yenes.</p>
-                    
-                    <div class="itinerary-mini-step">
-                        <img src="images/dia15-ryugatake.jpg" alt="Trekking Ryugatake">
-                        <div class="step-content">
-                            <h4>08:00 – Inicio del Trekking</h4>
-                            <p>Ascenso de unas 2 horas entre raíces y senderos alpinos. Esfuerzo físico medio con recompensa visual máxima en la cima.</p>
-                        </div>
-                    </div>
+        complements: [],
+        additionalExcursions: [],
+        customCenterHTML: `
+            <!-- BLOQUE 1: PORTADA CENTRAL -->
+            <div style="position:relative; border-radius:12px; overflow:hidden; margin-bottom:30px; border:1px solid rgba(255,255,255,0.1); box-shadow:0 10px 30px rgba(0,0,0,0.5);">
+                <img src="images/dia15-portada.jpg" style="width:100%; height:250px; object-fit:cover; opacity:0.8;" alt="Monte Fuji">
+                <div style="position:absolute; bottom:0; left:0; right:0; padding:30px 20px 20px; background:linear-gradient(to top, rgba(15,23,42,1) 10%, transparent);">
+                    <h2 style="margin:0; font-size:1.8rem; color:var(--neon-blue); text-transform:uppercase; letter-spacing:2px; text-shadow:0 0 10px rgba(0,243,255,0.5);">El Día del Fuji: 4 Caminos, 2 Coches</h2>
+                    <p style="color:#e2e8f0; margin-top:10px; font-size:1rem; line-height:1.5;">Hoy dividimos el grupo según la energía de cada uno. Tenemos 2 coches de alquiler y 4 excursiones posibles. Podéis elegir una excursión relajada, combinar un par de ellas si queréis aprovechar a tope, o uniros al 'Equipo Cumbre' para intentar llegar a lo más alto.</p>
+                </div>
+            </div>
 
-                    <div class="itinerary-mini-step">
-                        <img src="images/add-fuji-caves.jpg" alt="Cuevas del Fuji">
-                        <div class="step-content">
-                            <h4>12:15 – Bosque de Aokigahara y Cuevas</h4>
-                            <p>Infiltración en el místico "Mar de Árboles". Visitad la Cueva del Hielo o del Viento; un contraste térmico brutal (0°C) ideal para agosto.</p>
+            <!-- BLOQUE 2: LAS 4 EXCURSIONES BASE (GRID) -->
+            <h3 style="color:var(--accent); margin-bottom:20px; border-bottom:1px solid rgba(249, 115, 22, 0.3); padding-bottom:10px;">
+                <i class="fa-solid fa-map"></i> Las 4 Excursiones Base
+            </h3>
+            <div class="fuji-excursion-grid">
+                <!-- Opción A -->
+                <div class="fuji-card" onclick="selectExcursionFromCard(14, 'opt-a', this)" style="border:none; text-align:left; cursor:pointer; width:100%; padding:0; display:block;">
+                    <img src="images/dia14-5-estacion-fuji.jpg" class="fuji-card-img" alt="5ª Estación">
+                    <div class="fuji-card-content">
+                        <div style="background:rgba(56,189,248,0.2); color:var(--neon-blue); display:inline-block; padding:3px 8px; border-radius:4px; font-size:0.75rem; font-weight:bold; margin-bottom:10px; width:fit-content;">OPCIÓN A (RELAX)</div>
+                        <h4 style="margin:0 0 10px 0; color:white; font-size:1.1rem;">Umbral del Cielo</h4>
+                        <p style="color:#94a3b8; font-size:0.85rem; margin:0; line-height:1.4;">5ª Estación del Fuji. Vistas y ambiente de montaña sin esfuerzo físico.</p>
+                        <div style="display:flex; gap:10px; margin-top:15px; flex-wrap:wrap;">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Fuji+Subaru+Line+5th+Station" target="_blank" onclick="event.stopPropagation()" style="background:rgba(56,189,248,0.1); color:var(--neon-blue); border:1px solid var(--neon-blue); padding:5px 10px; border-radius:4px; font-size:0.75rem; text-decoration:none; display:flex; align-items:center; gap:5px;"><i class="fa-solid fa-map-location-dot"></i> Google Maps</a>
                         </div>
                     </div>
+                </div>
+                <!-- Opción B -->
+                <div class="fuji-card" onclick="selectExcursionFromCard(14, 'opt-b', this)" style="border:none; text-align:left; cursor:pointer; width:100%; padding:0; display:block;">
+                    <img src="images/dia15-ryugatake.jpg" class="fuji-card-img" alt="Ryugatake">
+                    <div class="fuji-card-content">
+                        <div style="background:rgba(251,191,36,0.2); color:var(--gold); display:inline-block; padding:3px 8px; border-radius:4px; font-size:0.75rem; font-weight:bold; margin-bottom:10px; width:fit-content;">OPCIÓN B (MEDIO)</div>
+                        <h4 style="margin:0 0 10px 0; color:white; font-size:1.1rem;">Billete de 1.000¥</h4>
+                        <p style="color:#94a3b8; font-size:0.85rem; margin:0; line-height:1.4;">Trekking Ryugatake. Caminata de 2-3h para la foto icónica del reflejo.</p>
+                        <div style="display:flex; gap:10px; margin-top:15px; flex-wrap:wrap;">
+                            <a href="https://es.wikiloc.com/rutas-senderismo/billete-100-yenes-lago-japon-262052990" target="_blank" onclick="event.stopPropagation()" style="background:rgba(34,197,94,0.1); color:#4ade80; border:1px solid #4ade80; padding:5px 10px; border-radius:4px; font-size:0.75rem; text-decoration:none; display:flex; align-items:center; gap:5px;"><i class="fa-solid fa-route"></i> Wikiloc</a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Ryugatake+Trailhead" target="_blank" onclick="event.stopPropagation()" style="background:rgba(56,189,248,0.1); color:var(--neon-blue); border:1px solid var(--neon-blue); padding:5px 10px; border-radius:4px; font-size:0.75rem; text-decoration:none; display:flex; align-items:center; gap:5px;"><i class="fa-solid fa-map-location-dot"></i> Maps</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Opción C -->
+                <div class="fuji-card" onclick="selectExcursionFromCard(14, 'opt-c', this)" style="border:none; text-align:left; cursor:pointer; width:100%; padding:0; display:block;">
+                    <img src="images/add-fuji-caves.jpg" class="fuji-card-img" alt="Aokigahara">
+                    <div class="fuji-card-content">
+                        <div style="background:rgba(34,197,94,0.2); color:#4ade80; display:inline-block; padding:3px 8px; border-radius:4px; font-size:0.75rem; font-weight:bold; margin-bottom:10px; width:fit-content;">OPCIÓN C (NATURALEZA)</div>
+                        <h4 style="margin:0 0 10px 0; color:white; font-size:1.1rem;">Mar de Árboles</h4>
+                        <p style="color:#94a3b8; font-size:0.85rem; margin:0; line-height:1.4;">Bosque Aokigahara y exploración de las milenarias Cuevas de Hielo.</p>
+                        <div style="display:flex; gap:10px; margin-top:15px; flex-wrap:wrap;">
+                            <a href="https://es.wikiloc.com/rutas-a-pie/lake-saiko-bat-cave-aokigahara-suicide-forest-narusawa-ice-cave-saikominami-yakema-197462852" target="_blank" onclick="event.stopPropagation()" style="background:rgba(34,197,94,0.1); color:#4ade80; border:1px solid #4ade80; padding:5px 10px; border-radius:4px; font-size:0.75rem; text-decoration:none; display:flex; align-items:center; gap:5px;"><i class="fa-solid fa-route"></i> Wikiloc</a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Narusawa+Ice+Cave" target="_blank" onclick="event.stopPropagation()" style="background:rgba(56,189,248,0.1); color:var(--neon-blue); border:1px solid var(--neon-blue); padding:5px 10px; border-radius:4px; font-size:0.75rem; text-decoration:none; display:flex; align-items:center; gap:5px;"><i class="fa-solid fa-map-location-dot"></i> Maps</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Opción D -->
+                <div class="fuji-card" onclick="selectExcursionFromCard(14, 'opt-d', this)" style="border:1px solid rgba(239,68,68,0.5); text-align:left; cursor:pointer; width:100%; padding:0; display:block; background:rgba(15,23,42,0.8);">
+                    <img src="images/subir futji.png" class="fuji-card-img" alt="Cima Fuji">
+                    <div class="fuji-card-content">
+                        <div style="background:rgba(239,68,68,0.2); color:var(--danger); display:inline-block; padding:3px 8px; border-radius:4px; font-size:0.75rem; font-weight:bold; margin-bottom:10px; width:fit-content;">OPCIÓN D (HARDCORE)</div>
+                        <h4 style="margin:0 0 10px 0; color:white; font-size:1.1rem;">Desafío del Volcán</h4>
+                        <p style="color:#94a3b8; font-size:0.85rem; margin:0; line-height:1.4;">La Ascensión a la Cima (3.776m). 10-12 horas intensas. Opción excluyente.</p>
+                        <div style="display:flex; gap:10px; margin-top:15px; flex-wrap:wrap;">
+                            <a href="https://es.wikiloc.com/rutas-senderismo/mt-fuji-japan-141555584" target="_blank" onclick="event.stopPropagation()" style="background:rgba(34,197,94,0.1); color:#4ade80; border:1px solid #4ade80; padding:5px 10px; border-radius:4px; font-size:0.75rem; text-decoration:none; display:flex; align-items:center; gap:5px;"><i class="fa-solid fa-route"></i> Wikiloc</a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Mt+Fuji+Yoshida+Trail" target="_blank" onclick="event.stopPropagation()" style="background:rgba(56,189,248,0.1); color:var(--neon-blue); border:1px solid var(--neon-blue); padding:5px 10px; border-radius:4px; font-size:0.75rem; text-decoration:none; display:flex; align-items:center; gap:5px;"><i class="fa-solid fa-map-location-dot"></i> Maps</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                    <div class="itinerary-mini-step">
-                        <img src="images/saiko_lake.png" alt="Lago Saiko">
-                        <div class="step-content">
-                            <h4>13:30 – Almuerzo en la Zona de los Lagos</h4>
-                            <p>Recuperación de energía en algún restaurante local de la zona de Saiko o Kawaguchiko tras la caminata.</p>
+            <!-- BLOQUE 3: COMBINACIONES LOGÍSTICAS (TABS) -->
+            <h3 style="color:var(--accent); margin-bottom:20px; border-bottom:1px solid rgba(249, 115, 22, 0.3); padding-bottom:10px; margin-top:40px;">
+                <i class="fa-solid fa-code-merge"></i> Combinaciones Logísticas
+            </h3>
+            <p style="color:#94a3b8; margin-bottom:15px; font-size:0.9rem;">Elige una estrategia para tu coche y descubre el timeline exacto (Opciones A, B, C):</p>
+            
+            <div class="fuji-tabs-container">
+                <div class="fuji-tabs-header">
+                    <button class="fuji-tab-btn active" onclick="window.switchFujiTab('tab-solo')"><i class="fa-solid fa-mug-hot"></i> Modo Relax (A/B/C)</button>
+                    <button class="fuji-tab-btn" onclick="window.switchFujiTab('tab-ac')"><i class="fa-solid fa-cloud"></i> + <i class="fa-solid fa-tree"></i> Combo A+C</button>
+                    <button class="fuji-tab-btn" onclick="window.switchFujiTab('tab-bc')"><i class="fa-solid fa-mountain"></i> + <i class="fa-solid fa-tree"></i> Combo B+C</button>
+                    <button class="fuji-tab-btn" onclick="window.switchFujiTab('tab-ab')"><i class="fa-solid fa-cloud"></i> + <i class="fa-solid fa-mountain"></i> Combo A+B</button>
+                    <button class="fuji-tab-btn" onclick="window.switchFujiTab('tab-abc')"><i class="fa-solid fa-layer-group"></i> Combo A+B+C</button>
+                </div>
+                
+                <!-- Tab: Modo Relax -->
+                <div id="tab-solo" class="fuji-tab-content" style="display:block;">
+                    <div class="timeline-container" style="border-left:2px solid rgba(56, 189, 248, 0.3); padding-left:20px;">
+                        <div class="timeline-item" style="margin-bottom:15px;">
+                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">08:30 - Salida Tranquila</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Conducción sin prisa hacia la excursión elegida (A, B o C).</span>
+                        </div>
+                        <div class="timeline-item" style="margin-bottom:15px;">
+                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">09:30 - Actividad Principal</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Disfrute total y fotos de la excursión seleccionada con calma.</span>
+                        </div>
+                        <div class="timeline-item" style="margin-bottom:15px;">
+                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">13:30 - Comida Temprana</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Búsqueda de Hoto Noodles en los alrededores de Kawaguchiko.</span>
+                        </div>
+                        <div class="timeline-item">
+                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">16:00 - Tarde Libre/Onsen</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Regreso al hotel o relax absoluto en un onsen local.</span>
                         </div>
                     </div>
+                </div>
 
-                    <div class="itinerary-mini-step">
-                        <img src="images/onsen_fuji.png" alt="Onsen Fuji">
-                        <div class="step-content">
-                            <h4>16:00 – Tiempo de Relax o Baños Termales</h4>
-                            <p>Tras el esfuerzo, el cuerpo pedirá descanso. Momento ideal para un onsen con vistas o relax total en el hotel.</p>
+                <!-- Tab: Combo A+C -->
+                <div id="tab-ac" class="fuji-tab-content">
+                    <div class="timeline-container" style="border-left:2px solid rgba(56, 189, 248, 0.3); padding-left:20px;">
+                        <div class="timeline-item" style="margin-bottom:15px;">
+                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">08:00 - Parking Fujihoku-roku</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Aparcar el coche y tomar el Shuttle Bus hacia la 5ª Estación.</span>
+                        </div>
+                        <div class="timeline-item" style="margin-bottom:15px;">
+                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">09:00 - Exploración 5ª Estación (A)</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Visita al Santuario Komitake y vistas panorámicas.</span>
+                        </div>
+                        <div class="timeline-item" style="margin-bottom:15px;">
+                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">12:00 - Retorno y Comida</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Bajar en Shuttle, recoger coche y comer por la zona.</span>
+                        </div>
+                        <div class="timeline-item">
+                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">14:30 - Cuevas de Hielo (C)</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Traslado a Aokigahara para entrar en la Cueva del Hielo y Viento.</span>
                         </div>
                     </div>
-                `,
-                tacticalOptions: [
-                    {
-                        title: "RUTA AL DRAGÓN",
-                        time: "08:00 - 17:00",
-                        description: "Día completo de montaña y cuevas. Requiere coche para moverse ágilmente entre el camping Motosu y las cuevas.",
-                        schedule: [
-                            { time: "08:00", event: "Inicio Subida Ryugatake" },
-                            { time: "10:30", event: "Cima (Fotos Billete 1.000Y)" },
-                            { time: "12:15", event: "Exploración Cuevas" },
-                            { time: "13:30", event: "Almuerzo en Lagos" },
-                            { time: "16:00", event: "Sesión Onsen / Relax" }
-                        ],
-                        link: "https://www.google.com/maps/dir/?api=1&origin=Toyoko+Inn+Kawaguchiko&destination=Lake+Motosuko+Campground",
-                        tacticalGuideId: "mission_ryugatake"
-                    }
-                ]
-            },
-            {
-                id: "c2",
-                title: "5ª Estación Fuji",
-                time: "09:00",
-                description: "Llegar a los 2300m en bus. Tiendas, santuario milenario y mirar hacia la cumbre.",
-                price: "2.500 JPY (Shuttle Bus)",
-                image: "images/dia14-5-estacion-fuji.jpg",
-                video: "https://www.youtube.com/watch?v=4rEzBJarLoc",
-                fullDesc: `
-                        <h3><i class="fa-solid fa-cloud"></i> El Umbral del Cielo: 5ª Estación</h3>
-                        <p>Situada a 2.305 metros sobre el nivel del mar, la 5ª estación de la línea Yoshida es el punto más alto accesible por transporte motorizado. Es el punto de partida real para los montañeros que intentan conquistar la cima.</p>
-                        <p><em>Aquí se encuentra el <strong>Santuario Komitake</strong>, un lugar de oración para los escaladores con más de mil años de historia. Incluso si no vais a subir a la cumbre, la sensación de estar por encima de las nubes y la vista de la cima tan cercana es sobrecogedora.</em></p>
-                    `,
-            }
-        ],
-        additionalExcursions: [
-            {
-                id: "add_fuji_caves",
-                title: "Bosque Aokigahara y Cuevas",
-                image: "images/add-fuji-caves.jpg",
-                description: "Exploración del místico bosque del mar de árboles y sus formaciones volcánicas.",
-                time: "09:00 – 11:30",
-                price: "~350 JPY",
-                video: "https://www.youtube.com/watch?v=VJEA0kMdaV0",
-                link: "https://www.google.com/maps/search/?api=1&query=Aokigahara+Forest",
-                tacticalGuideId: "mission_fuji_caves",
-                    fullDesc: `
-                        <h3><i class="fa-solid fa-snowflake"></i> Cuevas del Fuji</h3>
-                        <p>Experiencia de aventura suave en las profundidades de la lava del Fuji. Un alivio térmico increíble.</p>
-                        <ul>
-                            <li><i class="fa-solid fa-icicles"></i> <strong>Cueva del Viento/Hielo:</strong> Con temperaturas medias de 3°C en verano, fue usada históricamente como almacén natural.</li>
-                        </ul>
-                    `
-            }
-        ]
+                </div>
+
+                <!-- Tab: Combo B+C -->
+                <div id="tab-bc" class="fuji-tab-content">
+                    <div class="timeline-container" style="border-left:2px solid rgba(56, 189, 248, 0.3); padding-left:20px;">
+                        <div class="timeline-item" style="margin-bottom:15px;">
+                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">07:30 - Despliegue Temprano</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Conducción hacia el lago Motosu para iniciar ruta.</span>
+                        </div>
+                        <div class="timeline-item" style="margin-bottom:15px;">
+                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">08:30 - Trekking Ryugatake (B)</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Ascenso de 2h para conseguir la foto icónica del billete.</span>
+                        </div>
+                        <div class="timeline-item" style="margin-bottom:15px;">
+                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">13:00 - Descenso y Comida Rápida</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Almuerzo ligero o bento cerca del lago.</span>
+                        </div>
+                        <div class="timeline-item">
+                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">15:00 - Bosque Aokigahara (C)</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Ruta corta por el Mar de Árboles antes de que cierre.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab: Combo A+B -->
+                <div id="tab-ab" class="fuji-tab-content">
+                    <div class="timeline-container" style="border-left:2px solid rgba(56, 189, 248, 0.3); padding-left:20px;">
+                        <div class="timeline-item" style="margin-bottom:15px;">
+                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">08:00 - Parking Fujihoku-roku</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Aparcar y tomar el bus a la 5ª Estación (A).</span>
+                        </div>
+                        <div class="timeline-item" style="margin-bottom:15px;">
+                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">09:00 - Vistas sin esfuerzo (A)</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Visita rápida al Santuario Komitake y panorámicas.</span>
+                        </div>
+                        <div class="timeline-item" style="margin-bottom:15px;">
+                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">11:30 - Traslado a Ryugatake</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Recoger coche y acercarse al inicio de la ruta del billete de 1.000 yenes.</span>
+                        </div>
+                        <div class="timeline-item" style="margin-bottom:15px;">
+                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">12:30 - Inicio Trekking (B)</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Ascenso ágil de 2 horas.</span>
+                        </div>
+                        <div class="timeline-item">
+                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">15:30 - Comida y Relax</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Comida tardía en Kawaguchiko y búsqueda de un merecido Onsen.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab: Combo A+B+C -->
+                <div id="tab-abc" class="fuji-tab-content">
+                    <div class="timeline-container" style="border-left:2px solid rgba(56, 189, 248, 0.3); padding-left:20px;">
+                        <div class="timeline-item" style="margin-bottom:15px;">
+                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">07:00 - ¡Madrugón! Parking</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Día muy apretado. Tomar el primer Shuttle a la 5ª Estación.</span>
+                        </div>
+                        <div class="timeline-item" style="margin-bottom:15px;">
+                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">08:00 - Visita Exprés (A)</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Fotos en la 5ª Estación y bajada rápida.</span>
+                        </div>
+                        <div class="timeline-item" style="margin-bottom:15px;">
+                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">10:30 - Trekking Ryugatake (B)</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Comienzo rápido de la ruta. Ascenso a buen ritmo.</span>
+                        </div>
+                        <div class="timeline-item" style="margin-bottom:15px;">
+                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">13:30 - Bento Rápido</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Comer algo sobre la marcha tras bajar del Ryugatake.</span>
+                        </div>
+                        <div class="timeline-item">
+                            <strong style="color:var(--neon-blue); display:block; margin-bottom:5px;">14:30 - Aokigahara y Cuevas (C)</strong>
+                            <span style="color:#cbd5e1; font-size:0.9rem;">Última visita de la jornada a las cuevas milenarias antes del cierre.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BLOQUE 4: DEEP DIVE - OPCIÓN D (LA ASCENSIÓN) -->
+            <div class="fuji-deep-dive-box">
+                <h3 style="color:white; margin:0 0 10px 0; font-size:1.5rem; text-transform:uppercase;"><i class="fa-solid fa-volcano" style="color:var(--danger);"></i> Opción D: El Asalto a la Cima</h3>
+                <p style="color:#cbd5e1; margin-bottom:20px;">Exclusivo para el 'Equipo Cumbre'. Una jornada física extrema que requiere dedicación absoluta de todo el día.</p>
+                
+                <div class="timeline-container" style="border-left:2px solid rgba(239, 68, 68, 0.5); padding-left:20px;">
+                    <div class="timeline-item" style="margin-bottom:15px;">
+                        <strong style="color:var(--danger); display:block; margin-bottom:5px;">06:00 - Toque de Diana</strong>
+                        <span style="color:#cbd5e1; font-size:0.9rem;">Desayuno fuerte. Es imperativo estar en el Parking Fujihoku-roku antes de las 07:00 para el primer Shuttle.</span>
+                    </div>
+                    <div class="timeline-item" style="margin-bottom:15px;">
+                        <strong style="color:var(--danger); display:block; margin-bottom:5px;">08:00 - Inicio Yoshida Trail (5ª Estación)</strong>
+                        <span style="color:#cbd5e1; font-size:0.9rem;">Control de la tasa de acceso (4.000 JPY pre-reservados) y comienzo del ascenso.</span>
+                    </div>
+                    <div class="timeline-item" style="margin-bottom:15px;">
+                        <strong style="color:var(--danger); display:block; margin-bottom:5px;">14:00 - Cumbre (3.776m)</strong>
+                        <span style="color:#cbd5e1; font-size:0.9rem;">Foto en el cráter, oxígeno fino y comienzo del duro y resbaladizo descenso.</span>
+                    </div>
+                    <div class="timeline-item">
+                        <strong style="color:var(--danger); display:block; margin-bottom:5px;">19:00 - Retorno Extenuado</strong>
+                        <span style="color:#cbd5e1; font-size:0.9rem;">Llegada de vuelta a la 5ª Estación. Shuttle y coche de vuelta al hotel. ¡Misión cumplida!</span>
+                    </div>
+                </div>
+
+                <div class="fuji-warning-box">
+                    <h4 style="color:var(--danger); margin:0 0 10px 0;"><i class="fa-solid fa-triangle-exclamation"></i> Logística Crítica:</h4>
+                    <ul style="color:#cbd5e1; font-size:0.9rem; padding-left:20px; margin:0;">
+                        <li style="margin-bottom:5px;"><strong>Reserva Obligatoria:</strong> Tasa de acceso (4.000 JPY) debe reservarse en la web oficial en mayo. Límite de 4.000 personas/día.</li>
+                        <li style="margin-bottom:5px;"><strong>Equipamiento:</strong> Botas de montaña impermeables, ropa por capas (hace frío arriba), linterna frontal, min. 2L agua, chubasquero.</li>
+                        <li><strong>Precaución:</strong> Si hay síntomas fuertes de mal de altura, es obligatorio darse la vuelta.</li>
+                    </ul>
+                </div>
+            </div>
+        `
     },
 
     // --- DÍA 15: PUEBLOS Y SANTUARIOS (BASE + COMPLEMENTOS) ---

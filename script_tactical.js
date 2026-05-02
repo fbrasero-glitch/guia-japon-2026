@@ -5028,32 +5028,53 @@ function renderTacticalMission(missionId, dayIndex) {
                     </div>
                 </div>
         `;
-        } else if (missionId === 'mission_jonanjima') {
+        } else if (missionId === 'mission_jetlag') {
+            const strategy = data.jetLagStrategy;
             missionHTML = `
-        <div class="datapad-container animate-fade-in" >
+                <div class="datapad-container animate-fade-in jet-lag-protocol-pad" style="border-color: var(--neon-blue);">
                     <div class="datapad-header">
-                        <div class="datapad-mission-id">> MISSION_FILE: JONANJIMA_PARK</div>
+                        <div class="datapad-mission-id">> MISSION_FILE: JET_LAG_PROTOCOL</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
                             <i class="fa-solid fa-xmark"></i> CLOSE_FILE
                         </button>
                     </div>
-                    <h1 class="datapad-title">> LOGÍSTICA: JONANJIMA SEASIDE PARK</h1>
-                    <div class="tactical-data-grid">
-                        <div class="data-block">
-                            <div class="data-label"><i class="fa-solid fa-plane-arrival"></i> MONITOREO AÉREO:</div>
-                            <ul class="data-list">
-                                <li><strong>UBICACIÓN:</strong> Parque artificial en la bahía, literalmente bajo las rutas de vuelo de Haneda.</li>
-                                <li><strong>VIBE:</strong> Brisa marina, familias locales pescando y aviones rozando sus cabezas.</li>
-                                <li><strong>TÁCTICA:</strong> Matar las últimas horas de estancia en Japón observando la bahía con extrema melancolía.</li>
-                            </ul>
-                        </div>
-                        <div class="data-block">
-                            <div class="data-label"><i class="fa-solid fa-teardrop"></i> STATUS:</div>
-                            <div class="status-box info">CIERRE_DE_MISIÓN_JAPÓN_INMINENTE</div>
-                        </div>
+                    
+                    <h1 class="datapad-title">> ${strategy.title}</h1>
+                    <p style="color: var(--neon-blue); font-size: 0.9rem; margin-bottom: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
+                        [ OBJETIVO: SINCRONIZACIÓN HORARIA VALENCIA ]
+                    </p>
+
+                    <div class="tactical-data-grid" style="grid-template-columns: 1fr;">
+                        ${strategy.phases.map((phase, pIdx) => `
+                            <div class="data-block protocol-phase" style="border-left: 4px solid ${phase.color}; background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; margin-bottom: 20px;">
+                                <div class="data-label" style="color: ${phase.color}; font-size: 1.1rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                                    <i class="${phase.icon}"></i> ${phase.name}
+                                </div>
+                                <div class="protocol-steps">
+                                    ${phase.steps.map(step => `
+                                        <div class="protocol-step ${step.type || ''}" style="display: flex; gap: 15px; margin-bottom: 12px; align-items: center;">
+                                            <div class="step-time" style="min-width: 100px; font-family: monospace; font-weight: bold; color: var(--gold);">${step.time}</div>
+                                            <div class="step-info" style="flex: 1;">
+                                                <div class="step-activity" style="font-weight: 900; color: white;">${step.activity}</div>
+                                                <div class="step-desc" style="font-size: 0.85rem; color: var(--text-secondary);">${step.desc}</div>
+                                            </div>
+                                            ${step.type === 'wake' ? '<i class="fa-solid fa-eye" title="Mantente despierto" style="color: var(--neon-blue);"></i>' : ''}
+                                            ${step.type === 'sleep' ? '<i class="fa-solid fa-moon" title="Hora de dormir" style="color: var(--neon-purple);"></i>' : ''}
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        `).join('')}
                     </div>
+
+                    <div class="datapad-footer-warning" style="margin-top: 20px; padding: 15px; background: rgba(239, 68, 68, 0.1); border: 1px solid var(--danger); border-radius: 8px;">
+                        <strong style="color: var(--danger);"><i class="fa-solid fa-triangle-exclamation"></i> CRÍTICO:</strong>
+                        <span style="color: #fca5a5; font-size: 0.85rem; margin-left: 10px;">La hidratación es clave. Bebed agua cada hora. Evitad el alcohol en los vuelos para una recuperación 2x más rápida.</span>
+                    </div>
+                    
+                    <div class="scanline-overlay"></div>
                 </div>
-        `;
+            `;
         }
 
         card.innerHTML = missionHTML;

@@ -1017,10 +1017,35 @@ const travelData_17_24 = [
 
         timeline: [
             { time: "11:00", title: "Mañana Libre", desc: "Últimas compras de souvenirs o relax. (Base)" },
+            { time: "13:00", title: "Almuerzo de Despedida", desc: "Último almuerzo japonés fuerte (Ramen/Sushi). Estrategia Anti-Jet Lag: Carga de energía." },
             { time: "16:30", title: "Traslado a Haneda", desc: "Taxis desde el hotel directo a la terminal. (Base)" },
-            { time: "17:45", title: "Aeropuerto", desc: "Facturación, comer algo y puertas de embarque. (Base)" },
-            { time: "21:45", title: "Despegue", desc: "Vuelo de medianoche hacia Estambul. (Base)" }
+            { time: "17:45", title: "Cena en Edo Koji", desc: "Cena en la zona temática de Haneda. Hidratación máxima antes del vuelo." },
+            { time: "21:45", title: "Vuelo HND-IST", desc: "Despegue. Inicio Protocolo Anti-Jet Lag: Misión Despiertos." }
         ],
+
+        jetLagStrategy: {
+            title: "Protocolo Anti-Jet Lag: Fase 1 (Salida)",
+            phases: [
+                {
+                    name: "TOKIO: Preparación",
+                    icon: "fa-solid fa-sun",
+                    color: "var(--gold)",
+                    steps: [
+                        { time: "13:00", activity: "Almuerzo Fuerte", desc: "Último festín japonés para tener energía." },
+                        { time: "16:30", activity: "Traslado Haneda", desc: "Taxis furgoneta para el grupo de 8." }
+                    ]
+                },
+                {
+                    name: "VUELO 1: HND ➔ IST",
+                    icon: "fa-solid fa-plane",
+                    color: "var(--neon-blue)",
+                    steps: [
+                        { time: "21:45 - 04:00 (JPN)", activity: "MISIÓN: DESPIERTOS", type: "wake", desc: "Primeras 6-7h. Películas, lectura. NO DORMIR." },
+                        { time: "04:00 - 10:15 (JPN)", activity: "MISIÓN: DORMIR", type: "sleep", desc: "Dormid las últimas 6h para sincronizar con la noche española." }
+                    ]
+                }
+            ]
+        },
 
         prices: {
             transport: "Taxis al aeropuerto (~8000 JPY/vehículo)",
@@ -1124,22 +1149,55 @@ const travelData_17_24 = [
         hotelImage: "images/casa.jpg",
 
         logistics: [
-            { title: "Escala", text: "Llegada a Estambul a las 05:15 am. Escala de 3 horas." },
+            { title: "Estrategia Jet Lag", text: "NO dormir en el vuelo Estambul-Valencia. Aguantar despiertos hasta las 21:00-22:00 en casa." },
+            { title: "Escala", text: "Llegada a Estambul a las 05:15 am. Escala activa: caminad por la terminal." },
             { title: "Llegada", text: "Vuelo TK1313. Llegada a Valencia a las 11:30 am hora local." }
         ],
 
         transportTimeline: [
             { time: "05:15", type: "point", title: "Aterrizaje en Estambul (IST)", icon: "fa-solid fa-plane-arrival" },
+            { time: "06:30", type: "point", title: "Desayuno Activo", icon: "fa-solid fa-coffee", desc: "Luz natural y cafeína para aguantar." },
             {
                 time: "08:20",
                 type: "transit",
                 title: "Despegue Vuelo TK1313",
                 price: "Incluido",
                 timeLabel: "4h 10m",
-                link: "https://www.flightaware.com/live/flight/THY1313"
+                link: "https://www.flightaware.com/live/flight/THY1313",
+                desc: "Protocolo: Mantenerse activo, ver pelis, NO dormir."
             },
             { time: "11:30", type: "point", title: "Aterrizaje en Valencia (VLC)", icon: "fa-solid fa-house" }
         ],
+
+        jetLagStrategy: {
+            title: "Protocolo Anti-Jet Lag: Fase 2 (Llegada)",
+            phases: [
+                {
+                    name: "ESCALA: Estambul",
+                    icon: "fa-solid fa-walking",
+                    color: "var(--neon-purple)",
+                    steps: [
+                        { time: "05:15 - 08:45", activity: "Actividad en Tránsito", desc: "Caminad, estirad piernas, buscad luz natural." }
+                    ]
+                },
+                {
+                    name: "VUELO 2: IST ➔ VLC",
+                    icon: "fa-solid fa-plane",
+                    color: "var(--neon-blue)",
+                    steps: [
+                        { time: "08:45 - 11:50", activity: "MISIÓN: DESPIERTOS", type: "wake", desc: "Prohibido dormir. Hidratación constante." }
+                    ]
+                },
+                {
+                    name: "VALENCIA: El Reto Final",
+                    icon: "fa-solid fa-house-user",
+                    color: "var(--danger)",
+                    steps: [
+                        { time: "12:00 - 21:00", activity: "RESISTENCIA", desc: "Aguantar sin siestas hasta la noche española." }
+                    ]
+                }
+            ]
+        },
 
         isFlexible: true,
         base: {

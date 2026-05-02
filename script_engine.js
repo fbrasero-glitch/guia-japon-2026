@@ -1352,7 +1352,7 @@ function renderCenterVisual(data, mode, optData = null) {
 
         // --- 2. Base Itinerary Section ---
         let baseEventsHTML = '';
-        if (data.base.events) {
+        if (data.base && data.base.events) {
             data.base.events.forEach(event => {
                 let eventImg = event.image ? `<img src = "${event.image}" class="base-event-thumb" onerror = "this.style.display='none'" > ` : '';
 
@@ -1477,20 +1477,37 @@ function renderCenterVisual(data, mode, optData = null) {
         `;
         }
 
-        card.innerHTML = `
-            ${unifiedHeaderHTML}
-
+        let customCenterContent = data.customCenterHTML ? data.customCenterHTML : `
         <div class="base-itinerary-box" style="background:rgba(15, 23, 42, 0.6); padding:25px; border-radius:16px; margin-bottom:30px; border:1px solid rgba(255,255,255,0.1); box-shadow:0 4px 20px rgba(0,0,0,0.2);">
             <div style="display:flex; align-items:center; margin-bottom:20px;">
                 <i class="fa-solid fa-route" style="font-size:1.5rem; color:var(--neon-blue); margin-right:15px;"></i>
                 <div>
-                    <p style="margin:0; font-style:italic; color:#94a3b8; font-size:0.9rem;">${data.base.description}</p>
+                    <p style="margin:0; font-style:italic; color:#94a3b8; font-size:0.9rem;">${data.base ? data.base.description : ''}</p>
                 </div>
             </div>
             <div class="timeline-container" style="margin-bottom:0; padding-left:20px; border-left:2px solid rgba(56, 189, 248, 0.3);">
                 ${baseEventsHTML}
             </div>
         </div>
+        `;
+
+        card.innerHTML = `
+            ${unifiedHeaderHTML}
+
+            ${customCenterContent}
+
+            ${data.jetLagStrategy ? `
+            <div class="jet-lag-protocol-cta" style="margin: 40px 0; text-align: center;">
+                <button onclick="renderTacticalMission('mission_jetlag', ${travelData.indexOf(data)})" 
+                        class="protocol-btn pulse" 
+                        style="background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple)); color: white; border: none; padding: 20px 40px; border-radius: 50px; font-size: 1.2rem; font-weight: 900; cursor: pointer; box-shadow: 0 0 30px rgba(0, 243, 255, 0.4); display: flex; align-items: center; gap: 15px; margin: 0 auto; letter-spacing: 2px; text-transform: uppercase;">
+                    <i class="fa-solid fa-brain"></i> ACTIVAR PROTOCOLO ANTI-JET LAG
+                </button>
+                <p style="color: var(--text-secondary); margin-top: 15px; font-style: italic; font-size: 0.9rem;">
+                    Recomendado para el grupo de 8 viajeros
+                </p>
+            </div>
+            ` : ''}
 
             ${complementsHTML}
             ${addExcursionsHTML}
@@ -2015,4 +2032,31 @@ window.showHotelMessage = function() {
 
     overlay.innerHTML = content;
     document.body.appendChild(overlay);
+};
+
+window.switchFujiTab = function(tabId) {
+    // Esconder todos los contenidos
+    document.querySelectorAll('.fuji-tab-content').forEach(el => {
+        el.style.display = 'none';
+    });
+    // Quitar active a todos los botones
+    document.querySelectorAll('.fuji-tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+        btn.style.background = 'rgba(255,255,255,0.05)';
+        btn.style.border = '1px solid rgba(255,255,255,0.1)';
+        btn.style.color = '#94a3b8';
+    });
+    
+    // Mostrar el contenido seleccionado
+    const selectedTab = document.getElementById(tabId);
+    if (selectedTab) selectedTab.style.display = 'block';
+    
+    // Poner active al boton seleccionado
+    const selectedBtn = document.querySelector(`button[onclick="window.switchFujiTab('${tabId}')"]`);
+    if (selectedBtn) {
+        selectedBtn.classList.add('active');
+        selectedBtn.style.background = 'rgba(0,243,255,0.1)';
+        selectedBtn.style.border = '1px solid var(--neon-blue)';
+        selectedBtn.style.color = 'white';
+    }
 };
