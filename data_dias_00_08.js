@@ -1506,7 +1506,7 @@ const travelData_00_08 = [
                 price: "580 JPY",
                 timeLabel: "30 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Osaka+Station&destination=Kyoto+Station&travelmode=transit",
-                tacticalGuideId: "mission_osaka_kyoto_fast"
+                tacticalGuideId: "mission_osaka_to_kyoto"
             },
             {
                 time: "10:30",
@@ -1593,7 +1593,7 @@ const travelData_00_08 = [
                     image: "images/hotel-kyoto-tower.jpg",
                     price: "580 JPY",
                     link: "https://www.google.com/maps/dir/?api=1&origin=Osaka+Station&destination=Kyoto+Station&travelmode=transit",
-                    tacticalGuideId: "mission_kyoto_transfer",
+                    tacticalGuideId: "mission_osaka_to_kyoto",
                     fullDesc: `
                         <h3><i class="fa-solid fa-train"></i> Puente Ferroviario Osaka-Kioto</h3>
                         <p>La vía más rápida entre las dos capitales. No es necesario reservar, pero se recomienda ir a los extremos del tren para encontrar sitio con maletas.</p>

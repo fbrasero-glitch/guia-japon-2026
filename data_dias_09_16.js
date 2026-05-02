@@ -262,7 +262,8 @@ const travelData_09_16 = [
                 time: "09:00",
                 type: "point",
                 title: "🏨 Check-out y Logística Takkyubin",
-                icon: "fa-solid fa-suitcase-rolling"
+                icon: "fa-solid fa-suitcase-rolling",
+                tacticalGuideId: "mission_takkyubin_kyoto_tokyo"
             },
             {
                 time: "10:00",
@@ -567,7 +568,7 @@ const travelData_09_16 = [
                 price: "Cubierto por pase o ~5.940 JPY",
                 timeLabel: "35 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Kyoto+Station&destination=Nagoya+Station&travelmode=transit",
-                tacticalGuideId: "mission_alpes_1",
+                tacticalGuideId: "mission_kyoto_to_okuhida",
                 booking: { id: "bk_shinkansen", timeframe: "1 mes antes (App SmartEX)", required: true, link: "https://smart-ex.jp/en/index.php" }
             },
             { 
@@ -584,7 +585,7 @@ const travelData_09_16 = [
                 price: "Cubierto por pase o ~6.000 JPY",
                 timeLabel: "2h 30m",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Nagoya+Station&destination=Takayama+Station&travelmode=transit",
-                tacticalGuideId: "mission_alpes_2"
+                tacticalGuideId: "mission_kyoto_to_okuhida"
             },
             { time: "12:30", type: "point", title: "LLegada a Takayama / Almuerzo rápido", icon: "fa-solid fa-bowl-food" },
             {
@@ -594,7 +595,7 @@ const travelData_09_16 = [
                 price: "~2.200 JPY",
                 timeLabel: "1h 30m",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Takayama+Nohi+Bus+Center&destination=Shin-Hotaka+Onsen&travelmode=transit",
-                tacticalGuideId: "mission_alpes_3",
+                tacticalGuideId: "mission_kyoto_to_okuhida",
                 booking: { id: "bk_nohi_okuhida", timeframe: "1 mes antes", required: true, link: "https://www.nouhibus.co.jp/english/" }
             },
             { time: "15:30", type: "point", title: "Check-in Kazeya Ryokan", icon: "fa-solid fa-hot-tub-person" }
@@ -1029,7 +1030,7 @@ const travelData_09_16 = [
                 price: "~5.000 JPY (Reserva previa obligatoria)",
                 timeLabel: "4h 45m",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Takayama+Nohi+Bus+Center&destination=Kawaguchiko+Station&travelmode=transit",
-                tacticalGuideId: "mission_fuji_bus"
+                tacticalGuideId: "mission_takayama_to_fuji"
             },
             { time: "13:15", type: "point", title: "Llegada Kawaguchiko Station", icon: "fa-solid fa-flag-checkered" },
             { time: "13:30", type: "point", title: "Recogida Coche: Toyota/Budget Fuji Kawaguchiko", icon: "fa-solid fa-car" },

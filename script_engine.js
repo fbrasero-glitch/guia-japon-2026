@@ -1075,7 +1075,18 @@ function renderCenterVisual(data, mode, optData = null) {
     const dayIdx = travelData.indexOf(data);
     const location = getLocation(data);
 
-    const opRetornoHeaderBtn = (data.day === 16) ? '<div class="op-retorno-center-btn" style="margin-top:20px; display:flex; justify-content:center; width:100%;"><button onclick="renderTacticalMission(\'mission_fuji_excursion\', ' + dayIdx + ')" style="padding:10px 20px; background:rgba(249,115,22,0.2); border:2px solid var(--accent); color:white; font-weight:bold; border-radius:12px; cursor:pointer; display:flex; align-items:center; gap:10px; box-shadow: 0 0 20px rgba(249,115,22,0.4); animation: pulse 2s infinite; font-size:0.9rem; text-transform:uppercase; letter-spacing:1px;"><i class="fa-solid fa-file-contract" style="font-size:1.1rem;"></i> 🚀 ABRIR MANUAL DE TRASLADO (Operación Retorno)</button></div>' : '';
+    let tacticalHeaderBtn = '';
+    if (data.day === 16) {
+        tacticalHeaderBtn = '<div class="op-retorno-center-btn" style="margin-top:20px; display:flex; justify-content:center; width:100%;"><button onclick="renderTacticalMission(\'mission_fuji_excursion\', ' + dayIdx + ')" style="padding:10px 20px; background:rgba(249,115,22,0.2); border:2px solid var(--accent); color:white; font-weight:bold; border-radius:12px; cursor:pointer; display:flex; align-items:center; gap:10px; box-shadow: 0 0 20px rgba(249,115,22,0.4); animation: pulse 2s infinite; font-size:0.9rem; text-transform:uppercase; letter-spacing:1px;"><i class="fa-solid fa-file-contract" style="font-size:1.1rem;"></i> 🚀 ABRIR MANUAL DE TRASLADO (Operación Retorno)</button></div>';
+    } else if (data.day === 6) {
+        tacticalHeaderBtn = '<div class="op-retorno-center-btn" style="margin-top:20px; display:flex; justify-content:center; width:100%;"><button onclick="renderTacticalMission(\'mission_osaka_to_kyoto\', ' + dayIdx + ')" style="padding:10px 20px; background:rgba(0,243,255,0.2); border:2px solid var(--neon-blue); color:white; font-weight:bold; border-radius:12px; cursor:pointer; display:flex; align-items:center; gap:10px; box-shadow: 0 0 20px rgba(0,243,255,0.4); animation: pulse 2s infinite; font-size:0.9rem; text-transform:uppercase; letter-spacing:1px;"><i class="fa-solid fa-train" style="font-size:1.1rem;"></i> 🚄 ABRIR MANUAL DE VIAJE A KIOTO</button></div>';
+    } else if (data.day === 10) {
+        tacticalHeaderBtn = '<div class="op-retorno-center-btn" style="margin-top:20px; display:flex; justify-content:center; width:100%;"><button onclick="renderTacticalMission(\'mission_takkyubin_kyoto_tokyo\', ' + dayIdx + ')" style="padding:10px 20px; background:rgba(139,92,246,0.2); border:2px solid var(--neon-purple); color:white; font-weight:bold; border-radius:12px; cursor:pointer; display:flex; align-items:center; gap:10px; box-shadow: 0 0 20px rgba(139,92,246,0.4); animation: pulse 2s infinite; font-size:0.9rem; text-transform:uppercase; letter-spacing:1px;"><i class="fa-solid fa-suitcase-rolling" style="font-size:1.1rem;"></i> 📦 MANUAL: ENVÍO MALETAS A TOKIO</button></div>';
+    } else if (data.day === 11) {
+        tacticalHeaderBtn = '<div class="op-retorno-center-btn" style="margin-top:20px; display:flex; justify-content:center; width:100%;"><button onclick="renderTacticalMission(\'mission_kyoto_to_okuhida\', ' + dayIdx + ')" style="padding:10px 20px; background:rgba(16,185,129,0.2); border:2px solid var(--success); color:white; font-weight:bold; border-radius:12px; cursor:pointer; display:flex; align-items:center; gap:10px; box-shadow: 0 0 20px rgba(16,185,129,0.4); animation: pulse 2s infinite; font-size:0.9rem; text-transform:uppercase; letter-spacing:1px;"><i class="fa-solid fa-mountain-sun" style="font-size:1.1rem;"></i> 🏔️ GUIA TRANSPORTE KYOTO ONSEN</button></div>';
+    } else if (data.day === 13) {
+        tacticalHeaderBtn = '<div class="op-retorno-center-btn" style="margin-top:20px; display:flex; justify-content:center; width:100%;"><button onclick="renderTacticalMission(\'mission_takayama_to_fuji\', ' + dayIdx + ')" style="padding:10px 20px; background:rgba(249,115,22,0.2); border:2px solid var(--accent); color:white; font-weight:bold; border-radius:12px; cursor:pointer; display:flex; align-items:center; gap:10px; box-shadow: 0 0 20px rgba(249,115,22,0.4); animation: pulse 2s infinite; font-size:0.9rem; text-transform:uppercase; letter-spacing:1px;"><i class="fa-solid fa-bus" style="font-size:1.1rem;"></i> 🗺️ GUIA TRANSPORTE A FUJI</button></div>';
+    }
 
     if (data.customCenterHTML && (mode === 'selector' || mode === 'static')) {
         card.innerHTML = data.customCenterHTML;
@@ -1142,7 +1153,7 @@ function renderCenterVisual(data, mode, optData = null) {
     const mapsSectionHTML = '<div class="maps-section-column">' + (location ? '<div class="header-city-name"><i class="fa-solid fa-location-dot"></i> ' + location + '</div>' : '') + pdfIconsHTML + routeMapsHTML + '</div>';
     const titleMatch = data.title.match(/:\s*(.+)/);
     const subHeroText = titleMatch ? titleMatch[1] : data.title;
-    const headerTitleHTML = '<div class="header-titles-center">' + (location ? '<h1 class="city-hero-title">' + location + '</h1>' : '') + '<p class="city-hero-subtitle">' + subHeroText + '</p>' + opRetornoHeaderBtn + '</div>';
+    const headerTitleHTML = '<div class="header-titles-center">' + (location ? '<h1 class="city-hero-title">' + location + '</h1>' : '') + '<p class="city-hero-subtitle">' + subHeroText + '</p>' + tacticalHeaderBtn + '</div>';
     const gastroRadarHTML = location ? '<div class="gastro-radar-wrapper"><button class="gastro-radar-btn pulse" onclick="renderRestaurantPanel(\'' + location + '\', ' + dayIdx + ')" title="Radar Gastronómico"><i class="fa-solid fa-utensils"></i></button><span class="gastro-radar-label">Radar Gastronómico</span></div>' : '';
     const unifiedHeaderHTML = '<div class="excursion-page-header"><div class="header-infog-left">' + regionInfographicHTML + '</div><div class="header-title-container">' + headerTitleHTML + gastroRadarHTML + '</div><div class="header-infog-right">' + dayInfographicHTML + '</div><div class="header-hotel-container">' + hotelHTML + '</div><div class="header-icons-container">' + mapsSectionHTML + '</div></div>';
 
@@ -1259,6 +1270,174 @@ window.tacticalMissions = {
                 content: "A las 12:55 llegaréis a Shinjuku. Mover a 8 personas con equipaje puede ser abrumador. Recomendado: Tomad 2 taxis furgoneta grandes hacia el barrio de Iidabashi. El trayecto dura unos 15 minutos y cuesta unos 2.000 JPY por taxi."
             }
         ]
+    },
+    'mission_osaka_to_kyoto': {
+        title: "Manual de Viaje a Kioto",
+        subtitle: "Traslado de Osaka a la Ciudad de los Templos",
+        steps: [
+            {
+                time: "09:00",
+                title: "1. Salida del Hotel en Osaka",
+                content: "Salida del hotel Dc桜の苑-難波南店. Caminata de aproximadamente 8 minutos hasta la Estación Shin-Imamiya (JR)."
+            },
+            {
+                time: "09:15",
+                title: "2. Primer Tramo: Shin-Imamiya ➔ Estación de Osaka",
+                content: "Transporte: JR Osaka Loop Line (Inner). Salida estimada a las 09:15. Duración: 15 minutos. Precio: 190 JPY (se paga con tarjeta IC)."
+            },
+            {
+                time: "09:40",
+                title: "3. Transbordo en la Estación de Osaka",
+                content: "Acción: Al llegar a la Estación de Osaka, debéis cambiar de andén. Dirigíos a los Andenes 7-9.",
+                warning: "Logística de grupo: Es una estación grande; mantened al grupo de 8 unido y seguid las señales de la JR Kyoto Line."
+            },
+            {
+                time: "10:00",
+                title: "4. Segundo Tramo: Osaka ➔ Kioto",
+                content: "Transporte: JR Special Rapid Service (Kyoto Line). Frecuencia: Cada 15 min. Duración: 29 min. Precio: 580 JPY.",
+                warning: "Consejo para el equipaje: Se recomienda subir al primer o último vagón del tren, ya que suelen tener más espacio para las maletas."
+            },
+            {
+                time: "10:30",
+                title: "5. Llegada a Kioto y Check-in",
+                content: "Llegada: Estación de Kioto. Caminata al Hotel: Kyoto Tower Hotel Annex (3 min desde Salida Central).",
+                warning: "Gestión de maletas: Al llegar, podréis realizar el check-in o dejar vuestras maletas en la recepción para empezar las visitas del día."
+            }
+        ],
+        footer: `
+            <div style="background:rgba(0,243,255,0.1); border:1px solid var(--neon-blue); border-radius:12px; padding:15px; margin-top:20px;">
+                <h4 style="color:var(--neon-blue); margin-top:0;"><i class="fa-solid fa-credit-card"></i> Resumen de compra y pago</h4>
+                <p style="font-size:0.9rem; color:white; margin-bottom:0;">Usad la tarjeta IC (Suica/Pasmo/ICOCA). Costo total: ~1.000 JPY por persona.</p>
+            </div>
+            <div style="background:rgba(249,115,22,0.1); border:1px solid var(--accent); border-radius:12px; padding:15px; margin-top:15px;">
+                <h4 style="color:var(--accent); margin-top:0;"><i class="fa-solid fa-truck-ramp-box"></i> Nota sobre el equipaje</h4>
+                <p style="font-size:0.9rem; color:white; margin-bottom:0;">Si enviasteis las maletas el día anterior por Takkyubin, os estarán esperando en el hotel de Kioto.</p>
+            </div>
+        `
+    },
+    'mission_kyoto_to_okuhida': {
+        title: "Guía Transporte: Kyoto ➔ Onsen",
+        subtitle: "Rumbo a los Alpes Japoneses (Okuhida)",
+        steps: [
+            {
+                time: "Día 10 (Noche)",
+                title: "1. Logística de Equipaje (Paso Crítico)",
+                content: "Es obligatorio viajar solo con mochilas de mano. Gestionad el envío de las 8 maletas grandes por Takkyubin desde la recepción del Kyoto Tower Hotel Annex.",
+                warning: "Coste: ~2.500 JPY por maleta. Destino: Siguiente hotel (Fuji/Tokio)."
+            },
+            {
+                time: "08:50",
+                title: "2. Tramo 1: Kioto ➔ Nagoya (Shinkansen)",
+                content: "Tren: Shinkansen Nozomi. Duración: 35 min. Precio: ~5.940 JPY. Reservad asientos E (lado izquierdo) para ver el Monte Fuji.",
+                warning: "Compra: Oficinas Midori no Madoguchi en Estación de Kioto."
+            },
+            {
+                time: "10:00",
+                title: "3. Tramo 2: Nagoya ➔ Takayama (Tren Escénico)",
+                content: "Tren: Wide View Hida. Duración: 2h 30min. Precio: ~6.000 JPY. Vistas espectaculares del valle fluvial.",
+                warning: "Reserva previa obligatoria para grupos grandes."
+            },
+            {
+                time: "14:00",
+                title: "4. Tramo 3: Takayama ➔ Okuhida (Autobús Nohi)",
+                content: "Transporte: Autobús Nohi (Línea Shin-Hotaka). Duración: 1h 30min. Precio: ~2.200 JPY. Salida desde la terminal junto a la estación.",
+                warning: "Los billetes se compran en las máquinas de la terminal al llegar."
+            }
+        ],
+        footer: `
+            <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:15px; margin-top:20px;">
+                <h4 style="color:var(--accent); margin-top:0; border-bottom:1px solid rgba(249,115,22,0.3); padding-bottom:5px;"><i class="fa-solid fa-list-check"></i> Resumen de Compra</h4>
+                <table style="width:100%; font-size:0.8rem; border-collapse:collapse; margin-top:10px; color:white;">
+                    <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+                        <th style="text-align:left; padding:5px;">Servicio</th>
+                        <th style="text-align:left; padding:5px;">Reserva</th>
+                        <th style="text-align:right; padding:5px;">Precio</th>
+                    </tr>
+                    <tr>
+                        <td style="padding:5px;">Shinkansen Nozomi</td>
+                        <td style="padding:5px;">Sí</td>
+                        <td style="padding:5px; text-align:right;">~5.940 JPY</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:5px;">Wide View Hida</td>
+                        <td style="padding:5px;">Sí</td>
+                        <td style="padding:5px; text-align:right;">~6.000 JPY</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:5px;">Bus Nohi Local</td>
+                        <td style="padding:5px;">Al llegar</td>
+                        <td style="padding:5px; text-align:right;">~2.200 JPY</td>
+                    </tr>
+                </table>
+            </div>
+        `
+    },
+    'mission_takayama_to_fuji': {
+        title: "Guía Transporte: Takayama ➔ Fuji",
+        subtitle: "Trayecto Alpino hacia el Monte Fuji",
+        steps: [
+            {
+                time: "08:15",
+                title: "1. Llegada a la terminal",
+                content: "Presentación en la Estación de Autobuses Takayama Nohi. El hotel está ubicado justo al lado de la estación.",
+                warning: "Ubicación: Situada justo al lado de la estación de tren JR Takayama."
+            },
+            {
+                time: "08:30 – 13:15",
+                title: "2. Trayecto en Bus Expreso",
+                content: "Viaje directo hacia Kawaguchiko (aprox. 4h 45m). Disfrutad del paisaje de los Alpes hacia la región de los cinco lagos.",
+                warning: "Tip: Las mejores vistas al aproximarse al Fuji suelen estar en las ventanillas del lado IZQUIERDO."
+            },
+            {
+                time: "13:30",
+                title: "3. Operación Coche de Alquiler",
+                content: "Recogida de los dos vehículos en la oficina de Budget Rent a Car, situada en la propia estación de Kawaguchiko.",
+                warning: "Logística: Aseguraos de tener los permisos internacionales y el grupo de 8 listo para dividirnos en los dos coches."
+            }
+        ],
+        footer: `
+            <div style="background:rgba(239,68,68,0.1); border:1px solid var(--danger); border-radius:12px; padding:15px; margin-top:20px;">
+                <h4 style="color:var(--danger); margin-top:0;"><i class="fa-solid fa-triangle-exclamation"></i> Reserva Obligatoria (Punto Crítico)</h4>
+                <p style="font-size:0.9rem; color:white; margin-bottom:0;"><strong>Reserva del Bus:</strong> Es el punto más sensible del viaje. Debéis reservar el bus expreso de Takayama a Kawaguchiko <strong>exactamente 1 mes antes</strong> para asegurar que los 8 tengáis sitio en el mismo vehículo.</p>
+            </div>
+        `
+    },
+    'mission_takkyubin_kyoto_tokyo': {
+        title: "Envío Maletas: Kioto ➔ Tokio",
+        subtitle: "Servicio Takkyubin (Paso Crítico para los Alpes)",
+        steps: [
+            {
+                time: "08:00 – 09:00",
+                title: "1. Preparación en el Hotel de Kioto",
+                content: "Acudid a la recepción del Kyoto Tower Hotel Annex antes de las 09:00 AM. Solicitad el servicio 'Takkyubin' para las 8 maletas grandes.",
+                warning: "Destino: Hotel Metropolitan Edmont Tokyo. Es vital para viajar cómodos a los Alpes."
+            },
+            {
+                time: "Rellenado",
+                title: "2. Formulario y Pago",
+                content: "Rellenad un formulario por maleta con la dirección del hotel de Tokio. Indicad claramente que la fecha de entrega es el Día 16 (11 de agosto).",
+                warning: "Coste: ~2.500 JPY por maleta. Guardad siempre el resguardo de seguimiento."
+            },
+            {
+                time: "Check-in",
+                title: "3. Reencuentro en Tokio (Día 16)",
+                content: "Al llegar al Hotel Metropolitan Edmont el Día 16, vuestras maletas ya os estarán esperando. Solo tendréis que confirmar vuestro equipaje al hacer el check-in.",
+                warning: "Ubicación: Lobby o directamente en vuestras habitaciones."
+            },
+            {
+                time: "Logística",
+                title: "4. Kit de Transición (6 Días)",
+                content: "Aseguraos de que en vuestras mochilas de mano lleváis ropa y útiles para los próximos 6 días (Alpes y Fuji).",
+                warning: "No enviéis: Baterías de litio sueltas, medicación crítica ni objetos de valor extremo."
+            }
+        ],
+        footer: `
+            <div style="background:rgba(139,92,246,0.1); border:1px solid var(--neon-purple); border-radius:12px; padding:15px; margin-top:20px;">
+                <h4 style="color:var(--neon-purple); margin-top:0;"><i class="fa-solid fa-language"></i> Frases Útiles</h4>
+                <p style="font-size:0.85rem; color:white; margin-bottom:5px;"><strong>"Takkyubin o onegaishimasu"</strong> (Envío de equipaje, por favor).</p>
+                <p style="font-size:0.85rem; color:white; margin-bottom:0;"><strong>"Hotel Metropolitan Edmont Tokyo made"</strong> (Hacia el Hotel Edmont Tokio).</p>
+            </div>
+        `
     }
 };
 
@@ -1302,6 +1481,7 @@ function renderTacticalMission(missionId, dayIdx) {
                 <div class="tactical-steps-container">
                     ${stepsHTML}
                 </div>
+                ${mission.footer ? `<div class="tactical-footer">${mission.footer}</div>` : ''}
             </div>
         `;
         modal.classList.add('active');
@@ -1310,12 +1490,11 @@ function renderTacticalMission(missionId, dayIdx) {
     }
 
     // 2. FALLBACK: Si no está en el objeto, intentar llamar a la versión de script_tactical.js
-    // Pero como esa función tiene el mismo nombre, esto crearía un bucle.
-    // Lo ideal es que script_tactical.js use otro nombre o nosotros usemos el suyo.
-    // Por ahora, si no está en tacticalMissions, simplemente registramos error si no hay un fallback manual.
-    console.error("Misión táctica no encontrada en tacticalMissions:", missionId);
-    // Nota: El archivo script_tactical.js sobreescribe esta función si se carga después.
-    // Para evitar conflictos, lo mejor es que script_tactical.js se cargue ANTES o usemos nombres distintos.
+    if (typeof renderLegacyTacticalMission === 'function') {
+        renderLegacyTacticalMission(missionId, dayIdx);
+    } else {
+        console.error("Misión táctica no encontrada en tacticalMissions:", missionId);
+    }
 }
 
 function closeTacticalMission() {

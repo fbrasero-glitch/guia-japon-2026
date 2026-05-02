@@ -1,7 +1,7 @@
 // --- MISIONES TÁCTICAS (Guías detalladas por misión) ---
 // Este archivo se separa de script.js por tamaño. Contiene renderTacticalMission().
 // --- FASE 2 & 3: LÓGICA DE INTERFACE TÁCTICA ---
-function renderTacticalMission(missionId, dayIndex) {
+function renderLegacyTacticalMission(missionId, dayIndex) {
     const data = travelData[dayIndex];
     const card = document.getElementById('visual-card');
 
