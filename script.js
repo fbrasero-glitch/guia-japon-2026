@@ -282,14 +282,7 @@ function init() {
         }
     }
 
-    // 3. Mapas (Igual que antes)
-    map = L.map('map', { zoomControl: false, attributionControl: false }).setView([36, 138], 5);
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png').addTo(map);
-
-    previewMap = L.map('preview-map-container', {
-        zoomControl: false, attributionControl: false, dragging: false, scrollWheelZoom: false
-    }).setView([36, 138], 5);
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png').addTo(previewMap);
+    // 3. Mapas eliminados por solicitud del usuario
 
     // 4. Botones con Lógica de Posición Dinámica
     const menu = document.getElementById('day-list');
@@ -332,8 +325,6 @@ function init() {
             } else {
                 previewTitle.innerText = `📍 Día ${d.day}: ${d.title}`;
             }
-            previewMap.invalidateSize();
-            previewMap.setView(d.coords, 9);
 
             // 2. CÁLCULO DE POSICIÓN (MATEMÁTICAS)
             // Obtenemos las coordenadas del botón en la pantalla
@@ -367,14 +358,11 @@ function loadDay(index) {
 
     // Si es el día de preparación (día 0), renderizar de forma especial
     if (data.day === 0 && data.type === 'preparation') {
-        map.flyTo(data.coords, data.zoom, { duration: 1.5 });
         document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
         document.querySelectorAll('.day-btn')[index].classList.add('active');
         renderPreparationPage(data);
         return;
     }
-
-    map.flyTo(data.coords, data.zoom, { duration: 1.5 });
 
     document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('.day-btn')[index].classList.add('active');
@@ -1242,188 +1230,165 @@ function renderCenterVisual(data, mode, optData = null) {
         <h3 style="margin-top:0"><i class="fa-solid fa-circle-info"></i> Resumen de Operaciones</h3>
         <p>${data.visualContent.summary}</p>
         <div style="margin-top:20px; padding-top:20px; border-top:1px dashed rgba(255,255,255,0.2)">
-            <p><strong><i class="fa-solid fa-note-sticky"></i> Nota:</strong> ${data.visualContent.details}</p>
-        </div>
-    </div>
-    `;
-        return;
-    }
+        // 3. MODO "OPCIÓN" (Cuando eliges A, B o C) y 4. MODO "OPCIÓN FLEXIBLE"
+    // Unificamos para asegurar que todas las excursiones tengan acceso a la misma información rica
+    if (mode === 'option' || mode === 'option-flexible') {
+        const isAdditionalExc = optData.id && optData.id.startsWith('add_');
+        
+        let backBtnHTML = '';
+        if (isAdditionalExc) {
+            backBtnHTML = `
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:20px;">
+                    <button onclick="loadDay(${travelData.indexOf(data)})" class="back-itinerary-btn prominent">
+                        <i class="fa-solid fa-chevron-left"></i> VOLVER AL ITINERARIO
+                    </button>
+                    <button onclick="renderCenterVisual(travelData[${travelData.indexOf(data)}], 'selector')" class="back-itinerary-btn" style="background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:white;">
+                        <i class="fa-solid fa-list" style="margin-right:8px;"></i> MÁS OPCIONES
+                    </button>
+                </div>
+            `;
+        } else {
+            backBtnHTML = `
+                <button onclick="loadDay(${travelData.indexOf(data)})" class="back-itinerary-btn prominent">
+                    <i class="fa-solid fa-chevron-left"></i> VOLVER AL ITINERARIO
+                </button>
+            `;
+        }
 
-    // 3. MODO "OPCIÓN" (Cuando eliges A, B o C) -> AQUÍ VA EL CONTENIDO RICO
-    if (mode === 'option') {
-        // Imagen: Usamos la de la opción si hay, si no la del día, si no nada.
         let imgSrc = optData.image || data.image || '';
         let imgHTML = imgSrc ?
             `<img src="${imgSrc}" class="cinema-mode-img" onerror="this.style.display='none'">` :
             `<div class="photo-placeholder"><i class="fa-solid fa-image"></i> Sin imagen</div>`;
 
         card.innerHTML = `
-        <button onclick="loadDay(${travelData.indexOf(data)})" style="background:transparent; border:none; color:var(--accent); cursor:pointer; font-size:1.1rem; margin-bottom:15px; display:flex; align-items:center;">
-            <i class="fa-solid fa-arrow-left" style="margin-right:8px;"></i> Volver al Itinerario
-            </button>
-        ${imgHTML}
+            ${backBtnHTML}
 
-    <div class="story-container">
-        <h2 style="font-size:2rem; color:white; margin-bottom:5px;">${optData.name || optData.title}</h2>
-        <p style="color:var(--accent); margin-bottom:20px; font-style:italic;">${optData.summary || optData.description}</p>
-
-        ${renderBookingBadge(optData.booking, travelData.indexOf(data))}
-
-        ${optData.fullDesc || ''}
-
-        ${optData.ivanChallenge ? `
-                    <div style="margin-top:30px; background:rgba(239,68,68,0.1); border:1px solid var(--danger); padding:20px; border-radius:12px;">
-                        <strong style="color:var(--danger); display:block; margin-bottom:10px; font-size:1.1rem;">
-                            <i class="fa-solid fa-dragon"></i> MISIÓN ESPECIAL (IVÁN)
-                        </strong>
-                        <p style="margin:0; color:#fca5a5;">${optData.ivanChallenge}</p>
+            <div class="excursion-detail-container">
+                <div class="excursion-header">
+                    ${imgHTML}
+                    <div class="excursion-title-overlay">
+                        <h2 class="excursion-main-title">${optData.title || optData.name}</h2>
+                        <p class="excursion-subtitle">${optData.description || optData.summary || ''}</p>
                     </div>
-                ` : ''}
-
-        ${optData.price && optData.price !== 'Gratis' ? `
-                    <div style="margin-top:30px; background:rgba(251, 191, 36, 0.1); border:1px solid var(--gold); padding:15px; border-radius:12px;">
-                        <strong style="color:var(--gold); display:block; margin-bottom:8px; font-size:0.95rem;">
-                            <i class="fa-solid fa-yen-sign"></i> GASTOS ESTIMADOS (Opción ${optData.id})
-                        </strong>
-                        <p style="margin:0; color:#fde68a; font-size:0.9rem;">${optData.price}</p>
-                    </div>
-                ` : ''}
-
-        <div style="margin-top:30px; color:var(--gold); font-weight:bold; border-top:1px solid rgba(255,255,255,0.1); padding-top:15px;">
-            <i class="fa-solid fa-camera"></i> OBJETIVO FOTO: <span style="color:white; font-weight:normal;">${optData.photoSpot}</span>
-        </div>
-    </div>
-    `;
-    }
-
-    // 4. MODO "OPCIÓN FLEXIBLE" (Para complementos en días base + complementos)
-    if (mode === 'option-flexible') {
-        let imgSrc = optData.image || data.image || '';
-        let imgHTML = imgSrc ?
-            `<img src = "${imgSrc}" class="cinema-mode-img" onerror = "this.style.display='none'" > ` :
-            `<div class="photo-placeholder" > <i class="fa-solid fa-image"></i> Sin imagen</div> `;
-
-        // Determinar si es una excursión adicional (id starts with 'add_')
-        const isAdditionalExc = optData.id && optData.id.startsWith('add_');
-
-        let backBtnHTML = '';
-        if (isAdditionalExc) {
-            // Mostrar AMBOS botones lado a lado
-            backBtnHTML = `
-        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:15px;" >
-                    <button onclick="loadDay(${travelData.indexOf(data)})" style="background:transparent; border:none; color:var(--accent); cursor:pointer; font-size:1.1rem; display:flex; align-items:center;">
-                        <i class="fa-solid fa-arrow-left" style="margin-right:8px;"></i> Volver al Itinerario
-                    </button>
-                    <button onclick="renderCenterVisual(travelData[${travelData.indexOf(data)}], 'additional-excursions-list')" style="background:transparent; border:none; color:var(--neon-blue); cursor:pointer; font-size:1.1rem; display:flex; align-items:center;">
-                        <i class="fa-solid fa-list" style="margin-right:8px;"></i> Volver a Excursiones
-                    </button>
                 </div>
-        `;
-        } else {
-            // Comportamiento normal (solo volver al itinerario)
-            backBtnHTML = `
-        <button onclick="loadDay(${travelData.indexOf(data)})" style="background:transparent; border:none; color:var(--accent); cursor:pointer; font-size:1.1rem; margin-bottom:15px; display:flex; align-items:center;" >
-            <i class="fa-solid fa-arrow-left" style="margin-right:8px;"></i> Volver al Itinerario
-                </button>
-        `;
-        }
 
-        card.innerHTML = `
-             ${backBtnHTML}
-             
-             ${imgHTML}
+                <div class="excursion-content-wrapper">
+                    <div class="excursion-main-column">
+                        <div class="story-container" style="padding-top:0;">
+                            ${renderBookingBadge(optData.booking, travelData.indexOf(data))}
 
-    <div class="story-container">
-        <h2 style="font-size:2rem; color:white; margin-bottom:5px;">${optData.title}</h2>
-        <p style="color:var(--accent); margin-bottom:20px; font-style:italic;">${optData.description}</p>
+                            <div class="full-description-content">
+                                ${optData.fullDesc ? optData.fullDesc : `<p>${optData.description || ''}</p>`}
+                            </div>
 
-        ${renderBookingBadge(optData.booking, travelData.indexOf(data))}
-
-        ${optData.fullDesc ? optData.fullDesc :
-                // Fallback si no hay fullDesc: usar description y quizás generar algo genérico
-                `<p>${optData.description}</p>`
-            }
-
-        ${optData.ivanChallenge ? `
-                     <div style="margin-top:30px; background:rgba(239,68,68,0.1); border:1px solid var(--danger); padding:20px; border-radius:12px;">
-                         <strong style="color:var(--danger); display:block; margin-bottom:10px; font-size:1.1rem;">
-                             <i class="fa-solid fa-dragon"></i> MISIÓN ESPECIAL (IVÁN)
-                         </strong>
-                         <p style="margin:0; color:#fca5a5;">${optData.ivanChallenge}</p>
-                     </div>
-                 ` : ''}
-
-        ${optData.price && optData.price !== 'Gratis' ? `
-                     <div style="margin-top:30px; background:rgba(251, 191, 36, 0.1); border:1px solid var(--gold); padding:15px; border-radius:12px;">
-                         <strong style="color:var(--gold); display:block; margin-bottom:8px; font-size:0.95rem;">
-                             <i class="fa-solid fa-yen-sign"></i> GASTOS ESTIMADOS
-                         </strong>
-                         <p style="margin:0; color:#fde68a; font-size:0.9rem;">${optData.price}</p>
-                     </div>
-                 ` : ''}
-
-        ${(optData.link || optData.tacticalGuideId) ? `
-                     <div style="margin-top:30px; display:flex; gap:15px; flex-wrap:wrap;">
-                         ${optData.link ? `
-                             <a href="${optData.link}" target="_blank" class="tactical-btn" 
-                                style="flex:1; text-align:center; padding:12px; font-size:0.9rem; border-radius:8px; text-decoration:none; background:rgba(0,243,255,0.1); border:1px solid var(--neon-blue); color:var(--neon-blue); font-weight:bold; display:flex; align-items:center; justify-content:center; gap:8px; min-width:180px;">
-                                 <i class="fa-solid fa-map-location-dot"></i> GOOGLE MAPS
-                             </a>
-                         ` : ''}
-                         ${optData.tacticalGuideId ? `
-                             <button onclick="renderTacticalMission('${optData.tacticalGuideId}', ${travelData.indexOf(data)})" class="tactical-btn" 
-                                     style="flex:1; text-align:center; padding:12px; font-size:0.9rem; border-radius:8px; background:rgba(249,115,22,0.1); border:1px solid var(--accent); color:var(--accent); font-weight:bold; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; min-width:180px;">
-                                 <i class="fa-solid fa-file-contract"></i> GUÍA TÁCTICA
-                             </button>
-                         ` : ''}
-                     </div>
-                 ` : ''}
-
-        ${optData.video ? `
-                    <div style="margin-top:30px;">
-                        <h3 style="color:white; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:10px; margin-bottom:15px;"><i class="fa-brands fa-youtube"></i> Video Relacionado</h3>
-                        <a href="${optData.video}" target="_blank" style="color:var(--neon-blue); text-decoration:none; display:flex; align-items:center;">
-                            <i class="fa-solid fa-play-circle" style="font-size:2rem; margin-right:15px;"></i>
-                            <span>Ver video en YouTube</span>
-                        </a>
+                            ${optData.ivanChallenge ? `
+                                <div class="mission-alert-box">
+                                    <strong class="mission-alert-title">
+                                        <i class="fa-solid fa-dragon"></i> MISIÓN ESPECIAL (IVÁN)
+                                    </strong>
+                                    <p class="mission-alert-text">${optData.ivanChallenge}</p>
+                                </div>
+                            ` : ''}
+                        </div>
                     </div>
-                 ` : ''}
 
-        ${optData.tacticalOptions ? `
-                    <div style="margin-top:30px; border-top:1px solid rgba(0, 243, 255, 0.2); padding-top:20px;">
-                        <h3 style="color:var(--neon-blue); margin-bottom:15px;"><i class="fa-solid fa-route"></i> OPCIONES DE DESPLIEGUE TÁCTICO</h3>
-                        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
+                    <div class="excursion-side-column">
+                        <div class="quick-stats-card">
+                            <h3 class="stats-title"><i class="fa-solid fa-bolt"></i> Datos de Misión</h3>
+                            
+                            <div class="stat-item">
+                                <i class="fa-solid fa-clock"></i>
+                                <div>
+                                    <span class="stat-label">Tiempo Est.</span>
+                                    <span class="stat-value">${optData.time || 'Flexible'}</span>
+                                </div>
+                            </div>
+
+                            ${optData.price && optData.price !== 'Gratis' ? `
+                                <div class="stat-item">
+                                    <i class="fa-solid fa-yen-sign"></i>
+                                    <div>
+                                        <span class="stat-label">Gasto Previsto</span>
+                                        <span class="stat-value">${optData.price}</span>
+                                    </div>
+                                </div>
+                            ` : `
+                                <div class="stat-item">
+                                    <i class="fa-solid fa-tag"></i>
+                                    <div>
+                                        <span class="stat-label">Coste</span>
+                                        <span class="stat-value" style="color:var(--neon-blue);">Gratis</span>
+                                    </div>
+                                </div>
+                            `}
+
+                            <div class="stats-actions">
+                                ${optData.link ? `
+                                    <a href="${optData.link}" target="_blank" class="action-btn maps-btn">
+                                        <i class="fa-solid fa-map-location-dot"></i> NAVEGAR MAPS
+                                    </a>
+                                ` : ''}
+                                
+                                ${optData.tacticalGuideId ? `
+                                    <button onclick="renderTacticalMission('${optData.tacticalGuideId}', ${travelData.indexOf(data)})" class="action-btn tactical-guide-btn">
+                                        <i class="fa-solid fa-file-contract"></i> GUÍA TÁCTICA
+                                    </button>
+                                ` : ''}
+
+                                ${optData.video ? `
+                                    <a href="${optData.video}" target="_blank" class="action-btn video-btn">
+                                        <i class="fa-brands fa-youtube"></i> VER RECONOCIMIENTO
+                                    </a>
+                                ` : ''}
+                            </div>
+                        </div>
+
+                        ${optData.photoSpot ? `
+                            <div class="photo-objective-card">
+                                <i class="fa-solid fa-camera"></i>
+                                <div>
+                                    <span class="photo-label">OBJETIVO FOTOGRÁFICO</span>
+                                    <span class="photo-value">${optData.photoSpot}</span>
+                                </div>
+                            </div>
+                        ` : ''}
+                    </div>
+                </div>
+
+                ${optData.tacticalOptions ? `
+                    <div class="tactical-deployment-section">
+                        <h3 class="tactical-section-title">
+                            <i class="fa-solid fa-route"></i> OPCIONES DE DESPLIEGUE TÁCTICO
+                        </h3>
+                        <div class="tactical-options-grid">
                             ${optData.tacticalOptions.map(opt => `
-                                <div class="datapad-container" style="padding:15px; border-color:var(--accent);">
-                                    <div style="font-size:0.7rem; color:var(--accent); font-weight:800; margin-bottom:5px;">[ ${opt.time} ]</div>
-                                    <h4 style="color:white; font-size:0.9rem; margin-bottom:10px;">${opt.title}</h4>
-                                    <p style="font-size:0.8rem; opacity:0.8; margin-bottom:12px;">${opt.description}</p>
+                                <div class="datapad-container tactical-card">
+                                    <div class="tactical-time-badge">[ ${opt.time} ]</div>
+                                    <h4 class="tactical-card-title">${opt.title}</h4>
+                                    <p class="tactical-card-desc">${opt.description}</p>
                                     
                                     ${opt.schedule ? `
-                                        <div style="margin-bottom:15px; padding:10px; background:rgba(255,255,255,0.05); border-radius:6px; border-left:2px solid var(--accent);">
-                                            <div style="font-size:0.65rem; color:var(--accent); margin-bottom:8px; letter-spacing:1px;">CRONOGRAMA_SCHEMATIC:</div>
+                                        <div class="tactical-schedule">
+                                            <div class="schedule-header">CRONOGRAMA_LOGÍSTICO:</div>
                                             ${opt.schedule.map(s => `
-                                                <div style="display:flex; justify-content:space-between; font-family:monospace; font-size:0.75rem; margin-bottom:3px; color:rgba(255,255,255,0.9);">
-                                                    <span style="color:var(--accent);">${s.time}</span>
-                                                    <span>${s.event}</span>
+                                                <div class="schedule-row">
+                                                    <span class="schedule-time">${s.time}</span>
+                                                    <span class="schedule-event">${s.event}</span>
                                                 </div>
                                             `).join('')}
                                         </div>
                                     ` : ''}
 
-                                    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                                    <div class="tactical-card-actions">
                                         ${opt.buttons ? opt.buttons.map(btn => `
-                                            <a href="${btn.link}" target="_blank" class="tactical-btn" 
-                                               style="flex:1; text-align:center; padding:8px; font-size:0.65rem; border-radius:4px; text-decoration:none; background:rgba(0,243,255,0.1); border:1px solid var(--neon-blue); color:var(--neon-blue); font-weight:bold; display:flex; align-items:center; justify-content:center; gap:5px; min-width:140px;">
+                                            <a href="${btn.link}" target="_blank" class="mini-tactical-btn maps">
                                                 <i class="fa-solid fa-map-location-dot"></i> ${btn.text}
                                             </a>
                                         `).join('') : `
-                                            <a href="${opt.link}" target="_blank" class="tactical-btn" 
-                                               style="flex:1; text-align:center; padding:8px; font-size:0.65rem; border-radius:4px; text-decoration:none; background:rgba(0,243,255,0.1); border:1px solid var(--neon-blue); color:var(--neon-blue); font-weight:bold; display:flex; align-items:center; justify-content:center; gap:5px;">
+                                            <a href="${opt.link}" target="_blank" class="mini-tactical-btn maps">
                                                 <i class="fa-solid fa-map-location-dot"></i> MAPS
                                             </a>
-                                            <button onclick="renderTacticalMission('${opt.tacticalGuideId}', ${travelData.indexOf(data)})" class="tactical-btn" 
-                                                    style="flex:1; text-align:center; padding:8px; font-size:0.65rem; border-radius:4px; background:rgba(249,115,22,0.1); border:1px solid var(--accent); color:var(--accent); font-weight:bold; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:5px;">
+                                            <button onclick="renderTacticalMission('${opt.tacticalGuideId}', ${travelData.indexOf(data)})" class="mini-tactical-btn guide">
                                                 <i class="fa-solid fa-file-contract"></i> GUÍA
                                             </button>
                                         `}
@@ -1432,10 +1397,15 @@ function renderCenterVisual(data, mode, optData = null) {
                             `).join('')}
                         </div>
                     </div>
-                  ` : ''}
-    </div>
-    `;
-        // Scroll al inicio de la página al abrir el detalle de excursión
+                ` : ''}
+            </div>
+        `;span style="color:white; font-weight:normal; margin-left:5px;">${optData.photoSpot}</span></span>
+                    </div>
+                ` : ''}
+            </div>
+        `;
+
+        // Scroll al inicio
         window.scrollTo({ top: 0, behavior: 'smooth' });
         const centerContent = document.querySelector('.center-stage');
         if (centerContent) centerContent.scrollTo({ top: 0, behavior: 'smooth' });

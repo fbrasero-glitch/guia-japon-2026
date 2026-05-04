@@ -489,18 +489,7 @@ function init() {
         }
     }
 
-    // 3. Mapas (Igual que antes)
-    if (typeof L !== 'undefined') {
-        map = L.map('map', { zoomControl: false, attributionControl: false }).setView([36, 138], 5);
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png').addTo(map);
-
-        previewMap = L.map('preview-map-container', {
-            zoomControl: false, attributionControl: false, dragging: false, scrollWheelZoom: false
-        }).setView([36, 138], 5);
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png').addTo(previewMap);
-    } else {
-        console.warn("Leaflet (L) no está cargado. Mapas desactivados.");
-    }
+    // 3. Mapas eliminados por solicitud del usuario
 
     // 4. Botones con Lógica de Posición Dinámica
     const menu = document.getElementById('day-list');
@@ -544,8 +533,6 @@ function init() {
             } else {
                 previewTitle.innerText = `📍 Día ${d.day}: ${d.title}`;
             }
-            previewMap.invalidateSize();
-            previewMap.setView(d.coords, 9);
 
             // 2. CÁLCULO DE POSICIÓN (MATEMÁTICAS)
             // Obtenemos las coordenadas del botón en la pantalla
@@ -584,14 +571,11 @@ function loadDay(index) {
 
     // Si es el día de preparación (día 0), renderizar de forma especial
     if (data.day === 0 && data.type === 'preparation') {
-        map.flyTo(data.coords, data.zoom, { duration: 1.5 });
         document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
         document.querySelectorAll('.day-btn')[index].classList.add('active');
         renderPreparationPage(data);
         return;
     }
-
-    map.flyTo(data.coords, data.zoom, { duration: 1.5 });
 
     document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('.day-btn')[index].classList.add('active');
@@ -1178,7 +1162,30 @@ function renderCenterVisual(data, mode, optData = null) {
             if (data.complements && data.complements.length > 0) {
                 complementsHTML += '<div class="complements-section" style="margin-top:40px;"><h3 style="color:var(--accent); margin-bottom:20px; border-bottom:1px solid rgba(249, 115, 22, 0.3); padding-bottom:10px;"><i class="fa-solid fa-plus-circle"></i> Personaliza tu día</h3><div class="excursions-grid excursions-grid-2">' + data.complements.map(comp => '<button class="excursion-card complement-card" onclick="selectExcursionFromCard(' + dayIdx + ', \'' + comp.id + '\', this)">' + (comp.image ? '<img src="' + comp.image + '" class="excursion-thumb">' : '') + '<div class="excursion-card-content"><div class="excursion-id" style="background:var(--neon-purple);">OPCIONAL</div><h3 class="excursion-title">' + comp.title + '</h3><div class="complement-meta"><span>' + comp.time + '</span> · <span>' + comp.price + '</span></div></div></button>').join('') + '</div></div>';
             }
-            card.innerHTML = unifiedHeaderHTML + '<div class="base-itinerary-box" style="background:rgba(15, 23, 42, 0.6); padding:25px; border-radius:16px; border:1px solid rgba(255,255,255,0.1);"><div class="timeline-container" style="padding-left:20px; border-left:2px solid rgba(56, 189, 248, 0.3);">' + baseEventsHTML + '</div></div>' + complementsHTML;
+            let addExcursionsHTML = '';
+            if (data.additionalExcursions && data.additionalExcursions.length > 0) {
+                const coverImg = data.additionalExcursions[0].image || '';
+                const imgHTML = coverImg ? `<img src="${coverImg}" class="excursion-thumb" style="opacity:0.8;" onerror="this.style.display='none'">` : '<div class="excursion-thumb-placeholder"><i class="fa-solid fa-image"></i></div>';
+                addExcursionsHTML = `
+                    <div class="additional-excursions-gateway" style="margin-top:40px;">
+                        <h3 style="color:var(--accent); margin-bottom:20px; border-bottom:1px solid rgba(249, 115, 22, 0.3); padding-bottom:10px;">
+                            <i class="fa-solid fa-map-location-dot"></i> Excursiones Adicionales
+                        </h3>
+                        <p style="color:#94a3b8; margin-bottom:20px;">Explora más opciones para este día si prefieres desviarte de la ruta principal:</p>
+                        
+                        <button class="excursion-card additional-gateway-card" 
+                                onclick="renderCenterVisual(travelData[${dayIdx}], 'additional-excursions-list')"
+                                style="width: 100%; max-width: 500px; display: block; margin: 0; position: relative; overflow: hidden; border: 1px solid rgba(0,243,255,0.3); box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+                            ${imgHTML}
+                            <div class="excursion-card-content" style="position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(to top, rgba(15,23,42,1) 30%, transparent 100%); padding-top: 50px;">
+                                <div class="excursion-id" style="background:var(--neon-blue); display:inline-block; font-size:0.7rem; padding:2px 8px; border-radius:4px; margin-bottom:8px; color:black; font-weight:bold;"><i class="fa-solid fa-plus"></i> ${data.additionalExcursions.length} OPCIONES</div>
+                                <h3 class="excursion-title" style="font-size:1.3rem; color:white;">Ver Excursiones Adicionales</h3>
+                            </div>
+                        </button>
+                    </div>
+                `;
+            }
+            card.innerHTML = unifiedHeaderHTML + '<div class="base-itinerary-box" style="background:rgba(15, 23, 42, 0.6); padding:25px; border-radius:16px; border:1px solid rgba(255,255,255,0.1);"><div class="timeline-container" style="padding-left:20px; border-left:2px solid rgba(56, 189, 248, 0.3);">' + baseEventsHTML + '</div></div>' + complementsHTML + addExcursionsHTML;
         } else if (data.hasOptions) {
             card.innerHTML = unifiedHeaderHTML + '<div class="excursions-grid excursions-grid-3">' + data.options.map(opt => '<button class="excursion-card" onclick="renderCenterVisual(travelData[' + dayIdx + '], \'option\', travelData[' + dayIdx + '].options.find(o => o.id === \'' + opt.id + '\'))">' + (opt.image ? '<img src="' + opt.image + '" class="excursion-thumb">' : '') + '<div class="excursion-card-content"><div class="excursion-id">OPCIÓN ' + opt.id + '</div><h3 class="excursion-title">' + opt.title + '</h3><p class="excursion-desc">' + (opt.desc_short || opt.desc) + '</p></div></button>').join('') + '</div>';
         } else {
@@ -1187,38 +1194,215 @@ function renderCenterVisual(data, mode, optData = null) {
         return;
     }
 
+    if (mode === 'additional-excursions-list') {
+        let listHTML = `
+            <button onclick="loadDay(${dayIdx})" class="back-itinerary-btn prominent">
+                <i class="fa-solid fa-chevron-left"></i> VOLVER AL ITINERARIO
+            </button>
+            <div class="excursion-page-header" style="margin-top:20px; border-bottom:1px solid rgba(0, 243, 255, 0.3); padding-bottom:15px; margin-bottom:20px;">
+                <h1 style="font-size:2.5rem; letter-spacing:2px; color:var(--neon-blue);"><i class="fa-solid fa-map-location-dot"></i> EXPLORACIÓN ALTERNATIVA</h1>
+            </div>
+            <div class="excursions-grid excursions-grid-${Math.min(data.additionalExcursions.length, 3)}">
+        `;
+        data.additionalExcursions.forEach(exc => {
+            const excImg = exc.image || '';
+            const imgHTML = excImg ? `<img src="${excImg}" class="excursion-thumb" onerror="this.style.display='none'">` : '<div class="excursion-thumb-placeholder"><i class="fa-solid fa-image"></i></div>';
+            listHTML += `
+                <button class="excursion-card complement-card" 
+                        onclick="selectExcursionFromCard(${dayIdx}, '${exc.id}', this)">
+                    ${imgHTML}
+                    <div class="excursion-card-content">
+                        <div class="excursion-id" style="background:var(--neon-blue); color:black; font-weight:bold; display:inline-block; font-size:0.7rem; padding:2px 8px; border-radius:4px; margin-bottom:8px;">ADICIONAL</div>
+                        <h3 class="excursion-title" style="font-size:1.1rem; color:white;">${exc.title}</h3>
+                        <div class="complement-meta" style="margin-top:10px; font-size:0.9rem; color:#cbd5e1; display:flex; justify-content:space-between; align-items:center;">
+                            <span><i class="fa-regular fa-clock"></i> ${exc.time || 'Flexible'}</span>
+                            ${exc.price ? `<span style="color:var(--gold);"><i class="fa-solid fa-tag"></i> ${exc.price}</span>` : ''}
+                        </div>
+                    </div>
+                </button>
+            `;
+        });
+        listHTML += `</div>`;
+        card.innerHTML = listHTML;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+    }
+
     if ((mode === 'option' || mode === 'option-flexible') && optData) {
         Persistence.setItem('choice-' + dayIdx, optData.id);
-        card.innerHTML = `<button onclick="loadDay(${dayIdx})" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Volver</button>
-            <div class="excursion-detail-header">
-                <div class="excursion-id-badge">MISIÓN ${optData.id}</div>
-                <h1 class="excursion-detail-title">${optData.title || optData.name}</h1>
-            </div>
-            <div class="excursion-detail-grid">
-                <div class="excursion-detail-main">
-                    <img src="${optData.image}" class="excursion-detail-image">
-                    <div class="excursion-detail-description">
-                        <h2>DETALLES</h2>
-                        <p>${optData.desc || optData.description}</p>
+        const isAdditionalExc = optData.id && optData.id.startsWith('add_');
+        let backBtnHTML = '';
+        if (isAdditionalExc) {
+            backBtnHTML = `
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:20px;">
+                    <button onclick="loadDay(${dayIdx})" class="back-itinerary-btn prominent">
+                        <i class="fa-solid fa-chevron-left"></i> VOLVER AL ITINERARIO
+                    </button>
+                    <button onclick="renderCenterVisual(travelData[${dayIdx}], 'selector')" class="back-itinerary-btn" style="background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:white;">
+                        <i class="fa-solid fa-list" style="margin-right:8px;"></i> MÁS OPCIONES
+                    </button>
+                </div>
+            `;
+        } else {
+            backBtnHTML = `
+                <button onclick="loadDay(${dayIdx})" class="back-itinerary-btn prominent">
+                    <i class="fa-solid fa-chevron-left"></i> VOLVER AL ITINERARIO
+                </button>
+            `;
+        }
+
+        let imgSrc = optData.image || data.image || '';
+        let imgHTML = imgSrc ?
+            `<img src="${imgSrc}" class="cinema-mode-img" onerror="this.style.display='none'">` :
+            `<div class="photo-placeholder"><i class="fa-solid fa-image"></i> Sin imagen</div>`;
+
+        card.innerHTML = `
+            ${backBtnHTML}
+            <div class="excursion-detail-container">
+                <div class="excursion-header">
+                    ${imgHTML}
+                    <div class="excursion-title-overlay">
+                        <h2 class="excursion-main-title">${optData.title || optData.name}</h2>
+                        <p class="excursion-subtitle">${optData.description || optData.summary || ''}</p>
                     </div>
-                    ${window.renderContextualRestaurants ? window.renderContextualRestaurants(optData) : ''}
-                    <div class="timeline-container">
-                        ${(optData.timeline || []).map(t => `
-                            <div class="timeline-item">
-                                <div class="time-tag">${t.time}</div>
-                                <div class="timeline-content">
-                                    <strong class="timeline-title">${t.title}</strong>
-                                    <div class="timeline-desc">${t.desc}</div>
+                </div>
+
+                <div class="excursion-content-wrapper">
+                    <div class="excursion-main-column">
+                        <div class="story-container" style="padding-top:0;">
+                            ${optData.booking ? renderBookingBadge(optData.booking, dayIdx) : ''}
+                            <div class="full-description-content">
+                                ${optData.fullDesc ? optData.fullDesc : `<p>${optData.desc || optData.description || ''}</p>`}
+                            </div>
+
+                            ${optData.ivanChallenge ? `
+                                <div class="mission-alert-box">
+                                    <strong class="mission-alert-title">
+                                        <i class="fa-solid fa-dragon"></i> MISIÓN ESPECIAL (IVÁN)
+                                    </strong>
+                                    <p class="mission-alert-text">${optData.ivanChallenge}</p>
+                                </div>
+                            ` : ''}
+                            
+                            ${window.renderContextualRestaurants ? window.renderContextualRestaurants(optData) : ''}
+                            
+                            ${optData.timeline && optData.timeline.length > 0 ? `
+                                <div class="timeline-container">
+                                    ${optData.timeline.map(t => `
+                                        <div class="timeline-item">
+                                            <div class="time-tag">${t.time}</div>
+                                            <div class="timeline-content">
+                                                <strong class="timeline-title">${t.title}</strong>
+                                                <div class="timeline-desc">${t.desc}</div>
+                                            </div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
+
+                    <div class="excursion-side-column">
+                        <div class="quick-stats-card">
+                            <h3 class="stats-title"><i class="fa-solid fa-bolt"></i> Datos de Misión</h3>
+                            <div class="stat-item">
+                                <i class="fa-solid fa-clock"></i>
+                                <div>
+                                    <span class="stat-label">Tiempo Est.</span>
+                                    <span class="stat-value">${optData.time || 'Flexible'}</span>
                                 </div>
                             </div>
-                        `).join('')}
+                            ${optData.price && optData.price !== 'Gratis' ? `
+                                <div class="stat-item">
+                                    <i class="fa-solid fa-yen-sign"></i>
+                                    <div>
+                                        <span class="stat-label">Gasto Previsto</span>
+                                        <span class="stat-value">${optData.price}</span>
+                                    </div>
+                                </div>
+                            ` : `
+                                <div class="stat-item">
+                                    <i class="fa-solid fa-tag"></i>
+                                    <div>
+                                        <span class="stat-label">Coste</span>
+                                        <span class="stat-value" style="color:var(--neon-blue);">Gratis</span>
+                                    </div>
+                                </div>
+                            `}
+                            <div class="stats-actions">
+                                ${optData.link ? `
+                                    <a href="${optData.link}" target="_blank" class="action-btn maps-btn">
+                                        <i class="fa-solid fa-map-location-dot"></i> NAVEGAR MAPS
+                                    </a>
+                                ` : ''}
+                                ${optData.tacticalGuideId ? `
+                                    <button onclick="renderTacticalMission('${optData.tacticalGuideId}', ${dayIdx})" class="action-btn tactical-guide-btn">
+                                        <i class="fa-solid fa-file-contract"></i> GUÍA TÁCTICA
+                                    </button>
+                                ` : ''}
+                                ${optData.video ? `
+                                    <a href="${optData.video}" target="_blank" class="action-btn video-btn">
+                                        <i class="fa-brands fa-youtube"></i> VER RECONOCIMIENTO
+                                    </a>
+                                ` : ''}
+                            </div>
+                        </div>
+
+                        ${optData.photoSpot ? `
+                            <div class="photo-objective-card">
+                                <i class="fa-solid fa-camera"></i>
+                                <div>
+                                    <span class="photo-label">OBJETIVO FOTOGRÁFICO</span>
+                                    <span class="photo-value">${optData.photoSpot}</span>
+                                </div>
+                            </div>
+                        ` : ''}
                     </div>
                 </div>
-                <div class="excursion-detail-sidebar">
-                    ${optData.booking ? renderBookingBadge(optData.booking, dayIdx) : ''}
-                    ${optData.tacticalGuideId ? `<button onclick="renderTacticalMission('${optData.tacticalGuideId}', ${dayIdx})" class="tactical-mission-btn pulse"><i class="fa-solid fa-file-contract"></i> ABRIR MANUAL TÁCTICO</button>` : ''}
-                </div>
-            </div>`;
+
+                ${optData.tacticalOptions ? `
+                    <div class="tactical-deployment-section">
+                        <h3 class="tactical-section-title">
+                            <i class="fa-solid fa-route"></i> OPCIONES DE DESPLIEGUE TÁCTICO
+                        </h3>
+                        <div class="tactical-options-grid">
+                            ${optData.tacticalOptions.map(opt => `
+                                <div class="datapad-container tactical-card">
+                                    <div class="tactical-time-badge">[ ${opt.time} ]</div>
+                                    <h4 class="tactical-card-title">${opt.title}</h4>
+                                    <p class="tactical-card-desc">${opt.description}</p>
+                                    ${opt.schedule ? `
+                                        <div class="tactical-schedule">
+                                            <div class="schedule-header">CRONOGRAMA_LOGÍSTICO:</div>
+                                            ${opt.schedule.map(s => `
+                                                <div class="schedule-row">
+                                                    <span class="schedule-time">${s.time}</span>
+                                                    <span class="schedule-event">${s.event}</span>
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                    ` : ''}
+                                    <div class="tactical-card-actions">
+                                        ${opt.buttons ? opt.buttons.map(btn => `
+                                            <a href="${btn.link}" target="_blank" class="mini-tactical-btn maps">
+                                                <i class="fa-solid fa-map-location-dot"></i> ${btn.text}
+                                            </a>
+                                        `).join('') : `
+                                            <a href="${opt.link}" target="_blank" class="mini-tactical-btn maps">
+                                                <i class="fa-solid fa-map-location-dot"></i> MAPS
+                                            </a>
+                                            <button onclick="renderTacticalMission('${opt.tacticalGuideId}', ${dayIdx})" class="mini-tactical-btn guide">
+                                                <i class="fa-solid fa-file-contract"></i> GUÍA
+                                            </button>
+                                        `}
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                ` : ''}
+            </div>
+        `;
         window.scrollTo({ top: 0, behavior: 'smooth' });
         return;
     }
@@ -1320,28 +1504,28 @@ window.tacticalMissions = {
         subtitle: "Rumbo a los Alpes Japoneses (Okuhida)",
         steps: [
             {
-                time: "Día 10 (Noche)",
-                title: "1. Logística de Equipaje (Paso Crítico)",
-                content: "Es obligatorio viajar solo con mochilas de mano. Gestionad el envío de las 8 maletas grandes por Takkyubin desde la recepción del Kyoto Tower Hotel Annex.",
-                warning: "Coste: ~2.500 JPY por maleta. Destino: Siguiente hotel (Fuji/Tokio)."
+                time: "07:00",
+                title: "1. Hora de Levantarse & Check-out",
+                content: "Reunión en el lobby a las 07:45. Tened listas las mochilas de mano. Recordad que el equipaje grande ya se envió por Takkyubin a Fuji/Tokio el día anterior.",
+                warning: "Punto Crítico: Salir hacia la Estación de Kioto con tiempo para coger el tren de las 08:45."
             },
             {
-                time: "08:50",
+                time: "08:45 – 09:19",
                 title: "2. Tramo 1: Kioto ➔ Nagoya (Shinkansen)",
-                content: "Tren: Shinkansen Nozomi. Duración: 35 min. Precio: ~5.940 JPY. Reservad asientos E (lado izquierdo) para ver el Monte Fuji.",
-                warning: "Compra: Oficinas Midori no Madoguchi en Estación de Kioto."
+                content: "Tren: Shinkansen. Billetes YA COMPRADOS para las 08:45. Llegada puntual a Nagoya a las 09:19.",
+                warning: "Billetes (8 pax): 20.680 ¥ (3 adultos + 1 niño) y 23.640 ¥ (4 adultos)."
             },
             {
                 time: "10:00",
                 title: "3. Tramo 2: Nagoya ➔ Takayama (Tren Escénico)",
-                content: "Tren: Wide View Hida. Duración: 2h 30min. Precio: ~6.000 JPY. Vistas espectaculares del valle fluvial.",
-                warning: "Reserva previa obligatoria para grupos grandes."
+                content: "Tren: Wide View Hida. Duración: ~2h 30min. Precio: ~6.000 JPY por persona. Vistas espectaculares del valle fluvial.",
+                warning: "Reserva previa recomendable para ir todos juntos."
             },
             {
-                time: "14:00",
+                time: "13:40",
                 title: "4. Tramo 3: Takayama ➔ Okuhida (Autobús Nohi)",
-                content: "Transporte: Autobús Nohi (Línea Shin-Hotaka). Duración: 1h 30min. Precio: ~2.200 JPY. Salida desde la terminal junto a la estación.",
-                warning: "Los billetes se compran en las máquinas de la terminal al llegar."
+                content: "Transporte: Autobús Nohi (Línea Shin-Hotaka). Duración: ~1h 30min. Tomaremos el primer bus disponible a las 13:40 tras dar una vuelta o comer por Takayama.",
+                warning: "La terminal de Nohi Bus está justo al lado de la estación de tren de Takayama."
             }
         ],
         footer: `
@@ -1351,22 +1535,22 @@ window.tacticalMissions = {
                     <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
                         <th style="text-align:left; padding:5px;">Servicio</th>
                         <th style="text-align:left; padding:5px;">Reserva</th>
-                        <th style="text-align:right; padding:5px;">Precio</th>
+                        <th style="text-align:right; padding:5px;">Precio (8 pax)</th>
                     </tr>
                     <tr>
-                        <td style="padding:5px;">Shinkansen Nozomi</td>
-                        <td style="padding:5px;">Sí</td>
-                        <td style="padding:5px; text-align:right;">~5.940 JPY</td>
+                        <td style="padding:5px;">Shinkansen Kioto ➔ Nagoya</td>
+                        <td style="padding:5px; color:var(--success); font-weight:bold;">COMPRADO</td>
+                        <td style="padding:5px; text-align:right;">44.320 JPY</td>
                     </tr>
                     <tr>
                         <td style="padding:5px;">Wide View Hida</td>
-                        <td style="padding:5px;">Sí</td>
-                        <td style="padding:5px; text-align:right;">~6.000 JPY</td>
+                        <td style="padding:5px; color:var(--gold);">Pendiente</td>
+                        <td style="padding:5px; text-align:right;">~48.000 JPY</td>
                     </tr>
                     <tr>
-                        <td style="padding:5px;">Bus Nohi Local</td>
-                        <td style="padding:5px;">Al llegar</td>
-                        <td style="padding:5px; text-align:right;">~2.200 JPY</td>
+                        <td style="padding:5px;">Bus Nohi (13:40)</td>
+                        <td style="padding:5px; color:var(--gold);">Al llegar</td>
+                        <td style="padding:5px; text-align:right;">~17.600 JPY</td>
                     </tr>
                 </table>
             </div>
@@ -1374,31 +1558,42 @@ window.tacticalMissions = {
     },
     'mission_takayama_to_fuji': {
         title: "Guía Transporte: Takayama ➔ Fuji",
-        subtitle: "Trayecto Alpino hacia el Monte Fuji",
+        subtitle: "Trayecto Alpino hacia el Monte Fuji (LIMON Bus)",
         steps: [
             {
-                time: "08:15",
+                time: "08:40",
                 title: "1. Llegada a la terminal",
-                content: "Presentación en la Estación de Autobuses Takayama Nohi. El hotel está ubicado justo al lado de la estación.",
-                warning: "Ubicación: Situada justo al lado de la estación de tren JR Takayama."
+                content: "Presentación 10 minutos antes en la Estación de Takayama. El autobús sale a las 08:50 puntual.",
+                warning: "Billetes (8 pax): YA COMPRADOS."
             },
             {
-                time: "08:30 – 13:15",
-                title: "2. Trayecto en Bus Expreso",
-                content: "Viaje directo hacia Kawaguchiko (aprox. 4h 45m). Disfrutad del paisaje de los Alpes hacia la región de los cinco lagos.",
+                time: "08:50 – 13:59",
+                title: "2. Trayecto en Autobús Turístico (LIMON Bus)",
+                content: "Viaje directo hacia la Estación de Kawaguchiko (aprox. 5h). Disfrutad del paisaje de los Alpes hacia la región de los cinco lagos.",
                 warning: "Tip: Las mejores vistas al aproximarse al Fuji suelen estar en las ventanillas del lado IZQUIERDO."
             },
             {
-                time: "13:30",
+                time: "14:15",
                 title: "3. Operación Coche de Alquiler",
                 content: "Recogida de los dos vehículos en la oficina de Budget Rent a Car, situada en la propia estación de Kawaguchiko.",
                 warning: "Logística: Aseguraos de tener los permisos internacionales y el grupo de 8 listo para dividirnos en los dos coches."
             }
         ],
         footer: `
-            <div style="background:rgba(239,68,68,0.1); border:1px solid var(--danger); border-radius:12px; padding:15px; margin-top:20px;">
-                <h4 style="color:var(--danger); margin-top:0;"><i class="fa-solid fa-triangle-exclamation"></i> Reserva Obligatoria (Punto Crítico)</h4>
-                <p style="font-size:0.9rem; color:white; margin-bottom:0;"><strong>Reserva del Bus:</strong> Es el punto más sensible del viaje. Debéis reservar el bus expreso de Takayama a Kawaguchiko <strong>exactamente 1 mes antes</strong> para asegurar que los 8 tengáis sitio en el mismo vehículo.</p>
+            <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:15px; margin-top:20px;">
+                <h4 style="color:var(--accent); margin-top:0; border-bottom:1px solid rgba(249,115,22,0.3); padding-bottom:5px;"><i class="fa-solid fa-list-check"></i> Resumen de Compra</h4>
+                <table style="width:100%; font-size:0.8rem; border-collapse:collapse; margin-top:10px; color:white;">
+                    <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+                        <th style="text-align:left; padding:5px;">Servicio</th>
+                        <th style="text-align:left; padding:5px;">Reserva</th>
+                        <th style="text-align:right; padding:5px;">Precio Total (8 pax)</th>
+                    </tr>
+                    <tr>
+                        <td style="padding:5px;">LIMON Bus (Takayama ➔ Fuji)</td>
+                        <td style="padding:5px; color:var(--success); font-weight:bold;">COMPRADO</td>
+                        <td style="padding:5px; text-align:right;">80.000 JPY</td>
+                    </tr>
+                </table>
             </div>
         `
     },

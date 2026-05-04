@@ -27,10 +27,10 @@ const travelData_00_08 = [
                     name: "FASE 2: 1 Mes Antes (BLOQUE CRÍTICO)",
                     color: "var(--danger)",
                     items: [
-                        { id: "bk_shinkansen", name: "Shinkansen Kioto-Nagoya (SmartEX)", status: "pending", date: "Exactamente 30 días antes", link: "https://smart-ex.jp/en/index.php" },
+                        { id: "bk_shinkansen", name: "Shinkansen Kioto-Nagoya (08:45-09:19) - 8 pax [44.320¥]", status: "completed", date: "COMPRADO", link: "https://smart-ex.jp/en/index.php" },
                         { id: "bk_hida", name: "Wide View Hida (Nagoya-Takayama)", status: "pending", date: "1 mes antes", link: "https://www.westjr.co.jp/global/en/ticket/route_search/" },
                         { id: "bk_fuji_excursion", name: "Tren Fuji Excursion (Regreso Tokio)", status: "pending", date: "Exactamente 1 mes antes", link: "https://www.eki-net.com/en/jreast-train-reservation/Top/Index" },
-                        { id: "bk_bus_takayama_fuji", name: "Bus Takayama-Fuji (Highwaybus)", status: "pending", date: "1 mes antes", link: "https://www.highwaybus.com/gp/inbound/index" },
+                        { id: "bk_bus_takayama_fuji", name: "LIMON Bus Takayama-Fuji (08:50) - 8 pax [80.000¥]", status: "completed", date: "COMPRADO", link: "https://www.nouhibus.co.jp/english/" },
                         { id: "bk_bus_nohi", name: "Bus Nohi (Shirakawa-go)", status: "pending", date: "1 mes antes", link: "https://www.nouhibus.co.jp/english/" }
                     ]
                 },
@@ -511,14 +511,15 @@ const travelData_00_08 = [
                     link: "https://www.google.com/maps/dir/Dc桜の苑-難波南店/Osaka+Castle/",
                     fullDesc: `
                         <h3><i class="fa-solid fa-castle"></i> Castillo de Osaka</h3>
-                        <p>Símbolo innegable de la ciudad. Originalmente construido en 1583 por el señor de la guerra Toyotomi Hideyoshi, fue diseñado para ser el centro de una nueva y unificada nación japonesa bajo su dominio. Aunque la imponente torre actual es una reconstrucción de 1931 (restaurada en 1997), se asienta sobre las formidables murallas y fosos de piedra originales de la era Tokugawa.</p>
-                        <p><em>El interior es un museo moderno de ocho plantas que narra la turbulenta historia de la unificación de Japón, culminando en un mirador panorámico en la azotea. Los interminables jardines que lo rodean, especialmente el parque Nishinomaru, son un oasis de paz en el tejido urbano de Osaka.</em></p>
+                        <p>Símbolo innegable de la ciudad. Originalmente construido en 1583 por el señor de la guerra Toyotomi Hideyoshi, fue diseñado para ser el centro de una nueva y unificada nación japonesa bajo su dominio. Aunque la imponente torre actual es una reconstrucción de 1931, se asienta sobre las formidables murallas y fosos de piedra originales de la era Tokugawa.</p>
+                        <p><em>El interior es un museo moderno de ocho plantas que narra la turbulenta historia de la unificación de Japón. <strong>Consejo Pro:</strong> Subid directamente en ascensor a la planta 8 para las vistas y bajad caminando para ver el museo sin agobios.</em></p>
                         <ul>
                             <li><i class="fa-solid fa-clock"></i> <strong>Tiempo:</strong> 2-3 horas.</li>
                             <li><i class="fa-solid fa-ticket"></i> <strong>Entrada:</strong> 600 JPY.</li>
-                            <li><i class="fa-solid fa-camera"></i> <strong>Foto Clave:</strong> Vistas desde la torre principal y desde los jardines.</li>
+                            <li><i class="fa-solid fa-camera"></i> <strong>Foto Clave:</strong> Desde los jardines Nishinomaru para el mejor encuadre del foso y la torre.</li>
                         </ul>
-                    `
+                    `,
+                    video: "https://www.youtube.com/watch?v=N6O37n1E-vU"
                 },
                 {
                     id: "b2",
@@ -530,14 +531,15 @@ const travelData_00_08 = [
                     link: "https://www.google.com/maps/dir/Osaka+Castle/Umeda+Sky+Building/",
                     fullDesc: `
                         <h3><i class="fa-solid fa-building"></i> Umeda Sky Building</h3>
-                        <p>Un espectáculo de la arquitectura futurista de los años 90. Diseñado por Hiroshi Hara, consiste en dos torres gemelas de 40 pisos conectadas en la cima por el "Floating Garden Observatory" (Observatorio del Jardín Flotante) a 173 metros de altura.</p>
-                        <p><em>El ascenso final se realiza a través de escaleras mecánicas acristaladas suspendidas en el vacío, ofreciendo una experiencia casi de ciencia ficción. A diferencia de otros miradores cerrados, su azotea circular está completamente al aire libre (sin cristales), permitiendo sentir la brisa y escuchar la ciudad mientras se admira una panorámica de 360 grados de la gigantesca red urbana de Kansai.</em></p>
+                        <p>Un espectáculo de la arquitectura futurista de los años 90. Consiste en dos torres gemelas de 40 pisos conectadas en la cima por el "Floating Garden Observatory" a 173 metros de altura.</p>
+                        <p><em>El ascenso final se realiza a través de escaleras mecánicas acristaladas suspendidas en el vacío, ofreciendo una experiencia casi de ciencia ficción. La azotea circular está completamente al aire libre, permitiendo sentir la brisa y escuchar la ciudad.</em></p>
                         <ul>
                             <li><i class="fa-solid fa-clock"></i> <strong>Tiempo:</strong> 1-2 horas.</li>
                             <li><i class="fa-solid fa-ticket"></i> <strong>Entrada:</strong> 1.500 JPY.</li>
-                            <li><i class="fa-solid fa-sun"></i> <strong>Momento Épico:</strong> Atardecer (16:30-18:00) para ver cómo la ciudad se enciende.</li>
+                            <li><i class="fa-solid fa-sun"></i> <strong>Momento Épico:</strong> Atardecer (16:30-18:00) para ver cómo la ciudad se enciende gradualmente.</li>
                         </ul>
-                    `
+                    `,
+                    video: "https://www.youtube.com/watch?v=aSPhkem89vU"
                 },
                 {
                     id: "b3",
@@ -1315,7 +1317,7 @@ const travelData_00_08 = [
                             <li><i class="fa-solid fa-tree"></i> <strong>Vibe:</strong> Profundo silencio y espiritualidad antigua en el bosque.</li>
                         </ul>
                     `,
-                    video: "https://www.youtube.com/watch?v=5zdQAZmpgUE"
+                    video: "https://www.youtube.com/watch?v=VlXjOunK6p4"
                 }
             ]
         },
@@ -1363,7 +1365,7 @@ const travelData_00_08 = [
                         tacticalGuideId: "mission_fushimi"
                     }
                 ],
-                video: "https://www.youtube.com/watch?v=lX9z-LwS88c"
+                video: "https://www.youtube.com/watch?v=aSPhkem89vU"
             }
         ],
         additionalExcursions: [

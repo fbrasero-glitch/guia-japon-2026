@@ -205,9 +205,12 @@ body {
     padding: var(--spacing-lg);
     padding-top: 80px;
     /* Espacio para nav móvil */
+    /* Fondo premium Dark Zen para reemplazar el mapa */
+    background: radial-gradient(circle at top center, rgba(0, 243, 255, 0.05) 0%, rgba(10, 14, 26, 1) 60%),
+                linear-gradient(to bottom, #0f172a 0%, #020617 100%);
 }
 
-/* Overlay del mapa para mejor legibilidad */
+/* Overlay sutil para el video de portada */
 .center-stage::before {
     content: '';
     position: absolute;
@@ -215,7 +218,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(10, 14, 26, 0.4);
+    background: rgba(10, 14, 26, 0.2);
     backdrop-filter: blur(0.5px);
     z-index: 1;
     pointer-events: none;
@@ -526,18 +529,7 @@ body:not(.day-selected) .day-btn:hover {
     pointer-events: none;
 }
 
-#map {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    opacity: 0.6;
-    /* Mayor visibilidad del mapa */
-    filter: grayscale(50%) brightness(0.8) contrast(1.3);
-    /* Mejor contraste para ver nombres de ciudades */
-}
+/* Fondo del mapa eliminado por solicitud del usuario */
 
 .visual-card {
     position: relative;
@@ -559,7 +551,7 @@ body:not(.day-selected) .day-btn:hover {
 /* FOTO GRANDE (MODO CINE) */
 .cinema-mode-img {
     width: 100%;
-    height: 380px;
+    height: 320px;
     object-fit: cover;
     border-radius: 20px;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
@@ -567,31 +559,487 @@ body:not(.day-selected) .day-btn:hover {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* CONTENEDOR DE LA HISTORIA (SIN CAJA RÍGIDA) */
-.story-container {
-    background: rgba(15, 23, 42, 0.85);
-    /* Fondo para lectura clara */
-    backdrop-filter: blur(10px);
-    padding: 40px;
-    border-radius: 20px;
-    line-height: 1.8;
-    color: #cbd5e1;
+@media (max-width: 767px) {
+    .cinema-mode-img {
+        height: 220px;
+        margin-bottom: 20px;
+    }
 }
 
-.story-container h1 {
+/* BOTONES DE NAVEGACIÓN EN DETALLE */
+.back-itinerary-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.back-itinerary-btn.prominent {
+    background: linear-gradient(135deg, var(--accent), #ea580c) !important;
+    color: white !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
+    font-size: 1rem;
+    padding: 12px 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.back-itinerary-btn.prominent:hover {
+    background: linear-gradient(135deg, #fb923c, var(--accent)) !important;
+    box-shadow: 0 6px 20px rgba(249, 115, 22, 0.6);
+    transform: translateY(-2px) scale(1.02);
+}
+
+.back-itinerary-btn:not(.prominent):hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.back-additional-btn {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid var(--neon-blue);
+    color: var(--neon-blue) !important;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.back-additional-btn:hover {
+    background: rgba(0, 243, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.video-link-container:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: var(--danger) !important;
+    transform: translateX(5px);
+}
+
+/* CONTENEDOR DE LA HISTORIA (REDiseñado para Rich Layout) */
+.excursion-detail-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.excursion-header {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.excursion-header .cinema-mode-img {
+    margin-bottom: 0; /* Override */
+    display: block;
+}
+
+.excursion-title-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 40px 30px 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+}
+
+.excursion-main-title {
+    font-size: 2.5rem;
     color: white;
-    font-size: 2.2rem;
-    margin-bottom: 10px;
+    margin: 0 0 8px;
+    font-weight: 800;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
-.story-container h2 {
+.excursion-subtitle {
     color: var(--accent);
-    font-size: 1.5rem;
-    margin-top: 30px;
+    font-size: 1.1rem;
+    margin: 0;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.excursion-content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 30px;
+}
+
+.excursion-main-column {
+    min-width: 0;
+}
+
+.story-container {
+    background: rgba(30, 41, 59, 0.5);
+    backdrop-filter: blur(12px);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    line-height: 1.7;
+    color: #e2e8f0;
+}
+
+.full-description-content h3 {
+    color: white;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.full-description-content p {
     margin-bottom: 15px;
 }
 
-.story-container h3 {
+.full-description-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0;
+}
+
+.full-description-content li {
+    background: rgba(255,255,255,0.03);
+    padding: 12px 18px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.full-description-content li i {
+    color: var(--accent);
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+/* SIDEBAR STATS */
+.excursion-side-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.quick-stats-card {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(249, 115, 22, 0.3);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.stats-title {
+    color: var(--accent);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.stat-item i {
+    font-size: 1.4rem;
+    color: var(--neon-blue);
+    width: 30px;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+}
+
+.stat-value {
+    display: block;
+    font-size: 1rem;
+    color: white;
+    font-weight: 600;
+}
+
+.stats-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.maps-btn {
+    background: rgba(0, 243, 255, 0.1);
+    border: 1px solid var(--neon-blue);
+    color: var(--neon-blue);
+}
+
+.tactical-guide-btn {
+    background: rgba(249, 115, 22, 0.1);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+}
+
+.video-btn {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid #ef4444;
+    color: #ef4444;
+}
+
+.action-btn:hover {
+    transform: scale(1.02);
+    filter: brightness(1.2);
+}
+
+.photo-objective-card {
+    background: rgba(251, 191, 36, 0.1);
+    border: 1px solid var(--gold);
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.photo-objective-card i {
+    font-size: 1.5rem;
+    color: var(--gold);
+}
+
+.photo-label {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--gold);
+    font-weight: 800;
+}
+
+.photo-value {
+    color: white;
+    font-size: 0.9rem;
+}
+
+/* MISIÓN ALERT BOX */
+.mission-alert-box {
+    margin-top: 30px;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid var(--danger);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.mission-alert-title {
+    color: var(--danger);
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.mission-alert-text {
+    margin: 0;
+    color: #fca5a5;
+    font-size: 0.95rem;
+}
+
+/* TACTICAL OPTIONS SECTION */
+.tactical-deployment-section {
+    margin-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 40px;
+}
+
+.tactical-section-title {
+    color: var(--neon-blue);
+    margin-bottom: 25px;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.tactical-options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.tactical-card {
+    padding: 25px;
+    border-color: rgba(249,115,22,0.3);
+    background: rgba(15,23,42,0.6);
+    position: relative;
+    border-radius: 20px;
+}
+
+.tactical-time-badge {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.tactical-card-title {
+    color: white;
+    font-size: 1.2rem;
+    margin: 0 0 15px;
+    padding-right: 60px;
+}
+
+.tactical-card-desc {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.tactical-schedule {
+    background: rgba(0,0,0,0.3);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border-left: 3px solid var(--accent);
+}
+
+.schedule-header {
+    font-size: 0.7rem;
+    color: var(--accent);
+    margin-bottom: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.schedule-row {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+    color: rgba(255,255,255,0.9);
+}
+
+.schedule-time {
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.tactical-card-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.mini-tactical-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.mini-tactical-btn.maps {
+    background: rgba(0, 243, 255, 0.1);
+    border: 1px solid var(--neon-blue);
+    color: var(--neon-blue);
+}
+
+.mini-tactical-btn.guide {
+    background: rgba(249, 115, 22, 0.1);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+}
+
+.mini-tactical-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.2);
+}
+
+/* RESPONSIVENESS FOR RICH LAYOUT */
+@media (max-width: 992px) {
+    .excursion-content-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    .excursion-side-column {
+        order: -1;
+    }
+    
+    .quick-stats-card {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    
+    .stats-actions {
+        grid-column: 1 / -1;
+        flex-direction: row;
+    }
+    
+    .action-btn {
+        flex: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .excursion-main-title {
+        font-size: 1.8rem;
+    }
+    
+    .stats-actions {
+        flex-direction: column;
+    }
+    
+    .story-container {
+        padding: 20px;
+    }
+}
     color: var(--accent);
     margin-top: 25px;
     font-size: 1.2rem;
