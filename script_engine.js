@@ -122,6 +122,181 @@ window.closeInfographic = function() {
     }
 }
 
+window.openFlightSeatingModal = function() {
+    let modal = document.getElementById('flight-seating-modal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'flight-seating-modal';
+        modal.style.display = 'none';
+        modal.style.position = 'fixed';
+        modal.style.zIndex = '10000';
+        modal.style.left = '0';
+        modal.style.top = '0';
+        modal.style.width = '100%';
+        modal.style.height = '100%';
+        modal.style.backgroundColor = 'rgba(0,0,0,0.9)';
+        modal.style.overflow = 'auto';
+
+        const contentHTML = `
+            <div style="position:relative; width:95%; max-width:800px; margin:20px auto; background:linear-gradient(135deg, #0f172a, #1e293b); border:1px solid var(--neon-blue); border-radius:16px; padding:20px; box-shadow: 0 0 30px rgba(0, 243, 255, 0.3); color:white;">
+                <span style="position:absolute; top:10px; right:20px; color:#fff; font-size:30px; font-weight:bold; cursor:pointer;" onclick="document.getElementById('flight-seating-modal').style.display='none'">&times;</span>
+                <h2 style="color:var(--neon-blue); text-align:center; margin-top:0;"><i class="fa-solid fa-plane-departure"></i> DISTRIBUCIÓN DE VUELOS</h2>
+                
+                <div style="text-align:center; margin-bottom:20px;">
+                    <img src="images/flight_seating_map 1.png" style="max-width:100%; border-radius:12px; border:1px solid rgba(255,255,255,0.2); box-shadow: 0 5px 15px rgba(0,0,0,0.5);">
+                </div>
+
+                <div style="display:flex; flex-direction:column; gap:20px;">
+                    <!-- TRAYECTO 1 -->
+                    <div style="background:rgba(255,255,255,0.05); padding:15px; border-radius:12px; border-left:4px solid var(--accent);">
+                        <h3 style="color:var(--accent); margin-top:0;"><i class="fa-solid fa-plane"></i> TRAYECTO 1: Valencia (VLC) ✈️ Estambul (IST)</h3>
+                        <p style="font-size:0.9rem; color:#cbd5e1;">Avión: Fuselaje estrecho (3-3). Todos en el lado izquierdo.</p>
+                        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:10px; margin-top:10px;">
+                            <div style="background:rgba(0,0,0,0.3); padding:10px; border-radius:8px;">
+                                <strong style="color:white;">Fila 30</strong><br>
+                                <span style="color:var(--gold);">30A:</span> Cesar Mari (Ventanilla)<br>
+                                <span style="color:var(--gold);">30B:</span> Gema Mascarell (Centro)
+                            </div>
+                            <div style="background:rgba(0,0,0,0.3); padding:10px; border-radius:8px;">
+                                <strong style="color:white;">Fila 31</strong><br>
+                                <span style="color:var(--gold);">31A:</span> Ivan Brasero (Ventanilla)<br>
+                                <span style="color:var(--gold);">31B:</span> Vicente Mari (Centro)<br>
+                                <span style="color:var(--gold);">31C:</span> Dolores Puerta (Pasillo)
+                            </div>
+                            <div style="background:rgba(0,0,0,0.3); padding:10px; border-radius:8px;">
+                                <strong style="color:white;">Fila 32</strong><br>
+                                <span style="color:var(--gold);">32A:</span> Felipe Brasero (Ventanilla)<br>
+                                <span style="color:var(--gold);">32B:</span> Laura Brasero (Centro)<br>
+                                <span style="color:var(--gold);">32C:</span> Lorena Mari (Pasillo)
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TRAYECTO 4 -->
+                    <div style="background:rgba(255,255,255,0.05); padding:15px; border-radius:12px; border-left:4px solid var(--neon-purple);">
+                        <h3 style="color:var(--neon-purple); margin-top:0;"><i class="fa-solid fa-plane"></i> TRAYECTO 4 / ESTAMBUL ✈️ OSAKA / VALENCIA</h3>
+                        <p style="font-size:0.9rem; color:#cbd5e1;">Avión: Fuselaje ancho. Grupo en parte central y lateral derecha.</p>
+                        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:10px; margin-top:10px;">
+                            <div style="background:rgba(0,0,0,0.3); padding:10px; border-radius:8px; grid-column: 1 / -1;">
+                                <strong style="color:white;">Fila 32 (Centro)</strong><br>
+                                <span style="color:var(--gold);">32D:</span> Felipe Brasero (Pasillo Izq) | 
+                                <span style="color:var(--gold);">32E:</span> Laura Brasero (Centro) | 
+                                <span style="color:var(--gold);">32F:</span> Lorena Mari (Centro) | 
+                                <span style="color:var(--gold);">32G:</span> Ivan Brasero (Pasillo Der)
+                            </div>
+                            <div style="background:rgba(0,0,0,0.3); padding:10px; border-radius:8px;">
+                                <strong style="color:white;">Fila 32 (Derecha)</strong><br>
+                                <span style="color:var(--gold);">32J:</span> Vicente Mari (Centro/Pasillo)<br>
+                                <span style="color:var(--gold);">32K:</span> Dolores Puerta (Ventanilla)
+                            </div>
+                            <div style="background:rgba(0,0,0,0.3); padding:10px; border-radius:8px;">
+                                <strong style="color:white;">Fila 33 (Derecha)</strong><br>
+                                <span style="color:var(--gold);">33J:</span> Gema Mascarell (Centro/Pasillo)<br>
+                                <span style="color:var(--gold);">33K:</span> Cesar Mari (Ventanilla)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        modal.innerHTML = contentHTML;
+        document.body.appendChild(modal);
+        
+        modal.onclick = function(e) {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        };
+    }
+    modal.style.display = 'block';
+};
+
+window.openTaxiInstructionsModal = function() {
+    let modal = document.getElementById('taxi-instructions-modal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'taxi-instructions-modal';
+        modal.style.display = 'none';
+        modal.style.position = 'fixed';
+        modal.style.zIndex = '10000';
+        modal.style.left = '0';
+        modal.style.top = '0';
+        modal.style.width = '100%';
+        modal.style.height = '100%';
+        modal.style.backgroundColor = 'rgba(0,0,0,0.95)';
+        modal.style.overflow = 'auto';
+
+        const contentHTML = `
+            <div style="position:relative; width:95%; max-width:600px; margin:20px auto; background:#fff; border-radius:20px; padding:30px; color:#000; font-family: 'Inter', sans-serif; box-shadow: 0 0 50px rgba(255, 255, 255, 0.2);">
+                <span style="position:absolute; top:20px; right:25px; color:#000; font-size:40px; font-weight:bold; cursor:pointer;" onclick="document.getElementById('taxi-instructions-modal').style.display='none'">&times;</span>
+                
+                <div style="text-align:center; margin-bottom:25px;">
+                    <i class="fa-solid fa-taxi" style="font-size:3rem; color:#f97316;"></i>
+                    <h2 style="margin:10px 0 0 0; font-size:1.8rem; text-transform:uppercase; letter-spacing:1px;">Taxi Driver Instructions</h2>
+                    <p style="color:#666; margin:5px 0 0 0;">タクシー運転手さんへの指示</p>
+                </div>
+
+                <div style="border:3px solid #000; padding:25px; border-radius:15px; background:#f9fafb; margin-bottom:30px;">
+                    <h1 style="font-size:2.8rem; text-align:center; margin:0 0 10px 0; line-height:1.1; font-weight:900;">
+                        Dc桜の苑<br>難波南店
+                    </h1>
+                    <p style="font-size:1.3rem; text-align:center; margin:0; font-weight:700; color:#333;">
+                        〒557-0022 大阪府大阪市西成区中開２丁目１−３
+                    </p>
+                </div>
+
+                <div style="font-size:1.2rem; line-height:1.6;">
+                    <div style="margin-bottom:15px; border-bottom:1px solid #eee; padding-bottom:10px;">
+                        <strong style="color:#f97316; font-size:1.3rem;">[ Booking.com ]</strong>
+                        <p style="margin:5px 0 0 0; font-weight:bold; font-size:1.4rem;">Booking.comで予約しました。</p>
+                        <p style="margin:2px 0 0 0; color:#666; font-size:0.9rem;">(Hemos reservado por Booking.com)</p>
+                    </div>
+
+                    <div style="margin-bottom:15px; border-bottom:1px solid #eee; padding-bottom:10px;">
+                        <strong style="color:#f97316; font-size:1.3rem;">[ Group Size ]</strong>
+                        <p style="margin:5px 0 0 0; font-weight:bold; font-size:1.4rem;">合計8人です。</p>
+                        <p style="margin:2px 0 0 0; color:#666; font-size:0.9rem;">(Somos 8 personas en total)</p>
+                    </div>
+
+                    <div style="margin-bottom:15px; border-bottom:1px solid #eee; padding-bottom:10px;">
+                        <strong style="color:#f97316; font-size:1.3rem;">[ 2 Taxis ]</strong>
+                        <p style="margin:5px 0 0 0; font-weight:bold; font-size:1.4rem;">タクシーを2台予約しました（各4人ずつ）。</p>
+                        <p style="margin:2px 0 0 0; color:#666; font-size:0.9rem;">(Hemos reservado 2 taxis, 4 personas en cada uno)</p>
+                    </div>
+
+                    <div style="margin-bottom:15px; border-bottom:1px solid #eee; padding-bottom:10px;">
+                        <strong style="color:#f97316; font-size:1.3rem;">[ Capacity ]</strong>
+                        <p style="margin:5px 0 0 0; font-weight:bold; font-size:1.4rem;">予約した車両は、1台あたり9名と荷物9個の定員です。</p>
+                        <p style="margin:2px 0 0 0; color:#666; font-size:0.9rem;">(Capacidad para 9 pax y 9 maletas por vehículo)</p>
+                    </div>
+
+                    <div style="background:#fff7ed; padding:15px; border-radius:12px; border:2px solid #fdba74;">
+                        <p style="margin:0; font-weight:bold; font-size:1.5rem; text-align:center;">
+                            このホテルまでお願いします。
+                        </p>
+                        <p style="margin:5px 0 0 0; color:#c2410c; font-size:0.9rem; text-align:center;">
+                            (Por favor, llévenos a este hotel)
+                        </p>
+                    </div>
+                </div>
+
+                <button onclick="document.getElementById('taxi-instructions-modal').style.display='none'" style="width:100%; margin-top:20px; background:#000; color:#fff; border:none; padding:15px; border-radius:10px; font-size:1.2rem; font-weight:bold; cursor:pointer;">
+                    Cerrar / 閉じる
+                </button>
+            </div>
+        `;
+        modal.innerHTML = contentHTML;
+        document.body.appendChild(modal);
+        
+        modal.onclick = function(e) {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        };
+    }
+    modal.style.display = 'block';
+};
+
 // Función auxiliar para obtener la mejor infografía disponible para un día
 window.getBestDayInfographic = function(data) {
     const infos = [];
@@ -1139,7 +1314,20 @@ function renderCenterVisual(data, mode, optData = null) {
     const subHeroText = titleMatch ? titleMatch[1] : data.title;
     const headerTitleHTML = '<div class="header-titles-center">' + (location ? '<h1 class="city-hero-title">' + location + '</h1>' : '') + '<p class="city-hero-subtitle">' + subHeroText + '</p>' + tacticalHeaderBtn + '</div>';
     const gastroRadarHTML = location ? '<div class="gastro-radar-wrapper"><button class="gastro-radar-btn pulse" onclick="renderRestaurantPanel(\'' + location + '\', ' + dayIdx + ')" title="Radar Gastronómico"><i class="fa-solid fa-utensils"></i></button><span class="gastro-radar-label">Radar Gastronómico</span></div>' : '';
-    const unifiedHeaderHTML = '<div class="excursion-page-header"><div class="header-infog-left">' + regionInfographicHTML + '</div><div class="header-title-container">' + headerTitleHTML + gastroRadarHTML + '</div><div class="header-infog-right">' + dayInfographicHTML + '</div><div class="header-hotel-container">' + hotelHTML + '</div><div class="header-icons-container">' + mapsSectionHTML + '</div></div>';
+    
+    let flightIconHTML = '';
+    if (data.day === 1) {
+        flightIconHTML = '<div class="gastro-radar-wrapper" style="margin-left: 20px;"><button class="gastro-radar-btn pulse" style="background: rgba(0, 243, 255, 0.15); border: 2px solid var(--neon-blue); color: var(--neon-blue); box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);" onclick="openFlightSeatingModal()" title="Distribución de Asientos Vuelos"><i class="fa-solid fa-plane"></i></button><span class="gastro-radar-label" style="color:var(--neon-blue);">Asientos Vuelo</span></div>';
+    }
+
+    let taxiIconHTML = '';
+    if (data.day === 2) {
+        taxiIconHTML = '<div class="gastro-radar-wrapper" style="margin-left: 20px;"><button class="gastro-radar-btn pulse" style="background: rgba(249, 115, 22, 0.15); border: 2px solid var(--accent); color: var(--accent); box-shadow: 0 0 15px rgba(249, 115, 22, 0.4);" onclick="openTaxiInstructionsModal()" title="Instrucciones Taxi"><i class="fa-solid fa-taxi"></i></button><span class="gastro-radar-label" style="color:var(--accent);">Info Taxi</span></div>';
+    }
+    
+    const iconsGroupHTML = '<div style="display:flex; justify-content:center; align-items:flex-start; margin-top:10px;">' + gastroRadarHTML + flightIconHTML + taxiIconHTML + '</div>';
+
+    const unifiedHeaderHTML = '<div class="excursion-page-header"><div class="header-infog-left">' + regionInfographicHTML + '</div><div class="header-title-container">' + headerTitleHTML + iconsGroupHTML + '</div><div class="header-infog-right">' + dayInfographicHTML + '</div><div class="header-hotel-container">' + hotelHTML + '</div><div class="header-icons-container">' + mapsSectionHTML + '</div></div>';
 
     const isExcursionMode = (mode === 'option' || mode === 'option-flexible' || mode === 'additional-excursions-list');
     if (isExcursionMode) document.body.classList.add('mode-excursion-active');
