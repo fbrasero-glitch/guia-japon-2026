@@ -690,7 +690,7 @@ function renderPreparationPage(data) {
                 <div style="color: var(--neon-blue); font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">
                     <i class="fa-solid fa-user-gear"></i> Misión de:
                 </div>
-                <div class="traveler-avatars-row" style="display: flex; gap: 6px;">
+                <div class="traveler-avatars-row" style="display: flex; gap: 6px; flex-wrap: wrap; justify-content: center;">
                     ${travelerAvatarsHTML}
                 </div>
             </div>

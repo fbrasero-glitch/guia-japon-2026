@@ -42,5 +42,7 @@ create policy "Permitir todo" on travel_checks for all using (true);
 ```
 
 ---
+SUPABASE_KEY = sb_publishable_2YmXljKcXIsAXTZ8_XG9SA_V2sniyXQ 
+SUPABASE_URL = https://bgnrjfanmheylutlroia.supabase.co
 
 ¡Listo! Una vez hecho esto y subido a Netlify, cualquier cambio que haga cualquiera se guardará en la nube y lo verán todos al instante.

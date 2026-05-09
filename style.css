@@ -208,6 +208,7 @@ body {
     /* Fondo premium Dark Zen para reemplazar el mapa */
     background: radial-gradient(circle at top center, rgba(0, 243, 255, 0.05) 0%, rgba(10, 14, 26, 1) 60%),
                 linear-gradient(to bottom, #0f172a 0%, #020617 100%);
+    overflow-x: hidden; /* Evitar desbordamiento lateral */
 }
 
 /* Overlay sutil para el video de portada */
@@ -3810,8 +3811,21 @@ body:not(.day-selected) .right-panel {
 
 /* Mobile Responsiveness */
 @media (max-width: 767px) {
+    .center-stage {
+        padding-left: var(--spacing-sm) !important;
+        padding-right: var(--spacing-sm) !important;
+    }
+
+    .visual-card {
+        padding: var(--spacing-xs) !important;
+    }
+
     .preparation-container {
-        padding: 5px; /* Reducido de 10px */
+        padding: 5px; /* Reducido */
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        overflow-x: hidden;
     }
 
     .preparation-title-row {
@@ -3909,6 +3923,15 @@ body:not(.day-selected) .right-panel {
 
     .booking-grid-v3 {
         grid-template-columns: 1fr !important;
+    }
+
+    /* Evitar que el control strip se desplace */
+    .traveler-control-strip {
+        width: 100% !important;
+        left: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-sizing: border-box;
     }
 }
 /* ==========================================
