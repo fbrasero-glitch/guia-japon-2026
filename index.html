@@ -19,8 +19,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="auth-hidden">
+    <!-- Overlay de Inicio de Sesión -->
+    <div id="login-overlay" class="login-overlay">
+        <div class="login-box">
+            <div class="login-logo">
+                <i class="fa-solid fa-torii-gate"></i>
+                <span>JAPÓN 2026</span>
+            </div>
+            <h2>Acceso al Centro de Mando</h2>
+            <p>Introduce las credenciales para continuar</p>
+            <form id="login-form" onsubmit="event.preventDefault(); window.checkLogin();">
+                <div class="input-group">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="username" placeholder="Usuario" required autocomplete="username">
+                </div>
+                <div class="input-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="password" placeholder="Contraseña" required autocomplete="current-password">
+                </div>
+                <button type="submit" class="login-btn">
+                    <span>INICIAR SESIÓN</span>
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                </button>
+                <div id="login-error" class="login-error" style="display: none;">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    <span>Credenciales incorrectas</span>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- Overlay para cerrar menú móvil -->
+
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
     <!-- Botón toggle para navegación móvil -->

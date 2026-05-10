@@ -1,4 +1,45 @@
 /* ==========================================
+   SISTEMA DE AUTENTICACIÓN (LOGIN)
+   ========================================== */
+window.checkLogin = function() {
+    const user = document.getElementById('username').value;
+    const pass = document.getElementById('password').value;
+    const errorMsg = document.getElementById('login-error');
+    
+    if (user === 'Family' && pass === 'Japan2026') {
+        localStorage.setItem('auth_session', 'authenticated_' + Date.now());
+        document.getElementById('login-overlay').classList.add('hidden');
+        document.body.classList.remove('auth-hidden');
+        console.log('Autenticación completada');
+    } else {
+        errorMsg.style.display = 'flex';
+        // Animación de error en la caja
+        const box = document.querySelector('.login-box');
+        box.style.animation = 'none';
+        box.offsetHeight; // trigger reflow
+        box.style.animation = 'shake 0.4s ease-in-out';
+    }
+};
+
+(function initAuth() {
+    // Comprobar sesión antes de que el DOM esté listo para evitar parpadeos si es posible
+    const session = localStorage.getItem('auth_session');
+    if (session) {
+        // Usar una clase en el HTML para ocultar/mostrar es más eficiente
+        document.documentElement.classList.add('is-authenticated');
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        const session = localStorage.getItem('auth_session');
+        if (session) {
+            const overlay = document.getElementById('login-overlay');
+            if (overlay) overlay.classList.add('hidden');
+            document.body.classList.remove('auth-hidden');
+        }
+    });
+})();
+
+/* ==========================================
    JAPÓN 2026 - GUÍA MAESTRA (TEXTO ÍNTEGRO)
    ========================================== */
 // --- MOTOR GRÁFICO ---
