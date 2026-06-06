@@ -7,6 +7,7 @@ const travelData_17_24 = [
     {
         day: 17, exactDate: "2026-08-12", type: "stay",
         date: "Mié, 12 Agosto", title: "🗼 Asakusa, Skytree y Akihabara",
+        routeMapsLink: "https://www.google.com/maps/d/u/0/edit?mid=1FjG4iziYaIpdzHrHjStsj1Ya6UIE09U&usp=sharing",
         coords: [35.710, 139.810], zoom: 13,
         hotel: "Hotel Metropolitan Edmont Tokyo",
         hotelImage: "images/hotel-metropolitan-tokio.jpg",
@@ -15,7 +16,8 @@ const travelData_17_24 = [
 
         logistics: [
             { title: "Transporte", text: "Tarjeta Suica/Pasmo en Apple Wallet para el metro. Línea Tozai desde Iidabashi." },
-            { title: "Multitudes", text: "🔥🔥🔥 ALTO. Madrugad para el Templo Senso-ji. Akihabara se llena por la tarde." },
+            { title: "Navegación", text: "En Asakusa, tomad la <strong>Salida 1 o 3</strong> (salida inmediata a la puerta Kaminarimon). En Akihabara, buscad siempre la <strong>Electric Town Exit</strong>." },
+            { title: "Grupo (8 Pax)", text: "En Akihabara es muy difícil sentar a 8 juntos a comer. Dividíos en 4+4 o id a la octava planta (8F) de restaurantes del macrocentro <em>Yodobashi Akiba</em>." },
             { title: "Reservas", text: "Si subís al Skytree, comprad el ticket online días antes para evitar colas de 1 hora." }
         ],
 
@@ -57,18 +59,28 @@ const travelData_17_24 = [
                 timeLabel: "20 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Tokyo+Skytree&destination=Akihabara+Station"
             },
-            { time: "16:30", type: "point", title: "Locura Akihabara (Electric Town)", icon: "fa-solid fa-gamepad" }
+            { time: "16:30", type: "point", title: "Locura Akihabara (Electric Town)", icon: "fa-solid fa-gamepad" },
+            {
+                time: "20:30",
+                type: "transit",
+                title: "Tren JR Sobu de vuelta al Hotel",
+                price: "Suica (~170 JPY)",
+                timeLabel: "15 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Akihabara+Station&destination=Hotel+Metropolitan+Edmont+Tokyo&travelmode=transit",
+                tacticalGuideId: "mission_tokyo_metro"
+            }
         ],
 
         timeline: [
             { time: "09:30", title: "Senso-ji", desc: "Templo antiguo y linterna roja Kaminarimon. (Base)" },
             { time: "11:30", title: "Río Sumida", desc: "Paseo fluvial con vistas al skyline. (Base)" },
             { time: "13:30", title: "Tokyo Skytree", desc: "Mirador de 634m o centro comercial Solamachi. (Base)" },
-            { time: "16:30", title: "Akihabara", desc: "Neon, anime, retro-gaming y compras otakus. (Base)" }
+            { time: "16:30", title: "Akihabara", desc: "Neon, anime, retro-gaming y compras otakus. (Base)" },
+            { time: "20:30", title: "Regreso al Hotel", desc: "Tren directo JR Sobu Line desde Akihabara a Iidabashi / Suidobashi y vuelta a pie. (Base)" }
         ],
 
         prices: {
-            transport: "Metro/Tren (~800 JPY/día)",
+            transport: "Metro/Tren (~960 JPY/día)",
             total: "Base +"
         },
 
@@ -84,6 +96,8 @@ const travelData_17_24 = [
                     description: "El templo budista más antiguo e importante de Tokio. Famoso por su gigantesca linterna roja.",
                     image: "images/dia17-sensoji.jpg",
                     price: "Gratis",
+                    link: "https://www.google.com/maps/search/?api=1&query=Sensoji+Temple",
+                    tacticalGuideId: "mission_sensoji",
                     fullDesc: `
                         <h3><i class="fa-solid fa-temple"></i> Templo Senso-ji: El Origen de Edo</h3>
                         <p>Fundado en el año 645, es el templo más antiguo de Tokio y el corazón espiritual de Asakusa. Su historia se remonta a una leyenda de dos hermanos pescadores que hallaron una estatua dorada de Kannon (la diosa de la misericordia) en el río Sumida. Tras cruzar la imponente <strong>Kaminarimon</strong> (Puerta del Trueno) con su linterna de 700 kg, caminaréis por <strong>Nakamise-dori</strong>, una calle comercial que ha servido a los peregrinos con dulces y artesanía desde el periodo Edo.</p>
@@ -101,6 +115,7 @@ const travelData_17_24 = [
                     description: "Paseo fotográfico espectacular contrastando barcos tradicionales y la torre Skytree.",
                     image: "images/dia17-sumida.jpg",
                     price: "Gratis",
+                    link: "https://www.google.com/maps/search/?api=1&query=Sumida+Park",
                     fullDesc: `
                         <h3><i class="fa-solid fa-water"></i> Vistas al Sumida</h3>
                         <p>Vistas espectaculares de la modernidad tokiota. A un lado el río con los cruceros futuristas (como el Hotaluna de Leiji Matsumoto) y al otro la torre de telecomunicaciones Tokyo Skytree (634m) junto al surrealista edificio de Asahi Beer coronado por la "flame d'or" (o como lo llaman cariñosamente: el truño dorado).</p>
@@ -114,6 +129,8 @@ const travelData_17_24 = [
                     description: "La estructura más alta de Japón (634m). Vistas que demuestran que Tokio no tiene fin.",
                     image: "images/dia17-skytree.jpg",
                     price: "Opcional 2.100 JPY",
+                    link: "https://www.google.com/maps/search/?api=1&query=Tokyo+Skytree",
+                    tacticalGuideId: "mission_skytree",
                     fullDesc: `
                         <h3><i class="fa-solid fa-tower-broadcast"></i> Tokyo Skytree: Superando las Nubes</h3>
                         <p>Con 634 metros, es la torre de comunicaciones más alta del mundo y un prodigio de la ingeniería antisísmica moderna. Su diseño exterior, de color "Blanco Skytree" (basado en el tinte tradicional japonés <em>aijiro</em>), fusiona la estética neofuturista con la belleza de las pagodas tradicionales de cinco pisos.</p>
@@ -127,6 +144,8 @@ const travelData_17_24 = [
                     description: "El paraíso geek. Edificios enteros de neón dedicados a un solo tema: cartas, robótica, retro-gaming o figuritas.",
                     image: "images/dia19-akihabara.jpg",
                     price: "Gratis / Gastos compras",
+                    link: "https://www.google.com/maps/search/?api=1&query=Akihabara+Electric+Town",
+                    tacticalGuideId: "mission_akihabara_intel",
                     fullDesc: `
                         <h3><i class="fa-solid fa-robot"></i> Akihabara: Ciudad Eléctrica</h3>
                         <p>Antiguamente el epicentro de la tecnología de postguerra, Akihabara ha evolucionado hasta convertirse en la capital mundial de la cultura otaku (anime, manga y videojuegos). Es un laberinto vertical de neón donde cada edificio oculta tesoros impensables.</p>
@@ -227,6 +246,7 @@ const travelData_17_24 = [
     {
         day: 18, exactDate: "2026-08-13", type: "stay",
         date: "Jue, 13 Agosto", title: "🚦 Shibuya y Harajuku",
+        routeMapsLink: "https://www.google.com/maps/d/u/0/edit?mid=17Irn8C87e8OPw81lsAfRCHaySqxO7kc&usp=sharing",
         coords: [35.659, 139.701], zoom: 13,
         hotel: "Hotel Metropolitan Edmont Tokyo",
         hotelImage: "images/hotel-metropolitan-tokio.jpg",
@@ -235,7 +255,8 @@ const travelData_17_24 = [
 
         logistics: [
             { title: "Transporte", text: "Línea central JR Chuo/Sobu desde Iidabashi hasta Yoyogi/Shinjuku, transbordo a JR Yamanote." },
-            { title: "Multitudes", text: "🔥🔥🔥🔥 MUY ALTO. Shibuya es el puro caos organizado; los domingos Takeshita (Harajuku) es intransitable." },
+            { title: "Navegación", text: "En Shibuya, es vital buscar y seguir los carteles hacia la <strong>Salida Hachiko (Hachiko Gate)</strong>. Es la salida directa al cruce y a la estatua del famoso perro. En Harajuku, salid por la <strong>Takeshita Exit</strong>." },
+            { title: "Grupo (8 Pax)", text: "En Shibuya, los locales pequeños de ramen/sushi no admiten grupos grandes. Una buena opción espacial para comer es la planta de restauración de los centros <em>Shibuya Stream</em> o <em>Shibuya Hikarie</em>." },
             { title: "Reservas", text: "Si queréis subir al mirador Shibuya Sky al atardecer, es IMPRESCINDIBLE reservar con semanas o meses de antelación en su web." }
         ],
 
@@ -268,14 +289,33 @@ const travelData_17_24 = [
                 timeLabel: "25 min a pie (con tiendas)",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Harajuku&destination=Shibuya+Crossing&travelmode=walking"
             },
-            { time: "15:00", type: "point", title: "Cruce de Shibuya y Hachiko", icon: "fa-solid fa-people-arrows" }
+            { time: "15:00", type: "point", title: "Cruce de Shibuya y Hachiko", icon: "fa-solid fa-people-arrows" },
+            {
+                time: "17:30",
+                type: "transit",
+                title: "Subida a Shibuya Sky",
+                price: "~2.200 JPY",
+                timeLabel: "En hora de reserva",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Shibuya+Crossing&destination=Shibuya+Sky",
+                tacticalGuideId: "mission_shibuya_sky"
+            },
+            {
+                time: "20:30",
+                type: "transit",
+                title: "Tren JR Yamanote/Sobu de vuelta al Hotel",
+                price: "Suica (~170 JPY)",
+                timeLabel: "25 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Shibuya+Station&destination=Hotel+Metropolitan+Edmont+Tokyo&travelmode=transit",
+                tacticalGuideId: "mission_yamanote"
+            }
         ],
 
         timeline: [
             { time: "09:45", title: "Santuario Meiji", desc: "El gran bosque sintoísta en medio de la ciudad. (Base)" },
             { time: "11:30", title: "Harajuku opcional", desc: "Takeshita Dori: crepes y cultura kawai. (Complemento)" },
             { time: "15:00", title: "Shibuya Crossing", desc: "El legendario cruce a nivel del suelo. (Base)" },
-            { time: "18:00", title: "Shibuya Sky", desc: "Mirador espectacular abierto. (Complemento recomendado)" }
+            { time: "17:30", title: "Shibuya Sky", desc: "Mirador espectacular abierto. (Complemento recomendado)" },
+            { time: "20:30", title: "Regreso al Hotel", desc: "Tren directo JR Yamanote + JR Sobu Line a Iidabashi y vuelta a pie. (Base)" }
         ],
 
         prices: {
@@ -296,6 +336,7 @@ const travelData_17_24 = [
                     image: "images/dia18-meiji.jpg",
                     price: "Gratis",
                     video: "https://www.youtube.com/watch?v=VN_Kk0KWAvk",
+                    tacticalGuideId: "mission_meiji_jingu",
                     fullDesc: `
                         <h3><i class="fa-solid fa-tree"></i> Meiji Jingu: Un Bosque Sagrado</h3>
                         <p>Dedicado a las almas del Emperador Meiji y la Emperatriz Shoken, este santuario es un remanso de paz absoluta en el corazón de la urbe. Tras cruzar los inmensos Torii de madera de cedro de 1.500 años de antigüedad, caminaréis por un bosque artificial de 70 hectáreas compuesto por 100.000 árboles donados por todo Japón cuando se fundó el santuario en 1920.</p>
@@ -359,6 +400,7 @@ const travelData_17_24 = [
                 description: "El epicentro de la moda adolescente, locura kawaii y el azúcar concentrado.",
                 price: "Gratis",
                 image: "images/dia18-harajuku.jpg",
+                tacticalGuideId: "mission_harajuku_takeshita",
                 fullDesc: `
                     <h3><i class="fa-solid fa-ice-cream"></i> Locura Estudiantil Pop</h3>
                     <p>Solo 400 metros de calle, pero extremadamente densa. Veréis tiendas que venden moda lolita gotica punk, enormes tiendas Daiso de todo a 100 yenes y colas larguísimas para probar crepes hiper calóricas dobladas a rebosar de fresas y nata o algodon de azúcar arcoíris tamaño XXL.</p>
@@ -383,6 +425,7 @@ const travelData_17_24 = [
     {
         day: 19, exactDate: "2026-08-14", type: "stay",
         date: "Vie, 14 Agosto", title: "🌊 TeamLab y Odaiba",
+        routeMapsLink: "https://www.google.com/maps/d/u/0/edit?mid=1kg_iDGN0oSUuNgVSxmzmvuec42AaR_A&usp=sharing",
         coords: [35.630, 139.776], zoom: 13,
         hotel: "Hotel Metropolitan Edmont Tokyo",
         hotelImage: "images/hotel-metropolitan-tokio.jpg",
@@ -390,8 +433,9 @@ const travelData_17_24 = [
         image: "images/teamlab.png",
 
         logistics: [
-            { title: "Transporte", text: "Metro hacia Shimbashi. Allí se pilla el famoso tren Yurikamome (No entra en el pase regular de metro)." },
-            { title: "Multitudes", text: "🔥🔥🔥 ALTO. Los fines de semana la isla artificial de Odaiba se llena de familias japonesas." },
+            { title: "Transporte", text: "Metro hacia Shimbashi. Allí se pilla el famoso tren Yurikamome (No entra en el pase de metro regular)." },
+            { title: "Navegación", text: "En Shimbashi, para hacer transbordo al Yurikamome, salid del metro y seguid los carteles hacia la estación elevada del Yurikamome (3 min a pie)." },
+            { title: "Grupo (8 Pax)", text: "En Odaiba, los centros comerciales <em>Aqua City</em> y <em>DiverCity</em> tienen enormes zonas de comida (food courts) ideales para almorzar juntos sin esperas largas." },
             { title: "Ropa (TeamLab)", text: "En Planets entraréis descalzos y caminaréis sobre agua por la rodilla. Llevad pantalones que se puedan remangar fácilmente." }
         ],
 
@@ -424,13 +468,23 @@ const travelData_17_24 = [
                 timeLabel: "10 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Shin-Toyosu&destination=Daiba+Station"
             },
-            { time: "12:15", type: "point", title: "Estatua Libertad y Gundam", icon: "fa-solid fa-robot" }
+            { time: "12:15", type: "point", title: "Estatua Libertad y Gundam", icon: "fa-solid fa-robot" },
+            {
+                time: "21:00",
+                type: "transit",
+                title: "Yurikamome y Metro Oedo de vuelta al Hotel",
+                price: "Suica (~550 JPY)",
+                timeLabel: "35 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Daiba+Station&destination=Hotel+Metropolitan+Edmont+Tokyo&travelmode=transit",
+                tacticalGuideId: "mission_tokyo_metro"
+            }
         ],
 
         timeline: [
             { time: "09:30", title: "TeamLab Planets", desc: "Arte digital hiper inmersivo. (Complemento muy recomendado)" },
             { time: "11:30", title: "Tren Yurikamome", desc: "Vistas panorámicas de la bahía y el Rainbow Bridge. (Base)" },
-            { time: "12:15", title: "Odaiba Seaside", desc: "Centros comerciales, Gundam gigante y Liberty. (Base)" }
+            { time: "12:15", title: "Odaiba Seaside", desc: "Centros comerciales, Gundam gigante y Liberty. (Base)" },
+            { time: "21:00", title: "Regreso al Hotel", desc: "Yurikamome hasta Shiodome, transbordo a línea Oedo directo a Iidabashi y vuelta a pie. (Base)" }
         ],
 
         prices: {
@@ -451,6 +505,7 @@ const travelData_17_24 = [
                     image: "images/dia20-monorail.jpg",
                     price: "Suica/Pasmo",
                     video: "https://www.youtube.com/watch?v=7iSOMLkFizU",
+                    tacticalGuideId: "mission_yurikamome",
                     fullDesc: `
                         <h3><i class="fa-solid fa-train"></i> Yurikamome: El Viaje al Futuro</h3>
                         <p>Este sistema de tránsito ligero totalmente automatizado (sin conductor) es el mejor mirador móvil de Tokio. Recibe su nombre de la gaviota de cabeza negra, el ave oficial de la capital.</p>
@@ -538,6 +593,7 @@ const travelData_17_24 = [
     {
         day: 20, type: "stay",
         date: "Sáb, 15 Agosto", title: "🍃 Ueno, Yanaka y Nakano",
+        routeMapsLink: "https://www.google.com/maps/d/u/0/edit?mid=1fkPljMz08YCwqbQzsl_JxZTVOlEzX6U&usp=sharing",
         coords: [35.711, 139.773], zoom: 12,
         hotel: "Hotel Metropolitan Edmont Tokyo",
         hotelImage: "images/hotel-metropolitan-tokio.jpg",
@@ -546,8 +602,9 @@ const travelData_17_24 = [
 
         logistics: [
             { title: "Transporte", text: "Día completo de moverse en tren. JR Yamanote es la clave para conectar todo." },
-            { title: "Horarios", text: "Ameyoko y Yanaka cierran sus puestos pronto (sobre las 18:00). Nakano Broadway abre a las 11:00." },
-            { title: "Multitudes", text: "🔥🔥 ALTO. Ueno el sábado por la mañana rebosa de gente." }
+            { title: "Navegación", text: "En Ueno, tomad la <strong>Shinobazu Exit</strong> para ir al estanque/parque. En Nakano, salid por la <strong>North Exit</strong> y seguid todo recto por el Sun Mall cubierto hasta Nakano Broadway." },
+            { title: "Transición Este-Oeste", text: "A las 15:00 nos desplazaremos del extremo este de Tokio (Nippori) al oeste (Nakano). Son unos 30 min de tren: aprovechad el trayecto en la línea Yamanote/Chuo para sentaros y descansar." },
+            { title: "Horarios", text: "Ameyoko y Yanaka cierran sus puestos pronto (sobre las 18:00). Nakano Broadway abre a las 11:00." }
         ],
 
         transportTimeline: [
@@ -558,7 +615,8 @@ const travelData_17_24 = [
                 title: "Tren hacia Ueno (vía Akihabara/Ochanomizu)",
                 price: "Suica (~160 JPY)",
                 timeLabel: "15 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Metropolitan+Edmont+Tokyo&destination=Ueno+Station&travelmode=transit"
+                link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Metropolitan+Edmont+Tokyo&destination=Ueno+Station&travelmode=transit",
+                tacticalGuideId: "mission_tokyo_metro"
             },
             { time: "09:30", type: "point", title: "Parque Ueno y Estanque Shinobazu", icon: "fa-solid fa-tree" },
             {
@@ -584,16 +642,26 @@ const travelData_17_24 = [
                 title: "Tren JR hacia Nakano (vía Shinjuku)",
                 price: "Suica (~220 JPY)",
                 timeLabel: "25 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Nippori+Station&destination=Nakano+Station&travelmode=transit"
+                link: "https://www.google.com/maps/dir/?api=1&origin=Nippori+Station&destination=Nakano+Station&travelmode=transit",
+                tacticalGuideId: "mission_nakano_broadway"
             },
-            { time: "15:30", type: "point", title: "Nakano Broadway", icon: "fa-solid fa-box-open" }
+            { time: "15:30", type: "point", title: "Nakano Broadway", icon: "fa-solid fa-box-open" },
+            {
+                time: "20:00",
+                type: "transit",
+                title: "Tren JR Chuo-Sobu de vuelta al Hotel",
+                price: "Suica (~180 JPY)",
+                timeLabel: "16 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Nakano+Station&destination=Hotel+Metropolitan+Edmont+Tokyo&travelmode=transit"
+            }
         ],
 
         timeline: [
             { time: "09:30", title: "Parque Ueno", desc: "El gran parque cultural y el templo flotante. (Base)" },
             { time: "11:00", title: "Mercado Ameyoko", desc: "Mercado negro postguerra bullicioso. (Base)" },
             { time: "13:00", title: "Yanaka Ginza", desc: "Barrio gato de la época Showa. Almuerzo callejero. (Base)" },
-            { time: "15:30", title: "Nakano Broadway", desc: "Coleccionismo retro y figuras. (Complemento recomendado)" }
+            { time: "15:30", title: "Nakano Broadway", desc: "Coleccionismo retro y figuras. (Complemento recomendado)" },
+            { time: "20:00", title: "Regreso al Hotel", desc: "Tren directo línea JR Chuo-Sobu desde Nakano a Iidabashi y vuelta a pie. (Base)" }
         ],
 
         prices: {
@@ -614,6 +682,7 @@ const travelData_17_24 = [
                     image: "images/dia20-itinerario-base-2.jpg",
                     price: "Gratis",
                     video: "https://www.youtube.com/watch?v=bgC0Vno1wJo",
+                    tacticalGuideId: "mission_ueno_park",
                     fullDesc: `
                         <h3><i class="fa-solid fa-leaf"></i> Parque Ueno: El Corazón Cultural</h3>
                         <p>Este inmenso parque fue antiguamente el recinto del templo Kan'ei-ji, uno de los más poderosos de la ciudad, destruido durante la guerra civil Boshin. Hoy es un epicentro cultural que alberga los mejores museos del país y el famoso zoológico de Ueno.</p>
@@ -640,6 +709,7 @@ const travelData_17_24 = [
                     description: "Escapando de la guerra y los terremotos, este barrio mantiene la madera y escala de los años 50.",
                     image: "images/dia20-museo-nacional-tokio.jpg",
                     price: "Gratis",
+                    tacticalGuideId: "mission_yanaka_ginza",
                     fullDesc: `
                         <h3><i class="fa-solid fa-cat"></i> Yanaka Ginza: El Tokio de Ayer</h3>
                         <p>Yanaka es uno de los pocos barrios que sobrevivió a los bombardeos de la guerra y a los terremotos, manteniendo la escala y el encanto de la era Showa (mediados del siglo XX). Es conocido como el "Barrio de los Gatos" por la abundancia de felinos y figuritas decorativas de estos animales.</p>
@@ -667,7 +737,7 @@ const travelData_17_24 = [
                         time: "Tarde",
                         description: "Tomar la línea Yamanote a Shinjuku, y cambiar a JR Chuo (Express a Nakano).",
                         link: "https://www.google.com/maps/dir/?api=1&origin=Nippori+Station&destination=Nakano+Station",
-                        tacticalGuideId: "mission_nakano_jr"
+                        tacticalGuideId: "mission_nakano_broadway"
                     }
                 ]
             },
@@ -690,6 +760,7 @@ const travelData_17_24 = [
     {
         day: 21, type: "stay",
         date: "Dom, 16 Agosto", title: "🌳 Nikko Tokugawa o Kamakura Buda",
+        routeMapsLink: "https://www.google.com/maps/d/u/0/edit?mid=1vuFv-5ls7ufVz95wbi7kzbdTVhwXPLU&usp=sharing",
         coords: [36.758, 139.598], zoom: 10,
         hotel: "Hotel Metropolitan Edmont Tokyo",
         hotelImage: "images/hotel-metropolitan-tokio.jpg",
@@ -698,6 +769,8 @@ const travelData_17_24 = [
 
         logistics: [
             { title: "Decisión Fuerte", text: "Es domingo y tendréis que madrugar mucho para evitar muchedumbres en los trenes. Decidid entre la montaña dorada (Nikko) o la costa budista (Kamakura)." },
+            { title: "Navegación", text: "En Nikko, al salir de la estación tomad de inmediato los buses turísticos (Tobu Buses). En Kamakura, salid por la <strong>East Exit</strong> para entrar directo a la calle comercial Komachi-dori." },
+            { title: "Grupo (8 Pax)", text: "Al ser domingo, ambos destinos se masifican. Es clave comer muy temprano (11:30) o dividirse, ya que las casas de comidas tradicionales de Nikko y Kamakura son minúsculas." },
             { title: "Transporte Nikko", text: "Nikko requiere el JR Pass o el pase Tobu (caro de pagar suelto), 2 horas de trayecto en tren Shinkansen/Exprés." },
             { title: "Transporte Kamakura", text: "Kamakura está a 1h directo desde Shinjuku pagando solo 950 JPY con Suica." }
         ],
@@ -711,7 +784,7 @@ const travelData_17_24 = [
                 price: "JR Pass o ~5.500 JPY",
                 timeLabel: "2h",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Tokyo+Station&destination=Nikko+Station&travelmode=transit",
-                tacticalGuideId: "mission_nikko_jr"
+                tacticalGuideId: "mission_nikko_transfer"
             },
             {
                 time: "08:30",
@@ -720,14 +793,33 @@ const travelData_17_24 = [
                 price: "Suica (~1.000 JPY)",
                 timeLabel: "1h 15min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Shinjuku+Station&destination=Kamakura+Station&travelmode=transit",
-                tacticalGuideId: "mission_kamakura_jr"
+                tacticalGuideId: "mission_kamakura_transfer"
+            },
+            {
+                time: "18:30",
+                type: "transit",
+                title: "Retorno Opción A: Trenes de vuelta desde Nikko",
+                price: "JR Pass o ~5.500 JPY",
+                timeLabel: "2h",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Nikko+Station&destination=Hotel+Metropolitan+Edmont+Tokyo&travelmode=transit",
+                tacticalGuideId: "mission_nikko_transfer"
+            },
+            {
+                time: "19:00",
+                type: "transit",
+                title: "Retorno Opción B: Tren JR de vuelta desde Kamakura",
+                price: "Suica (~1.000 JPY)",
+                timeLabel: "1h 15min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Kamakura+Station&destination=Hotel+Metropolitan+Edmont+Tokyo&travelmode=transit",
+                tacticalGuideId: "mission_kamakura_transfer"
             }
         ],
 
         timeline: [
             { time: "10:30", title: "Llegada Destino", desc: "Inicio de la exploración elegida. (Base)" },
             { time: "11:00", title: "Toshogu (Nikko) o Daibutsu (Kamakura)", desc: "Monumentos principales de cada ruta. (Base)" },
-            { time: "13:30", title: "Almuerzo local", desc: "Comer en las callejuelas. (Base)" }
+            { time: "13:30", title: "Almuerzo local", desc: "Comer en las callejuelas. (Base)" },
+            { time: "19:00", title: "Regreso al Hotel", desc: "Regreso desde Nikko (18:30) o Kamakura (19:00) hacia Iidabashi. (Base)" }
         ],
 
         prices: {
@@ -748,6 +840,7 @@ const travelData_17_24 = [
                     image: "images/dia21-nikko.jpg",
                     price: "Santuarios ~1.300 JPY",
                     video: "https://www.youtube.com/watch?v=XGDPWTPx_JM",
+                    tacticalGuideId: "mission_toshogu",
                     fullDesc: `
                         <h3><i class="fa-solid fa-leaf"></i> Nikko: La Morada de los Shogunes</h3>
                         <p>Nikko es Patrimonio de la Humanidad por la UNESCO y un lugar donde la arquitectura japonesa alcanza su máximo esplendor decorativo. El complejo **Toshogu**, mausoleo del gran shogun Tokugawa Ieyasu, rompe con la sobriedad budista habitual mostrando tallas intrincadas, pan de oro y colores vibrantes en medio de un bosque de cedros milenarios.</p>
@@ -762,6 +855,7 @@ const travelData_17_24 = [
                     image: "images/kamakura_buda.png",
                     price: "Templos ~300-400 JPY",
                     video: "https://www.youtube.com/watch?v=3a7hEF16KpA",
+                    tacticalGuideId: "mission_daibutsu",
                     fullDesc: `
                         <h3><i class="fa-solid fa-om"></i> Kamakura: El Gran Buda del Mar</h3>
                         <p>Kamakura fue la capital política de Japón en el siglo XII y hoy es una ciudad costera llena de templos zen y una vibra relajada. Su icono es el **Daibutsu** del templo Kotoku-in, una estatua de bronce de 13 metros que ha resistido terremotos y tsunamis desde 1252.</p>
@@ -778,6 +872,7 @@ const travelData_17_24 = [
                 description: "Tomar el tranvía Enoden a la isla de santuarios y cuevas marinas.",
                 price: "Tren (260 JPY)",
                 image: "images/dia22-enoshima.jpg",
+                tacticalGuideId: "mission_enoshima_link",
                 fullDesc: `
                     <h3><i class="fa-solid fa-water"></i> Vistas al Fuji</h3>
                     <p>Una pequeña isla rocosa en el mar de Sagami conectada por un puente. Escaleras infernales (o de pago mecánicas) os llevarán a la cima iluminada al atardecer lleno de gatos, pescadores y templos budistas. Si hace un frente claro espectacular, podréis ver el monte Fuji asomar detrás del mar.</p>
@@ -848,6 +943,7 @@ const travelData_17_24 = [
     {
         day: 22, type: "stay",
         date: "Lun, 17 Agosto", title: "🏙️ Toyosu, Ginza y Roppongi",
+        routeMapsLink: "https://www.google.com/maps/d/u/0/edit?mid=1S0HOcGX89z-4ovHAdNPIx1V1dEeTIB0&usp=sharing",
         coords: [35.671, 139.765], zoom: 12,
         hotel: "Hotel Metropolitan Edmont Tokyo",
         hotelImage: "images/hotel-metropolitan-tokio.jpg",
@@ -856,6 +952,8 @@ const travelData_17_24 = [
 
         logistics: [
             { title: "Transporte", text: "Día de metros por la zona céntrica y bahía exterior de Tokio." },
+            { title: "Navegación", text: "En Ginza, tomad la <strong>A13 Exit</strong> para salir directo a Chuo-dori (avenida principal). En Roppongi, buscad la <strong>Exit 1C</strong> que conecta de forma subterránea directa con Roppongi Hills." },
+            { title: "Grupo (8 Pax)", text: "En Ginza es difícil comer en mesa única. Probad en los restaurantes del centro comercial <em>Ginza Six</em> o las plantas altas del <em>Tokyu Plaza Ginza</em>." },
             { title: "Vestimenta", text: "En Ginza y Roppongi impera la formalidad y el lujo, vestid casual-elegante." }
         ],
 
@@ -867,7 +965,8 @@ const travelData_17_24 = [
                 title: "Metro a Toyosu",
                 price: "Suica",
                 timeLabel: "30 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Metropolitan+Edmont+Tokyo&destination=Toyosu+Market&travelmode=transit"
+                link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Metropolitan+Edmont+Tokyo&destination=Toyosu+Market&travelmode=transit",
+                tacticalGuideId: "mission_toyosu_market"
             },
             { time: "08:45", type: "point", title: "Toyosu Market / Senkyaku Banrai", icon: "fa-solid fa-fish" },
             {
@@ -876,7 +975,8 @@ const travelData_17_24 = [
                 title: "Bus o Yurikamome a Ginza",
                 price: "Suica",
                 timeLabel: "20 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Toyosu&destination=Ginza&travelmode=transit"
+                link: "https://www.google.com/maps/dir/?api=1&origin=Toyosu&destination=Ginza&travelmode=transit",
+                tacticalGuideId: "mission_ginza_walk"
             },
             { time: "12:30", type: "point", title: "Ginza Luxury (Milla de Oro)", icon: "fa-solid fa-gem" },
             {
@@ -885,15 +985,25 @@ const travelData_17_24 = [
                 title: "Metro Hibiya/Oedo a Roppongi",
                 price: "Suica (~180 JPY)",
                 timeLabel: "15 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Ginza+Station&destination=Roppongi+Station&travelmode=transit"
+                link: "https://www.google.com/maps/dir/?api=1&origin=Ginza+Station&destination=Roppongi+Station&travelmode=transit",
+                tacticalGuideId: "mission_roppongi_hills"
             },
-            { time: "16:15", type: "point", title: "Roppongi Hills y vistas Torre Tokyo", icon: "fa-solid fa-city" }
+            { time: "16:15", type: "point", title: "Roppongi Hills y vistas Torre Tokyo", icon: "fa-solid fa-city" },
+            {
+                time: "20:30",
+                type: "transit",
+                title: "Metro Oedo Line de vuelta al Hotel",
+                price: "Suica (~220 JPY)",
+                timeLabel: "14 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Roppongi+Station&destination=Hotel+Metropolitan+Edmont+Tokyo&travelmode=transit"
+            }
         ],
 
         timeline: [
             { time: "08:45", title: "Toyosu Market", desc: "La nueva lonja de pescado y baños termales. (Base)" },
             { time: "12:30", title: "Ginza", desc: "Lujo, arquitectura y comida top. (Base)" },
-            { time: "16:15", title: "Roppongi", desc: "Vida nocturna expat y la icónica Torre de Tokio roja. (Base)" }
+            { time: "16:15", title: "Roppongi", desc: "Vida nocturna expat y la icónica Torre de Tokio roja. (Base)" },
+            { time: "20:30", title: "Regreso al Hotel", desc: "Metro directo línea Oedo desde Roppongi a Iidabashi y vuelta a pie. (Base)" }
         ],
 
         prices: {
@@ -914,6 +1024,7 @@ const travelData_17_24 = [
                     image: "images/dia22-toyosu.jpg",
                     price: "Gratis",
                     video: "https://www.youtube.com/watch?v=dpPnum86GoA",
+                    tacticalGuideId: "mission_toyosu_market",
                     fullDesc: `
                         <h3><i class="fa-solid fa-fish-fins"></i> Toyosu: El Nuevo Legado del Mar</h3>
                         <p>Tras el cierre del icónico Tsukiji, Toyosu se ha convertido en la lonja de pescado más avanzada del mundo. Aunque el área mayorista es de acceso restringido y muy tecnológica, el nuevo complejo **Senkyaku Banrai** ("Mil Huéspedes") recrea un animado mercado del periodo Edo con arquitectura de madera tradicional.</p>
@@ -927,6 +1038,7 @@ const travelData_17_24 = [
                     description: "La zona más elitista comercial de todo el país. Flagships imponentes, boutiques de diseño y restaurantes de estrellas michelin ocultos en rascacielos.",
                     image: "images/dia22-teatro-kabuki-za.jpg",
                     price: "Gratis",
+                    tacticalGuideId: "mission_ginza_walk",
                     fullDesc: `
                         <h3><i class="fa-solid fa-gem"></i> Ginza: La Milla de Diamantes</h3>
                         <p>Elegancia pura extrema. Aparte de las flagship stores de alta costura, merece la pena entrar al macro complejo de marcas **Ginza Six** con sus espectaculares bóvedas artísticas interiores, o los showrooms experimentales de grandes marcas tecnológicas japonesas como Nissan Crossing o Sony.</p>
@@ -940,6 +1052,7 @@ const travelData_17_24 = [
                     description: "El complejo futurista expat coronado con vistas a la torre de comunicaciones roja clásica.",
                     image: "images/dia22-roppongi.jpg",
                     price: "Gratis visual",
+                    tacticalGuideId: "mission_roppongi_hills",
                     fullDesc: `
                         <h3><i class="fa-solid fa-martini-glass"></i> Roppongi: Noches de Torre Roja</h3>
                         <p>Roppongi es un barrio transformado: del desenfreno militar al hub de arte y diseño de cristal con ambiente multicultural de millonarios expatriados. Caminar por el complejo **Roppongi Hills** cruzando con la gran escultura de la araña de Louise Bourgeois (Maman). Destaca acercarse caminando a la zona del templo Zojoji o la base de la Tokyo Tower, una increíble estructura de celosía naranja y blanca (copia modernizada de la torre Eiffel de Francia) que se enciende rotundamente al caer la noche destacando sobre los rascacielos sombríos.</p>
@@ -987,7 +1100,8 @@ const travelData_17_24 = [
 
         logistics: [
             { title: "Aeropuerto", text: "Vuelo TK199 desde Haneda (HND) a las 21:45. Hay que estar 4 horas antes por precaución (17:45)." },
-            { title: "Equipaje", text: "Haced el Check-out a las 10:00 pero pedid en recepción que os guarden las maletas grandes hasta la tarde." }
+            { title: "Reserva de Taxis", text: "<strong>CRÍTICO:</strong> Reservad dos taxis tipo furgoneta (Vans) en la recepción del hotel con 24h de antelación (el Día 22 por la mañana) para garantizar sitio para 8 personas y 8 maletas grandes a las 16:30." },
+            { title: "Equipaje", text: "Haced el Check-out a las 10:00 pero pedid en recepción que os guarden las maletas grandes hasta la tarde de forma gratuita." }
         ],
 
         transportTimeline: [
@@ -1001,7 +1115,7 @@ const travelData_17_24 = [
                 price: "Efectivo/Tarjeta (~8.000 JPY por taxi)",
                 timeLabel: "45 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Metropolitan+Edmont+Tokyo&destination=Haneda+Airport",
-                tacticalGuideId: "mission_haneda",
+                tacticalGuideId: "mission_haneda_transfer",
                 desc: "IMPORTANTE: Reservar 24h antes en recepción del hotel. Pedir taxis tipo 'Van' o furgoneta para 8 pax + 8 maletas."
             },
             { time: "17:45", type: "point", title: "Llegada a Terminal / Check-in", icon: "fa-solid fa-plane-arrival" },

@@ -858,6 +858,8 @@ function renderCenterVisual(data, mode, optData = null) {
             let extraAction = '';
             if (hotelName.includes('Dc桜の苑') || hotelName.includes('Dc Sakura')) {
                 extraAction = `onclick="window.showHotelMessage()" style="cursor:pointer; text-decoration: underline; text-decoration-color: var(--accent); color: var(--gold);" title="Ver Instrucciones de Check-in"`;
+            } else if (hotelName.includes('Kazeya')) {
+                extraAction = `onclick="window.showKazeyaMessage()" style="cursor:pointer; text-decoration: underline; text-decoration-color: var(--gold); color: var(--gold);" title="Ver Reservas e Info del Ryokan"`;
             }
 
             hotelHTML = `
@@ -1069,8 +1071,10 @@ function renderCenterVisual(data, mode, optData = null) {
                     </a> ` : '';
 
                 let extraAction = '';
-                if (hotelName.includes('Dc桜の苑') || hotelName.includes('Dc Sakura')) {
+                if (hotelName.includes('Dc桜 de Nishi') || hotelName.includes('Dc桜 de Nishi') || hotelName.includes('Dc桜の苑') || hotelName.includes('Dc Sakura')) {
                     extraAction = `onclick="window.showHotelMessage()" style="cursor:pointer; text-decoration: underline; text-decoration-color: var(--accent); color: var(--gold);" title="Ver Instrucciones de Check-in"`;
+                } else if (hotelName.includes('Kazeya')) {
+                    extraAction = `onclick="window.showKazeyaMessage()" style="cursor:pointer; text-decoration: underline; text-decoration-color: var(--gold); color: var(--gold);" title="Ver Reservas e Info del Ryokan"`;
                 }
 
                 hotelHTML = `

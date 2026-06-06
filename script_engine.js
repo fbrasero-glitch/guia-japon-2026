@@ -118,6 +118,19 @@ window.renderBookingBadge = function (booking, dayIndex) {
     `;
 };
 
+// Helper function to extract query parameters from URLs
+function getQueryParam(url, param) {
+    if (!url) return null;
+    try {
+        const match = url.match(new RegExp('[?&]' + param + '=([^&#]*)'));
+        return match ? decodeURIComponent(match[1].replace(/\+/g, ' ')) : null;
+    } catch(e) {
+        return null;
+    }
+}
+
+
+
 // Función para extraer el lugar principal del hotel donde se duerme esa noche
 function getLocation(data) {
     // Caso especial: Día 11 es Kazeya Ryokan
@@ -1185,6 +1198,39 @@ window.getSmartAlertsHTML = function (data, dayIndex) {
     return alertsHTML;
 };
 
+window.decorateTransitTitle = function(title) {
+    let decorated = title;
+    
+    // Define lines to replace
+    const lines = [
+        { key: "JR Yamanote", name: "JR Yamanote", code: "JY", bg: "#80c241", color: "#fff" },
+        { key: "Yamanote", name: "JR Yamanote", code: "JY", bg: "#80c241", color: "#fff" },
+        { key: "Metro Tozai", name: "Tozai Line", code: "T", bg: "#0095d9", color: "#fff" },
+        { key: "Línea Tozai", name: "Tozai Line", code: "T", bg: "#0095d9", color: "#fff" },
+        { key: "Ginza a", name: "Ginza Line", code: "G", bg: "#ff9500", color: "#fff" },
+        { key: "Metro Ginza", name: "Ginza Line", code: "G", bg: "#ff9500", color: "#fff" },
+        { key: "Yurikamome", name: "Yurikamome", code: "U", bg: "#004098", color: "#fff" },
+        { key: "Metro Hibiya", name: "Hibiya Line", code: "H", bg: "#999999", color: "#fff" },
+        { key: "Oedo a", name: "Oedo Line", code: "E", bg: "#b6007a", color: "#fff" },
+        { key: "JR Sobu", name: "JR Sobu", code: "JB", bg: "#ffd400", color: "#000" },
+        { key: "JR Chuo", name: "JR Chuo", code: "JC", bg: "#f15a22", color: "#fff" }
+    ];
+    
+    let badgesHTML = '';
+    let matchedKeys = [];
+    
+    lines.forEach(line => {
+        if (title.toLowerCase().includes(line.key.toLowerCase()) && !matchedKeys.includes(line.code)) {
+            badgesHTML += `<span style="background:${line.bg}; color:${line.color}; padding:2px 6px; border-radius:4px; font-size:0.75rem; font-weight:bold; font-family:monospace; margin-right:5px; display:inline-block; vertical-align:middle; border:1px solid rgba(255,255,255,0.15); box-shadow:0 2px 4px rgba(0,0,0,0.3);">${line.code}</span>`;
+            matchedKeys.push(line.code);
+        }
+    });
+    
+    if (badgesHTML) {
+        return `<div style="display:flex; align-items:center; gap:5px; flex-wrap:wrap;">${badgesHTML}<span style="vertical-align:middle;">${title}</span></div>`;
+    }
+    return title;
+};
 
 // Reconstructed clean functions for script_engine.js
 function renderRightPanel(data) {
@@ -1222,7 +1268,7 @@ function renderRightPanel(data) {
             if (item.type === 'point') {
                 html += '<div class="transport-point" style="display:flex; align-items:center; margin-bottom:10px;"><span style="color:var(--neon-blue); font-weight:bold; min-width:55px; font-family:monospace;">' + item.time + '</span><div style="background:rgba(255,255,255,0.1); padding:8px 12px; border-radius:8px; display:flex; align-items:center; flex:1;"><i class="' + item.icon + '" style="color:var(--gold); margin-right:10px;"></i><span style="color:#f0f0f0;">' + item.title + '</span></div></div>';
             } else if (item.type === 'transit') {
-                html += '<div class="transport-transit" style="margin-left:75px; padding:10px 0; border-left:2px dashed rgba(255,255,255,0.2); position:relative; margin-bottom:15px;"><i class="fa-solid fa-arrow-down" style="position:absolute; left:-7px; top:40%; font-size:0.8rem; color:rgba(255,255,255,0.3);"></i><div style="padding-left:15px;"><div style="color:var(--accent); font-size:0.9rem; font-weight:bold; margin-bottom:5px;">' + item.title + '</div><div style="display:flex; gap:15px; align-items:center; margin-bottom:10px;"><div style="color:var(--gold); font-size:0.85rem; font-weight:bold;">' + item.price + '</div>' + (item.timeLabel ? '<div style="color:rgba(255,255,255,0.5); font-size:0.8rem; font-style:italic;">' + item.timeLabel + '</div>' : '') + '</div><div style="display:flex; gap:8px;">' + (item.link ? '<a href="' + item.link + '" target="_blank" class="tactical-btn" style="flex:1; text-align:center; padding:5px; font-size:0.7rem; border-radius:4px; text-decoration:none; background:rgba(0,243,255,0.1); border:1px solid var(--neon-blue); color:var(--neon-blue); font-weight:bold; display:flex; align-items:center; justify-content:center; gap:5px;"><i class="fa-solid fa-map-location-dot"></i> GOOGLE MAPS</a>' : '') + (item.tacticalGuideId ? '<button onclick="renderTacticalMission(\'' + item.tacticalGuideId + '\', ' + dayIndex + ')" class="tactical-btn" style="flex:1.5; text-align:center; padding:8px 5px; font-size:0.75rem; border-radius:4px; background:rgba(249,115,22,0.15); border:1px solid var(--accent); color:var(--accent); font-weight:bold; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:5px;"><i class="fa-solid fa-file-contract"></i> ' + (item.tacticalBtnText || 'GUÍA TÁCTICA') + '</button>' : '') + '</div></div></div>';
+                html += '<div class="transport-transit" style="margin-left:75px; padding:10px 0; border-left:2px dashed rgba(255,255,255,0.2); position:relative; margin-bottom:15px;"><i class="fa-solid fa-arrow-down" style="position:absolute; left:-7px; top:40%; font-size:0.8rem; color:rgba(255,255,255,0.3);"></i><div style="padding-left:15px;"><div style="color:var(--accent); font-size:0.9rem; font-weight:bold; margin-bottom:5px;">' + window.decorateTransitTitle(item.title) + '</div><div style="display:flex; gap:15px; align-items:center; margin-bottom:10px;"><div style="color:var(--gold); font-size:0.85rem; font-weight:bold;">' + item.price + '</div>' + (item.timeLabel ? '<div style="color:rgba(255,255,255,0.5); font-size:0.8rem; font-style:italic;">' + item.timeLabel + '</div>' : '') + '</div><div style="display:flex; gap:8px;">' + (item.link ? '<a href="' + item.link + '" target="_blank" class="tactical-btn" style="flex:1; text-align:center; padding:5px; font-size:0.7rem; border-radius:4px; text-decoration:none; background:rgba(0,243,255,0.1); border:1px solid var(--neon-blue); color:var(--neon-blue); font-weight:bold; display:flex; align-items:center; justify-content:center; gap:5px;"><i class="fa-solid fa-map-location-dot"></i> GOOGLE MAPS</a>' : '') + (item.tacticalGuideId ? '<button onclick="renderTacticalMission(\'' + item.tacticalGuideId + '\', ' + dayIndex + ')" class="tactical-btn" style="flex:1.5; text-align:center; padding:8px 5px; font-size:0.75rem; border-radius:4px; background:rgba(249,115,22,0.15); border:1px solid var(--accent); color:var(--accent); font-weight:bold; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:5px;"><i class="fa-solid fa-file-contract"></i> ' + (item.tacticalBtnText || 'GUÍA TÁCTICA') + '</button>' : '') + '</div></div></div>';
             }
             const fullLabel = (item.time || '') + (item.timeLabel || '');
             const isLunchTime = fullLabel.includes('12:') || fullLabel.includes('13:') || fullLabel.includes('14:');
@@ -1341,15 +1387,35 @@ function renderCenterVisual(data, mode, optData = null) {
         const hotelImgHTML = hotelImage ? '<img src="' + hotelImage + '" class="hotel-image" onerror="this.style.display=\'none\'">' : '<div class="hotel-image-placeholder"><i class="fa-solid fa-hotel"></i></div>';
         let extraAction = '';
         let badgeStyle = '';
-        if (hotelName.includes('Dc桜の苑') || hotelName.includes('Dc Sakura')) {
+        if (hotelName.includes('Dc桜 de Nishi') || hotelName.includes('Dc桜 de Nishi') || hotelName.includes('Dc桜の苑') || hotelName.includes('Dc Sakura')) {
             extraAction = 'onclick="window.showHotelMessage()" title="Ver Instrucciones de Check-in"';
             badgeStyle = 'cursor:pointer; box-shadow: 0 0 15px rgba(249, 115, 22, 0.6); border: 2px solid var(--accent); animation: pulse 2s infinite;';
+        } else if (hotelName.includes('Kazeya')) {
+            extraAction = 'onclick="window.showKazeyaMessage()" title="Ver Reservas e Info del Ryokan"';
+            badgeStyle = 'cursor:pointer; box-shadow: 0 0 15px var(--gold); border: 2px solid var(--gold); animation: pulse 2s infinite;';
+        } else if (hotelName.includes('Metropolitan') || hotelName.includes('Edmont')) {
+            extraAction = 'onclick="window.showEdmontMessage()" title="Ver Info del Hotel Edmont"';
+            badgeStyle = 'cursor:pointer; box-shadow: 0 0 15px var(--neon-blue); border: 2px solid var(--neon-blue); animation: pulse 2s infinite;';
+        } else if (hotelName.includes('Toyoko') || hotelName.includes('Kawaguchiko')) {
+            extraAction = 'onclick="window.showToyokoMessage()" title="Ver Info del Toyoko Inn"';
+            badgeStyle = 'cursor:pointer; box-shadow: 0 0 15px var(--accent); border: 2px solid var(--accent); animation: pulse 2s infinite;';
+        } else if (hotelName.includes('Residence')) {
+            extraAction = 'onclick="window.showResidenceMessage()" title="Ver Info del Residence Hotel Takayama"';
+            badgeStyle = 'cursor:pointer; box-shadow: 0 0 15px var(--gold); border: 2px solid var(--gold); animation: pulse 2s infinite;';
+        } else if (hotelName.includes('Kyoto Tower')) {
+            extraAction = 'onclick="window.showKyotoTowerMessage()" title="Ver Info del Kyoto Tower Hotel Annex"';
+            badgeStyle = 'cursor:pointer; box-shadow: 0 0 15px var(--neon-blue); border: 2px solid var(--neon-blue); animation: pulse 2s infinite;';
         }
         hotelHTML = '<div class="hotel-info-section">' + hotelImgHTML + '<div class="hotel-details"><h3 class="hotel-name">' + hotelName + '</h3></div><div class="hotel-actions"><div class="hotel-badge" ' + extraAction + ' style="' + badgeStyle + '"><i class="fa-solid fa-bed"></i></div>' + (hotelGoogleLink ? '<a href="' + hotelGoogleLink + '" target="_blank" class="hotel-google-link"><i class="fa-solid fa-map-location"></i> Maps</a>' : '') + '</div></div>';
     }
 
     const pdfIconsHTML = getPDFIcons(location);
-    const routeMapsHTML = data.routeMapsLink ? '<div class="route-maps-wrapper" style="margin-top:10px; display:flex; justify-content:flex-end;"><a href="' + data.routeMapsLink + '" target="_blank" title="VER RUTA DEL DÍA EN GOOGLE MAPS" style="cursor:pointer; background:rgba(0, 243, 255, 0.15); border:2px solid var(--neon-blue); color:var(--neon-blue); width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; text-decoration:none; animation: pulse 2s infinite; box-shadow: 0 0 15px rgba(0, 243, 255, 0.6);"><i class="fa-solid fa-map-location-dot" style="font-size:1.2rem;"></i></a></div>' : '';
+    let routeMapsHTML = '';
+    if (data.routeMapsLink) {
+        routeMapsHTML = '<div class="route-maps-wrapper" style="margin-top:10px; display:flex; justify-content:flex-end; gap:10px;">';
+        routeMapsHTML += '<a href="' + data.routeMapsLink + '" target="_blank" class="route-btn-blue pulse-blue" title="VER MAPA DE PUNTOS EN GOOGLE MAPS"><i class="fa-solid fa-map-location-dot" style="font-size:1.2rem;"></i></a>';
+        routeMapsHTML += '</div>';
+    }
     const mapsSectionHTML = '<div class="maps-section-column">' + (location ? '<div class="header-city-name"><i class="fa-solid fa-location-dot"></i> ' + location + '</div>' : '') + pdfIconsHTML + routeMapsHTML + '</div>';
     const titleMatch = data.title.match(/:\s*(.+)/);
     const subHeroText = titleMatch ? titleMatch[1] : data.title;
@@ -1945,14 +2011,497 @@ window.showHotelMessage = function() {
     overlay.style.left = '0';
     overlay.style.width = '100vw';
     overlay.style.height = '100vh';
-    overlay.style.backgroundColor = 'rgba(0,0,0,0.85)';
+    overlay.style.backgroundColor = 'rgba(15,23,42,0.9)';
     overlay.style.zIndex = '9999';
     overlay.style.display = 'flex';
     overlay.style.justifyContent = 'center';
     overlay.style.alignItems = 'center';
-    overlay.style.backdropFilter = 'blur(5px)';
+    overlay.style.backdropFilter = 'blur(8px)';
     overlay.onclick = function(e) { if(e.target === overlay) overlay.remove(); };
-    overlay.innerHTML = '<div style="background: linear-gradient(145deg, #1e293b, #0f172a); border: 2px solid var(--accent); border-radius: 15px; padding: 30px; max-width: 500px; width: 90%; color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.5); position:relative; animation: slideIn 0.3s ease-out;"><button onclick="document.getElementById(\'hotel-msg-modal\').remove()" style="position:absolute; top:15px; right:15px; background:transparent; border:none; color:white; font-size:1.5rem; cursor:pointer;"><i class="fa-solid fa-times"></i></button><div style="text-align:center; margin-bottom:20px;"><i class="fa-solid fa-envelope-open-text" style="font-size:3rem; color:var(--accent); margin-bottom:10px;"></i><h2 style="margin:0; font-size:1.5rem; color:var(--neon-blue);">Información Importante</h2><h3 style="margin:5px 0 0 0; color:#cbd5e1; font-size:1rem;">Dc桜の苑 - 難波南店</h3><p style="color:var(--gold); font-weight:bold; margin-top:5px; font-size:0.9rem;">28 Jul 15:00 - 01 Ago 10:00</p></div><div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 10px; border-left: 4px solid var(--neon-blue); margin-bottom: 20px; font-size: 0.95rem; line-height: 1.5; color:#cbd5e1;"><p>Nos pondremos en contacto con usted para las instrucciones de check-in 3 días antes.</p></div></div><style>@keyframes slideIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }</style>';
+    
+    overlay.innerHTML = `
+        <div style="background: linear-gradient(145deg, #111827, #1f2937); border: 2px solid var(--accent); border-radius: 16px; padding: 25px; max-width: 600px; width: 95%; max-height: 90vh; overflow-y: auto; color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.8); position:relative; animation: slideIn 0.3s ease-out;" class="custom-scroll">
+            <button onclick="document.getElementById('hotel-msg-modal').remove()" style="position:absolute; top:15px; right:15px; background:transparent; border:none; color:white; font-size:1.5rem; cursor:pointer;"><i class="fa-solid fa-times"></i></button>
+            
+            <div style="text-align:center; margin-bottom:20px; border-bottom: 1px solid rgba(249, 115, 22, 0.2); padding-bottom: 15px;">
+                <i class="fa-solid fa-hotel" style="font-size:3rem; color:var(--accent); margin-bottom:10px;"></i>
+                <h2 style="margin:0; font-size:1.5rem; color:var(--accent);">Dc桜の苑 - 難波南店</h2>
+                <h3 style="margin:5px 0 0 0; color:#cbd5e1; font-size:1rem;">Dc Sakura Hotel - Namba South Branch</h3>
+                <div style="display:inline-block; background:rgba(249, 115, 22, 0.1); border:1px solid var(--accent); padding:5px 12px; border-radius:20px; font-weight:bold; font-size:0.85rem; color:var(--accent); margin-top:10px;">
+                    28 Jul 15:00 - 01 Aug 10:00 (4 Noches)
+                </div>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:15px; font-size:0.9rem; line-height:1.5; color:#cbd5e1;">
+                
+                <!-- Dirección Oficial -->
+                <div style="background:rgba(255,255,255,0.03); padding:12px 15px; border-radius:10px; border-left:3px solid var(--neon-blue);">
+                    <strong style="color:var(--neon-blue); display:block; margin-bottom:5px; font-size:0.95rem;"><i class="fa-solid fa-map-location-dot"></i> Dirección Oficial</strong>
+                    <p style="margin:0 0 5px 0; font-size:0.9rem; font-family:monospace; color:white;">
+                        〒557-0022, 大阪市西成区中開一丁目3番17号
+                    </p>
+                    <p style="margin:0; font-size:0.85rem; color:#cbd5e1;">
+                        1-chōme-3-17 Nakahiraki, Nishinari Ward, Osaka, 557-0022
+                    </p>
+                </div>
+
+                <!-- Método de Check-in -->
+                <div style="background:rgba(255,255,255,0.03); padding:12px 15px; border-radius:10px; border-left:3px solid var(--gold);">
+                    <strong style="color:var(--gold); display:block; margin-bottom:5px; font-size:0.95rem;"><i class="fa-solid fa-key"></i> Instrucciones de Check-in</strong>
+                    <p style="margin:0; font-size:0.85rem;">
+                        El alojamiento enviará el método detallado de acceso y códigos de check-in **3 días antes de la llegada** (el 25 de Julio de 2026) directamente a través de la plataforma utilizada para reservar.
+                    </p>
+                </div>
+
+                <!-- Contacto y Peticiones Especiales -->
+                <div style="background:rgba(255,255,255,0.03); padding:12px 15px; border-radius:10px; border-left:3px solid #10b981;">
+                    <strong style="color:#10b981; display:block; margin-bottom:5px; font-size:0.95rem;"><i class="fa-solid fa-paper-plane"></i> Contacto y Peticiones Especiales</strong>
+                    <ul style="margin:0; padding-left:20px; font-size:0.85rem; color:#e5e7eb; display:flex; flex-direction:column; gap:4px;">
+                        <li><strong>Booking y Airbnb:</strong> Podéis enviar cualquier petición especial o mensaje directamente a través del chat de la app.</li>
+                        <li><strong>Agoda:</strong> Si la reserva se realizó por Agoda, debéis enviar un correo electrónico a: <code style="color:var(--gold); background:rgba(0,0,0,0.2); padding:2px 6px; border-radius:4px;">M@dctaisei.com</code>.</li>
+                    </ul>
+                </div>
+
+                <!-- Alerta de Sucursal -->
+                <div style="background:rgba(239, 68, 68, 0.08); padding:12px 15px; border-radius:10px; border-left:3px solid var(--danger);">
+                    <strong style="color:var(--danger); display:block; margin-bottom:5px; font-size:0.95rem;"><i class="fa-solid fa-triangle-exclamation"></i> ALERTA TÁCTICA IMPORTANTE</strong>
+                    <p style="margin:0; font-size:0.85rem; color:#fca5a5; font-weight:bold;">
+                        La cadena tiene 8 sucursales en Osaka. Por favor, aseguraos de ir a la dirección indicada arriba (Namba South Branch / Nishinari Ward) y no a otra sucursal.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+        <style>
+            @keyframes slideIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        </style>
+    `;
+    document.body.appendChild(overlay);
+};
+
+window.showKazeyaMessage = function() {
+    const existing = document.getElementById('kazeya-msg-modal');
+    if (existing) existing.remove();
+    const overlay = document.createElement('div');
+    overlay.id = 'kazeya-msg-modal';
+    overlay.style.position = 'fixed';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100vw';
+    overlay.style.height = '100vh';
+    overlay.style.backgroundColor = 'rgba(15,23,42,0.9)';
+    overlay.style.zIndex = '9999';
+    overlay.style.display = 'flex';
+    overlay.style.justifyContent = 'center';
+    overlay.style.alignItems = 'center';
+    overlay.style.backdropFilter = 'blur(8px)';
+    overlay.onclick = function(e) { if(e.target === overlay) overlay.remove(); };
+    
+    overlay.innerHTML = `
+        <div style="background: linear-gradient(145deg, #111827, #1f2937); border: 2px solid var(--gold); border-radius: 16px; padding: 25px; max-width: 650px; width: 95%; max-height: 90vh; overflow-y: auto; color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.8); position:relative; animation: slideIn 0.3s ease-out;" class="custom-scroll">
+            <button onclick="document.getElementById('kazeya-msg-modal').remove()" style="position:absolute; top:15px; right:15px; background:transparent; border:none; color:white; font-size:1.5rem; cursor:pointer;"><i class="fa-solid fa-times"></i></button>
+            
+            <div style="text-align:center; margin-bottom:20px; border-bottom: 1px solid rgba(251, 191, 36, 0.2); padding-bottom: 15px;">
+                <i class="fa-solid fa-hot-tub-person" style="font-size:3rem; color:var(--gold); margin-bottom:10px;"></i>
+                <h2 style="margin:0; font-size:1.6rem; color:var(--gold);">Kazeya Ryokan</h2>
+                <p style="color:#9ca3af; margin:5px 0; font-size:0.9rem;">Confirmación de Reserva: <strong>6666468417</strong></p>
+                <div style="display:inline-block; background:rgba(251, 191, 36, 0.1); border:1px solid var(--gold); padding:5px 12px; border-radius:20px; font-weight:bold; font-size:0.85rem; color:var(--gold); margin-top:5px;">
+                    Jueves, 6 de Agosto, 2026 (1 Noche)
+                </div>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:15px; font-size:0.9rem; line-height:1.5; color:#cbd5e1;">
+                
+                <!-- Distribución de Habitaciones -->
+                <div style="background:rgba(255,255,255,0.03); padding:12px 15px; border-radius:10px; border-left:3px solid var(--neon-blue);">
+                    <strong style="color:var(--neon-blue); display:block; margin-bottom:5px; font-size:0.95rem;"><i class="fa-solid fa-users"></i> Distribución del Grupo (8 personas)</strong>
+                    <span style="display:block; font-size:0.8rem; color:#9ca3af; margin-bottom:5px;">6 adultos y 2 niños en 4 habitaciones:</span>
+                    <ul style="margin:0; padding-left:20px; font-size:0.85rem; color:#e5e7eb;">
+                        <li><strong>Habitación 1:</strong> 2 adultos (pareja)</li>
+                        <li><strong>Habitación 2:</strong> 2 adultos (pareja)</li>
+                        <li><strong>Habitación 3:</strong> 1 adulto y 1 niño</li>
+                        <li><strong>Habitación 4:</strong> 1 adulto y 1 niño</li>
+                    </ul>
+                </div>
+
+                <!-- Cenas y Comidas -->
+                <div style="background:rgba(255,255,255,0.03); padding:12px 15px; border-radius:10px; border-left:3px solid var(--gold);">
+                    <strong style="color:var(--gold); display:block; margin-bottom:5px; font-size:0.95rem;"><i class="fa-solid fa-utensils"></i> Régimen de Cenas y Desayunos</strong>
+                    <ul style="margin:0; padding-left:20px; font-size:0.85rem; color:#e5e7eb; display:flex; flex-direction:column; gap:4px;">
+                        <li><strong>Incluido:</strong> Desayuno y cena de un plato principal (pollo salteado o karaage) más acompañamientos.</li>
+                        <li><strong>Mejora a Hida Beef (Plato):</strong> +2.000 yenes/persona.</li>
+                        <li><strong>Mejora a Kaiseki Completo (Hida Beef Steak):</strong> +7.000 yenes/persona. Se debe reservar antes de las 17:00h 2 días antes. Exige check-in antes de las 19:00.</li>
+                        <li style="color:#fca5a5;">⚠️ <strong>Crítico:</strong> Todo el grupo debe elegir el MISMO menú. No apto para vegetarianos estrictos/veganos, ni celíacos (NO preparan gluten-free).</li>
+                    </ul>
+                </div>
+
+                <!-- Onsen Privado -->
+                <div style="background:rgba(255,255,255,0.03); padding:12px 15px; border-radius:10px; border-left:3px solid #10b981;">
+                    <strong style="color:#10b981; display:block; margin-bottom:5px; font-size:0.95rem;"><i class="fa-solid fa-bath"></i> Onsen Privado Gratis</strong>
+                    <p style="margin:0; font-size:0.85rem;">Se utiliza libremente por orden de llegada cuando esté vacío. No se requiere reserva. Al ser 8 personas, hay oportunidades suficientes de disfrutarlo respetando los turnos del hotel.</p>
+                </div>
+
+                <!-- Transporte -->
+                <div style="background:rgba(255,255,255,0.03); padding:12px 15px; border-radius:10px; border-left:3px solid var(--accent);">
+                    <strong style="color:var(--accent); display:block; margin-bottom:5px; font-size:0.95rem;"><i class="fa-solid fa-bus"></i> Cómo Llegar (Bus o Coche)</strong>
+                    <ul style="margin:0; padding-left:20px; font-size:0.85rem; color:#e5e7eb; display:flex; flex-direction:column; gap:4px;">
+                        <li><strong>Nohi Bus desde Takayama:</strong> Dársena 5 en dirección a Shinhotaka-Ropeway. Bajar en parada <strong>Shinhotaka Onsenguchi (H55)</strong>. Andar 5 min recto. (~1.5h, ~2000 JPY/pax). Horarios: 13:40, 14:40, 15:40, 16:40, 17:40, 18:40 (último).</li>
+                        <li><strong>Si vais en Coche (GPS):</strong> Teléfono <strong>0578-89-0112</strong> (alternativo 0578-89-2467, Hakuunsou Ryokan cercano) o Código Postal <strong>506-1421</strong>. Parking gratuito en el hotel.</li>
+                    </ul>
+                </div>
+
+                <!-- Notas -->
+                <div style="background:rgba(239, 68, 68, 0.05); padding:12px 15px; border-radius:10px; border-left:3px solid var(--danger);">
+                    <strong style="color:var(--danger); display:block; margin-bottom:5px; font-size:0.95rem;"><i class="fa-solid fa-circle-exclamation"></i> Tiempos y Detalles Críticos</strong>
+                    <ul style="margin:0; padding-left:20px; font-size:0.85rem; color:#fca5a5;">
+                        <li><strong>Hora Límite de Check-in:</strong> Antes de las 19:00 para cenar. Si se llega después de las 20:00 sin avisar, cierran la entrada.</li>
+                        <li><strong>Insectos de Montaña:</strong> Ryokan rodeado de naturaleza. Pueden colarse pequeños insectos (chinches hediondas / stink bugs). Evitar tocarlos directamente ya que desprenden fuerte olor.</li>
+                        <li><strong>Pago:</strong> Se acepta tarjeta (Visa/Mastercard) en el establecimiento.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <style>
+            @keyframes slideIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        </style>
+    `;
+    document.body.appendChild(overlay);
+};
+
+window.showEdmontMessage = function() {
+    const existing = document.getElementById('edmont-msg-modal');
+    if (existing) existing.remove();
+    const overlay = document.createElement('div');
+    overlay.id = 'edmont-msg-modal';
+    overlay.style.position = 'fixed';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100vw';
+    overlay.style.height = '100vh';
+    overlay.style.backgroundColor = 'rgba(15,23,42,0.9)';
+    overlay.style.zIndex = '9999';
+    overlay.style.display = 'flex';
+    overlay.style.justifyContent = 'center';
+    overlay.style.alignItems = 'center';
+    overlay.style.backdropFilter = 'blur(8px)';
+    overlay.onclick = function(e) { if(e.target === overlay) overlay.remove(); };
+    
+    overlay.innerHTML = `
+        <div style="background: linear-gradient(145deg, #111827, #1f2937); border: 2px solid var(--neon-blue); border-radius: 16px; padding: 25px; max-width: 650px; width: 95%; max-height: 90vh; overflow-y: auto; color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.8); position:relative; animation: slideIn 0.3s ease-out;" class="custom-scroll">
+            <button onclick="document.getElementById('edmont-msg-modal').remove()" style="position:absolute; top:15px; right:15px; background:transparent; border:none; color:white; font-size:1.5rem; cursor:pointer;"><i class="fa-solid fa-times"></i></button>
+            
+            <div style="text-align:center; margin-bottom:20px; border-bottom: 1px solid rgba(0, 243, 255, 0.2); padding-bottom: 15px;">
+                <i class="fa-solid fa-building" style="font-size:3rem; color:var(--neon-blue); margin-bottom:10px;"></i>
+                <h2 style="margin:0; font-size:1.6rem; color:var(--neon-blue);">Hotel Metropolitan Edmont Tokyo</h2>
+                <p style="color:#9ca3af; margin:5px 0; font-size:0.9rem;">Estación Base: <strong>Iidabashi Station</strong></p>
+                <div style="display:inline-block; background:rgba(0, 243, 255, 0.1); border:1px solid var(--neon-blue); padding:5px 12px; border-radius:20px; font-weight:bold; font-size:0.85rem; color:var(--neon-blue); margin-top:5px;">
+                    11 Ago - 18 Ago, 2026 (7 Noches)
+                </div>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:15px; font-size:0.9rem; line-height:1.5; color:#cbd5e1;">
+                
+                <!-- Datos de Ubicación y Contacto -->
+                <div style="background:rgba(255,255,255,0.03); padding:12px 15px; border-radius:10px; border-left:3px solid var(--neon-blue);">
+                    <strong style="color:var(--neon-blue); display:block; margin-bottom:5px; font-size:0.95rem;"><i class="fa-solid fa-map-location-dot"></i> Dirección y Contacto</strong>
+                    <ul style="margin:0; padding-left:20px; font-size:0.85rem; color:#e5e7eb; display:flex; flex-direction:column; gap:4px;">
+                        <li><strong>Dirección:</strong> 3-10-8 Iidabashi, Chiyoda-ku, Tokyo, 102-8130</li>
+                        <li><strong>Teléfono:</strong> +81-3-3237-1111</li>
+                        <li><strong>Email:</strong> <code style="color:var(--neon-blue);">front.edm@edmont.co.jp</code></li>
+                    </ul>
+                </div>
+
+                <!-- Check-in / Check-out y Equipaje -->
+                <div style="background:rgba(255,255,255,0.03); padding:12px 15px; border-radius:10px; border-left:3px solid var(--gold);">
+                    <strong style="color:var(--gold); display:block; margin-bottom:5px; font-size:0.95rem;"><i class="fa-solid fa-clock"></i> Horarios y Equipaje</strong>
+                    <ul style="margin:0; padding-left:20px; font-size:0.85rem; color:#e5e7eb; display:flex; flex-direction:column; gap:4px;">
+                        <li><strong>Check-in:</strong> A partir de las 15:00.</li>
+                        <li><strong>Check-out:</strong> Hasta las 11:00.</li>
+                        <li><strong>Consigna de Equipaje:</strong> Almacenamiento gratuito antes del check-in y después del check-out el mismo día de salida.</li>
+                        <li style="color:var(--gold);">⚠️ <strong>Atención colas:</strong> En días de grandes eventos (conciertos, etc.), el proceso puede ser muy lento. Emiten tickets numerados de cola por las mañanas. Consultar la web 1 semana antes.</li>
+                    </ul>
+                </div>
+
+                <!-- Desayuno Buffet BELTEMPO -->
+                <div style="background:rgba(255,255,255,0.03); padding:12px 15px; border-radius:10px; border-left:3px solid #10b981;">
+                    <strong style="color:#10b981; display:block; margin-bottom:5px; font-size:0.95rem;"><i class="fa-solid fa-bowl-food"></i> Desayuno Buffet en BELTEMPO (6:30 - 10:00 AM)</strong>
+                    <p style="margin:0 0 5px 0; font-size:0.85rem;">Se puede añadir y pagar en el mismo día. Precios especiales con descuento para huéspedes:</p>
+                    <ul style="margin:0; padding-left:20px; font-size:0.85rem; color:#e5e7eb;">
+                        <li><strong>Adultos:</strong> 2.900 JPY (Precio regular: 3.200 JPY).</li>
+                        <li><strong>Niños (4-12 años):</strong> 1.600 JPY.</li>
+                    </ul>
+                    <span style="display:block; font-size:0.8rem; color:#9ca3af; margin-top:5px;">Platos recomendados: El bollo danés de limón "Mountain" (clásico del hotel), desayuno tradicional japonés (pescado a la plancha, natto, sopa miso), Bread Pudding o Curry.</span>
+                </div>
+
+                <!-- Niños en Habitación -->
+                <div style="background:rgba(255,255,255,0.03); padding:12px 15px; border-radius:10px; border-left:3px solid var(--accent);">
+                    <strong style="color:var(--accent); display:block; margin-bottom:5px; font-size:0.95rem;"><i class="fa-solid fa-child"></i> Política de Menores</strong>
+                    <ul style="margin:0; padding-left:20px; font-size:0.85rem; color:#e5e7eb; display:flex; flex-direction:column; gap:4px;">
+                        <li><strong>Menores de 6 años:</strong> Gratis si comparten cama existente con un adulto.</li>
+                        <li><strong>Mayores de 7 años (o menores de 6 que requieran cama):</strong> Se asigna y cobra cama individual. Contactar con antelación si se requiere cama extra para menor de 6.</li>
+                    </ul>
+                </div>
+
+                <!-- Instalaciones y Restaurantes -->
+                <div style="background:rgba(255,255,255,0.03); padding:12px 15px; border-radius:10px; border-left:3px solid #8b5cf6;">
+                    <strong style="color:#8b5cf6; display:block; margin-bottom:5px; font-size:0.95rem;"><i class="fa-solid fa-utensils"></i> Instalaciones y Restaurantes (Cierres)</strong>
+                    <ul style="margin:0; padding-left:20px; font-size:0.85rem; color:#e5e7eb;">
+                        <li>Dispone de <strong>Laundry Lounge</strong> (8 lavadoras y secadoras con monedas) y <strong>Gimnasio</strong>.</li>
+                        <li>5 restaurantes (Sushi, Teppanyaki, Bar, etc.).</li>
+                        <li style="color:#fca5a5;">⚠️ <strong>Cierres semanales:</strong>
+                            <br>- Rest. Japonés (Hirakawa, Yamahiko, Umihiko): Cerrados los <strong>lunes</strong>.
+                            <br>- Rest. Chino (Nangoku Syuka): Cerrado los <strong>martes</strong>.
+                            <br>- Bar (Carousel): Cerrado <strong>domingos y festivos</strong>.
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <style>
+            @keyframes slideIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        </style>
+    `;
+    document.body.appendChild(overlay);
+};
+
+window.showToyokoMessage = function() {
+    const existing = document.getElementById('toyoko-msg-modal');
+    if (existing) existing.remove();
+    const overlay = document.createElement('div');
+    overlay.id = 'toyoko-msg-modal';
+    overlay.style.position = 'fixed';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100vw';
+    overlay.style.height = '100vh';
+    overlay.style.backgroundColor = 'rgba(15,23,42,0.9)';
+    overlay.style.zIndex = '9999';
+    overlay.style.display = 'flex';
+    overlay.style.justifyContent = 'center';
+    overlay.style.alignItems = 'center';
+    overlay.style.backdropFilter = 'blur(8px)';
+    overlay.onclick = function(e) { if(e.target === overlay) overlay.remove(); };
+    
+    overlay.innerHTML = `
+        <div style="background: linear-gradient(145deg, #111827, #1f2937); border: 2px solid var(--accent); border-radius: 16px; padding: 25px; max-width: 650px; width: 95%; max-height: 90vh; overflow-y: auto; color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.8); position:relative; animation: slideIn 0.3s ease-out;" class="custom-scroll">
+            <button onclick="document.getElementById('toyoko-msg-modal').remove()" style="position:absolute; top:15px; right:15px; background:transparent; border:none; color:white; font-size:1.5rem; cursor:pointer;"><i class="fa-solid fa-times"></i></button>
+            
+            <div style="text-align:center; margin-bottom:20px; border-bottom: 1px solid rgba(249, 115, 22, 0.2); padding-bottom: 15px;">
+                <i class="fa-solid fa-hotel" style="font-size:3rem; color:var(--accent); margin-bottom:10px;"></i>
+                <h2 style="margin:0; font-size:1.6rem; color:var(--accent);">Toyoko Inn Fuji Kawaguchiko Ohashi</h2>
+                <p style="color:#9ca3af; margin:5px 0; font-size:0.9rem;">Titular: <strong>Felipe Brasero Moreno</strong></p>
+                <div style="display:inline-block; background:rgba(249, 115, 22, 0.1); border:1px solid var(--accent); padding:5px 12px; border-radius:20px; font-weight:bold; font-size:0.85rem; color:var(--accent); margin-top:5px;">
+                    Sáb, 8 Ago - Mar, 11 Ago, 2026 (3 Noches)
+                </div>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:15px; font-size:0.9rem; line-height:1.5; color:#cbd5e1;">
+                
+                <!-- Autobús de Enlace Gratuito -->
+                <div style="background:rgba(255,255,255,0.03); padding:12px 15px; border-radius:10px; border-left:3px solid var(--neon-blue);">
+                    <strong style="color:var(--neon-blue); display:block; margin-bottom:5px; font-size:0.95rem;"><i class="fa-solid fa-bus-simple"></i> Traslado Gratuito (Shuttle Bus)</strong>
+                    <ul style="margin:0; padding-left:20px; font-size:0.85rem; color:#e5e7eb; display:flex; flex-direction:column; gap:4px;">
+                        <li><strong>Parada en Estación:</strong> Se realiza en la parada <strong>Número 10</strong> de la Estación de Kawaguchiko.</li>
+                        <li><strong>Frecuencias/Horarios:</strong> Ver imagen o folleto de horarios adjunto en recepción.</li>
+                        <li><strong>Buses de Conexión:</strong> Si deseáis tomar autobuses con destino a <strong>Mishima, Gotemba u Otsuki</strong>, se pueden reservar por anticipado mediante los enlaces del proveedor de reservas.</li>
+                    </ul>
+                </div>
+
+                <!-- Equipaje -->
+                <div style="background:rgba(255,255,255,0.03); padding:12px 15px; border-radius:10px; border-left:3px solid var(--gold);">
+                    <strong style="color:var(--gold); display:block; margin-bottom:5px; font-size:0.95rem;"><i class="fa-solid fa-suitcase-rolling"></i> Consigna de Equipaje</strong>
+                    <p style="margin:0; font-size:0.85rem;">
+                        Podéis guardar el equipaje de forma gratuita en los <strong>casilleros de autoservicio (self-service lockers)</strong> situados en el vestíbulo de la 1ª planta, tanto antes del check-in como después del check-out el mismo día de la estancia.
+                    </p>
+                </div>
+
+                <!-- Modificaciones y Emergencias -->
+                <div style="background:rgba(255,255,255,0.03); padding:12px 15px; border-radius:10px; border-left:3px solid #10b981;">
+                    <strong style="color:#10b981; display:block; margin-bottom:5px; font-size:0.95rem;"><i class="fa-solid fa-circle-question"></i> Gestión de la Reserva</strong>
+                    <ul style="margin:0; padding-left:20px; font-size:0.85rem; color:#e5e7eb; display:flex; flex-direction:column; gap:4px;">
+                        <li><strong>Cambios / Cancelaciones:</strong> Deben realizarse a través de Booking.com dentro del período de cancelación gratuita. El hotel no puede gestionarlos directamente.</li>
+                        <li><strong>Teléfono de contacto directo:</strong> <code style="color:var(--gold); background:rgba(0,0,0,0.2); padding:2px 6px; border-radius:4px;">03-6743-6650</code> (para urgencias inevitables durante el viaje).</li>
+                    </ul>
+                </div>
+
+                <!-- Restricciones de Habitación -->
+                <div style="background:rgba(239, 68, 68, 0.05); padding:12px 15px; border-radius:10px; border-left:3px solid var(--danger);">
+                    <strong style="color:var(--danger); display:block; margin-bottom:5px; font-size:0.95rem;"><i class="fa-solid fa-eye-slash"></i> Restricciones y Peticiones</strong>
+                    <ul style="margin:0; padding-left:20px; font-size:0.85rem; color:#fca5a5; display:flex; flex-direction:column; gap:4px;">
+                        <li><strong>Vistas al Monte Fuji:</strong> El hotel <strong>no acepta solicitudes</strong> de habitaciones con vistas al Monte Fuji.</li>
+                        <li><strong>Distribución de Habitaciones:</strong> El hotel intentará asignar habitaciones lo más cercanas/contiguas posible, aunque dependerá de la disponibilidad y el tipo de habitación.</li>
+                        <li><strong>Capacidad Máxima:</strong> El establecimiento no cuenta con habitaciones capaces de alojar a más de 3 adultos.</li>
+                        <li><strong>Cambios de Habitación:</strong> Si deseáis solicitar un tipo de habitación distinto al reservado, se gestionará bajo disponibilidad en el mismo día del check-in, aplicando el cargo adicional correspondiente.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <style>
+            @keyframes slideIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        </style>
+    `;
+    document.body.appendChild(overlay);
+};
+
+window.showResidenceMessage = function() {
+    const existing = document.getElementById('residence-msg-modal');
+    if (existing) existing.remove();
+    const overlay = document.createElement('div');
+    overlay.id = 'residence-msg-modal';
+    overlay.style.position = 'fixed';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100vw';
+    overlay.style.height = '100vh';
+    overlay.style.backgroundColor = 'rgba(15,23,42,0.9)';
+    overlay.style.zIndex = '9999';
+    overlay.style.display = 'flex';
+    overlay.style.justifyContent = 'center';
+    overlay.style.alignItems = 'center';
+    overlay.style.backdropFilter = 'blur(8px)';
+    overlay.onclick = function(e) { if(e.target === overlay) overlay.remove(); };
+    
+    overlay.innerHTML = `
+        <div style="background: linear-gradient(145deg, #111827, #1f2937); border: 2px solid var(--gold); border-radius: 16px; padding: 25px; max-width: 650px; width: 95%; max-height: 90vh; overflow-y: auto; color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.8); position:relative; animation: slideIn 0.3s ease-out;" class="custom-scroll">
+            <button onclick="document.getElementById('residence-msg-modal').remove()" style="position:absolute; top:15px; right:15px; background:transparent; border:none; color:white; font-size:1.5rem; cursor:pointer;"><i class="fa-solid fa-times"></i></button>
+            
+            <div style="text-align:center; margin-bottom:20px; border-bottom: 1px solid rgba(212, 175, 55, 0.2); padding-bottom: 15px;">
+                <i class="fa-solid fa-hotel" style="font-size:3rem; color:var(--gold); margin-bottom:10px;"></i>
+                <h2 style="margin:0; font-size:1.6rem; color:var(--gold);">Residence Hotel Takayama Station</h2>
+                <p style="color:#9ca3af; margin:5px 0; font-size:0.9rem;">Titular: <strong>Felipe Brasero Moreno</strong></p>
+                <div style="display:inline-block; background:rgba(212, 175, 55, 0.1); border:1px solid var(--gold); padding:5px 12px; border-radius:20px; font-weight:bold; font-size:0.85rem; color:var(--gold); margin-top:5px;">
+                    Vie, 7 Ago - Sáb, 8 Ago, 2026 (1 Noche)
+                </div>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:15px; font-size:0.9rem; line-height:1.5; color:#cbd5e1;">
+                
+                <!-- Horario de Check-in -->
+                <div style="background:rgba(255,255,255,0.03); padding:12px 15px; border-radius:10px; border-left:3px solid var(--neon-blue);">
+                    <strong style="color:var(--neon-blue); display:block; margin-bottom:5px; font-size:0.95rem;"><i class="fa-solid fa-clock"></i> Horario de Entrada (Check-in)</strong>
+                    <p style="margin:0; font-size:0.85rem;">
+                        El horario de check-in es de <strong>15:00 a 24:00</strong>. Si prevés llegar más tarde de las 24:00, es obligatorio avisar al hotel con antelación para coordinar la entrada.
+                    </p>
+                </div>
+
+                <!-- Equipamiento de las Habitaciones -->
+                <div style="background:rgba(255,255,255,0.03); padding:12px 15px; border-radius:10px; border-left:3px solid #10b981;">
+                    <strong style="color:#10b981; display:block; margin-bottom:5px; font-size:0.95rem;"><i class="fa-solid fa-kitchen-set"></i> Cocina y Lavandería Privadas</strong>
+                    <p style="margin:0; font-size:0.85rem;">
+                        Todas las habitaciones están completamente equipadas e incluyen una <strong>cocina</strong> y una <strong>lavadora/secadora (laundry/dryer machine)</strong> privada.
+                    </p>
+                </div>
+
+                <!-- Limitación de Agua Caliente -->
+                <div style="background:rgba(239, 68, 68, 0.05); padding:12px 15px; border-radius:10px; border-left:3px solid var(--danger);">
+                    <strong style="color:var(--danger); display:block; margin-bottom:5px; font-size:0.95rem;"><i class="fa-solid fa-droplet-slash"></i> Límite de Agua Caliente</strong>
+                    <p style="margin:0; font-size:0.85rem; color:#fca5a5;">
+                        El calentador de agua tiene un límite de capacidad por uso de aproximadamente <strong>600 litros</strong> (equivalente a unos <strong>40-60 minutos</strong> de ducha continuados). Por favor, haced un uso responsable para evitar cortes de agua caliente.
+                    </p>
+                </div>
+
+                <!-- Parking y Normas -->
+                <div style="background:rgba(255,255,255,0.03); padding:12px 15px; border-radius:10px; border-left:3px solid var(--gold);">
+                    <strong style="color:var(--gold); display:block; margin-bottom:5px; font-size:0.95rem;"><i class="fa-solid fa-square-parking"></i> Parking y Normativa de Humo</strong>
+                    <ul style="margin:0; padding-left:20px; font-size:0.85rem; color:#e5e7eb; display:flex; flex-direction:column; gap:4px;">
+                        <li><strong>Aparcamiento:</strong> Situado en la parte trasera del hotel, por orden de llegada (sin reserva previa) a un precio de <strong>800 JPY</strong> por noche.</li>
+                        <li><strong>Espacio sin Humo:</strong> Todas las habitaciones son 100% no fumadores. Existe una zona habilitada para fumar exclusivamente en la 1ª planta (1F).</li>
+                        <li><strong>Desayuno:</strong> El alojamiento no incluye servicio de desayuno.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <style>
+            @keyframes slideIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        </style>
+    `;
+    document.body.appendChild(overlay);
+};
+
+window.showKyotoTowerMessage = function() {
+    const existing = document.getElementById('kyoto-tower-msg-modal');
+    if (existing) existing.remove();
+    const overlay = document.createElement('div');
+    overlay.id = 'kyoto-tower-msg-modal';
+    overlay.style.position = 'fixed';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100vw';
+    overlay.style.height = '100vh';
+    overlay.style.backgroundColor = 'rgba(15,23,42,0.9)';
+    overlay.style.zIndex = '9999';
+    overlay.style.display = 'flex';
+    overlay.style.justifyContent = 'center';
+    overlay.style.alignItems = 'center';
+    overlay.style.backdropFilter = 'blur(8px)';
+    overlay.onclick = function(e) { if(e.target === overlay) overlay.remove(); };
+    
+    overlay.innerHTML = `
+        <div style="background: linear-gradient(145deg, #111827, #1f2937); border: 2px solid var(--neon-blue); border-radius: 16px; padding: 25px; max-width: 650px; width: 95%; max-height: 90vh; overflow-y: auto; color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.8); position:relative; animation: slideIn 0.3s ease-out;" class="custom-scroll">
+            <button onclick="document.getElementById('kyoto-tower-msg-modal').remove()" style="position:absolute; top:15px; right:15px; background:transparent; border:none; color:white; font-size:1.5rem; cursor:pointer;"><i class="fa-solid fa-times"></i></button>
+            
+            <div style="text-align:center; margin-bottom:20px; border-bottom: 1px solid rgba(0, 243, 255, 0.2); padding-bottom: 15px;">
+                <i class="fa-solid fa-hotel" style="font-size:3rem; color:var(--neon-blue); margin-bottom:10px;"></i>
+                <h2 style="margin:0; font-size:1.6rem; color:var(--neon-blue);">Kyoto Tower Hotel Annex</h2>
+                <p style="color:#9ca3af; margin:5px 0; font-size:0.9rem;">Titular: <strong>Felipe Brasero Moreno</strong></p>
+                <div style="display:inline-block; background:rgba(0, 243, 255, 0.1); border:1px solid var(--neon-blue); padding:5px 12px; border-radius:20px; font-weight:bold; font-size:0.85rem; color:var(--neon-blue); margin-top:5px;">
+                    Sáb, 1 Ago - Jue, 6 Ago, 2026 (5 Noches)
+                </div>
+                <div style="margin-top:8px; font-size:0.95rem; color:var(--gold); font-weight:bold;">
+                    Total Reserva: JPY 223,472.52
+                </div>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:15px; font-size:0.9rem; line-height:1.5; color:#cbd5e1;">
+                
+                <!-- Tasa de Alojamiento Obligatoria -->
+                <div style="background:rgba(255,165,0,0.05); padding:12px 15px; border-radius:10px; border-left:3px solid var(--gold);">
+                    <strong style="color:var(--gold); display:block; margin-bottom:5px; font-size:0.95rem;"><i class="fa-solid fa-receipt"></i> Tasa de Alojamiento en Kioto (Obligatoria)</strong>
+                    <p style="margin:0; font-size:0.85rem;">
+                        Los huéspedes deben abonar la <strong>Tasa de Alojamiento (Accommodation Tax)</strong> de Kioto directamente en la recepción del hotel. Este recargo obligatorio <strong>no está incluido</strong> en el precio total de la reserva.
+                    </p>
+                </div>
+
+                <!-- Equipaje -->
+                <div style="background:rgba(255,255,255,0.03); padding:12px 15px; border-radius:10px; border-left:3px solid #10b981;">
+                    <strong style="color:#10b981; display:block; margin-bottom:5px; font-size:0.95rem;"><i class="fa-solid fa-suitcase-rolling"></i> Recepción y Consigna de Equipaje</strong>
+                    <p style="margin:0; font-size:0.85rem;">
+                        El hotel puede guardar vuestro equipaje de forma gratuita en recepción tanto <strong>antes de realizar el check-in</strong> como <strong>después de realizar el check-out</strong>.
+                    </p>
+                </div>
+
+                <!-- Tarifas y Niños -->
+                <div style="background:rgba(255,255,255,0.03); padding:12px 15px; border-radius:10px; border-left:3px solid var(--neon-blue);">
+                    <strong style="color:var(--neon-blue); display:block; margin-bottom:5px; font-size:0.95rem;"><i class="fa-solid fa-child"></i> Número de Huéspedes y Niños</strong>
+                    <ul style="margin:0; padding-left:20px; font-size:0.85rem; color:#e5e7eb; display:flex; flex-direction:column; gap:4px;">
+                        <li><strong>Precisión en la Reserva:</strong> El precio total varía según la cantidad de huéspedes declarados. Si hay discrepancias con el número real de personas, se cobrará un cargo adicional.</li>
+                        <li><strong>Niños (Edad de Primaria o inferior):</strong> Se alojan de forma gratuita si comparten cama con un adulto (máximo 1 niño por cama/adulto). <em>No incluye ropa de cama ni desayuno para los niños compartidos.</em></li>
+                        <li><strong>Niños Mayores:</strong> Los niños que cursen primaria o superior se cobrarán con tarifa completa de adulto.</li>
+                    </ul>
+                </div>
+
+                <!-- Aviso de Obras de Renovación -->
+                <div style="background:rgba(239, 68, 68, 0.05); padding:12px 15px; border-radius:10px; border-left:3px solid var(--danger);">
+                    <strong style="color:var(--danger); display:block; margin-bottom:5px; font-size:0.95rem;"><i class="fa-solid fa-person-digging"></i> Aviso: Obras de Renovación Exterior</strong>
+                    <p style="margin:0 0 5px 0; font-size:0.85rem; color:#fca5a5;">
+                        Se han programado obras esenciales de renovación exterior en el hotel. Aunque el periodo estimado era del 15 de diciembre de 2025 al 31 de marzo de 2026, <strong>está sujeto a posibles extensiones por motivos meteorológicos</strong>.
+                    </p>
+                    <ul style="margin:0; padding-left:20px; font-size:0.8rem; color:#fca5a5; display:flex; flex-direction:column; gap:2px;">
+                        <li><strong>Horario de Trabajo:</strong> De 9:00 AM a 6:00 PM diariamente.</li>
+                        <li><strong>Molestias Potenciales:</strong> Presencia de andamios y obstrucción de vistas (paredes Este, Sur y Norte), ruidos y olores durante las horas de trabajo, y tránsito de operarios por los andamios exteriores.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <style>
+            @keyframes slideIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        </style>
+    `;
     document.body.appendChild(overlay);
 };
 

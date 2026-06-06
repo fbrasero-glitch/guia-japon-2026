@@ -2621,49 +2621,56 @@ const travelData = [
         image: "images/okuhida_ryokan.png",
 
         logistics: [
+            { title: "Billetes Shinkansen", text: "COMPRADO: Nozomi 2 (08:45 -> 09:19). ID Membresía: 1892692405. Reserva 2000 (3 Ad + 1 Niño, 20.680¥), Reserva 2001 (4 Ad, 23.640¥)." },
             { title: "Equipaje", text: "Solo mochilas de mano. Las maletas grandes van por Takkyubin a Tokio o Kawaguchiko." },
             { title: "Onsen", text: "Ducharse antes de entrar. Tatuajes: consultar política (o reservar privado)." }
         ],
 
         transportTimeline: [
-            { time: "08:30", type: "point", title: "Salida de Kioto", icon: "fa-solid fa-train-subway" },
+            { time: "08:15", type: "point", title: "Salida hacia Estación de Kioto", icon: "fa-solid fa-train-subway" },
             {
-                time: "08:50",
+                time: "08:45",
                 type: "transit",
-                title: "Shinkansen Nozomi a Nagoya",
-                price: "Cubierto por pase o ~5.940 JPY",
-                timeLabel: "35 min",
+                title: "Shinkansen Nozomi a Nagoya (COMPRADO)",
+                price: "Billetes: 44.320 JPY (Total 8 pax)",
+                timeLabel: "34 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Kyoto+Station&destination=Nagoya+Station&travelmode=transit",
-                tacticalGuideId: "mission_alpes_1",
+                tacticalGuideId: "mission_kyoto_to_okuhida",
                 booking: { id: "bk_shinkansen", timeframe: "1 mes antes (App SmartEX)", required: true, link: "https://smart-ex.jp/en/index.php" }
             },
-            { time: "09:30", type: "point", title: "Transbordo en Nagoya", icon: "fa-solid fa-person-walking-arrow-right" },
+            { 
+                time: "09:19", 
+                type: "point", 
+                title: "⚠️ CRÍTICO: Transbordo en Nagoya", 
+                icon: "fa-solid fa-triangle-exclamation",
+                desc: "Llegada a las 09:19. Salir de tornos Shinkansen y buscar señales AMARILLAS hacia vías 10-11 (Hida). Moverse como bloque de 8."
+            },
             {
                 time: "10:00",
                 type: "transit",
                 title: "Tren Wide View Hida a Takayama",
-                price: "Cubierto por pase o ~6.000 JPY",
+                price: "~6.000 JPY / persona",
                 timeLabel: "2h 30m",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Nagoya+Station&destination=Takayama+Station&travelmode=transit",
-                tacticalGuideId: "mission_alpes_2"
+                tacticalGuideId: "mission_kyoto_to_okuhida"
             },
             { time: "12:30", type: "point", title: "LLegada a Takayama / Almuerzo rápido", icon: "fa-solid fa-bowl-food" },
             {
-                time: "14:00",
+                time: "13:40",
                 type: "transit",
-                title: "Bus Nohi hacia Okuhida (Shin-Hotaka)",
+                title: "Primer Bus Nohi hacia Okuhida",
                 price: "~2.200 JPY",
                 timeLabel: "1h 30m",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Takayama+Nohi+Bus+Center&destination=Shin-Hotaka+Onsen&travelmode=transit",
-                tacticalGuideId: "mission_alpes_3",
+                tacticalGuideId: "mission_kyoto_to_okuhida",
                 booking: { id: "bk_nohi_okuhida", timeframe: "1 mes antes", required: true, link: "https://www.nouhibus.co.jp/english/" }
             },
-            { time: "15:30", type: "point", title: "Check-in Kazeya Ryokan", icon: "fa-solid fa-hot-tub-person" }
+            { time: "15:10", type: "point", title: "Check-in Kazeya Ryokan", icon: "fa-solid fa-hot-tub-person" }
         ],
 
         timeline: [
-            { time: "08:50", title: "Tren a Takayama", desc: "Wide View Hida. Vistas espectaculares. (Base)" },
-            { time: "15:30", title: "Check-in Ryokan", desc: "Té verde, yukata y onsen. (Base)" },
+            { time: "08:45", title: "Tren a Takayama", desc: "Shinkansen a Nagoya y Wide View Hida. (Base)" },
+            { time: "15:10", title: "Check-in Ryokan", desc: "Té verde, yukata y onsen. (Base)" },
             { time: "19:00", title: "Cena Kaiseki", desc: "Banquete tradicional con Ternera de Hida. (Base)" }
         ],
 
@@ -3039,43 +3046,46 @@ const travelData = [
         image: "images/dia13-portada.jpg",
 
         logistics: [
-            { title: "Bus", text: "Bus Expreso Nohi desde Takayama. Reservad exactamente 1 mes antes para el grupo." },
-            { title: "Coche", text: "Recogida de Budget Rent a Car nada más llegar a la estación." }
+            { title: "⚠️ Alerta Desvío Bus", text: "Ruta usual Takayama-Hirayu suspendida por desvío. Nuevo itinerario del bus: Takayama (08:50) ➔ Hirayu Onsen (10:25-10:45) ➔ Matsumoto (11:50-12:05) ➔ Kawaguchiko (14:50). Tlf. Emergencia: 090-9541-0363." },
+            { title: "Bus", text: "LIMON Bus (COMPRADO). Presentarse 10 minutos antes (08:40) en el punto de encuentro de Takayama." },
+            { title: "Coche", text: "Recogida de Budget Rent a Car nada más llegar a la estación (traslado al hotel en coche)." }
         ],
 
         transportTimeline: [
-            { time: "08:15", type: "point", title: "Estación de Buses Takayama Nohi", icon: "fa-solid fa-bus-simple" },
+            { time: "08:40", type: "point", title: "Llegada a Estación de Takayama (10 min antes - CRÍTICO)", icon: "fa-solid fa-bus-simple" },
             {
-                time: "08:30",
+                time: "08:50",
                 type: "transit",
-                title: "Bus Directo Mt. Fuji (Express)",
-                booking: { id: "bk_fuji_bus", timeframe: "Exactamente 1 mes antes", required: true, link: "https://www.nouhibus.co.jp/english/" },
-                price: "~5.000 JPY (Reserva previa obligatoria)",
-                timeLabel: "4h 45m",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Takayama+Nohi+Bus+Center&destination=Kawaguchiko+Station&travelmode=transit",
-                tacticalGuideId: "mission_fuji_bus"
+                title: "Autobús Turístico LIMON Bus (Detour Activo - COMPRADO)",
+                booking: { id: "bk_fuji_bus", timeframe: "COMPRADO", required: true, link: "https://www.nouhibus.co.jp/english/" },
+                price: "10.000 JPY / persona (80.000 JPY total)",
+                timeLabel: "6h (Desvío de ruta)",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Takayama+Station&destination=Kawaguchiko+Station&travelmode=transit",
+                tacticalGuideId: "mission_takayama_to_fuji"
             },
-            { time: "13:15", type: "point", title: "Llegada Kawaguchiko Station", icon: "fa-solid fa-flag-checkered" },
-            { time: "13:30", type: "point", title: "Recogida Coche en Budget", icon: "fa-solid fa-car" },
+            { time: "14:50", type: "point", title: "Llegada Kawaguchiko Station (Retrasado por desvío)", icon: "fa-solid fa-flag-checkered" },
+            { time: "15:05", type: "point", title: "Recogida Coche: Toyota/Budget Fuji Kawaguchiko", icon: "fa-solid fa-car" },
             {
-                time: "14:15",
+                time: "15:35",
                 type: "transit",
                 title: "Desplazamiento en coche de alquiler",
                 price: "Gasolina compartida",
                 timeLabel: "10 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Kawaguchiko+Station&destination=Toyoko+Inn+Fuji+Kawaguchiko+Ohashi"
             },
-            { time: "15:00", type: "point", title: "Check-in Hotel Toyoko Inn", icon: "fa-solid fa-bed" },
-            { time: "16:30", type: "point", title: "Pagoda Chureito (Luz de tarde)", icon: "fa-solid fa-vihara" },
-            { time: "18:30", type: "point", title: "Oishi Park (Atardecer en el lago)", icon: "fa-solid fa-cloud-sun" }
+            { time: "15:45", type: "point", title: "Check-in Hotel Toyoko Inn", icon: "fa-solid fa-bed" },
+            { time: "16:45", type: "point", title: "Pagoda Chureito (Luz de tarde)", icon: "fa-solid fa-vihara" },
+            { time: "18:45", type: "point", title: "Paseo por el lago", icon: "fa-solid fa-person-walking-zen" },
+            { time: "19:30", type: "point", title: "Oishi Park (Atardecer)", icon: "fa-solid fa-cloud-sun" }
         ],
 
         timeline: [
-            { time: "08:30", title: "Bus a Kawaguchiko", desc: "Trayecto de casi 5h cruzando sierras. (Base)" },
-            { time: "13:30", title: "Recogida Coche", desc: "Libertad total para explorar la zona alpina. (Base)" },
-            { time: "15:00", title: "Check-in Hotel", desc: "Instalación en el Campo Base. (Base)" },
-            { time: "16:30", title: "Pagoda Chureito", desc: "La foto más icónica de Japón con luz de tarde. (Base)" },
-            { time: "18:30", title: "Atardecer Lago", desc: "Paseo por Oishi Park. (Base)" }
+            { time: "08:50", title: "LIMON Bus a Kawaguchiko", desc: "Trayecto de 6h con desvío por Hirayu y Matsumoto. (Base)" },
+            { time: "15:05", title: "Recogida Coche", desc: "Alquiler listo para explorar la zona de los Cinco Lagos. (Base)" },
+            { time: "15:45", title: "Check-in Hotel", desc: "Instalación en Toyoko Inn Fuji Kawaguchiko Ohashi. (Base)" },
+            { time: "16:45", title: "Pagoda Chureito", desc: "La foto más icónica de Japón con luz de tarde/atardecer. (Base)" },
+            { time: "18:45", title: "Paseo por el lago", desc: "Vistas y paz junto al agua. (Base)" },
+            { time: "19:30", title: "Atardecer en Oishi Park", desc: "El momento mágico del día frente al Fuji. (Base)" }
         ],
 
         prices: {

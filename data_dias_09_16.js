@@ -548,6 +548,7 @@ const travelData_09_16 = [
     {
         day: 11, exactDate: "2026-08-06", type: "travel",
         date: "Jue, 6 Agosto", title: "⛰️ Alpes: Relax en el Ryokan",
+        routeMapsLink: "https://www.google.com/maps/d/u/0/edit?mid=1ZE3_GUt49OwUVbsbOGrb6fG1M5m-yLo&usp=sharing",
         coords: [36.259, 137.551], zoom: 13,
         hotel: "Kazeya Ryokan",
         hotelImage: "images/hotel-kazeya.jpg",
@@ -555,6 +556,7 @@ const travelData_09_16 = [
         image: "images/okuhida_ryokan.png",
 
         logistics: [
+            { title: "Billetes Shinkansen", text: "COMPRADO: Nozomi 2 (08:45 -> 09:19). ID Membresía: 1892692405. Reserva 2000 (3 Ad + 1 Niño, 20.680¥), Reserva 2001 (4 Ad, 23.640¥)." },
             { title: "Equipaje", text: "Solo mochilas de mano. Las maletas grandes van por Takkyubin a Tokio o Kawaguchiko." },
             { title: "Onsen", text: "Ducharse antes de entrar. Tatuajes: consultar política (o reservar privado)." }
         ],
@@ -790,6 +792,7 @@ const travelData_09_16 = [
     {
         day: 12, exactDate: "2026-08-07", type: "stay",
         date: "Vie, 7 Agosto", title: "🏔️ Takayama: Japón Feudal",
+        routeMapsLink: "https://www.google.com/maps/d/u/0/edit?mid=1WI_8rcojN2LWqVF7oS1AaDX7OeCDT4U&usp=sharing",
         coords: [36.146, 137.252], zoom: 13,
         hotel: "Residence Hotel Takayama Station",
         hotelImage: "images/hotel-residence-takayama.jpg",
@@ -1009,6 +1012,7 @@ const travelData_09_16 = [
     {
         day: 13, exactDate: "2026-08-08", type: "travel",
         date: "Sáb, 8 Agosto", title: "🗻 Kawaguchiko: El Monte Fuji",
+        routeMapsLink: "https://www.google.com/maps/d/u/0/edit?mid=1kBBxFBG6ljPq2zz0f7Ws_UEOyDd6UcE&usp=sharing",
         coords: [35.498, 138.768], zoom: 13,
         hotel: "Toyoko Inn Fuji Kawaguchiko Ohashi",
         hotelImage: "images/hotel-toyoko-kawaguchiko.jpg",
@@ -1016,45 +1020,46 @@ const travelData_09_16 = [
         image: "images/dia13-portada.jpg",
 
         logistics: [
-            { title: "Bus", text: "Bus Expreso Nohi desde Takayama. Reservad exactamente 1 mes antes para el grupo." },
-            { title: "Coche", text: "Recogida de Budget Rent a Car nada más llegar a la estación." }
+            { title: "⚠️ Alerta Desvío Bus", text: "Ruta usual Takayama-Hirayu suspendida por desvío. Nuevo itinerario del bus: Takayama (08:50) ➔ Hirayu Onsen (10:25-10:45) ➔ Matsumoto (11:50-12:05) ➔ Kawaguchiko (14:50). Tlf. Emergencia: 090-9541-0363." },
+            { title: "Bus", text: "LIMON Bus (COMPRADO). Presentarse 10 minutos antes (08:40) en el punto de encuentro de Takayama." },
+            { title: "Coche", text: "Recogida de Budget Rent a Car nada más llegar a la estación (traslado al hotel en coche)." }
         ],
 
         transportTimeline: [
-            { time: "08:40", type: "point", title: "Llegada a Estación de Takayama (10 min antes)", icon: "fa-solid fa-bus-simple" },
+            { time: "08:40", type: "point", title: "Llegada a Estación de Takayama (10 min antes - CRÍTICO)", icon: "fa-solid fa-bus-simple" },
             {
                 time: "08:50",
                 type: "transit",
-                title: "Autobús Turístico LIMON Bus (COMPRADO)",
+                title: "Autobús Turístico LIMON Bus (Detour Activo - COMPRADO)",
                 booking: { id: "bk_fuji_bus", timeframe: "COMPRADO", required: true, link: "https://www.nouhibus.co.jp/english/" },
                 price: "10.000 JPY / persona (80.000 JPY total)",
-                timeLabel: "~5h",
+                timeLabel: "6h (Desvío de ruta)",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Takayama+Station&destination=Kawaguchiko+Station&travelmode=transit",
                 tacticalGuideId: "mission_takayama_to_fuji"
             },
-            { time: "13:59", type: "point", title: "Llegada Kawaguchiko Station", icon: "fa-solid fa-flag-checkered" },
-            { time: "14:15", type: "point", title: "Recogida Coche: Toyota/Budget Fuji Kawaguchiko", icon: "fa-solid fa-car" },
+            { time: "14:50", type: "point", title: "Llegada Kawaguchiko Station (Retrasado por desvío)", icon: "fa-solid fa-flag-checkered" },
+            { time: "15:05", type: "point", title: "Recogida Coche: Toyota/Budget Fuji Kawaguchiko", icon: "fa-solid fa-car" },
             {
-                time: "15:00",
+                time: "15:35",
                 type: "transit",
                 title: "Desplazamiento en coche de alquiler",
                 price: "Gasolina compartida",
                 timeLabel: "10 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Kawaguchiko+Station&destination=Toyoko+Inn+Fuji+Kawaguchiko+Ohashi"
             },
-            { time: "15:15", type: "point", title: "Check-in Hotel Toyoko Inn", icon: "fa-solid fa-bed" },
-            { time: "16:30", type: "point", title: "Pagoda Chureito (Luz de tarde)", icon: "fa-solid fa-vihara" },
-            { time: "18:30", type: "point", title: "Paseo por el lago", icon: "fa-solid fa-person-walking-zen" },
+            { time: "15:45", type: "point", title: "Check-in Hotel Toyoko Inn", icon: "fa-solid fa-bed" },
+            { time: "16:45", type: "point", title: "Pagoda Chureito (Luz de tarde)", icon: "fa-solid fa-vihara" },
+            { time: "18:45", type: "point", title: "Paseo por el lago", icon: "fa-solid fa-person-walking-zen" },
             { time: "19:30", type: "point", title: "Oishi Park (Atardecer)", icon: "fa-solid fa-cloud-sun" }
         ],
 
         timeline: [
-            { time: "08:50", title: "Bus a Kawaguchiko", desc: "Trayecto de 5h en LIMON Bus. (Base)" },
-            { time: "14:15", title: "Recogida Coche", desc: "Libertad total para explorar la zona alpina. (Base)" },
-            { time: "15:15", title: "Check-in Hotel", desc: "Instalación en el Campo Base. (Base)" },
-            { time: "16:30", title: "Pagoda Chureito", desc: "La foto más icónica de Japón con luz de tarde. (Base)" },
-            { time: "18:30", title: "Paseo por el lago", desc: "Vistas y paz junto al agua. (Base)" },
-            { time: "19:30", title: "Atardecer en Oishi Park", desc: "El momento mágico del día. (Base)" }
+            { time: "08:50", title: "LIMON Bus a Kawaguchiko", desc: "Trayecto de 6h con desvío por Hirayu y Matsumoto. (Base)" },
+            { time: "15:05", title: "Recogida Coche", desc: "Alquiler listo para explorar la zona de los Cinco Lagos. (Base)" },
+            { time: "15:45", title: "Check-in Hotel", desc: "Instalación en Toyoko Inn Fuji Kawaguchiko Ohashi. (Base)" },
+            { time: "16:45", title: "Pagoda Chureito", desc: "La foto más icónica de Japón con luz de tarde/atardecer. (Base)" },
+            { time: "18:45", title: "Paseo por el lago", desc: "Vistas y paz junto al agua. (Base)" },
+            { time: "19:30", title: "Atardecer en Oishi Park", desc: "El momento mágico del día frente al Fuji. (Base)" }
         ],
 
         prices: {
@@ -1893,6 +1898,7 @@ const travelData_09_16 = [
     {
         day: 16, type: "travel",
         date: "Mar, 11 Agosto", title: "🏙️ Regreso a la Capital",
+        routeMapsLink: "https://www.google.com/maps/d/u/0/edit?mid=19wFMGJpWCb3WbofZ9nepPjzQd_zlaWY&usp=sharing",
         coords: [35.702, 139.774], zoom: 13,
         hotel: "Hotel Metropolitan Edmont Tokyo",
         hotelImage: "images/hotel-metropolitan-tokio.jpg",
@@ -1906,12 +1912,13 @@ const travelData_09_16 = [
         ],
 
         transportTimeline: [
-            { time: "09:30", type: "point", title: "Pagar Gasolina / Devolución Coche", icon: "fa-solid fa-gas-pump" },
+            { time: "09:00", type: "point", icon: "fa-solid fa-gas-pump", title: "Repostaje en Gasolinera", link: "https://www.google.com/maps/search/?api=1&query=Gas+Station+near+Kawaguchiko+Station" },
+            { time: "09:30", type: "point", icon: "fa-solid fa-car-side", title: "Devolución de Coches (Budget)", link: "https://www.google.com/maps/search/?api=1&query=Budget+Rent+A+Car+Kawaguchiko" },
             {
                 time: "10:55",
                 type: "transit",
-                title: "Tren Expréss 'Fuji Excursion' a Tokio",
-                price: "Billete completo (Tarifa base + Asiento reservado). Sin JR Pass.",
+                title: "Tren Express 'Fuji Excursion' a Tokio",
+                price: "Billete completo. Sin JR Pass.",
                 timeLabel: "1h 55m",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Kawaguchiko+Station&destination=Shinjuku+Station&travelmode=transit",
                 tacticalGuideId: "mission_fuji_excursion",
@@ -1921,7 +1928,7 @@ const travelData_09_16 = [
             {
                 time: "13:30",
                 type: "transit",
-                title: "Taxis a Iidabashi (x2 furgonetas)",
+                title: "Taxis a Iidabashi (x2 Vans)",
                 price: "~4.000 JPY total (2 taxis)",
                 timeLabel: "15 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Shinjuku+Station&destination=Hotel+Metropolitan+Edmont+Tokyo"
@@ -1935,35 +1942,31 @@ const travelData_09_16 = [
                 timeLabel: "10 min a pie",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Metropolitan+Edmont+Tokyo&destination=Kagurazaka&travelmode=walking"
             },
-            { time: "17:15", type: "point", title: "Sunset en Santuario Akagi", icon: "fa-solid fa-torii-gate" }
+            { time: "17:15", type: "point", title: "Sunset en Santuario Akagi", icon: "fa-solid fa-torii-gate" },
+            {
+                time: "20:00",
+                type: "transit",
+                title: "Cena y Regreso al Hotel",
+                price: "Gratis",
+                timeLabel: "12 min a pie",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Akagi+Shrine&destination=Hotel+Metropolitan+Edmont+Tokyo&travelmode=walking"
+            }
         ],
 
         timeline: [
-            { time: "10:30", title: "Devolución Coche", desc: "Llenad depósito. Recepción en Budget. (Base)" },
+            { time: "09:00", title: "Gasolinera Kawaguchiko", desc: "Repostaje del coche de alquiler antes de devolverlo. (Base)" },
+            { time: "09:30", title: "Devolución Coche", desc: "Recepción en Budget Kawaguchiko. (Base)" },
             { time: "10:55", title: "Traslado a Tokio", desc: "Tren Directo Fuji Excursion a Shinjuku. (Base)" },
             { time: "13:30", title: "Llegada Shinjuku", desc: "Cruce de la estación más concurrida del mundo hacia Taxis. (Base)" },
-            { time: "15:00", title: "Check-in Edmont", desc: "Recuperad maletas grandes y descanso brutal. (Base)" },
-            { time: "17:00", title: "Kagurazaka", desc: "Paseo por el barrio cercano al hotel. Santuario Akagi. (Base)" }
+            { time: "14:00", title: "Check-in Edmont", desc: "Recuperad maletas grandes y descanso brutal en el hotel. (Base)" },
+            { time: "17:00", title: "Kagurazaka y Akagi", desc: "Paseo por el barrio tradicional de Kagurazaka y el moderno santuario Akagi. (Base)" },
+            { time: "20:00", title: "Cena y Regreso", desc: "Cena en Kagurazaka o alrededores del hotel y regreso a pie. (Base)" }
         ],
 
         prices: {
-            transport: "Suplemento Tren (~1.740 JPY) + Taxis Shinjuku (~2.000 JPY)",
-            total: "~3.800 JPY"
+            transport: "Tren Fuji Excursion (~4.130 JPY) + Taxis Shinjuku (~2.000 JPY/taxi)",
+            total: "~6.130 JPY"
         },
-
-        transportTimeline: [
-            { time: "09:00", type: "point", icon: "fa-solid fa-gas-pump", title: "Repostaje en Gasolinera" },
-            { time: "09:30", type: "point", icon: "fa-solid fa-car-side", title: "Devolución de Coches (Budget)" },
-            { 
-                title: "Tren Express 'Fuji Excursion'", 
-                type: "transit", 
-                price: "Billete completo (Tarifa base + Asiento reservado). Sin JR Pass.", 
-                timeLabel: "10:55 - 12:55",
-                tacticalGuideId: "mission_fuji_excursion",
-                tacticalBtnText: "ABRIR MANUAL DE TRASLADO (Operación Retorno)"
-            },
-            { time: "13:00", type: "point", icon: "fa-solid fa-taxi", title: "Taxi a Hotel (Iidabashi)" }
-        ],
         isFlexible: true,
         base: {
             title: "Itinerario Base",

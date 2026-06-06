@@ -5317,3 +5317,59 @@ body:not(.day-selected) .right-panel {
     70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(0, 243, 255, 0); }
     100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 243, 255, 0); }
 }
+
+/* Custom Pulse Animations for Map Buttons */
+@keyframes pulse-blue {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 243, 255, 0.6); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(0, 243, 255, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 243, 255, 0); }
+}
+
+@keyframes pulse-red {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.6); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+.route-btn-blue {
+    cursor: pointer;
+    background: rgba(0, 243, 255, 0.15);
+    border: 2px solid var(--neon-blue);
+    color: var(--neon-blue);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    animation: pulse-blue 2s infinite;
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.6);
+    transition: transform 0.2s;
+}
+
+.route-btn-blue:hover {
+    transform: scale(1.1);
+}
+
+.route-btn-red {
+    cursor: pointer;
+    background: rgba(239, 68, 68, 0.15);
+    border: 2px solid #ef4444;
+    color: #ef4444;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    animation: pulse-red 2s infinite;
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.6);
+    transition: transform 0.2s;
+}
+
+.route-btn-red:hover {
+    transform: scale(1.1);
+}
+

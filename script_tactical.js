@@ -12,7 +12,599 @@ function renderLegacyTacticalMission(missionId, dayIndex) {
 
     setTimeout(() => {
         let missionHTML = '';
-        if (missionId === 'mission01') {
+        if (missionId === 'mission_yamanote') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: YAMANOTE_CIRCULAR</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    <h1 class="datapad-title">> GUÍA DE TRÁNSITO: LÍNEA JR YAMANOTE</h1>
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-subway"></i> RUTA CIRCULAR:</div>
+                            <ul class="data-list">
+                                <li><strong>Sentidos:</strong> Outer Loop (sentido horario: Shibuya ➔ Shinagawa ➔ Tokyo) / Inner Loop (antihorario: Shibuya ➔ Shinjuku ➔ Ikebukuro).</li>
+                                <li><strong>Conexión Hotel:</strong> Desde Iidabashi, tomar JR Chuo-Sobu Line (Amarilla) hasta Yoyogi (oeste) o Akihabara (este) y transbordar a la Yamanote.</li>
+                                <li><strong>Señalización:</strong> Andenes de color verde brillante con música distintiva para cada estación.</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-wallet"></i> TÁCTICA:</div>
+                            <ul class="data-list">
+                                <li><strong>JR Pass:</strong> 100% Cubierto (usar tornos JR).</li>
+                                <li><strong>Alternativa:</strong> Tarjeta IC (Suica/Pasmo) en Apple Wallet.</li>
+                                <li><strong>Frecuencia:</strong> Trenes cada 2-3 minutos. No hay pérdida.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_shibuya_sky') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: SHIBUYA_SKY</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    <h1 class="datapad-title">> MANUAL DE OPERACIONES: SHIBUYA SKY</h1>
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-door-open"></i> INGRESO Y REQUISITOS:</div>
+                            <ul class="data-list">
+                                <li><strong>Acceso:</strong> Subir por ascensor directo en la planta 14F del Shibuya Scramble Square.</li>
+                                <li><strong>Taquillas:</strong> Obligatorio dejar mochilas, bolsas, gorros, bufandas y trípodes. Requiere moneda de 100 JPY (retornable).</li>
+                                <li><strong>Viento:</strong> Solo se permiten cámaras con correa al cuello y móviles.</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-camera"></i> PUNTOS FOTOGRÁFICOS:</div>
+                            <ul class="data-list">
+                                <li><strong>Sky Edge:</strong> La esquina de cristal sin marcos para fotos flotando sobre el cruce.</li>
+                                <li><strong>Cloud Hammock:</strong> Redes para tumbarse a mirar el cielo.</li>
+                                <li><strong>Fuji Spot:</strong> Al atardecer se ve la silueta del Monte Fuji si está despejado.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_maid') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: MAID_CAFE</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    <h1 class="datapad-title">> PROTOCOLO: MAID CAFÉ AKIHABARA</h1>
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-coins"></i> ESTRUCTURA DE COSTES:</div>
+                            <ul class="data-list">
+                                <li><strong>Tasa de entrada (Table Charge):</strong> ~500 a 800 JPY por persona/hora.</li>
+                                <li><strong>Consumición:</strong> Mínimo una bebida/postre obligatorio por persona.</li>
+                                <li><strong>Combos:</strong> Suelen vender packs con foto Polaroid (cheki) y regalo por ~2.500 JPY.</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-hand-holding-heart"></i> REGLAS DE CONDUCTA:</div>
+                            <ul class="data-list">
+                                <li><strong>Fotos:</strong> Prohibido fotografiar a las maids directamente (solo se permite a la comida).</li>
+                                <li><strong>Contacto físico:</strong> Totalmente prohibido tocar a las sirvientas.</li>
+                                <li><strong>Estilo:</strong> Seguir el ritual de cantar hechizos ("Moe Moe Kyun") con actitud abierta y divertida.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_jonanjima') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: JONANJIMA_RECON</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    <h1 class="datapad-title">> AVISTAMIENTO: JONANJIMA SEASIDE PARK</h1>
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-plane-arrival"></i> LOGÍSTICA Y ACCESO:</div>
+                            <ul class="data-list">
+                                <li><strong>Ubicación:</strong> Isla artificial en la bahía de Tokio, justo frente a la pista de aterrizaje de Haneda.</li>
+                                <li><strong>Transporte:</strong> Autobús Keikyu desde la estación JR Omori (Salida Este) o trayecto corto en taxi.</li>
+                                <li><strong>Vistas:</strong> Los aviones pasan directamente sobre la playa a baja altura (menos de 100m).</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-cloud-sun"></i> TÁCTICA:</div>
+                            <ul class="data-list">
+                                <li><strong>Fotografía:</strong> Imprescindible cámara con buen zoom o móvil listo en modo ráfaga.</li>
+                                <li><strong>Paseo:</strong> Zona costera con playa artificial de arena. Muy relajante antes del vuelo.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_yurikamome') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: YURIKAMOME_MONORAIL</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    <h1 class="datapad-title">> GUÍA DE TRÁNSITO: MONORRAÍL YURIKAMOME</h1>
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-train"></i> TECNOLOGÍA Y VIAJE:</div>
+                            <ul class="data-list">
+                                <li><strong>Sistema:</strong> Tren automático sobre neumáticos de goma, sin conductor físico.</li>
+                                <li><strong>Mejor Asiento:</strong> Intentad entrar rápido y sentaros en la gran cristalera frontal del primer vagón (efecto cabina de piloto).</li>
+                                <li><strong>Hito Visual:</strong> El giro de 270 grados y el cruce completo del Rainbow Bridge sobre el puerto.</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-ticket"></i> TARIFAS:</div>
+                            <ul class="data-list">
+                                <li><strong>Fares:</strong> No cubierto por pases de metro regulares. Se paga con Suica/Pasmo (~390 JPY).</li>
+                                <li><strong>Frecuencia:</strong> Cada 4 minutos desde la estación elevada de Shimbashi.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_teamlab') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: TEAMLAB_PLANETS</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    <h1 class="datapad-title">> PROTOCOLO: TEAMLAB PLANETS</h1>
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-water"></i> PROTOCOLO DEL AGUA:</div>
+                            <ul class="data-list">
+                                <li><strong>Descalzarse:</strong> Es obligatorio ir descalzo. Hay taquillas gratuitas para zapatos, calcetines y mochilas.</li>
+                                <li><strong>Nivel del agua:</strong> En algunas salas el agua llega a la rodilla/espinilla de un adulto. Llevad pantalones fáciles de remangar.</li>
+                                <li><strong>Toallas:</strong> El museo proporciona toallas limpias al salir de las zonas acuáticas.</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-glasses"></i> SUELOS DE ESPEJO:</div>
+                            <ul class="data-list">
+                                <li><strong>Aviso:</strong> Varias salas tienen suelos reflectantes. Evitad faldas o vestidos cortos (se alquilan shorts gratis a la entrada si es necesario).</li>
+                                <li><strong>Móvil:</strong> Llevad el móvil bien sujeto en la mano o con funda de cuello. No se permiten trípodes ni palos selfie.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_nakano_broadway') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: NAKANO_BROADWAY</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    <h1 class="datapad-title">> OPERACIÓN RETRO: NAKANO BROADWAY</h1>
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-box-open"></i> EL LABERINTO DEL COLECCIONISTA:</div>
+                            <ul class="data-list">
+                                <li><strong>Estructura:</strong> Plantas 2F, 3F y 4F dedicadas al coleccionismo vintage, manga antiguo, consolas retro y cels de animación originales de Ghibli/Dragon Ball.</li>
+                                <li><strong>Mandarake:</strong> Hay más de 20 tiendas Mandarake especializadas por temática (ej. Mandarake Galaxy para videojuegos retro, Mandarake Henya para juguetes raros).</li>
+                                <li><strong>Precios:</strong> Suele ser más económico y menos turístico que Akihabara para figuras de segunda mano.</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-ice-cream"></i> TRUCO GASTRONÓMICO:</div>
+                            <ul class="data-list">
+                                <li><strong>Daily Chico:</strong> En el sótano (B1F). Famoso por su helado de 8 pisos con sabores como té verde, ramune, chocolate, etc.</li>
+                                <li><strong>Regla:</strong> Si se te cae un piso al recibirlo, no te lo reponen gratis. Sujétalo con ambas manos.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_nikko_transfer') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: NIKKO_TRANSPORT</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    <h1 class="datapad-title">> EXCURSIÓN LOGÍSTICA: TOKIO ➔ NIKKO</h1>
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-train"></i> RUTA Y TRANSBORDOS:</div>
+                            <ul class="data-list">
+                                <li><strong>Opción JR:</strong> Tomar el **Tohoku Shinkansen** desde la estación de Tokyo o Ueno hasta **Utsunomiya** (50 min). Allí cambiar a la línea local **JR Nikko Line** hasta Nikko Station (45 min).</li>
+                                <li><strong>Opción Tobu:</strong> Desde la estación de Asakusa, tomar el tren exprés **Tobu Limited Express (Spacia)** directo a Tobu-Nikko Station (1h 50min, no cubierto por JR Pass).</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-bus"></i> EN NIKKO:</div>
+                            <ul class="data-list">
+                                <li><strong>Autobús local:</strong> Al salir de la estación, tomad el Tobu Bus (pase diario de autobús de ~2.000 JPY en taquilla).</li>
+                                <li><strong>Destino:</strong> Bajar en la parada "Shinkyo Bridge" o "Toshogu Shrine" para iniciar la visita a los templos.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_kamakura_transfer') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: KAMAKURA_TRANSPORT</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    <h1 class="datapad-title">> EXCURSIÓN LOGÍSTICA: TOKIO ➔ KAMAKURA</h1>
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-train"></i> RUTAS DIRECTAS:</div>
+                            <ul class="data-list">
+                                <li><strong>Desde Shinjuku:</strong> Tomar la línea **JR Shonan-Shinjuku Line** directa a Kamakura Station (~1 hora).</li>
+                                <li><strong>Desde Tokyo Station:</strong> Tomar la línea **JR Yokosuka Line** directa a Kamakura Station (~55 min).</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-subway"></i> MOVILIDAD EN KAMAKURA:</div>
+                            <ul class="data-list">
+                                <li><strong>Tranvía Enoden:</strong> El pequeño tren verde clásico conecta Kamakura con Hase (Buda Gigante) y la isla de Enoshima.</li>
+                                <li><strong>Pago:</strong> Se puede usar Suica/Pasmo en el Enoden sin problemas.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_daibutsu') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: DAIBUTSU_KAMAKURA</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    <h1 class="datapad-title">> INFILTRACIÓN: EL GRAN BUDA (KOTOKU-IN)</h1>
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-om"></i> EL MONUMENTO:</div>
+                            <ul class="data-list">
+                                <li><strong>Detalles:</strong> Estatua de bronce de Amitabha Buddha de 13.35 metros, la segunda más grande de Japón. Completada en 1252.</li>
+                                <li><strong>Al aire libre:</strong> Originalmente estaba dentro de un gran templo de madera, pero un tsunami en 1498 destruyó el edificio, dejando la estatua al descubierto.</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-circle-info"></i> TÁCTICA Y ENTRADA:</div>
+                            <ul class="data-list">
+                                <li><strong>Entrada:</strong> Precio de ~300 JPY.</li>
+                                <li><strong>Acceso al interior:</strong> Por solo 50 JPY extra podéis entrar físicamente por una compuerta lateral del Buda y ver la técnica de fundición desde dentro (cuidado con el calor interior en verano).</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_toshogu') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: TOSHOGU_SHRINE</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    <h1 class="datapad-title">> MAUSOLEO SAMURÁI: TOSHOGU NIKKO</h1>
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-torii-gate"></i> ARQUITECTURA Y ARTE:</div>
+                            <ul class="data-list">
+                                <li><strong>Significado:</strong> Santuario sintoísta que sirve como mausoleo para Tokugawa Ieyasu, el fundador del shogunato Tokugawa.</li>
+                                <li><strong>Pan de Oro:</strong> A diferencia de los sobrios templos japoneses, Toshogu está decorado con pan de oro, colores vibrantes y tallas complejas influenciadas por el arte chino.</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-magnifying-glass"></i> DETALLES A BUSCAR:</div>
+                            <ul class="data-list">
+                                <li><strong>Tres Monos Sabios:</strong> El relieve de madera que muestra el ciclo de vida y los monos que no oyen, no hablan y no ven el mal.</li>
+                                <li><strong>Nemuri-neko:</strong> El pequeño relieve del gato durmiendo que simboliza la paz en Japón.</li>
+                                <li><strong>Tumba real:</strong> Subir las escaleras de piedra rodeadas de cedros gigantes para llegar al mausoleo de Ieyasu.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_enoshima_link') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: ENOSHIMA_ISLAND</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    <h1 class="datapad-title">> NAVEGACIÓN: ISLA DE ENOSHIMA</h1>
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-water"></i> ACCESO Y RECORRIDO:</div>
+                            <ul class="data-list">
+                                <li><strong>Cruce:</strong> Se accede cruzando a pie el puente Enoshima-Ohashi (600m).</li>
+                                <li><strong>Escaleras mecánicas (Escarcar):</strong> La subida a la cima es empinada. Podéis comprar el ticket del "Enoshima Escar" (~360 JPY) para subir en escaleras mecánicas en vez de escaleras físicas.</li>
+                                <li><strong>Caves (Cuevas Iwaya):</strong> Cuevas marinas en la parte posterior de la isla asociadas con leyendas de dragones. Te prestan una vela para explorarlas.</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-utensils"></i> EXPERIENCIA GASTRO:</div>
+                            <ul class="data-list">
+                                <li><strong>Shirasu:</strong> El plato local es el Shirasu (pequeños pececillos blancos), servido fresco, cocinado o en galletas crujientes.</li>
+                                <li><strong>Sea Candle:</strong> Faro y torre de observación con vistas espectaculares de la bahía y el monte Fuji al atardecer.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_toyosu_market') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: TOYOSU_SENKYAKU</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    <h1 class="datapad-title">> MANUAL DEL PUERTO: TOYOSU & BANRAI</h1>
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-fish-fins"></i> EDO MARKET EN LA ACTUALIDAD:</div>
+                            <ul class="data-list">
+                                <li><strong>Senkyaku Banrai:</strong> Complejo de ocio y gastronomía de madera tradicional junto al mercado de Toyosu. Recrea el estilo Edo.</li>
+                                <li><strong>Desayuno:</strong> Ideal para comer brochetas de wagyu a la parrilla, marisco fresco y el mejor sashimi de la lonja.</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-hot-tub-person"></i> SPA GRATUITO DE PIES:</div>
+                            <ul class="data-list">
+                                <li><strong>Manyo Club:</strong> Subid a la planta 8F (azotea) del edificio para disfrutar del baño de pies de agua termal gratuito (ashiyu).</li>
+                                <li><strong>Vistas:</strong> Increíble vista panorámica del Rainbow Bridge, los barcos y el skyline de la bahía de Tokio.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_ginza_walk') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: GINZA_WALK</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    <h1 class="datapad-title">> GUÍA DE PASEO: GINZA LUXURY</h1>
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-store"></i> ARQUITECTURA Y COMPRAS:</div>
+                            <ul class="data-list">
+                                <li><strong>Ginza Six:</strong> Centro comercial de lujo con increíbles instalaciones artísticas en su atrio central. Subid a su azotea (jardín zen gratuito con vistas despejadas).</li>
+                                <li><strong>Itoya Stationery:</strong> Edificio de 12 plantas dedicado en exclusiva a la papelería, cuadernos, plumas y manualidades de diseño japonés.</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-car"></i> SHOWROOM TECH:</div>
+                            <ul class="data-list">
+                                <li><strong>Nissan Crossing:</strong> Edificio circular con los prototipos eléctricos más avanzados de Nissan y cafetería donde imprimen tu foto con espuma sobre el café.</li>
+                                <li><strong>Corte peatonal:</strong> Fines de semana y festivos al mediodía la avenida Chuo-dori se hace completamente peatonal.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_roppongi_hills') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: ROPPONGI_RECON</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    <h1 class="datapad-title">> DISTRITO DE ARTE: ROPPONGI HILLS</h1>
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-spider"></i> PUNTOS CLAVE:</div>
+                            <ul class="data-list">
+                                <li><strong>Maman Spider:</strong> Escultura de bronce gigante de una araña con huevos de mármol de Louise Bourgeois. Punto de encuentro clásico.</li>
+                                <li><strong>Tokyo City View:</strong> Mirador acristalado 360 grados en la Mori Tower. Ofrece las mejores fotos de la Torre de Tokio iluminada de noche.</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-tower-observation"></i> TORRE DE TOKIO:</div>
+                            <ul class="data-list">
+                                <li><strong>Ruta a pie:</strong> Caminar 15 min hacia la base de la Tokyo Tower pasando por el templo Zojoji para contrastar la campana medieval y la torre futurista roja de fondo.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_haneda_transfer') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: OP_EXFILTRATION</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    <h1 class="datapad-title">> EXTRACCIÓN: AEROPUERTO HANEDA</h1>
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-suitcase-rolling"></i> FACTURACIÓN Y LOGÍSTICA:</div>
+                            <ul class="data-list">
+                                <li><strong>Terminal 3:</strong> Terminal Internacional. El vuelo TK199 despega a las 21:45. Llegar al aeropuerto a las 17:45 (4h antes).</li>
+                                <li><strong>Wi-Fi / Sim:</strong> Devolver los Pocket Wi-Fi de alquiler en las cajas rojas de correo postal o en los mostradores oficiales en el hall de salidas.</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-gift"></i> ÚLTIMAS COMPRAS:</div>
+                            <ul class="data-list">
+                                <li><strong>Edo Koji (4F):</strong> Zona de restaurantes recreando una calle tradicional japonesa de madera. Cenad aquí antes de pasar el control de pasaportes.</li>
+                                <li><strong>Tax-Free:</strong> Escanear el pasaporte en las máquinas automáticas de aduanas justo después del control de seguridad para validar las compras libres de impuestos.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_ueno_park') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: UENO_PARK</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    <h1 class="datapad-title">> RECON: PARQUE DE UENO</h1>
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-tree"></i> ZONAS OPERATIVAS:</div>
+                            <ul class="data-list">
+                                <li><strong>Estanque Shinobazu:</strong> Enorme estanque de lotos. En medio se encuentra el templo Bentendo de forma octogonal.</li>
+                                <li><strong>Santuario Toshogu Ueno:</strong> Santuario superviviente a guerras y terremotos con espectaculares linternas de piedra y puertas doradas.</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-eye"></i> LOGÍSTICA:</div>
+                            <ul class="data-list">
+                                <li><strong>Acceso:</strong> Salida "Park Exit" de la estación Ueno.</li>
+                                <li><strong>Paseo:</strong> Excelente para caminar tranquilamente antes de la congestión del mercado Ameyoko.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_yanaka_ginza') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: YANAKA_GINZA</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    <h1 class="datapad-title">> RETRO TOKIO: BARRIO DE YANAKA</h1>
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-cat"></i> BARRIO DE LOS GATOS:</div>
+                            <ul class="data-list">
+                                <li><strong>Historia:</strong> Barrio residencial que escapó milagrosamente a los bombardeos. Conserva la escala y arquitectura de la era Showa (años 50-60).</li>
+                                <li><strong>Paseo:</strong> Calles estrechas llenas de templos tradicionales, tiendas de artesanía de madera y figuritas de gatos.</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-cookie"></i> GASTRONOMÍA CALLEJERA:</div>
+                            <ul class="data-list">
+                                <li><strong>Yuyake Dandan:</strong> Escaleras famosas por su vista del atardecer sobre la calle principal.</li>
+                                <li><strong>Snacks:</strong> Probad las croquetas de carne (korokke) baratas en las carnicerías locales o dulces taiyaki con forma de pez.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_meiji_jingu') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: MEIJI_JINGU</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    <h1 class="datapad-title">> INFILTRACIÓN: SANTUARIO MEIJI JINGU</h1>
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-tree"></i> EL BOSQUE IMPERIAL:</div>
+                            <ul class="data-list">
+                                <li><strong>Ubicación:</strong> Bosque artificial de 70 hectáreas con más de 100.000 árboles plantados a mano.</li>
+                                <li><strong>Acceso:</strong> Entrar por la imponente puerta Torii de madera junto a la salida de la estación Harajuku.</li>
+                                <li><strong>Silencio:</strong> Es un cambio drástico del bullicio urbano a la paz forestal absoluta.</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-wine-glass"></i> DETALLES CLAVE:</div>
+                            <ul class="data-list">
+                                <li><strong>Barriles decorativos:</strong> Pared de barriles de sake tradicionales y, enfrente, barriles de vino francés (reflejo de la apertura del emperador al extranjero).</li>
+                                <li><strong>Patio central:</strong> Gran santuario sintoísta donde con frecuencia se ven procesiones de bodas tradicionales los fines de semana.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission_harajuku_takeshita') {
+            missionHTML = `
+                <div class="datapad-container animate-fade-in">
+                    <div class="datapad-header">
+                        <div class="datapad-mission-id">> MISSION_FILE: TAKESHITA_STREET</div>
+                        <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
+                            <i class="fa-solid fa-xmark"></i> CLOSE_FILE
+                        </button>
+                    </div>
+                    <h1 class="datapad-title">> RECON: CALLE TAKESHITA HARAJUKU</h1>
+                    <div class="tactical-data-grid">
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-shirt"></i> MODA KAWAII:</div>
+                            <ul class="data-list">
+                                <li><strong>Cultura:</strong> 400 metros de calle cubiertos de tiendas extravagantes de moda lolita, gótica, punk e hip-hop adolescente.</li>
+                                <li><strong>Daiso:</strong> Macrotienda de todo a 100 yenes ideal para regalos baratos y snacks.</li>
+                            </ul>
+                        </div>
+                        <div class="data-block">
+                            <div class="data-label"><i class="fa-solid fa-cookie-bite"></i> DULCES GIGANTES:</div>
+                            <ul class="data-list">
+                                <li><strong>Crepes de Harajuku:</strong> Puestos icónicos de crepes (Marion Crepes, Santa Monica) con réplicas de plástico de crepes gigantes rellenas de nata, tartas y helado.</li>
+                                <li><strong>Algodón de azúcar:</strong> Tiendas que hacen nubes de azúcar gigantes del tamaño de una cabeza con forma de arcoíris.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="scanline-overlay"></div>
+                </div>
+            `;
+        } else if (missionId === 'mission01') {
             missionHTML = `
         <div class="datapad-container animate-fade-in" >
                     <div class="datapad-header">
@@ -1494,56 +2086,112 @@ function renderLegacyTacticalMission(missionId, dayIndex) {
         `;
         } else if (missionId === 'mission_tokyo_metro') {
             missionHTML = `
-        <div class="datapad-container animate-fade-in" >
+                <div class="datapad-container animate-fade-in">
                     <div class="datapad-header">
-                        <div class="datapad-mission-id">> MISSION_FILE: TOKYO_METRO</div>
+                        <div class="datapad-mission-id">> MISSION_FILE: TOKYO_METRO_TRANSIT</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
                             <i class="fa-solid fa-xmark"></i> CLOSE_FILE
                         </button>
                     </div>
-                    <h1 class="datapad-title">> LOGÍSTICA: RED DE METRO Y JR</h1>
+                    
+                    <h1 class="datapad-title">> GUÍA DE TRÁNSITO: DÍA 17 (ASAKUSA - AKIHABARA)</h1>
+                    
+                    <div class="holographic-schema">
+                        <svg viewBox="0 0 400 120" class="schema-svg">
+                            <!-- ORIGEN -->
+                            <circle cx="30" cy="50" r="5" class="schema-point" />
+                            <text x="10" y="35" class="schema-label" fill="#fff" font-size="9px">IIDABASHI (Hotel)</text>
+                            
+                            <!-- TRAYECTO 1 -->
+                            <line x1="35" y1="50" x2="165" y2="50" class="schema-line" stroke="#0095d9" stroke-width="3" />
+                            <text x="50" y="70" class="schema-meta" fill="#0095d9" font-size="8px">Línea Tozai (T) - 10 min</text>
+                            
+                            <!-- TRANSBORDO -->
+                            <circle cx="170" cy="50" r="5" class="schema-point" />
+                            <text x="140" y="35" class="schema-label" fill="#fff" font-size="9px">NIHOMBASHI</text>
+                            
+                            <!-- TRAYECTO 2 -->
+                            <line x1="175" y1="50" x2="365" y2="50" class="schema-line" stroke="#ff9500" stroke-width="3" />
+                            <text x="210" y="70" class="schema-meta" fill="#ff9500" font-size="8px">Línea Ginza (G) - 12 min</text>
+                            
+                            <!-- DESTINO -->
+                            <circle cx="370" cy="50" r="7" class="schema-point-target" />
+                            <text x="330" y="35" class="schema-label" fill="#ff9500" font-size="9px">ASAKUSA</text>
+                        </svg>
+                    </div>
+
                     <div class="tactical-data-grid">
                         <div class="data-block">
-                            <div class="data-label"><i class="fa-solid fa-compass"></i> PROTOCOLO DE USO:</div>
-                            <ul class="data-list">
-                                <li><strong>HERRAMIENTA:</strong> Suica / Pasmo en el móvil.</li>
-                                <li><strong>CÓDIGOS:</strong> Seguid letra y número de estación (ej: H01).</li>
-                                <li><strong>APP:</strong> Google Maps imprescindible para andenes.</li>
+                            <div class="data-label"><i class="fa-solid fa-compass"></i> TRAYECTO DE MAÑANA (Hotel ➔ Asakusa):</div>
+                            <ul class="data-list" style="font-size:0.85rem; line-height:1.4;">
+                                <li><strong>Origen:</strong> Salida del Hotel Edmont ➔ Estación de Iidabashi.</li>
+                                <li><strong>Tramo 1:</strong> Tomar la <strong>Tozai Line (Celeste)</strong> dirección este hasta Nihombashi (4 paradas).</li>
+                                <li><strong>Transbordo:</strong> Seguir las indicaciones naranjas hacia la <strong>Ginza Line</strong> (3 min a pie por pasillos).</li>
+                                <li><strong>Tramo 2:</strong> Tomar la <strong>Ginza Line (Naranja)</strong> dirección norte hasta la última parada: <strong>Asakusa Station</strong> (6 paradas).</li>
+                                <li><strong>Salida recomendada:</strong> Salidas <strong>1 o 3</strong> para estar junto a la puerta Kaminarimon del templo.</li>
                             </ul>
                         </div>
+                        
                         <div class="data-block">
-                            <div class="data-label"><i class="fa-solid fa-network-wired"></i> STATUS:</div>
-                            <div class="status-box">METRO_CONNECTED_100</div>
+                            <div class="data-label"><i class="fa-solid fa-rotate-left"></i> RETORNO DE NOCHE (Akihabara ➔ Hotel):</div>
+                            <ul class="data-list" style="font-size:0.85rem; line-height:1.4;">
+                                <li><strong>Origen:</strong> Estación de Akihabara (JR).</li>
+                                <li><strong>Línea:</strong> Tomar la línea <strong>JR Chuo-Sobu Line (Amarilla)</strong> dirección oeste (hacia Shinjuku).</li>
+                                <li><strong>Destino:</strong> Bajar en la estación <strong>Suidobashi</strong> (2 paradas) o <strong>Iidabashi</strong> (3 paradas). Directo, sin transbordos (7 min).</li>
+                                <li><strong>Caminata:</strong> 5-8 min a pie hasta el lobby del Hotel Metropolitan Edmont.</li>
+                            </ul>
                         </div>
                     </div>
+                    
+                    <div style="background:rgba(0, 243, 255, 0.05); border: 1px solid var(--neon-blue); padding:10px; border-radius:8px; margin-top:15px; font-size:0.85rem;">
+                        <strong style="color:var(--neon-blue);"><i class="fa-solid fa-mobile-screen"></i> Protocolo Suica/Pasmo en Apple Wallet:</strong>
+                        <span style="color:#cbd5e1;"> Aseguraos de tener vuestra tarjeta cargada con al menos 1.500 JPY en el móvil. Pasad el móvil por el lector contactless en los tornos sin necesidad de encender la pantalla.</span>
+                    </div>
+
+                    <div class="scanline-overlay"></div>
                 </div>
-        `;
+            `;
         } else if (missionId === 'mission_skytree') {
             missionHTML = `
-        <div class="datapad-container animate-fade-in" >
+                <div class="datapad-container animate-fade-in">
                     <div class="datapad-header">
-                        <div class="datapad-mission-id">> MISSION_FILE: SKYTREE</div>
+                        <div class="datapad-mission-id">> MISSION_FILE: TOKYO_SKYTREE</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
                             <i class="fa-solid fa-xmark"></i> CLOSE_FILE
                         </button>
                     </div>
-                    <h1 class="datapad-title">> MISIÓ_TECHO: TOKYO SKYTREE</h1>
+                    
+                    <h1 class="datapad-title">> ESTRATEGIA: TOKYO SKYTREE Y SOLAMACHI</h1>
+                    
                     <div class="tactical-data-grid">
                         <div class="data-block">
-                            <div class="data-label"><i class="fa-solid fa-tower-broadcast"></i> DATOS TÁCTICOS:</div>
-                            <ul class="data-list">
-                                <li><strong>ALTURA:</strong> 634m (La estructura más alta de Japón).</li>
-                                <li><strong>TICKET:</strong> Reserva previa recomendada.</li>
-                                <li><strong>EXTRA:</strong> Visitar Solamachi (Base de la torre).</li>
+                            <div class="data-label"><i class="fa-solid fa-ticket"></i> ACCESO Y RECOGIDA DE ENTRADAS:</div>
+                            <ul class="data-list" style="font-size:0.85rem; line-height:1.4;">
+                                <li><strong>Cómo llegar:</strong> Caminando 15 min cruzando el Río Sumida y el parque, o 1 parada en la Tobu Skytree Line desde Asakusa.</li>
+                                <li><strong>Punto de entrada:</strong> Dirigíos a la **Planta 4 (4F)**. Allí está la entrada para reservas web (Web Ticket Entrance).</li>
+                                <li><strong>Trámite:</strong> Escanead vuestro código QR en las máquinas de autoservicio para obtener los tickets impresos. Es rapidísimo.</li>
+                                <li><strong>Equipaje:</strong> Prohibido subir trípodes, mochilas de gran tamaño o maletas al mirador. Dejadlos en las taquillas de la base.</li>
                             </ul>
                         </div>
+                        
                         <div class="data-block">
-                            <div class="data-label"><i class="fa-solid fa-binoculars"></i> RANGO:</div>
-                            <div class="status-box">MAX_VISIBILITY_LEVEL</div>
+                            <div class="data-label"><i class="fa-solid fa-shop"></i> GUÍA DE COMPRAS SOLAMACHI:</div>
+                            <ul class="data-list" style="font-size:0.85rem; line-height:1.4;">
+                                <li><strong>Planta 4F (East Yard):</strong> El paraíso del souvenir. Encontraréis el **Pokémon Center Skytree Town**, la tienda oficial de Ghibli (**Donguri Republic**) y tiendas temáticas de anime.</li>
+                                <li><strong>Planta 3F:</strong> Tienda oficial de Capcom, Lego Store y tiendas de ropa.</li>
+                                <li><strong>Planta de comida (6F/7F):</strong> Excelente selección de restaurantes de tempura, tonkatsu y sushi con vistas espectaculares.</li>
+                            </ul>
                         </div>
                     </div>
+
+                    <div style="background:rgba(255, 184, 0, 0.05); border: 1px solid var(--gold); padding:10px; border-radius:8px; margin-top:15px; font-size:0.85rem;">
+                        <strong style="color:var(--gold);"><i class="fa-solid fa-train"></i> Salida Hacia Akihabara:</strong>
+                        <span style="color:#cbd5e1;"> Al terminar, id a la estación de <strong>Oshiage</strong> (conectada al sótano de la torre), tomad la <strong>Hanzomon Line (Morada)</strong> hasta la estación de Kinshicho (1 parada) y allí cambiad a la <strong>JR Sobu Line (Amarilla)</strong> directa a Akihabara. ¡Llegaréis en 10 minutos!</span>
+                    </div>
+
+                    <div class="scanline-overlay"></div>
                 </div>
-        `;
+            `;
         } else if (missionId === 'mission_asakusa_walk') {
             missionHTML = `
         <div class="datapad-container animate-fade-in" >
@@ -1598,30 +2246,43 @@ function renderLegacyTacticalMission(missionId, dayIndex) {
         `;
         } else if (missionId === 'mission_akihabara_intel') {
             missionHTML = `
-        <div class="datapad-container animate-fade-in" >
+                <div class="datapad-container animate-fade-in">
                     <div class="datapad-header">
                         <div class="datapad-mission-id">> MISSION_FILE: AKIBA_INTEL</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
                             <i class="fa-solid fa-xmark"></i> CLOSE_FILE
                         </button>
                     </div>
-                    <h1 class="datapad-title">> MISIÓ_OTAKU: AKIHABARA</h1>
+                    
+                    <h1 class="datapad-title">> INTELIGENCIA: RECONOCIMIENTO AKIHABARA</h1>
+                    
                     <div class="tactical-data-grid">
                         <div class="data-block">
-                            <div class="data-label"><i class="fa-solid fa-microchip"></i> PUNTOS CLAVE:</div>
-                            <ul class="data-list">
-                                <li><strong>RECON:</strong> Radio Kaikan, Mandarake, Super Potato.</li>
-                                <li><strong>ESTRATEGIA:</strong> Perderse en los edificios verticales.</li>
-                                <li><strong>ALERTA:</strong> Los domingos la calle principal es peatonal.</li>
+                            <div class="data-label"><i class="fa-solid fa-gamepad"></i> RETRO GAMING & ANIME STORES:</div>
+                            <ul class="data-list" style="font-size:0.85rem; line-height:1.4;">
+                                <li><strong>Radio Kaikan:</strong> Junto a la salida de la estación. 10 plantas de figuras y coleccionismo (tiendas AmiAmi, K-Books).</li>
+                                <li><strong>Super Potato:</strong> Templo de consolas clásicas (Famicom, Game Boy) y un salón arcade Showa en el ático.</li>
+                                <li><strong>Mandarake Complex:</strong> Edificio negro de 8 plantas de figuras y manga de segunda mano en perfecto estado.</li>
                             </ul>
                         </div>
+                        
                         <div class="data-block">
-                            <div class="data-label"><i class="fa-solid fa-bolt"></i> ENERGÍA:</div>
-                            <div class="status-box danger">SOBRECARGA_SENSORIAL_POSIBLE</div>
+                            <div class="data-label"><i class="fa-solid fa-utensils"></i> LOGÍSTICA DE CENA (Grupo 8):</div>
+                            <ul class="data-list" style="font-size:0.85rem; line-height:1.4;">
+                                <li><strong>Yodobashi Multimedia Akiba (8F):</strong> Zona gastronómica <em>Yodobashi Gourmet</em> con docenas de restaurantes amplios (sushi, wagyu, tonkatsu, ramen), ideal para grupos de 8 personas.</li>
+                                <li><strong>Salón de Arcade GiGO:</strong> Frente a la estación. Plantas superiores con juegos de ritmo y recreativos.</li>
+                            </ul>
                         </div>
                     </div>
+
+                    <div style="background:rgba(239, 68, 68, 0.05); border: 1px solid var(--danger); padding:10px; border-radius:8px; margin-top:15px; font-size:0.85rem;">
+                        <strong style="color:var(--danger);"><i class="fa-solid fa-triangle-exclamation"></i> ⚠️ Alerta de Compras Tax-Free:</strong>
+                        <span style="color:#fca5a5;"> Llevad siempre vuestro pasaporte encima. Se aplica descuento del 10% (Tax-Free) al gastar más de 5.000 JPY en la mayoría de establecimientos.</span>
+                    </div>
+
+                    <div class="scanline-overlay"></div>
                 </div>
-        `;
+            `;
         } else if (missionId === 'mission_shibuya_scramble') {
             missionHTML = `
         <div class="datapad-container animate-fade-in" >
