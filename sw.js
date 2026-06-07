@@ -1,4 +1,4 @@
-const CACHE_NAME = 'japon-2026-v7';
+const CACHE_NAME = 'japon-2026-v8';
 
 // Esta lista será reemplazada automáticamente por el script de Python.
 const ASSETS_TO_CACHE = [
@@ -17,8 +17,10 @@ const ASSETS_TO_CACHE = [
     "data_dias_17_24.js",
     "data_restaurants.js",
     "generar_guia.html",
+    "generate_missions_text.js",
     "index.html",
     "manifest.json",
+    "missions.js",
     "persistence.js",
     "script.js",
     "script_engine.js",
@@ -116,9 +118,8 @@ const ASSETS_TO_CACHE = [
     "images/dia15-honcho-street.jpg",
     "images/dia15-itinerario-base.jpg",
     "images/dia15-iyashi.jpg",
-    "images/hoto_fudo_cloud.png",
     "images/dia15-portada.jpg",
-    "images/fuji-motosu-1000yen.png",
+    "images/dia15-ryugatake.jpg",
     "images/dia16-coche.jpg",
     "images/dia16-kagurazaka.jpg",
     "images/dia17-asakusa.jpg",
@@ -231,6 +232,9 @@ const ASSETS_TO_CACHE = [
     "images/ebisubashi-suji.jpg",
     "images/estambul.png",
     "images/filosofo.png",
+    "images/flight_seating_map 1.png",
+    "images/flight_seating_map.png",
+    "images/fuji-motosu-1000yen.png",
     "images/fuji_climb.png",
     "images/fuji_lago.png",
     "images/fuji_ropeway.png",
@@ -256,6 +260,7 @@ const ASSETS_TO_CACHE = [
     "images/hotel-wing-osaka.jpg",
     "images/hotel_osaka.jpg",
     "images/hotel_osaka.png",
+    "images/hoto_fudo_cloud.png",
     "images/icon-192.png",
     "images/icon-512.png",
     "images/isshinji-temple.jpg",
@@ -289,7 +294,7 @@ const ASSETS_TO_CACHE = [
     "images/peninsula.png",
     "images/ramen.png",
     "images/roppongi_hills.png",
-    "images/fuji-motosu-1000yen.png",
+    "images/ryugatake.png",
     "images/sagano_train.png",
     "images/saiko_lake.png",
     "images/sengen_jinja.png",
