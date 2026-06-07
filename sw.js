@@ -410,8 +410,9 @@ self.addEventListener('fetch', event => {
     event.respondWith(
         caches.match(event.request)
         .then(response => {
-            // Devuelve el archivo si está en la caché
-            if (response) {
+            const url = event.request.url;
+            // No retornar sw.js ni urls de GitHub desde la caché
+            if (response && !url.includes('sw.js') && !url.includes('raw.githubusercontent.com')) {
                 return response;
             }
             
@@ -426,7 +427,10 @@ self.addEventListener('fetch', event => {
                     var responseToCache = networkResponse.clone();
                     caches.open(CACHE_NAME)
                         .then(function(cache) {
-                            if (event.request.method === 'GET' && !event.request.url.startsWith('chrome-extension')) {
+                            if (event.request.method === 'GET' && 
+                                !url.startsWith('chrome-extension') &&
+                                !url.includes('sw.js') &&
+                                !url.includes('raw.githubusercontent.com')) {
                                 cache.put(event.request, responseToCache);
                             }
                         });
