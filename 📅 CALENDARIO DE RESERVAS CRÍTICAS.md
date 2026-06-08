@@ -4,11 +4,11 @@ Qué reservar / comprar
 3-4 Meses antes
 Vuelos y Alojamientos (Ya gestionado).
 2 Meses antes
-TeamLab Planets (Tokio) y Palacio Imperial (Kioto).
+TeamLab Borderless (Tokio) **[YA COMPRADO]** y Palacio Imperial (Kioto).
 1 Mes antes (Día exacto)
-Bus Takayama-Fuji, Tren Romántico Arashiyama, Shibuya Sky.
+Bus Takayama-Fuji **[YA COMPRADO]**, Tren Romántico Arashiyama, Shibuya Sky.
 2-3 Semanas antes
-Shinkansen (Kyoto-Nagoya) y Museos interactivos (Samurái, Skytree).
+Shinkansen (Kyoto-Nagoya) **[YA COMPRADO - En espera de asientos el 6 de Julio]** y Museos interactivos (Samurái, Skytree).
 En el destino
 Tarjetas de transporte (ICOCA/SUICA) y buses locales.
 --------------------------------------------------------------------------------
@@ -49,8 +49,8 @@ Tokyo Skytree: Comprar online 1 mes antes. Permite elegir la hora del atardecer 
 Crucero Hotaluna (Adicional): Comprar online 1 mes antes en la web de Tokyo Mizube Cruise.
 Día 18 (Shibuya):
 Shibuya Sky: Crítico. Las entradas para el atardecer vuelan. Comprar online exactamente 4 semanas antes (a las 00:00 hora Japón).
-Día 19 (Odaiba):
-TeamLab Planets: Reserva obligatoria 2 meses antes. Es la atracción más demandada de Tokio.
+Día 19 (Tokio Central):
+TeamLab Borderless: **[YA COMPRADO]**
 Día 21 (Nikko/Kamakura):
 Nikko Pass: Se puede comprar 1-2 días antes en la estación de Asakusa (Tobu).
 Día 23 (Regreso):

@@ -424,165 +424,167 @@ const travelData_17_24 = [
     // --- DÍA 19: TEAMLAB Y ODAIBA ---
     {
         day: 19, exactDate: "2026-08-14", type: "stay",
-        date: "Vie, 14 Agosto", title: "🌊 TeamLab y Odaiba",
-        routeMapsLink: "https://www.google.com/maps/d/u/0/edit?mid=1kg_iDGN0oSUuNgVSxmzmvuec42AaR_A&usp=sharing",
-        coords: [35.630, 139.776], zoom: 13,
+        date: "Vie, 14 Agosto", title: "🏙️ Tokio Central: Arte Inmersivo, Ginza y Roppongi",
+        routeMapsLink: "https://www.google.com/maps/d/u/0/edit?mid=1S0HOcGX89z-4ovHAdNPIx1V1dEeTIB0&usp=sharing",
+        coords: [35.671, 139.765], zoom: 12,
         hotel: "Hotel Metropolitan Edmont Tokyo",
         hotelImage: "images/hotel-metropolitan-tokio.jpg",
         hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Hotel+Metropolitan+Edmont+Tokyo",
         image: "images/teamlab.png",
 
         logistics: [
-            { title: "Transporte", text: "Metro hacia Shimbashi. Allí se pilla el famoso tren Yurikamome (No entra en el pase de metro regular)." },
-            { title: "Navegación", text: "En Shimbashi, para hacer transbordo al Yurikamome, salid del metro y seguid los carteles hacia la estación elevada del Yurikamome (3 min a pie)." },
-            { title: "Grupo (8 Pax)", text: "En Odaiba, los centros comerciales <em>Aqua City</em> y <em>DiverCity</em> tienen enormes zonas de comida (food courts) ideales para almorzar juntos sin esperas largas." },
-            { title: "Ropa (TeamLab)", text: "En Planets entraréis descalzos y caminaréis sobre agua por la rodilla. Llevad pantalones que se puedan remangar fácilmente." }
+            { title: "Transporte", text: "Metro hacia la estación de Kamiyacho (Línea Hibiya) por la mañana, y uso de metro por la zona céntrica." },
+            { title: "Navegación", text: "En Ginza, tomad la <strong>A13 Exit</strong> para salir directo a Chuo-dori (avenida principal). En Roppongi, buscad la <strong>Exit 1C</strong> que conecta de forma subterránea directa con Roppongi Hills." },
+            { title: "Grupo (8 Pax)", text: "En Ginza es difícil comer en mesa única. Probad en los restaurantes del centro comercial <em>Ginza Six</em> o las plantas altas del <em>Tokyu Plaza Ginza</em>." },
+            { title: "Vestimenta", text: "En Ginza y Roppongi impera la formalidad y el lujo, vestid casual-elegante." }
         ],
 
         transportTimeline: [
-            { time: "08:15", type: "point", title: "Salida Hotel Edmont", icon: "fa-solid fa-hotel" },
+            { time: "09:00", type: "point", title: "Salida Hotel Edmont", icon: "fa-solid fa-hotel" },
             {
-                time: "08:30",
+                time: "09:15",
                 type: "transit",
-                title: "Metro Tozai / Ginza a Shimbashi",
-                price: "Suica (~180 JPY)",
-                timeLabel: "20 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Metropolitan+Edmont+Tokyo&destination=Shimbashi+Station&travelmode=transit",
+                title: "Metro a Kamiyacho (Línea Hibiya)",
+                price: "Suica",
+                timeLabel: "15 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Metropolitan+Edmont+Tokyo&destination=Kamiyacho+Station&travelmode=transit",
                 tacticalGuideId: "mission_tokyo_metro"
             },
+            { time: "09:30", type: "point", title: "TeamLab Borderless (Azabudai Hills)", icon: "fa-solid fa-wand-magic-sparkles" },
             {
-                time: "09:00",
+                time: "12:15",
                 type: "transit",
-                title: "Tren Yurikamome a Shin-Toyosu",
-                price: "Suica (~390 JPY - No entra en pases normales)",
-                timeLabel: "25 min (Espectacular)",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Shimbashi&destination=Shin-Toyosu&travelmode=transit",
-                tacticalGuideId: "mission_yurikamome"
-            },
-            { time: "09:30", type: "point", title: "Inicio Turno TeamLab Planets", icon: "fa-solid fa-water" },
-            {
-                time: "12:00",
-                type: "transit",
-                title: "Tren Yurikamome a Nube de Odaiba",
-                price: "Suica (~260 JPY)",
+                title: "Metro Hibiya (Kamiyacho → Ginza)",
+                price: "Suica",
                 timeLabel: "10 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Shin-Toyosu&destination=Daiba+Station"
+                link: "https://www.google.com/maps/dir/?api=1&origin=Kamiyacho+Station&destination=Ginza+Station&travelmode=transit",
+                desc: "A solo 10 minutos en metro (Línea Hibiya) desde Azabudai Hills."
             },
-            { time: "12:15", type: "point", title: "Estatua Libertad y Gundam", icon: "fa-solid fa-robot" },
+            { time: "12:30", type: "point", title: "Ginza Luxury (Milla de Oro)", icon: "fa-solid fa-gem" },
             {
-                time: "21:00",
+                time: "16:00",
                 type: "transit",
-                title: "Yurikamome y Metro Oedo de vuelta al Hotel",
-                price: "Suica (~550 JPY)",
-                timeLabel: "35 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Daiba+Station&destination=Hotel+Metropolitan+Edmont+Tokyo&travelmode=transit",
-                tacticalGuideId: "mission_tokyo_metro"
+                title: "Metro Hibiya/Oedo a Roppongi",
+                price: "Suica (~180 JPY)",
+                timeLabel: "15 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Ginza+Station&destination=Roppongi+Station&travelmode=transit",
+                tacticalGuideId: "mission_roppongi_hills"
+            },
+            { time: "16:15", type: "point", title: "Roppongi Hills y vistas Torre Tokyo", icon: "fa-solid fa-city" },
+            {
+                time: "20:30",
+                type: "transit",
+                title: "Metro Oedo Line de vuelta al Hotel",
+                price: "Suica (~220 JPY)",
+                timeLabel: "14 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Roppongi+Station&destination=Hotel+Metropolitan+Edmont+Tokyo&travelmode=transit"
             }
         ],
 
         timeline: [
-            { time: "09:30", title: "TeamLab Planets", desc: "Arte digital hiper inmersivo. (Complemento muy recomendado)" },
-            { time: "11:30", title: "Tren Yurikamome", desc: "Vistas panorámicas de la bahía y el Rainbow Bridge. (Base)" },
-            { time: "12:15", title: "Odaiba Seaside", desc: "Centros comerciales, Gundam gigante y Liberty. (Base)" },
-            { time: "21:00", title: "Regreso al Hotel", desc: "Yurikamome hasta Shiodome, transbordo a línea Oedo directo a Iidabashi y vuelta a pie. (Base)" }
+            { time: "09:30", title: "TeamLab Borderless", desc: "El MORI Building DIGITAL ART MUSEUM en Azabudai Hills. (Base)" },
+            { time: "12:30", title: "Ginza Luxury", desc: "Lujo, arquitectura y comida top. (Base)" },
+            { time: "16:15", title: "Roppongi Hills y vistas Torre Tokyo", desc: "Vida nocturna expat y la icónica Torre de Tokio roja. (Base)" },
+            { time: "20:30", title: "Regreso al Hotel", desc: "Metro directo línea Oedo desde Roppongi a Iidabashi y vuelta a pie. (Base)" }
         ],
 
         prices: {
-            transport: "~1.000 JPY (Yurikamome es caro)",
+            transport: "Metro (~600 JPY)",
             total: "Base +"
         },
 
         isFlexible: true,
         base: {
             title: "Itinerario Base",
-            description: "Adentrarse en la bahía de Tokio. Odaiba es una isla artificial ganada al mar llena de centros comerciales enormes, réplicas y arquitectura futurista ochentera.",
+            description: "Día de arte digital futurista e inmersión en los barrios más sofisticados de Tokio. Empezamos en Azabudai Hills, paseamos por las boutiques de Ginza y terminamos en Roppongi con vistas a la espectacular Torre de Tokio.",
             events: [
                 {
                     id: "b1",
-                    time: "11:30",
-                    title: "El Tren Monorraíl Yurikamome",
-                    description: "No es solo transporte, es una verdadera atracción gracias a las vistas cruzando el Rainbow Bridge.",
-                    image: "images/dia20-monorail.jpg",
-                    price: "Suica/Pasmo",
-                    video: "https://www.youtube.com/watch?v=7iSOMLkFizU",
-                    tacticalGuideId: "mission_yurikamome",
+                    time: "09:30",
+                    title: "TeamLab Borderless (Entradas y App dentro) 🎟️",
+                    description: "El MORI Building DIGITAL ART MUSEUM en Azabudai Hills. (Pulsa aquí para descargar tus entradas en PDF y la App oficial de TeamLab).",
+                    image: "images/teamlab.png",
+                    price: "4.200 JPY",
+                    link: "https://www.google.com/maps/search/?api=1&query=teamLab+Borderless+Azabudai+Hills",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-train"></i> Yurikamome: El Viaje al Futuro</h3>
-                        <p>Este sistema de tránsito ligero totalmente automatizado (sin conductor) es el mejor mirador móvil de Tokio. Recibe su nombre de la gaviota de cabeza negra, el ave oficial de la capital.</p>
-                        <p><em>El momento culminante es cuando el tren realiza una doble curva de 270 grados para ganar altura antes de cruzar el <strong>Rainbow Bridge</strong>. Las vistas de los rascacielos de Minato a un lado y la bahía al otro son imbatibles. Truco: Intentad sentaros en el gran ventanal del primer vagón.</em></p>
-                    `,
-                },
-                {
-                    time: "12:30",
-                    title: "Almuerzo en los Mega Centros Comerciales",
-                    description: "Decks, AquaCity o DiverCity ofrecen cientos de opciones con vistas al puente.",
-                    type: "gap"
+                        <h3><i class="fa-solid fa-hand-sparkles"></i> TeamLab Borderless</h3>
+                        <p>Ubicado en el moderno complejo de Azabudai Hills, esta versión del famoso colectivo artístico digital no tiene fronteras: las obras de arte se mueven fuera de las salas, se comunican con otras obras, se influyen mutuamente y a veces se mezclan sin límites.</p>
+                        <p><em>Es una experiencia visualmente deslumbrante y tridimensional. A diferencia de Planets, aquí no hay agua, por lo que no es necesario remangar los pantalones.</em></p>
+                        
+                        <div class="download-container" style="margin-top: 20px; padding: 18px; background: rgba(249, 115, 22, 0.08); border: 1px solid var(--accent); border-radius: 14px; box-shadow: 0 4px 15px rgba(249, 115, 22, 0.15);">
+                            <h4 style="margin: 0 0 12px 0; color: white; display: flex; align-items: center; gap: 8px; font-size: 1.05rem; font-weight: 800; border-bottom: 1px solid rgba(249,115,22,0.3); padding-bottom: 6px;"><i class="fa-solid fa-ticket" style="color: var(--accent);"></i> ENTRADAS DE ACCESO</h4>
+                            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px;">
+                                <a href="pdf/entrada teams labs 1.pdf" download class="tactical-btn" style="flex: 1; text-align: center; padding: 10px 14px; font-size: 0.85rem; border-radius: 8px; text-decoration: none; background: rgba(249, 115, 22, 0.15); border: 1px solid var(--accent); color: var(--accent); font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.3s ease; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+                                    <i class="fa-solid fa-file-pdf" style="font-size: 1.1rem;"></i> Descargar Entrada 1
+                                </a>
+                                <a href="pdf/entrada teams labs 2.pdf" download class="tactical-btn" style="flex: 1; text-align: center; padding: 10px 14px; font-size: 0.85rem; border-radius: 8px; text-decoration: none; background: rgba(249, 115, 22, 0.15); border: 1px solid var(--accent); color: var(--accent); font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.3s ease; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+                                    <i class="fa-solid fa-file-pdf" style="font-size: 1.1rem;"></i> Descargar Entrada 2
+                                </a>
+                            </div>
+                            <h4 style="margin: 0 0 12px 0; color: white; display: flex; align-items: center; gap: 8px; font-size: 1.05rem; font-weight: 800; border-bottom: 1px solid rgba(0,243,255,0.3); padding-bottom: 6px;"><i class="fa-solid fa-mobile-screen-button" style="color: var(--neon-blue);"></i> DESCARGAR APP OFICIAL</h4>
+                            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                <a href="https://itunes.apple.com/app/id1389775096?ls=1&mt=8" target="_blank" class="tactical-btn" style="flex: 1; text-align: center; padding: 10px 14px; font-size: 0.85rem; border-radius: 8px; text-decoration: none; background: rgba(0, 243, 255, 0.1); border: 1px solid var(--neon-blue); color: var(--neon-blue); font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.3s ease;">
+                                    <i class="fa-brands fa-apple" style="font-size: 1.1rem;"></i> App Store (iOS)
+                                </a>
+                                <a href="https://play.google.com/store/apps/details?id=art.teamlab.exhibitions.app" target="_blank" class="tactical-btn" style="flex: 1; text-align: center; padding: 10px 14px; font-size: 0.85rem; border-radius: 8px; text-decoration: none; background: rgba(0, 243, 255, 0.1); border: 1px solid var(--neon-blue); color: var(--neon-blue); font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.3s ease;">
+                                    <i class="fa-brands fa-google-play" style="font-size: 1.1rem;"></i> Google Play (Android)
+                                </a>
+                            </div>
+                        </div>
+                    `
                 },
                 {
                     id: "b2",
-                    time: "14:00",
-                    title: "Odaiba:🗽 y 🤖",
-                    description: "Los dos iconos absurdos fotográficos de la isla artificial.",
-                    image: "images/dia20-odaiba.jpg",
+                    time: "12:30",
+                    title: "La Avenida Principal de Ginza (Chuo Dori)",
+                    description: "La zona más elitista comercial de todo el país. Flagships imponentes, boutiques de diseño y restaurantes de estrellas michelin ocultos en rascacielos.",
+                    image: "images/dia22-teatro-kabuki-za.jpg",
                     price: "Gratis",
+                    tacticalGuideId: "mission_ginza_walk",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-robot"></i> Odaiba: Isla de Entretenimiento</h3>
-                        <p>Odaiba es una serie de islas artificiales ganadas al mar. Originalmente construidas como fortalezas defensivas en 1853, hoy son el centro de ocio futurista de Tokio. Aquí la escala es diferente: espacios abiertos, brisa marina y arquitecturas audaces como el edificio de Fuji TV.</p>
-                        <ul>
-                            <li><i class="fa-solid fa-robot"></i> <strong>Unicorn Gundam:</strong> Frente al centro comercial DiverCity veréis una estatua escala 1:1 de 20 metros que realiza transformaciones rítmicas de luz y placas mecánicas cada hora.</li>
-                            <li><i class="fa-solid fa-statue-mercurial"></i> <strong>Estatua de la Libertad:</strong> Una réplica encargada en 1998 para celebrar el "Año de Francia en Japón", situada con el skyline de Tokio al fondo.</li>
-                        </ul>
-                    `,
+                        <h3><i class="fa-solid fa-gem"></i> Ginza: La Milla de Diamantes</h3>
+                        <p>Elegancia pura extrema. Aparte de las flagship stores de alta costura, merece la pena entrar al macro complejo de marcas **Ginza Six** con sus espectaculares bóvedas artísticas interiores, o los showrooms experimentales de grandes marcas tecnológicas japonesas como Nissan Crossing o Sony.</p>
+                        <p>Los domingos y sábados al mediodía las grandes avenidas de Ginza cierran al tráfico para ser un gran paseo peatonal masivo. Al ser hoy un día laborable regular, el paseo se realiza por las aceras, pero el ambiente sigue siendo vibrante.</p>
+                    `
+                },
+                {
+                    id: "b3",
+                    time: "16:15",
+                    title: "Roppongi Hills y Torre de Tokio",
+                    description: "El complejo futurista expat coronado con vistas a la torre de comunicaciones roja clásica.",
+                    image: "images/dia22-roppongi.jpg",
+                    price: "Gratis visual",
+                    tacticalGuideId: "mission_roppongi_hills",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-martini-glass"></i> Roppongi: Noches de Torre Roja</h3>
+                        <p>Roppongi es un barrio transformado: del desenfreno militar al hub de arte y diseño de cristal con ambiente multicultural de millonarios expatriados. Caminar por el complejo **Roppongi Hills** cruzando con la gran escultura de la araña de Louise Bourgeois (Maman). Destaca acercarse caminando a la zona del templo Zojoji o la base de la Tokyo Tower, una increíble estructura de celosía naranja y blanca (copia modernizada de la torre Eiffel de Francia) que se enciende rotundamente al caer la noche destacando sobre los rascacielos sombríos.</p>
+                    `
                 }
             ]
         },
         complements: [
             {
                 id: "c1",
-                title: "TeamLab Planets TOKYO",
-                booking: { id: "bk_teamlab", timeframe: "Meses de antelación", required: true, link: "https://planets.teamlab.art/tokyo/es/tickets" },
-                time: "09:30",
-                description: "Una de las experiencias artísticas inmersivas más famosas del mundo. Agua, espejos y luces.",
-                price: "3.800 JPY",
-                image: "images/dia20-teamlab.jpg",
-                recommended: true,
-                video: "https://www.youtube.com/watch?v=bFE0Kas391k",
+                title: "Mercado Tsukiji (Exterior)",
+                time: "Flexible Mediodía",
+                description: "Para los puristas. Si no queréis la modernidad de Toyosu, los callejones del antiguo mercado en Tsukiji siguen sirviendo marisco y wagyu increíble.",
+                price: "Variable",
+                image: "images/dia19-tsukiji.jpg",
                 fullDesc: `
-                    <h3><i class="fa-solid fa-hand-sparkles"></i> Nadar en Luz</h3>
-                    <p>Imprescindible reservar con semanas de antelación. Caminaréis descalzos por ríos de agua tibia donde se proyectan carpas koi virtuales, atravesaréis laberintos infinitos de cristales LED colgantes y os tumbaréis en cúpulas de orquídeas flotantes. Una experiencia alucinante (y muy "instagrameable").</p>
-                `,
-                tacticalOptions: [
-                    {
-                        title: "RESERVA ONLINE PREVIA",
-                        time: "Meses de antelación",
-                        description: "No se venden entradas en taquilla física casi nunca.",
-                        link: "https://planets.teamlab.art/tokyo/es/tickets",
-                        tacticalGuideId: "mission_teamlab",
-                    }
-                ]
-            },
-            {
-                id: "c2",
-                title: "DisneySea (Día Completo Alternativo)",
-                time: "08:00",
-                description: "Para los amantes de parques. El único parque Disney de temática marina del mundo (Sustituye todo Odaiba).",
-                price: "~9.000 JPY",
-                image: "images/dia20-disneysea.jpg",
-                fullDesc: `
-                    <h3><i class="fa-solid fa-volcano"></i> El Parque Único</h3>
-                    <p>Considerado por los expertos el parque temático mejor diseñado arquitectónicamente y con historias más oscuras y adultas (Jules Verne) de toda la franquicia Disney. Cuenta con un volcán gigante central que entra en erupción.</p>
+                    <h3><i class="fa-solid fa-fire-burner"></i> Las Parrillas Callejeras</h3>
+                    <p>A pesar de que el mercado central se mudó a Toyosu, el 'Outer Market' de Tsukiji se niega a morir. Pinchos de salmón ahumándose en la vía, cangrejo real, tortilla dulce recién hecha y bares minúsculos atestados llenos de bullicio e inmersión sensorial absoluta para desayunar a base de pescados al carbón.</p>
                 `
             },
             {
-                id: "c3",
-                title: "Joypolis Tokyo",
-                time: "16:00",
-                description: "Parque de atracciones totalmente indoor propiedad de SEGA. Montañas rusas simuladores bajo techo.",
-                price: "Pase diario ~5.000 JPY",
-                image: "images/dia20-joypolis.jpg",
+                id: "c2",
+                title: "Teatro Kabuki-za (Desde fuera)",
+                time: "15:00",
+                description: "La joya arquitectónica del teatro clásico sobreviviendo entre torres modernas de cristal en Ginza.",
+                price: "Gratis",
+                image: "images/dia19-ginza.jpg",
                 fullDesc: `
-                    <h3><i class="fa-solid fa-roller-coaster"></i> La Locura SEGA</h3>
-                    <p>Ideal si llueve o sois fans de Sonic y los salones arcades gigantescos repletos de japoneses adolescentes compitiendo en simuladores de derrape a lo Initial-D.</p>
+                    <h3><i class="fa-solid fa-masks-theater"></i> Reflejos Feudales</h3>
+                    <p>Reconstruido varias veces, es el teatro principal donde se ejecuta hoy en día el arte dramático tradicional Kabuki de Japón (actuado sólo por varones y con elaborados sets giratorios). Su inmensa techumbre al uso de los castillos feudales es un spot fotográfico magnífico para constatar la dualidad de Ginza entre lo ultra-moderno y lo intocablemente clásico.</p>
                 `
             }
         ]
@@ -942,19 +944,19 @@ const travelData_17_24 = [
     // --- DÍA 22: TOYOSU, GINZA Y ROPPONGI ---
     {
         day: 22, type: "stay",
-        date: "Lun, 17 Agosto", title: "🏙️ Toyosu, Ginza y Roppongi",
-        routeMapsLink: "https://www.google.com/maps/d/u/0/edit?mid=1S0HOcGX89z-4ovHAdNPIx1V1dEeTIB0&usp=sharing",
-        coords: [35.671, 139.765], zoom: 12,
+        date: "Lun, 17 Agosto", title: "🌊 La Bahía de Tokio: Mercado de Toyosu y Odaiba",
+        routeMapsLink: "https://www.google.com/maps/d/u/0/edit?mid=1kg_iDGN0oSUuNgVSxmzmvuec42AaR_A&usp=sharing",
+        coords: [35.630, 139.776], zoom: 13,
         hotel: "Hotel Metropolitan Edmont Tokyo",
         hotelImage: "images/hotel-metropolitan-tokio.jpg",
         hotelGoogleLink: "https://www.google.com/maps/search/?api=1&query=Hotel+Metropolitan+Edmont+Tokyo",
         image: "images/dia22-itinerario-base.jpg",
 
         logistics: [
-            { title: "Transporte", text: "Día de metros por la zona céntrica y bahía exterior de Tokio." },
-            { title: "Navegación", text: "En Ginza, tomad la <strong>A13 Exit</strong> para salir directo a Chuo-dori (avenida principal). En Roppongi, buscad la <strong>Exit 1C</strong> que conecta de forma subterránea directa con Roppongi Hills." },
-            { title: "Grupo (8 Pax)", text: "En Ginza es difícil comer en mesa única. Probad en los restaurantes del centro comercial <em>Ginza Six</em> o las plantas altas del <em>Tokyu Plaza Ginza</em>." },
-            { title: "Vestimenta", text: "En Ginza y Roppongi impera la formalidad y el lujo, vestid casual-elegante." }
+            { title: "Transporte", text: "La conexión principal del día será el tren panorámico Yurikamome cruzando la bahía (No entra en el pase de metro regular)." },
+            { title: "Navegación", text: "El tren Yurikamome se toma directamente desde la zona de Toyosu para conectar con la bahía y Odaiba." },
+            { title: "Grupo (8 Pax)", text: "En Odaiba, los centros comerciales <em>Aqua City</em> y <em>DiverCity</em> tienen enormes zonas de comida (food courts) ideales para almorzar juntos sin esperas largas." },
+            { title: "Ropa (TeamLab Planets)", text: "En Planets entraréis descalzos y caminaréis sobre agua por la rodilla. Llevad pantalones que se puedan remangar fácilmente." }
         ],
 
         transportTimeline: [
@@ -970,51 +972,42 @@ const travelData_17_24 = [
             },
             { time: "08:45", type: "point", title: "Toyosu Market / Senkyaku Banrai", icon: "fa-solid fa-fish" },
             {
-                time: "12:00",
+                time: "11:30",
                 type: "transit",
-                title: "Bus o Yurikamome a Ginza",
+                title: "Tren Yurikamome hacia Odaiba",
                 price: "Suica",
-                timeLabel: "20 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Toyosu&destination=Ginza&travelmode=transit",
-                tacticalGuideId: "mission_ginza_walk"
+                timeLabel: "10 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Toyosu&destination=Daiba+Station&travelmode=transit",
+                desc: "Se toma directamente desde la zona de Toyosu."
             },
-            { time: "12:30", type: "point", title: "Ginza Luxury (Milla de Oro)", icon: "fa-solid fa-gem" },
+            { time: "12:15", type: "point", title: "Odaiba Seaside: Estatua Libertad y Gundam", icon: "fa-solid fa-robot" },
             {
-                time: "16:00",
+                time: "21:00",
                 type: "transit",
-                title: "Metro Hibiya/Oedo a Roppongi",
-                price: "Suica (~180 JPY)",
-                timeLabel: "15 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Ginza+Station&destination=Roppongi+Station&travelmode=transit",
-                tacticalGuideId: "mission_roppongi_hills"
-            },
-            { time: "16:15", type: "point", title: "Roppongi Hills y vistas Torre Tokyo", icon: "fa-solid fa-city" },
-            {
-                time: "20:30",
-                type: "transit",
-                title: "Metro Oedo Line de vuelta al Hotel",
-                price: "Suica (~220 JPY)",
-                timeLabel: "14 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Roppongi+Station&destination=Hotel+Metropolitan+Edmont+Tokyo&travelmode=transit"
+                title: "Yurikamome y Metro Oedo de vuelta al Hotel desde Odaiba",
+                price: "Suica (~550 JPY)",
+                timeLabel: "35 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Daiba+Station&destination=Hotel+Metropolitan+Edmont+Tokyo&travelmode=transit",
+                tacticalGuideId: "mission_tokyo_metro"
             }
         ],
 
         timeline: [
-            { time: "08:45", title: "Toyosu Market", desc: "La nueva lonja de pescado y baños termales. (Base)" },
-            { time: "12:30", title: "Ginza", desc: "Lujo, arquitectura y comida top. (Base)" },
-            { time: "16:15", title: "Roppongi", desc: "Vida nocturna expat y la icónica Torre de Tokio roja. (Base)" },
-            { time: "20:30", title: "Regreso al Hotel", desc: "Metro directo línea Oedo desde Roppongi a Iidabashi y vuelta a pie. (Base)" }
+            { time: "08:45", title: "Toyosu Market / Senkyaku Banrai", desc: "La nueva lonja de pescado y área de ocio de estilo tradicional. (Base)" },
+            { time: "11:30", title: "Tren Yurikamome hacia Odaiba", desc: "Vistas panorámicas cruzando la bahía de Tokio y el Rainbow Bridge. (Base)" },
+            { time: "12:15", title: "Odaiba Seaside: Estatua Libertad y Gundam", desc: "Paseo costero, centros comerciales y los grandes iconos de Odaiba. (Base)" },
+            { time: "21:00", title: "Regreso al Hotel", desc: "Yurikamome y metro de vuelta a Iidabashi. (Base)" }
         ],
 
         prices: {
-            transport: "Metro (~600 JPY)",
+            transport: "~1.000 JPY (Yurikamome es caro)",
             total: "Base +"
         },
 
         isFlexible: true,
         base: {
             title: "Itinerario Base",
-            description: "Día ecléctico. Amanecer inmerso en los pescados y gastronomía del puerto en Toyosu, comer en la milla de oro más cara de Japón, y terminar bebiendo algo con los expatriados bajo la copia parisina de la Torre de Tokio.",
+            description: "Adentrarse en la bahía de Tokio. Empezamos en Toyosu para degustar sushi fresco y visitar Senkyaku Banrai, para luego tomar el Yurikamome hacia la isla artificial de Odaiba con sus centros comerciales y vistas espectaculares.",
             events: [
                 {
                     id: "b1",
@@ -1029,60 +1022,88 @@ const travelData_17_24 = [
                         <h3><i class="fa-solid fa-fish-fins"></i> Toyosu: El Nuevo Legado del Mar</h3>
                         <p>Tras el cierre del icónico Tsukiji, Toyosu se ha convertido en la lonja de pescado más avanzada del mundo. Aunque el área mayorista es de acceso restringido y muy tecnológica, el nuevo complejo **Senkyaku Banrai** ("Mil Huéspedes") recrea un animado mercado del periodo Edo con arquitectura de madera tradicional.</p>
                         <p><em>Es el lugar definitivo para desayunar el sushi mejor seleccionado de la madrugada. No os perdáis el **Manyo Club**, donde podréis disfrutar de un baño de pies (ashiyu) gratuito en la azotea con vistas panorámicas a la bahía de Tokio y al skyline.</em></p>
-                    `,
+                    `
                 },
                 {
                     id: "b2",
-                    time: "12:30",
-                    title: "La Avenida Principal de Ginza (Chuo Dori)",
-                    description: "La zona más elitista comercial de todo el país. Flagships imponentes, boutiques de diseño y restaurantes de estrellas michelin ocultos en rascacielos.",
-                    image: "images/dia22-teatro-kabuki-za.jpg",
-                    price: "Gratis",
-                    tacticalGuideId: "mission_ginza_walk",
+                    time: "11:30",
+                    title: "El Tren Monorraíl Yurikamome",
+                    description: "No es solo transporte, es una verdadera atracción gracias a las vistas cruzando el Rainbow Bridge.",
+                    image: "images/dia20-monorail.jpg",
+                    price: "Suica/Pasmo",
+                    video: "https://www.youtube.com/watch?v=7iSOMLkFizU",
+                    tacticalGuideId: "mission_yurikamome",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-gem"></i> Ginza: La Milla de Diamantes</h3>
-                        <p>Elegancia pura extrema. Aparte de las flagship stores de alta costura, merece la pena entrar al macro complejo de marcas **Ginza Six** con sus espectaculares bóvedas artísticas interiores, o los showrooms experimentales de grandes marcas tecnológicas japonesas como Nissan Crossing o Sony.</p>
-                        <p>Los domingos y sábados al mediodía las grandes avenidas de Ginza cierran al tráfico para ser un gran paseo peatonal masivo. Al ser Lunes hoy, tendréis que caminar por las aceras, pero el ambiente sigue siendo vibrante.</p>
-                    `,
+                        <h3><i class="fa-solid fa-train"></i> Yurikamome: El Viaje al Futuro</h3>
+                        <p>Este sistema de tránsito ligero totalmente automatizado (sin conductor) es el mejor mirador móvil de Tokio. Recibe su nombre de la gaviota de cabeza negra, el ave oficial de la capital.</p>
+                        <p><em>El momento culminante es cuando el tren realiza una doble curva de 270 grados para ganar altura antes de cruzar el <strong>Rainbow Bridge</strong>. Las vistas de los rascacielos de Minato a un lado y la bahía al otro son imbatibles. Truco: Intentad sentaros en el gran ventanal del primer vagón.</em></p>
+                    `
                 },
                 {
                     id: "b3",
-                    time: "16:15",
-                    title: "Roppongi Hills y Torre de Tokio",
-                    description: "El complejo futurista expat coronado con vistas a la torre de comunicaciones roja clásica.",
-                    image: "images/dia22-roppongi.jpg",
-                    price: "Gratis visual",
-                    tacticalGuideId: "mission_roppongi_hills",
+                    time: "12:15",
+                    title: "Odaiba:🗽 y 🤖",
+                    description: "Los dos iconos absurdos fotográficos de la isla artificial.",
+                    image: "images/dia20-odaiba.jpg",
+                    price: "Gratis",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-martini-glass"></i> Roppongi: Noches de Torre Roja</h3>
-                        <p>Roppongi es un barrio transformado: del desenfreno militar al hub de arte y diseño de cristal con ambiente multicultural de millonarios expatriados. Caminar por el complejo **Roppongi Hills** cruzando con la gran escultura de la araña de Louise Bourgeois (Maman). Destaca acercarse caminando a la zona del templo Zojoji o la base de la Tokyo Tower, una increíble estructura de celosía naranja y blanca (copia modernizada de la torre Eiffel de Francia) que se enciende rotundamente al caer la noche destacando sobre los rascacielos sombríos.</p>
-                    `,
+                        <h3><i class="fa-solid fa-robot"></i> Odaiba: Isla de Entretenimiento</h3>
+                        <p>Odaiba es una serie de islas artificiales ganadas al mar. Originalmente construidas como fortalezas defensivas en 1853, hoy son el centro de ocio futurista de Tokio. Aquí la escala es diferente: espacios abiertos, brisa marina y arquitecturas audaces como el edificio de Fuji TV.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-robot"></i> <strong>Unicorn Gundam:</strong> Frente al centro comercial DiverCity veréis una estatua escala 1:1 de 20 metros que realiza transformaciones rítmicas de luz y placas mecánicas cada hora.</li>
+                            <li><i class="fa-solid fa-statue-mercurial"></i> <strong>Estatua de la Libertad:</strong> Una réplica encargada en 1998 para celebrar el "Año de Francia en Japón", situada con el skyline de Tokio al fondo.</li>
+                        </ul>
+                    `
                 }
             ]
         },
         complements: [
             {
                 id: "c1",
-                title: "Mercado Tsukiji (Exterior)",
-                time: "Flexible Mediodía",
-                description: "Para los puristas. Si no queréis la modernidad de Toyosu, los callejones del antiguo mercado en Tsukiji siguen sirviendo marisco y wagyu increíble.",
-                price: "Variable",
-                image: "images/dia19-tsukiji.jpg",
+                title: "TeamLab Planets TOKYO",
+                booking: { id: "bk_teamlab", timeframe: "Meses de antelación", required: true, link: "https://planets.teamlab.art/tokyo/es/tickets" },
+                time: "09:30",
+                description: "Una de las experiencias artísticas inmersivas más famosas del mundo. Agua, espejos y luces.",
+                price: "3.800 JPY",
+                image: "images/dia20-teamlab.jpg",
+                recommended: true,
+                video: "https://www.youtube.com/watch?v=bFE0Kas391k",
                 fullDesc: `
-                    <h3><i class="fa-solid fa-fire-burner"></i> Las Parrillas Callejeras</h3>
-                    <p>A pesar de que el mercado central se mudó a Toyosu, el 'Outer Market' de Tsukiji se niega a morir. Pinchos de salmón ahumándose en la vía, cangrejo real, tortilla dulce recién hecha y bares minúsculos atestados llenos de bullicio e inmersión sensorial absoluta para desayunar a base de pescados al carbón.</p>
-                `
+                    <h3><i class="fa-solid fa-hand-sparkles"></i> Nadar en Luz</h3>
+                    <p>Imprescindible reservar con semanas de antelación. Caminaréis descalzos por ríos de agua tibia donde se proyectan carpas koi virtuales, atravesaréis laberintos infinitos de cristales LED colgantes y os tumbaréis en cúpulas de orquídeas flotantes. Una experiencia alucinante (y muy "instagrameable").</p>
+                `,
+                tacticalOptions: [
+                    {
+                        title: "RESERVA ONLINE PREVIA",
+                        time: "Meses de antelación",
+                        description: "No se venden entradas en taquilla física casi nunca.",
+                        link: "https://planets.teamlab.art/tokyo/es/tickets",
+                        tacticalGuideId: "mission_teamlab"
+                    }
+                ]
             },
             {
                 id: "c2",
-                title: "Teatro Kabuki-za (Desde fuera)",
-                time: "15:00",
-                description: "La joya arquitectónica del teatro clásico sobreviviendo entre torres modernas de cristal en Ginza.",
-                price: "Gratis",
-                image: "images/dia19-ginza.jpg", // Needs custom image or reuse
+                title: "DisneySea (Día Completo Alternativo)",
+                time: "08:00",
+                description: "Para los amantes de parques. El único parque Disney de temática marina del mundo (Sustituye todo Odaiba).",
+                price: "~9.000 JPY",
+                image: "images/dia20-disneysea.jpg",
                 fullDesc: `
-                    <h3><i class="fa-solid fa-masks-theater"></i> Reflejos Feudales</h3>
-                    <p>Reconstruido varias veces, es el teatro principal donde se ejecuta hoy en día el arte dramático tradicional Kabuki de Japón (actuado sólo por varones y con elaborados sets giratorios). Su inmensa techumbre al uso de los castillos feudales es un spot fotográfico magnífico para constatar la dualidad de Ginza entre lo ultra-moderno y lo intocablemente clásico.</p>
+                    <h3><i class="fa-solid fa-volcano"></i> El Parque Único</h3>
+                    <p>Considerado por los expertos el parque temático mejor diseñado arquitectónicamente y con historias más oscuras y adultas (Jules Verne) de toda la franquicia Disney. Cuenta con un volcán gigante central que entra en erupción.</p>
+                `
+            },
+            {
+                id: "c3",
+                title: "Joypolis Tokyo",
+                time: "16:00",
+                description: "Parque de atracciones totalmente indoor propiedad de SEGA. Montañas rusas simuladores bajo techo.",
+                price: "Pase diario ~5.000 JPY",
+                image: "images/dia20-joypolis.jpg",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-roller-coaster"></i> La Locura SEGA</h3>
+                    <p>Ideal si llueve o sois fans de Sonic y los salones arcades gigantescos repletos de japoneses adolescentes compitiendo en simuladores de derrape a lo Initial-D.</p>
                 `
             }
         ]

@@ -3,13 +3,13 @@ const fs = require('fs');
 
 let content1 = fs.readFileSync('data_dias_00_08.js', 'utf8');
 let content2 = fs.readFileSync('data_dias_09_16.js', 'utf8');
+let content3 = fs.readFileSync('data_dias_17_24.js', 'utf8');
 
-const ctx = {};
-vm.createContext(ctx);
-vm.runInContext(content1, ctx);
-vm.runInContext(content2, ctx);
+const data1 = vm.runInNewContext(content1 + "\n; travelData_00_08;");
+const data2 = vm.runInNewContext(content2 + "\n; travelData_09_16;");
+const data3 = vm.runInNewContext(content3 + "\n; travelData_17_24;");
 
-const allData = (ctx.travelData_00_08 || []).concat(ctx.travelData_09_16 || []);
+const allData = (data1 || []).concat(data2 || []).concat(data3 || []);
 
 let md = "# GUÍA COMPLETA DE VIAJE A JAPÓN 2026\n\n";
 md += "Esta guía contiene toda la información de la página web extraída y formateada como texto, estructurada por días, incluyendo transporte, rutas, y exursiones alternativas.\n\n---\n\n";

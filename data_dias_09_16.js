@@ -556,7 +556,7 @@ const travelData_09_16 = [
         image: "images/okuhida_ryokan.png",
 
         logistics: [
-            { title: "Billetes Shinkansen", text: "COMPRADO: Nozomi 2 (08:45 -> 09:19). ID Membresía: 1892692405. Reserva 2000 (3 Ad + 1 Niño, 20.680¥), Reserva 2001 (4 Ad, 23.640¥)." },
+            { title: "Billetes Shinkansen", text: "COMPRADO: Nozomi 2 (08:45 -> 09:19). ID Membresía: 1892692405. Reserva 2000 (3 Ad + 1 Niño) y Reserva 2001 (4 Ad). <strong>Los billetes finales y asientos se enviarán por email el 6 de Julio de 2026</strong> (1 mes antes de la salida).<br>Enlaces del servicio:<br>• <a href='https://shinkansen2.jr-central.co.jp/RSV_P/S_smart_en_index.htm' target='_blank' style='color:#38bdf8; text-decoration:underline;'>Gestión Reservas (Móvil)</a><br>• <a href='https://shinkansen2.jr-central.co.jp/RSV_P/smart_en_index.htm' target='_blank' style='color:#38bdf8; text-decoration:underline;'>Gestión Reservas (PC)</a><br>• <a href='https://smart-ex.jp/en/' target='_blank' style='color:#38bdf8; text-decoration:underline;'>Guía de Uso Smart EX</a><br>• <a href='https://smart-ex.jp/en/faq/index.php' target='_blank' style='color:#38bdf8; text-decoration:underline;'>Preguntas Frecuentes (FAQ)</a><br>• <a href='https://ec.travel.jr-central.co.jp/extraindp/ex?lang=en' target='_blank' style='color:#38bdf8; text-decoration:underline;'>Hoteles y Actividades JR-Central</a>" },
             { title: "Equipaje", text: "Solo mochilas de mano. Las maletas grandes van por Takkyubin a Tokio o Kawaguchiko." },
             { title: "Onsen", text: "Ducharse antes de entrar. Tatuajes: consultar política (o reservar privado)." }
         ],
@@ -571,7 +571,7 @@ const travelData_09_16 = [
                 timeLabel: "34 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Kyoto+Station&destination=Nagoya+Station&travelmode=transit",
                 tacticalGuideId: "mission_kyoto_to_okuhida",
-                booking: { id: "bk_shinkansen", timeframe: "1 mes antes (App SmartEX)", required: true, link: "https://smart-ex.jp/en/index.php" }
+                booking: { id: "bk_shinkansen", timeframe: "1 mes antes (App SmartEX)", required: true, link: "https://shinkansen2.jr-central.co.jp/RSV_P/S_smart_en_index.htm" }
             },
             { 
                 time: "09:19", 

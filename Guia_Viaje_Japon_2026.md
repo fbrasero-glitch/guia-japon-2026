@@ -238,13 +238,14 @@ Esta guía contiene toda la información detallada del viaje, estructurada para 
 
 ---
 
-### DÍA 19: El Futuro Digital y la Bahía
-*   **Fecha:** Mar, 14 Agosto
+### DÍA 19: Tokio Central: Arte Inmersivo, Ginza y Roppongi
+*   **Fecha:** Vie, 14 Agosto
 *   **Actividades:**
-    *   **TeamLab Planets:** Experiencia de arte digital inmersiva (caminar sobre agua y luces).
-    *   **Isla artificial de Odaiba:** Estatua de la Libertad, Gundam gigante y centros comerciales.
-    *   **Tren Monorraíl Yurikamome:** Vistas panorámicas de la bahía y el Rainbow Bridge.
-*   **Opcional:** **DisneySea.** El único parque Disney marino del mundo.
+    *   **TeamLab Borderless:** MORI Building DIGITAL ART MUSEUM en Azabudai Hills.
+        *   📥 **Entradas de Acceso (PDF):** [Descargar Entrada 1](file:///c:/Users/Usuario/Downloads/VIAJE%20JAPON/nueva%20pagina%20web/pdf/entrada%20teams%20labs%201.pdf) | [Descargar Entrada 2](file:///c:/Users/Usuario/Downloads/VIAJE%20JAPON/nueva%20pagina%20web/pdf/entrada%20teams%20labs%202.pdf)
+        *   📱 **App Oficial TeamLab:** [iOS (App Store)](https://itunes.apple.com/app/id1389775096?ls=1&mt=8) | [Android (Google Play)](https://play.google.com/store/apps/details?id=art.teamlab.exhibitions.app)
+    *   **Ginza:** La milla de oro, flagships de lujo y arquitectura de vanguardia (a 10 min en metro desde Azabudai Hills).
+    *   **Roppongi Hills:** Vistas de la Torre de Tokio iluminada y ambiente cosmopolita.
 
 ---
 
@@ -266,12 +267,13 @@ Esta guía contiene toda la información detallada del viaje, estructurada para 
 
 ---
 
-### DÍA 22: Lujo y Modernidad
-*   **Fecha:** Vie, 17 Agosto
+### DÍA 22: La Bahía de Tokio: Mercado de Toyosu y Odaiba
+*   **Fecha:** Lun, 17 Agosto
 *   **Actividades:**
-    *   **Mercado Toyosu:** La nueva lonja de pescado y desayunos de sushi premium.
-    *   **Ginza:** La milla de oro madrileña, flagships de lujo y arquitectura de vanguardia.
-    *   **Roppongi Hills:** Vistas de la Torre de Tokio iluminada y ambiente cosmopolita.
+    *   **Mercado Toyosu:** La nueva lonja de pescado y el complejo Senkyaku Banrai.
+    *   **Tren Yurikamome:** El monorraíl panorámico automático cruzando la bahía (se toma desde Toyosu).
+    *   **Odaiba Seaside:** Estatua de la Libertad, Gundam gigante de 20m y centros comerciales.
+*   **Opcional:** **DisneySea** (como opción de día completo) o **TeamLab Planets** (situado en la zona de Toyosu).
 
 ---
 
