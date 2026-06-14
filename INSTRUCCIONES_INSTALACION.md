@@ -5,6 +5,10 @@ La gran ventaja es que **no consume datos en Japón**: funciona 100% en modo avi
 
 Para instalarla, no hace falta buscarla en ninguna tienda de aplicaciones (ni App Store ni Google Play). Es muy rápido, solo seguid los pasos según vuestro teléfono:
 
+🔑 **DATOS DE ACCESO AL CENTRO DE MANDO:**
+*   **Usuario:** `Family`
+*   **Contraseña:** `Japan2026`
+
 ---
 
 ## 🍎 SI TIENES UN iPHONE (iOS)
