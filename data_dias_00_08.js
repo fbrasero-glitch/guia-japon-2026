@@ -324,16 +324,16 @@ const travelData_00_08 = [
                     icon: "fa-solid fa-id-card",
                     color: "#00f3ff",
                     items: [
-                        { name: "Pasaporte - FELIPE", file: "pdf/documentacion/Pasaporte_FELIPE.pdf", isIndividual: true, traveler: "FELIPE" },
-                        { name: "Pasaporte - LORENA", file: "pdf/documentacion/Pasaporte_LORENA.pdf", isIndividual: true, traveler: "LORENA" },
-                        { name: "Pasaporte - IVAN", file: "pdf/documentacion/Pasaporte_IVAN.pdf", isIndividual: true, traveler: "IVAN" },
-                        { name: "Pasaporte - LAURA", file: "pdf/documentacion/Pasaporte_LAURA.pdf", isIndividual: true, traveler: "LAURA" },
-                        { name: "Pasaporte - GEMA", file: "pdf/documentacion/Pasaporte_GEMA.pdf", isIndividual: true, traveler: "GEMA" },
-                        { name: "Pasaporte - CESAR", file: "pdf/documentacion/Pasaporte_CESAR.pdf", isIndividual: true, traveler: "CESAR" },
-                        { name: "Pasaporte - VICENTE", file: "pdf/documentacion/Pasaporte_VICENTE.pdf", isIndividual: true, traveler: "VICENTE" },
-                        { name: "Pasaporte - LOLA", file: "pdf/documentacion/Pasaporte_LOLA.pdf", isIndividual: true, traveler: "LOLA" },
-                        { name: "Seguro Heymondo (Condiciones Particulares)", file: "pdf/documentacion/Condiciones particulares seguro de viajes.pdf", isIndividual: false },
-                        { name: "Seguro Heymondo (Condiciones Generales)", file: "pdf/documentacion/Condiciones generales seguro de viaje (1).pdf", isIndividual: false }
+                        { name: "Pasaporte - FELIPE", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: true, traveler: "FELIPE" },
+                        { name: "Pasaporte - LORENA", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: true, traveler: "LORENA" },
+                        { name: "Pasaporte - IVAN", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: true, traveler: "IVAN" },
+                        { name: "Pasaporte - LAURA", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: true, traveler: "LAURA" },
+                        { name: "Pasaporte - GEMA", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: true, traveler: "GEMA" },
+                        { name: "Pasaporte - CESAR", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: true, traveler: "CESAR" },
+                        { name: "Pasaporte - VICENTE", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: true, traveler: "VICENTE" },
+                        { name: "Pasaporte - LOLA", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: true, traveler: "LOLA" },
+                        { name: "Seguro Heymondo (Condiciones Particulares)", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false },
+                        { name: "Seguro Heymondo (Condiciones Generales)", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false }
                     ]
                 },
                 {
@@ -341,8 +341,8 @@ const travelData_00_08 = [
                     icon: "fa-solid fa-plane-departure",
                     color: "#a855f7",
                     items: [
-                        { name: "Vuelo Ida (VLC-IST-KIX)", file: "pdf/documentacion/Vuelos_Ida_Turkish.pdf", isIndividual: false },
-                        { name: "Vuelo Vuelta (NRT-IST-VLC)", file: "pdf/documentacion/Vuelos_Vuelta_Turkish.pdf", isIndividual: false }
+                        { name: "Vuelo Ida (VLC-IST-KIX)", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false },
+                        { name: "Vuelo Vuelta (NRT-IST-VLC)", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false }
                     ]
                 },
                 {
@@ -350,12 +350,12 @@ const travelData_00_08 = [
                     icon: "fa-solid fa-hotel",
                     color: "#fbbf24",
                     items: [
-                        { name: "Osaka: Dc桜の苑-難波南店", file: "pdf/documentacion/Reserva_Osaka_DC_Sakura.pdf", isIndividual: false },
-                        { name: "Kyoto: Alojamiento", file: "pdf/documentacion/Reserva_Kyoto_Hotel.pdf", isIndividual: false },
-                        { name: "Takayama: Ryokan", file: "pdf/documentacion/Reserva_Takayama_Ryokan.pdf", isIndividual: false },
-                        { name: "Kanazawa: Hotel", file: "pdf/documentacion/Reserva_Kanazawa_Hotel.pdf", isIndividual: false },
-                        { name: "Alpes: Shirakawa-go / Matsumoto", file: "pdf/documentacion/Reserva_Alpes_Hotel.pdf", isIndividual: false },
-                        { name: "Tokio: Alojamiento", file: "pdf/documentacion/Reserva_Tokio_Hotel.pdf", isIndividual: false }
+                        { name: "Osaka: Dc桜の苑-難波南店", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false },
+                        { name: "Kyoto: Alojamiento", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false },
+                        { name: "Takayama: Ryokan", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false },
+                        { name: "Kanazawa: Hotel", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false },
+                        { name: "Alpes: Shirakawa-go / Matsumoto", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false },
+                        { name: "Tokio: Alojamiento", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false }
                     ]
                 },
                 {
@@ -363,13 +363,13 @@ const travelData_00_08 = [
                     icon: "fa-solid fa-train-subway",
                     color: "#10b981",
                     items: [
-                        { name: "Shinkansen Kioto-Nagoya", file: "pdf/documentacion/Reserva_Shinkansen_Kyoto_Nagoya.pdf", isIndividual: false },
-                        { name: "Wide View Hida Tren", file: "pdf/documentacion/Reserva_Tren_Hida.pdf", isIndividual: false },
-                        { name: "Limon Bus (Takayama-Fuji)", file: "pdf/documentacion/Billetes_Bus_Limon.pdf", isIndividual: false },
-                        { name: "Nohi Bus (Shirakawa-go)", file: "pdf/documentacion/Billetes_Bus_Nohi.pdf", isIndividual: false },
-                        { name: "Fuji Excursion Tren", file: "pdf/documentacion/Reserva_Tren_Fuji_Excursion.pdf", isIndividual: false },
-                        { name: "Taxis Aeropuerto KIX (2 Taxis)", file: "pdf/documentacion/Reserva_Taxis_KIX.pdf", isIndividual: false },
-                        { name: "Permiso de Conducir Internacional", file: "pdf/documentacion/Permisos_Conducir_Internacionales.pdf", isIndividual: false },
+                        { name: "Shinkansen Kioto-Nagoya", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false },
+                        { name: "Wide View Hida Tren", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false },
+                        { name: "Limon Bus (Takayama-Fuji)", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false },
+                        { name: "Nohi Bus (Shirakawa-go)", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false },
+                        { name: "Fuji Excursion Tren", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false },
+                        { name: "Taxis Aeropuerto KIX (2 Taxis)", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false },
+                        { name: "Permiso de Conducir Internacional", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false },
                         { name: "Plano Terminal KIX y Bus", file: "pdf/Plano Terminal KIX (Andén 5, Airport Limousine Bus a Umeda).pdf", isIndividual: false }
                     ]
                 },
@@ -378,13 +378,13 @@ const travelData_00_08 = [
                     icon: "fa-solid fa-ticket",
                     color: "#ef4444",
                     items: [
-                        { name: "TeamLab Borderless (Email/Reserva)", file: "pdf/correo teamslab.pdf", isIndividual: false },
-                        { name: "TeamLab Borderless (Entrada 1)", file: "pdf/entrada teams labs 1.pdf", isIndividual: false },
-                        { name: "TeamLab Borderless (Entrada 2)", file: "pdf/entrada teams labs 2.pdf", isIndividual: false },
-                        { name: "Universal Studios (USJ Osaka)", file: "pdf/documentacion/Entradas_USJ_Osaka.pdf", isIndividual: false },
-                        { name: "Shibuya Sky (Tokio)", file: "pdf/documentacion/Entradas_Shibuya_Sky.pdf", isIndividual: false },
-                        { name: "Palacio Imperial de Kioto", file: "pdf/documentacion/Reserva_Palacio_Kyoto.pdf", isIndividual: false },
-                        { name: "Acuario Kaiyukan (Osaka)", file: "pdf/documentacion/Entradas_Kaiyukan.pdf", isIndividual: false }
+                        { name: "TeamLab Borderless (Email/Reserva)", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false },
+                        { name: "TeamLab Borderless (Entrada 1)", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false },
+                        { name: "TeamLab Borderless (Entrada 2)", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false },
+                        { name: "Universal Studios (USJ Osaka)", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false },
+                        { name: "Shibuya Sky (Tokio)", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false },
+                        { name: "Palacio Imperial de Kioto", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false },
+                        { name: "Acuario Kaiyukan (Osaka)", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false }
                     ]
                 },
                 {
@@ -392,15 +392,15 @@ const travelData_00_08 = [
                     icon: "fa-solid fa-qrcode",
                     color: "#f59e0b",
                     items: [
-                        { name: "QR Visit Japan - FELIPE", file: "qr/QR FELIPE.png", isIndividual: true, traveler: "FELIPE" },
-                        { name: "QR Visit Japan - LORENA", file: "qr/QR LORENA.png", isIndividual: true, traveler: "LORENA" },
-                        { name: "QR Visit Japan - IVAN", file: "qr/QR IVAN.png", isIndividual: true, traveler: "IVAN" },
-                        { name: "QR Visit Japan - LAURA", file: "qr/QR LAURA.png", isIndividual: true, traveler: "LAURA" },
-                        { name: "QR Visit Japan - GEMA", file: "qr/QR GEMA.png", isIndividual: true, traveler: "GEMA" },
-                        { name: "QR Visit Japan - CESAR", file: "qr/QR CESAR.png", isIndividual: true, traveler: "CESAR" },
-                        { name: "QR Visit Japan - VICENTE", file: "qr/QR VICENTE.png", isIndividual: true, traveler: "VICENTE" },
-                        { name: "QR Visit Japan - LOLA", file: "qr/QR LOLA.png", isIndividual: true, traveler: "LOLA" },
-                        { name: "eSIM / Pocket WiFi", file: "pdf/documentacion/Comprobante_WiFi.pdf", isIndividual: false }
+                        { name: "QR Visit Japan - FELIPE", file: "https://drive.google.com/drive/folders/131EjrFKTYySltRFCzheUtMh6CZu78WPZ?usp=sharing", isIndividual: true, traveler: "FELIPE" },
+                        { name: "QR Visit Japan - LORENA", file: "https://drive.google.com/drive/folders/131EjrFKTYySltRFCzheUtMh6CZu78WPZ?usp=sharing", isIndividual: true, traveler: "LORENA" },
+                        { name: "QR Visit Japan - IVAN", file: "https://drive.google.com/drive/folders/131EjrFKTYySltRFCzheUtMh6CZu78WPZ?usp=sharing", isIndividual: true, traveler: "IVAN" },
+                        { name: "QR Visit Japan - LAURA", file: "https://drive.google.com/drive/folders/131EjrFKTYySltRFCzheUtMh6CZu78WPZ?usp=sharing", isIndividual: true, traveler: "LAURA" },
+                        { name: "QR Visit Japan - GEMA", file: "https://drive.google.com/drive/folders/131EjrFKTYySltRFCzheUtMh6CZu78WPZ?usp=sharing", isIndividual: true, traveler: "GEMA" },
+                        { name: "QR Visit Japan - CESAR", file: "https://drive.google.com/drive/folders/131EjrFKTYySltRFCzheUtMh6CZu78WPZ?usp=sharing", isIndividual: true, traveler: "CESAR" },
+                        { name: "QR Visit Japan - VICENTE", file: "https://drive.google.com/drive/folders/131EjrFKTYySltRFCzheUtMh6CZu78WPZ?usp=sharing", isIndividual: true, traveler: "VICENTE" },
+                        { name: "QR Visit Japan - LOLA", file: "https://drive.google.com/drive/folders/131EjrFKTYySltRFCzheUtMh6CZu78WPZ?usp=sharing", isIndividual: true, traveler: "LOLA" },
+                        { name: "eSIM / Pocket WiFi", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false }
                     ]
                 },
                 {
