@@ -2769,9 +2769,9 @@ async function checkAppUpdates(isManual = false) {
             return;
         }
 
-        // Consultamos el sw.js de la rama main en GitHub
-        const githubRes = await fetch('https://raw.githubusercontent.com/fbrasero-glitch/guia-japon-2026/main/sw.js');
-        if (!githubRes.ok) throw new Error('No se pudo conectar con GitHub.');
+        // Consultamos el sw.js remoto desde nuestro propio servidor (Netlify/Localhost) con un cache-buster
+        const githubRes = await fetch('./sw.js?t=' + Date.now());
+        if (!githubRes.ok) throw new Error('No se pudo conectar con el servidor.');
         const githubText = await githubRes.text();
         const githubVersion = getVersionFromText(githubText);
 
@@ -2824,7 +2824,7 @@ async function checkAppUpdates(isManual = false) {
             versionLabel.innerText = 'Error de conexión';
         }
         if (isManual) {
-            alert('No se pudo conectar a GitHub. Comprueba tu conexión a Internet.');
+            alert('No se pudo comprobar la actualización. Comprueba tu conexión a Internet.');
         }
     } finally {
         if (isManual && checkBtn && checkBtn.innerText === 'Comprobando...') {
