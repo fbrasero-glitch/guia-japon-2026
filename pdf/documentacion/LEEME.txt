@@ -1,0 +1,53 @@
+¡Hola! 
+
+Esta carpeta 'pdf/documentacion/' ha sido creada para que guardes aquí los documentos del viaje que se enlazarán desde la pantalla de Preparativos de la página web.
+
+Debes renombrar cada archivo exactamente con el nombre esperado que te indica la aplicación al pulsar sobre el elemento.
+
+Nombres de archivos esperados en esta carpeta:
+- Pasaporte_FELIPE.pdf
+- Pasaporte_LORENA.pdf
+- Pasaporte_IVAN.pdf
+- Pasaporte_LAURA.pdf
+- Pasaporte_GEMA.pdf
+- Pasaporte_CESAR.pdf
+- Pasaporte_VICENTE.pdf
+- Pasaporte_LOLA.pdf
+- Seguro_Viaje_IATI.pdf
+- Vuelos_Ida_Turkish.pdf
+- Vuelos_Vuelta_Turkish.pdf
+- Reserva_Osaka_DC_Sakura.pdf
+- Reserva_Kyoto_Hotel.pdf
+- Reserva_Takayama_Ryokan.pdf
+- Reserva_Kanazawa_Hotel.pdf
+- Reserva_Alpes_Hotel.pdf
+- Reserva_Tokio_Hotel.pdf
+- Reserva_Shinkansen_Kyoto_Nagoya.pdf
+- Reserva_Tren_Hida.pdf
+- Billetes_Bus_Limon.pdf
+- Billetes_Bus_Nohi.pdf
+- Reserva_Tren_Fuji_Excursion.pdf
+- Reserva_Taxis_KIX.pdf
+- Permisos_Conducir_Internacionales.pdf
+- Entradas_USJ_Osaka.pdf
+- Entradas_Shibuya_Sky.pdf
+- Reserva_Palacio_Kyoto.pdf
+- Entradas_Kaiyukan.pdf
+- Comprobante_WiFi.pdf
+
+Para las entradas de TeamLab Borderless:
+- La aplicación buscará el archivo 'pdf/correo teamslab.pdf' que ya está subido. Si quieres reemplazarlo, guárdalo con ese nombre o actualiza el nombre del archivo.
+
+Para los códigos QR de Visit Japan Web:
+- Se guardan en la carpeta 'qr entrada/' (ya existente).
+- Los archivos esperados son:
+  - QR FELIPE.png (Ya existe)
+  - QR LORENA.png (Ya existe)
+  - QR IVAN.png (Ya existe)
+  - QR LAURA.png (Ya existe)
+  - QR GEMA.png
+  - QR CESAR.png
+  - QR VICENTE.png
+  - QR LOLA.png
+
+Una vez que copies los archivos a estas carpetas, la web los abrirá de forma automática al pinchar en ellos.

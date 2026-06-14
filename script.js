@@ -314,34 +314,6 @@ function init() {
             }
         };
 
-        // --- AQUÍ ESTÁ EL CAMBIO ---
-        btn.onmouseenter = () => {
-            const previewBox = document.getElementById('hover-preview');
-            const previewTitle = document.getElementById('preview-title');
-
-            // 1. DATOS
-            if (d.day === 0) {
-                previewTitle.innerText = `📋 ${d.title}`;
-            } else {
-                previewTitle.innerText = `📍 Día ${d.day}: ${d.title}`;
-            }
-
-            // 2. CÁLCULO DE POSICIÓN (MATEMÁTICAS)
-            // Obtenemos las coordenadas del botón en la pantalla
-            const rect = btn.getBoundingClientRect();
-
-            // Ponemos el mapa justo donde termina el botón (rect.bottom)
-            previewBox.style.top = `${rect.bottom}px`;
-
-            // ACTIVAR
-            previewBox.classList.add('active');
-        };
-
-        btn.onmouseleave = () => {
-            document.getElementById('hover-preview').classList.remove('active');
-        };
-        // ---------------------------
-
         menu.appendChild(btn);
     });
 

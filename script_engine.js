@@ -87,6 +87,152 @@ window.toggleBookingStatus = function (id, dayIndex) {
     }
 };
 
+window.openDocument = function(name, filePath) {
+    // Si la ruta contiene 'qr/' o 'qr entrada/', definimos la ruta alternativa
+    let altPath = null;
+    if (filePath.includes('qr/')) {
+        altPath = filePath.replace('qr/', 'qr entrada/');
+    } else if (filePath.includes('qr entrada/')) {
+        altPath = filePath.replace('qr entrada/', 'qr/');
+    }
+
+    // SI ESTAMOS EN PROTOCOLO LOCAL 'file://':
+    // El navegador bloquea las llamadas AJAX/fetch a archivos locales por seguridad (CORS).
+    if (window.location.protocol === 'file:') {
+        const isImage = filePath.toLowerCase().endsWith('.png') || 
+                        filePath.toLowerCase().endsWith('.jpg') || 
+                        filePath.toLowerCase().endsWith('.jpeg');
+        
+        if (isImage) {
+            // Para imágenes (QRs), podemos comprobar su existencia intentando cargarlas en un objeto Image.
+            // Esto funciona perfectamente incluso bajo el esquema file://
+            const img = new Image();
+            img.onload = function() {
+                window.open(filePath, '_blank');
+            };
+            img.onerror = function() {
+                if (altPath) {
+                    const imgAlt = new Image();
+                    imgAlt.onload = function() {
+                        window.open(altPath, '_blank');
+                    };
+                    imgAlt.onerror = function() {
+                        window.showUploadHelperModal(name, filePath);
+                    };
+                    imgAlt.src = altPath;
+                } else {
+                    window.showUploadHelperModal(name, filePath);
+                }
+            };
+            img.src = filePath;
+        } else {
+            // Para PDFs en file://, no hay forma segura de comprobar la existencia sin disparar error CORS.
+            // Los abrimos directamente en pestaña nueva. Si no existen, el navegador mostrará su propio error 404 local.
+            window.open(filePath, '_blank');
+        }
+        return;
+    }
+
+    // SI ESTAMOS EN UN SERVIDOR WEB (http:// o https://):
+    function attemptFetch(path, fallbackPath) {
+        fetch(path, { method: 'HEAD' })
+            .then(response => {
+                if (response.ok) {
+                    window.open(path, '_blank');
+                } else if (fallbackPath) {
+                    attemptFetch(fallbackPath, null);
+                } else {
+                    window.showUploadHelperModal(name, filePath);
+                }
+            })
+            .catch(() => {
+                // HEAD puede fallar en algunos servidores. Probamos GET.
+                fetch(path)
+                    .then(res => {
+                        if (res.ok) {
+                            window.open(path, '_blank');
+                        } else if (fallbackPath) {
+                            attemptFetch(fallbackPath, null);
+                        } else {
+                            window.showUploadHelperModal(name, filePath);
+                        }
+                    })
+                    .catch(() => {
+                        if (fallbackPath) {
+                            attemptFetch(fallbackPath, null);
+                        } else {
+                            window.showUploadHelperModal(name, filePath);
+                        }
+                    });
+            });
+    }
+
+    attemptFetch(filePath, altPath);
+};
+
+window.showUploadHelperModal = function(name, filePath) {
+    let modal = document.getElementById('upload-helper-modal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'upload-helper-modal';
+        modal.className = 'upload-helper-modal';
+        document.body.appendChild(modal);
+    }
+
+    const parts = filePath.split('/');
+    const filename = parts.pop();
+    const folder = parts.join('/') + '/';
+
+    modal.innerHTML = `
+        <div class="upload-helper-modal-content">
+            <div class="upload-helper-header" style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:10px;">
+                <div style="display:flex; align-items:center; gap: 10px;">
+                    <i class="fa-solid fa-cloud-arrow-up upload-helper-icon" style="color:var(--neon-blue); font-size:1.5rem;"></i>
+                    <h2 style="margin:0; font-size:1.2rem; color:white;">Documento no Encontrado</h2>
+                </div>
+                <button class="upload-helper-close" onclick="window.closeUploadHelperModal()" style="background:none; border:none; color:white; font-size:1.5rem; cursor:pointer;">&times;</button>
+            </div>
+            <div class="upload-helper-body" style="margin-top:15px; color:rgba(255,255,255,0.8);">
+                <p>Para visualizar <strong>"${name}"</strong>, necesitas subir el archivo correspondiente al proyecto local en tu ordenador.</p>
+                
+                <div class="upload-path-box" style="background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:12px; margin:15px 0; font-family:monospace; font-size:0.85rem;">
+                    <div style="margin-bottom:6px;"><span style="color:var(--text-secondary);">Carpeta destino:</span> <span style="color:white;">${folder}</span></div>
+                    <div style="margin-bottom:6px;"><span style="color:var(--text-secondary);">Nombre archivo:</span> <span style="color:var(--neon-blue); font-weight:bold;">${filename}</span></div>
+                    <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:6px; margin-top:6px;"><span style="color:var(--text-secondary);">Ruta completa:</span> <span style="color:var(--gold);">${filePath}</span></div>
+                </div>
+
+                <div class="upload-instructions" style="background:rgba(251,191,36,0.05); border-left:3px solid var(--gold); padding:10px; border-radius:4px; font-size:0.85rem;">
+                    <h3 style="margin-top:0; margin-bottom:5px; color:var(--gold); font-size:0.9rem;">Instrucciones de subida:</h3>
+                    <ol style="margin:0; padding-left:15px; display:flex; flex-direction:column; gap:4px;">
+                        <li>Renombra tu documento local (PDF o Imagen) a: <strong style="color:white;">${filename}</strong></li>
+                        <li>Cópialo en tu ordenador dentro de la carpeta del viaje: <strong style="color:white;">${folder}</strong></li>
+                        <li>Una vez copiado, vuelve a pinchar sobre él para visualizarlo.</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="upload-helper-footer" style="margin-top:20px; display:flex; justify-content:flex-end;">
+                <button class="btn-primary-neon" onclick="window.closeUploadHelperModal()" style="background:var(--neon-blue); color:black; border:none; padding:8px 16px; border-radius:6px; font-weight:bold; cursor:pointer; box-shadow:0 0 10px rgba(0,243,255,0.3); transition:all 0.2s;">Entendido</button>
+            </div>
+        </div>
+    `;
+
+    modal.style.display = 'flex';
+};
+
+window.closeUploadHelperModal = function() {
+    const modal = document.getElementById('upload-helper-modal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+};
+
+window.addEventListener('click', function(e) {
+    const modal = document.getElementById('upload-helper-modal');
+    if (modal && e.target === modal) {
+        modal.style.display = 'none';
+    }
+});
+
 window.renderBookingBadge = function (booking, dayIndex) {
     if (!booking) return '';
     const state = Persistence.getItem(booking.id) === 'comprado' ? 'comprado' : 'pendiente';
@@ -751,34 +897,6 @@ function init() {
             }
         };
 
-        // --- AQUÍ ESTÁ EL CAMBIO ---
-        btn.onmouseenter = () => {
-            const previewBox = document.getElementById('hover-preview');
-            const previewTitle = document.getElementById('preview-title');
-
-            // 1. DATOS
-            if (d.day === 0) {
-                previewTitle.innerText = `📋 ${d.title}`;
-            } else {
-                previewTitle.innerText = `📍 Día ${d.day}: ${d.title}`;
-            }
-
-            // 2. CÁLCULO DE POSICIÓN (MATEMÁTICAS)
-            // Obtenemos las coordenadas del botón en la pantalla
-            const rect = btn.getBoundingClientRect();
-
-            // Ponemos el mapa justo donde termina el botón (rect.bottom)
-            previewBox.style.top = `${rect.bottom}px`;
-
-            // ACTIVAR
-            previewBox.classList.add('active');
-        };
-
-        btn.onmouseleave = () => {
-            document.getElementById('hover-preview').classList.remove('active');
-        };
-        // ---------------------------
-
         menu.appendChild(btn);
     });
 
@@ -797,6 +915,18 @@ function init() {
             checkAppUpdates(false);
         }
     }, 1000);
+
+    // 6. Mostrar mensaje de actualización si acabamos de actualizar
+    if (localStorage.getItem('app_just_updated') === 'true') {
+        localStorage.removeItem('app_just_updated');
+        const updatedVersion = localStorage.getItem('app_updated_to_version');
+        localStorage.removeItem('app_updated_to_version');
+        setTimeout(() => {
+            if (typeof showUpdateSuccessNotice === 'function') {
+                showUpdateSuccessNotice(updatedVersion);
+            }
+        }, 1500);
+    }
 }
 
 function loadDay(index) {
@@ -834,6 +964,64 @@ function loadDay(index) {
 // Función especial para renderizar la página de preparación
 // Variable global para el viajero seleccionado
 let selectedTraveler = Persistence.getItem('selectedTraveler') || 'FELIPE';
+
+function renderDocumentationCenter(data) {
+    if (!data.documentation) return '';
+
+    let categoriesHTML = data.documentation.categories.map(category => {
+        let itemsHTML = category.items.map(item => {
+            const isForSelectedTraveler = item.isIndividual && item.traveler === selectedTraveler;
+            const itemClass = isForSelectedTraveler ? 'doc-item-highlight' : 'doc-item-normal';
+            
+            let iconClass = 'fa-solid fa-file-pdf';
+            if (item.file.endsWith('.png') || item.file.endsWith('.jpg') || item.file.endsWith('.jpeg')) {
+                iconClass = 'fa-solid fa-file-image';
+            }
+            if (item.name.toLowerCase().includes('qr')) {
+                iconClass = 'fa-solid fa-qrcode';
+            }
+
+            return `
+                <div class="doc-item ${itemClass}" onclick="window.openDocument('${item.name.replace(/'/g, "\\'")}', '${item.file}')" title="${item.name}">
+                    <div class="doc-item-icon-wrapper">
+                        <i class="${iconClass}"></i>
+                    </div>
+                    <div class="doc-item-info">
+                        <span class="doc-item-name">${item.name}</span>
+                        ${item.isIndividual ? `<span class="doc-item-badge">${item.traveler.substring(0, 3)}</span>` : ''}
+                    </div>
+                    <div class="doc-item-action">
+                        <i class="fa-solid fa-arrow-up-right-from-square" title="Abrir Documento"></i>
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        return `
+            <div class="doc-category-card" style="border-top: 3px solid ${category.color};">
+                <div class="doc-category-header">
+                    <i class="${category.icon}" style="color: ${category.color};"></i>
+                    <h3 style="color: ${category.color};">${category.title}</h3>
+                </div>
+                <div class="doc-category-items">
+                    ${itemsHTML}
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    return `
+        <div class="docs-center-container">
+            <div class="docs-center-header">
+                <h2><i class="fa-solid fa-folder-open" style="color: var(--neon-blue);"></i> Expediente de Documentación</h2>
+                <p>Pincha en cualquier documento para abrirlo en una pestaña nueva o ver instrucciones de subida si aún no está subido.</p>
+            </div>
+            <div class="docs-grid">
+                ${categoriesHTML}
+            </div>
+        </div>
+    `;
+}
 
 function renderPreparationPage(data) {
     const centerCard = document.getElementById('visual-card');
@@ -964,6 +1152,8 @@ function renderPreparationPage(data) {
                             `).join('')}
                         </div>
                     </div>
+                    
+                    ${renderDocumentationCenter(data)}
                     
                     ${topSectionHTML}
                 </div>
@@ -2528,6 +2718,10 @@ if ('serviceWorker' in navigator && location.protocol !== 'file:') {
     navigator.serviceWorker.addEventListener('controllerchange', () => {
         if (isRefreshingApp) return;
         isRefreshingApp = true;
+        localStorage.setItem('app_just_updated', 'true');
+        if (window.latestGithubVersion) {
+            localStorage.setItem('app_updated_to_version', window.latestGithubVersion);
+        }
         window.location.reload();
     });
 }
@@ -2538,15 +2732,15 @@ function getVersionFromText(text) {
 }
 
 async function checkAppUpdates(isManual = false) {
+    const versionLabel = document.getElementById('app-version-label');
+    const checkBtn = document.getElementById('btn-check-update');
+
     if (!('serviceWorker' in navigator) || location.protocol === 'file:') {
-        const versionLabel = document.getElementById('app-version-label');
         if (versionLabel) versionLabel.innerText = 'Versión: Local (Desarrollo)';
+        if (checkBtn) checkBtn.style.display = 'none';
         if (isManual) alert('El Service Worker no está activo en este protocolo (ej. archivo local).');
         return;
     }
-
-    const versionLabel = document.getElementById('app-version-label');
-    const checkBtn = document.getElementById('btn-check-update');
 
     if (isManual && checkBtn) {
         checkBtn.disabled = true;
@@ -2565,10 +2759,6 @@ async function checkAppUpdates(isManual = false) {
             return;
         }
 
-        if (versionLabel) {
-            versionLabel.innerText = `Versión actual: v${localVersion}`;
-        }
-
         // Consultamos el sw.js de la rama main en GitHub
         const githubRes = await fetch('https://raw.githubusercontent.com/fbrasero-glitch/guia-japon-2026/main/sw.js');
         if (!githubRes.ok) throw new Error('No se pudo conectar con GitHub.');
@@ -2576,12 +2766,15 @@ async function checkAppUpdates(isManual = false) {
         const githubVersion = getVersionFromText(githubText);
 
         if (!githubVersion) {
+            if (versionLabel) versionLabel.innerText = `Versión: v${localVersion}`;
+            if (checkBtn) checkBtn.style.display = 'none';
             if (isManual) alert('No se pudo leer la versión remota.');
             return;
         }
 
         const localNum = parseInt(localVersion, 10);
         const remoteNum = parseInt(githubVersion, 10);
+        window.latestGithubVersion = githubVersion;
 
         if (!isNaN(localNum) && !isNaN(remoteNum) && remoteNum > localNum) {
             const toast = document.getElementById('update-toast');
@@ -2590,22 +2783,41 @@ async function checkAppUpdates(isManual = false) {
                 toastVer.innerText = `v${githubVersion}`;
                 toast.classList.remove('hidden');
             }
+            if (versionLabel) {
+                versionLabel.innerHTML = `Versión: v${localVersion} <span class="badge-update-available">Actualización disponible</span>`;
+            }
+            if (checkBtn) {
+                checkBtn.style.display = 'inline-block';
+                checkBtn.innerText = 'Actualizar ahora';
+                checkBtn.onclick = (e) => {
+                    e.preventDefault();
+                    triggerSWUpdate();
+                };
+            }
             if (isManual) {
-                alert(`Se ha encontrado una versión más reciente (v${githubVersion}). Iniciando actualización...`);
                 triggerSWUpdate();
             }
         } else {
+            if (versionLabel) {
+                versionLabel.innerHTML = `Versión: v${localVersion} <span class="badge-al-dia">Al día</span>`;
+            }
+            if (checkBtn) {
+                checkBtn.style.display = 'none';
+            }
             if (isManual) {
                 alert(`La aplicación ya está en su versión más moderna (v${localVersion}).`);
             }
         }
     } catch (err) {
         console.error('Error al comprobar actualización:', err);
+        if (versionLabel) {
+            versionLabel.innerText = 'Error de conexión';
+        }
         if (isManual) {
             alert('No se pudo conectar a GitHub. Comprueba tu conexión a Internet.');
         }
     } finally {
-        if (isManual && checkBtn) {
+        if (isManual && checkBtn && checkBtn.innerText === 'Comprobando...') {
             checkBtn.disabled = false;
             checkBtn.innerText = 'Buscar actualización';
         }
@@ -2615,17 +2827,26 @@ async function checkAppUpdates(isManual = false) {
 async function triggerSWUpdate() {
     if ('serviceWorker' in navigator) {
         const updateBtn = document.getElementById('btn-update-now');
+        const checkBtn = document.getElementById('btn-check-update');
         if (updateBtn) {
             updateBtn.disabled = true;
             updateBtn.innerText = 'Actualizando...';
         }
+        if (checkBtn) {
+            checkBtn.disabled = true;
+            checkBtn.innerText = 'Actualizando...';
+        }
         try {
             const reg = await navigator.serviceWorker.ready;
+            localStorage.setItem('app_just_updated', 'true');
+            if (window.latestGithubVersion) {
+                localStorage.setItem('app_updated_to_version', window.latestGithubVersion);
+            }
             await reg.update();
             console.log('Actualización forzada en el Service Worker.');
             setTimeout(() => {
                 window.location.reload();
-            }, 3000);
+            }, 2000);
         } catch (err) {
             console.error('Error al actualizar Service Worker:', err);
             alert('No se pudo completar la actualización automática.');
@@ -2633,8 +2854,44 @@ async function triggerSWUpdate() {
                 updateBtn.disabled = false;
                 updateBtn.innerText = 'Actualizar';
             }
+            if (checkBtn) {
+                checkBtn.disabled = false;
+                checkBtn.innerText = 'Actualizar ahora';
+            }
         }
     }
+}
+
+function showUpdateSuccessNotice(version) {
+    const existing = document.getElementById('update-success-toast');
+    if (existing) existing.remove();
+
+    const toast = document.createElement('div');
+    toast.id = 'update-success-toast';
+    toast.className = 'update-success-toast';
+
+    const versionText = version ? ` a la versión v${version}` : '';
+
+    toast.innerHTML = `
+        <div class="update-success-content">
+            <div class="update-success-icon"><i class="fa-solid fa-circle-check"></i></div>
+            <div class="update-success-body">
+                <h4>¡Actualización Completada!</h4>
+                <p>La aplicación se ha actualizado correctamente${versionText}.</p>
+            </div>
+            <button class="update-success-close" onclick="this.parentElement.parentElement.remove()">✕</button>
+        </div>
+    `;
+
+    document.body.appendChild(toast);
+
+    // Auto remove after 6 seconds
+    setTimeout(() => {
+        if (toast.parentNode) {
+            toast.classList.add('fade-out');
+            setTimeout(() => toast.remove(), 500);
+        }
+    }, 6000);
 }
 
 // Eventos de botones

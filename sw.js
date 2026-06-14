@@ -370,6 +370,10 @@ const ASSETS_TO_CACHE = [
     "infograf\u00eda/inf osaka.png",
     "infograf\u00eda/inf TOKIO.png",
     "infograf\u00eda/inf.png",
+    "qr entrada/QR FELIPE.png",
+    "qr entrada/QR IVAN.png",
+    "qr entrada/QR LAURA.png",
+    "qr entrada/QR LORENA.png",
     "video/videoplayback.mp4"
 
 ];

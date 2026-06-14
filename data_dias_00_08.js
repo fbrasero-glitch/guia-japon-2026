@@ -313,11 +313,116 @@ const travelData_00_08 = [
             ],
             tips: [
                 "Optimización de equipaje: usar takkyubin para días con muchos traslados; facilita movilidad y confort para mayores.",
-                "Comunicación: designad 1–2 responsables (logística y documentación) que centralicen reservas y comprobaciones."
+                "Comunicación: designa responsables (logística y documentación) que centralicen reservas y comprobaciones."
+            ]
+        },
+        documentation: {
+            title: "Expediente de Documentación Oficial",
+            categories: [
+                {
+                    title: "Identidad y Seguro",
+                    icon: "fa-solid fa-id-card",
+                    color: "#00f3ff",
+                    items: [
+                        { name: "Pasaporte - FELIPE", file: "pdf/documentacion/Pasaporte_FELIPE.pdf", isIndividual: true, traveler: "FELIPE" },
+                        { name: "Pasaporte - LORENA", file: "pdf/documentacion/Pasaporte_LORENA.pdf", isIndividual: true, traveler: "LORENA" },
+                        { name: "Pasaporte - IVAN", file: "pdf/documentacion/Pasaporte_IVAN.pdf", isIndividual: true, traveler: "IVAN" },
+                        { name: "Pasaporte - LAURA", file: "pdf/documentacion/Pasaporte_LAURA.pdf", isIndividual: true, traveler: "LAURA" },
+                        { name: "Pasaporte - GEMA", file: "pdf/documentacion/Pasaporte_GEMA.pdf", isIndividual: true, traveler: "GEMA" },
+                        { name: "Pasaporte - CESAR", file: "pdf/documentacion/Pasaporte_CESAR.pdf", isIndividual: true, traveler: "CESAR" },
+                        { name: "Pasaporte - VICENTE", file: "pdf/documentacion/Pasaporte_VICENTE.pdf", isIndividual: true, traveler: "VICENTE" },
+                        { name: "Pasaporte - LOLA", file: "pdf/documentacion/Pasaporte_LOLA.pdf", isIndividual: true, traveler: "LOLA" },
+                        { name: "Seguro Heymondo (Condiciones Particulares)", file: "pdf/documentacion/Condiciones particulares seguro de viajes.pdf", isIndividual: false },
+                        { name: "Seguro Heymondo (Condiciones Generales)", file: "pdf/documentacion/Condiciones generales seguro de viaje (1).pdf", isIndividual: false }
+                    ]
+                },
+                {
+                    title: "Vuelos Internacionales",
+                    icon: "fa-solid fa-plane-departure",
+                    color: "#a855f7",
+                    items: [
+                        { name: "Vuelo Ida (VLC-IST-KIX)", file: "pdf/documentacion/Vuelos_Ida_Turkish.pdf", isIndividual: false },
+                        { name: "Vuelo Vuelta (NRT-IST-VLC)", file: "pdf/documentacion/Vuelos_Vuelta_Turkish.pdf", isIndividual: false }
+                    ]
+                },
+                {
+                    title: "Alojamientos (Reservas)",
+                    icon: "fa-solid fa-hotel",
+                    color: "#fbbf24",
+                    items: [
+                        { name: "Osaka: Dc桜の苑-難波南店", file: "pdf/documentacion/Reserva_Osaka_DC_Sakura.pdf", isIndividual: false },
+                        { name: "Kyoto: Alojamiento", file: "pdf/documentacion/Reserva_Kyoto_Hotel.pdf", isIndividual: false },
+                        { name: "Takayama: Ryokan", file: "pdf/documentacion/Reserva_Takayama_Ryokan.pdf", isIndividual: false },
+                        { name: "Kanazawa: Hotel", file: "pdf/documentacion/Reserva_Kanazawa_Hotel.pdf", isIndividual: false },
+                        { name: "Alpes: Shirakawa-go / Matsumoto", file: "pdf/documentacion/Reserva_Alpes_Hotel.pdf", isIndividual: false },
+                        { name: "Tokio: Alojamiento", file: "pdf/documentacion/Reserva_Tokio_Hotel.pdf", isIndividual: false }
+                    ]
+                },
+                {
+                    title: "Transporte Interno",
+                    icon: "fa-solid fa-train-subway",
+                    color: "#10b981",
+                    items: [
+                        { name: "Shinkansen Kioto-Nagoya", file: "pdf/documentacion/Reserva_Shinkansen_Kyoto_Nagoya.pdf", isIndividual: false },
+                        { name: "Wide View Hida Tren", file: "pdf/documentacion/Reserva_Tren_Hida.pdf", isIndividual: false },
+                        { name: "Limon Bus (Takayama-Fuji)", file: "pdf/documentacion/Billetes_Bus_Limon.pdf", isIndividual: false },
+                        { name: "Nohi Bus (Shirakawa-go)", file: "pdf/documentacion/Billetes_Bus_Nohi.pdf", isIndividual: false },
+                        { name: "Fuji Excursion Tren", file: "pdf/documentacion/Reserva_Tren_Fuji_Excursion.pdf", isIndividual: false },
+                        { name: "Taxis Aeropuerto KIX (2 Taxis)", file: "pdf/documentacion/Reserva_Taxis_KIX.pdf", isIndividual: false },
+                        { name: "Permiso de Conducir Internacional", file: "pdf/documentacion/Permisos_Conducir_Internacionales.pdf", isIndividual: false },
+                        { name: "Plano Terminal KIX y Bus", file: "pdf/Plano Terminal KIX (Andén 5, Airport Limousine Bus a Umeda).pdf", isIndividual: false }
+                    ]
+                },
+                {
+                    title: "Actividades y Entradas",
+                    icon: "fa-solid fa-ticket",
+                    color: "#ef4444",
+                    items: [
+                        { name: "TeamLab Borderless (Email/Reserva)", file: "pdf/correo teamslab.pdf", isIndividual: false },
+                        { name: "TeamLab Borderless (Entrada 1)", file: "pdf/entrada teams labs 1.pdf", isIndividual: false },
+                        { name: "TeamLab Borderless (Entrada 2)", file: "pdf/entrada teams labs 2.pdf", isIndividual: false },
+                        { name: "Universal Studios (USJ Osaka)", file: "pdf/documentacion/Entradas_USJ_Osaka.pdf", isIndividual: false },
+                        { name: "Shibuya Sky (Tokio)", file: "pdf/documentacion/Entradas_Shibuya_Sky.pdf", isIndividual: false },
+                        { name: "Palacio Imperial de Kioto", file: "pdf/documentacion/Reserva_Palacio_Kyoto.pdf", isIndividual: false },
+                        { name: "Acuario Kaiyukan (Osaka)", file: "pdf/documentacion/Entradas_Kaiyukan.pdf", isIndividual: false }
+                    ]
+                },
+                {
+                    title: "QRs Entrada y Conectividad",
+                    icon: "fa-solid fa-qrcode",
+                    color: "#f59e0b",
+                    items: [
+                        { name: "QR Visit Japan - FELIPE", file: "qr/QR FELIPE.png", isIndividual: true, traveler: "FELIPE" },
+                        { name: "QR Visit Japan - LORENA", file: "qr/QR LORENA.png", isIndividual: true, traveler: "LORENA" },
+                        { name: "QR Visit Japan - IVAN", file: "qr/QR IVAN.png", isIndividual: true, traveler: "IVAN" },
+                        { name: "QR Visit Japan - LAURA", file: "qr/QR LAURA.png", isIndividual: true, traveler: "LAURA" },
+                        { name: "QR Visit Japan - GEMA", file: "qr/QR GEMA.png", isIndividual: true, traveler: "GEMA" },
+                        { name: "QR Visit Japan - CESAR", file: "qr/QR CESAR.png", isIndividual: true, traveler: "CESAR" },
+                        { name: "QR Visit Japan - VICENTE", file: "qr/QR VICENTE.png", isIndividual: true, traveler: "VICENTE" },
+                        { name: "QR Visit Japan - LOLA", file: "qr/QR LOLA.png", isIndividual: true, traveler: "LOLA" },
+                        { name: "eSIM / Pocket WiFi", file: "pdf/documentacion/Comprobante_WiFi.pdf", isIndividual: false }
+                    ]
+                },
+                {
+                    title: "Mapas y Guías Oficiales",
+                    icon: "fa-solid fa-map-location-dot",
+                    color: "#06b6d4",
+                    items: [
+                        { name: "Guía de Kioto (Subway & Bus)", file: "pdf/kyoto Travel Map Subway & Bus Navi.pdf", isIndividual: false },
+                        { name: "Guía de Kioto (Portada)", file: "pdf/kyoto Travel Map Subway & Bus Navi front.pdf", isIndividual: false },
+                        { name: "Mapa de Shibuya 1", file: "pdf/sibuya maps.pdf", isIndividual: false },
+                        { name: "Mapa de Shibuya 2", file: "pdf/sibuya maps 2.pdf", isIndividual: false },
+                        { name: "Mapa Torres Akihabara", file: "pdf/Akijabara tower maps.pdf", isIndividual: false },
+                        { name: "Guía de paseo Takayama", file: "pdf/TAKAYAMA_walking_map_en.pdf", isIndividual: false },
+                        { name: "Mapa Metro de Tokio", file: "pdf/map_tokyo_metro.pdf", isIndividual: false },
+                        { name: "Mapa Metro de Osaka", file: "pdf/osaka_metro_map.pdf", isIndividual: false },
+                        { name: "Mapa Red JR Osaka", file: "pdf/map_osaka jr.pdf", isIndividual: false },
+                        { name: "Plano Estación de Osaka", file: "pdf/station_osaka.pdf", isIndividual: false }
+                    ]
+                }
             ]
         }
     },
-
     // --- DÍA 1: INICIO DE LA EXPEDICIÓN ---
     {
         day: 1, type: "travel",
