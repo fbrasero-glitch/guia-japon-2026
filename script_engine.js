@@ -1547,18 +1547,22 @@ function renderCenterVisual(data, mode, optData = null) {
         const l = loc.toLowerCase();
         let pdfs = [];
         if (l.includes('osaka')) {
-            pdfs = [{ file: 'metro osaka.pdf', icon: 'fa-subway', title: 'Metro Osaka' },{ file: 'osaka_metro_map.pdf', icon: 'fa-train-subway', title: 'Mapa Metro' },{ file: 'map_osaka jr.pdf', icon: 'fa-train', title: 'JR Osaka' },{ file: 'station_osaka.pdf', icon: 'fa-compass', title: 'Estación Osaka' }];
+            pdfs = [{ file: 'https://drive.google.com/file/d/11XI5_Eovm0Pcem0Z0fNwD2ATE53Ym2eS/view?usp=drivesdk', icon: 'fa-subway', title: 'Metro Osaka' },{ file: 'https://drive.google.com/file/d/1uNxNFdMNtxb5MLuWv7ZU_i3wS0mxsWmY/view?usp=drivesdk', icon: 'fa-train-subway', title: 'Mapa Metro' },{ file: 'https://drive.google.com/file/d/1ckqIvVtln93wx41L5G2AVCxkMzw6p1-G/view?usp=drivesdk', icon: 'fa-train', title: 'JR Osaka' },{ file: 'https://drive.google.com/file/d/1hl_72w0AEUiKvo83FUiI4svpYVKrYk2K/view?usp=drivesdk', icon: 'fa-compass', title: 'Estación Osaka' }];
         } else if (l.includes('kyoto') || l.includes('kioto')) {
-            pdfs = [{ file: 'kyoto Travel Map Subway & Bus Navi.pdf', icon: 'fa-bus', title: 'Bus/Metro Kyoto' },{ file: 'kyoto Travel Map Subway & Bus Navi front.pdf', icon: 'fa-map', title: 'Mapa Kyoto frontal' },{ file: 'map_kyoto_metro.pdf', icon: 'fa-subway', title: 'Mapa Metro' }];
+            pdfs = [{ file: 'https://drive.google.com/file/d/1EVTdI_L44ZNpE82y7nquOZf5DitZdCK2/view?usp=drivesdk', icon: 'fa-bus', title: 'Bus/Metro Kyoto' },{ file: 'https://drive.google.com/file/d/1_1qWBh781cAVyeE-LwFy4srNLNNnQBmb/view?usp=drivesdk', icon: 'fa-map', title: 'Mapa Kyoto frontal' },{ file: 'https://drive.google.com/file/d/1Qh5xuEcX8zZUDX0JnF4SEAjqoBioDCcG/view?usp=drivesdk', icon: 'fa-subway', title: 'Mapa Metro' }];
         } else if (l.includes('tokio') || l.includes('tokyo')) {
-            pdfs = [{ file: 'map_tokyo_metro.pdf', icon: 'fa-subway', title: 'Metro Tokio' },{ file: 'sibuya maps.pdf', icon: 'fa-compass', title: 'Mapa Shibuya' },{ file: 'sibuya maps 2.pdf', icon: 'fa-map-location-dot', title: 'Mapa Shibuya 2' },{ file: 'Akijabara tower maps.pdf', icon: 'fa-building', title: 'Mapa Akihabara' }];
+            pdfs = [{ file: 'https://drive.google.com/file/d/17HtwxyS6cc4fqZqMkMFJW_Cbv2CrI1JI/view?usp=drivesdk', icon: 'fa-subway', title: 'Metro Tokio' },{ file: 'https://drive.google.com/file/d/1dg2C3spA1tV5UpSGZ-M6-qQ8sP4xCg6B/view?usp=drivesdk', icon: 'fa-compass', title: 'Mapa Shibuya' },{ file: 'https://drive.google.com/file/d/1oy5Ahd8UqBku9wNUtEnQnzMc3GAbnO8H/view?usp=drivesdk', icon: 'fa-map-location-dot', title: 'Mapa Shibuya 2' },{ file: 'https://drive.google.com/file/d/1xrimiqPlqT_MQtHQCfsM1DlZ8VNiq5eA/view?usp=drivesdk', icon: 'fa-building', title: 'Mapa Akihabara' }];
         } else if (l.includes('alpes') || l.includes('takayama')) {
-            pdfs = [{ file: 'TAKAYAMA_walking_map_en.pdf', icon: 'fa-person-walking', title: 'Mapa Takayama' }];
+            pdfs = [{ file: 'https://drive.google.com/file/d/1j_oUY5eniWAL8IHPc4ty3WiBfgUkaRzF/view?usp=drivesdk', icon: 'fa-person-walking', title: 'Mapa Takayama' }];
         } else if (l.includes('kix')) {
-            pdfs = [{ file: 'Plano Terminal KIX (Andén 5, Airport Limousine Bus a Umeda).pdf', icon: 'fa-bus-simple', title: 'Bus KIX Umeda' }];
+            pdfs = [{ file: 'https://drive.google.com/file/d/1bRk9aiE4dLDkGWyEimBAUUzQHw3K7L3F/view?usp=drivesdk', icon: 'fa-bus-simple', title: 'Bus KIX Umeda' }];
         }
         if (pdfs.length === 0) return '';
-        return '<div class="pdf-downloads-wrapper" style="width:100%; display:flex; justify-content:flex-end; max-width:100%;"><div class="pdf-downloads-orange" style="display:flex; gap:8px; flex-wrap:nowrap; overflow-x:auto; overflow-y:visible; justify-content:flex-start; margin-top:10px; padding-bottom:5px; scrollbar-width:none; max-width:100%;">' + pdfs.map(p => '<a href="pdf/' + p.file + '" download title="' + p.title + '" style="background:rgba(249, 115, 22, 0.15); border:1px solid #f97316; color:#f97316; padding:6px 12px; border-radius:10px; display:flex; align-items:center; justify-content:center; gap:6px; text-decoration:none; transition:all 0.3s ease; box-shadow: 0 0 10px rgba(249, 115, 22, 0.2); white-space:nowrap; min-width: 35px; flex-shrink: 0;"><i class="fa-solid ' + p.icon + '" style="font-size:1.0rem;"></i></a>').join('') + '</div></div>';
+        return '<div class="pdf-downloads-wrapper" style="width:100%; display:flex; justify-content:flex-end; max-width:100%;"><div class="pdf-downloads-orange" style="display:flex; gap:8px; flex-wrap:nowrap; overflow-x:auto; overflow-y:visible; justify-content:flex-start; margin-top:10px; padding-bottom:5px; scrollbar-width:none; max-width:100%;">' + pdfs.map(p => {
+            const url = p.file.startsWith('http') ? p.file : 'pdf/' + p.file;
+            const targetAttr = p.file.startsWith('http') ? 'target="_blank"' : 'download';
+            return '<a href="' + url + '" ' + targetAttr + ' title="' + p.title + '" style="background:rgba(249, 115, 22, 0.15); border:1px solid #f97316; color:#f97316; padding:6px 12px; border-radius:10px; display:flex; align-items:center; justify-content:center; gap:6px; text-decoration:none; transition:all 0.3s ease; box-shadow: 0 0 10px rgba(249, 115, 22, 0.2); white-space:nowrap; min-width: 35px; flex-shrink: 0;"><i class="fa-solid ' + p.icon + '" style="font-size:1.0rem;"></i></a>';
+        }).join('') + '</div></div>';
     };
 
     let regionInfoSrc = '';

@@ -851,9 +851,9 @@ function renderCenterVisual(data, mode, optData = null) {
         <i class="fa-solid fa-map-marker-alt"></i> ${location}
                 ${location.toLowerCase().includes('osaka') ? `
                     <div class="pdf-downloads">
-                        <a href="pdf/metro osaka.pdf" download title="Mapa Metro Osaka" class="pdf-download-link"><i class="fa-solid fa-train-subway"></i></a>
-                        <a href="pdf/map_osaka jr.pdf" download title="Mapa JR Osaka" class="pdf-download-link"><i class="fa-solid fa-train"></i></a>
-                        <a href="pdf/station_osaka.pdf" download title="Guía Estación Osaka" class="pdf-download-link"><i class="fa-solid fa-compass"></i></a>
+                        <a href="https://drive.google.com/file/d/11XI5_Eovm0Pcem0Z0fNwD2ATE53Ym2eS/view?usp=drivesdk" target="_blank" title="Mapa Metro Osaka" class="pdf-download-link"><i class="fa-solid fa-train-subway"></i></a>
+                        <a href="https://drive.google.com/file/d/1ckqIvVtln93wx41L5G2AVCxkMzw6p1-G/view?usp=drivesdk" target="_blank" title="Mapa JR Osaka" class="pdf-download-link"><i class="fa-solid fa-train"></i></a>
+                        <a href="https://drive.google.com/file/d/1hl_72w0AEUiKvo83FUiI4svpYVKrYk2K/view?usp=drivesdk" target="_blank" title="Guía Estación Osaka" class="pdf-download-link"><i class="fa-solid fa-compass"></i></a>
                     </div>
                 ` : ''
             }

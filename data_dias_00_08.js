@@ -370,7 +370,7 @@ const travelData_00_08 = [
                         { name: "Fuji Excursion Tren", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false },
                         { name: "Taxis Aeropuerto KIX (2 Taxis)", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false },
                         { name: "Permiso de Conducir Internacional", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false },
-                        { name: "Plano Terminal KIX y Bus", file: "pdf/Plano Terminal KIX (Andén 5, Airport Limousine Bus a Umeda).pdf", isIndividual: false }
+                        { name: "Plano Terminal KIX y Bus", file: "https://drive.google.com/file/d/1bRk9aiE4dLDkGWyEimBAUUzQHw3K7L3F/view?usp=drivesdk", isIndividual: false }
                     ]
                 },
                 {
@@ -378,9 +378,9 @@ const travelData_00_08 = [
                     icon: "fa-solid fa-ticket",
                     color: "#ef4444",
                     items: [
-                        { name: "TeamLab Borderless (Email/Reserva)", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false },
-                        { name: "TeamLab Borderless (Entrada 1)", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false },
-                        { name: "TeamLab Borderless (Entrada 2)", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false },
+                        { name: "TeamLab Borderless (Email/Reserva)", file: "https://drive.google.com/file/d/11VHleyjgvyiHaTIUhO9nowY0vOLqxNiS/view?usp=drivesdk", isIndividual: false },
+                        { name: "TeamLab Borderless (Entrada 1)", file: "https://drive.google.com/file/d/1QYt5BBth_Iq9ekffeMaYAeSwxvzs9gc8/view?usp=drivesdk", isIndividual: false },
+                        { name: "TeamLab Borderless (Entrada 2)", file: "https://drive.google.com/file/d/14ukkLlY5oXkAGnxvEbaXenrfJedwAnZE/view?usp=drivesdk", isIndividual: false },
                         { name: "Universal Studios (USJ Osaka)", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false },
                         { name: "Shibuya Sky (Tokio)", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false },
                         { name: "Palacio Imperial de Kioto", file: "https://drive.google.com/drive/folders/1CFibDCSzNBdPt0a5koJqz0hZOhpLgHLM?usp=sharing", isIndividual: false },
@@ -392,10 +392,10 @@ const travelData_00_08 = [
                     icon: "fa-solid fa-qrcode",
                     color: "#f59e0b",
                     items: [
-                        { name: "QR Visit Japan - FELIPE", file: "https://drive.google.com/drive/folders/131EjrFKTYySltRFCzheUtMh6CZu78WPZ?usp=sharing", isIndividual: true, traveler: "FELIPE" },
-                        { name: "QR Visit Japan - LORENA", file: "https://drive.google.com/drive/folders/131EjrFKTYySltRFCzheUtMh6CZu78WPZ?usp=sharing", isIndividual: true, traveler: "LORENA" },
-                        { name: "QR Visit Japan - IVAN", file: "https://drive.google.com/drive/folders/131EjrFKTYySltRFCzheUtMh6CZu78WPZ?usp=sharing", isIndividual: true, traveler: "IVAN" },
-                        { name: "QR Visit Japan - LAURA", file: "https://drive.google.com/drive/folders/131EjrFKTYySltRFCzheUtMh6CZu78WPZ?usp=sharing", isIndividual: true, traveler: "LAURA" },
+                        { name: "QR Visit Japan - FELIPE", file: "https://drive.google.com/file/d/1k3-Pc9nCwGzmLRoA57XcxysrkdQFNK23/view?usp=drivesdk", isIndividual: true, traveler: "FELIPE" },
+                        { name: "QR Visit Japan - LORENA", file: "https://drive.google.com/file/d/1o6a2W_B1H50EpsWVNGTK4d9MECWp6jH_/view?usp=drivesdk", isIndividual: true, traveler: "LORENA" },
+                        { name: "QR Visit Japan - IVAN", file: "https://drive.google.com/file/d/10sAS5dUPLqH-laM29nGWoxR7ZC8-jpDR/view?usp=drivesdk", isIndividual: true, traveler: "IVAN" },
+                        { name: "QR Visit Japan - LAURA", file: "https://drive.google.com/file/d/1GY6GrwyB4C-1nrYFSaQ_AdRsBNcrMght/view?usp=drivesdk", isIndividual: true, traveler: "LAURA" },
                         { name: "QR Visit Japan - GEMA", file: "https://drive.google.com/drive/folders/131EjrFKTYySltRFCzheUtMh6CZu78WPZ?usp=sharing", isIndividual: true, traveler: "GEMA" },
                         { name: "QR Visit Japan - CESAR", file: "https://drive.google.com/drive/folders/131EjrFKTYySltRFCzheUtMh6CZu78WPZ?usp=sharing", isIndividual: true, traveler: "CESAR" },
                         { name: "QR Visit Japan - VICENTE", file: "https://drive.google.com/drive/folders/131EjrFKTYySltRFCzheUtMh6CZu78WPZ?usp=sharing", isIndividual: true, traveler: "VICENTE" },
@@ -408,16 +408,16 @@ const travelData_00_08 = [
                     icon: "fa-solid fa-map-location-dot",
                     color: "#06b6d4",
                     items: [
-                        { name: "Guía de Kioto (Subway & Bus)", file: "pdf/kyoto Travel Map Subway & Bus Navi.pdf", isIndividual: false },
-                        { name: "Guía de Kioto (Portada)", file: "pdf/kyoto Travel Map Subway & Bus Navi front.pdf", isIndividual: false },
-                        { name: "Mapa de Shibuya 1", file: "pdf/sibuya maps.pdf", isIndividual: false },
-                        { name: "Mapa de Shibuya 2", file: "pdf/sibuya maps 2.pdf", isIndividual: false },
-                        { name: "Mapa Torres Akihabara", file: "pdf/Akijabara tower maps.pdf", isIndividual: false },
-                        { name: "Guía de paseo Takayama", file: "pdf/TAKAYAMA_walking_map_en.pdf", isIndividual: false },
-                        { name: "Mapa Metro de Tokio", file: "pdf/map_tokyo_metro.pdf", isIndividual: false },
-                        { name: "Mapa Metro de Osaka", file: "pdf/osaka_metro_map.pdf", isIndividual: false },
-                        { name: "Mapa Red JR Osaka", file: "pdf/map_osaka jr.pdf", isIndividual: false },
-                        { name: "Plano Estación de Osaka", file: "pdf/station_osaka.pdf", isIndividual: false }
+                        { name: "Guía de Kioto (Subway & Bus)", file: "https://drive.google.com/file/d/1EVTdI_L44ZNpE82y7nquOZf5DitZdCK2/view?usp=drivesdk", isIndividual: false },
+                        { name: "Guía de Kioto (Portada)", file: "https://drive.google.com/file/d/1_1qWBh781cAVyeE-LwFy4srNLNNnQBmb/view?usp=drivesdk", isIndividual: false },
+                        { name: "Mapa de Shibuya 1", file: "https://drive.google.com/file/d/1dg2C3spA1tV5UpSGZ-M6-qQ8sP4xCg6B/view?usp=drivesdk", isIndividual: false },
+                        { name: "Mapa de Shibuya 2", file: "https://drive.google.com/file/d/1oy5Ahd8UqBku9wNUtEnQnzMc3GAbnO8H/view?usp=drivesdk", isIndividual: false },
+                        { name: "Mapa Torres Akihabara", file: "https://drive.google.com/file/d/1xrimiqPlqT_MQtHQCfsM1DlZ8VNiq5eA/view?usp=drivesdk", isIndividual: false },
+                        { name: "Guía de paseo Takayama", file: "https://drive.google.com/file/d/1j_oUY5eniWAL8IHPc4ty3WiBfgUkaRzF/view?usp=drivesdk", isIndividual: false },
+                        { name: "Mapa Metro de Tokio", file: "https://drive.google.com/file/d/17HtwxyS6cc4fqZqMkMFJW_Cbv2CrI1JI/view?usp=drivesdk", isIndividual: false },
+                        { name: "Mapa Metro de Osaka", file: "https://drive.google.com/file/d/1uNxNFdMNtxb5MLuWv7ZU_i3wS0mxsWmY/view?usp=drivesdk", isIndividual: false },
+                        { name: "Mapa Red JR Osaka", file: "https://drive.google.com/file/d/1ckqIvVtln93wx41L5G2AVCxkMzw6p1-G/view?usp=drivesdk", isIndividual: false },
+                        { name: "Plano Estación de Osaka", file: "https://drive.google.com/file/d/1hl_72w0AEUiKvo83FUiI4svpYVKrYk2K/view?usp=drivesdk", isIndividual: false }
                     ]
                 }
             ]
