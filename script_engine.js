@@ -88,6 +88,12 @@ window.toggleBookingStatus = function (id, dayIndex) {
 };
 
 window.openDocument = function(name, filePath) {
+    // Si es un enlace externo (Google Drive, etc.), abrir directamente sin comprobar
+    if (filePath.startsWith('http://') || filePath.startsWith('https://')) {
+        window.open(filePath, '_blank');
+        return;
+    }
+
     // Si la ruta contiene 'qr/' o 'qr entrada/', definimos la ruta alternativa
     let altPath = null;
     if (filePath.includes('qr/')) {
