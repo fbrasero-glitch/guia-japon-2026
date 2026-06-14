@@ -5540,15 +5540,11 @@ body.auth-hidden .update-toast {
     background: rgba(10, 15, 30, 0.75);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
+    animation: none !important;
 }
 
-.update-toast:not(.hidden) {
-    display: flex !important;
-    opacity: 1;
-    pointer-events: auto;
+.update-toast.hidden {
+    display: none !important;
 }
 
 .update-toast-content {
