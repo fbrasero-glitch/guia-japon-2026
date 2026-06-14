@@ -12,7 +12,7 @@ Para instalarla, no hace falta buscarla en ninguna tienda de aplicaciones (ni Ap
 Es obligatorio usar **Safari** para este proceso (no vale abrirlo directamente desde WhatsApp o Chrome).
 
 1. **Abre Safari** y entra en este enlace que os he pasado: 
-   👉 **[TU_DIRECCIÓN_DE_NETLIFY] (por ejemplo: https://guia-japon-2026.netlify.app/)**
+   👉 **https://guiajapon.netlify.app/**
 2. Una vez que cargue la página, fíjate en la barra inferior de la pantalla y pulsa el **botón de Compartir** (es el cuadrado azul con una flecha apuntando hacia arriba ⬆️).
 3. Desliza el menú un poco hacia abajo y busca la opción **"Añadir a la pantalla de inicio"** (suele tener el icono de un cuadradito con un '+').
 4. En la esquina superior derecha dale a **"Añadir"**.
@@ -26,7 +26,7 @@ Es obligatorio usar **Safari** para este proceso (no vale abrirlo directamente d
 Para esto, usa preferiblemente el navegador **Google Chrome**.
 
 1. **Abre Chrome** y entra en este enlace que os he pasado: 
-   👉 **[TU_DIRECCIÓN_DE_NETLIFY] (por ejemplo: https://guia-japon-2026.netlify.app/)**
+   👉 **https://guiajapon.netlify.app/**
 2. Es probable que abajo, en la propia pantalla, te salte un aviso o botón grande invitándote a "Añadir a la pantalla principal" o "Instalar Aplicación". 
    - *Si te sale, púlsalo directo y ya lo tienes.*
 3. Si el botón rápido no sale, simplemente pulsa los **tres puntitos (Menú)** en la esquina superior derecha del navegador.
