@@ -2621,7 +2621,7 @@ const travelData = [
         image: "images/okuhida_ryokan.png",
 
         logistics: [
-            { title: "Billetes Shinkansen", text: "COMPRADO: Nozomi 2 (08:45 -> 09:19). ID Membresía: 1892692405. Reserva 2000 (3 Ad + 1 Niño, 20.680¥), Reserva 2001 (4 Ad, 23.640¥)." },
+            { title: "Billetes Shinkansen", text: "COMPRADO: Nozomi 2 (08:45 -> 09:19). ID Membresía: 18*****405. Reserva 20** (3 Ad + 1 Niño, 20.680¥), Reserva 20** (4 Ad, 23.640¥)." },
             { title: "Equipaje", text: "Solo mochilas de mano. Las maletas grandes van por Takkyubin a Tokio o Kawaguchiko." },
             { title: "Onsen", text: "Ducharse antes de entrar. Tatuajes: consultar política (o reservar privado)." }
         ],

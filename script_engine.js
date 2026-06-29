@@ -461,20 +461,20 @@ window.openFlightSeatingModal = function() {
                         <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:10px; margin-top:10px;">
                             <div style="background:rgba(0,0,0,0.3); padding:10px; border-radius:8px;">
                                 <strong style="color:white;">Fila 30</strong><br>
-                                <span style="color:var(--gold);">30A:</span> Cesar Mari (Ventanilla)<br>
-                                <span style="color:var(--gold);">30B:</span> Gema Mascarell (Centro)
+                                <span style="color:var(--gold);">30A:</span> Cesar M. (Ventanilla)<br>
+                                <span style="color:var(--gold);">30B:</span> Gema M. (Centro)
                             </div>
                             <div style="background:rgba(0,0,0,0.3); padding:10px; border-radius:8px;">
                                 <strong style="color:white;">Fila 31</strong><br>
-                                <span style="color:var(--gold);">31A:</span> Ivan Brasero (Ventanilla)<br>
-                                <span style="color:var(--gold);">31B:</span> Vicente Mari (Centro)<br>
-                                <span style="color:var(--gold);">31C:</span> Dolores Puerta (Pasillo)
+                                <span style="color:var(--gold);">31A:</span> Ivan B. (Ventanilla)<br>
+                                <span style="color:var(--gold);">31B:</span> Vicente M. (Centro)<br>
+                                <span style="color:var(--gold);">31C:</span> Lola P. (Pasillo)
                             </div>
                             <div style="background:rgba(0,0,0,0.3); padding:10px; border-radius:8px;">
                                 <strong style="color:white;">Fila 32</strong><br>
-                                <span style="color:var(--gold);">32A:</span> Felipe Brasero (Ventanilla)<br>
-                                <span style="color:var(--gold);">32B:</span> Laura Brasero (Centro)<br>
-                                <span style="color:var(--gold);">32C:</span> Lorena Mari (Pasillo)
+                                <span style="color:var(--gold);">32A:</span> Felipe B. (Ventanilla)<br>
+                                <span style="color:var(--gold);">32B:</span> Laura B. (Centro)<br>
+                                <span style="color:var(--gold);">32C:</span> Lorena M. (Pasillo)
                             </div>
                         </div>
                     </div>
@@ -486,20 +486,20 @@ window.openFlightSeatingModal = function() {
                         <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:10px; margin-top:10px;">
                             <div style="background:rgba(0,0,0,0.3); padding:10px; border-radius:8px; grid-column: 1 / -1;">
                                 <strong style="color:white;">Fila 32 (Centro)</strong><br>
-                                <span style="color:var(--gold);">32D:</span> Felipe Brasero (Pasillo Izq) | 
-                                <span style="color:var(--gold);">32E:</span> Laura Brasero (Centro) | 
-                                <span style="color:var(--gold);">32F:</span> Lorena Mari (Centro) | 
-                                <span style="color:var(--gold);">32G:</span> Ivan Brasero (Pasillo Der)
+                                <span style="color:var(--gold);">32D:</span> Felipe B. (Pasillo Izq) | 
+                                <span style="color:var(--gold);">32E:</span> Laura B. (Centro) | 
+                                <span style="color:var(--gold);">32F:</span> Lorena M. (Centro) | 
+                                <span style="color:var(--gold);">32G:</span> Ivan B. (Pasillo Der)
                             </div>
                             <div style="background:rgba(0,0,0,0.3); padding:10px; border-radius:8px;">
                                 <strong style="color:white;">Fila 32 (Derecha)</strong><br>
-                                <span style="color:var(--gold);">32J:</span> Vicente Mari (Centro/Pasillo)<br>
-                                <span style="color:var(--gold);">32K:</span> Dolores Puerta (Ventanilla)
+                                <span style="color:var(--gold);">32J:</span> Vicente M. (Centro/Pasillo)<br>
+                                <span style="color:var(--gold);">32K:</span> Lola P. (Ventanilla)
                             </div>
                             <div style="background:rgba(0,0,0,0.3); padding:10px; border-radius:8px;">
                                 <strong style="color:white;">Fila 33 (Derecha)</strong><br>
-                                <span style="color:var(--gold);">33J:</span> Gema Mascarell (Centro/Pasillo)<br>
-                                <span style="color:var(--gold);">33K:</span> Cesar Mari (Ventanilla)
+                                <span style="color:var(--gold);">33J:</span> Gema M. (Centro/Pasillo)<br>
+                                <span style="color:var(--gold);">33K:</span> Cesar M. (Ventanilla)
                             </div>
                         </div>
                     </div>
