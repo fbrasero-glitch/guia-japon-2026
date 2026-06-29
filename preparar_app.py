@@ -11,7 +11,7 @@ def generar_service_worker():
     extensiones_validas = {".html", ".css", ".js", ".png", ".jpg", ".jpeg", ".svg", ".json", ".mp4"}
     
     # Ignorar estos directorios/archivos
-    ignorar = {".git", ".gemini", "sw.js", "sw_template.js", "preparar_app.py", "generate_guide.js", "find_videos.js", "apply_bookings.py"}
+    ignorar = {".git", ".gemini", "sw.js", "sw_template.js", "preparar_app.py", "generate_guide.js", "find_videos.js", "apply_bookings.py", "documentacion"}
     
     urls_a_cachear = [
         "./",

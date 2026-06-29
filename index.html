@@ -99,41 +99,15 @@
         <div class="preview-title" id="preview-title">Día X</div>
     </div>
 
-    <!-- DATOS MODULARES (divididos por bloques de días para mejor rendimiento) -->
-    <script src="data_restaurants.js"></script>
-    <script src="data_dias_00_08.js"></script>
-    <script src="data_dias_09_16.js"></script>
-    <script src="data_dias_17_24.js"></script>
-    <script src="data_combinator.js"></script>
-
     <!-- MODAL PARA INFOGRAFÍAS -->
     <div id="infographic-modal" class="infographic-modal" onclick="closeInfographic()">
         <span class="modal-close">&times;</span>
         <img class="modal-content" id="modal-img">
     </div>
 
-    <!-- CONFIGURACIÓN SUPABASE Y PERSISTENCIA -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script>
-        const SUPABASE_URL = 'https://bgnrjfanmheylutlroia.supabase.co';
-        const SUPABASE_KEY = 'sb_publishable_2YmXljKcXIsAXTZ8_XG9SA_V2sniyXQ';
-        
-        // Inicializar cliente de Supabase (Probando diferentes nombres del global)
-        try {
-            const lib = window.supabase || window.supabaseJs;
-            if (lib && typeof lib.createClient === 'function') {
-                window.supabaseClient = lib.createClient(SUPABASE_URL, SUPABASE_KEY);
-                console.log('Supabase: Cliente inicializado correctamente');
-            } else {
-                console.error('Supabase: No se encontró la librería en window.supabase o window.supabaseJs');
-            }
-        } catch (e) {
-            console.error('Supabase: Error durante la inicialización:', e);
-        }
-    </script>
+    <!-- CARGA DE PERSISTENCIA Y MOTOR (LOS DATOS Y SUPABASE SE CARGAN DINÁMICAMENTE TRAS LOGIN) -->
     <script src="persistence.js"></script>
     <script src="script_engine.js"></script>
-    <script src="script_tactical.js"></script>
     
     <!-- REGISTRO DEL SERVICE WORKER (Para funcionamiento Offline PWA) -->
     <script>

@@ -2,7 +2,7 @@
 Antelación
 Qué reservar / comprar
 3-4 Meses antes
-Vuelos y Alojamientos (Ya gestionado).
+Vuelos, Alojamientos y Taxis ida/vuelta al aeropuerto (2 taxis para 8 pax en Booking) **[YA GESTIONADO]**.
 2 Meses antes
 TeamLab Borderless (Tokio) **[YA COMPRADO]** y Palacio Imperial (Kioto).
 1 Mes antes (Día exacto)
@@ -15,7 +15,7 @@ Tarjetas de transporte (ICOCA/SUICA) y buses locales.
 📋 ESQUEMA DÍA POR DÍA: ENTRADAS Y BILLETES
 BLOQUE 1: OSAKA Y NARA
 Día 2 (Llegada):
-Airport Limousine Bus: No hace falta antelación. Se compra en las máquinas del aeropuerto al llegar [Análisis previo].
+Traslado al hotel: **[YA RESERVADO]** Reservados 2 taxis en Booking para los 8 pax. (No se requiere usar el Airport Limousine Bus ni trenes cargando maletas).
 Día 3 (Osaka):
 Castillo de Osaka / Umeda Sky: Se compran en taquilla.
 Crucero río Okawa (Adicional): Se compra en el muelle el mismo día.
@@ -54,7 +54,7 @@ TeamLab Borderless: **[YA COMPRADO]**
 Día 21 (Nikko/Kamakura):
 Nikko Pass: Se puede comprar 1-2 días antes en la estación de Asakusa (Tobu).
 Día 23 (Regreso):
-Narita Express / Limousine Bus: Comprar 1-2 días antes en las máquinas de la estación o en el hotel.
+Traslado al aeropuerto (Haneda): **[YA RESERVADO]** Reservados 2 taxis en Booking para los 8 pax. (No se requiere usar Narita Express o Limousine Bus).
 💡 Consejos para Iván y Felipe (Líderes):
 Apps Necesarias: Descargad SmartEX (para trenes bala) y tened las webs de Highwaybus y Klook/GetYourGuide en favoritos.
 Sincronización: Para las reservas de "1 mes antes", recordad que Japón va 7 u 8 horas por delante. Si algo sale a las 10:00 AM en Japón, debéis estar listos a las 02:00 o 03:00 AM en España.

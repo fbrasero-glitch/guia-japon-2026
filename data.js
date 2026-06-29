@@ -66,7 +66,7 @@ const travelData = [
                         },
                         {
                             title: "Reservar transporte aeropuerto‑hotel",
-                            desc: "Reservar van/minibús o varios taxis para llegada y salida (8 pax + equipaje).",
+                            desc: "¡YA RESERVADO! Reservados 2 taxis de ida y vuelta en Booking para los 8 pax.",
                             who: "Persona encargada de logística."
                         },
                         {

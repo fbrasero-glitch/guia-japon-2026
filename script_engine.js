@@ -1,42 +1,143 @@
 /* ==========================================
-   SISTEMA DE AUTENTICACIÓN (LOGIN)
+   SISTEMA DE AUTENTICACIÓN Y SEGURIDAD (SHA-256 + CARGA DINÁMICA)
    ========================================== */
-window.checkLogin = function() {
-    const user = document.getElementById('username').value;
-    const pass = document.getElementById('password').value;
+async function sha256(message) {
+    const msgBuffer = new TextEncoder().encode(message);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    return hashHex;
+}
+
+window.checkLogin = async function() {
+    const user = document.getElementById('username').value.trim();
+    const pass = document.getElementById('password').value.trim();
     const errorMsg = document.getElementById('login-error');
     
-    if (user === 'Family' && pass === 'Japan2026') {
-        localStorage.setItem('auth_session', 'authenticated_' + Date.now());
-        document.getElementById('login-overlay').classList.add('hidden');
-        document.body.classList.remove('auth-hidden');
-        console.log('Autenticación completada');
-    } else {
-        errorMsg.style.display = 'flex';
-        // Animación de error en la caja
-        const box = document.querySelector('.login-box');
-        box.style.animation = 'none';
-        box.offsetHeight; // trigger reflow
-        box.style.animation = 'shake 0.4s ease-in-out';
+    try {
+        const userHash = await sha256(user);
+        const passHash = await sha256(pass);
+        
+        // Hashing de Family y Japan2026 en SHA-256
+        if (userHash === 'bd2d677b2ed4381b48bb1d0841052c6d076e7d634d5052e85dcbe0b8a0dedd80' && 
+            passHash === '173a2a1574ecef98bbbe18db6a67f17f56240817e536f5dcca7043fc6a193731') {
+            
+            localStorage.setItem('auth_session', 'authenticated_' + Date.now());
+            document.getElementById('login-overlay').classList.add('hidden');
+            document.body.classList.remove('auth-hidden');
+            console.log('Autenticación completada');
+            
+            // Cargar dinámicamente el resto de la aplicación
+            await loadAppAndInit();
+        } else {
+            showLoginError(errorMsg);
+        }
+    } catch (e) {
+        console.error('Error durante la autenticación:', e);
+        showLoginError(errorMsg);
     }
 };
 
+function showLoginError(errorMsg) {
+    errorMsg.style.display = 'flex';
+    const box = document.querySelector('.login-box');
+    box.style.animation = 'none';
+    box.offsetHeight; // trigger reflow
+    box.style.animation = 'shake 0.4s ease-in-out';
+}
+
+/* ==========================================
+   CARGADOR SEGURO DE SCRIPTS Y DEPENDENCIAS
+   ========================================== */
+async function loadScript(src) {
+    return new Promise((resolve, reject) => {
+        const s = document.createElement('script');
+        s.src = src;
+        s.async = false;
+        s.onload = () => {
+            console.log(`Cargado dinámicamente: ${src}`);
+            resolve();
+        };
+        s.onerror = () => reject(new Error("Error al cargar script: " + src));
+        document.body.appendChild(s);
+    });
+}
+
+function initSupabase() {
+    const SUPABASE_URL = 'https://bgnrjfanmheylutlroia.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_2YmXljKcXIsAXTZ8_XG9SA_V2sniyXQ';
+    
+    try {
+        const lib = window.supabase || window.supabaseJs;
+        if (lib && typeof lib.createClient === 'function') {
+            window.supabaseClient = lib.createClient(SUPABASE_URL, SUPABASE_KEY);
+            console.log('Supabase: Cliente inicializado correctamente tras login');
+        } else {
+            console.error('Supabase: No se encontró la librería en window.supabase o window.supabaseJs');
+        }
+    } catch (e) {
+        console.error('Supabase: Error durante la inicialización:', e);
+    }
+}
+
+let isAppLoading = false;
+async function loadAppAndInit() {
+    if (isAppLoading) return;
+    isAppLoading = true;
+    
+    const scripts = [
+        "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2",
+        "data_restaurants.js",
+        "data_dias_00_08.js",
+        "data_dias_09_16.js",
+        "data_dias_17_24.js",
+        "data_combinator.js",
+        "script_tactical.js"
+    ];
+
+    console.log("Iniciando la carga segura de datos y lógica...");
+    try {
+        for (const src of scripts) {
+            await loadScript(src);
+        }
+        
+        initSupabase();
+
+        if (typeof init === 'function') {
+            console.log("Inicializando interfaz de usuario...");
+            init();
+        } else {
+            console.error("Error: init() no está definido");
+        }
+    } catch (e) {
+        console.error("Error crítico en cargador dinámico:", e);
+        alert("Error de seguridad: No se pudieron cargar los datos del viaje. Comprueba tu conexión.");
+    } finally {
+        isAppLoading = false;
+    }
+}
+
 (function initAuth() {
-    // Comprobar sesión antes de que el DOM esté listo para evitar parpadeos si es posible
     const session = localStorage.getItem('auth_session');
     if (session) {
-        // Usar una clase en el HTML para ocultar/mostrar es más eficiente
         document.documentElement.classList.add('is-authenticated');
     }
     
-    document.addEventListener('DOMContentLoaded', () => {
+    function startApp() {
         const session = localStorage.getItem('auth_session');
         if (session) {
             const overlay = document.getElementById('login-overlay');
             if (overlay) overlay.classList.add('hidden');
             document.body.classList.remove('auth-hidden');
+            loadAppAndInit();
         }
-    });
+    }
+    
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', startApp);
+    } else {
+        startApp();
+    }
 })();
 
 /* ==========================================
@@ -2922,4 +3023,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-window.onload = init;
+// Arranque condicional gestionado por el sistema de autenticación dinámica
+
