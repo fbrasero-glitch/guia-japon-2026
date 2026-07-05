@@ -1198,14 +1198,6 @@ body:not(.day-selected) .day-btn:hover {
     font-size: 1.1rem;
 }
 
-/* RETO IVÁN - ESTILO DESTACO */
-.ivan-challenge-box {
-    background: rgba(244, 63, 94, 0.1);
-    border: 2px solid var(--danger);
-    padding: 25px;
-    border-radius: 15px;
-    margin: 30px 0;
-}
 
 /* ENCABEZADO DE LUGAR (PORTADA CENTRAL) */
 .location-header {
@@ -2607,12 +2599,6 @@ body:not(.day-selected) .right-panel {
         line-height: 1.7;
     }
 
-    /* Reto Iván en móvil */
-    .ivan-challenge-box {
-        padding: 18px;
-        margin: 20px 0;
-        border-radius: 10px;
-    }
 
     /* --- PANEL DERECHO MÓVIL (COMO SECCIÓN INFERIOR) --- */
     .right-panel {
@@ -5992,6 +5978,304 @@ body.auth-hidden .update-toast {
     from { transform: translateY(30px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
+
+/* ==========================================
+   WIDGET INTERACTIVO DE TRÁNSITO DE METRO
+   ========================================== */
+.transit-card {
+    background: var(--panel-bg, rgba(17, 24, 39, 0.95));
+    border: 1px solid rgba(0, 243, 255, 0.15);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 
+                inset 0 0 15px rgba(0, 243, 255, 0.05);
+    position: relative;
+    max-width: 100%;
+    margin: 15px 0;
+    overflow: hidden;
+    text-align: left;
+}
+
+.transit-header {
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 12px;
+}
+
+.transit-badge {
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: var(--neon-blue, #00f3ff);
+    background: rgba(0, 243, 255, 0.1);
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 8px;
+    border: 1px solid rgba(0, 243, 255, 0.2);
+}
+
+.transit-route-summary h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--text-primary, #f1f5f9);
+    font-weight: 700;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.transit-time-total {
+    font-size: 0.8rem;
+    color: var(--text-secondary, #cbd5e1);
+    display: block;
+    margin-top: 4px;
+}
+
+.transit-timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    margin-bottom: 20px;
+    padding-left: 25px; /* Dejar espacio para los checkboxes colocados a la izquierda */
+}
+
+.timeline-connector {
+    margin-left: 20px;
+    width: 4px;
+    height: 45px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 2px;
+}
+
+.stops-count {
+    position: absolute;
+    left: 15px;
+    font-size: 0.75rem;
+    color: var(--text-secondary, #cbd5e1);
+    white-space: nowrap;
+    font-family: monospace;
+    background: var(--bg-800, #111827);
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.timeline-node {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.node-indicator {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+}
+
+.transit-checkbox {
+    position: absolute;
+    opacity: 0;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    z-index: 5;
+    margin: 0;
+}
+
+.checkbox-trigger {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--text-secondary, #cbd5e1);
+    border-radius: 6px;
+    z-index: 2;
+    background: var(--bg-800, #111827);
+    transition: all 0.2s ease;
+    left: -28px; /* Colocado a la izquierda del círculo de la estación */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.transit-checkbox:checked ~ .checkbox-trigger {
+    background: var(--success, #10b981);
+    border-color: var(--success, #10b981);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+}
+
+.transit-checkbox:checked ~ .checkbox-trigger::after {
+    content: "\f00c";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 0.7rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeline-node:has(.transit-checkbox:checked),
+.timeline-node.completed {
+    opacity: 0.4;
+    filter: grayscale(50%);
+}
+
+.station-icon-halo {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 3px solid var(--line-color);
+    background: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(var(--line-color), 0.2);
+    font-weight: bold;
+    z-index: 1;
+}
+
+.station-code {
+    font-size: 0.75rem;
+    color: white;
+    font-family: 'Orbitron', monospace, sans-serif;
+    letter-spacing: -0.5px;
+}
+
+.node-info {
+    flex-grow: 1;
+    padding-top: 6px;
+}
+
+.station-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.station-name {
+    font-weight: 700;
+    color: white;
+    font-size: 0.95rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.badge-line {
+    font-size: 0.65rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: bold;
+    color: white;
+}
+
+.station-meta-grid {
+    display: flex;
+    gap: 12px;
+    margin-top: 6px;
+    flex-wrap: wrap;
+}
+
+.meta-item {
+    font-size: 0.8rem;
+    color: var(--text-secondary, #cbd5e1);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.meta-item strong {
+    color: var(--neon-blue, #00f3ff);
+}
+
+.meta-item.accent-green strong {
+    color: var(--success, #10b981);
+}
+
+.station-instructions {
+    font-size: 0.8rem;
+    color: var(--text-secondary, #cbd5e1);
+    margin-top: 6px;
+    background: rgba(168, 85, 247, 0.05);
+    border: 1px solid rgba(168, 85, 247, 0.15);
+    padding: 6px 10px;
+    border-radius: 6px;
+    text-align: left;
+}
+
+.station-instructions i {
+    color: var(--neon-purple, #a855f7);
+}
+
+.map-link {
+    font-size: 0.75rem;
+    color: var(--neon-blue, #00f3ff);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background: rgba(0, 243, 255, 0.05);
+    border: 1px solid rgba(0, 243, 255, 0.2);
+    transition: all 0.2s ease;
+}
+
+.map-link:hover {
+    background: rgba(0, 243, 255, 0.15);
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+}
+
+.gps-warning-box {
+    background: rgba(251, 191, 36, 0.05);
+    border: 1px solid var(--gold, #fbbf24);
+    border-radius: 12px;
+    padding: 12px 15px;
+    margin-top: 15px;
+    text-align: left;
+}
+
+.warning-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.warning-header i {
+    color: var(--gold, #fbbf24);
+    font-size: 1rem;
+    filter: drop-shadow(0 0 5px var(--gold, #fbbf24));
+}
+
+.warning-header h4 {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--gold, #fbbf24);
+    letter-spacing: 0.05em;
+    font-weight: 800;
+}
+
+.gps-warning-box p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--text-secondary, #cbd5e1);
+    line-height: 1.4;
+}
+
+.gps-warning-box p strong {
+    color: white;
+}
+
 
 
 

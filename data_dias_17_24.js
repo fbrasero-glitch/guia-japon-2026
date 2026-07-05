@@ -30,7 +30,41 @@ const travelData_17_24 = [
                 price: "Suica (~250 JPY)",
                 timeLabel: "30 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Metropolitan+Edmont+Tokyo&destination=Asakusa+Station&travelmode=transit",
-                tacticalGuideId: "mission_tokyo_metro"
+                tacticalGuideId: "mission_tokyo_metro",
+                transitDetails: {
+                    origin: "Iidabashi (Hotel)",
+                    destination: "Asakusa (Senso-ji)",
+                    totalTime: "22 min",
+                    steps: [
+                        {
+                            type: "origin",
+                            station: "Iidabashi",
+                            code: "T06",
+                            line: "Tozai Line (Celeste)",
+                            lineColor: "#009bc7",
+                            platform: "2",
+                            car: "4 o 6"
+                        },
+                        {
+                            type: "transfer",
+                            station: "Nihombashi",
+                            code: "G12",
+                            line: "Ginza Line (Naranja)",
+                            lineColor: "#ff9500",
+                            instructions: "Sigue las señales naranjas [G]. Transbordo de 3 min a pie por pasillo subterráneo."
+                        },
+                        {
+                            type: "destination",
+                            station: "Asakusa",
+                            code: "G19",
+                            line: "Ginza Line (Naranja)",
+                            lineColor: "#ff9500",
+                            exit: "1 o 3",
+                            mapUrl: "https://www.tokyometro.jp/station/pdf/yardmap/asakusa.pdf"
+                        }
+                    ],
+                    gpsWarning: "Bajo tierra, ignora el GPS. Sigue exclusivamente los carteles amarillos colgantes hacia las Salidas 1 y 3 (salida directa al templo)."
+                }
             },
             { time: "09:30", type: "point", title: "Puerta Kaminarimon (Asakusa)", icon: "fa-solid fa-torii-gate" },
             {
@@ -48,7 +82,34 @@ const travelData_17_24 = [
                 price: "Suica (~160 JPY)",
                 timeLabel: "10 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Asakusa+Station&destination=Tokyo+Skytree",
-                tacticalGuideId: "mission_skytree"
+                tacticalGuideId: "route_day17_tobu_skytree",
+                tacticalBtnText: "RUTA METRO",
+                transitDetails: {
+                    origin: "Asakusa (Tobu)",
+                    destination: "Tokyo Skytree",
+                    totalTime: "3 min",
+                    steps: [
+                        {
+                            type: "origin",
+                            station: "Asakusa (Tobu)",
+                            code: "TS01",
+                            line: "Tobu Skytree Line (Roja)",
+                            lineColor: "#e12128",
+                            platform: "1 o 2",
+                            car: "Cualquiera"
+                        },
+                        {
+                            type: "destination",
+                            station: "Tokyo Skytree",
+                            code: "TS02",
+                            line: "Tobu Skytree Line (Roja)",
+                            lineColor: "#e12128",
+                            exit: "Salida Única",
+                            mapUrl: "https://www.tobu.co.jp/en/pdf/yardmap/tokyoskytree.pdf"
+                        }
+                    ],
+                    gpsWarning: "Ignora el GPS. La estación de Tobu Asakusa se encuentra dentro del centro comercial Ekimise."
+                }
             },
             { time: "13:30", type: "point", title: "Tokyo Skytree y Solamachi", icon: "fa-solid fa-tower-broadcast" },
             {
@@ -57,7 +118,42 @@ const travelData_17_24 = [
                 title: "Tren hacia Akihabara",
                 price: "Suica",
                 timeLabel: "20 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Tokyo+Skytree&destination=Akihabara+Station"
+                link: "https://www.google.com/maps/dir/?api=1&origin=Tokyo+Skytree&destination=Akihabara+Station",
+                tacticalGuideId: "route_day17_oshiage_to_akihabara",
+                tacticalBtnText: "RUTA METRO",
+                transitDetails: {
+                    origin: "Oshiage (Skytree)",
+                    destination: "Akihabara (Electric Town)",
+                    totalTime: "12 min",
+                    steps: [
+                        {
+                            type: "origin",
+                            station: "Oshiage",
+                            code: "Z14",
+                            line: "Hanzomon Line (Morada)",
+                            lineColor: "#8f64ad",
+                            platform: "1",
+                            car: "2 o 5"
+                        },
+                        {
+                            type: "transfer",
+                            station: "Kinshicho",
+                            code: "Z13",
+                            line: "Hanzomon Line (Morada)",
+                            lineColor: "#8f64ad",
+                            instructions: "Bájate en Kinshicho y sigue los letreros de transbordo hacia las líneas JR (3 min a pie)."
+                        },
+                        {
+                            type: "destination",
+                            station: "Akihabara",
+                            code: "JB19",
+                            line: "JR Chuo-Sobu Line (Amarilla)",
+                            lineColor: "#ffd400",
+                            exit: "Electric Town Exit"
+                        }
+                    ],
+                    gpsWarning: "En Akihabara es crucial salir por la 'Electric Town Exit' (Salida del Barrio Eléctrico) para estar en la zona comercial principal."
+                }
             },
             { time: "16:30", type: "point", title: "Locura Akihabara (Electric Town)", icon: "fa-solid fa-gamepad" },
             {
@@ -67,7 +163,34 @@ const travelData_17_24 = [
                 price: "Suica (~170 JPY)",
                 timeLabel: "15 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Akihabara+Station&destination=Hotel+Metropolitan+Edmont+Tokyo&travelmode=transit",
-                tacticalGuideId: "mission_tokyo_metro"
+                tacticalGuideId: "route_day17_akihabara_to_hotel",
+                tacticalBtnText: "RUTA METRO",
+                transitDetails: {
+                    origin: "Akihabara (JR)",
+                    destination: "Iidabashi (Hotel)",
+                    totalTime: "7 min",
+                    steps: [
+                        {
+                            type: "origin",
+                            station: "Akihabara",
+                            code: "JB19",
+                            line: "JR Chuo-Sobu Line (Amarilla)",
+                            lineColor: "#ffd400",
+                            platform: "5 (dirección Mitaka)",
+                            car: "Cualquiera"
+                        },
+                        {
+                            type: "destination",
+                            station: "Iidabashi",
+                            code: "JB16",
+                            line: "JR Chuo-Sobu Line (Amarilla)",
+                            lineColor: "#ffd400",
+                            exit: "East Exit",
+                            mapUrl: "https://www.jreast.co.jp/estation/stations/img/pdf/info_window_108.pdf"
+                        }
+                    ],
+                    gpsWarning: "Baja en la estación de Iidabashi y toma exclusivamente la salida East Exit (Salida Este) para llegar al Hotel Edmont en 5 minutos a pie."
+                }
             }
         ],
 
@@ -269,7 +392,41 @@ const travelData_17_24 = [
                 price: "JR Pass o Suica (~250 JPY)",
                 timeLabel: "25 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Metropolitan+Edmont+Tokyo&destination=Harajuku+Station&travelmode=transit",
-                tacticalGuideId: "mission_yamanote"
+                tacticalGuideId: "route_day18_iidabashi_to_harajuku",
+                tacticalBtnText: "RUTA METRO",
+                transitDetails: {
+                    origin: "Iidabashi (JR)",
+                    destination: "Harajuku (Takeshita)",
+                    totalTime: "20 min",
+                    steps: [
+                        {
+                            type: "origin",
+                            station: "Iidabashi",
+                            code: "JB16",
+                            line: "JR Chuo-Sobu Line (Amarilla)",
+                            lineColor: "#ffd400",
+                            platform: "2 (dirección Shinjuku)",
+                            car: "Cualquiera"
+                        },
+                        {
+                            type: "transfer",
+                            station: "Yoyogi",
+                            code: "JY18",
+                            line: "JR Yamanote Line (Verde)",
+                            lineColor: "#80c31c",
+                            instructions: "Bájate en Yoyogi (andén 4) y cruza de inmediato al andén 1 (Yamanote Line dirección exterior/Shibuya)."
+                        },
+                        {
+                            type: "destination",
+                            station: "Harajuku",
+                            code: "JY19",
+                            line: "JR Yamanote Line (Verde)",
+                            lineColor: "#80c31c",
+                            exit: "Takeshita Exit"
+                        }
+                    ],
+                    gpsWarning: "Sal exclusivamente por la 'Takeshita Exit' (Salida Takeshita) de la estación de Harajuku para entrar directo a la famosa calle Takeshita."
+                }
             },
             { time: "09:45", type: "point", title: "Parque Yoyogi / Meiji Jingu", icon: "fa-solid fa-tree" },
             {
@@ -306,7 +463,41 @@ const travelData_17_24 = [
                 price: "Suica (~170 JPY)",
                 timeLabel: "25 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Shibuya+Station&destination=Hotel+Metropolitan+Edmont+Tokyo&travelmode=transit",
-                tacticalGuideId: "mission_yamanote"
+                tacticalGuideId: "route_day18_shibuya_to_iidabashi",
+                tacticalBtnText: "RUTA METRO",
+                transitDetails: {
+                    origin: "Shibuya (JR)",
+                    destination: "Iidabashi (Hotel)",
+                    totalTime: "22 min",
+                    steps: [
+                        {
+                            type: "origin",
+                            station: "Shibuya",
+                            code: "JY20",
+                            line: "JR Yamanote Line (Verde)",
+                            lineColor: "#80c31c",
+                            platform: "2 (dirección Shinjuku/Ikebukuro)",
+                            car: "5 u 8"
+                        },
+                        {
+                            type: "transfer",
+                            station: "Yoyogi",
+                            code: "JB11",
+                            line: "JR Chuo-Sobu Line (Amarilla)",
+                            lineColor: "#ffd400",
+                            instructions: "Bájate en Yoyogi (andén 3) y cambia al andén de la línea Chuo-Sobu (andén 4, dirección Akihabara/Chiba)."
+                        },
+                        {
+                            type: "destination",
+                            station: "Iidabashi",
+                            code: "JB16",
+                            line: "JR Chuo-Sobu Line (Amarilla)",
+                            lineColor: "#ffd400",
+                            exit: "East Exit"
+                        }
+                    ],
+                    gpsWarning: "En Shibuya, sigue atentamente los letreros colgantes verdes de JR para entrar por los tornos Hachiko Gate (cerca de la estatua)."
+                }
             }
         ],
 
@@ -448,7 +639,41 @@ const travelData_17_24 = [
                 price: "Suica",
                 timeLabel: "15 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Metropolitan+Edmont+Tokyo&destination=Kamiyacho+Station&travelmode=transit",
-                tacticalGuideId: "mission_tokyo_metro"
+                tacticalGuideId: "route_day19_iidabashi_to_kamiyacho",
+                tacticalBtnText: "RUTA METRO",
+                transitDetails: {
+                    origin: "Iidabashi (Hotel)",
+                    destination: "Kamiyacho (Azabudai Hills)",
+                    totalTime: "15 min",
+                    steps: [
+                        {
+                            type: "origin",
+                            station: "Iidabashi",
+                            code: "Y13",
+                            line: "Yurakucho Line (Dorada)",
+                            lineColor: "#c1a470",
+                            platform: "3 (dirección Shin-Kiba)",
+                            car: "5 u 8"
+                        },
+                        {
+                            type: "transfer",
+                            station: "Yurakucho / Hibiya",
+                            code: "Y18",
+                            line: "Hibiya Line (Plateada)",
+                            lineColor: "#b8b9bb",
+                            instructions: "Bájate en Yurakucho, camina 3 min por el pasillo de transbordo subterráneo hasta la estación de Hibiya (H08) y toma la línea Hibiya dirección Naka-meguro."
+                        },
+                        {
+                            type: "destination",
+                            station: "Kamiyacho",
+                            code: "H05",
+                            line: "Hibiya Line (Plateada)",
+                            lineColor: "#b8b9bb",
+                            exit: "Salida 5 (conecta con Azabudai Hills)"
+                        }
+                    ],
+                    gpsWarning: "En Kamiyacho es fundamental usar la Salida 5. Te deja directamente dentro de los subterráneos de Azabudai Hills sin tener que subir a la calle."
+                }
             },
             { time: "09:30", type: "point", title: "TeamLab Borderless (Azabudai Hills)", icon: "fa-solid fa-wand-magic-sparkles" },
             {
@@ -458,7 +683,34 @@ const travelData_17_24 = [
                 price: "Suica",
                 timeLabel: "10 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Kamiyacho+Station&destination=Ginza+Station&travelmode=transit",
-                desc: "A solo 10 minutos en metro (Línea Hibiya) desde Azabudai Hills."
+                tacticalGuideId: "route_day19_kamiyacho_to_ginza",
+                tacticalBtnText: "RUTA METRO",
+                transitDetails: {
+                    origin: "Kamiyacho (Azabudai)",
+                    destination: "Ginza",
+                    totalTime: "8 min",
+                    steps: [
+                        {
+                            type: "origin",
+                            station: "Kamiyacho",
+                            code: "H05",
+                            line: "Hibiya Line (Plateada)",
+                            lineColor: "#b8b9bb",
+                            platform: "1 (dirección Kita-senju)",
+                            car: "Cualquiera"
+                        },
+                        {
+                            type: "destination",
+                            station: "Ginza",
+                            code: "H09",
+                            line: "Hibiya Line (Plateada)",
+                            lineColor: "#b8b9bb",
+                            exit: "A13 Exit",
+                            mapUrl: "https://www.tokyometro.jp/station/pdf/yardmap/ginza.pdf"
+                        }
+                    ],
+                    gpsWarning: "En Ginza toma la Salida A13 para salir directo a Chuo-dori, la gran avenida peatonal peatonalizada los fines de semana."
+                }
             },
             { time: "12:30", type: "point", title: "Ginza Luxury (Milla de Oro)", icon: "fa-solid fa-gem" },
             {
@@ -468,7 +720,34 @@ const travelData_17_24 = [
                 price: "Suica (~180 JPY)",
                 timeLabel: "15 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Ginza+Station&destination=Roppongi+Station&travelmode=transit",
-                tacticalGuideId: "mission_roppongi_hills"
+                tacticalGuideId: "route_day19_ginza_to_roppongi",
+                tacticalBtnText: "RUTA METRO",
+                transitDetails: {
+                    origin: "Ginza",
+                    destination: "Roppongi Hills",
+                    totalTime: "9 min",
+                    steps: [
+                        {
+                            type: "origin",
+                            station: "Ginza",
+                            code: "H09",
+                            line: "Hibiya Line (Plateada)",
+                            lineColor: "#b8b9bb",
+                            platform: "2 (dirección Naka-meguro)",
+                            car: "1 o 3"
+                        },
+                        {
+                            type: "destination",
+                            station: "Roppongi",
+                            code: "H04",
+                            line: "Hibiya Line (Plateada)",
+                            lineColor: "#b8b9bb",
+                            exit: "Exit 1C",
+                            mapUrl: "https://www.tokyometro.jp/station/pdf/yardmap/roppongi.pdf"
+                        }
+                    ],
+                    gpsWarning: "En Roppongi, usa la Salida 1C (Exit 1C). Tiene un pasaje subterráneo directo que entra a la plaza central de Roppongi Hills sin mojarse si llueve."
+                }
             },
             { time: "16:15", type: "point", title: "Roppongi Hills y vistas Torre Tokyo", icon: "fa-solid fa-city" },
             {
@@ -477,7 +756,35 @@ const travelData_17_24 = [
                 title: "Metro Oedo Line de vuelta al Hotel",
                 price: "Suica (~220 JPY)",
                 timeLabel: "14 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Roppongi+Station&destination=Hotel+Metropolitan+Edmont+Tokyo&travelmode=transit"
+                link: "https://www.google.com/maps/dir/?api=1&origin=Roppongi+Station&destination=Hotel+Metropolitan+Edmont+Tokyo&travelmode=transit",
+                tacticalGuideId: "route_day19_roppongi_to_iidabashi",
+                tacticalBtnText: "RUTA METRO",
+                transitDetails: {
+                    origin: "Roppongi (JR/Metro)",
+                    destination: "Iidabashi (Hotel)",
+                    totalTime: "14 min",
+                    steps: [
+                        {
+                            type: "origin",
+                            station: "Roppongi",
+                            code: "E23",
+                            line: "Oedo Line (Magenta)",
+                            lineColor: "#b6007a",
+                            platform: "1 (dirección Tochomae)",
+                            car: "Cualquiera"
+                        },
+                        {
+                            type: "destination",
+                            station: "Iidabashi",
+                            code: "E06",
+                            line: "Oedo Line (Magenta)",
+                            lineColor: "#b6007a",
+                            exit: "Salida C3",
+                            mapUrl: "https://www.tokyometro.jp/station/pdf/yardmap/iidabashi.pdf"
+                        }
+                    ],
+                    gpsWarning: "Advertencia: El andén de la línea Oedo en Roppongi es el más profundo de Japón (42 metros bajo tierra). Sigue las escaleras con paciencia."
+                }
             }
         ],
 
@@ -618,7 +925,41 @@ const travelData_17_24 = [
                 price: "Suica (~160 JPY)",
                 timeLabel: "15 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Metropolitan+Edmont+Tokyo&destination=Ueno+Station&travelmode=transit",
-                tacticalGuideId: "mission_tokyo_metro"
+                tacticalGuideId: "route_day20_iidabashi_to_ueno",
+                tacticalBtnText: "RUTA METRO",
+                transitDetails: {
+                    origin: "Iidabashi (JR)",
+                    destination: "Ueno (Parque)",
+                    totalTime: "12 min",
+                    steps: [
+                        {
+                            type: "origin",
+                            station: "Iidabashi",
+                            code: "JB16",
+                            line: "JR Chuo-Sobu Line (Amarilla)",
+                            lineColor: "#ffd400",
+                            platform: "1 (dirección Akihabara/Chiba)",
+                            car: "Cualquiera"
+                        },
+                        {
+                            type: "transfer",
+                            station: "Akihabara",
+                            code: "JB19",
+                            line: "JR Yamanote Line (Verde)",
+                            lineColor: "#80c31c",
+                            instructions: "Bájate en Akihabara (andén 5) y sube las escaleras mecánicas hacia el andén 4 (Yamanote Line norte, dirección Ueno/Uguisudani)."
+                        },
+                        {
+                            type: "destination",
+                            station: "Ueno",
+                            code: "JY05",
+                            line: "JR Yamanote Line (Verde)",
+                            lineColor: "#80c31c",
+                            exit: "Shinobazu Exit"
+                        }
+                    ],
+                    gpsWarning: "En Ueno, sal exclusivamente por la 'Shinobazu Gate' (Salida Shinobazu) para estar cruzando la calle directamente frente al parque y al estanque."
+                }
             },
             { time: "09:30", type: "point", title: "Parque Ueno y Estanque Shinobazu", icon: "fa-solid fa-tree" },
             {
@@ -635,7 +976,34 @@ const travelData_17_24 = [
                 title: "Tren Yamanote a Nippori (Para Yanaka)",
                 price: "Suica (~150 JPY)",
                 timeLabel: "10 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Ueno+Station&destination=Nippori+Station&travelmode=transit"
+                link: "https://www.google.com/maps/dir/?api=1&origin=Ueno+Station&destination=Nippori+Station&travelmode=transit",
+                tacticalGuideId: "route_day20_ueno_to_nippori",
+                tacticalBtnText: "RUTA METRO",
+                transitDetails: {
+                    origin: "Ueno (JR)",
+                    destination: "Nippori (Yanaka)",
+                    totalTime: "4 min",
+                    steps: [
+                        {
+                            type: "origin",
+                            station: "Ueno",
+                            code: "JY05",
+                            line: "JR Yamanote Line (Verde)",
+                            lineColor: "#80c31c",
+                            platform: "3 (dirección Nippori/Ikebukuro)",
+                            car: "Cualquiera"
+                        },
+                        {
+                            type: "destination",
+                            station: "Nippori",
+                            code: "JY07",
+                            line: "JR Yamanote Line (Verde)",
+                            lineColor: "#80c31c",
+                            exit: "Yanaka Exit (Oeste)"
+                        }
+                    ],
+                    gpsWarning: "En Nippori busca los carteles hacia la 'Yanaka Exit' (Salida Oeste) para salir a la zona residencial histórica y sus tiendas tradicionales."
+                }
             },
             { time: "12:45", type: "point", title: "Yanaka Ginza (Tokio Retro)", icon: "fa-solid fa-cat" },
             {
@@ -645,7 +1013,41 @@ const travelData_17_24 = [
                 price: "Suica (~220 JPY)",
                 timeLabel: "25 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Nippori+Station&destination=Nakano+Station&travelmode=transit",
-                tacticalGuideId: "mission_nakano_broadway"
+                tacticalGuideId: "route_day20_nippori_to_nakano",
+                tacticalBtnText: "RUTA METRO",
+                transitDetails: {
+                    origin: "Nippori (JR)",
+                    destination: "Nakano (Broadway)",
+                    totalTime: "25 min",
+                    steps: [
+                        {
+                            type: "origin",
+                            station: "Nippori",
+                            code: "JY07",
+                            line: "JR Yamanote Line (Verde)",
+                            lineColor: "#80c31c",
+                            platform: "11 (dirección Shinjuku/Shibuya)",
+                            car: "4 o 7"
+                        },
+                        {
+                            type: "transfer",
+                            station: "Shinjuku",
+                            code: "JY17",
+                            line: "JR Chuo Line (Naranja)",
+                            lineColor: "#f15a22",
+                            instructions: "Bájate en Shinjuku (andén 14) y muévete al andén 11/12 (JR Chuo Line Rapid, dirección Mitaka/Takao) para tomar el tren rápido."
+                        },
+                        {
+                            type: "destination",
+                            station: "Nakano",
+                            code: "JC06",
+                            line: "JR Chuo Line (Naranja)",
+                            lineColor: "#f15a22",
+                            exit: "North Exit"
+                        }
+                    ],
+                    gpsWarning: "En Nakano, cruza la North Exit (Salida Norte). Al salir verás de inmediato la entrada al Sun Mall (calle techada), síguela hasta el final para entrar en Nakano Broadway."
+                }
             },
             { time: "15:30", type: "point", title: "Nakano Broadway", icon: "fa-solid fa-box-open" },
             {
@@ -654,7 +1056,34 @@ const travelData_17_24 = [
                 title: "Tren JR Chuo-Sobu de vuelta al Hotel",
                 price: "Suica (~180 JPY)",
                 timeLabel: "16 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Nakano+Station&destination=Hotel+Metropolitan+Edmont+Tokyo&travelmode=transit"
+                link: "https://www.google.com/maps/dir/?api=1&origin=Nakano+Station&destination=Hotel+Metropolitan+Edmont+Tokyo&travelmode=transit",
+                tacticalGuideId: "route_day20_nakano_to_iidabashi",
+                tacticalBtnText: "RUTA METRO",
+                transitDetails: {
+                    origin: "Nakano (JR)",
+                    destination: "Iidabashi (Hotel)",
+                    totalTime: "16 min",
+                    steps: [
+                        {
+                            type: "origin",
+                            station: "Nakano",
+                            code: "JB09",
+                            line: "JR Chuo-Sobu Line (Amarilla)",
+                            lineColor: "#ffd400",
+                            platform: "5 (dirección Tsudanuma/Chiba)",
+                            car: "Cualquiera"
+                        },
+                        {
+                            type: "destination",
+                            station: "Iidabashi",
+                            code: "JB16",
+                            line: "JR Chuo-Sobu Line (Amarilla)",
+                            lineColor: "#ffd400",
+                            exit: "East Exit"
+                        }
+                    ],
+                    gpsWarning: "Fíjate bien que sea la línea Sobu (trenes amarillos locales), ya que los trenes naranjas rápidos de la línea Chuo no paran en Iidabashi de noche."
+                }
             }
         ],
 
@@ -818,10 +1247,10 @@ const travelData_17_24 = [
         ],
 
         timeline: [
-            { time: "10:30", title: "Llegada Destino", desc: "Inicio de la exploración elegida. (Base)" },
-            { time: "11:00", title: "Toshogu (Nikko) o Daibutsu (Kamakura)", desc: "Monumentos principales de cada ruta. (Base)" },
-            { time: "13:30", title: "Almuerzo local", desc: "Comer en las callejuelas. (Base)" },
-            { time: "19:00", title: "Regreso al Hotel", desc: "Regreso desde Nikko (18:30) o Kamakura (19:00) hacia Iidabashi. (Base)" }
+            { time: "10:30", title: "Llegada a Nikko / Templos", desc: "Inicio de la ruta visitando primero el Puente sagrado Shinkyo y los templos Rinno-ji y Futarasan Jinja. (Base)" },
+            { time: "12:30", title: "Almuerzo local temprano", desc: "Comer especialidades tradicionales en las callejuelas antes de que se llenen. (Base)" },
+            { time: "14:30", title: "Santuario Toshogu", desc: "Visita al mausoleo de Ieyasu Tokugawa a última hora para evitar colas de taquilla. (Base)" },
+            { time: "19:00", title: "Regreso al Hotel", desc: "Regreso a Tokio (salida en tren desde Nikko a las 18:30). (Base)" }
         ],
 
         prices: {
@@ -845,6 +1274,9 @@ const travelData_17_24 = [
                     tacticalGuideId: "mission_toshogu",
                     fullDesc: `
                         <h3><i class="fa-solid fa-leaf"></i> Nikko: La Morada de los Shogunes</h3>
+                        <p style="color:var(--gold); border: 1px solid rgba(251,191,36,0.3); background: rgba(251,191,36,0.05); padding: 10px; border-radius: 8px; margin-bottom: 15px;">
+                            <strong>⚠️ Para evitar colas:</strong> Para evitar esperas de hasta 30 minutos en Toshogu, hemos reestructurado el orden de visita. Comenzaremos con el Puente Shinkyo y los templos Rinno-ji y Futarasan a la llegada (10:30), almorzaremos temprano a las 12:30, y entraremos a Toshogu a las 14:30 PM, cuando las masas de grupos turísticos ya han comenzado a retirarse.
+                        </p>
                         <p>Nikko es Patrimonio de la Humanidad por la UNESCO y un lugar donde la arquitectura japonesa alcanza su máximo esplendor decorativo. El complejo **Toshogu**, mausoleo del gran shogun Tokugawa Ieyasu, rompe con la sobriedad budista habitual mostrando tallas intrincadas, pan de oro y colores vibrantes en medio de un bosque de cedros milenarios.</p>
                         <p><em>Buscad el relieve de los "Tres Monos Sabios" (no oír, no decir, no ver el mal) y el "Gato Durmiente". Nikko combina espiritualidad samurái con una naturaleza salvaje de cascadas y lagos alpinos.</em></p>
                     `,
@@ -968,7 +1400,34 @@ const travelData_17_24 = [
                 price: "Suica",
                 timeLabel: "30 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Metropolitan+Edmont+Tokyo&destination=Toyosu+Market&travelmode=transit",
-                tacticalGuideId: "mission_toyosu_market"
+                tacticalGuideId: "route_day22_iidabashi_to_toyosu",
+                tacticalBtnText: "RUTA METRO",
+                transitDetails: {
+                    origin: "Iidabashi (Hotel)",
+                    destination: "Toyosu (Mercado)",
+                    totalTime: "18 min",
+                    steps: [
+                        {
+                            type: "origin",
+                            station: "Iidabashi",
+                            code: "Y13",
+                            line: "Yurakucho Line (Dorada)",
+                            lineColor: "#c1a470",
+                            platform: "3 (dirección Shin-Kiba)",
+                            car: "Cualquiera"
+                        },
+                        {
+                            type: "destination",
+                            station: "Toyosu",
+                            code: "Y22",
+                            line: "Yurakucho Line (Dorada)",
+                            lineColor: "#c1a470",
+                            exit: "Salida 6",
+                            mapUrl: "https://www.tokyometro.jp/station/pdf/yardmap/toyosu.pdf"
+                        }
+                    ],
+                    gpsWarning: "En Toyosu, sal por la Salida 6 (Exit 6). Te deja a unos pasos del puente peatonal que conecta directamente con el mercado de Toyosu."
+                }
             },
             { time: "08:45", type: "point", title: "Toyosu Market / Senkyaku Banrai", icon: "fa-solid fa-fish" },
             {
@@ -978,7 +1437,34 @@ const travelData_17_24 = [
                 price: "Suica",
                 timeLabel: "10 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Toyosu&destination=Daiba+Station&travelmode=transit",
-                desc: "Se toma directamente desde la zona de Toyosu."
+                tacticalGuideId: "route_day22_toyosu_to_odaiba",
+                tacticalBtnText: "RUTA TREN",
+                transitDetails: {
+                    origin: "Toyosu (Yurikamome)",
+                    destination: "Daiba (Odaiba)",
+                    totalTime: "16 min",
+                    steps: [
+                        {
+                            type: "origin",
+                            station: "Toyosu",
+                            code: "U16",
+                            line: "Yurikamome Line (Monorriel)",
+                            lineColor: "#00918a",
+                            platform: "1 o 2",
+                            car: "Vagón 1 (¡para ir al frente!)"
+                        },
+                        {
+                            type: "destination",
+                            station: "Daiba",
+                            code: "U07",
+                            line: "Yurikamome Line (Monorriel)",
+                            lineColor: "#00918a",
+                            exit: "Salida Única",
+                            mapUrl: "https://www.yurikamome.co.jp/en/route_guidance/u07/"
+                        }
+                    ],
+                    gpsWarning: "Consejo VIP: El Yurikamome es un monorriel automático elevado sin conductor. Si te sientas en el primer vagón de la parte delantera, tendrás vistas de película cruzando el Rainbow Bridge."
+                }
             },
             { time: "12:15", type: "point", title: "Odaiba Seaside: Estatua Libertad y Gundam", icon: "fa-solid fa-robot" },
             {
@@ -988,7 +1474,42 @@ const travelData_17_24 = [
                 price: "Suica (~550 JPY)",
                 timeLabel: "35 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Daiba+Station&destination=Hotel+Metropolitan+Edmont+Tokyo&travelmode=transit",
-                tacticalGuideId: "mission_tokyo_metro"
+                tacticalGuideId: "route_day22_odaiba_to_iidabashi",
+                tacticalBtnText: "RUTA METRO",
+                transitDetails: {
+                    origin: "Daiba (Odaiba)",
+                    destination: "Iidabashi (Hotel)",
+                    totalTime: "30 min",
+                    steps: [
+                        {
+                            type: "origin",
+                            station: "Daiba",
+                            code: "U07",
+                            line: "Yurikamome Line (Monorriel)",
+                            lineColor: "#00918a",
+                            platform: "2 (dirección Shimbashi)",
+                            car: "Cualquiera"
+                        },
+                        {
+                            type: "transfer",
+                            station: "Shiodome",
+                            code: "U02",
+                            line: "Oedo Line (Magenta)",
+                            lineColor: "#b6007a",
+                            instructions: "Bájate en Shiodome y sigue las indicaciones hacia la línea de metro Toei Oedo (transbordo subterráneo rápido de 2 min)."
+                        },
+                        {
+                            type: "destination",
+                            station: "Iidabashi",
+                            code: "E06",
+                            line: "Oedo Line (Magenta)",
+                            lineColor: "#b6007a",
+                            exit: "Salida C3",
+                            mapUrl: "https://www.tokyometro.jp/station/pdf/yardmap/iidabashi.pdf"
+                        }
+                    ],
+                    gpsWarning: "El transbordo en Shiodome es el más rápido de la zona de la bahía para conectar con Iidabashi. Sigue los letreros magenta [E]."
+                }
             }
         ],
 

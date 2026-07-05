@@ -26,7 +26,34 @@ const travelData_09_16 = [
                 title: "JR Nara Line a Inari",
                 price: "150 JPY",
                 timeLabel: "5 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Kyoto+Station&destination=Inari+Station+Kyoto&travelmode=transit"
+                link: "https://www.google.com/maps/dir/?api=1&origin=Kyoto+Station&destination=Inari+Station+Kyoto&travelmode=transit",
+                tacticalGuideId: "route_day9_kyoto_to_inari",
+                tacticalBtnText: "RUTA METRO",
+                transitDetails: {
+                    origin: "Kyoto Station",
+                    destination: "Inari (Fushimi Inari)",
+                    totalTime: "5 min",
+                    steps: [
+                        {
+                            type: "origin",
+                            station: "Kyoto Station",
+                            code: "JR-D01",
+                            line: "JR Nara Line (Verde)",
+                            lineColor: "#009944",
+                            platform: "8, 9 u 10 (Línea Nara)",
+                            car: "Cualquiera"
+                        },
+                        {
+                            type: "destination",
+                            station: "Inari Station",
+                            code: "JR-D03",
+                            line: "JR Nara Line (Verde)",
+                            lineColor: "#009944",
+                            exit: "Salida única (justo enfrente del Torii gigante del templo)"
+                        }
+                    ],
+                    gpsWarning: "¡ATENCIÓN! Sube exclusivamente a un tren LOCAL. Los trenes Express o Rapid Service de la línea Nara NO paran en la estación de Inari y acabaríais en Uji."
+                }
             },
             {
                 time: "08:00",
@@ -1096,7 +1123,7 @@ const travelData_09_16 = [
                     price: "Coche Alquiler",
                     fullDesc: `
                         <h3><i class="fa-solid fa-car-side"></i> Operación Conducción Nipona</h3>
-                        <p>Iván o Felipe: Os tocará conducir por la izquierda. El coche proporciona la única forma de moverse libremente alrededor de los lagos.</p>
+                        <p>Os tocará conducir por la izquierda. El coche proporciona la única forma de moverse libremente alrededor de los lagos.</p>
                         <ul>
                             <li><i class="fa-solid fa-traffic-light"></i> <strong>Tráfico:</strong> Las carreteras son estupendas, pero los límites de velocidad son estrictos (40-50 km/h).</li>
                             <li><i class="fa-solid fa-stop"></i> <strong>Pasos a Nivel:</strong> Es OBLIGATORIO detener el coche completamente (Stop) antes de cualquier vía de tren, aunque no haya barreras o luces.</li>
@@ -1197,7 +1224,7 @@ const travelData_09_16 = [
         image: "images/dia15-portada.jpg",
 
         logistics: [
-            { title: "Transporte", text: "2 Vehículos de alquiler (Iván y Felipe). Conducción por la izquierda, velocidad 40-50 km/h." },
+            { title: "Transporte", text: "2 Vehículos de alquiler. Conducción por la izquierda, velocidad 40-50 km/h." },
             { title: "Fuji Subaru Line", text: "En agosto, acceso prohibido a coches privados. Usar Shuttle Bus desde Parking Fujihoku-roku." },
             { title: "Equipaje", text: "Vuestras maletas grandes ya habrán llegado al hotel por Takkyubin; ropa limpia esperándoos tras el onsen." }
         ],
@@ -1922,7 +1949,32 @@ const travelData_09_16 = [
                 timeLabel: "1h 55m",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Kawaguchiko+Station&destination=Shinjuku+Station&travelmode=transit",
                 tacticalGuideId: "mission_fuji_excursion",
-                tacticalBtnText: "🚀 ABRIR MANUAL DE TRASLADO (Operación Retorno)"
+                tacticalBtnText: "🚀 RUTA EXPRESS (Manual)",
+                transitDetails: {
+                    origin: "Kawaguchiko",
+                    destination: "Shinjuku (Tokio)",
+                    totalTime: "1h 55m",
+                    steps: [
+                        {
+                            type: "origin",
+                            station: "Kawaguchiko",
+                            code: "OT36",
+                            line: "Fuji Excursion (Azul/Verde)",
+                            lineColor: "#009ad6",
+                            platform: "1 o 2 (Fíjate en pantallas de la terminal)",
+                            car: "Asientos Reservados (Vagón 1 u 3)"
+                        },
+                        {
+                            type: "destination",
+                            station: "Shinjuku Station",
+                            code: "JC05",
+                            line: "JR Chuo Line (Naranja)",
+                            lineColor: "#f15a22",
+                            exit: "Central Gate / South Exit (Salidas para conectar con Taxis/Metro)"
+                        }
+                    ],
+                    gpsWarning: "El tren Fuji Excursion se divide físicamente en la estación de Otsuki: solo los vagones 1 al 3 continúan directos a Shinjuku, mientras que los vagones traseros cambian de rumbo. Verifica que estás en tu asiento reservado."
+                }
             },
             { time: "12:55", type: "point", title: "Llegada al caos de Shinjuku (Tokio)", icon: "fa-solid fa-city" },
             {

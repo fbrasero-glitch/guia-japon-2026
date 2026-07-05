@@ -65,8 +65,7 @@ Cada día en `travelData` debe seguir este esquema JSON estricto:
             id: "A", name: "...", summary: "...",
             image: "images/...",
             fullDesc: "HTML con <h3> y <p>",
-            photoSpot: "...",
-            ivanChallenge: "..."
+            photoSpot: "..."
         }
     ]
 }
@@ -80,4 +79,3 @@ Cada día en `travelData` debe seguir este esquema JSON estricto:
 - **Cambiar guía táctica**: Leer `script_tactical.js`
 - Al añadir días, NO borres código anterior.
 - Usa siempre iconos de FontAwesome (<i class="fa-solid ...">).
-- Incluye siempre el campo `ivanChallenge` en las opciones de excursión.

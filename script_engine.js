@@ -1251,12 +1251,20 @@ function renderPreparationPage(data) {
                         </h1>
                         
                         <!-- Infografías en cabecera de preparación -->
-                        <div class="infographic-stack" style="display:flex; gap:10px;">
+                        <div class="infographic-stack" style="display:flex; gap:10px; align-items: center;">
                             ${(window.getBestDayInfographic ? window.getBestDayInfographic(data) : []).map(src => `
-                                <div class="infographic-preview-container" onclick="openInfographic('${src}')" style="width:100%; max-width:120px;">
+                                <div class="infographic-preview-container" onclick="openInfographic('${src}')" style="width:100%; max-width:120px; flex-shrink: 0;">
                                     <img src="${src}" class="infographic-thumb" alt="Infografía" style="width:100%; height:auto; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;">
                                 </div>
                             `).join('')}
+                            
+                            <!-- Botón de Acceso a la Guía de Entradas/Excursiones -->
+                            <div class="gastro-radar-wrapper" style="margin-left: 10px; display: flex; flex-direction: column; align-items: center; flex-shrink: 0;">
+                                <button class="gastro-radar-btn pulse" style="background: rgba(251, 191, 36, 0.15); border: 2px solid var(--gold); color: var(--gold); box-shadow: 0 0 15px rgba(251, 191, 36, 0.4);" onclick="window.openExcursionsGuide()" title="Guía de Entradas y Excursiones">
+                                    <i class="fa-solid fa-ticket"></i>
+                                </button>
+                                <span class="gastro-radar-label" style="color: var(--gold); margin-top: 4px;">Guía de Entradas</span>
+                            </div>
                         </div>
                     </div>
                     
@@ -1878,14 +1886,6 @@ function renderCenterVisual(data, mode, optData = null) {
                                 ${optData.fullDesc ? optData.fullDesc : `<p>${optData.desc || optData.description || ''}</p>`}
                             </div>
 
-                            ${optData.ivanChallenge ? `
-                                <div class="mission-alert-box">
-                                    <strong class="mission-alert-title">
-                                        <i class="fa-solid fa-dragon"></i> MISIÓN ESPECIAL (IVÁN)
-                                    </strong>
-                                    <p class="mission-alert-text">${optData.ivanChallenge}</p>
-                                </div>
-                            ` : ''}
                             
                             ${window.renderContextualRestaurants ? window.renderContextualRestaurants(optData) : ''}
                             
@@ -2239,7 +2239,168 @@ window.tacticalMissions = {
     }
 };
 
+// --- DYNAMIC METRO TRANSIT WIDGET ENGINE ---
+function compileTransitWidgetHTML(details, routeId) {
+    if (!details) return '';
+
+    const savedStates = JSON.parse(localStorage.getItem(`transit_state_${routeId}`)) || {};
+    let stepsHTML = '';
+    
+    details.steps.forEach((step, idx) => {
+        const isChecked = savedStates[`step-${idx}`] ? 'checked' : '';
+        const isCompletedClass = savedStates[`step-${idx}`] ? 'completed' : '';
+        const nodeTypeClass = step.type; // 'origin', 'transfer', 'destination'
+        
+        let metaHTML = '';
+        if (step.type === 'origin') {
+            metaHTML = `
+                <div class="station-meta-grid">
+                    <div class="meta-item" style="border-color: ${step.lineColor}40; background: ${step.lineColor}10;">
+                        <i class="fa-solid fa-arrow-pointer" style="color: ${step.lineColor}; margin-right: 4px;"></i>Andén <strong style="color: ${step.lineColor};">${step.platform || ''}</strong>
+                    </div>
+                    <div class="meta-item" style="border-color: ${step.lineColor}40; background: ${step.lineColor}10;">
+                        <i class="fa-solid fa-train" style="color: ${step.lineColor}; margin-right: 4px;"></i>Vagón <strong style="color: ${step.lineColor};">${step.car || ''}</strong>
+                    </div>
+                </div>
+            `;
+        } else if (step.type === 'transfer') {
+            metaHTML = `
+                <div class="station-instructions" style="border-color: ${step.lineColor}40; background: ${step.lineColor}10;">
+                    <i class="fa-solid fa-shuffle" style="color: ${step.lineColor}; margin-right: 5px;"></i><strong>Transbordo:</strong> ${step.instructions || ''}
+                </div>
+            `;
+        } else if (step.type === 'destination') {
+            metaHTML = `
+                <div class="station-meta-grid">
+                    <div class="meta-item" style="border-color: ${step.lineColor}40; background: ${step.lineColor}10;">
+                        <i class="fa-solid fa-door-open" style="color: ${step.lineColor}; margin-right: 4px;"></i>Salida <strong style="color: ${step.lineColor};">${step.exit || ''}</strong>
+                    </div>
+                    ${step.mapUrl ? `<a href="${step.mapUrl}" target="_blank" class="map-link" style="border-color: ${step.lineColor}40; background: ${step.lineColor}10; color: ${step.lineColor};"><i class="fa-solid fa-map"></i> Mapa Estación</a>` : ''}
+                </div>
+            `;
+        }
+
+        stepsHTML += `
+            <div class="timeline-node ${nodeTypeClass} ${isCompletedClass}" data-step-index="${idx}">
+                <div class="node-indicator">
+                    <input type="checkbox" id="chk-${routeId}-${idx}" class="transit-checkbox" 
+                           onchange="handleTransitStepChange('${routeId}', ${idx}, this.checked, this)" ${isChecked}>
+                    <label for="chk-${routeId}-${idx}" class="checkbox-trigger"></label>
+                    <div class="station-icon-halo" style="--line-color: ${step.lineColor};">
+                        <span class="station-code">${step.code}</span>
+                    </div>
+                </div>
+                <div class="node-info">
+                    <div class="station-header">
+                        <span class="station-name">${step.station}</span>
+                        <span class="badge-line" style="background-color: ${step.lineColor};">${step.line}</span>
+                    </div>
+                    ${metaHTML}
+                </div>
+            </div>
+        `;
+
+        if (idx < details.steps.length - 1) {
+            stepsHTML += `
+                <div class="timeline-connector" style="background: ${step.lineColor};">
+                    <span class="stops-count"><i class="fa-solid fa-layer-group"></i> En tránsito</span>
+                </div>
+            `;
+        }
+    });
+
+    return `
+        <div class="transit-card animate-fade-in" id="transit-widget-${routeId}">
+            <div class="transit-header">
+                <span class="transit-badge"><i class="fa-solid fa-train-subway"></i> RUTA INTERACTIVA</span>
+                <div class="transit-route-summary">
+                    <h3>${details.origin} <i class="fa-solid fa-arrow-right"></i> ${details.destination}</h3>
+                    <span class="transit-time-total"><i class="fa-regular fa-clock"></i> ${details.totalTime} • ${details.steps.filter(s => s.type === 'transfer').length + 1} líneas</span>
+                </div>
+            </div>
+
+            <div class="transit-timeline">
+                ${stepsHTML}
+            </div>
+
+            ${details.gpsWarning ? `
+                <div class="gps-warning-box">
+                    <div class="warning-header">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <h4>PROTOCOLO SUBTERRÁNEO: SIN GPS</h4>
+                    </div>
+                    <p>${details.gpsWarning}</p>
+                </div>
+            ` : ''}
+        </div>
+    `;
+}
+
+function handleTransitStepChange(routeId, stepIdx, isChecked, element) {
+    const storageKey = `transit_state_${routeId}`;
+    const currentState = JSON.parse(localStorage.getItem(storageKey)) || {};
+    
+    currentState[`step-${stepIdx}`] = isChecked;
+    localStorage.setItem(storageKey, JSON.stringify(currentState));
+    
+    if (element) {
+        const node = element.closest('.timeline-node');
+        if (node) {
+            if (isChecked) {
+                node.classList.add('completed');
+            } else {
+                node.classList.remove('completed');
+            }
+        }
+    }
+    
+    if (isChecked && navigator.vibrate) {
+        try {
+            navigator.vibrate(40);
+        } catch (e) {
+            console.log("Vibration not supported/blocked:", e);
+        }
+    }
+}
+
 function renderTacticalMission(missionId, dayIdx) {
+    // 0. Detectar si hay transitDetails dinámico en la ruta
+    const dayData = typeof travelData !== 'undefined' ? travelData[dayIdx] : null;
+    let foundTransitDetails = null;
+    if (dayData) {
+        if (dayData.transportTimeline) {
+            const match = dayData.transportTimeline.find(item => item.tacticalGuideId === missionId);
+            if (match && match.transitDetails) {
+                foundTransitDetails = match.transitDetails;
+            }
+        }
+        if (!foundTransitDetails && dayData.transitDetails) {
+            foundTransitDetails = dayData.transitDetails;
+        }
+    }
+
+    if (foundTransitDetails) {
+        let modal = document.getElementById('tactical-modal');
+        if (!modal) {
+            modal = document.createElement('div');
+            modal.id = 'tactical-modal';
+            modal.className = 'tactical-modal';
+            document.body.appendChild(modal);
+        }
+        
+        modal.innerHTML = `
+            <div class="tactical-modal-content" style="max-width: 550px; padding: 25px 25px 25px 35px;">
+                <button class="close-tactical" onclick="closeTacticalMission()">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+                ${compileTransitWidgetHTML(foundTransitDetails, missionId)}
+            </div>
+        `;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        return;
+    }
+
     // 1. Intentar abrir como MODAL si está en el nuevo objeto tacticalMissions
     if (window.tacticalMissions && window.tacticalMissions[missionId]) {
         const mission = window.tacticalMissions[missionId];
@@ -3024,4 +3185,515 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Arranque condicional gestionado por el sistema de autenticación dinámica
+
+/* ==========================================================================
+   SISTEMA INTEGRADO: GUÍA DE ENTRADAS Y EXCURSIONES
+   ========================================================================== */
+
+const excursionsData = [
+  {
+    id: "ex_borderless",
+    day: 19,
+    title: "TeamLab Borderless (Tokio)",
+    category: "critica",
+    price: "4.200 JPY",
+    queueTime: "Variable",
+    boothLocation: "Museo Digital de Arte en Azabudai Hills.",
+    bestTime: "Ya comprado por anticipado.",
+    link: "https://www.teamlab.art/e/borderless/",
+    bookingId: "bk_teamlab",
+    desc: "El MORI Building DIGITAL ART MUSEUM en Azabudai Hills. Experiencia visual tridimensional sin fronteras."
+  },
+  {
+    id: "ex_shibuya_sky",
+    day: 18,
+    title: "Shibuya Sky (Tokio)",
+    category: "critica",
+    price: "~2.200 JPY",
+    queueTime: "15 - 30 min (Pico de atardecer)",
+    boothLocation: "Planta 14 (acceso) del edificio Scramble Square, mirador en planta 45 (azotea).",
+    bestTime: "Exactamente 4 semanas antes a las 00:00 hora Japón (17:00 en España) para asegurar el atardecer.",
+    link: "https://www.shibuya-scramble-square.com/en/sky/ticket/",
+    bookingId: "bk_shibuya",
+    desc: "Mirador de cristal al aire libre a 229 metros sobre el cruce de Shibuya. Espectacular al atardecer."
+  },
+  {
+    id: "ex_palacio_imperial",
+    day: 6,
+    title: "Palacio Imperial de Kioto",
+    category: "critica",
+    price: "Gratis",
+    queueTime: "Sin colas",
+    boothLocation: "Entrada principal del Palacio Imperial (reserva online gratuita obligatoria).",
+    bestTime: "Reservar exactamente 2 meses antes para asegurar plazas para 8.",
+    link: "https://sankan.kunaicho.go.jp/english/index.html",
+    bookingId: "bk_imperial",
+    desc: "Residencia imperial histórica en Kioto. Acceso gratuito pero requiere permiso de visita de la Casa Imperial."
+  },
+  {
+    id: "ex_skytree",
+    day: 17,
+    title: "Tokyo Skytree (Tokio)",
+    category: "critica",
+    price: "~2.100 JPY",
+    queueTime: "15 - 30 min (con reserva) | 2 horas (sin reserva)",
+    boothLocation: "Piso 4 de Tokyo Solamachi (mostrador de tickets internacionales).",
+    bestTime: "Comprar online 1 mes antes para elegir la hora del atardecer y evitar colas largas.",
+    link: "https://www.tokyo-skytree.jp/en/ticket/",
+    bookingId: "bk_skytree",
+    desc: "La estructura más alta de Japón (634 metros) con vistas panorámicas ilimitadas de la capital."
+  },
+  {
+    id: "ex_planets",
+    day: 22,
+    title: "TeamLab Planets (Tokio)",
+    category: "critica",
+    price: "3.800 JPY",
+    queueTime: "Variable",
+    boothLocation: "Acceso en Toyosu (Tokio).",
+    bestTime: "Reservar con 2 meses de antelación.",
+    link: "https://planets.teamlab.art/tokyo/es/tickets",
+    bookingId: "bk_teamlab_planets",
+    desc: "Museo de arte inmersivo donde se camina descalzo sobre el agua. Muy sensorial e interactivo."
+  },
+  {
+    id: "ex_kaiyukan",
+    day: 4,
+    title: "Acuario Kaiyukan (Osaka)",
+    category: "critica",
+    price: "~2.700 JPY",
+    queueTime: "10 - 20 min (con reserva) | 1 hora (sin reserva)",
+    boothLocation: "Taquillas exteriores junto a la plaza de la noria de Tempozan.",
+    bestTime: "Comprar online 1-2 semanas antes para evitar colas de taquilla de más de 1 hora.",
+    link: "https://www.kaiyukan.com/language/eng/",
+    bookingId: "bk_kaiyukan",
+    desc: "Uno de los acuarios más grandes del mundo con tanques gigantes y un tiburón ballena espectacular."
+  },
+  {
+    id: "ex_samurai_museum",
+    day: 7,
+    title: "Samurai & Ninja Museum (Kioto)",
+    category: "critica",
+    price: "~2.500 JPY",
+    queueTime: "Sin esperas",
+    boothLocation: "Cerca de la calle comercial Teramachi (Kioto).",
+    bestTime: "Comprar online 2-3 semanas antes para asegurar tour en grupo de 8 personas.",
+    link: "https://mai-ko.com/culture/samurai-ninja-museum-kyoto/",
+    bookingId: "bk_samurai",
+    desc: "Experiencia interactiva guiada con armaduras samurái reales, katanas, shurikens y lecciones históricas."
+  },
+  {
+    id: "ex_romantico",
+    day: 8,
+    title: "Tren Romántico de Sagano",
+    category: "transporte",
+    price: "~880 JPY",
+    queueTime: "Crítico (Se agota)",
+    boothLocation: "Estaciones de Saga-Torokko o Kameoka-Torokko.",
+    bestTime: "Comprar online exactamente 1 mes antes en la web de JR West.",
+    link: "https://www.westjr.co.jp/global/en/ticket/route_search/",
+    bookingId: "bk_romantico",
+    desc: "Tren escénico de vapor que recorre el cañón del río Hozu en Arashiyama."
+  },
+  {
+    id: "ex_barco_hozu",
+    day: 8,
+    title: "Barco del Río Hozugawa",
+    category: "transporte",
+    price: "~4.100 JPY",
+    queueTime: "Variable",
+    boothLocation: "Muelle de Kameoka (traslado en bus desde la estación de Kameoka).",
+    bestTime: "Reservar 1 mes antes coordinado con el Tren Romántico.",
+    link: "https://www.hozugawakudari.jp/en",
+    bookingId: "bk_hozu",
+    desc: "Descenso de 2 horas en barca de madera por los rápidos del río Hozu hasta Arashiyama."
+  },
+  {
+    id: "ex_osaka_castle",
+    day: 3,
+    title: "Castillo de Osaka",
+    category: "taquilla",
+    price: "600 JPY",
+    queueTime: "15 - 45 min",
+    boothLocation: "En la explanada exterior de la base del castillo, frente al puente levadizo.",
+    bestTime: "09:00 AM (al abrir) o después de las 14:00. Se puede comprar por QR en cartel para saltar cola física.",
+    link: null,
+    bookingId: null,
+    desc: "Icono de Osaka reconstruido en 1931, con museo de 8 pisos sobre Toyotomi Hideyoshi y vistas a la ciudad."
+  },
+  {
+    id: "ex_umeda_sky",
+    day: 3,
+    title: "Umeda Sky Building",
+    category: "taquilla",
+    price: "1.500 JPY",
+    queueTime: "15 - 30 min (Atardecer)",
+    boothLocation: "Planta 39, justo antes del mirador exterior circular de la planta 40.",
+    bestTime: "Entre las 11:00 y las 16:00 (evitar atardecer) o después de las 20:00 (cierra 22:30).",
+    link: null,
+    bookingId: null,
+    desc: "Rascacielos futurista formado por dos torres gemelas unidas por un mirador circular al aire libre."
+  },
+  {
+    id: "ex_tsutenkaku",
+    day: 3,
+    title: "Torre Tsūtenkaku (Barrio Shinsekai)",
+    category: "taquilla",
+    price: "~2.000 JPY",
+    queueTime: "20 - 45 min",
+    boothLocation: "Sótano (B1F) de la torre, al inicio de la cola para los ascensores.",
+    bestTime: "10:00 AM (al abrir) o por la noche a partir de las 18:30 (cierra 20:00).",
+    link: null,
+    bookingId: null,
+    desc: "Torre retro en Shinsekai, símbolo de la Osaka de la posguerra con vistas y una estatua de la suerte."
+  },
+  {
+    id: "ex_castillo_nijo",
+    day: 6,
+    title: "Castillo de Nijo (Kioto)",
+    category: "taquilla",
+    price: "800 JPY",
+    queueTime: "10 - 20 min",
+    boothLocation: "Taquillas exteriores y máquinas de autoventa a la derecha de la puerta este (East Otemon Gate).",
+    bestTime: "08:45 AM (al abrir) o después de las 15:30 (cierra 17:00, última entrada 16:00).",
+    link: null,
+    bookingId: null,
+    desc: "Palacio de los Shogunes con el famoso suelo ruiseñor antininja que emite chirridos al pisar."
+  },
+  {
+    id: "ex_kiyomizudera",
+    day: 7,
+    title: "Templo Kiyomizu-dera (Kioto)",
+    category: "taquilla",
+    price: "400 JPY",
+    queueTime: "10 - 15 min",
+    boothLocation: "Antes del pórtico de entrada principal, pasada la puerta roja Deva Gate.",
+    bestTime: "Antes de las 09:00 AM (abre a las 06:00 AM, ideal a las 07:30 - 08:30) o después de las 16:30.",
+    link: null,
+    bookingId: null,
+    desc: "Templo Patrimonio de la Humanidad con una terraza de madera sin clavos que vuela sobre la ladera de la montaña."
+  },
+  {
+    id: "ex_todaiji",
+    day: 5,
+    title: "Templo Tōdai-ji (Nara)",
+    category: "taquilla",
+    price: "600 JPY",
+    queueTime: "10 - 20 min",
+    boothLocation: "A la izquierda de la gran sala de madera del Buda (Daibutsuden).",
+    bestTime: "Antes de las 10:00 AM o después de las 16:00 (evitar horas de autobuses de grupos turísticos).",
+    link: null,
+    bookingId: null,
+    desc: "La estructura de madera más grande del mundo, hogar de la estatua de bronce del Gran Buda de 15m."
+  },
+  {
+    id: "ex_kinkakuji",
+    day: 7,
+    title: "Kinkaku-ji (Pabellón Dorado)",
+    category: "taquilla",
+    price: "500 JPY",
+    queueTime: "10 - 15 min",
+    boothLocation: "Al final del paseo forestal de entrada, antes del estanque del pabellón.",
+    bestTime: "09:00 AM (al abrir) o después de las 15:30 (cierra a las 17:00).",
+    link: null,
+    bookingId: null,
+    desc: "El famoso pabellón de madera recubierto de pan de oro que se refleja en un estanque espejo."
+  },
+  {
+    id: "ex_toshogu",
+    day: 21,
+    title: "Santuario Toshogu (Nikko)",
+    category: "taquilla",
+    price: "~1.300 JPY",
+    queueTime: "15 - 30 min",
+    boothLocation: "Entrada principal del santuario, cerca de la pagoda de cinco pisos.",
+    bestTime: "08:30 AM (abre a las 08:00) o a partir de las 15:00 (cierra 17:00).",
+    link: null,
+    bookingId: null,
+    desc: "El mausoleo de Ieyasu Tokugawa, ricamente ornamentado con relieves dorados y los famosos 3 monos sabios."
+  },
+  {
+    id: "ex_cuevas_fuji",
+    day: 14,
+    title: "Cuevas de Hielo y Viento (Fuji)",
+    category: "taquilla",
+    price: "350 JPY cada una",
+    queueTime: "10 - 20 min",
+    boothLocation: "En la entrada de cada cueva individual (Narusawa Hyoketsu y Fugaku Fuketsu).",
+    bestTime: "Antes de las 10:00 AM o después de las 15:30.",
+    link: null,
+    bookingId: null,
+    desc: "Cuevas volcánicas con formaciones de hielo perpetuo y túneles naturales de lava bajo el bosque Aokigahara."
+  },
+  {
+    id: "ex_shinhotaka",
+    day: 11,
+    title: "Teleférico Shinhotaka (Okuhida)",
+    category: "taquilla",
+    price: "2.900 JPY",
+    queueTime: "15 - 30 min (Días despejados)",
+    boothLocation: "Planta baja de la estación base en Shinhotaka Onsen.",
+    bestTime: "08:30 AM (primera subida). Muy importante para evitar nubes de media mañana.",
+    link: null,
+    bookingId: null,
+    desc: "Teleférico de dos pisos que sube a más de 2000m en los Alpes japoneses con vistas panorámicas brutales."
+  },
+  {
+    id: "ex_joypolis",
+    day: 22,
+    title: "Joypolis Tokyo (Odaiba)",
+    category: "taquilla",
+    price: "~5.000 JPY",
+    queueTime: "10 - 20 min (Fines de semana)",
+    boothLocation: "Planta 3 del centro comercial Decks Tokyo Beach.",
+    bestTime: "Antes de las 11:30 o después de las 17:00. O comprar entrada digital en el día vía Klook.",
+    link: "https://tokyo-joypolis.com/language/english/",
+    bookingId: "bk_joypolis",
+    desc: "Parque de atracciones indoor de SEGA con simuladores interactivos en 3D, montañas rusas y arcades."
+  },
+  {
+    id: "ex_bus_fuji",
+    day: 13,
+    title: "Bus Directo Takayama-Kawaguchiko",
+    category: "transporte",
+    price: "~10.000 JPY",
+    queueTime: "Llenado rápido",
+    boothLocation: "Estación de Autobuses de Takayama (Nohi Bus Terminal).",
+    bestTime: "Ya comprado. Obligatorio reservar 1 mes antes exactamente a las 09:00 AM Japón.",
+    link: "https://highway-buses.jp/course/kawaguchiko.php",
+    bookingId: "bk_bus_fuji",
+    desc: "Único autobús directo que cruza de los Alpes al Monte Fuji sin pasar por Tokio."
+  },
+  {
+    id: "ex_coches_fuji",
+    day: 13,
+    title: "Coches de Alquiler (2 Honda Fit)",
+    category: "transporte",
+    price: "Variable",
+    queueTime: "Sin esperas",
+    boothLocation: "Oficina de Budget Rent-a-car en Kawaguchiko.",
+    bestTime: "Reservar con 2-3 meses de antelación.",
+    link: "https://www.budgetrentacar.co.jp/en/",
+    bookingId: "bk_coches",
+    desc: "Coche de alquiler para el grupo de 8 personas durante 3 días en los alrededores del Fuji."
+  }
+];
+
+window.currentGuideFilter = 'all';
+window.currentGuideSearch = '';
+
+window.openExcursionsGuide = function() {
+    const centerCard = document.getElementById('visual-card');
+    if (!centerCard) return;
+    
+    // Añadimos clase para marcar el modo excursión (para consistencia de diseño visual)
+    document.body.classList.add('mode-excursion-active');
+    
+    // Renderizar la estructura del dashboard
+    centerCard.innerHTML = `
+        <div class="excursions-guide-container" style="background: rgba(13, 17, 23, 0.85); border: 1px solid var(--gold); border-radius: 16px; padding: 25px; box-shadow: 0 0 30px rgba(251, 191, 36, 0.2); backdrop-filter: blur(10px); animation: fadeIn 0.4s ease-out; color: white; font-family: 'Montserrat', sans-serif;">
+            <!-- Cabecera de la Guía -->
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid rgba(251, 191, 36, 0.3); padding-bottom: 15px; margin-bottom: 20px; flex-wrap: wrap; gap: 15px;">
+                <h1 style="color: var(--gold); margin: 0; font-size: 1.6rem; letter-spacing: 2px; text-transform: uppercase; display: flex; align-items: center; gap: 12px; font-weight: 800; text-shadow: 0 0 10px rgba(251, 191, 36, 0.3);">
+                    <i class="fa-solid fa-ticket" style="color: var(--gold); transform: rotate(-15deg); font-size: 1.8rem;"></i> GUÍA DE ENTRADAS Y COLAS
+                </h1>
+                <button onclick="document.body.classList.remove('mode-excursion-active'); renderPreparationPage(travelData[0]);" class="back-itinerary-btn prominent" style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); color: white; padding: 8px 16px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 8px; font-size: 0.75rem; letter-spacing: 0.5px; text-transform: uppercase; font-family: inherit;">
+                    <i class="fa-solid fa-arrow-left"></i> Volver a Preparación
+                </button>
+            </div>
+
+            <!-- Filtros interactivos y buscador -->
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 15px; flex-wrap: wrap; margin-bottom: 25px; background: rgba(255,255,255,0.02); padding: 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                <!-- Pestañas de Filtrado -->
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;" class="guide-filter-tabs">
+                    <button onclick="window.filterGuide('all', this)" class="filter-tab active" style="padding: 6px 14px; border-radius: 6px; border: 1px solid var(--gold); background: rgba(251,191,36,0.15); color: var(--gold); cursor: pointer; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; transition: all 0.2s; font-family: inherit;">🔍 Todo</button>
+                    <button onclick="window.filterGuide('critica', this)" class="filter-tab" style="padding: 6px 14px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3); color: #cbd5e1; cursor: pointer; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; transition: all 0.2s; font-family: inherit;">⚡ Críticas</button>
+                    <button onclick="window.filterGuide('taquilla', this)" class="filter-tab" style="padding: 6px 14px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3); color: #cbd5e1; cursor: pointer; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; transition: all 0.2s; font-family: inherit;">🎟️ Taquilla</button>
+                    <button onclick="window.filterGuide('transporte', this)" class="filter-tab" style="padding: 6px 14px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3); color: #cbd5e1; cursor: pointer; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; transition: all 0.2s; font-family: inherit;">🚊 Traslados</button>
+                </div>
+
+                <!-- Campo de Búsqueda -->
+                <div style="position: relative; flex: 1; max-width: 320px; min-width: 200px;">
+                    <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: rgba(255,255,255,0.4); font-size: 0.8rem;"></i>
+                    <input type="text" id="guide-search" oninput="window.searchGuide(this.value)" placeholder="Buscar atracción, día o palabra clave..." style="width: 100%; padding: 8px 12px 8px 34px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; font-size: 0.8rem; outline: none; transition: all 0.3s; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5); font-family: inherit;">
+                </div>
+            </div>
+
+            <!-- Panel de Grid de Tarjetas -->
+            <div id="guide-cards-container" class="excursions-grid excursions-grid-2" style="display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));">
+                <!-- Tarjetas cargadas vía JS -->
+            </div>
+            
+            <!-- Retorno al final de la página -->
+            <div style="display: flex; justify-content: center; margin-top: 35px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 25px;">
+                <button onclick="document.body.classList.remove('mode-excursion-active'); renderPreparationPage(travelData[0]);" class="back-itinerary-btn prominent" style="background: rgba(251, 191, 36, 0.15); border: 1px solid var(--gold); color: var(--gold); padding: 12px 32px; border-radius: 10px; font-weight: 800; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 10px; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; font-family: inherit; box-shadow: 0 0 15px rgba(251, 191, 36, 0.2);">
+                    <i class="fa-solid fa-chevron-left"></i> Volver al Plan de Acción
+                </button>
+            </div>
+        </div>
+    `;
+
+    // Cargar las tarjetas inicialmente
+    window.renderGuideCards(excursionsData);
+};
+
+window.filterGuide = function(category, element) {
+    const tabs = document.querySelectorAll('.guide-filter-tabs .filter-tab');
+    tabs.forEach(tab => {
+        tab.style.border = '1px solid rgba(255,255,255,0.1)';
+        tab.style.background = 'rgba(0,0,0,0.3)';
+        tab.style.color = '#cbd5e1';
+        tab.classList.remove('active');
+    });
+    
+    element.style.border = '1px solid var(--gold)';
+    element.style.background = 'rgba(251,191,36,0.15)';
+    element.style.color = 'var(--gold)';
+    element.classList.add('active');
+
+    window.currentGuideFilter = category;
+    window.applyGuideFilters();
+};
+
+window.searchGuide = function(query) {
+    window.currentGuideSearch = query.toLowerCase().trim();
+    window.applyGuideFilters();
+};
+
+window.applyGuideFilters = function() {
+    let filtered = excursionsData;
+    
+    if (window.currentGuideFilter !== 'all') {
+        filtered = filtered.filter(item => item.category === window.currentGuideFilter);
+    }
+    
+    if (window.currentGuideSearch) {
+        filtered = filtered.filter(item => {
+            const titleMatch = item.title.toLowerCase().includes(window.currentGuideSearch);
+            const descMatch = item.desc.toLowerCase().includes(window.currentGuideSearch);
+            const locationMatch = item.boothLocation.toLowerCase().includes(window.currentGuideSearch);
+            const dayMatch = `día ${item.day}`.includes(window.currentGuideSearch) || item.day.toString() === window.currentGuideSearch;
+            return titleMatch || descMatch || locationMatch || dayMatch;
+        });
+    }
+    
+    window.renderGuideCards(filtered);
+};
+
+window.toggleGuideBooking = function(bookingId) {
+    if (typeof window.toggleBookingStatus === 'function') {
+        window.toggleBookingStatus(bookingId, 0);
+        
+        // Refrescar estado de los botones directamente en las tarjetas cargadas
+        const isComprado = Persistence.getItem(bookingId) === 'comprado';
+        const btns = document.querySelectorAll(`[id="${bookingId}_guide_btn"]`);
+        btns.forEach(btn => {
+            btn.style.background = isComprado ? 'var(--success)' : 'rgba(239, 68, 68, 0.2)';
+            btn.style.borderColor = isComprado ? 'var(--success)' : 'var(--danger)';
+            btn.innerHTML = `<i class="fa-solid ${isComprado ? 'fa-check-double' : 'fa-clock'}"></i> ${isComprado ? 'COMPRADO' : 'PENDIENTE'}`;
+        });
+    }
+};
+
+window.renderGuideCards = function(data) {
+    const container = document.getElementById('guide-cards-container');
+    if (!container) return;
+    
+    if (data.length === 0) {
+        container.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; padding: 50px 20px; color: rgba(255,255,255,0.4); font-size: 1rem;">
+                <i class="fa-solid fa-ban" style="font-size: 3rem; margin-bottom: 15px; color: var(--gold); opacity: 0.6;"></i>
+                <p style="margin: 0; font-weight: bold;">Ninguna atracción coincide con los criterios de búsqueda.</p>
+            </div>
+        `;
+        return;
+    }
+    
+    container.innerHTML = data.map(item => {
+        const isComprado = item.bookingId ? (Persistence.getItem(item.bookingId) === 'comprado') : false;
+        
+        let headerBadgeBg = 'var(--gold)';
+        let headerBadgeText = '🎟️ TAQUILLA';
+        if (item.category === 'critica') {
+            headerBadgeBg = 'var(--neon-purple)';
+            headerBadgeText = '⚡ CRÍTICA';
+        } else if (item.category === 'transporte') {
+            headerBadgeBg = 'var(--neon-blue)';
+            headerBadgeText = '🚊 TRASLADO';
+        }
+        
+        let actionHTML = '';
+        if (item.category === 'critica' || item.category === 'transporte') {
+            actionHTML = `
+                <div style="display: flex; gap: 8px; margin-top: 12px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 12px; flex-wrap: wrap;">
+                    <button id="${item.bookingId}_guide_btn" onclick="window.toggleGuideBooking('${item.bookingId}')" 
+                            style="background: ${isComprado ? 'var(--success)' : 'rgba(239, 68, 68, 0.2)'}; 
+                                   color: white; border: 1px solid ${isComprado ? 'var(--success)' : 'var(--danger)'}; 
+                                   padding: 6px 12px; border-radius: 6px; font-size: 0.68rem; cursor: pointer; flex: 1; min-width: 100px; transition: all 0.3s; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 6px; font-family: inherit;">
+                        <i class="fa-solid ${isComprado ? 'fa-check-double' : 'fa-clock'}"></i> 
+                        ${isComprado ? 'COMPRADO' : 'PENDIENTE'}
+                    </button>
+                    ${item.link ? `
+                        <a href="${item.link}" target="_blank" 
+                           style="background: rgba(56,189,248,0.12); color: #38bdf8; border: 1px solid #38bdf8; 
+                                  padding: 6px 12px; border-radius: 6px; font-size: 0.68rem; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; font-weight: bold; flex: 1; min-width: 100px; transition: all 0.3s;"
+                           onmouseover="this.style.background='rgba(56,189,248,0.25)'"
+                           onmouseout="this.style.background='rgba(56,189,248,0.12)'">
+                            <i class="fa-solid fa-up-right-from-square"></i> COMPRAR WEB
+                        </a>
+                    ` : ''}
+                </div>
+            `;
+        } else if (item.category === 'taquilla') {
+            const waitTimeVal = parseInt(item.queueTime) || 0;
+            const waitColor = waitTimeVal > 10 ? 'var(--gastro-gold)' : '#10b981';
+            const waitBadge = `<span style="color: ${waitColor}; font-weight: 800; font-size: 0.72rem; display: flex; align-items: center; gap: 6px;"><i class="fa-solid fa-clock"></i> Cola: ${item.queueTime}</span>`;
+            
+            actionHTML = `
+                <div style="margin-top: 12px; background: rgba(0,0,0,0.25); padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.04); display: flex; flex-direction: column; gap: 8px; border-top: 1px solid rgba(255,255,255,0.06);">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        ${waitBadge}
+                        ${waitTimeVal > 10 ? `<span style="background: rgba(251,191,36,0.1); color: var(--gold); border: 1px solid var(--gold); font-size: 0.58rem; padding: 2px 6px; border-radius: 4px; font-weight: 900; letter-spacing: 0.5px; text-transform: uppercase;"><i class="fa-solid fa-triangle-exclamation"></i> Cola > 10m</span>` : ''}
+                    </div>
+                    <div style="font-size: 0.72rem; color: rgba(255,255,255,0.65); display: flex; align-items: flex-start; gap: 6px; line-height: 1.35;">
+                        <i class="fa-solid fa-map-location-dot" style="color: var(--accent); margin-top: 2px; flex-shrink: 0; font-size: 0.75rem;"></i>
+                        <span><strong>Taquilla:</strong> ${item.boothLocation}</span>
+                    </div>
+                    ${item.bestTime ? `
+                        <div style="font-size: 0.72rem; color: #a7f3d0; background: rgba(16,185,129,0.04); border: 1px solid rgba(16,185,129,0.15); padding: 6px; border-radius: 6px; display: flex; align-items: flex-start; gap: 6px; line-height: 1.35;">
+                            <i class="fa-solid fa-calendar-check" style="color: #34d399; flex-shrink: 0; font-size: 0.75rem;"></i>
+                            <span><strong>Mejor hora:</strong> ${item.bestTime}</span>
+                        </div>
+                    ` : ''}
+                </div>
+            `;
+        }
+
+        return `
+            <div class="excursion-card" style="display: flex; flex-direction: column; justify-content: space-between; background: rgba(15,23,42,0.5); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: all 0.3s; min-height: 220px;"
+                 onmouseover="this.style.borderColor='rgba(251,191,36,0.3)'; this.style.boxShadow='0 4px 20px rgba(251,191,36,0.08)';"
+                 onmouseout="this.style.borderColor='rgba(255,255,255,0.06)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.3)';">
+                <div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                        <span style="background: ${item.category === 'critica' || item.category === 'transporte' ? headerBadgeBg : 'transparent'}; 
+                                     color: ${item.category === 'critica' || item.category === 'transporte' ? 'white' : 'var(--gold)'}; 
+                                     border: 1px solid ${item.category === 'critica' || item.category === 'transporte' ? 'transparent' : 'var(--gold)'};
+                                     font-size: 0.6rem; padding: 2px 6px; border-radius: 4px; font-weight: 900; letter-spacing: 0.5px; text-transform: uppercase;">
+                            ${headerBadgeText}
+                        </span>
+                        <span style="font-size: 0.72rem; color: #a5b4fc; font-weight: 800; background: rgba(165,180,252,0.08); border: 1px solid rgba(165,180,252,0.15); padding: 2px 8px; border-radius: 4px;">DÍA ${item.day}</span>
+                    </div>
+                    <h3 style="margin: 0 0 8px 0; font-size: 1.1rem; color: white; font-weight: bold; text-shadow: 0 1px 3px rgba(0,0,0,0.8); line-height: 1.25;">${item.title}</h3>
+                    <p style="margin: 0 0 12px 0; font-size: 0.78rem; color: rgba(255,255,255,0.55); line-height: 1.45; font-weight: 400;">${item.desc}</p>
+                    <div style="font-size: 0.78rem; color: #cbd5e1; display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
+                        <i class="fa-solid fa-tag" style="color: var(--gold);"></i>
+                        <strong>Precio:</strong> <span style="color: var(--gold); font-weight: bold;">${item.price}</span>
+                    </div>
+                </div>
+                ${actionHTML}
+            </div>
+        `;
+    }).join('');
+};
+
 

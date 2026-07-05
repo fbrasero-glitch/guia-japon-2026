@@ -546,7 +546,33 @@ const travelData_00_08 = [
                 price: "180 JPY",
                 timeLabel: "~18 min total",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Dc桜の苑-難波南店&destination=Osakajokoen+Station&travelmode=transit",
-                tacticalGuideId: "mission01"
+                tacticalGuideId: "mission01",
+                tacticalBtnText: "RUTA METRO",
+                transitDetails: {
+                    origin: "Shin-Imamiya (JR)",
+                    destination: "Osakajokoen",
+                    totalTime: "14 min",
+                    steps: [
+                        {
+                            type: "origin",
+                            station: "Shin-Imamiya",
+                            code: "JR-O19",
+                            line: "JR Osaka Loop Line (Roja)",
+                            lineColor: "#e85a24",
+                            platform: "3 (Loop Inner, dirección Tennoji/Tsuruhashi)",
+                            car: "Vagón 4 u 8"
+                        },
+                        {
+                            type: "destination",
+                            station: "Osakajokoen",
+                            code: "JR-O11",
+                            line: "JR Osaka Loop Line (Roja)",
+                            lineColor: "#e85a24",
+                            exit: "Salida única (directa al parque del Castillo)"
+                        }
+                    ],
+                    gpsWarning: "Bajo tierra el GPS no es fiable. Sigue los letreros rojos de JR Loop Line. Los trenes son directos (8 paradas) y pasan cada 5-8 min."
+                }
             },
             { time: "08:30", type: "point", title: "Llegada al Castillo de Osaka", icon: "fa-solid fa-fort-awesome" },
             {
@@ -556,7 +582,33 @@ const travelData_00_08 = [
                 price: "170 JPY",
                 timeLabel: "~30 min total",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Osakajokoen+Station&destination=Umeda+Sky+Building&travelmode=transit",
-                tacticalGuideId: "mission02"
+                tacticalGuideId: "mission02",
+                tacticalBtnText: "RUTA METRO",
+                transitDetails: {
+                    origin: "Osakajokoen",
+                    destination: "Umeda Sky Building",
+                    totalTime: "25 min",
+                    steps: [
+                        {
+                            type: "origin",
+                            station: "Osakajokoen",
+                            code: "JR-O11",
+                            line: "JR Osaka Loop Line (Roja)",
+                            lineColor: "#e85a24",
+                            platform: "2 (Loop Outer, dirección Kyobashi/Osaka)",
+                            car: "Vagón 3 u 5"
+                        },
+                        {
+                            type: "destination",
+                            station: "Osaka Station (Umeda)",
+                            code: "JR-O16",
+                            line: "JR Osaka Loop Line (Roja)",
+                            lineColor: "#e85a24",
+                            exit: "Central Gate / Midosuji Gate (salida para peatones hacia Umeda Sky)"
+                        }
+                    ],
+                    gpsWarning: "Al bajar en la inmensa estación de Osaka, sigue los letreros hacia la salida Central Gate para tomar el túnel peatonal directo al Umeda Sky Building."
+                }
             },
             { time: "11:00", type: "point", title: "Llegada Umeda Sky", icon: "fa-solid fa-building" },
             { time: "12:30", type: "point", title: "Almuerzo en Umeda (Takimi Koji)", icon: "fa-solid fa-utensils" },
@@ -567,7 +619,33 @@ const travelData_00_08 = [
                 price: "240 JPY",
                 timeLabel: "~15 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Umeda+Station&destination=Shinsaibashi+Parco&travelmode=transit",
-                tacticalGuideId: "mission03"
+                tacticalGuideId: "mission03",
+                tacticalBtnText: "RUTA METRO",
+                transitDetails: {
+                    origin: "Umeda (Metro)",
+                    destination: "Shinsaibashi",
+                    totalTime: "6 min",
+                    steps: [
+                        {
+                            type: "origin",
+                            station: "Umeda",
+                            code: "M16",
+                            line: "Midosuji Line (Roja)",
+                            lineColor: "#e51624",
+                            platform: "1 (dirección Namba/Tennoji/Nakamozu)",
+                            car: "Vagón 6 o 7 (salida rápida)"
+                        },
+                        {
+                            type: "destination",
+                            station: "Shinsaibashi",
+                            code: "M19",
+                            line: "Midosuji Line (Roja)",
+                            lineColor: "#e51624",
+                            exit: "Exit 4-A / 4-B (conexión directa con Shinsaibashi Parco)"
+                        }
+                    ],
+                    gpsWarning: "La línea Midosuji es la principal arteria roja [M] de Osaka. Andenes muy amplios y concurridos. Sigue las señales rojas."
+                }
             },
             { time: "14:30", type: "point", title: "Shinsaibashi Parco", icon: "fa-solid fa-gamepad" },
             {
@@ -596,7 +674,33 @@ const travelData_00_08 = [
                 price: "170 JPY",
                 timeLabel: "~15 min total",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Dotonbori&destination=Dc桜の苑-難波南店&travelmode=transit",
-                tacticalGuideId: "mission04"
+                tacticalGuideId: "mission04",
+                tacticalBtnText: "RUTA METRO",
+                transitDetails: {
+                    origin: "JR Namba",
+                    destination: "Shin-Imamiya",
+                    totalTime: "4 min",
+                    steps: [
+                        {
+                            type: "origin",
+                            station: "JR Namba",
+                            code: "JR-Q17",
+                            line: "JR Yamatoji Line (Verde)",
+                            lineColor: "#00a850",
+                            platform: "1 o 2 (dirección Nara/Kamo)",
+                            car: "Cualquiera"
+                        },
+                        {
+                            type: "destination",
+                            station: "Shin-Imamiya",
+                            code: "JR-Q19",
+                            line: "JR Yamatoji Line (Verde)",
+                            lineColor: "#00a850",
+                            exit: "East Exit (Salida Este)"
+                        }
+                    ],
+                    gpsWarning: "La estación JR Namba es subterránea y está a 10 min a pie del canal de Dotonbori. Sigue los letreros verdes de JR."
+                }
             },
             { time: "22:00", type: "point", title: "Retorno al Hotel", icon: "fa-solid fa-bed" }
         ],
@@ -1296,7 +1400,33 @@ const travelData_00_08 = [
                 price: "680 JPY",
                 timeLabel: "40 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Osaka-Namba+Station&destination=Kintetsu-Nara+Station&travelmode=transit",
-                tacticalGuideId: "mission_nara_kintetsu"
+                tacticalGuideId: "mission_nara_kintetsu",
+                tacticalBtnText: "RUTA METRO",
+                transitDetails: {
+                    origin: "Osaka-Namba",
+                    destination: "Kintetsu-Nara",
+                    totalTime: "36 min (vía Rápido Expreso)",
+                    steps: [
+                        {
+                            type: "origin",
+                            station: "Osaka-Namba",
+                            code: "A01",
+                            line: "Kintetsu Nara Line (Roja)",
+                            lineColor: "#de1c24",
+                            platform: "1 u 2 (Fíjate en letreros para Rapid Express o Express)",
+                            car: "Vagón 4 u 6"
+                        },
+                        {
+                            type: "destination",
+                            station: "Kintetsu-Nara",
+                            code: "A28",
+                            line: "Kintetsu Nara Line (Roja)",
+                            lineColor: "#de1c24",
+                            exit: "Exit 2 (salida directa hacia Omiya Street / Parque de Nara)"
+                        }
+                    ],
+                    gpsWarning: "Evita subir a trenes 'Local' (locales), ya que paran en cada estación y tardan más de una hora. Busca exclusivamente trenes 'Rapid Express' o 'Express'."
+                }
             },
             {
                 time: "09:50",
@@ -1307,7 +1437,7 @@ const travelData_00_08 = [
             {
                 time: "",
                 type: "transit",
-                title: "Caminar a Nara Park o Bus a Todaiji",
+                title: "Caminar a Nara Park o Bus a Kasuga Taisha",
                 price: "Gratis / 220 JPY",
                 timeLabel: "15-20 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Nara+Station&destination=Nara+Park&travelmode=transit"
@@ -1319,22 +1449,22 @@ const travelData_00_08 = [
                 icon: "fa-solid fa-leaf"
             },
             {
-                time: "11:30",
+                time: "11:15",
                 type: "point",
-                title: "Templo Todai-ji (Gran Buda)",
-                icon: "fa-solid fa-gopuram"
+                title: "Santuario Kasuga Taisha",
+                icon: "fa-solid fa-torii-gate"
             },
             {
-                time: "13:30",
+                time: "13:00",
                 type: "gap",
                 title: "Almuerzo en Naramachi",
                 icon: "fa-solid fa-utensils"
             },
             {
-                time: "15:30",
+                time: "15:00",
                 type: "point",
-                title: "Santuario Kasuga Taisha",
-                icon: "fa-solid fa-torii-gate"
+                title: "Templo Todai-ji (Gran Buda)",
+                icon: "fa-solid fa-gopuram"
             },
             {
                 time: "17:30",
@@ -1385,33 +1515,13 @@ const travelData_00_08 = [
                     `
                 },
                 {
-                    id: "b1",
-                    time: "11:30",
-                    title: "Templo Tōdai-ji",
-                    description: "El Gran Buda y el edificio de madera más grande del mundo.",
-                    image: "images/dia4-buda.jpg",
-                    price: "600 JPY",
-                    link: "https://www.google.com/maps/dir/Nara+Station/Todai-ji+Temple/",
-                    fullDesc: `
-                        <h3><i class="fa-solid fa-landmark"></i> Templo Tōdai-ji</h3>
-                        <p>Construido originalmente en el año 752 por decreto del Emperador Shomu, este templo no es solo un edificio religioso, sino que fue concebido como la pieza central de una red nacional de templos para proteger a Japón. Su sala principal, la Daibutsuden, es mundialmente famosa por ser la estructura de madera más grande del mundo, a pesar de que la versión actual (reconstruida en 1709 tras incendios sufridos en guerras civiles) es sorprendentemente un 30% más pequeña que la original.</p>
-                        <p><em>En su interior se encuentra el Daibutsu (Gran Buda) de bronce fundido, una de las estatuas más grandes de su tipo en el mundo, que pesa más de 500 toneladas. Detrás de la estatua, buscad el pilar con un agujero en su base: la leyenda dice que quien logre pasar por él (tiene el mismo tamaño que la fosa nasal del Gran Buda) alcanzará la iluminación en su próxima vida. Iván, este es tu reto oficial del día.</em></p>
-                        <ul>
-                            <li><i class="fa-solid fa-clock"></i> <strong>Tiempo:</strong> 1-2 horas.</li>
-                            <li><i class="fa-solid fa-ticket"></i> <strong>Entrada:</strong> 600 JPY.</li>
-                            <li><i class="fa-solid fa-dragon"></i> <strong>Hito:</strong> Esculturas guardianas Niō en la puerta Nandaimon.</li>
-                        </ul>
-                    `,
-                    video: "https://www.youtube.com/watch?v=Wz9y6JI6qfU"
-                },
-                {
                     id: "b2",
-                    time: "15:30",
+                    time: "11:15",
                     title: "Kasuga Taisha",
                     description: "Santuario famoso por sus miles de linternas colgantes.",
                     image: "images/dia4-nara.jpg",
                     price: "500 JPY",
-                    link: "https://www.google.com/maps/dir/Todai-ji+Temple/Kasuga+Taisha/",
+                    link: "https://www.google.com/maps/dir/Kintetsu-Nara+Station/Kasuga+Taisha/",
                     fullDesc: `
                         <h3><i class="fa-solid fa-lightbulb"></i> Kasuga Taisha</h3>
                         <p>Fundado en el año 768 y dedicado a las deidades que protegen la ciudad de Nara, este santuario es el mausoleo espiritual del poderoso clan Fujiwara. El camino hacia el santuario atraviesa un bosque místico habitado por ciervos salvajes (mensajeros divinos en la mitología sintoísta).</p>
@@ -1423,6 +1533,29 @@ const travelData_00_08 = [
                         </ul>
                     `,
                     video: "https://www.youtube.com/watch?v=VlXjOunK6p4"
+                },
+                {
+                    id: "b1",
+                    time: "15:00",
+                    title: "Templo Tōdai-ji",
+                    description: "El Gran Buda y el edificio de madera más grande del mundo.",
+                    image: "images/dia4-buda.jpg",
+                    price: "600 JPY",
+                    link: "https://www.google.com/maps/dir/Naramachi/Todai-ji+Temple/",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-landmark"></i> Templo Tōdai-ji</h3>
+                        <p style="color:var(--gold); border: 1px solid rgba(251,191,36,0.3); background: rgba(251,191,36,0.05); padding: 10px; border-radius: 8px; margin-bottom: 15px;">
+                            <strong>⚠️ Para evitar colas:</strong> Hemos pospuesto la visita a las 15:00 PM para evitar la masificación de los autobuses turísticos que llegan a mediodía, reduciendo el tiempo de espera en taquilla a menos de 5 minutos y disfrutando del Gran Buda con mucha más tranquilidad.
+                        </p>
+                        <p>Construido originalmente en el año 752 por decreto del Emperador Shomu, este templo no es solo un edificio religioso, sino que fue concebido como la pieza central de una red nacional de templos para proteger a Japón. Su sala principal, la Daibutsuden, es mundialmente famosa por ser la estructura de madera más grande del mundo, a pesar de que la versión actual (reconstruida en 1709 tras incendios sufridos en guerras civiles) es sorprendentemente un 30% más pequeña que la original.</p>
+                        <p><em>En su interior se encuentra el Daibutsu (Gran Buda) de bronce fundido, una de las estatuas más grandes de su tipo en el mundo, que pesa más de 500 toneladas. Detrás de la estatua, buscad el pilar con un agujero en su base: la leyenda dice que quien logre pasar por él (tiene el mismo tamaño que la fosa nasal del Gran Buda) alcanzará la iluminación en su próxima vida.</em></p>
+                        <ul>
+                            <li><i class="fa-solid fa-clock"></i> <strong>Tiempo:</strong> 1-2 horas.</li>
+                            <li><i class="fa-solid fa-ticket"></i> <strong>Entrada:</strong> 600 JPY.</li>
+                            <li><i class="fa-solid fa-dragon"></i> <strong>Hito:</strong> Esculturas guardianas Niō en la puerta Nandaimon.</li>
+                        </ul>
+                    `,
+                    video: "https://www.youtube.com/watch?v=Wz9y6JI6qfU"
                 }
             ]
         },
@@ -1609,11 +1742,38 @@ const travelData_00_08 = [
                 icon: "fa-solid fa-person-walking-luggage"
             },
             {
+                type: "transit",
                 title: "Tren: JR Special Rapid Service (Tokaido Line)",
                 price: "580 JPY",
                 timeLabel: "30 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Osaka+Station&destination=Kyoto+Station&travelmode=transit",
-                tacticalGuideId: "mission_osaka_to_kyoto"
+                tacticalGuideId: "mission_osaka_to_kyoto",
+                tacticalBtnText: "RUTA METRO",
+                transitDetails: {
+                    origin: "Osaka Station",
+                    destination: "Kyoto Station",
+                    totalTime: "30 min",
+                    steps: [
+                        {
+                            type: "origin",
+                            station: "Osaka",
+                            code: "JR-A47",
+                            line: "JR Special Rapid Service (Azul)",
+                            lineColor: "#0072bc",
+                            platform: "7 u 8 (dirección Kyoto/Kosei Line)",
+                            car: "Vagón 5, 6 u 8"
+                        },
+                        {
+                            type: "destination",
+                            station: "Kyoto",
+                            code: "JR-A31",
+                            line: "JR Special Rapid Service (Azul)",
+                            lineColor: "#0072bc",
+                            exit: "Central Gate (Salida Central, frente a Kyoto Tower)"
+                        }
+                    ],
+                    gpsWarning: "Sube exclusivamente al tren 'Special Rapid Service' (新快速 - Shin-Kaisoku). Pasan cada 15 min. No confundir con el Local o Rapid que tardan casi el doble."
+                }
             },
             {
                 time: "10:30",
@@ -1626,7 +1786,34 @@ const travelData_00_08 = [
                 title: "Metro Karasuma Line (Hacia Marutamachi)",
                 price: "260 JPY",
                 timeLabel: "10 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Kyoto+Station&destination=Kyoto+Imperial+Palace&travelmode=transit"
+                link: "https://www.google.com/maps/dir/?api=1&origin=Kyoto+Station&destination=Kyoto+Imperial+Palace&travelmode=transit",
+                tacticalGuideId: "route_day6_kyoto_to_marutamachi",
+                tacticalBtnText: "RUTA METRO",
+                transitDetails: {
+                    origin: "Kyoto Station",
+                    destination: "Marutamachi",
+                    totalTime: "8 min",
+                    steps: [
+                        {
+                            type: "origin",
+                            station: "Kyoto Station",
+                            code: "K11",
+                            line: "Karasuma Line (Verde)",
+                            lineColor: "#009944",
+                            platform: "2 (dirección Kokusaikaikan)",
+                            car: "Vagón 2 u 5"
+                        },
+                        {
+                            type: "destination",
+                            station: "Marutamachi",
+                            code: "K07",
+                            line: "Karasuma Line (Verde)",
+                            lineColor: "#009944",
+                            exit: "Exit 2 (salida directa al Parque del Palacio Imperial)"
+                        }
+                    ],
+                    gpsWarning: "La línea Karasuma es la principal línea de metro norte-sur de Kioto. Sigue los letreros verdes con la letra [K]."
+                }
             },
             {
                 time: "11:30",
@@ -1652,7 +1839,42 @@ const travelData_00_08 = [
                 title: "Bus 9 / 50 o Metro Karasuma",
                 price: "230 JPY",
                 timeLabel: "15 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Nijo+Castle&destination=Kyoto+Tower&travelmode=transit"
+                link: "https://www.google.com/maps/dir/?api=1&origin=Nijo+Castle&destination=Kyoto+Tower&travelmode=transit",
+                tacticalGuideId: "route_day6_nijo_to_kyoto_station",
+                tacticalBtnText: "RUTA METRO",
+                transitDetails: {
+                    origin: "Nijojo-mae",
+                    destination: "Kyoto Station",
+                    totalTime: "15 min",
+                    steps: [
+                        {
+                            type: "origin",
+                            station: "Nijojo-mae",
+                            code: "T14",
+                            line: "Tozai Line (Bermellón)",
+                            lineColor: "#e60012",
+                            platform: "1 (dirección Rokujizo)",
+                            car: "Vagón 2 u 4"
+                        },
+                        {
+                            type: "transfer",
+                            station: "Karasuma Oike",
+                            code: "T13",
+                            line: "Karasuma Line (Verde)",
+                            lineColor: "#009944",
+                            instructions: "Bájate en Karasuma Oike (T13/K08), sube por las escaleras al nivel superior y toma la línea Karasuma (andén 1, dirección Takeda) hasta Kyoto Station."
+                        },
+                        {
+                            type: "destination",
+                            station: "Kyoto Station",
+                            code: "K11",
+                            line: "Karasuma Line (Verde)",
+                            lineColor: "#009944",
+                            exit: "Central Exit (Salida Central)"
+                        }
+                    ],
+                    gpsWarning: "El transbordo en Karasuma Oike es el más rápido de Kioto. Sigue los letreros verdes con la letra [K] hacia el andén 1."
+                }
             },
             {
                 time: "17:30",
@@ -2249,7 +2471,33 @@ const travelData_00_08 = [
                 price: "240 JPY",
                 timeLabel: "20 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Kyoto+Station&destination=Saga-Arashiyama+Station&travelmode=transit",
-                tacticalGuideId: "mission_arashiyama_transfer"
+                tacticalGuideId: "mission_arashiyama_transfer",
+                tacticalBtnText: "RUTA METRO",
+                transitDetails: {
+                    origin: "Kyoto Station",
+                    destination: "Saga-Arashiyama",
+                    totalTime: "16 min",
+                    steps: [
+                        {
+                            type: "origin",
+                            station: "Kyoto Station",
+                            code: "JR-E01",
+                            line: "JR Sagano Line (Morada)",
+                            lineColor: "#5d3091",
+                            platform: "31, 32 o 33 (Línea Sagano al fondo de la estación)",
+                            car: "Vagón 3 u 4"
+                        },
+                        {
+                            type: "destination",
+                            station: "Saga-Arashiyama",
+                            code: "JR-E08",
+                            line: "JR Sagano Line (Morada)",
+                            lineColor: "#5d3091",
+                            exit: "South Exit (Salida Sur, hacia el bosque de bambú)"
+                        }
+                    ],
+                    gpsWarning: "Los andenes 31-33 están en la esquina noroeste de la estación de Kioto. Requiere caminar unos 5-7 minutos desde la entrada principal de Kyoto Tower. ¡No os retraséis!"
+                }
             },
             {
                 time: "08:30",

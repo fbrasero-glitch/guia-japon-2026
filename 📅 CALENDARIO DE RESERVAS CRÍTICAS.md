@@ -55,7 +55,7 @@ Día 21 (Nikko/Kamakura):
 Nikko Pass: Se puede comprar 1-2 días antes en la estación de Asakusa (Tobu).
 Día 23 (Regreso):
 Traslado al aeropuerto (Haneda): **[YA RESERVADO]** Reservados 2 taxis en Booking para los 8 pax. (No se requiere usar Narita Express o Limousine Bus).
-💡 Consejos para Iván y Felipe (Líderes):
+💡 Consejos para los líderes:
 Apps Necesarias: Descargad SmartEX (para trenes bala) y tened las webs de Highwaybus y Klook/GetYourGuide en favoritos.
 Sincronización: Para las reservas de "1 mes antes", recordad que Japón va 7 u 8 horas por delante. Si algo sale a las 10:00 AM en Japón, debéis estar listos a las 02:00 o 03:00 AM en España.
 Gestión de maletas (Takkyubin): No es una reserva, pero recordad gestionarlo en la recepción del hotel con 24 horas de antelación al traslado [Análisis previo].

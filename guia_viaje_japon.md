@@ -67,7 +67,7 @@ Esta guía contiene toda la información de la página web extraída y formatead
 
 #### Consejos
 - Optimización de equipaje: usar takkyubin para días con muchos traslados; facilita movilidad y confort para mayores.
-- Comunicación: designad 1–2 responsables (logística y documentación) que centralicen reservas y comprobaciones.
+- Comunicación: designa responsables (logística y documentación) que centralicen reservas y comprobaciones.
 
 ---
 
@@ -399,11 +399,11 @@ Recorrido visual en 4K por los canales de Osaka.
 - **09:10** **Estación Shin-Imamiya (JR)**
 - **09:10** **Tren: Kintetsu Nara Line (Expresso)** (40 min) [680 JPY]
 - **09:50** **Estación JR Nara (Caminar/Bus a Parque)**
-- **Caminar a Nara Park o Bus a Todaiji** (15-20 min) [Gratis / 220 JPY]
+- **Caminar a Nara Park o Bus a Kasuga Taisha** (15-20 min) [Gratis / 220 JPY]
 - **10:30** **Llegada Nara Park / Ciervos**
-- **11:30** **Templo Todai-ji (Gran Buda)**
-- **13:30** **Almuerzo en Naramachi**
-- **15:30** **Santuario Kasuga Taisha**
+- **11:15** **Santuario Kasuga Taisha**
+- **13:00** **Almuerzo en Naramachi**
+- **15:00** **Templo Todai-ji (Gran Buda)**
 - **17:30** **Regreso a Osaka** (50 min) [820 JPY]
 - **18:30** **Extracción al Hotel**
 
@@ -417,19 +417,19 @@ Enviamos las 8 maletas grandes por Yu-Pack al Kyoto Tower Hotel Annex.
 
 - **Precio:** 115€-140€
 
-#### 11:30 - Templo Tōdai-ji
-El Gran Buda y el edificio de madera más grande del mundo.
-
-*Detalle:* Templo Tōdai-ji Construido originalmente en el año 752 por decreto del Emperador Shomu, este templo no es solo un edificio religioso, sino que fue concebido como la pieza central de una red nacional de templos para proteger a Japón. Su sala principal, la Daibutsuden, es mundialmente famosa por ser la estructura de madera más grande del mundo, a pesar de que la versión actual (reconstruida en 1709 tras incendios sufridos en guerras civiles) es sorprendentemente un 30% más pequeña que la original. En su interior se encuentra el Daibutsu (Gran Buda) de bronce fundido, una de las estatuas más grandes de su tipo en el mundo, que pesa más de 500 toneladas. Detrás de la estatua, buscad el pilar con un agujero en su base: la leyenda dice que quien logre pasar por él (tiene el mismo tamaño que la fosa nasal del Gran Buda) alcanzará la iluminación en su próxima vida. Iván, este es tu reto oficial del día. Tiempo: 1-2 horas. Entrada: 600 JPY. Hito: Esculturas guardianas Niō en la puerta Nandaimon.
-
-- **Precio:** 600 JPY
-
-#### 15:30 - Kasuga Taisha
+#### 11:15 - Kasuga Taisha
 Santuario famoso por sus miles de linternas colgantes.
 
 *Detalle:* Kasuga Taisha Fundado en el año 768 y dedicado a las deidades que protegen la ciudad de Nara, este santuario es el mausoleo espiritual del poderoso clan Fujiwara. El camino hacia el santuario atraviesa un bosque místico habitado por ciervos salvajes (mensajeros divinos en la mitología sintoísta). El complejo es famoso por su arquitectura bermellón brillante y, sobre todo, por sus más de 3.000 linternas. Unas 2.000 son linternas de piedra que bordean los senderos y otras 1.000 son linternas de bronce que cuelgan del propio santuario. Solo se encienden todas dos veces al año (Mantōrō), creando una imagen mágica de otro mundo. Tiempo: 1-1.5 horas. Entrada: 500 JPY. Vibe: Profundo silencio y espiritualidad antigua en el bosque.
 
 - **Precio:** 500 JPY
+
+#### 15:00 - Templo Tōdai-ji
+El Gran Buda y el edificio de madera más grande del mundo.
+
+*Detalle:* Templo Tōdai-ji ⚠️ Para evitar colas: Hemos pospuesto la visita a las 15:00 PM para evitar la masificación de los autobuses turísticos que llegan a mediodía, reduciendo el tiempo de espera en taquilla a menos de 5 minutos y disfrutando del Gran Buda con mucha más tranquilidad. Construido originalmente en el año 752 por decreto del Emperador Shomu, este templo no es solo un edificio religioso, sino que fue concebido como la pieza central de una red nacional de templos para proteger a Japón. Su sala principal, la Daibutsuden, es mundialmente famosa por ser la estructura de madera más grande del mundo, a pesar de que la versión actual (reconstruida en 1709 tras incendios sufridos en guerras civiles) es sorprendentemente un 30% más pequeña que la original. En su interior se encuentra el Daibutsu (Gran Buda) de bronce fundido, una de las estatuas más grandes de su tipo en el mundo, que pesa más de 500 toneladas. Detrás de la estatua, buscad el pilar con un agujero en su base: la leyenda dice que quien logre pasar por él (tiene el mismo tamaño que la fosa nasal del Gran Buda) alcanzará la iluminación en su próxima vida. Tiempo: 1-2 horas. Entrada: 600 JPY. Hito: Esculturas guardianas Niō en la puerta Nandaimon.
+
+- **Precio:** 600 JPY
 
 ### 🔄 Complementos / Alternativas
 #### 07:30 - Fushimi Inari (A primera hora)
@@ -1230,7 +1230,7 @@ Jornada de viaje en el LIMON Bus a través de las montañas centrales de Japón.
 #### 14:15 - Recogida de Coche (Budget)
 Clave logística: El transporte público alrededor del Fuji es muy deficiente. El coche da alas.
 
-*Detalle:* Operación Conducción Nipona Iván o Felipe: Os tocará conducir por la izquierda. El coche proporciona la única forma de moverse libremente alrededor de los lagos. Tráfico: Las carreteras son estupendas, pero los límites de velocidad son estrictos (40-50 km/h). Pasos a Nivel: Es OBLIGATORIO detener el coche completamente (Stop) antes de cualquier vía de tren, aunque no haya barreras o luces.
+*Detalle:* Operación Conducción Nipona Os tocará conducir por la izquierda. El coche proporciona la única forma de moverse libremente alrededor de los lagos. Tráfico: Las carreteras son estupendas, pero los límites de velocidad son estrictos (40-50 km/h). Pasos a Nivel: Es OBLIGATORIO detener el coche completamente (Stop) antes de cualquier vía de tren, aunque no haya barreras o luces.
 
 - **Precio:** Coche Alquiler
 
@@ -1275,7 +1275,7 @@ Pequeño pueblo europeo dedicado a instrumentos musicales mecánicos.
 **🏨 Alojamiento:** Toyoko Inn Fuji Kawaguchiko Ohashi
 
 ### ⚙️ Logística y Tips
-- **Transporte:** 2 Vehículos de alquiler (Iván y Felipe). Conducción por la izquierda, velocidad 40-50 km/h.
+- **Transporte:** 2 Vehículos de alquiler. Conducción por la izquierda, velocidad 40-50 km/h.
 - **Fuji Subaru Line:** En agosto, acceso prohibido a coches privados. Usar Shuttle Bus desde Parking Fujihoku-roku.
 - **Equipaje:** Vuestras maletas grandes ya habrán llegado al hotel por Takkyubin; ropa limpia esperándoos tras el onsen.
 
@@ -1666,7 +1666,7 @@ _Día de arte digital futurista e inmersión en los barrios más sofisticados de
 #### 09:30 - TeamLab Borderless (Entradas y App dentro) 🎟️
 El MORI Building DIGITAL ART MUSEUM en Azabudai Hills. (Pulsa aquí para descargar tus entradas en PDF y la App oficial de TeamLab).
 
-*Detalle:* TeamLab Borderless Ubicado en el moderno complejo de Azabudai Hills, esta versión del famoso colectivo artístico digital no tiene fronteras: las obras de arte se mueven fuera de las salas, se comunican con otras obras, se influyen mutuamente y a veces se mezclan sin límites. Es una experiencia visualmente deslumbrante y tridimensional. A diferencia de Planets, aquí no hay agua, por lo que no es necesario remangar los pantalones. ENTRADAS DE ACCESO Descargar Entrada 1 Descargar Entrada 2 DESCARGAR APP OFICIAL App Store (iOS) Google Play (Android)
+*Detalle:* TeamLab Borderless Ubicado en el moderno complejo de Azabudai Hills, esta versión del famoso colectivo artístico digital no tiene fronteras: las obras de arte se mueven fuera de las salas, se comunican con otras obras, se influyen mutuamente y a veces se mezclan sin límites. Es una experiencia visualmente deslumbrante y tridimensional. A diferencia de Planets, aquí no hay agua, por lo que no es necesario remangar los pantalones. ENTRADAS DE ACCESO Ver Entrada 1 Ver Entrada 2 DESCARGAR APP OFICIAL App Store (iOS) Google Play (Android)
 
 - **Precio:** 4.200 JPY
 
@@ -1790,10 +1790,10 @@ Si sois amantes de la historia de los Samuráis, Katanas y armaduras.
 - **Total:** Base +
 
 ### ⏱️ Resumen del Día
-- **10:30** - Llegada Destino: Inicio de la exploración elegida. (Base)
-- **11:00** - Toshogu (Nikko) o Daibutsu (Kamakura): Monumentos principales de cada ruta. (Base)
-- **13:30** - Almuerzo local: Comer en las callejuelas. (Base)
-- **19:00** - Regreso al Hotel: Regreso desde Nikko (18:30) o Kamakura (19:00) hacia Iidabashi. (Base)
+- **10:30** - Llegada a Nikko / Templos: Inicio de la ruta visitando primero el Puente sagrado Shinkyo y los templos Rinno-ji y Futarasan Jinja. (Base)
+- **12:30** - Almuerzo local temprano: Comer especialidades tradicionales en las callejuelas antes de que se llenen. (Base)
+- **14:30** - Santuario Toshogu: Visita al mausoleo de Ieyasu Tokugawa a última hora para evitar colas de taquilla. (Base)
+- **19:00** - Regreso al Hotel: Regreso a Tokio (salida en tren desde Nikko a las 18:30). (Base)
 
 ### 🚆 Transporte Detallado
 - **07:30** **Salida Hotel Edmont (Madrugón)**
@@ -1808,7 +1808,7 @@ _Día para escapar de la gran urbe de neón de cristal buscando la herencia hist
 #### Todo el día - Opción A: El Esplendor de Nikko
 Montañas frondosas, santuarios profusamente decorados en oro y el mausoleo de Ieyasu Tokugawa.
 
-*Detalle:* Nikko: La Morada de los Shogunes Nikko es Patrimonio de la Humanidad por la UNESCO y un lugar donde la arquitectura japonesa alcanza su máximo esplendor decorativo. El complejo **Toshogu**, mausoleo del gran shogun Tokugawa Ieyasu, rompe con la sobriedad budista habitual mostrando tallas intrincadas, pan de oro y colores vibrantes en medio de un bosque de cedros milenarios. Buscad el relieve de los "Tres Monos Sabios" (no oír, no decir, no ver el mal) y el "Gato Durmiente". Nikko combina espiritualidad samurái con una naturaleza salvaje de cascadas y lagos alpinos.
+*Detalle:* Nikko: La Morada de los Shogunes ⚠️ Para evitar colas: Para evitar esperas de hasta 30 minutos en Toshogu, hemos reestructurado el orden de visita. Comenzaremos con el Puente Shinkyo y los templos Rinno-ji y Futarasan a la llegada (10:30), almorzaremos temprano a las 12:30, y entraremos a Toshogu a las 14:30 PM, cuando las masas de grupos turísticos ya han comenzado a retirarse. Nikko es Patrimonio de la Humanidad por la UNESCO y un lugar donde la arquitectura japonesa alcanza su máximo esplendor decorativo. El complejo **Toshogu**, mausoleo del gran shogun Tokugawa Ieyasu, rompe con la sobriedad budista habitual mostrando tallas intrincadas, pan de oro y colores vibrantes en medio de un bosque de cedros milenarios. Buscad el relieve de los "Tres Monos Sabios" (no oír, no decir, no ver el mal) y el "Gato Durmiente". Nikko combina espiritualidad samurái con una naturaleza salvaje de cascadas y lagos alpinos.
 
 - **Precio:** Santuarios ~1.300 JPY
 
