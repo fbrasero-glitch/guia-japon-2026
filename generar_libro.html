@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japón 2026 | Libro Guía Imprimible</title>
+    
+    <!-- Fuentes y Estilos de Iconos -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Estilo del Libro Imprimible -->
+    <link rel="stylesheet" href="style_libro.css">
+</head>
+<body>
+
+    <!-- BARRA DE CONTROL SUPERIOR (SOLO PANTALLA) -->
+    <div class="screen-only-toolbar no-print">
+        <h1>Japón 2026 • Libro Guía Imprimible</h1>
+        <button class="print-btn" onclick="window.print()">
+            <i class="fa-solid fa-print"></i> Guardar PDF / Imprimir Libro
+        </button>
+    </div>
+
+    <!-- CONTENEDOR DE PÁGINAS A4 DEL LIBRO -->
+    <div id="book-container">
+        <div id="book-content">
+            <!-- El compilador inyectará todas las páginas aquí -->
+            <div style="text-align: center; padding: 150px 0; background: white; border-radius: 8px;">
+                <i class="fa-solid fa-circle-notch fa-spin" style="font-size: 3rem; color: #ea580c; margin-bottom: 20px;"></i>
+                <h2>Compilando la guía completa para impresión...</h2>
+                <p style="color: #6b7280; margin-top: 10px;">Procesando timeline, trayectos de metro, excursiones y guías tácticas.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MOCKS DE SEGURIDAD PARA SCRIPT_ENGINE.JS -->
+    <script>
+        // Simulamos inicio de sesión para omitir los overlays interactivos del motor web
+        localStorage.setItem('auth-hidden', 'false');
+        localStorage.setItem('auth_session', 'true');
+        
+        // Mock de funciones principales del motor web para evitar colisiones
+        window.init = function() {
+            console.log("[Book Compiler] init() del motor web evitado con éxito.");
+        };
+        window.loadAppAndInit = function() {
+            console.log("[Book Compiler] loadAppAndInit() del motor web evitado con éxito.");
+        };
+    </script>
+
+    <!-- CARGA DE DATOS ORIGINALES DEL VIAJE -->
+    <script src="data_restaurants.js"></script>
+    <script src="data_dias_00_08.js"></script>
+    <script src="data_dias_09_16.js"></script>
+    <script src="data_dias_17_24.js"></script>
+    <script src="data_combinator.js"></script>
+    
+    <!-- CARGA DE LÓGICAS Y GUÍAS TÁCTICAS -->
+    <script src="script_tactical.js"></script>
+    <script src="script_engine.js"></script>
+    
+    <!-- MOTOR DE PERSISTENCIA LOCAL -->
+    <script src="persistence.js"></script>
+
+    <!-- MOTOR DEL COMPILADOR DEL LIBRO (Cargado en último lugar) -->
+    <script src="script_libro.js"></script>
+
+</body>
+</html>

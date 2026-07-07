@@ -157,6 +157,12 @@ window.toggleBookingStatus = function (id, dayIndex) {
         Persistence.setItem(id, 'comprado');
     }
 
+    // Si la vista de reservas críticas a pantalla completa está activa, re-renderizarla
+    if (document.querySelector('.bookings-guide-container')) {
+        window.openCriticalBookingsView();
+        return;
+    }
+
     // Forzar re-render de la vista actual (si estamos en una excursión, el modal ya está abierto, 
     // pero lo más fácil es recargar el panel derecho o el visual card. En este caso recargamos la info estática para refrescar la UI)
     const btn = document.querySelector('.day-btn.active');
@@ -1072,7 +1078,7 @@ function loadDay(index) {
 // Variable global para el viajero seleccionado
 let selectedTraveler = Persistence.getItem('selectedTraveler') || 'FELIPE';
 
-function renderDocumentationCenter(data) {
+function renderDocumentationCenter(data, standalone = false) {
     if (!data.documentation) return '';
 
     let categoriesHTML = data.documentation.categories.map(category => {
@@ -1119,16 +1125,126 @@ function renderDocumentationCenter(data) {
 
     return `
         <div class="docs-center-container">
+            ${standalone ? '' : `
             <div class="docs-center-header">
                 <h2><i class="fa-solid fa-folder-open" style="color: var(--neon-blue);"></i> Expediente de Documentación</h2>
                 <p>Pincha en cualquier documento para abrirlo en una pestaña nueva o ver instrucciones de subida si aún no está subido.</p>
             </div>
+            `}
             <div class="docs-grid">
                 ${categoriesHTML}
             </div>
         </div>
     `;
 }
+
+window.openDocumentationCenterView = function() {
+    const centerCard = document.getElementById('visual-card');
+    if (!centerCard) return;
+    
+    document.body.classList.add('mode-excursion-active');
+    
+    const data = travelData[0];
+    
+    centerCard.innerHTML = `
+        <div class="docs-guide-container" style="background: rgba(13, 17, 23, 0.85); border: 1px solid var(--neon-blue); border-radius: 16px; padding: 25px; box-shadow: 0 0 30px rgba(56, 189, 248, 0.2); backdrop-filter: blur(10px); animation: fadeIn 0.4s ease-out; color: white; font-family: 'Montserrat', sans-serif;">
+            <!-- Cabecera -->
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid rgba(56, 189, 248, 0.3); padding-bottom: 15px; margin-bottom: 20px; flex-wrap: wrap; gap: 15px;">
+                <h1 style="color: var(--neon-blue); margin: 0; font-size: 1.6rem; letter-spacing: 2px; text-transform: uppercase; display: flex; align-items: center; gap: 12px; font-weight: 800; text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);">
+                    <i class="fa-solid fa-folder-open" style="color: var(--neon-blue); font-size: 1.8rem;"></i> EXPEDIENTE DE DOCUMENTACIÓN
+                </h1>
+                <button onclick="document.body.classList.remove('mode-excursion-active'); renderPreparationPage(travelData[0]);" class="back-itinerary-btn prominent" style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); color: white; padding: 8px 16px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 8px; font-size: 0.75rem; letter-spacing: 0.5px; text-transform: uppercase; font-family: inherit;">
+                    <i class="fa-solid fa-arrow-left"></i> Volver a Preparación
+                </button>
+            </div>
+
+            <!-- Contenido -->
+            ${renderDocumentationCenter(data, true)}
+
+            <!-- Retorno al final de la página -->
+            <div style="display: flex; justify-content: center; margin-top: 35px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 25px;">
+                <button onclick="document.body.classList.remove('mode-excursion-active'); renderPreparationPage(travelData[0]);" class="back-itinerary-btn prominent" style="background: rgba(56, 189, 248, 0.15); border: 1px solid var(--neon-blue); color: var(--neon-blue); padding: 12px 32px; border-radius: 10px; font-weight: 800; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 10px; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; font-family: inherit; box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);">
+                    <i class="fa-solid fa-chevron-left"></i> Volver al Plan de Acción
+                </button>
+            </div>
+        </div>
+    `;
+};
+
+window.openCriticalBookingsView = function() {
+    const centerCard = document.getElementById('visual-card');
+    if (!centerCard) return;
+    
+    document.body.classList.add('mode-excursion-active');
+    
+    const data = travelData[0];
+    
+    centerCard.innerHTML = `
+        <div class="bookings-guide-container" style="background: rgba(13, 17, 23, 0.85); border: 1px solid var(--neon-purple); border-radius: 16px; padding: 25px; box-shadow: 0 0 30px rgba(168, 85, 247, 0.2); backdrop-filter: blur(10px); animation: fadeIn 0.4s ease-out; color: white; font-family: 'Montserrat', sans-serif;">
+            <!-- Cabecera -->
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid rgba(168, 85, 247, 0.3); padding-bottom: 15px; margin-bottom: 20px; flex-wrap: wrap; gap: 15px;">
+                <h1 style="color: var(--neon-purple); margin: 0; font-size: 1.6rem; letter-spacing: 2px; text-transform: uppercase; display: flex; align-items: center; gap: 12px; font-weight: 800; text-shadow: 0 0 10px rgba(168, 85, 247, 0.3);">
+                    <i class="fa-solid fa-calendar-check" style="color: var(--neon-purple); font-size: 1.8rem;"></i> CONTROL MAESTRO DE RESERVAS
+                </h1>
+                <button onclick="document.body.classList.remove('mode-excursion-active'); renderPreparationPage(travelData[0]);" class="back-itinerary-btn prominent" style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); color: white; padding: 8px 16px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 8px; font-size: 0.75rem; letter-spacing: 0.5px; text-transform: uppercase; font-family: inherit;">
+                    <i class="fa-solid fa-arrow-left"></i> Volver a Preparación
+                </button>
+            </div>
+
+            <!-- Contenido del Control de Reservas -->
+            <div class="booking-master-panel-v3" style="background: rgba(15,23,42,0.6); border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 12px; padding: 20px; box-shadow: 0 0 20px rgba(168, 85, 247, 0.05); width: 100%;">
+                <div style="font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-bottom: 20px; line-height: 1.5;">
+                    <i class="fa-solid fa-info-circle" style="color: var(--neon-purple); margin-right: 6px;"></i>
+                    Aquí puedes hacer el seguimiento del estado de reserva de los hitos críticos del viaje. Haz clic en <strong>PENDIENTE/COMPRADO</strong> para actualizar el estado.
+                </div>
+                
+                <div class="booking-grid-v3-fullscreen" style="display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
+                    ${data.bookingPanel.phases.map(phase => `
+                        <div style="background: rgba(0,0,0,0.4); padding: 15px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.05); border-left: 4px solid ${phase.color};">
+                            <div style="font-size:0.85rem; color:${phase.color}; font-weight:900; text-transform:uppercase; margin-bottom:12px; letter-spacing: 0.5px;">${phase.name}</div>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                ${phase.items.map(item => {
+                                    const isComprado = Persistence.getItem(item.id) === 'comprado';
+                                    return `
+                                    <div style="font-size:0.85rem; display: flex; flex-direction: column; gap: 6px; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.02);">
+                                        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 10px;">
+                                            <span style="color:white; opacity: 0.9; font-weight: bold; line-height: 1.3;">${item.name}</span>
+                                            <span style="color:rgba(255,255,255,0.5); font-size:0.7rem; white-space: nowrap;">${item.date}</span>
+                                        </div>
+                                        <div style="display: flex; gap: 8px; margin-top: 6px;">
+                                            <button id="${item.id}_btn" onclick="window.toggleBookingStatus('${item.id}', 0)" 
+                                                    style="background: ${isComprado ? 'var(--success)' : 'rgba(239, 68, 68, 0.2)'}; 
+                                                           color: white; border: 1px solid ${isComprado ? 'var(--success)' : 'var(--danger)'}; 
+                                                           padding: 5px 10px; border-radius: 6px; font-size: 0.75rem; cursor: pointer; flex: 1; transition: all 0.3s; font-weight: bold; letter-spacing: 0.5px; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                                                <i class="fa-solid ${isComprado ? 'fa-check-double' : 'fa-clock'}"></i> 
+                                                ${isComprado ? 'COMPRADO' : 'PENDIENTE'}
+                                            </button>
+                                            ${item.link ? `
+                                                <a href="${item.link}" target="_blank" 
+                                                   style="background: rgba(56,189,248,0.1); color: #38bdf8; border: 1px solid #38bdf8; 
+                                                          padding: 5px 12px; border-radius: 6px; font-size: 0.75rem; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px; font-weight: bold;">
+                                                    <i class="fa-solid fa-link"></i> WEB
+                                                </a>
+                                            ` : ''}
+                                        </div>
+                                    </div>
+                                    `;
+                                }).join('')}
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+
+            <!-- Retorno al final de la página -->
+            <div style="display: flex; justify-content: center; margin-top: 35px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 25px;">
+                <button onclick="document.body.classList.remove('mode-excursion-active'); renderPreparationPage(travelData[0]);" class="back-itinerary-btn prominent" style="background: rgba(168, 85, 247, 0.15); border: 1px solid var(--neon-purple); color: var(--neon-purple); padding: 12px 32px; border-radius: 10px; font-weight: 800; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 10px; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; font-family: inherit; box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);">
+                    <i class="fa-solid fa-chevron-left"></i> Volver al Plan de Acción
+                </button>
+            </div>
+        </div>
+    `;
+};
 
 function renderPreparationPage(data) {
     const centerCard = document.getElementById('visual-card');
@@ -1163,70 +1279,19 @@ function renderPreparationPage(data) {
             </button>`;
     }).join('');
 
-    // === BLOQUE SUPERIOR V3: PLAN MAESTRO COMPACTO (ANCHO COMPLETO) ===
-    let topSectionHTML = `
-        <div class="prep-top-layout-v3" style="margin-bottom: 30px;">
-            ${data.bookingPanel ? `
-                <div class="booking-master-panel-v3" style="background: rgba(15,23,42,0.9); border: 1px solid var(--gold); border-radius: 12px; padding: 15px; box-shadow: 0 0 20px rgba(251,191,36,0.1); width: 100%;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(251,191,36,0.2); padding-bottom: 10px; margin-bottom: 15px;">
-                        <h3 style="color:var(--gold); margin:0; font-size:1rem; text-transform: uppercase; letter-spacing: 1px;">
-                            <i class="fa-solid fa-calendar-check"></i> ${data.bookingPanel.title}
-                        </h3>
-                        <span style="font-size: 0.7rem; color: rgba(255,255,255,0.4); text-transform: uppercase;">Resumen de Fechas Críticas</span>
-                    </div>
-                    
-                    <div class="booking-grid-v3 custom-scroll">
-                        ${data.bookingPanel.phases.map(phase => `
-                            <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 8px; border-left: 3px solid ${phase.color};">
-                                <div style="font-size:0.75rem; color:${phase.color}; font-weight:900; text-transform:uppercase; margin-bottom:8px;">${phase.name}</div>
-                                <div style="display: flex; flex-direction: column; gap: 4px;">
-                                    ${phase.items.map(item => {
-                                        const isComprado = Persistence.getItem(item.id) === 'comprado';
-                                        return `
-                                        <div style="font-size:0.8rem; display: flex; flex-direction: column; gap: 4px; background: rgba(255,255,255,0.03); padding: 8px; border-radius: 6px; margin-bottom: 5px;">
-                                            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                                                <span style="color:white; opacity: 0.9; font-weight: bold; flex: 1;">${item.name}</span>
-                                                <span style="color:rgba(255,255,255,0.4); font-size:0.65rem; margin-left: 10px;">${item.date}</span>
-                                            </div>
-                                            <div style="display: flex; gap: 6px; margin-top: 4px;">
-                                                <button onclick="window.toggleBookingStatus('${item.id}', 0)" 
-                                                        style="background: ${isComprado ? 'var(--success)' : 'rgba(239, 68, 68, 0.2)'}; 
-                                                               color: white; border: 1px solid ${isComprado ? 'var(--success)' : 'var(--danger)'}; 
-                                                               padding: 3px 8px; border-radius: 4px; font-size: 0.65rem; cursor: pointer; flex: 1; transition: all 0.3s;">
-                                                    <i class="fa-solid ${isComprado ? 'fa-check-double' : 'fa-clock'}"></i> 
-                                                    ${isComprado ? 'COMPRADO' : 'PENDIENTE'}
-                                                </button>
-                                                ${item.link ? `
-                                                    <a href="${item.link}" target="_blank" 
-                                                       style="background: rgba(56,189,248,0.1); color: #38bdf8; border: 1px solid #38bdf8; 
-                                                              padding: 3px 8px; border-radius: 4px; font-size: 0.65rem; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 4px;">
-                                                        <i class="fa-solid fa-link"></i> WEB
-                                                    </a>
-                                                ` : ''}
-                                            </div>
-                                        </div>
-                                        `;
-                                    }).join('')}
-                                </div>
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-            ` : ''}
-        </div>
-
-        <!-- BLOQUE MEDIO: SELECTOR DE VIAJEROS (UNA SOLA LÍNEA) -->
-        <div class="traveler-control-strip">
-            <div class="traveler-selector-v3">
-                <div style="color: var(--neon-blue); font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">
+    // === TIRA DE CONTROL DE VIAJEROS (CON SELECTOR Y PROGRESO) ===
+    let travelerControlStripHTML = `
+        <div class="traveler-control-strip" style="margin-bottom: 25px; background: rgba(13, 17, 23, 0.4); padding: 12px 18px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; width: 100%;">
+            <div class="traveler-selector-v3" style="display: flex; align-items: center; gap: 12px;">
+                <div style="color: var(--neon-blue); font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap;">
                     <i class="fa-solid fa-user-gear"></i> Misión de:
                 </div>
-                <div class="traveler-avatars-row" style="display: flex; gap: 6px; flex-wrap: wrap; justify-content: center;">
+                <div class="traveler-avatars-row" style="display: flex; gap: 6px; flex-wrap: wrap;">
                     ${travelerAvatarsHTML}
                 </div>
             </div>
 
-            <div class="progress-info-compact" style="flex: 1; min-width: 200px; display: flex; align-items: center; gap: 15px;">
+            <div class="progress-info-compact" style="flex: 1; min-width: 240px; display: flex; align-items: center; gap: 15px;">
                 <div style="flex: 1;">
                     <div style="display: flex; justify-content: space-between; font-size: 0.75rem; margin-bottom: 4px;">
                         <span style="color: white; font-weight: 800;">VIAJERO: ${selectedTraveler}</span>
@@ -1251,26 +1316,43 @@ function renderPreparationPage(data) {
                         </h1>
                         
                         <!-- Infografías en cabecera de preparación -->
-                        <div class="infographic-stack" style="display:flex; gap:10px; align-items: center;">
+                        <div class="infographic-stack" style="display:flex; gap:15px; align-items: center; flex-wrap: wrap; margin-left: auto;">
                             ${(window.getBestDayInfographic ? window.getBestDayInfographic(data) : []).map(src => `
                                 <div class="infographic-preview-container" onclick="openInfographic('${src}')" style="width:100%; max-width:120px; flex-shrink: 0;">
                                     <img src="${src}" class="infographic-thumb" alt="Infografía" style="width:100%; height:auto; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;">
                                 </div>
                             `).join('')}
                             
-                            <!-- Botón de Acceso a la Guía de Entradas/Excursiones -->
-                            <div class="gastro-radar-wrapper" style="margin-left: 10px; display: flex; flex-direction: column; align-items: center; flex-shrink: 0;">
-                                <button class="gastro-radar-btn pulse" style="background: rgba(251, 191, 36, 0.15); border: 2px solid var(--gold); color: var(--gold); box-shadow: 0 0 15px rgba(251, 191, 36, 0.4);" onclick="window.openExcursionsGuide()" title="Guía de Entradas y Excursiones">
-                                    <i class="fa-solid fa-ticket"></i>
-                                </button>
-                                <span class="gastro-radar-label" style="color: var(--gold); margin-top: 4px;">Guía de Entradas</span>
+                            <!-- Toolbar de Accesos a Subvistas -->
+                            <div class="prep-access-toolbar" style="display: flex; gap: 15px; align-items: center;">
+                                <!-- Guía de Entradas -->
+                                <div style="display: flex; flex-direction: column; align-items: center; flex-shrink: 0;">
+                                    <button class="prep-nav-btn prep-nav-btn-gold pulse" onclick="window.openExcursionsGuide()" title="Guía de Entradas y Excursiones">
+                                        <i class="fa-solid fa-ticket"></i>
+                                    </button>
+                                    <span class="gastro-radar-label" style="color: var(--gold); margin-top: 4px; font-size: 0.65rem;">Entradas</span>
+                                </div>
+
+                                <!-- Expediente de Documentación -->
+                                <div style="display: flex; flex-direction: column; align-items: center; flex-shrink: 0;">
+                                    <button class="prep-nav-btn prep-nav-btn-blue" onclick="window.openDocumentationCenterView()" title="Centro de Documentación">
+                                        <i class="fa-solid fa-folder-open"></i>
+                                    </button>
+                                    <span class="gastro-radar-label" style="color: var(--neon-blue); margin-top: 4px; font-size: 0.65rem;">Documentos</span>
+                                </div>
+
+                                <!-- Control Maestro de Reservas Críticas -->
+                                <div style="display: flex; flex-direction: column; align-items: center; flex-shrink: 0;">
+                                    <button class="prep-nav-btn prep-nav-btn-purple" onclick="window.openCriticalBookingsView()" title="Control Maestro de Reservas Críticas">
+                                        <i class="fa-solid fa-calendar-check"></i>
+                                    </button>
+                                    <span class="gastro-radar-label" style="color: var(--neon-purple); margin-top: 4px; font-size: 0.65rem;">Reservas</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
-                    ${renderDocumentationCenter(data)}
-                    
-                    ${topSectionHTML}
+                    ${travelerControlStripHTML}
                 </div>
 
                 <div class="preparation-sections">

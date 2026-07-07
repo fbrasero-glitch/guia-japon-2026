@@ -324,15 +324,19 @@ const travelData_00_08 = [
                     icon: "fa-solid fa-id-card",
                     color: "#00f3ff",
                     items: [
+                        { name: "DNI - FELIPE", file: "https://drive.google.com/file/d/1o7V5PVg3k43L1MPy0Jq9i98TyCgNHV2_/view?usp=drive_web", isIndividual: true, traveler: "FELIPE" },
+                        { name: "DNI - IVAN", file: "https://drive.google.com/file/d/1wz0mAHPGEK0TaMvX4PwwVbrU3vtdaPhX/view?usp=drive_web", isIndividual: true, traveler: "IVAN" },
+                        { name: "DNI - LAURA", file: "https://drive.google.com/file/d/1tHIyNHILdG3aUhS9g08krSbAWVjh1r7v/view?usp=drive_web", isIndividual: true, traveler: "LAURA" },
+                        { name: "Pasaporte - LORENA", file: "https://drive.google.com/file/d/1tCAhYYzhHplwDC97wzQf3kL8BUtHIF0c/view?usp=drive_web", isIndividual: true, traveler: "LORENA" },
+                        { name: "Pasaporte - IVAN", file: "https://drive.google.com/file/d/1X4bqjcvQrJ2qPWcJB353cRkIyFV2OWIu/view?usp=drive_web", isIndividual: true, traveler: "IVAN" },
+                        { name: "Pasaporte - LAURA", file: "https://drive.google.com/file/d/1wWrTJbLyVNIJK3923HJXrU-Nc0fUFZO-/view?usp=drive_web", isIndividual: true, traveler: "LAURA" },
+                        { name: "Libro de Familia", file: "https://drive.google.com/file/d/1BCsJEQDNzmEwRYx4Z1MQHrWix0-CTtE8/view?usp=drive_web", isIndividual: false },
                         { name: "Pasaporte - FELIPE", file: "pdf/documentacion/Pasaporte_FELIPE.pdf", isIndividual: true, traveler: "FELIPE" },
-                        { name: "Pasaporte - LORENA", file: "pdf/documentacion/Pasaporte_LORENA.pdf", isIndividual: true, traveler: "LORENA" },
-                        { name: "Pasaporte - IVAN", file: "pdf/documentacion/Pasaporte_IVAN.pdf", isIndividual: true, traveler: "IVAN" },
-                        { name: "Pasaporte - LAURA", file: "pdf/documentacion/Pasaporte_LAURA.pdf", isIndividual: true, traveler: "LAURA" },
                         { name: "Pasaporte - GEMA", file: "pdf/documentacion/Pasaporte_GEMA.pdf", isIndividual: true, traveler: "GEMA" },
                         { name: "Pasaporte - CESAR", file: "pdf/documentacion/Pasaporte_CESAR.pdf", isIndividual: true, traveler: "CESAR" },
                         { name: "Pasaporte - VICENTE", file: "pdf/documentacion/Pasaporte_VICENTE.pdf", isIndividual: true, traveler: "VICENTE" },
                         { name: "Pasaporte - LOLA", file: "pdf/documentacion/Pasaporte_LOLA.pdf", isIndividual: true, traveler: "LOLA" },
-                        { name: "Seguro Heymondo (Condiciones Particulares)", file: "pdf/documentacion/Condiciones particulares seguro de viajes.pdf", isIndividual: false },
+                        { name: "Seguro Heymondo (Condiciones Particulares)", file: "https://drive.google.com/file/d/1xJOksMoijjDaPkwdgmWpzoWcJGM-nFOb/view?usp=drive_web", isIndividual: false },
                         { name: "Seguro Heymondo (Condiciones Generales)", file: "pdf/documentacion/Condiciones generales seguro de viaje (1).pdf", isIndividual: false }
                     ]
                 },
@@ -350,12 +354,13 @@ const travelData_00_08 = [
                     icon: "fa-solid fa-hotel",
                     color: "#fbbf24",
                     items: [
-                        { name: "Osaka: Dc桜の苑-難波南店", file: "pdf/documentacion/Reserva_Osaka_DC_Sakura.pdf", isIndividual: false },
-                        { name: "Kyoto: Alojamiento", file: "pdf/documentacion/Reserva_Kyoto_Hotel.pdf", isIndividual: false },
-                        { name: "Takayama: Ryokan", file: "pdf/documentacion/Reserva_Takayama_Ryokan.pdf", isIndividual: false },
+                        { name: "Osaka: Dc桜 de la Colina", file: "https://drive.google.com/file/d/1xo6ASUOzlSOY_fA3JUT9z4sUUGeTN6c7/view?usp=drive_web", isIndividual: false },
+                        { name: "Kyoto: Alojamiento", file: "https://drive.google.com/file/d/1cNpgPTJ1Ix30eGIrssUxC0nEsV6lHQt0/view?usp=drive_web", isIndividual: false },
+                        { name: "Takayama: Ryokan", file: "https://drive.google.com/file/d/14G6YI_uzp3EEl_zgwSwhftnF9PXGlhz1/view?usp=drive_web", isIndividual: false },
+                        { name: "Fuji: Hotel", file: "https://drive.google.com/file/d/1AMsKyrYZSUjYCq0oX6XK6hpDhZ_wbJbi/view?usp=drive_web", isIndividual: false },
+                        { name: "Tokio: Alojamiento", file: "https://drive.google.com/file/d/1AMsKyrYZSUjYCq0oX6XK6hpDhZ_wbJbi/view?usp=drive_web", isIndividual: false },
                         { name: "Kanazawa: Hotel", file: "pdf/documentacion/Reserva_Kanazawa_Hotel.pdf", isIndividual: false },
-                        { name: "Alpes: Shirakawa-go / Matsumoto", file: "pdf/documentacion/Reserva_Alpes_Hotel.pdf", isIndividual: false },
-                        { name: "Tokio: Alojamiento", file: "pdf/documentacion/Reserva_Tokio_Hotel.pdf", isIndividual: false }
+                        { name: "Alpes: Shirakawa-go / Matsumoto", file: "pdf/documentacion/Reserva_Alpes_Hotel.pdf", isIndividual: false }
                     ]
                 },
                 {
@@ -363,14 +368,16 @@ const travelData_00_08 = [
                     icon: "fa-solid fa-train-subway",
                     color: "#10b981",
                     items: [
-                        { name: "Shinkansen Kioto-Nagoya", file: "pdf/documentacion/Reserva_Shinkansen_Kyoto_Nagoya.pdf", isIndividual: false },
+                        { name: "Shinkansen Kioto-Nagoya (Reserva 1)", file: "https://drive.google.com/file/d/1zXmCnF76yGrWiLpBN0tumMAo6VJsZKWr/view?usp=drive_web", isIndividual: false },
+                        { name: "Shinkansen Kioto-Nagoya (Reserva 2)", file: "https://drive.google.com/file/d/1YlkBax0QLw-j8SXylUQnQPqWPCbXupSk/view?usp=drive_web", isIndividual: false },
                         { name: "Wide View Hida Tren", file: "pdf/documentacion/Reserva_Tren_Hida.pdf", isIndividual: false },
                         { name: "Limon Bus (Takayama-Fuji)", file: "pdf/documentacion/Billetes_Bus_Limon.pdf", isIndividual: false },
                         { name: "Nohi Bus (Shirakawa-go)", file: "pdf/documentacion/Billetes_Bus_Nohi.pdf", isIndividual: false },
                         { name: "Fuji Excursion Tren", file: "pdf/documentacion/Reserva_Tren_Fuji_Excursion.pdf", isIndividual: false },
                         { name: "Taxis Aeropuerto KIX (2 Taxis)", file: "pdf/documentacion/Reserva_Taxis_KIX.pdf", isIndividual: false },
-                        { name: "Permiso de Conducir Internacional", file: "pdf/documentacion/Permisos_Conducir_Internacionales.pdf", isIndividual: false },
-                        { name: "Plano Terminal KIX y Bus", file: "pdf/Plano Terminal KIX (Andén 5, Airport Limousine Bus a Umeda).pdf", isIndividual: false }
+                        { name: "Permiso Conducir Nacional - FELIPE", file: "https://drive.google.com/file/d/12rA1cXC5TDGmNIy0qMk9ew5C3FRNXvVD/view?usp=drive_web", isIndividual: false },
+                        { name: "Permiso Internacional - FELIPE", file: "https://drive.google.com/file/d/1toe9hvD0HjNWAzcWsIeAY5cBRJ_zZO22/view?usp=drive_web", isIndividual: false },
+                        { name: "Plano Terminal KIX y Bus", file: "https://drive.google.com/file/d/1h44-Fq5fk5U4YPavIwOHeGoSE4q-Bj8g/view?usp=drive_web", isIndividual: false }
                     ]
                 },
                 {
@@ -378,9 +385,10 @@ const travelData_00_08 = [
                     icon: "fa-solid fa-ticket",
                     color: "#ef4444",
                     items: [
-                        { name: "TeamLab Borderless (Email/Reserva)", file: "pdf/correo teamslab.pdf", isIndividual: false },
-                        { name: "TeamLab Borderless (Entrada 1)", file: "pdf/entrada teams labs 1.pdf", isIndividual: false },
-                        { name: "TeamLab Borderless (Entrada 2)", file: "pdf/entrada teams labs 2.pdf", isIndividual: false },
+                        { name: "TeamLab Borderless (Email/Reserva)", file: "https://drive.google.com/file/d/1TyP8oCbpqklR9_v47i7ankClwxkA2k3Z/view?usp=drive_web", isIndividual: false },
+                        { name: "TeamLab Borderless (Entrada 1)", file: "https://drive.google.com/file/d/1A5An-IDjD5cEF7fLUfPwjI4_9ZTNIyq9/view?usp=drive_web", isIndividual: false },
+                        { name: "TeamLab Borderless (Entrada 2)", file: "https://drive.google.com/file/d/1f0cr6czRBHPX1uYn2n_RC1bvSODHdENd/view?usp=drive_web", isIndividual: false },
+                        { name: "Onsen (Reserva Takayama)", file: "https://drive.google.com/file/d/1f3zkdJ3tLlYK9V3pWOKVjE3bPpHF2JHh/view?usp=drive_web", isIndividual: false },
                         { name: "Universal Studios (USJ Osaka)", file: "pdf/documentacion/Entradas_USJ_Osaka.pdf", isIndividual: false },
                         { name: "Shibuya Sky (Tokio)", file: "pdf/documentacion/Entradas_Shibuya_Sky.pdf", isIndividual: false },
                         { name: "Palacio Imperial de Kioto", file: "pdf/documentacion/Reserva_Palacio_Kyoto.pdf", isIndividual: false },
@@ -408,14 +416,15 @@ const travelData_00_08 = [
                     icon: "fa-solid fa-map-location-dot",
                     color: "#06b6d4",
                     items: [
-                        { name: "Guía de Kioto (Subway & Bus)", file: "pdf/kyoto Travel Map Subway & Bus Navi.pdf", isIndividual: false },
+                        { name: "Guía de Kioto (Subway & Bus)", file: "https://drive.google.com/file/d/1vcA01polZy2Dz9PneLO-Y3IMwCLRfeVd/view?usp=drive_web", isIndividual: false },
+                        { name: "Mapa de Kioto (Subway)", file: "https://drive.google.com/file/d/1N7exSJKmsc2uBrPUcF9N6pK-gfSR_Ijn/view?usp=drive_web", isIndividual: false },
+                        { name: "Mapa Metro de Tokio", file: "https://drive.google.com/file/d/1Ob7rQjlnSdJ0MIA1DergAmtT5lrmbpoE/view?usp=drive_web", isIndividual: false },
+                        { name: "Mapa Metro de Osaka", file: "https://drive.google.com/file/d/1wrn4YelcNnYASYiicgto6_LOw1pxg_Fc/view?usp=drive_web", isIndividual: false },
+                        { name: "Guía de paseo Takayama", file: "https://drive.google.com/file/d/1R152-vKJ60FwQ8xxcju0ZsaoI_N8188C/view?usp=drive_web", isIndividual: false },
                         { name: "Guía de Kioto (Portada)", file: "pdf/kyoto Travel Map Subway & Bus Navi front.pdf", isIndividual: false },
                         { name: "Mapa de Shibuya 1", file: "pdf/sibuya maps.pdf", isIndividual: false },
                         { name: "Mapa de Shibuya 2", file: "pdf/sibuya maps 2.pdf", isIndividual: false },
                         { name: "Mapa Torres Akihabara", file: "pdf/Akijabara tower maps.pdf", isIndividual: false },
-                        { name: "Guía de paseo Takayama", file: "pdf/TAKAYAMA_walking_map_en.pdf", isIndividual: false },
-                        { name: "Mapa Metro de Tokio", file: "pdf/map_tokyo_metro.pdf", isIndividual: false },
-                        { name: "Mapa Metro de Osaka", file: "pdf/osaka_metro_map.pdf", isIndividual: false },
                         { name: "Mapa Red JR Osaka", file: "pdf/map_osaka jr.pdf", isIndividual: false },
                         { name: "Plano Estación de Osaka", file: "pdf/station_osaka.pdf", isIndividual: false }
                     ]
