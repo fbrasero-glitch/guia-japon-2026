@@ -2197,14 +2197,45 @@ window.tacticalMissions = {
             {
                 time: "08:45 – 09:19",
                 title: "2. Tramo 1: Kioto ➔ Nagoya (Shinkansen)",
-                content: "Tren: Shinkansen. Billetes YA COMPRADOS para las 08:45. Llegada puntual a Nagoya a las 09:19.",
-                warning: "Billetes (8 pax): 20.680 ¥ (3 adultos + 1 niño) y 23.640 ¥ (4 adultos)."
+                content: `
+                    Tren: <strong>Shinkansen Nozomi 2</strong>. Billetes COMPRADOS (08:45 -> 09:19).<br>
+                    <strong>Asientos asignados (Vagón 16 / Filas 14 a 17, asientos D y E contiguos):</strong><br>
+                    <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(130px, 1fr)); gap:6px; margin:10px 0;">
+                        <a href="https://drive.google.com/open?id=1yHpMIaWl_fmixNLC5dbQkpAfEa9rXb2P" target="_blank" class="tactical-btn" style="padding:4px; text-align:center; font-size:0.7rem; border-radius:4px; text-decoration:none; background:rgba(251,191,36,0.1); border:1px solid var(--gold); color:var(--gold); display:flex; align-items:center; justify-content:center; gap:4px; font-weight:bold;">🎟️ Asiento 14-D</a>
+                        <a href="https://drive.google.com/file/d/1tun7ueusFQnpUOFMqSeqDnax2KX7LZmr/view?usp=drive_web" target="_blank" class="tactical-btn" style="padding:4px; text-align:center; font-size:0.7rem; border-radius:4px; text-decoration:none; background:rgba(251,191,36,0.1); border:1px solid var(--gold); color:var(--gold); display:flex; align-items:center; justify-content:center; gap:4px; font-weight:bold;">🎟️ Asiento 14-E</a>
+                        <a href="https://drive.google.com/open?id=1ItwJ4eETtAVcwPX17PcdYVqsIWCf3Bo2" target="_blank" class="tactical-btn" style="padding:4px; text-align:center; font-size:0.7rem; border-radius:4px; text-decoration:none; background:rgba(251,191,36,0.1); border:1px solid var(--gold); color:var(--gold); display:flex; align-items:center; justify-content:center; gap:4px; font-weight:bold;">🎟️ Asiento 15-D</a>
+                        <a href="https://drive.google.com/file/d/1RNENXx3ID7uKZpP7Fo3CTmLnChYsVAYS/view?usp=drive_web" target="_blank" class="tactical-btn" style="padding:4px; text-align:center; font-size:0.7rem; border-radius:4px; text-decoration:none; background:rgba(251,191,36,0.1); border:1px solid var(--gold); color:var(--gold); display:flex; align-items:center; justify-content:center; gap:4px; font-weight:bold;">🎟️ Asiento 15-E</a>
+                        <a href="https://drive.google.com/open?id=1mOK6sF70Q-8hR27Vcv1MLUGXN2duqUBi" target="_blank" class="tactical-btn" style="padding:4px; text-align:center; font-size:0.7rem; border-radius:4px; text-decoration:none; background:rgba(251,191,36,0.1); border:1px solid var(--gold); color:var(--gold); display:flex; align-items:center; justify-content:center; gap:4px; font-weight:bold;">🎟️ Asiento 16-D</a>
+                        <a href="https://drive.google.com/open?id=11P90H4NdNK6Krzmw63UImJaOQqZ4v_5O" target="_blank" class="tactical-btn" style="padding:4px; text-align:center; font-size:0.7rem; border-radius:4px; text-decoration:none; background:rgba(251,191,36,0.1); border:1px solid var(--gold); color:var(--gold); display:flex; align-items:center; justify-content:center; gap:4px; font-weight:bold;">🎟️ Asiento 16-E</a>
+                        <a href="https://drive.google.com/file/d/1eFRPvLoQFv0AhmEqyJCc8TUfeBG8nzN-/view?usp=drive_web" target="_blank" class="tactical-btn" style="padding:4px; text-align:center; font-size:0.7rem; border-radius:4px; text-decoration:none; background:rgba(251,191,36,0.1); border:1px solid var(--gold); color:var(--gold); display:flex; align-items:center; justify-content:center; gap:4px; font-weight:bold;">🎟️ Asiento 17-D</a>
+                        <a href="https://drive.google.com/file/d/1jPMfZAwXCrSorUAKTnXJcxQIUHdUQfQy/view?usp=drive_web" target="_blank" class="tactical-btn" style="padding:4px; text-align:center; font-size:0.7rem; border-radius:4px; text-decoration:none; background:rgba(251,191,36,0.1); border:1px solid var(--gold); color:var(--gold); display:flex; align-items:center; justify-content:center; gap:4px; font-weight:bold;">🎟️ Asiento 17-E</a>
+                    </div>
+                `,
+                warning: "Acceso con código QR en los tornos de la estación de Kioto (llevar cargados en el móvil)."
             },
             {
                 time: "10:00",
-                title: "3. Tramo 2: Nagoya ➔ Takayama (Tren Escénico)",
-                content: "Tren: Wide View Hida. Duración: ~2h 30min. Precio: ~6.000 JPY por persona. Vistas espectaculares del valle fluvial.",
-                warning: "Reserva previa recomendable para ir todos juntos."
+                title: "3. Tramo 2: Nagoya ➔ Takayama (Tren Wide View Hida)",
+                content: `
+                    Tren: <strong>Wide View Hida 7</strong> (10:00 -> 12:30). Duración: 2h 30m.<br>
+                    <strong>Asientos y Vagón:</strong> Reservados para el grupo de 8 (se detallan en los billetes impresos).<br>
+                    <div style="background:rgba(16,185,129,0.05); border:1px solid var(--success); border-radius:8px; padding:12px; margin-top:10px; font-size:0.85rem; text-align:left;">
+                        <h5 style="color:var(--success); margin:0 0 8px 0; font-size:0.9rem;"><i class="fa-solid fa-cloud-arrow-down"></i> Instrucciones de Recogida (Billetes Físicos)</h5>
+                        <p style="margin:0 0 8px 0; line-height:1.4; color:white;">Estos billetes de JR-WEST <strong>obligatoriamente se deben imprimir</strong> en papel de cartón en Japón antes de subir al tren:</p>
+                        <ol style="margin:0; padding-left:15px; display:flex; flex-direction:column; gap:6px; line-height:1.4; color:white;">
+                            <li><strong>¿Dónde?</strong> En las máquinas de venta verdes de JR (con lector de pasaportes) o en taquillas oficiales (Midori-no-madoguchi). <em>Recomendación: Sacadlos con calma en la Estación de Kioto unos días antes del viaje.</em></li>
+                            <li><strong>¿Qué necesitas llevar?</strong>
+                                <br>• La <strong>tarjeta de crédito física</strong> utilizada (MasterCard terminada en <strong>7801</strong>) para insertarla en la ranura.
+                                <br>• Tu <strong>código PIN de 4 dígitos</strong> (creado durante la compra).
+                                <br>• Los <strong>dos números de reserva</strong>:
+                                    <br>&nbsp;&nbsp;&nbsp;- Reserva 1: <strong style="color:var(--gold);">41256</strong> (3 adultos + 1 niño)
+                                    <br>&nbsp;&nbsp;&nbsp;- Reserva 2: <strong style="color:var(--gold);">42023</strong> (4 adultos)
+                            </li>
+                            <li><strong>¿Cómo usar los billetes?</strong> La máquina imprimirá un billete de tarifa básica (Basic Fare) y otro de tren exprés (Limited Express) por persona. <strong>Introduce ambos billetes juntos</strong> en la ranura del torno al entrar en Nagoya y no olvides recogerlos al pasar. Repite el proceso para salir en Takayama.</li>
+                        </ol>
+                    </div>
+                `,
+                warning: "Nota: No hay opción digital/QR para este trayecto. Es indispensable realizar la impresión física antes."
             },
             {
                 time: "13:40",
@@ -2228,9 +2259,9 @@ window.tacticalMissions = {
                         <td style="padding:5px; text-align:right;">44.320 JPY</td>
                     </tr>
                     <tr>
-                        <td style="padding:5px;">Wide View Hida</td>
-                        <td style="padding:5px; color:var(--gold);">Pendiente</td>
-                        <td style="padding:5px; text-align:right;">~48.000 JPY</td>
+                        <td style="padding:5px;">Wide View Hida (Nagoya ➔ Takayama)</td>
+                        <td style="padding:5px; color:var(--success); font-weight:bold;">COMPRADO</td>
+                        <td style="padding:5px; text-align:right;">Imprimir Billetes</td>
                     </tr>
                     <tr>
                         <td style="padding:5px;">Bus Nohi (13:40)</td>

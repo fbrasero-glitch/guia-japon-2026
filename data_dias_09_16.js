@@ -583,7 +583,8 @@ const travelData_09_16 = [
         image: "images/okuhida_ryokan.png",
 
         logistics: [
-            { title: "Billetes Shinkansen", text: "COMPRADO: Nozomi 2 (08:45 -> 09:19). ID Membresía: 18*****405. Reserva 20** (3 Ad + 1 Niño) y Reserva 20** (4 Ad). <strong>Los billetes finales y asientos se enviarán por email el 6 de Julio de 2026</strong> (1 mes antes de la salida).<br>Enlaces del servicio:<br>• <a href='https://shinkansen2.jr-central.co.jp/RSV_P/S_smart_en_index.htm' target='_blank' style='color:#38bdf8; text-decoration:underline;'>Gestión Reservas (Móvil)</a><br>• <a href='https://shinkansen2.jr-central.co.jp/RSV_P/smart_en_index.htm' target='_blank' style='color:#38bdf8; text-decoration:underline;'>Gestión Reservas (PC)</a><br>• <a href='https://smart-ex.jp/en/' target='_blank' style='color:#38bdf8; text-decoration:underline;'>Guía de Uso Smart EX</a><br>• <a href='https://smart-ex.jp/en/faq/index.php' target='_blank' style='color:#38bdf8; text-decoration:underline;'>Preguntas Frecuentes (FAQ)</a><br>• <a href='https://ec.travel.jr-central.co.jp/extraindp/ex?lang=en' target='_blank' style='color:#38bdf8; text-decoration:underline;'>Hoteles y Actividades JR-Central</a>" },
+            { title: "Billetes Shinkansen", text: "COMPRADO: Nozomi 2 (08:45 -> 09:19). Asientos reservados en <strong>Vagón 16 (Filas 14 a 17, asientos D y E)</strong>. Los códigos QR individuales de acceso están vinculados en el panel de Documentos (Día 0) y en la Guía de Transporte de este día." },
+            { title: "Billetes Hida (Nagoya-Takayama)", text: "COMPRADO: Hida 7 (10:00 -> 12:30). Localizadores <strong>41256</strong> (3 Ad + 1 Ch) y <strong>42023</strong> (4 Ad). Deben ser <strong>impresos físicamente</strong> en una máquina JR verde o ventanilla (ej. en Kioto) usando la tarjeta MasterCard terminada en <strong>7801</strong> y el PIN de 4 dígitos creado. Ver instrucciones completas en la Guía de Transporte." },
             { title: "Equipaje", text: "Solo mochilas de mano. Las maletas grandes van por Takkyubin a Tokio o Kawaguchiko." },
             { title: "Onsen", text: "Ducharse antes de entrar. Tatuajes: consultar política (o reservar privado)." }
         ],
@@ -594,11 +595,11 @@ const travelData_09_16 = [
                 time: "08:45",
                 type: "transit",
                 title: "Shinkansen Nozomi a Nagoya (COMPRADO)",
-                price: "Billetes: 44.320 JPY (Total 8 pax)",
+                price: "Asientos: Vagón 16, Filas 14-17 (D/E)",
                 timeLabel: "34 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Kyoto+Station&destination=Nagoya+Station&travelmode=transit",
                 tacticalGuideId: "mission_kyoto_to_okuhida",
-                booking: { id: "bk_shinkansen", timeframe: "1 mes antes (App SmartEX)", required: true, link: "https://shinkansen2.jr-central.co.jp/RSV_P/S_smart_en_index.htm" }
+                booking: { id: "bk_shinkansen", timeframe: "COMPRADO (QRs listos)", required: true, link: "https://shinkansen2.jr-central.co.jp/RSV_P/S_smart_en_index.htm" }
             },
             { 
                 time: "09:19", 
@@ -610,11 +611,12 @@ const travelData_09_16 = [
             {
                 time: "10:00",
                 type: "transit",
-                title: "Tren Wide View Hida a Takayama",
-                price: "~6.000 JPY / persona",
+                title: "Tren Wide View Hida a Takayama (COMPRADO)",
+                price: "Localizadores: 41256 / 42023",
                 timeLabel: "2h 30m",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Nagoya+Station&destination=Takayama+Station&travelmode=transit",
-                tacticalGuideId: "mission_kyoto_to_okuhida"
+                tacticalGuideId: "mission_kyoto_to_okuhida",
+                booking: { id: "bk_hida", timeframe: "COMPRADO (Imprimir JR)", required: true, link: "https://www.westjr.co.jp/global/en/ticket/route_search/" }
             },
             { time: "12:30", type: "point", title: "LLegada a Takayama / Almuerzo rápido", icon: "fa-solid fa-bowl-food" },
             {

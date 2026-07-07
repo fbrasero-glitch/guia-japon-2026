@@ -28,7 +28,7 @@ const travelData_00_08 = [
                     color: "var(--danger)",
                     items: [
                         { id: "bk_shinkansen", name: "Shinkansen Kioto-Nagoya (Nozomi 2, 08:45-09:19) [COMPRADO] - ID Membresía: 18*****405 | Reservas 20** y 20**. Asientos finales asignados el 6 de Julio.", status: "completed", date: "ENVIADO 6 JULIO", link: "https://shinkansen2.jr-central.co.jp/RSV_P/S_smart_en_index.htm" },
-                        { id: "bk_hida", name: "Wide View Hida (Nagoya-Takayama)", status: "pending", date: "1 mes antes", link: "https://www.westjr.co.jp/global/en/ticket/route_search/" },
+                        { id: "bk_hida", name: "Wide View Hida (Nagoya-Takayama) [COMPRADO] - Localizadores: 41256 (3 Ad + 1 Ch) y 42023 (4 Ad). Canjear billetes físicos JR.", status: "completed", date: "COMPRADO", link: "https://www.westjr.co.jp/global/en/ticket/route_search/" },
                         { id: "bk_fuji_excursion", name: "Tren Fuji Excursion (Regreso Tokio)", status: "pending", date: "Exactamente 1 mes antes", link: "https://www.eki-net.com/en/jreast-train-reservation/Top/Index" },
                         { id: "bk_bus_takayama_fuji", name: "LIMON Bus Takayama-Fuji (08:50) - 8 pax [80.000¥]", status: "completed", date: "COMPRADO", link: "https://www.nouhibus.co.jp/english/" },
                         { id: "bk_bus_nohi", name: "Bus Nohi (Shirakawa-go)", status: "pending", date: "1 mes antes", link: "https://www.nouhibus.co.jp/english/" }
