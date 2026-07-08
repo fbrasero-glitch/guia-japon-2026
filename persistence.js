@@ -8,6 +8,21 @@ const Persistence = {
     BASE_KEY: 'jap-2026-',
 
     /**
+     * Actualiza el indicador visual de conexión con la nube
+     */
+    updateCloudStatusUI(status) {
+        const el = document.getElementById('cloud-status-indicator');
+        if (!el) return;
+        if (status === 'connected') {
+            el.innerHTML = '<span style="color:var(--success); font-size:0.75rem; display:flex; align-items:center; gap:5px;"><i class="fa-solid fa-cloud"></i> Nube Sincronizada</span>';
+        } else if (status === 'error') {
+            el.innerHTML = '<span style="color:var(--danger); font-size:0.75rem; cursor:pointer; display:flex; align-items:center; gap:5px;" onclick="alert(\'La base de datos en la nube está pausada por inactividad (o no tienes conexión a Internet).\\n\\nPara solucionarlo:\\n1. Inicia sesión en tu cuenta de Supabase.com.\\n2. Entra en tu proyecto y pulsa \\\'Restore Project\\\'.\\n3. En un par de minutos tu base de datos volverá a estar online y se sincronizará todo automáticamente.\')"><i class="fa-solid fa-cloud-slash"></i> Nube Desconectada (Clic aquí)</span>';
+        } else if (status === 'connecting') {
+            el.innerHTML = '<span style="color:var(--gold); font-size:0.75rem; display:flex; align-items:center; gap:5px;"><i class="fa-solid fa-spinner fa-spin"></i> Conectando nube...</span>';
+        }
+    },
+
+    /**
      * Obtiene un valor de la persistencia
      * @param {string} key 
      * @returns {string|null}
@@ -57,9 +72,13 @@ const Persistence = {
 
             if (error) {
                 console.error('Supabase: Error en upsert:', error);
+                this.updateCloudStatusUI('error');
+            } else {
+                this.updateCloudStatusUI('connected');
             }
         } catch (err) {
             console.error('Supabase: Fallo de red/conexión:', err);
+            this.updateCloudStatusUI('error');
         }
     },
 
@@ -69,9 +88,11 @@ const Persistence = {
     async initCloudSync() {
         if (!window.supabaseClient) {
             console.warn('Supabase: No se puede iniciar sincronización, cliente no disponible.');
+            this.updateCloudStatusUI('error');
             return;
         }
 
+        this.updateCloudStatusUI('connecting');
         console.log('Supabase: Iniciando descarga de datos...');
         try {
             const { data, error } = await window.supabaseClient
@@ -97,8 +118,10 @@ const Persistence = {
             } else {
                 console.log('Supabase: No hay datos remotos aún.');
             }
+            this.updateCloudStatusUI('connected');
         } catch (err) {
             console.error('Supabase: Error en descarga inicial:', err);
+            this.updateCloudStatusUI('error');
         }
     }
 };

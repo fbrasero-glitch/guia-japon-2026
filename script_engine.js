@@ -148,10 +148,29 @@ let map;        // Mapa principal
 let previewMap; // Mapa de la ventana espía
 let introVideo; // Video de portada
 
+// --- OBTENER ESTADO DE RESERVA CON FALLBACK ---
+window.getBookingStatus = function (id) {
+    const localState = Persistence.getItem(id);
+    if (localState !== null) {
+        return localState;
+    }
+    
+    // Fallback al estado definido por defecto en el panel de reservas del Día 0
+    if (window.travelData && window.travelData[0] && window.travelData[0].bookingPanel) {
+        for (const phase of window.travelData[0].bookingPanel.phases) {
+            const found = phase.items.find(item => item.id === id);
+            if (found) {
+                return found.status === 'completed' ? 'comprado' : 'pendiente';
+            }
+        }
+    }
+    return 'pendiente';
+};
+
 // --- SISTEMA DE RESERVAS (LOCALSTORAGE) ---
 window.toggleBookingStatus = function (id, dayIndex) {
-    const currentState = Persistence.getItem(id);
-    if (currentState === 'comprado') {
+    const currentStatus = window.getBookingStatus(id);
+    if (currentStatus === 'comprado') {
         Persistence.setItem(id, 'pendiente');
     } else {
         Persistence.setItem(id, 'comprado');
@@ -348,7 +367,7 @@ window.addEventListener('click', function(e) {
 
 window.renderBookingBadge = function (booking, dayIndex) {
     if (!booking) return '';
-    const state = Persistence.getItem(booking.id) === 'comprado' ? 'comprado' : 'pendiente';
+    const state = window.getBookingStatus(booking.id);
     const isComprado = state === 'comprado';
 
     return `
@@ -1204,7 +1223,7 @@ window.openCriticalBookingsView = function() {
                             <div style="font-size:0.85rem; color:${phase.color}; font-weight:900; text-transform:uppercase; margin-bottom:12px; letter-spacing: 0.5px;">${phase.name}</div>
                             <div style="display: flex; flex-direction: column; gap: 8px;">
                                 ${phase.items.map(item => {
-                                    const isComprado = Persistence.getItem(item.id) === 'comprado';
+                                    const isComprado = window.getBookingStatus(item.id) === 'comprado';
                                     return `
                                     <div style="font-size:0.85rem; display: flex; flex-direction: column; gap: 6px; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.02);">
                                         <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 10px;">
@@ -1552,7 +1571,7 @@ window.getSmartAlertsHTML = function (data, dayIndex) {
 
     activities.forEach(act => {
         if (act && act.booking && (act.exactDate || data.exactDate)) {
-            const state = Persistence.getItem(act.booking.id);
+            const state = window.getBookingStatus(act.booking.id);
             if (state !== 'comprado') {
                 const dateToUse = act.exactDate || data.exactDate;
                 const eventDate = new Date(dateToUse);
@@ -3698,7 +3717,7 @@ window.toggleGuideBooking = function(bookingId) {
         window.toggleBookingStatus(bookingId, 0);
         
         // Refrescar estado de los botones directamente en las tarjetas cargadas
-        const isComprado = Persistence.getItem(bookingId) === 'comprado';
+        const isComprado = window.getBookingStatus(bookingId) === 'comprado';
         const btns = document.querySelectorAll(`[id="${bookingId}_guide_btn"]`);
         btns.forEach(btn => {
             btn.style.background = isComprado ? 'var(--success)' : 'rgba(239, 68, 68, 0.2)';
@@ -3723,7 +3742,7 @@ window.renderGuideCards = function(data) {
     }
     
     container.innerHTML = data.map(item => {
-        const isComprado = item.bookingId ? (Persistence.getItem(item.bookingId) === 'comprado') : false;
+        const isComprado = item.bookingId ? (window.getBookingStatus(item.bookingId) === 'comprado') : false;
         
         let headerBadgeBg = 'var(--gold)';
         let headerBadgeText = '🎟️ TAQUILLA';
