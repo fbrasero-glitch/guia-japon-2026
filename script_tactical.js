@@ -5686,61 +5686,179 @@ function renderLegacyTacticalMission(missionId, dayIndex) {
             `;
         } else if (missionId === 'mission_fuji_excursion') {
             missionHTML = `
-                <div class="datapad-container animate-fade-in">
+                <div class="datapad-container animate-fade-in" style="max-height: 85vh; overflow-y: auto;">
                     <div class="datapad-header">
-                        <div class="datapad-mission-id">> MISSION_FILE: OP_RETORNO</div>
+                        <div class="datapad-mission-id">> MISSION_FILE: OP_RETORNO_TOKYO</div>
                         <button onclick="renderCenterVisual(travelData[${dayIndex}], 'selector')" class="datapad-close">
                             <i class="fa-solid fa-xmark"></i> CLOSE_FILE
                         </button>
                     </div>
                     
-                    <h1 class="datapad-title">> Operación Retorno (De los Lagos a la Jungla de Neón)</h1>
+                    <h1 class="datapad-title" style="display: flex; align-items: center; gap: 10px;">
+                        <i class="fa-solid fa-train-subway" style="color: var(--accent);"></i> 🚄 GUÍA RÁPIDA: Tren de regreso a Tokio (Fuji Excursion)
+                    </h1>
 
-                    <div class="tactical-data-grid" style="grid-template-columns: 1fr; gap: 20px;">
-                        <!-- PASO 1 -->
-                        <div class="data-block" style="border-left: 4px solid var(--neon-blue); background: rgba(0, 243, 255, 0.03);">
-                            <div class="data-label" style="color:var(--neon-blue);"><i class="fa-solid fa-gas-pump"></i> Paso 1: ⛽ Operación Repostaje (09:00 – 09:30)</div>
-                            <div style="padding: 10px; color: #e2e8f0; font-size: 0.9rem;">
-                                <p style="margin-bottom:10px;"><strong>Qué hacer:</strong> Llenar el depósito en la gasolinera más cercana a la oficina de Budget en la estación de Kawaguchiko (buscad una ENEOS u otra similar).</p>
-                                <div style="background:rgba(239, 68, 68, 0.15); border:1px solid var(--danger); padding:12px; border-radius:6px; margin-top:10px;">
-                                    <strong style="color:var(--danger);"><i class="fa-solid fa-circle-exclamation"></i> ⚠️ Punto Crítico:</strong>
-                                    <span style="color:#fca5a5;"> Guardad el ticket de la gasolina. Los agentes de la oficina de alquiler suelen exigirlo como prueba visual de que el depósito está lleno.</span>
+                    <div class="tactical-data-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; align-items: start; margin-top: 15px;">
+                        
+                        <!-- COLUMNA Izquierda: Datos y Mapa de Asientos -->
+                        <div style="display: flex; flex-direction: column; gap: 20px;">
+                            
+                            <!-- DATOS CLAVE -->
+                            <div class="data-block" style="border-left: 4px solid var(--accent); background: rgba(249, 115, 22, 0.03); padding: 15px;">
+                                <div class="data-label" style="color:var(--accent); font-weight: bold; margin-bottom: 10px;">
+                                    <i class="fa-solid fa-circle-info"></i> DATOS CLAVE DEL VIAJE
+                                </div>
+                                <ul class="data-list" style="list-style: none; padding-left: 0; margin: 0; font-size: 0.9rem; line-height: 1.6;">
+                                    <li style="margin-bottom: 8px;"><strong>Fecha:</strong> Martes, 11 de agosto.</li>
+                                    <li style="margin-bottom: 8px;"><strong>Estación de salida:</strong> Kawaguchiko (Monte Fuji).</li>
+                                    <li style="margin-bottom: 8px;"><strong>Hora de salida:</strong> <span style="color: var(--gold); font-weight: bold; font-size: 1rem;">14:08</span> <span style="font-size: 0.8rem; color: #a3a3a3;">(Se ruega estar en la estación al menos 15-20 minutos antes)</span>.</li>
+                                    <li style="margin-bottom: 8px;"><strong>Estación de llegada:</strong> Shinjuku (Tokio) a las <span style="color: var(--gold); font-weight: bold;">16:06</span>.</li>
+                                    <li><strong>Dónde nos sentamos:</strong> Coche 2 (Vagón 2). Asientos de las filas 1, 2, 3 y 4 (Asientos C y D).</li>
+                                </ul>
+                            </div>
+
+                            <!-- MAPA DE ASIENTOS VISUAL -->
+                            <div class="data-block" style="border-left: 4px solid var(--neon-blue); background: rgba(0, 243, 255, 0.02); padding: 15px;">
+                                <div class="data-label" style="color: var(--neon-blue); font-weight: bold; margin-bottom: 10px;">
+                                    <i class="fa-solid fa-chair"></i> DISTRIBUCIÓN DE NUESTROS ASIENTOS
+                                </div>
+                                
+                                <div style="text-align: center; color: rgba(255,255,255,0.4); font-size: 0.75rem; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px; letter-spacing: 1px; font-weight: bold;">
+                                    <i class="fa-solid fa-arrow-up"></i> DIRECCIÓN DE LA MARCHA (Hacia Tokio) <i class="fa-solid fa-arrow-up"></i>
+                                </div>
+                                
+                                <div style="display: flex; flex-direction: column; gap: 8px; max-width: 280px; margin: 0 auto;">
+                                    <!-- Cabecera de columnas -->
+                                    <div style="display: flex; justify-content: space-between; text-align: center; font-weight: bold; color: rgba(255,255,255,0.4); font-size: 0.75rem; padding: 0 5px; margin-bottom: 5px;">
+                                        <div style="width: 30px;">A</div>
+                                        <div style="width: 30px;">B</div>
+                                        <div style="width: 45px; color: var(--gold);">Pasillo</div>
+                                        <div style="width: 35px; color: var(--accent);">C</div>
+                                        <div style="width: 35px; color: var(--accent);">D</div>
+                                    </div>
+
+                                    <!-- Fila 1 -->
+                                    <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.03); padding: 5px 8px; border-radius: 4px;">
+                                        <div style="color: rgba(255,255,255,0.3); font-size: 0.8rem; width: 15px; text-align: center; font-weight: bold;">1</div>
+                                        <div style="width: 30px; height: 30px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.15); font-size: 0.7rem;">1A</div>
+                                        <div style="width: 30px; height: 30px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.15); font-size: 0.7rem;">1B</div>
+                                        <div style="width: 45px; text-align: center; border-left: 1px dashed rgba(255,255,255,0.1); border-right: 1px dashed rgba(255,255,255,0.1); height: 30px;"></div>
+                                        <div style="width: 35px; height: 30px; background: rgba(249,115,22,0.25); border: 2px solid var(--accent); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.75rem; box-shadow: 0 0 8px rgba(249,115,22,0.3);">1C 👤</div>
+                                        <div style="width: 35px; height: 30px; background: rgba(249,115,22,0.25); border: 2px solid var(--accent); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.75rem; box-shadow: 0 0 8px rgba(249,115,22,0.3);">1D 👤</div>
+                                    </div>
+
+                                    <!-- Fila 2 -->
+                                    <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.03); padding: 5px 8px; border-radius: 4px;">
+                                        <div style="color: rgba(255,255,255,0.3); font-size: 0.8rem; width: 15px; text-align: center; font-weight: bold;">2</div>
+                                        <div style="width: 30px; height: 30px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.15); font-size: 0.7rem;">2A</div>
+                                        <div style="width: 30px; height: 30px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.15); font-size: 0.7rem;">2B</div>
+                                        <div style="width: 45px; text-align: center; border-left: 1px dashed rgba(255,255,255,0.1); border-right: 1px dashed rgba(255,255,255,0.1); height: 30px;"></div>
+                                        <div style="width: 35px; height: 30px; background: rgba(249,115,22,0.25); border: 2px solid var(--accent); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.75rem; box-shadow: 0 0 8px rgba(249,115,22,0.3);">2C 👤</div>
+                                        <div style="width: 35px; height: 30px; background: rgba(249,115,22,0.25); border: 2px solid var(--accent); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.75rem; box-shadow: 0 0 8px rgba(249,115,22,0.3);">2D 👤</div>
+                                    </div>
+
+                                    <!-- Fila 3 -->
+                                    <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.03); padding: 5px 8px; border-radius: 4px;">
+                                        <div style="color: rgba(255,255,255,0.3); font-size: 0.8rem; width: 15px; text-align: center; font-weight: bold;">3</div>
+                                        <div style="width: 30px; height: 30px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.15); font-size: 0.7rem;">3A</div>
+                                        <div style="width: 30px; height: 30px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.15); font-size: 0.7rem;">3B</div>
+                                        <div style="width: 45px; text-align: center; border-left: 1px dashed rgba(255,255,255,0.1); border-right: 1px dashed rgba(255,255,255,0.1); height: 30px;"></div>
+                                        <div style="width: 35px; height: 30px; background: rgba(249,115,22,0.25); border: 2px solid var(--accent); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.75rem; box-shadow: 0 0 8px rgba(249,115,22,0.3);">3C 👤</div>
+                                        <div style="width: 35px; height: 30px; background: rgba(249,115,22,0.25); border: 2px solid var(--accent); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.75rem; box-shadow: 0 0 8px rgba(249,115,22,0.3);">3D 👤</div>
+                                    </div>
+
+                                    <!-- Fila 4 -->
+                                    <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.03); padding: 5px 8px; border-radius: 4px;">
+                                        <div style="color: rgba(255,255,255,0.3); font-size: 0.8rem; width: 15px; text-align: center; font-weight: bold;">4</div>
+                                        <div style="width: 30px; height: 30px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.15); font-size: 0.7rem;">4A</div>
+                                        <div style="width: 30px; height: 30px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.15); font-size: 0.7rem;">4B</div>
+                                        <div style="width: 45px; text-align: center; border-left: 1px dashed rgba(255,255,255,0.1); border-right: 1px dashed rgba(255,255,255,0.1); height: 30px;"></div>
+                                        <div style="width: 35px; height: 30px; background: rgba(249,115,22,0.25); border: 2px solid var(--accent); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.75rem; box-shadow: 0 0 8px rgba(249,115,22,0.3);">4C 👤</div>
+                                        <div style="width: 35px; height: 30px; background: rgba(249,115,22,0.25); border: 2px solid var(--accent); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.75rem; box-shadow: 0 0 8px rgba(249,115,22,0.3);">4D 👤</div>
+                                    </div>
+                                </div>
+                                
+                                <div style="margin-top: 15px; font-size: 0.8rem; color: rgba(255,255,255,0.6); text-align: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 10px;">
+                                    <span style="display: inline-block; width: 10px; height: 10px; background: rgba(249,115,22,0.25); border: 2px solid var(--accent); border-radius: 2px; vertical-align: middle; margin-right: 5px;"></span>
+                                    Lado derecho del pasillo <strong style="color: var(--accent);">(¡Las mejores vistas del Monte Fuji!)</strong>.
                                 </div>
                             </div>
                         </div>
 
-                        <!-- PASO 2 -->
-                        <div class="data-block" style="border-left: 4px solid var(--gold); background: rgba(255, 184, 0, 0.03);">
-                            <div class="data-label" style="color:var(--gold);"><i class="fa-solid fa-car"></i> Paso 2: 🚗 Devolución de los Coches (09:30 – 10:30)</div>
-                            <div style="padding: 10px; color: #e2e8f0; font-size: 0.9rem;">
-                                <p style="margin-bottom:10px;"><strong>Lugar:</strong> Oficina de Budget Rent a Car (justo al lado de la estación de Kawaguchiko).</p>
-                                <p><strong>Horario Límite:</strong> Se recomienda completar el trámite antes de las <strong>10:30</strong> para tener margen de sobra antes de que salga el tren.</p>
+                        <!-- COLUMNA Derecha: Logística y Paso a paso -->
+                        <div style="display: flex; flex-direction: column; gap: 20px;">
+                            
+                            <!-- LOGÍSTICA DE MAÑANA -->
+                            <div class="data-block" style="border-left: 4px solid var(--gold); background: rgba(255, 184, 0, 0.02); padding: 15px;">
+                                <div class="data-label" style="color: var(--gold); font-weight: bold; margin-bottom: 10px;">
+                                    <i class="fa-solid fa-car"></i> LOGÍSTICA PREVIA (MAÑANA)
+                                </div>
+                                <div style="font-size: 0.88rem; color: #e2e8f0; line-height: 1.5;">
+                                    <p style="margin-bottom: 8px;"><strong>11:30 – 12:00:</strong> ⛽ <strong>Operación Repostaje:</strong> Llenad el depósito en una gasolinera cercana a la oficina de Budget (Kawaguchiko). <span style="color:var(--danger); font-weight:bold;">¡Guardad el ticket!</span> Os lo pedirán en la oficina.</p>
+                                    <p style="margin: 0;"><strong>12:00 – 12:30:</strong> 🚗 <strong>Devolución de los Coches:</strong> Entrega del vehículo en la oficina de Budget Rent a Car al lado de la estación.</p>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- PASO 3 -->
-                        <div class="data-block" style="border-left: 4px solid var(--neon-purple); background: rgba(188, 19, 254, 0.03);">
-                            <div class="data-label" style="color:var(--neon-purple);"><i class="fa-solid fa-train"></i> Paso 3: 🚄 El Tren "Fuji Excursion" (10:55 – 12:55)</div>
-                            <div style="padding: 10px; color: #e2e8f0; font-size: 0.9rem;">
-                                <p style="margin-bottom:10px;"><strong>El Transporte:</strong> Es el medio más eficiente, conectando la zona de los lagos con el centro de Tokio de forma directa (sin transbordos).</p>
-                                <p style="margin-bottom:5px;"><strong>Salida:</strong> Estación de Kawaguchiko a las 10:55 AM.</p>
-                                <p style="margin-bottom:10px;"><strong>Destino:</strong> Estación de Shinjuku.</p>
-                                <div style="background:rgba(56, 189, 248, 0.1); border:1px solid var(--neon-blue); padding:12px; border-radius:6px; margin-top:10px;">
-                                    <strong style="color:var(--neon-blue);"><i class="fa-solid fa-ticket"></i> ⚠️ Reserva:</strong>
-                                    <span> Es <strong>IMPRESCINDIBLE</strong> reservar asiento con antelación por internet (aprox. 1 mes antes). Al ser un tren directo y no disponer de JR Pass, comprad el billete completo. Las plazas vuelan.</span>
+                            <!-- PASO A PASO EN LA ESTACIÓN -->
+                            <div class="data-block" style="border-left: 4px solid var(--neon-purple); background: rgba(188, 19, 254, 0.02); padding: 15px;">
+                                <div class="data-label" style="color: var(--neon-purple); font-weight: bold; margin-bottom: 15px;">
+                                    <i class="fa-solid fa-route"></i> PASO A PASO EN LA ESTACIÓN (EL TRAYECTO)
+                                </div>
+                                
+                                <div style="display: flex; flex-direction: column; gap: 15px;">
+                                    
+                                    <!-- Paso 1 -->
+                                    <div style="border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 10px;">
+                                        <div style="color: var(--neon-blue); font-weight: bold; font-size: 0.85rem; margin-bottom: 4px;">1. CERO PAPELES (No hay que imprimir nada)</div>
+                                        <div style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.4;">
+                                            No os preocupéis por buscar máquinas de billetes ni hacer colas en las taquillas de la estación de Kawaguchiko. Llevamos una reserva 100% digital (Ticketless) que ya está pagada.
+                                        </div>
+                                    </div>
+
+                                    <!-- Paso 2 -->
+                                    <div style="border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 10px;">
+                                        <div style="color: var(--neon-blue); font-weight: bold; font-size: 0.85rem; margin-bottom: 4px;">2. Entrada por los tornos (Obligatorio usar la Suica)</div>
+                                        <div style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.4;">
+                                            Para entrar al andén, cada uno de nosotros (los 8) debe pasar el torno tocando individualmente con su tarjeta Suica (física o móvil). Con este "toque" el sistema japonés nos abrirá la puerta y registrará el inicio del viaje para cobrarnos la tarifa básica.
+                                        </div>
+                                    </div>
+
+                                    <!-- Paso 3 -->
+                                    <div style="border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 10px;">
+                                        <div style="color: var(--neon-blue); font-weight: bold; font-size: 0.85rem; margin-bottom: 4px;">3. Localizar el Vagón 2 y subir</div>
+                                        <div style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.4;">
+                                            Buscamos en el andén las marcas del Coche 2, subimos al tren y nos colocamos directamente en nuestros asientos asignados (del 1C al 4D).
+                                        </div>
+                                    </div>
+
+                                    <!-- Paso 4 -->
+                                    <div style="border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 10px;">
+                                        <div style="color: var(--neon-blue); font-weight: bold; font-size: 0.85rem; margin-bottom: 4px;">4. El control del revisor</div>
+                                        <div style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.4;">
+                                            Si pasa el revisor del tren por el pasillo, no hay que enseñarle ningún billete ni código QR. Ellos llevan una tablet donde ven en tiempo real que nuestros 8 asientos están perfectamente reservados y validados en su sistema.
+                                        </div>
+                                    </div>
+
+                                    <!-- Paso 5 -->
+                                    <div style="border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 10px;">
+                                        <div style="color: var(--neon-blue); font-weight: bold; font-size: 0.85rem; margin-bottom: 4px;">5. Llegada a Tokio (Salida de la estación)</div>
+                                        <div style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.4;">
+                                            Al bajarnos en la estación de Shinjuku (Tokio), nos dirigimos a los tornos de salida y volvemos a tocar todos con la misma tarjeta Suica. En ese momento se abrirán las puertas y el sistema descontará automáticamente el importe del trayecto de nuestro saldo.
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Paso 6 -->
+                                    <div>
+                                        <div style="color: var(--neon-blue); font-weight: bold; font-size: 0.85rem; margin-bottom: 4px;">6. Traslado final al hotel en Tokio (Taxis)</div>
+                                        <div style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.4;">
+                                            En la salida de la estación de Shinjuku tomaremos <strong>2 taxis grandes (tipo furgoneta)</strong> directos a Iidabashi para ir con comodidad y maletas. Duración: 15 min, coste: ~2.000 JPY por taxi.
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
 
-                        <!-- PASO 4 -->
-                        <div class="data-block" style="border-left: 4px solid var(--accent); background: rgba(249, 115, 22, 0.03);">
-                            <div class="data-label" style="color:var(--accent);"><i class="fa-solid fa-taxi"></i> Paso 4: 🚕 Llegada a Tokio y Traslado al Hotel (13:00 – 14:00)</div>
-                            <div style="padding: 10px; color: #e2e8f0; font-size: 0.9rem;">
-                                <p style="margin-bottom:10px;"><strong>El Choque Cultural:</strong> A las 12:55 llegaréis a Shinjuku, la estación más concurrida del mundo. Mover a 8 personas con equipaje por el metro tras días de paz en las montañas puede ser abrumador.</p>
-                                <p style="margin-bottom:10px;"><strong>Transporte recomendado:</strong> Evitad el metro. Tomad <strong>2 taxis furgoneta grandes</strong> hacia el barrio de Iidabashi.</p>
-                                <p><strong>Tiempo y Coste:</strong> El trayecto al hotel dura unos 15 minutos y cuesta aproximadamente <strong>2.000 JPY por taxi</strong> (unos 4.000 JPY en total para el grupo). La comodidad lo vale.</p>
-                            </div>
-                        </div>
                     </div>
                     
                     <div class="scanline-overlay"></div>

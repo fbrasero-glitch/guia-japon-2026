@@ -29,7 +29,7 @@ const travelData_00_08 = [
                     items: [
                         { id: "bk_shinkansen", name: "Shinkansen Kioto-Nagoya (Nozomi 2, 08:45-09:19) [COMPRADO] - ID Membresía: 18*****405 | Reservas 20** y 20**. Asientos finales asignados el 6 de Julio.", status: "completed", date: "ENVIADO 6 JULIO", link: "https://shinkansen2.jr-central.co.jp/RSV_P/S_smart_en_index.htm" },
                         { id: "bk_hida", name: "Wide View Hida (Nagoya-Takayama) [COMPRADO] - Localizadores: 41256 (3 Ad + 1 Ch) y 42023 (4 Ad). Canjear billetes físicos JR.", status: "completed", date: "COMPRADO", link: "https://www.westjr.co.jp/global/en/ticket/route_search/" },
-                        { id: "bk_fuji_excursion", name: "Tren Fuji Excursion (Regreso Tokio)", status: "pending", date: "Exactamente 1 mes antes", link: "https://www.eki-net.com/en/jreast-train-reservation/Top/Index" },
+                        { id: "bk_fuji_excursion", name: "Tren Fuji Excursion (Regreso Tokio) [COMPRADO]", status: "completed", date: "COMPRADO", link: "https://www.eki-net.com/en/jreast-train-reservation/Top/Index" },
                         { id: "bk_bus_takayama_fuji", name: "LIMON Bus Takayama-Fuji (08:50) - 8 pax [80.000¥]", status: "completed", date: "COMPRADO", link: "https://www.nouhibus.co.jp/english/" },
                         { id: "bk_bus_nohi", name: "Bus Nohi (Shirakawa-go)", status: "pending", date: "1 mes antes", link: "https://www.nouhibus.co.jp/english/" }
                     ]
@@ -383,7 +383,7 @@ const travelData_00_08 = [
                         { name: "Taxis Aeropuerto KIX (2 Taxis)", file: "pdf/documentacion/Reserva_Taxis_KIX.pdf", isIndividual: false },
                         { name: "Permiso Conducir Nacional - FELIPE", file: "https://drive.google.com/file/d/12rA1cXC5TDGmNIy0qMk9ew5C3FRNXvVD/view?usp=drive_web", isIndividual: false },
                         { name: "Permiso Internacional - FELIPE", file: "https://drive.google.com/file/d/1toe9hvD0HjNWAzcWsIeAY5cBRJ_zZO22/view?usp=drive_web", isIndividual: false },
-                        { name: "Plano Terminal KIX y Bus", file: "https://drive.google.com/file/d/1h44-Fq5fk5U4YPavIwOHeGoSE4q-Bj8g/view?usp=drive_web", isIndividual: false }
+                        { name: "Plano Terminal KIX y Bus", file: "pdf/Plano Terminal KIX (Andén 5, Airport Limousine Bus a Umeda).pdf", isIndividual: false }
                     ]
                 },
                 {
@@ -422,11 +422,11 @@ const travelData_00_08 = [
                     icon: "fa-solid fa-map-location-dot",
                     color: "#06b6d4",
                     items: [
-                        { name: "Guía de Kioto (Subway & Bus)", file: "https://drive.google.com/file/d/1vcA01polZy2Dz9PneLO-Y3IMwCLRfeVd/view?usp=drive_web", isIndividual: false },
-                        { name: "Mapa de Kioto (Subway)", file: "https://drive.google.com/file/d/1N7exSJKmsc2uBrPUcF9N6pK-gfSR_Ijn/view?usp=drive_web", isIndividual: false },
-                        { name: "Mapa Metro de Tokio", file: "https://drive.google.com/file/d/1Ob7rQjlnSdJ0MIA1DergAmtT5lrmbpoE/view?usp=drive_web", isIndividual: false },
-                        { name: "Mapa Metro de Osaka", file: "https://drive.google.com/file/d/1wrn4YelcNnYASYiicgto6_LOw1pxg_Fc/view?usp=drive_web", isIndividual: false },
-                        { name: "Guía de paseo Takayama", file: "https://drive.google.com/file/d/1R152-vKJ60FwQ8xxcju0ZsaoI_N8188C/view?usp=drive_web", isIndividual: false },
+                        { name: "Guía de Kioto (Subway & Bus)", file: "pdf/kyoto Travel Map Subway & Bus Navi.pdf", isIndividual: false },
+                        { name: "Mapa de Kioto (Subway)", file: "pdf/map_kyoto_metro.pdf", isIndividual: false },
+                        { name: "Mapa Metro de Tokio", file: "pdf/map_tokyo_metro.pdf", isIndividual: false },
+                        { name: "Mapa Metro de Osaka", file: "pdf/metro osaka.pdf", isIndividual: false },
+                        { name: "Guía de paseo Takayama", file: "pdf/TAKAYAMA_walking_map_en.pdf", isIndividual: false },
                         { name: "Guía de Kioto (Portada)", file: "pdf/kyoto Travel Map Subway & Bus Navi front.pdf", isIndividual: false },
                         { name: "Mapa de Shibuya 1", file: "pdf/sibuya maps.pdf", isIndividual: false },
                         { name: "Mapa de Shibuya 2", file: "pdf/sibuya maps 2.pdf", isIndividual: false },
@@ -454,9 +454,26 @@ const travelData_00_08 = [
         ],
 
         timeline: [
-            { time: "16:00", title: "Aeropuerto Valencia (VLC)", desc: "Hora España. Recomendado llegar 3 horas antes. Facturación hasta destino final (KIX)." },
-            { time: "18:55", title: "Salida Vuelo TK1314", desc: "Hora España / Local. Duración 3h 45m. Actividad: Cenar a bordo, ver películas y ¡no dormir!" },
-            { time: "23:40", title: "Escala Estambul (22:40h Esp)", desc: "Llegada hora local IST. Escala corta de 2h 45m. Seguir carteles 'International Transfers'. Caminad para estirar las piernas." }
+            { 
+                time: "16:00", 
+                title: "Aeropuerto de Valencia (VLC)", 
+                desc: "Llegada al aeropuerto para facturación de maletas.<br><br>⏱️ **Husos Horarios:**<br>• 🇪🇸 España: **16:00**<br>• 🇹🇷 Turquía: **17:00**<br>• 🇯🇵 Japón: **23:00**<br><br>Recomendamos llegar 3 horas antes. Facturación de equipaje directa hasta el destino final (Osaka KIX)." 
+            },
+            { 
+                time: "18:55", 
+                title: "🛫 Salida Vuelo TK1314 (VLC ➔ IST)", 
+                desc: "Despegue del primer vuelo desde Valencia.<br><br>⏱️ **Husos Horarios:**<br>• 🇪🇸 España: **18:55** (Salida)<br>• 🇹🇷 Turquía: **19:55**<br>• 🇯🇵 Japón: **01:55** *(día siguiente)*<br><br>Duración estimada: 3h 45m. Actividad a bordo: Cenar, ver películas y mantenerse despiertos." 
+            },
+            { 
+                time: "23:40", 
+                title: "🛬 Llegada Escala Estambul (IST)", 
+                desc: "Aterrizaje en Estambul para escala en tránsito.<br><br>⏱️ **Husos Horarios:**<br>• 🇹🇷 Turquía: **23:40** (Llegada)<br>• 🇪🇸 España: **22:40**<br>• 🇯🇵 Japón: **05:40** *(día siguiente)*<br><br>Escala de 2h 45m. Seguir las señales de 'International Transfers' y aprovechar para caminar y estirar las piernas." 
+            },
+            { 
+                time: "02:25", 
+                title: "🛫 Salida Vuelo TK86 (IST ➔ KIX)", 
+                desc: "Despegue del segundo vuelo hacia Japón.<br><br>⏱️ **Husos Horarios:**<br>• 🇹🇷 Turquía: **02:25** *(28-Jul - Salida)*<br>• 🇪🇸 España: **01:25** *(28-Jul)*<br>• 🇯🇵 Japón: **08:25** *(28-Jul)*<br><br>Duración estimada: 10h 40m. Recomendación: Intentar dormir las primeras 5-6 horas del vuelo (coincidiendo con la madrugada en España) para ir aclimatando el cuerpo." 
+            }
         ],
 
         visualContent: {

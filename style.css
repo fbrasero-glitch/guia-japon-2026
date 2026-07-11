@@ -4329,6 +4329,26 @@ body:not(.day-selected) .right-panel {
     animation: gastro-pulse 2s infinite;
 }
 
+.gastro-radar-btn.pulse-cyan::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid var(--neon-blue);
+    animation: gastro-pulse 2s infinite;
+}
+
+.gastro-radar-btn.pulse-accent::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    animation: gastro-pulse 2s infinite;
+}
+
 @keyframes gastro-pulse {
     0% { transform: scale(1); opacity: 0.8; }
     100% { transform: scale(1.5); opacity: 0; }

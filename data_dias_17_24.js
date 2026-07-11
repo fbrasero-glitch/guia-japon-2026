@@ -1641,77 +1641,58 @@ const travelData_17_24 = [
         image: "images/dia23-itinerario-base.jpg",
 
         logistics: [
-            { title: "Aeropuerto", text: "Vuelo TK199 desde Haneda (HND) a las 21:45. Hay que estar 4 horas antes por precaución (17:45)." },
-            { title: "Reserva de Taxis", text: "<strong>CRÍTICO:</strong> Reservad dos taxis tipo furgoneta (Vans) en la recepción del hotel con 24h de antelación (el Día 22 por la mañana) para garantizar sitio para 8 personas y 8 maletas grandes a las 16:30." },
-            { title: "Equipaje", text: "Haced el Check-out a las 10:00 pero pedid en recepción que os guarden las maletas grandes hasta la tarde de forma gratuita." }
-        ],
-
-        transportTimeline: [
-            { time: "10:00", type: "point", title: "Check-out Hotel Edmont", icon: "fa-solid fa-bell-concierge" },
-            { time: "10:15", type: "point", title: "Día Libre en Tokio", icon: "fa-solid fa-bag-shopping" },
-            { time: "16:00", type: "point", title: "Volver al Hotel / Recoger Maletas", icon: "fa-solid fa-suitcase-rolling" },
-            {
-                time: "16:30",
-                type: "transit",
-                title: "Taxis hacia Aeropuerto de Haneda (x2 Van reservadas)",
-                price: "Efectivo/Tarjeta (~8.000 JPY por taxi)",
-                timeLabel: "45 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Metropolitan+Edmont+Tokyo&destination=Haneda+Airport",
-                tacticalGuideId: "mission_haneda_transfer",
-                desc: "IMPORTANTE: Reservar 24h antes en recepción del hotel. Pedir taxis tipo 'Van' o furgoneta para 8 pax + 8 maletas."
-            },
-            { time: "17:45", type: "point", title: "Llegada a Terminal / Check-in", icon: "fa-solid fa-plane-arrival" },
-            {
-                time: "21:45",
-                type: "transit",
-                title: "Despegue Vuelo TK199 (Turkish)",
-                price: "Incluido",
-                timeLabel: "13h hacia Estambul",
-                link: "https://www.flightaware.com/live/flight/THY199"
-            }
+            { title: "Traslado Reservado", text: "Traslado privado confirmado en Booking.com. Recogida en el hotel a las 16:30. Tiempo estimado: 29 minutos." },
+            { title: "Salida Vuelos", text: "<strong>Vuelo 1:</strong> TK199 despegue de Haneda (HND) a las 21:45. <strong>Vuelo 2:</strong> TK1313 despegue de Estambul (IST) a las 08:20 (19-Ago)." },
+            { title: "Tiempos de Aeropuerto", text: "Llegada al Aeropuerto de Haneda a las 17:45 (4 horas antes para el check-in y facturación)." },
+            { title: "Estrategia Jet Lag de Vuelta", text: "<strong>Vuelo TK199:</strong> NO dormir de 21:45 a 04:00 (hora JPN). Dormir de 04:00 a 10:15 (hora JPN). <strong>Vuelo TK1313:</strong> Prohibido dormir para forzar el cansancio por la noche en España." }
         ],
 
         timeline: [
-            { time: "11:00", title: "Mañana Libre", desc: "Últimas compras de souvenirs o relax. (Base)" },
-            { time: "13:00", title: "Almuerzo de Despedida", desc: "Último almuerzo japonés fuerte (Ramen/Sushi). Estrategia Anti-Jet Lag: Carga de energía." },
-            { time: "16:30", title: "Traslado a Haneda", desc: "Taxis desde el hotel directo a la terminal. (Base)" },
-            { time: "17:45", title: "Cena en Edo Koji", desc: "Cena en la zona temática de Haneda. Hidratación máxima antes del vuelo." },
-            { time: "21:45", title: "Vuelo HND-IST", desc: "Despegue. Inicio Protocolo Anti-Jet Lag: Misión Despiertos." }
+            { time: "10:00", title: "Check-out Hotel Edmont", desc: "Hora de dejar las habitaciones. Podéis dejar las maletas grandes guardadas gratis en la recepción del hotel hasta la tarde." },
+            { time: "10:15", title: "Últimas compras por Tokio", desc: "Tiempo libre para hacer compras de última hora en Don Quijote, Akihabara o pasear por vuestros rincones favoritos." },
+            { time: "13:00", title: "Almuerzo de Despedida", desc: "Último almuerzo fuerte en Tokio (un buen Ramen o Sushi). Carga de energía recomendada para el largo viaje de vuelta." },
+            { time: "16:00", title: "Regreso al Hotel", desc: "Volver a la recepción para recoger las maletas grandes y preparar el traslado." },
+            { 
+                time: "16:30", 
+                title: "🚖 Traslado a Haneda (Booking.com)", 
+                desc: "Recogida de los 8 pasajeros en el lobby del Hotel Metropolitan Edmont en traslado privado.<br><br>⏱️ **Husos Horarios:**<br>• 🇯🇵 Japón: **16:30**<br>• 🇹🇷 Turquía: **10:30**<br>• 🇪🇸 España: **09:30**<br><br>Ruta rápida directa de unos 29 minutos hasta la Terminal 3 de Haneda." 
+            },
+            { 
+                time: "17:45", 
+                title: "✈️ Llegada a Haneda y Check-in", 
+                desc: "Llegada con 4 horas de antelación para facturar con total tranquilidad y evitar imprevistos.<br><br>⏱️ **Husos Horarios:**<br>• 🇯🇵 Japón: **17:45**<br>• 🇹🇷 Turquía: **11:45**<br>• 🇪🇸 España: **10:45**<br><br>Podéis cenar y pasear por la zona temática 'Edo Koji' en la planta superior de la terminal." 
+            },
+            { 
+                time: "21:45", 
+                title: "🛫 Despegue Vuelo TK199 (HND ➔ IST)", 
+                desc: "Salida del primer vuelo de vuelta de Turkish Airlines.<br><br>⏱️ **Husos Horarios:**<br>• 🇯🇵 Japón: **21:45** (Salida)<br>• 🇹🇷 Turquía: **15:45**<br>• 🇪🇸 España: **14:45**<br><br>Duración estimada: 13h 30m.<br><br>🛌 **ESTRATEGIA DE SUEÑO (Anti-Jet Lag):**<br>• **21:45 - 04:00 JPN (14:45 - 21:00 ESP)**: 🚫 **NO DORMIR**. Ved películas, leed, manteneos despiertos.<br>• **04:00 - 10:15 JPN (21:00 - 03:15 ESP)**: 💤 **DORMIR**. Intentad dormir las últimas 6 horas del vuelo para adaptaros al descanso." 
+            },
+            { 
+                time: "05:15", 
+                title: "🛬 Llegada a Estambul (IST) - Escala", 
+                desc: "Aterrizaje en Estambul para escala en tránsito.<br><br>⏱️ **Husos Horarios:**<br>• 🇹🇷 Turquía: **05:15** (Llegada del 19-Ago)<br>• 🇪🇸 España: **04:15** (19-Ago)<br>• 🇯🇵 Japón: **11:15** (19-Ago)<br><br>Tiempo de escala: 3 horas 5 minutos. Seguir conexiones y caminar por la terminal." 
+            },
+            { 
+                time: "08:20", 
+                title: "🛫 Salida Vuelo TK1313 (IST ➔ VLC)", 
+                desc: "Despegue del vuelo final hacia España.<br><br>⏱️ **Husos Horarios:**<br>• 🇹🇷 Turquía: **08:20** (19-Ago - Salida)<br>• 🇪🇸 España: **07:20** (19-Ago)<br>• 🇯🇵 Japón: **14:20** (19-Ago)<br><br>Duración estimada: 4h 10m.<br><br>🚫 **MISIÓN: DESPIERTOS**. Prohibido dormir en este vuelo para poder acostaros en España por la noche y sincronizar el sueño." 
+            },
+            { 
+                time: "11:30", 
+                title: "🏠 Llegada a Valencia (VLC)", 
+                desc: "Aterrizaje en Valencia. Fin de la expedición.<br><br>⏱️ **Husos Horarios:**<br>• 🇪🇸 España: **11:30** (19-Ago - Llegada)<br>• 🇹🇷 Turquía: **12:30** (19-Ago)<br>• 🇯🇵 Japón: **18:30** (19-Ago)" 
+            }
         ],
 
-        jetLagStrategy: {
-            title: "Protocolo Anti-Jet Lag: Fase 1 (Salida)",
-            phases: [
-                {
-                    name: "TOKIO: Preparación",
-                    icon: "fa-solid fa-sun",
-                    color: "var(--gold)",
-                    steps: [
-                        { time: "13:00", activity: "Almuerzo Fuerte", desc: "Último festín japonés para tener energía." },
-                        { time: "16:30", activity: "Traslado Haneda", desc: "Taxis furgoneta para el grupo de 8." }
-                    ]
-                },
-                {
-                    name: "VUELO 1: HND ➔ IST",
-                    icon: "fa-solid fa-plane",
-                    color: "var(--neon-blue)",
-                    steps: [
-                        { time: "21:45 - 04:00 (JPN)", activity: "MISIÓN: DESPIERTOS", type: "wake", desc: "Primeras 6-7h. Películas, lectura. NO DORMIR." },
-                        { time: "04:00 - 10:15 (JPN)", activity: "MISIÓN: DORMIR", type: "sleep", desc: "Dormid las últimas 6h para sincronizar con la noche española." }
-                    ]
-                }
-            ]
-        },
-
         prices: {
-            transport: "Taxis al aeropuerto (~8000 JPY/vehículo)",
+            transport: "Pagado (Traslado Booking.com)",
             total: "Base +"
         },
 
         isFlexible: true,
         base: {
             title: "Itinerario Base",
-            description: "Es el momento de cerrar las maletas (probablemente sentándose encima) y aprovechar las últimas horas para despdirse de la ciudad antes del largo vuelo nocturno.",
+            description: "Es el momento de cerrar las maletas y aprovechar las últimas horas en Tokio antes del traslado al aeropuerto de Haneda para iniciar el regreso a casa.",
             events: [
                 {
                     id: "b1",
@@ -1723,7 +1704,7 @@ const travelData_17_24 = [
                     fullDesc: `
                         <h3><i class="fa-solid fa-gift"></i> Don Quijote: El Paraíso de las Compras</h3>
                         <p>Tras dejar el equipaje en el lobby del hotel, tenéis el día libre. Es el momento clásico de ir a un "Mega Donki" (Don Quijote gigante) a comprar cajas de Kit-Kats de sabores, mochis y chucherías para la familia, o volver a vuestro barrio favorito de días anteriores para una última mirada.</p>
-                        <p><em>**Don Quijote** es una cadena de tiendas de descuento con todo tipo de productos, desde snacks y cosméticos hasta electrónica y disfraces. Es el lugar perfecto para encontrar souvenirs únicos y a buen precio.</em></p>
+                        <p><em>**Don Quijote** es una cadena de tiendas de descuento con todo tipo de productos, desde snacks y cosméticos hasta electrónica and disfraces. Es el lugar perfecto para encontrar souvenirs únicos y a buen precio.</em></p>
                     `,
                 },
                 {
@@ -1733,67 +1714,44 @@ const travelData_17_24 = [
                     type: "gap"
                 },
                 {
-                    id: "b2",
                     time: "16:30",
-                    title: "Operación Traslado: Taxis a Haneda",
-                    description: "Se recomiendan taxis furgoneta grandes para acomodar todo vuestro equipaje final.",
-                    image: "images/dia23-terminal-3-haneda.jpg",
-                    price: "A dividir",
-                    fullDesc: `
-                        <h3><i class="fa-solid fa-taxi"></i> Ruta al Aeropuerto: Logística de Salida</h3>
-                        <p><strong>Proceso de Reserva:</strong> Debéis bajar a la recepción del Hotel Metropolitan Edmont la mañana anterior (Día 22) y solicitar la reserva de dos taxis tipo furgoneta (Van) para las 16:30 del Día 23. Indicad que sois 8 personas con equipaje voluminoso.</p>
-                        <p>Haneda está cerca de la ciudad (al sur, a diferencia de Narita que está lejísmos). Serán unos 45 minutos cómodos por autopista.</p>
-                        <ul>
-                            <li><i class="fa-solid fa-plane"></i> <strong>Haneda:</strong> El aeropuerto de Haneda es excelente. Tiene un puente de madera estilo Edo en la planta superior y muchas opciones de comida y tiendas si llegáis con tiempo extra.</li>
-                        </ul>
-                    `
+                    title: "🚖 Traslado Confirmado a Haneda (Booking.com)",
+                    description: "Traslado privado ya reservado y confirmado. Recogida a las 16:30 en el lobby del Hotel Metropolitan Edmont. Trayecto directo de unos 29 minutos hasta la Terminal 3 de Haneda. (Puedes consultar los detalles completos de la reserva pulsando el botón superior 'Info Taxi')."
+                },
+                {
+                    time: "17:45",
+                    title: "✈️ Llegada a Haneda y Check-in",
+                    description: "Llegada al Aeropuerto de Haneda para facturación con 4 horas de antelación.<br><br>⏱️ **Comparativa de Husos Horarios:**<br>• 🇯🇵 Japón: **17:45**<br>• 🇹🇷 Turquía: **11:45**<br>• 🇪🇸 España: **10:45**<br><br>Una vez facturado el equipaje directo a Valencia, podéis cenar y pasear por la zona comercial tematizada 'Edo Koji' en las plantas superiores (4 y 5) de la terminal antes de pasar el control de seguridad."
+                },
+                {
+                    time: "21:45",
+                    title: "🛫 Vuelo TK199 rumbo a Estambul",
+                    description: "Despegue del vuelo internacional nocturno de Turkish Airlines. Duración: 13h 30m.<br><br>⏱️ **Comparativa de Husos Horarios:**<br>• 🇯🇵 Japón: **21:45** (Salida el 18-Ago)<br>• 🇹🇷 Turquía: **15:45** (18-Ago)<br>• 🇪🇸 España: **14:45** (18-Ago)<br><br>🛌 **ESTRATEGIA DE SUEÑO (Anti-Jet Lag):**<br>• **21:45 - 04:00 JPN (14:45 - 21:00 ESP):** 🚫 **NO DORMIR**. Ved películas, leed, manteneos despiertos.<br>• **04:00 - 10:15 JPN (21:00 - 03:15 ESP):** 💤 **DORMIR**. Intentad dormir las últimas 6 horas del vuelo para adaptaros al descanso."
+                },
+                {
+                    time: "05:15",
+                    title: "🛬 Tránsito / Escala en Estambul (IST)",
+                    description: "Aterrizaje en Estambul para escala en tránsito de 3h 5m.<br><br>⏱️ **Comparativa de Husos Horarios:**<br>• 🇹🇷 Turquía: **05:15** (Llegada del 19-Ago)<br>• 🇪🇸 España: **04:15** (19-Ago)<br>• 🇯🇵 Japón: **11:15** (19-Ago)<br><br>Seguid los carteles de conexiones internacionales ('International Connections') y caminad por la terminal."
+                },
+                {
+                    time: "08:20",
+                    title: "🛫 Vuelo TK1313 rumbo a Valencia",
+                    description: "Despegue del vuelo final hacia España. Duración: 4h 10m.<br><br>⏱️ **Comparativa de Husos Horarios:**<br>• 🇹🇷 Turquía: **08:20** (19-Ago - Salida)<br>• 🇪🇸 España: **07:20** (19-Ago)<br>• 🇯🇵 Japón: **14:20** (19-Ago)<br><br>🚫 **Estrategia:** **Misión: Mantenerse despiertos**. Prohibido dormir en este vuelo para forzar el cansancio por la noche en España y regular el sueño rápidamente al llegar."
+                },
+                {
+                    time: "11:30",
+                    title: "🏠 Llegada a Valencia (VLC)",
+                    description: "Aterrizaje en Valencia y fin de la expedición a Japón.<br><br>⏱️ **Comparativa de Husos Horarios:**<br>• 🇪🇸 España: **11:30** (19-Ago - Llegada)<br>• 🇹🇷 Turquía: **12:30** (19-Ago)<br>• 🇯🇵 Japón: **18:30** (19-Ago)"
                 }
             ]
         },
-        complements: [
-            {
-                id: "c1",
-                title: "Terminal 3 (Internacional) Haneda",
-                time: "18:00",
-                description: "Edo Koji. Réplica de una calle del periodo Edo dentro del propio aeropuerto.",
-                price: "Gratis",
-                image: "images/dia23-portada.jpg", // CONSIDER USING A HANEDA PHOTO
-                fullDesc: `
-                    <h3><i class="fa-solid fa-torii-gate"></i> Despedida Cultural</h3>
-                    <p>Si llegáis pronto, subid a la planta 4 y 5 de la T3. Han reconstruido un puente japonés de madera enorme y calles comerciales preciosas. Buen sitio para la última cena antes de entrar a las aburridas puertas de embarque internacionales.</p>
-                `
-            }
-        ],
-        additionalExcursions: [
-            {
-                id: "add_anamori_inari",
-                title: "Santuario Anamori Inari",
-                image: "images/add-anamori.jpg",
-                description: "Santuario con decenas de pequeños toris rojos muy cerca de Haneda.",
-                time: "16:30 – 17:30",
-                price: "Gratis",
-                link: "https://www.google.com/maps/search/?api=1&query=Anamori+Inari+Shrine",
-                tacticalGuideId: "mission_anamori",
-                fullDesc: `
-                    <h3><i class="fa-solid fa-torii-gate"></i> Santuario Anamori Inari</h3>
-                    <p>Despedida espiritual perfecta. Podéis recoger 'arena sagrada' para la protección en vuestro vuelo de regreso.</p>
-                `
-            },
-            {
-                id: "add_jonanjima_park",
-                title: "Jonanjima Seaside Park",
-                image: "images/add-jonanjima.jpg",
-                description: "Parque costero para ver los aviones despegar a baja altura en Haneda.",
-                time: "17:00 – 18:00",
-                price: "Gratis",
-                link: "https://www.google.com/maps/search/?api=1&query=Jonanjima+Seaside+Park",
-                tacticalGuideId: "mission_jonanjima",
-                fullDesc: `
-                    <h3><i class="fa-solid fa-plane-departure"></i> Parque Costero Jonanjima</h3>
-                    <p>Relax al atardecer sobre la bahía viendo de cerca los gigantes del aire antes de ser uno de ellos.</p>
-                `
-            }
-        ]
+        complements: [],
+        additionalExcursions: [],
+
+        visualContent: {
+            summary: "Último día en Tokio y despegue de los vuelos de regreso a casa.",
+            photoSpot: "Foto de despedida de todo el grupo en la terminal de Haneda."
+        }
     },
 
     // --- DÍA 24: LLEGADA A ESPAÑA ---

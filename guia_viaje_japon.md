@@ -1365,7 +1365,7 @@ _Día de carretera para explorar la cultura y misticismo alrededor del volcán._
 **🏨 Alojamiento:** Hotel Metropolitan Edmont Tokyo
 
 ### ⚙️ Logística y Tips
-- **Coche:** Llenad depósito de gasolina y devolved en Budget Kawaguchiko Station (10:30 max). Guardad ticket.
+- **Coche:** Llenad depósito de gasolina y devolved en Budget Kawaguchiko Station (12:00 max). Guardad ticket.
 - **Transporte:** Tren Expreso Fuji Excursion directo a Shinjuku (RESERVA CRÍTICA 30 días antes). Alternativa: Highway Bus.
 - **Equipaje:** Maletas grandes enviadas desde Kioto u Osaka os estarán esperando en el lobby o habitación del hotel.
 
@@ -1374,46 +1374,46 @@ _Día de carretera para explorar la cultura y misticismo alrededor del volcán._
 - **Total:** ~6.130 JPY
 
 ### ⏱️ Resumen del Día
-- **09:00** - Gasolinera Kawaguchiko: Repostaje del coche de alquiler antes de devolverlo. (Base)
-- **09:30** - Devolución Coche: Recepción en Budget Kawaguchiko. (Base)
-- **10:55** - Traslado a Tokio: Tren Directo Fuji Excursion a Shinjuku. (Base)
-- **13:30** - Llegada Shinjuku: Cruce de la estación más concurrida del mundo hacia Taxis. (Base)
-- **14:00** - Check-in Edmont: Recuperad maletas grandes y descanso brutal en el hotel. (Base)
-- **17:00** - Kagurazaka y Akagi: Paseo por el barrio tradicional de Kagurazaka y el moderno santuario Akagi. (Base)
+- **11:30** - Gasolinera Kawaguchiko: Repostaje del coche de alquiler antes de devolverlo. (Base)
+- **12:00** - Devolución Coche: Recepción en Budget Kawaguchiko. (Base)
+- **14:08** - Traslado a Tokio: Tren Directo Fuji Excursion a Shinjuku. (Base)
+- **16:06** - Llegada Shinjuku: Cruce de la estación más concurrida del mundo hacia Taxis. (Base)
+- **16:45** - Check-in Edmont: Recuperad maletas grandes y descanso brutal en el hotel. (Base)
+- **18:30** - Kagurazaka y Akagi: Paseo por el barrio tradicional de Kagurazaka y el moderno santuario Akagi. (Base)
 - **20:00** - Cena y Regreso: Cena en Kagurazaka o alrededores del hotel y regreso a pie. (Base)
 
 ### 🚆 Transporte Detallado
-- **09:00** **Repostaje en Gasolinera**
-- **09:30** **Devolución de Coches (Budget)**
-- **10:55** **Tren Express 'Fuji Excursion' a Tokio** (1h 55m) [Billete completo. Sin JR Pass.]
-- **12:55** **Llegada al caos de Shinjuku (Tokio)**
-- **13:30** **Taxis a Iidabashi (x2 Vans)** (15 min) [~4.000 JPY total (2 taxis)]
-- **14:00** **Check-in Edmont Tokyo / Descanso**
-- **17:00** **Paseo al Barrio Kagurazaka** (10 min a pie) [Gratis]
-- **17:15** **Sunset en Santuario Akagi**
+- **11:30** **Repostaje en Gasolinera**
+- **12:00** **Devolución de Coches (Budget)**
+- **14:08** **Tren Express 'Fuji Excursion 32' a Tokio** (1h 58m) [Reserva ticketless confirmada.]
+- **16:06** **Llegada al caos de Shinjuku (Tokio)**
+- **16:20** **Taxis a Iidabashi (x2 Vans)** (15 min) [~4.000 JPY total (2 taxis)]
+- **16:45** **Check-in Edmont Tokyo / Descanso**
+- **18:30** **Paseo al Barrio Kagurazaka** (10 min a pie) [Gratis]
+- **18:45** **Sunset en Santuario Akagi**
 - **20:00** **Cena y Regreso al Hotel** (12 min a pie) [Gratis]
 
 ### 🗺️ Itinerario Base (Ruta Central)
 _Regreso desde el aire puro de las montañas a la jungla de neón y cemento de Tokio._
 
-#### 09:30 - Devolución Vehículo y Gasolinera
+#### 12:00 - Devolución Vehículo y Gasolinera
 En Kawaguchiko Station. Último trámite antes de subir al tren.
 
 *Detalle:* Operación Repostaje Llenad el depósito en la gasolinera (ENEOS u otra) más cercana a la oficina de Budget en Kawaguchiko. Justificante: Guardad con mucho cuidado el ticket de compra de gasolina de la estación, los agentes de rent-a-car suelen exigirlo.
 
 - **Precio:** Llenar depósito
 
-#### 10:55 - Tren a Shinjuku (Tokio)
+#### 14:08 - Tren a Shinjuku (Tokio)
 Tren Expreso Especial que no requiere transbordos. Fin del descanso.
 
 *Detalle:* Rumbo a la Capital Ciberpunk Traslado directo a la estación de Shinjuku mediante el Fuji Excursion. Entrar en Tokio por Shinjuku es un golpe frontal. Choque Cultural: Tras días de paz alpina, la multitud de Shinjuku, sus neones incesantes y el volumen general serán apabullantes.
 
-- **Precio:** JR Pass + Supl
+- **Precio:** Reserva ticketless confirmada
 
-#### 14:00 - Check-in y Reencuentro con Equipaje
+#### 16:45 - Check-in y Reencuentro con Equipaje
 Llegada al Hotel Metropolitan Edmont en el barrio de Iidabashi.
 
-#### 17:00 - El Barrio Geisha (Kagurazaka)
+#### 18:30 - El Barrio Geisha (Kagurazaka)
 Paseo por el barrio colindante de vuestro hotel para aclimataros a Tokio.
 
 *Detalle:* Kagurazaka: La Pequeña Francia de Kioto Kagurazaka es uno de los pocos lugares en Tokio que todavía emana la atmósfera del periodo Edo. Antiguamente fue un prestigioso distrito de Geishas (Hanamachi) fuera de los límites de la ciudad vieja. Sus callejones empedrados y sinuosos, como el famoso "Callejón Kakurenbo", esconden restaurantes de lujo y casas de té tradicionales tras discretas puertas de madera. Hoy es conocido como el barrio francés de Tokio por la alta concentración de residentes de esa nacionalidad y excelentes panaderías y bistrós. No os perdáis el Santuario Akagi, reconstruido recientemente por el afamado arquitecto Kengo Kuma, fusionando de forma brillante la madera tradicional con el cristal moderno.

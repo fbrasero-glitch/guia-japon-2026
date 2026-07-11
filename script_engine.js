@@ -2,6 +2,12 @@
    SISTEMA DE AUTENTICACIÓN Y SEGURIDAD (SHA-256 + CARGA DINÁMICA)
    ========================================== */
 async function sha256(message) {
+    if (!window.crypto || !window.crypto.subtle) {
+        // Fallback para contextos no seguros o locales (como file://)
+        if (message === 'Family') return 'bd2d677b2ed4381b48bb1d0841052c6d076e7d634d5052e85dcbe0b8a0dedd80';
+        if (message === 'Japan2026') return '173a2a1574ecef98bbbe18db6a67f17f56240817e536f5dcca7043fc6a193731';
+        return 'dummy-hash-fallback';
+    }
     const msgBuffer = new TextEncoder().encode(message);
     const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
     const hashArray = Array.from(new Uint8Array(hashBuffer));
@@ -452,9 +458,9 @@ window.closeInfographic = function() {
         modal.style.display = "none";
         document.body.style.overflow = 'auto'; // Restaurar scroll
     }
-}
+};
 
-window.openFlightSeatingModal = function() {
+window.openFlightSeatingModal = function(isReturn = false) {
     let modal = document.getElementById('flight-seating-modal');
     if (!modal) {
         modal = document.createElement('div');
@@ -466,84 +472,41 @@ window.openFlightSeatingModal = function() {
         modal.style.top = '0';
         modal.style.width = '100%';
         modal.style.height = '100%';
-        modal.style.backgroundColor = 'rgba(0,0,0,0.9)';
+        modal.style.backgroundColor = 'rgba(0,0,0,0.95)';
         modal.style.overflow = 'auto';
-
-        const contentHTML = `
-            <div style="position:relative; width:95%; max-width:800px; margin:20px auto; background:linear-gradient(135deg, #0f172a, #1e293b); border:1px solid var(--neon-blue); border-radius:16px; padding:20px; box-shadow: 0 0 30px rgba(0, 243, 255, 0.3); color:white;">
-                <span style="position:absolute; top:10px; right:20px; color:#fff; font-size:30px; font-weight:bold; cursor:pointer;" onclick="document.getElementById('flight-seating-modal').style.display='none'">&times;</span>
-                <h2 style="color:var(--neon-blue); text-align:center; margin-top:0;"><i class="fa-solid fa-plane-departure"></i> DISTRIBUCIÓN DE VUELOS</h2>
-                
-                <div style="text-align:center; margin-bottom:20px;">
-                    <img src="images/flight_seating_map 1.png" style="max-width:100%; border-radius:12px; border:1px solid rgba(255,255,255,0.2); box-shadow: 0 5px 15px rgba(0,0,0,0.5);">
-                </div>
-
-                <div style="display:flex; flex-direction:column; gap:20px;">
-                    <!-- TRAYECTO 1 -->
-                    <div style="background:rgba(255,255,255,0.05); padding:15px; border-radius:12px; border-left:4px solid var(--accent);">
-                        <h3 style="color:var(--accent); margin-top:0;"><i class="fa-solid fa-plane"></i> TRAYECTO 1: Valencia (VLC) ✈️ Estambul (IST)</h3>
-                        <p style="font-size:0.9rem; color:#cbd5e1;">Avión: Fuselaje estrecho (3-3). Todos en el lado izquierdo.</p>
-                        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:10px; margin-top:10px;">
-                            <div style="background:rgba(0,0,0,0.3); padding:10px; border-radius:8px;">
-                                <strong style="color:white;">Fila 30</strong><br>
-                                <span style="color:var(--gold);">30A:</span> Cesar M. (Ventanilla)<br>
-                                <span style="color:var(--gold);">30B:</span> Gema M. (Centro)
-                            </div>
-                            <div style="background:rgba(0,0,0,0.3); padding:10px; border-radius:8px;">
-                                <strong style="color:white;">Fila 31</strong><br>
-                                <span style="color:var(--gold);">31A:</span> Ivan B. (Ventanilla)<br>
-                                <span style="color:var(--gold);">31B:</span> Vicente M. (Centro)<br>
-                                <span style="color:var(--gold);">31C:</span> Lola P. (Pasillo)
-                            </div>
-                            <div style="background:rgba(0,0,0,0.3); padding:10px; border-radius:8px;">
-                                <strong style="color:white;">Fila 32</strong><br>
-                                <span style="color:var(--gold);">32A:</span> Felipe B. (Ventanilla)<br>
-                                <span style="color:var(--gold);">32B:</span> Laura B. (Centro)<br>
-                                <span style="color:var(--gold);">32C:</span> Lorena M. (Pasillo)
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- TRAYECTO 4 -->
-                    <div style="background:rgba(255,255,255,0.05); padding:15px; border-radius:12px; border-left:4px solid var(--neon-purple);">
-                        <h3 style="color:var(--neon-purple); margin-top:0;"><i class="fa-solid fa-plane"></i> TRAYECTO 4 / ESTAMBUL ✈️ OSAKA / VALENCIA</h3>
-                        <p style="font-size:0.9rem; color:#cbd5e1;">Avión: Fuselaje ancho. Grupo en parte central y lateral derecha.</p>
-                        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:10px; margin-top:10px;">
-                            <div style="background:rgba(0,0,0,0.3); padding:10px; border-radius:8px; grid-column: 1 / -1;">
-                                <strong style="color:white;">Fila 32 (Centro)</strong><br>
-                                <span style="color:var(--gold);">32D:</span> Felipe B. (Pasillo Izq) | 
-                                <span style="color:var(--gold);">32E:</span> Laura B. (Centro) | 
-                                <span style="color:var(--gold);">32F:</span> Lorena M. (Centro) | 
-                                <span style="color:var(--gold);">32G:</span> Ivan B. (Pasillo Der)
-                            </div>
-                            <div style="background:rgba(0,0,0,0.3); padding:10px; border-radius:8px;">
-                                <strong style="color:white;">Fila 32 (Derecha)</strong><br>
-                                <span style="color:var(--gold);">32J:</span> Vicente M. (Centro/Pasillo)<br>
-                                <span style="color:var(--gold);">32K:</span> Lola P. (Ventanilla)
-                            </div>
-                            <div style="background:rgba(0,0,0,0.3); padding:10px; border-radius:8px;">
-                                <strong style="color:white;">Fila 33 (Derecha)</strong><br>
-                                <span style="color:var(--gold);">33J:</span> Gema M. (Centro/Pasillo)<br>
-                                <span style="color:var(--gold);">33K:</span> Cesar M. (Ventanilla)
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
-        modal.innerHTML = contentHTML;
+        modal.style.alignItems = 'center';
+        modal.style.justifyContent = 'center';
+        modal.style.padding = '20px';
+        modal.style.boxSizing = 'border-box';
         document.body.appendChild(modal);
         
         modal.onclick = function(e) {
-            if (e.target === modal) {
+            if (e.target === modal || e.target.tagName === 'SPAN' || e.target.classList.contains('close-btn')) {
                 modal.style.display = "none";
+                document.body.style.overflow = 'auto';
             }
         };
     }
-    modal.style.display = 'block';
+
+    const imageSrc = isReturn ? 'images/vuelo tokio - valenca asientos.png' : 'images/flight_seating_map 1.png';
+    const titleText = isReturn ? 'Selección de Asientos - Vuelta' : 'Selección de Asientos - Ida';
+
+    const contentHTML = `
+        <div style="position:relative; width:100%; max-width:800px; margin:auto; background:linear-gradient(135deg, #0f172a, #1e293b); border:1px solid var(--neon-blue); border-radius:16px; padding:20px; box-shadow: 0 0 30px rgba(0, 243, 255, 0.3); color:white; font-family:'Montserrat', sans-serif;">
+            <span class="close-btn" style="position:absolute; top:10px; right:20px; color:#fff; font-size:30px; font-weight:bold; cursor:pointer;">&times;</span>
+            <h2 style="color:var(--neon-blue); text-align:center; margin-top:0; margin-bottom:20px; font-size:1.3rem; display:flex; align-items:center; justify-content:center; gap:10px;"><i class="fa-solid fa-plane"></i> ${titleText}</h2>
+            
+            <div style="text-align:center; display:flex; justify-content:center; align-items:center;">
+                <img src="${imageSrc}" style="max-width:100%; max-height:80vh; object-fit:contain; border-radius:12px; border:1px solid rgba(255,255,255,0.15); box-shadow: 0 5px 25px rgba(0,0,0,0.6);">
+            </div>
+        </div>
+    `;
+    modal.innerHTML = contentHTML;
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // Evitar scroll de la página de fondo
 };
 
-window.openTaxiInstructionsModal = function() {
+window.openTaxiInstructionsModal = function(dayNum = 2) {
     let modal = document.getElementById('taxi-instructions-modal');
     if (!modal) {
         modal = document.createElement('div');
@@ -557,8 +520,65 @@ window.openTaxiInstructionsModal = function() {
         modal.style.height = '100%';
         modal.style.backgroundColor = 'rgba(0,0,0,0.95)';
         modal.style.overflow = 'auto';
+        document.body.appendChild(modal);
+        
+        modal.onclick = function(e) {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        };
+    }
 
-        const contentHTML = `
+    let contentHTML = '';
+    if (dayNum === 23) {
+        contentHTML = `
+            <div style="position:relative; width:95%; max-width:600px; margin:20px auto; background:#fff; border-radius:20px; padding:30px; color:#000; font-family: 'Inter', sans-serif; box-shadow: 0 0 50px rgba(255, 255, 255, 0.2);">
+                <span style="position:absolute; top:20px; right:25px; color:#000; font-size:40px; font-weight:bold; cursor:pointer;" onclick="document.getElementById('taxi-instructions-modal').style.display='none'">&times;</span>
+                
+                <div style="text-align:center; margin-bottom:25px;">
+                    <i class="fa-solid fa-taxi" style="font-size:3rem; color:#f97316;"></i>
+                    <h2 style="margin:10px 0 0 0; font-size:1.8rem; text-transform:uppercase; letter-spacing:1px;">Traslado a Haneda</h2>
+                    <p style="color:#666; margin:5px 0 0 0;">羽田空港への送迎予約</p>
+                </div>
+
+                <div style="border:3px solid #000; padding:20px; border-radius:15px; background:#f9fafb; margin-bottom:20px; text-align:center;">
+                    <span style="background:#10b981; color:white; padding:4px 10px; border-radius:4px; font-weight:bold; font-size:0.9rem;">RESERVA CONFIRMADA</span>
+                    <h2 style="font-size:1.4rem; margin:15px 0 5px 0; font-weight:900;">
+                        Metropolitan Edmont ➔ Haneda (HND)
+                    </h2>
+                    <p style="font-size:1.05rem; font-weight:700; color:#4b5563; margin:0 0 5px 0;">
+                        Recogida: Martes, 18 de Agosto - 16:30 h
+                    </p>
+                    <p style="font-size:0.95rem; color:#6b7280; margin:0;">
+                        Duración estimada: unos 29 min (directo)
+                    </p>
+                </div>
+
+                <div style="font-size:1.1rem; line-height:1.6;">
+                    <div style="margin-bottom:15px; border-bottom:1px solid #eee; padding-bottom:10px;">
+                        <strong style="color:#f97316; font-size:1.2rem;">[ Dirección de Recogida ]</strong>
+                        <p style="margin:5px 0 0 0; font-weight:bold;">Hotel Metropolitan Edmont Tokyo</p>
+                        <p style="margin:2px 0 0 0; color:#666; font-size:0.9rem;">〒102-0072 Tokyo, Chiyoda City, Iidabashi, 3-chōme−10−8</p>
+                    </div>
+
+                    <div style="margin-bottom:15px; border-bottom:1px solid #eee; padding-bottom:10px;">
+                        <strong style="color:#f97316; font-size:1.2rem;">[ Para el Conductor / 運転手さんへ ]</strong>
+                        <p style="margin:5px 0 0 0; font-weight:bold; font-size:1.15rem; background:#f3f4f6; padding:12px; border-radius:8px; line-height:1.4;">
+                            Booking.comで予約されたプライベート送迎です。羽田空港の国際线ターミナル（第3ターミナル）までお願いします。
+                        </p>
+                        <p style="margin:5px 0 0 0; color:#555; font-size:0.9rem; font-style:italic;">
+                            (Es un traslado privado reservado por Booking.com. Por favor, llévenos a la Terminal 3 de vuelos internacionales de Haneda).
+                        </p>
+                    </div>
+                </div>
+
+                <button onclick="document.getElementById('taxi-instructions-modal').style.display='none'" style="width:100%; margin-top:20px; background:#000; color:#fff; border:none; padding:15px; border-radius:10px; font-size:1.2rem; font-weight:bold; cursor:pointer;">
+                    Cerrar / 閉じる
+                </button>
+            </div>
+        `;
+    } else {
+        contentHTML = `
             <div style="position:relative; width:95%; max-width:600px; margin:20px auto; background:#fff; border-radius:20px; padding:30px; color:#000; font-family: 'Inter', sans-serif; box-shadow: 0 0 50px rgba(255, 255, 255, 0.2);">
                 <span style="position:absolute; top:20px; right:25px; color:#000; font-size:40px; font-weight:bold; cursor:pointer;" onclick="document.getElementById('taxi-instructions-modal').style.display='none'">&times;</span>
                 
@@ -570,7 +590,7 @@ window.openTaxiInstructionsModal = function() {
 
                 <div style="border:3px solid #000; padding:25px; border-radius:15px; background:#f9fafb; margin-bottom:30px;">
                     <h1 style="font-size:2.8rem; text-align:center; margin:0 0 10px 0; line-height:1.1; font-weight:900;">
-                        Dc桜の苑<br>難波南店
+                        Dc桜 de Nishi<br>難波南店
                     </h1>
                     <p style="font-size:1.3rem; text-align:center; margin:0; font-weight:700; color:#333;">
                         〒557-0022 大阪府大阪市西成区中開２丁目１−３
@@ -598,13 +618,13 @@ window.openTaxiInstructionsModal = function() {
 
                     <div style="margin-bottom:15px; border-bottom:1px solid #eee; padding-bottom:10px;">
                         <strong style="color:#f97316; font-size:1.3rem;">[ Capacity ]</strong>
-                        <p style="margin:5px 0 0 0; font-weight:bold; font-size:1.4rem;">予約した車両は、1台あたり9名と荷物9個の定員です。</p>
+                        <p style="margin:5px 0 0 0; font-weight:bold; font-size:1.4rem;">予約した車両は、1台あたり9名と荷物9個 de 定员です。</p>
                         <p style="margin:2px 0 0 0; color:#666; font-size:0.9rem;">(Capacidad para 9 pax y 9 maletas por vehículo)</p>
                     </div>
 
                     <div style="background:#fff7ed; padding:15px; border-radius:12px; border:2px solid #fdba74;">
                         <p style="margin:0; font-weight:bold; font-size:1.5rem; text-align:center;">
-                            このホテルまでお願いします。
+                            このホテル hasta お願いします。
                         </p>
                         <p style="margin:5px 0 0 0; color:#c2410c; font-size:0.9rem; text-align:center;">
                             (Por favor, llévenos a este hotel)
@@ -617,16 +637,153 @@ window.openTaxiInstructionsModal = function() {
                 </button>
             </div>
         `;
-        modal.innerHTML = contentHTML;
+    }
+    modal.innerHTML = contentHTML;
+    modal.style.display = 'block';
+};
+
+window.openICCardInstructionsModal = function() {
+    let modal = document.getElementById('ic-card-modal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'ic-card-modal';
+        modal.className = 'tactical-modal';
+        modal.style.display = 'none';
+        modal.style.position = 'fixed';
+        modal.style.zIndex = '10000';
+        modal.style.left = '0';
+        modal.style.top = '0';
+        modal.style.width = '100%';
+        modal.style.height = '100%';
+        modal.style.backgroundColor = 'rgba(10, 15, 26, 0.95)';
+        modal.style.backdropFilter = 'blur(10px)';
+        modal.style.overflowY = 'auto';
+        modal.style.alignItems = 'center';
+        modal.style.justifyContent = 'center';
         document.body.appendChild(modal);
         
         modal.onclick = function(e) {
             if (e.target === modal) {
                 modal.style.display = "none";
+                document.body.style.overflow = 'auto';
             }
         };
     }
-    modal.style.display = 'block';
+
+    modal.innerHTML = `
+        <div class="datapad-container animate-fade-in" style="width: 95%; max-width: 700px; margin: 40px auto; position: relative; max-height: 90vh; overflow-y: auto; box-shadow: 0 0 30px rgba(0, 243, 255, 0.2); border: 2px solid var(--neon-blue); background: rgba(13, 17, 23, 0.98); padding: 25px; border-radius: 16px;">
+            <div class="datapad-header" style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:12px; margin-bottom:15px;">
+                <div class="datapad-mission-id" style="color:var(--neon-blue); font-family:monospace; font-weight:bold; font-size:0.85rem;">> MANUAL_TÁCTICO: TARJETA_IC_V1.0</div>
+                <button onclick="document.getElementById('ic-card-modal').style.display='none'; document.body.style.overflow='auto';" 
+                        style="background:rgba(239,68,68,0.15); border:1px solid var(--danger); color:var(--danger); padding:4px 10px; border-radius:6px; font-size:0.75rem; cursor:pointer; font-weight:bold; font-family:inherit; display:flex; align-items:center; gap:5px; transition:all 0.3s;">
+                    <i class="fa-solid fa-xmark"></i> CERRAR
+                </button>
+            </div>
+            
+            <h1 style="display: flex; align-items: center; gap: 10px; color: var(--neon-blue); font-size:1.6rem; font-weight:bold; margin:0 0 8px 0; font-family: 'Montserrat', sans-serif;">
+                <i class="fa-solid fa-credit-card"></i> 💳 GUÍA FAMILIAR: La Tarjeta IC
+            </h1>
+            <p style="color: var(--gold); font-size: 0.9rem; font-weight: bold; margin: 0 0 20px 0;">
+                Tu llave para moverte por todo Japón (Osaka, Nara, Kioto y Tokio). Olvídate de los billetes de papel.
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 20px; font-size: 0.9rem; color: #cbd5e1; line-height: 1.6;">
+                
+                <!-- INTRO -->
+                <div class="data-block" style="background: rgba(251,191,36,0.03); padding: 15px; border-radius: 8px; border-left: 4px solid var(--gold); border: 1px solid rgba(251,191,36,0.15); border-left-width: 4px;">
+                    Para movernos por Japón (Osaka, Nara, Kioto y Tokio) no vamos a comprar billetes de papel. Usaremos una Tarjeta IC (un monedero electrónico en el móvil o en plástico). Se pasa por el torno, hace <strong>"bip"</strong> y listo.
+                    <br><br>
+                    Como aterrizamos en Osaka a las 19:00 y estaremos listos sobre las 21:00, aquí está el plan de acción exacto para que nadie se pierda.
+                </div>
+
+                <!-- PASO 1 -->
+                <div class="data-block" style="border: 1px solid rgba(0, 243, 255, 0.15); border-left: 4px solid var(--neon-blue); background: rgba(0, 243, 255, 0.02); padding: 15px; border-radius: 8px;">
+                    <div style="color: var(--neon-blue); font-weight: bold; font-size: 1.05rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-mobile-screen-button"></i> 📱 PASO 1: ¿Cómo la conseguimos?
+                    </div>
+                    
+                    <!-- Opción A -->
+                    <div style="margin-bottom: 15px; border-bottom: 1px dashed rgba(255, 255, 255, 0.1); padding-bottom: 15px;">
+                        <strong style="color: white; font-size: 0.95rem; display: block; margin-bottom: 5px;">Opción A: Si tienes iPhone (¡La más fácil y recomendada!)</strong>
+                        <span style="font-size: 0.85rem; color: #94a3b8; display: block; margin-bottom: 10px;">No tienes que comprar nada al llegar. La configuras ahora mismo desde el sofá de tu casa en España:</span>
+                        <ol style="padding-left: 20px; margin: 0; font-size: 0.85rem; display: flex; flex-direction: column; gap: 6px;">
+                            <li>Entra en la app <strong>Wallet (Cartera)</strong> de tu iPhone.</li>
+                            <li>Pulsa el botón <strong>"+"</strong> (arriba a la derecha).</li>
+                            <li>Selecciona <strong>Tarjeta de tránsito</strong> (o de transporte).</li>
+                            <li>Busca <strong>"Suica"</strong> o <strong>"Pasmo"</strong>, elige una y dale a continuar.</li>
+                            <li>Paga unos <strong>2.000 o 3.000 yenes</strong> con tu Apple Pay para activar el saldo inicial. ¡Y listo! Ya la tienes en el móvil antes de despegar.</li>
+                        </ol>
+                    </div>
+
+                    <!-- Opción B -->
+                    <div>
+                        <strong style="color: white; font-size: 0.95rem; display: block; margin-bottom: 5px;">Opción B: Si tienes Android o prefieres tarjeta física de plástico</strong>
+                        <span style="font-size: 0.85rem; color: #94a3b8; display: block; margin-bottom: 10px;">Como en el aeropuerto de Osaka las oficinas pueden tener colas o estar cerradas a nuestra llegada, tenéis <strong>dos momentos ideales</strong> para comprar la ICOCA física en las máquinas automáticas:</span>
+                        
+                        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 12px; border-radius: 8px; margin-bottom: 12px;">
+                            <span style="color: var(--neon-blue); font-weight: bold; font-size: 0.85rem; display: block; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px;">📍 Opción B1: En el Aeropuerto de Osaka (KIX) al llegar</span>
+                            <ul style="padding-left: 18px; margin: 0; font-size: 0.8rem; display: flex; flex-direction: column; gap: 4px; color: #cbd5e1;">
+                                <li>Tras recoger maletas, cruzad la pasarela hacia la estación de tren del aeropuerto.</li>
+                                <li>Dirigíos a las máquinas expendedoras azules de <strong>JR West</strong> o de la línea <strong>Nankai</strong>.</li>
+                            </ul>
+                        </div>
+
+                        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 12px; border-radius: 8px; margin-bottom: 15px; border-left: 3px solid var(--neon-purple);">
+                            <span style="color: var(--neon-purple); font-weight: bold; font-size: 0.85rem; display: block; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px;">📍 Opción B2: En la estación de vuestro barrio (¡Muy Recomendado!)</span>
+                            <p style="margin: 0 0 5px 0; font-size: 0.8rem; color: #cbd5e1;">
+                                Podéis acercaros a las máquinas automáticas de la estación de tren al lado de vuestro hotel: la <strong>Estación Shin-Imamiya</strong> (a solo 8 minutos a pie del hotel).
+                            </p>
+                            <ul style="padding-left: 18px; margin: 0; font-size: 0.8rem; display: flex; flex-direction: column; gap: 4px; color: #cbd5e1;">
+                                <li><strong>El Día 2:</strong> Al llegar, después de hacer el check-in en el hotel, podéis dar un paseo corto hasta la estación Shin-Imamiya y comprarlas con calma.</li>
+                                <li><strong>El Día 3:</strong> Por la mañana, antes de la primera excursión en Osaka, las compráis allí mismo en las máquinas justo antes de pasar por los tornos por primera vez.</li>
+                            </ul>
+                        </div>
+
+                        <strong style="color: white; font-size: 0.85rem; display: block; margin-bottom: 8px;">¿Cómo comprarla en las máquinas automáticas?</strong>
+                        <ol style="padding-left: 20px; margin: 0; font-size: 0.85rem; display: flex; flex-direction: column; gap: 6px;">
+                            <li>Cambiad el idioma de la pantalla a <strong>Español o Inglés</strong> (botón en la esquina superior derecha).</li>
+                            <li>Seleccionad <strong>"Buy ICOCA"</strong> (En Osaka se llama ICOCA, funciona exactamente igual que la Suica en todo el país y os servirá incluso en Tokio).</li>
+                            <li>Pagad en efectivo (Yenes). La tarjeta estándar cuesta <strong>2.000 yenes</strong> (incluye 1.500 JPY de saldo para viajar y 500 JPY de depósito).</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- PASO 2 -->
+                <div class="data-block" style="border: 1px solid rgba(168, 85, 247, 0.15); border-left: 4px solid var(--neon-purple); background: rgba(168, 85, 247, 0.02); padding: 15px; border-radius: 8px;">
+                    <div style="color: var(--neon-purple); font-weight: bold; font-size: 1.05rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-money-bill-wave"></i> 💵 PASO 2: ¿Cuánto y cómo se carga?
+                    </div>
+                    <ul style="padding-left: 20px; margin: 0; font-size: 0.85rem; display: flex; flex-direction: column; gap: 10px;">
+                        <li><strong>Saldo inicial recomendado:</strong> Se recomienda empezar con <strong style="color: var(--gold);">5.000 Yenes por persona</strong>. Con esto cubriremos de sobra los primeros 5-6 días de rutas por Osaka, la excursión a Nara y los buses de Kioto sin tener que parar a recargar.</li>
+                        <li><strong>Cómo recargar la tarjeta Digital (iPhone):</strong> Abres tu Wallet en cualquier sitio (incluso en mitad de la calle), le das a "Añadir dinero" y pagas con tu tarjeta del móvil.</li>
+                        <li><strong>Cómo recargar la tarjeta Física (Plástico):</strong> Solo se puede recargar con dinero en efectivo (Yenes en billetes). Se hace en las máquinas automáticas que hay en la entrada de cualquier estación de metro o tren de Japón. Metes tu tarjeta en la ranura, introduces los billetes de yenes, seleccionas la cantidad en la pantalla y la máquina te la devuelve cargada.</li>
+                    </ul>
+                </div>
+
+                <!-- PASO 3 -->
+                <div class="data-block" style="border: 1px solid rgba(16, 185, 129, 0.15); border-left: 4px solid var(--success); background: rgba(16, 185, 129, 0.02); padding: 15px; border-radius: 8px;">
+                    <div style="color: var(--success); font-weight: bold; font-size: 1.05rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-person-walking-arrow-right"></i> 🏃‍♂️ PASO 3: ¿Cómo se utiliza en el día a día?
+                    </div>
+                    <ul style="padding-left: 20px; margin: 0; font-size: 0.85rem; display: flex; flex-direction: column; gap: 10px;">
+                        <li><strong>En el Metro y Trenes (Osaka, Nara y Tokio):</strong> Al llegar a los tornos de acceso, verás un lector digital azul. Toca con tu móvil o tu tarjeta física en el lector (no hace falta sacarla de la cartera si es física). El torno hará bip y se abrirá. Al llegar a tu destino, vuelves a tocar al salir. La pantalla del torno te mostrará cuánto te ha costado el viaje y cuánto saldo te queda.</li>
+                        <li><strong>En los Autobuses urbanos (Kioto):</strong> En Kioto se sube por la puerta trasera del autobús y se sale por la delantera. Al bajarte, justo al lado del conductor, verás el lector azul. Tocas una sola vez al salir y se cobrará la tarifa plana del autobús (~230 yenes).</li>
+                        <li><strong>💡 ¡Truco extra! Tiendas y Máquinas:</strong> Si os quedáis sin suelto, esta tarjeta también sirve para pagar en las máquinas expendedoras de bebidas de la calle y en los supermercados de conveniencia (7-Eleven, Lawson, FamilyMart). ¡Solo tienes que decir "IC Card" al pagar y tocar el lector de la caja!</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div style="margin-top: 25px; text-align: center;">
+                <button onclick="document.getElementById('ic-card-modal').style.display='none'; document.body.style.overflow='auto';" 
+                        style="display: inline-block; padding: 12px 35px; background: linear-gradient(135deg, var(--neon-blue), #0284c7); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-family: inherit; font-size:0.9rem; box-shadow:0 4px 15px rgba(0,243,255,0.3); transition:all 0.3s;">
+                    Entendido / OK
+                </button>
+            </div>
+        </div>
+    `;
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
 };
 
 // Función auxiliar para obtener la mejor infografía disponible para un día
@@ -1611,6 +1768,46 @@ window.getSmartAlertsHTML = function (data, dayIndex) {
     return alertsHTML;
 };
 
+window.getPayMethodBadge = function(item) {
+    if (!item.price) return '';
+    const priceClean = item.price.toLowerCase();
+    const titleClean = item.title.toLowerCase();
+    
+    // Si es gratis o no tiene coste, no mostramos símbolo de pago
+    if (priceClean.includes('gratis') || priceClean === '0' || priceClean.includes('sin coste') || priceClean.includes('libre') || priceClean.includes('incluido') || priceClean.includes('pre-pagado') || priceClean.includes('prepagado') || priceClean.includes('pre-paid')) {
+        return '';
+    }
+
+    let isIC = false;
+    
+    // Si viene explícito en los datos
+    if (item.payMethod === 'ic') isIC = true;
+    else if (item.payMethod === 'other') isIC = false;
+    else {
+        // Reglas heurísticas basadas en títulos y precios
+        if (priceClean.includes('ic') || priceClean.includes('suica') || priceClean.includes('icoca') || priceClean.includes('pasmo')) {
+            isIC = true;
+        } else if (titleClean.includes('metro') || titleClean.includes('subway') || titleClean.includes('yamanote') || titleClean.includes('loop line') || titleClean.includes('tren local') || titleClean.includes('monorrail') || titleClean.includes('monorail') || titleClean.includes('yurikamome') || titleClean.includes('rinkai') || titleClean.includes('chuo line') || titleClean.includes('tozai') || titleClean.includes('sobu') || titleClean.includes('bus de kioto') || titleClean.includes('autobús local') || titleClean.includes('bus local') || titleClean.includes('keihan') || titleClean.includes('hankyu') || titleClean.includes('tren jr')) {
+            isIC = true;
+        } else if (priceClean.includes('jpy') && !priceClean.includes('total') && !priceClean.includes('taxi') && !priceClean.includes('coche') && !priceClean.includes('shinkansen') && !priceClean.includes('hida') && !priceClean.includes('reserva') && !priceClean.includes('llegada')) {
+            // Si el precio es menor de 1500 yenes y no tiene palabras clave de otros transportes
+            const numberMatch = priceClean.match(/\d+/);
+            if (numberMatch) {
+                const val = parseInt(numberMatch[0]);
+                if (val < 1500) {
+                    isIC = true;
+                }
+            }
+        }
+    }
+
+    if (isIC) {
+        return '<span style="background:var(--neon-blue); color:#0a0f1a; width:18px; height:18px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:0.6rem; font-weight:900; font-family:monospace; margin-right:6px; box-shadow:0 0 8px rgba(0,243,255,0.4);" title="Pagar con tarjeta IC (Suica/ICOCA)">IC</span>';
+    } else {
+        return '<span style="background:var(--accent); color:#0a0f1a; width:18px; height:18px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:0.7rem; font-weight:900; font-family:monospace; margin-right:6px; box-shadow:0 0 8px rgba(249,115,22,0.4);" title="Pago en Efectivo, Tarjeta o Reserva">¥</span>';
+    }
+};
+
 window.decorateTransitTitle = function(title) {
     let decorated = title;
     
@@ -1681,7 +1878,7 @@ function renderRightPanel(data) {
             if (item.type === 'point') {
                 html += '<div class="transport-point" style="display:flex; align-items:center; margin-bottom:10px;"><span style="color:var(--neon-blue); font-weight:bold; min-width:55px; font-family:monospace;">' + item.time + '</span><div style="background:rgba(255,255,255,0.1); padding:8px 12px; border-radius:8px; display:flex; align-items:center; flex:1;"><i class="' + item.icon + '" style="color:var(--gold); margin-right:10px;"></i><span style="color:#f0f0f0;">' + item.title + '</span></div></div>';
             } else if (item.type === 'transit') {
-                html += '<div class="transport-transit" style="margin-left:75px; padding:10px 0; border-left:2px dashed rgba(255,255,255,0.2); position:relative; margin-bottom:15px;"><i class="fa-solid fa-arrow-down" style="position:absolute; left:-7px; top:40%; font-size:0.8rem; color:rgba(255,255,255,0.3);"></i><div style="padding-left:15px;"><div style="color:var(--accent); font-size:0.9rem; font-weight:bold; margin-bottom:5px;">' + window.decorateTransitTitle(item.title) + '</div><div style="display:flex; gap:15px; align-items:center; margin-bottom:10px;"><div style="color:var(--gold); font-size:0.85rem; font-weight:bold;">' + item.price + '</div>' + (item.timeLabel ? '<div style="color:rgba(255,255,255,0.5); font-size:0.8rem; font-style:italic;">' + item.timeLabel + '</div>' : '') + '</div><div style="display:flex; gap:8px;">' + (item.link ? '<a href="' + item.link + '" target="_blank" class="tactical-btn" style="flex:1; text-align:center; padding:5px; font-size:0.7rem; border-radius:4px; text-decoration:none; background:rgba(0,243,255,0.1); border:1px solid var(--neon-blue); color:var(--neon-blue); font-weight:bold; display:flex; align-items:center; justify-content:center; gap:5px;"><i class="fa-solid fa-map-location-dot"></i> GOOGLE MAPS</a>' : '') + (item.tacticalGuideId ? '<button onclick="renderTacticalMission(\'' + item.tacticalGuideId + '\', ' + dayIndex + ')" class="tactical-btn" style="flex:1.5; text-align:center; padding:8px 5px; font-size:0.75rem; border-radius:4px; background:rgba(249,115,22,0.15); border:1px solid var(--accent); color:var(--accent); font-weight:bold; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:5px;"><i class="fa-solid fa-file-contract"></i> ' + (item.tacticalBtnText || 'GUÍA TÁCTICA') + '</button>' : '') + '</div></div></div>';
+                html += '<div class="transport-transit" style="margin-left:75px; padding:10px 0; border-left:2px dashed rgba(255,255,255,0.2); position:relative; margin-bottom:15px;"><i class="fa-solid fa-arrow-down" style="position:absolute; left:-7px; top:40%; font-size:0.8rem; color:rgba(255,255,255,0.3);"></i><div style="padding-left:15px;"><div style="color:var(--accent); font-size:0.9rem; font-weight:bold; margin-bottom:5px;">' + window.decorateTransitTitle(item.title) + '</div><div style="display:flex; gap:15px; align-items:center; margin-bottom:10px;"><div style="color:var(--gold); font-size:0.85rem; font-weight:bold; display:inline-flex; align-items:center; gap:5px;">' + window.getPayMethodBadge(item) + '<span>' + item.price + '</span></div>' + (item.timeLabel ? '<div style="color:rgba(255,255,255,0.5); font-size:0.8rem; font-style:italic;">' + item.timeLabel + '</div>' : '') + '</div><div style="display:flex; gap:8px;">' + (item.link ? '<a href="' + item.link + '" target="_blank" class="tactical-btn" style="flex:1; text-align:center; padding:5px; font-size:0.7rem; border-radius:4px; text-decoration:none; background:rgba(0,243,255,0.1); border:1px solid var(--neon-blue); color:var(--neon-blue); font-weight:bold; display:flex; align-items:center; justify-content:center; gap:5px;"><i class="fa-solid fa-map-location-dot"></i> GOOGLE MAPS</a>' : '') + (item.tacticalGuideId ? '<button onclick="renderTacticalMission(\'' + item.tacticalGuideId + '\', ' + dayIndex + ')" class="tactical-btn" style="flex:1.5; text-align:center; padding:8px 5px; font-size:0.75rem; border-radius:4px; background:rgba(249,115,22,0.15); border:1px solid var(--accent); color:var(--accent); font-weight:bold; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:5px;"><i class="fa-solid fa-file-contract"></i> ' + (item.tacticalBtnText || 'GUÍA TÁCTICA') + '</button>' : '') + '</div></div></div>';
             }
             const fullLabel = (item.time || '') + (item.timeLabel || '');
             const isLunchTime = fullLabel.includes('12:') || fullLabel.includes('13:') || fullLabel.includes('14:');
@@ -1757,15 +1954,15 @@ function renderCenterVisual(data, mode, optData = null) {
         const l = loc.toLowerCase();
         let pdfs = [];
         if (l.includes('osaka')) {
-            pdfs = [{ file: 'https://drive.google.com/file/d/11XI5_Eovm0Pcem0Z0fNwD2ATE53Ym2eS/view?usp=drivesdk', icon: 'fa-subway', title: 'Metro Osaka' },{ file: 'https://drive.google.com/file/d/1uNxNFdMNtxb5MLuWv7ZU_i3wS0mxsWmY/view?usp=drivesdk', icon: 'fa-train-subway', title: 'Mapa Metro' },{ file: 'https://drive.google.com/file/d/1ckqIvVtln93wx41L5G2AVCxkMzw6p1-G/view?usp=drivesdk', icon: 'fa-train', title: 'JR Osaka' },{ file: 'https://drive.google.com/file/d/1hl_72w0AEUiKvo83FUiI4svpYVKrYk2K/view?usp=drivesdk', icon: 'fa-compass', title: 'Estación Osaka' }];
+            pdfs = [{ file: 'metro osaka.pdf', icon: 'fa-subway', title: 'Metro Osaka' },{ file: 'osaka_metro_map.pdf', icon: 'fa-train-subway', title: 'Mapa Metro' },{ file: 'map_osaka jr.pdf', icon: 'fa-train', title: 'JR Osaka' },{ file: 'station_osaka.pdf', icon: 'fa-compass', title: 'Estación Osaka' }];
         } else if (l.includes('kyoto') || l.includes('kioto')) {
-            pdfs = [{ file: 'https://drive.google.com/file/d/1EVTdI_L44ZNpE82y7nquOZf5DitZdCK2/view?usp=drivesdk', icon: 'fa-bus', title: 'Bus/Metro Kyoto' },{ file: 'https://drive.google.com/file/d/1_1qWBh781cAVyeE-LwFy4srNLNNnQBmb/view?usp=drivesdk', icon: 'fa-map', title: 'Mapa Kyoto frontal' },{ file: 'https://drive.google.com/file/d/1Qh5xuEcX8zZUDX0JnF4SEAjqoBioDCcG/view?usp=drivesdk', icon: 'fa-subway', title: 'Mapa Metro' }];
+            pdfs = [{ file: 'kyoto Travel Map Subway & Bus Navi.pdf', icon: 'fa-bus', title: 'Bus/Metro Kyoto' },{ file: 'kyoto Travel Map Subway & Bus Navi front.pdf', icon: 'fa-map', title: 'Mapa Kyoto frontal' },{ file: 'map_kyoto_metro.pdf', icon: 'fa-subway', title: 'Mapa Metro' }];
         } else if (l.includes('tokio') || l.includes('tokyo')) {
-            pdfs = [{ file: 'https://drive.google.com/file/d/17HtwxyS6cc4fqZqMkMFJW_Cbv2CrI1JI/view?usp=drivesdk', icon: 'fa-subway', title: 'Metro Tokio' },{ file: 'https://drive.google.com/file/d/1dg2C3spA1tV5UpSGZ-M6-qQ8sP4xCg6B/view?usp=drivesdk', icon: 'fa-compass', title: 'Mapa Shibuya' },{ file: 'https://drive.google.com/file/d/1oy5Ahd8UqBku9wNUtEnQnzMc3GAbnO8H/view?usp=drivesdk', icon: 'fa-map-location-dot', title: 'Mapa Shibuya 2' },{ file: 'https://drive.google.com/file/d/1xrimiqPlqT_MQtHQCfsM1DlZ8VNiq5eA/view?usp=drivesdk', icon: 'fa-building', title: 'Mapa Akihabara' }];
+            pdfs = [{ file: 'map_tokyo_metro.pdf', icon: 'fa-subway', title: 'Metro Tokio' },{ file: 'sibuya maps.pdf', icon: 'fa-compass', title: 'Mapa Shibuya' },{ file: 'sibuya maps 2.pdf', icon: 'fa-map-location-dot', title: 'Mapa Shibuya 2' },{ file: 'Akijabara tower maps.pdf', icon: 'fa-building', title: 'Mapa Akihabara' }];
         } else if (l.includes('alpes') || l.includes('takayama')) {
-            pdfs = [{ file: 'https://drive.google.com/file/d/1j_oUY5eniWAL8IHPc4ty3WiBfgUkaRzF/view?usp=drivesdk', icon: 'fa-person-walking', title: 'Mapa Takayama' }];
+            pdfs = [{ file: 'TAKAYAMA_walking_map_en.pdf', icon: 'fa-person-walking', title: 'Mapa Takayama' }];
         } else if (l.includes('kix')) {
-            pdfs = [{ file: 'https://drive.google.com/file/d/1bRk9aiE4dLDkGWyEimBAUUzQHw3K7L3F/view?usp=drivesdk', icon: 'fa-bus-simple', title: 'Bus KIX Umeda' }];
+            pdfs = [{ file: 'Plano Terminal KIX (Andén 5, Airport Limousine Bus a Umeda).pdf', icon: 'fa-bus-simple', title: 'Bus KIX Umeda' }];
         }
         if (pdfs.length === 0) return '';
         return '<div class="pdf-downloads-wrapper" style="width:100%; display:flex; justify-content:flex-end; max-width:100%;"><div class="pdf-downloads-orange" style="display:flex; gap:8px; flex-wrap:nowrap; overflow-x:auto; overflow-y:visible; justify-content:flex-start; margin-top:10px; padding-bottom:5px; scrollbar-width:none; max-width:100%;">' + pdfs.map(p => {
@@ -1837,19 +2034,33 @@ function renderCenterVisual(data, mode, optData = null) {
     const titleMatch = data.title.match(/:\s*(.+)/);
     const subHeroText = titleMatch ? titleMatch[1] : data.title;
     const headerTitleHTML = '<div class="header-titles-center">' + (location ? '<h1 class="city-hero-title">' + location + '</h1>' : '') + '<p class="city-hero-subtitle">' + subHeroText + '</p>' + tacticalHeaderBtn + '</div>';
-    const gastroRadarHTML = location ? '<div class="gastro-radar-wrapper"><button class="gastro-radar-btn pulse" onclick="renderRestaurantPanel(\'' + location + '\', ' + dayIdx + ')" title="Radar Gastronómico"><i class="fa-solid fa-utensils"></i></button><span class="gastro-radar-label">Radar Gastronómico</span></div>' : '';
+    // 1. Radar Gastronómico (se oculta en el Día 2, se muestra en los demás días si hay localización)
+    let gastroRadarHTML = '';
+    if (location && data.day !== 2) {
+        gastroRadarHTML = '<div class="gastro-radar-wrapper"><button class="gastro-radar-btn pulse" onclick="renderRestaurantPanel(\'' + location + '\', ' + dayIdx + ')" title="Radar Gastronómico"><i class="fa-solid fa-utensils"></i></button><span class="gastro-radar-label">Radar Gastronómico</span></div>';
+    }
+
+    // 2. Icono de Manual Tarjeta IC (se muestra en el Día 2 y Día 3)
+    let icCardIconHTML = '';
+    if (data.day === 2 || data.day === 3) {
+        icCardIconHTML = '<div class="gastro-radar-wrapper" style="' + (data.day === 3 ? 'margin-left: 20px;' : '') + '"><button class="gastro-radar-btn pulse-cyan" style="background: rgba(0, 243, 255, 0.15); border: 2px solid var(--neon-blue); color: var(--neon-blue); box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);" onclick="openICCardInstructionsModal()" title="Guía Tarjeta IC"><i class="fa-solid fa-credit-card"></i></button><span class="gastro-radar-label" style="color:var(--neon-blue);">Manual Tarjeta IC</span></div>';
+    }
     
     let flightIconHTML = '';
     if (data.day === 1) {
-        flightIconHTML = '<div class="gastro-radar-wrapper" style="margin-left: 20px;"><button class="gastro-radar-btn pulse" style="background: rgba(0, 243, 255, 0.15); border: 2px solid var(--neon-blue); color: var(--neon-blue); box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);" onclick="openFlightSeatingModal()" title="Distribución de Asientos Vuelos"><i class="fa-solid fa-plane"></i></button><span class="gastro-radar-label" style="color:var(--neon-blue);">Asientos Vuelo</span></div>';
+        flightIconHTML = '<div class="gastro-radar-wrapper" style="margin-left: 20px;"><button class="gastro-radar-btn pulse-cyan" style="background: rgba(0, 243, 255, 0.15); border: 2px solid var(--neon-blue); color: var(--neon-blue); box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);" onclick="openFlightSeatingModal(false)" title="Distribución de Asientos Vuelos"><i class="fa-solid fa-plane"></i></button><span class="gastro-radar-label" style="color:var(--neon-blue);">Asientos Vuelo</span></div>';
+    } else if (data.day === 23) {
+        flightIconHTML = '<div class="gastro-radar-wrapper" style="margin-left: 20px;"><button class="gastro-radar-btn pulse-cyan" style="background: rgba(0, 243, 255, 0.15); border: 2px solid var(--neon-blue); color: var(--neon-blue); box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);" onclick="openFlightSeatingModal(true)" title="Distribución de Asientos Vuelos de Vuelta"><i class="fa-solid fa-plane"></i></button><span class="gastro-radar-label" style="color:var(--neon-blue);">Asientos Vuelta</span></div>';
     }
 
     let taxiIconHTML = '';
     if (data.day === 2) {
-        taxiIconHTML = '<div class="gastro-radar-wrapper" style="margin-left: 20px;"><button class="gastro-radar-btn pulse" style="background: rgba(249, 115, 22, 0.15); border: 2px solid var(--accent); color: var(--accent); box-shadow: 0 0 15px rgba(249, 115, 22, 0.4);" onclick="openTaxiInstructionsModal()" title="Instrucciones Taxi"><i class="fa-solid fa-taxi"></i></button><span class="gastro-radar-label" style="color:var(--accent);">Info Taxi</span></div>';
+        taxiIconHTML = '<div class="gastro-radar-wrapper" style="margin-left: 20px;"><button class="gastro-radar-btn pulse-accent" style="background: rgba(249, 115, 22, 0.15); border: 2px solid var(--accent); color: var(--accent); box-shadow: 0 0 15px rgba(249, 115, 22, 0.4);" onclick="openTaxiInstructionsModal(2)" title="Instrucciones Taxi"><i class="fa-solid fa-taxi"></i></button><span class="gastro-radar-label" style="color:var(--accent);">Info Taxi</span></div>';
+    } else if (data.day === 23) {
+        taxiIconHTML = '<div class="gastro-radar-wrapper" style="margin-left: 20px;"><button class="gastro-radar-btn pulse-accent" style="background: rgba(249, 115, 22, 0.15); border: 2px solid var(--accent); color: var(--accent); box-shadow: 0 0 15px rgba(249, 115, 22, 0.4);" onclick="openTaxiInstructionsModal(23)" title="Instrucciones Taxi"><i class="fa-solid fa-taxi"></i></button><span class="gastro-radar-label" style="color:var(--accent);">Info Taxi</span></div>';
     }
     
-    const iconsGroupHTML = '<div style="display:flex; justify-content:center; align-items:flex-start; margin-top:10px;">' + gastroRadarHTML + flightIconHTML + taxiIconHTML + '</div>';
+    const iconsGroupHTML = '<div style="display:flex; justify-content:center; align-items:flex-start; margin-top:10px;">' + gastroRadarHTML + icCardIconHTML + flightIconHTML + taxiIconHTML + '</div>';
 
     const unifiedHeaderHTML = '<div class="excursion-page-header"><div class="header-infog-left">' + regionInfographicHTML + '</div><div class="header-title-container">' + headerTitleHTML + iconsGroupHTML + '</div><div class="header-infog-right">' + dayInfographicHTML + '</div><div class="header-hotel-container">' + hotelHTML + '</div><div class="header-icons-container">' + mapsSectionHTML + '</div></div>';
 
@@ -2131,34 +2342,6 @@ function selectExcursionFromCard(dayIndex, optionId, cardElement) {
 
 // --- GESTIÓN DE MISIONES TÁCTICAS ---
 window.tacticalMissions = {
-    'mission_fuji_excursion': {
-        title: "Operación Retorno",
-        subtitle: "De los Lagos a la Jungla de Neón",
-        steps: [
-            {
-                time: "09:00 – 09:30",
-                title: "⛽ Operación Repostaje",
-                content: "Llenar el depósito en la gasolinera más cercana a la oficina de Budget en la estación de Kawaguchiko (buscad una ENEOS u otra similar).",
-                warning: "Punto Crítico: Guardad el ticket de la gasolina. Los agentes de la oficina de alquiler suelen exigirlo como prueba visual de que el depósito está lleno."
-            },
-            {
-                time: "09:30 – 10:30",
-                title: "🚗 Devolución de los Coches",
-                content: "Lugar: Oficina de Budget Rent a Car (justo al lado de la estación de Kawaguchiko). Horario Límite: Se recomienda completar el trámite antes de las 10:30 para tener margen de sobra antes de que salga el tren."
-            },
-            {
-                time: "10:55 – 12:55",
-                title: "🚄 El Tren 'Fuji Excursion'",
-                content: "Es el medio más eficiente, conectando la zona de los lagos con el centro de Tokio de forma directa. Salida: Estación de Kawaguchiko a las 10:55 AM. Destino: Estación de Shinjuku.",
-                warning: "Reserva: Es IMPRESCINDIBLE reservar asiento con antelación por internet (aprox. 1 mes antes). Las plazas vuelan."
-            },
-            {
-                time: "13:00 – 14:00",
-                title: "🚕 Llegada a Tokio y Traslado al Hotel",
-                content: "A las 12:55 llegaréis a Shinjuku. Mover a 8 personas con equipaje puede ser abrumador. Recomendado: Tomad 2 taxis furgoneta grandes hacia el barrio de Iidabashi. El trayecto dura unos 15 minutos y cuesta unos 2.000 JPY por taxi."
-            }
-        ]
-    },
     'mission_osaka_to_kyoto': {
         title: "Manual de Viaje a Kioto",
         subtitle: "Traslado de Osaka a la Ciudad de los Templos",

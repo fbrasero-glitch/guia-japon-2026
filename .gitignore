@@ -11,3 +11,11 @@ base.md
 # OS files
 .DS_Store
 Thumbs.db
+
+# Agent configurations
+.agents/
+
+# Confidential documentation folder
+pdf/documentacion/
+qr/
+qr entrada/

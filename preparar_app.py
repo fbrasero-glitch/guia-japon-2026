@@ -8,7 +8,7 @@ def generar_service_worker():
     base_dir = "."
     
     # Extensiones a incluir en la caché
-    extensiones_validas = {".html", ".css", ".js", ".png", ".jpg", ".jpeg", ".svg", ".json", ".mp4"}
+    extensiones_validas = {".html", ".css", ".js", ".png", ".jpg", ".jpeg", ".svg", ".json", ".mp4", ".pdf"}
     
     # Ignorar estos directorios/archivos
     ignorar = {".git", ".gemini", "sw.js", "sw_template.js", "preparar_app.py", "generate_guide.js", "find_videos.js", "apply_bookings.py", "documentacion", "qr entrada", "qr"}

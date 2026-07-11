@@ -1935,68 +1935,43 @@ const travelData_09_16 = [
         image: "images/tokio_skyline.png",
 
         logistics: [
-            { title: "Coche", text: "Llenad depósito de gasolina y devolved en Budget Kawaguchiko Station (10:30 max). Guardad ticket." },
-            { title: "Transporte", text: "Tren Expreso Fuji Excursion directo a Shinjuku (RESERVA CRÍTICA 30 días antes). Alternativa: Highway Bus." },
+            { title: "Coche", text: "Llenad depósito de gasolina y devolved en Budget Kawaguchiko Station (12:30 max). Guardad ticket." },
+            { title: "Transporte", text: "Tren Expreso Fuji Excursion directo a Shinjuku (RESERVA REALIZADA para las 14:08). Alternativa: Highway Bus." },
             { title: "Equipaje", text: "Maletas grandes enviadas desde Kioto u Osaka os estarán esperando en el lobby o habitación del hotel." }
         ],
 
         transportTimeline: [
-            { time: "09:00", type: "point", icon: "fa-solid fa-gas-pump", title: "Repostaje en Gasolinera", link: "https://www.google.com/maps/search/?api=1&query=Gas+Station+near+Kawaguchiko+Station" },
-            { time: "09:30", type: "point", icon: "fa-solid fa-car-side", title: "Devolución de Coches (Budget)", link: "https://www.google.com/maps/search/?api=1&query=Budget+Rent+A+Car+Kawaguchiko" },
+            { time: "11:30", type: "point", icon: "fa-solid fa-gas-pump", title: "Repostaje en Gasolinera", link: "https://www.google.com/maps/search/?api=1&query=Gas+Station+near+Kawaguchiko+Station" },
+            { time: "12:00", type: "point", icon: "fa-solid fa-car-side", title: "Devolución de Coches (Budget)", link: "https://www.google.com/maps/search/?api=1&query=Budget+Rent+A+Car+Kawaguchiko" },
             {
-                time: "10:55",
+                time: "14:08",
                 type: "transit",
-                title: "Tren Express 'Fuji Excursion' a Tokio",
-                price: "Billete completo. Sin JR Pass.",
-                timeLabel: "1h 55m",
+                title: "Tren Express 'Fuji Excursion 32' a Tokio (COMPRADO)",
+                price: "Reserva ticketless confirmada.",
+                timeLabel: "1h 58m",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Kawaguchiko+Station&destination=Shinjuku+Station&travelmode=transit",
                 tacticalGuideId: "mission_fuji_excursion",
-                tacticalBtnText: "🚀 RUTA EXPRESS (Manual)",
-                transitDetails: {
-                    origin: "Kawaguchiko",
-                    destination: "Shinjuku (Tokio)",
-                    totalTime: "1h 55m",
-                    steps: [
-                        {
-                            type: "origin",
-                            station: "Kawaguchiko",
-                            code: "OT36",
-                            line: "Fuji Excursion (Azul/Verde)",
-                            lineColor: "#009ad6",
-                            platform: "1 o 2 (Fíjate en pantallas de la terminal)",
-                            car: "Asientos Reservados (Vagón 1 u 3)"
-                        },
-                        {
-                            type: "destination",
-                            station: "Shinjuku Station",
-                            code: "JC05",
-                            line: "JR Chuo Line (Naranja)",
-                            lineColor: "#f15a22",
-                            exit: "Central Gate / South Exit (Salidas para conectar con Taxis/Metro)"
-                        }
-                    ],
-                    gpsWarning: "El tren Fuji Excursion se divide físicamente en la estación de Otsuki: solo los vagones 1 al 3 continúan directos a Shinjuku, mientras que los vagones traseros cambian de rumbo. Verifica que estás en tu asiento reservado."
-                }
+                tacticalBtnText: "🚀 GUÍA DE TREN (Vagón 2)"
             },
-            { time: "12:55", type: "point", title: "Llegada al caos de Shinjuku (Tokio)", icon: "fa-solid fa-city" },
+            { time: "16:06", type: "point", title: "Llegada al caos de Shinjuku (Tokio)", icon: "fa-solid fa-city" },
             {
-                time: "13:30",
+                time: "16:20",
                 type: "transit",
                 title: "Taxis a Iidabashi (x2 Vans)",
                 price: "~4.000 JPY total (2 taxis)",
                 timeLabel: "15 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Shinjuku+Station&destination=Hotel+Metropolitan+Edmont+Tokyo"
             },
-            { time: "14:00", type: "point", title: "Check-in Edmont Tokyo / Descanso", icon: "fa-solid fa-bed" },
+            { time: "16:45", type: "point", title: "Check-in Edmont Tokyo / Descanso", icon: "fa-solid fa-bed" },
             {
-                time: "17:00",
+                time: "18:30",
                 type: "transit",
                 title: "Paseo al Barrio Kagurazaka",
                 price: "Gratis",
                 timeLabel: "10 min a pie",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Metropolitan+Edmont+Tokyo&destination=Kagurazaka&travelmode=walking"
             },
-            { time: "17:15", type: "point", title: "Sunset en Santuario Akagi", icon: "fa-solid fa-torii-gate" },
+            { time: "18:45", type: "point", title: "Sunset en Santuario Akagi", icon: "fa-solid fa-torii-gate" },
             {
                 time: "20:00",
                 type: "transit",
@@ -2008,12 +1983,12 @@ const travelData_09_16 = [
         ],
 
         timeline: [
-            { time: "09:00", title: "Gasolinera Kawaguchiko", desc: "Repostaje del coche de alquiler antes de devolverlo. (Base)" },
-            { time: "09:30", title: "Devolución Coche", desc: "Recepción en Budget Kawaguchiko. (Base)" },
-            { time: "10:55", title: "Traslado a Tokio", desc: "Tren Directo Fuji Excursion a Shinjuku. (Base)" },
-            { time: "13:30", title: "Llegada Shinjuku", desc: "Cruce de la estación más concurrida del mundo hacia Taxis. (Base)" },
-            { time: "14:00", title: "Check-in Edmont", desc: "Recuperad maletas grandes y descanso brutal en el hotel. (Base)" },
-            { time: "17:00", title: "Kagurazaka y Akagi", desc: "Paseo por el barrio tradicional de Kagurazaka y el moderno santuario Akagi. (Base)" },
+            { time: "11:30", title: "Gasolinera Kawaguchiko", desc: "Repostaje del coche de alquiler antes de devolverlo. (Base)" },
+            { time: "12:00", title: "Devolución Coche", desc: "Recepción en Budget Kawaguchiko. (Base)" },
+            { time: "14:08", title: "Traslado a Tokio (COMPRADO)", desc: "Tren Directo Fuji Excursion a Shinjuku. (Base)" },
+            { time: "16:06", title: "Llegada Shinjuku", desc: "Cruce de la estación más concurrida del mundo hacia Taxis. (Base)" },
+            { time: "16:45", title: "Check-in Edmont", desc: "Recuperad maletas grandes y descanso brutal en el hotel. (Base)" },
+            { time: "18:30", title: "Kagurazaka y Akagi", desc: "Paseo por el barrio tradicional de Kagurazaka y el moderno santuario Akagi. (Base)" },
             { time: "20:00", title: "Cena y Regreso", desc: "Cena en Kagurazaka o alrededores del hotel y regreso a pie. (Base)" }
         ],
 
@@ -2028,7 +2003,7 @@ const travelData_09_16 = [
             events: [
                 {
                     id: "b1",
-                    time: "09:30",
+                    time: "12:00",
                     title: "Devolución Vehículo y Gasolinera",
                     description: "En Kawaguchiko Station. Último trámite antes de subir al tren.",
                     image: "images/dia16-coche.jpg",
@@ -2043,11 +2018,12 @@ const travelData_09_16 = [
                 },
                 {
                     id: "b2",
-                    time: "10:55",
-                    title: "Tren a Shinjuku (Tokio)",
+                    time: "14:08",
+                    title: "Tren a Shinjuku (Tokio) [COMPRADO]",
                     description: "Tren Expreso Especial que no requiere transbordos. Fin del descanso.",
                     image: "images/tokio_skyline.png",
-                    price: "JR Pass + Supl",
+                    price: "Reserva ticketless confirmada",
+                    booking: { id: "bk_fuji_excursion", timeframe: "COMPRADO", required: true, link: "https://www.eki-net.com/en/jreast-train-reservation/Top/Index" },
                         fullDesc: `
                             <h3><i class="fa-solid fa-train"></i> Rumbo a la Capital Ciberpunk</h3>
                             <p>Traslado directo a la estación de Shinjuku mediante el Fuji Excursion. Entrar en Tokio por Shinjuku es un golpe frontal.</p>
@@ -2057,14 +2033,14 @@ const travelData_09_16 = [
                         `
                 },
                 {
-                    time: "14:00",
+                    time: "16:45",
                     title: "Check-in y Reencuentro con Equipaje",
                     description: "Llegada al Hotel Metropolitan Edmont en el barrio de Iidabashi.",
                     type: "gap"
                 },
                 {
                     id: "b3",
-                    time: "17:00",
+                    time: "18:30",
                     title: "El Barrio Geisha (Kagurazaka)",
                     description: "Paseo por el barrio colindante de vuestro hotel para aclimataros a Tokio.",
                     image: "images/dia16-kagurazaka.jpg",
