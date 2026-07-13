@@ -3137,14 +3137,22 @@ const travelData = [
                 {
                     id: "b4",
                     time: "16:30",
-                    title: "Pagoda Chureito",
-                    description: "Es el momento ideal por la luz de la tarde. Al tener coche, aparcaréis en la zona (aprox. 1.000 JPY) y subiréis los 398 escalones para la foto icónica del viaje.",
+                    title: "Pagoda Chureito 📦",
+                    description: "Es el momento ideal por la luz de la tarde. Al tener coche, aparcaréis en la zona (aprox. 1.000 JPY) y subiréis los 398 escalones para la foto icónica del viaje. ¡Misión: comprar Himitsu-bako! 📦",
                     price: "Gratis (Parking ~1.000 JPY)",
                     image: "images/dia13-chureito.jpg",
                     fullDesc: `
                         <h3><i class="fa-solid fa-vihara"></i> La Pagoda de la Paz: Chureito</h3>
                         <p>Ubicada en el Parque Arakurayama Sengen, esta pagoda de cinco pisos es el símbolo visual de Japón por excelencia.</p>
                         <p><em>Para llegar a la plataforma de observación, deberéis subir exactamente 398 escalones. Al llegar arriba, entenderéis por qué: la alineación perfecta de la pagoda bermellón con el Monte Fuji al fondo crea una composición que parece pintada.</em></p>
+                        
+                        <div style="background:rgba(251,191,36,0.12); border:1px solid var(--gold); border-radius:10px; padding:12px; margin-top:15px; display:flex; align-items:center; gap:10px;">
+                            <i class="fa-solid fa-box" style="color:var(--gold); font-size:1.4rem;"></i>
+                            <div>
+                                <strong style="color:white; display:block;">📦 MISIÓN LOGÍSTICA: Comprar Himitsu-bako</strong>
+                                <span style="font-size:0.85rem; color:#cbd5e1;">Aprovechad las tiendas locales en los alrededores o en Hakone para comprar las famosas cajas secretas rompecabezas tradicionales de madera japonesa. ¡Un souvenir mecánico artesanal e icónico!</span>
+                            </div>
+                        </div>
                     `
                 },
                 {

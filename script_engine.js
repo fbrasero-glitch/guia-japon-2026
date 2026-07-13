@@ -786,6 +786,112 @@ window.openICCardInstructionsModal = function() {
     document.body.style.overflow = 'hidden';
 };
 
+window.openPrintTicketModal = function() {
+    let modal = document.getElementById('print-ticket-modal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'print-ticket-modal';
+        modal.className = 'tactical-modal';
+        modal.style.display = 'none';
+        modal.style.position = 'fixed';
+        modal.style.zIndex = '10000';
+        modal.style.left = '0';
+        modal.style.top = '0';
+        modal.style.width = '100%';
+        modal.style.height = '100%';
+        modal.style.backgroundColor = 'rgba(10, 15, 26, 0.95)';
+        modal.style.backdropFilter = 'blur(10px)';
+        modal.style.overflowY = 'auto';
+        modal.style.alignItems = 'center';
+        modal.style.justifyContent = 'center';
+        document.body.appendChild(modal);
+        
+        modal.onclick = function(e) {
+            if (e.target === modal) {
+                modal.style.display = "none";
+                document.body.style.overflow = 'auto';
+            }
+        };
+    }
+
+    modal.innerHTML = `
+        <div class="datapad-container animate-fade-in" style="width: 95%; max-width: 700px; margin: 40px auto; position: relative; max-height: 90vh; overflow-y: auto; box-shadow: 0 0 30px rgba(251, 191, 36, 0.2); border: 2px solid var(--gold); background: rgba(13, 17, 23, 0.98); padding: 25px; border-radius: 16px;">
+            <div class="datapad-header" style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:12px; margin-bottom:15px;">
+                <div class="datapad-mission-id" style="color:var(--gold); font-family:monospace; font-weight:bold; font-size:0.85rem;">> RECORDATORIO: IMPRIMIR_BILLETES_JR</div>
+                <button onclick="document.getElementById('print-ticket-modal').style.display='none'; document.body.style.overflow='auto';" 
+                        style="background:rgba(239,68,68,0.15); border:1px solid var(--danger); color:var(--danger); padding:4px 10px; border-radius:6px; font-size:0.75rem; cursor:pointer; font-weight:bold; font-family:inherit; display:flex; align-items:center; gap:5px; transition:all 0.3s;">
+                    <i class="fa-solid fa-xmark"></i> CERRAR
+                </button>
+            </div>
+            
+            <h1 style="display: flex; align-items: center; gap: 10px; color: var(--gold); font-size:1.6rem; font-weight:bold; margin:0 0 8px 0; font-family: 'Montserrat', sans-serif;">
+                <i class="fa-solid fa-print"></i> 🎟️ Recordatorio: Imprimir Billetes JR
+            </h1>
+            <p style="color: white; font-size: 0.95rem; font-weight: bold; margin: 0 0 20px 0;">
+                Acción recomendada en Kioto (Día 6 o Día 7)
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 20px; font-size: 0.9rem; color: #cbd5e1; line-height: 1.6;">
+                
+                <div class="data-block" style="background: rgba(251,191,36,0.03); padding: 15px; border-radius: 8px; border-left: 4px solid var(--gold); border: 1px solid rgba(251,191,36,0.15); border-left-width: 4px;">
+                    El trayecto del <strong>Día 11 (Nagoya ➔ Takayama, en el tren expreso Wide View Hida)</strong> requiere <strong>obligatoriamente billetes físicos de cartón</strong>. No se permite acceder con QRs o billetes digitales en el móvil para este tren de JR West.
+                    <br><br>
+                    <strong>Recomendación:</strong> Aprovechad un momento de tranquilidad en la Estación de Kioto hoy o mañana para sacarlos de las máquinas automáticas o taquillas, y así viajar sin estrés el Día 11.
+                </div>
+
+                <div class="data-block" style="border: 1px solid rgba(0, 243, 255, 0.15); border-left: 4px solid var(--neon-blue); background: rgba(0, 243, 255, 0.02); padding: 15px; border-radius: 8px;">
+                    <div style="color: var(--neon-blue); font-weight: bold; font-size: 1.05rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-clipboard-list"></i> ¿Qué necesitas para imprimirlos?
+                    </div>
+                    <ul style="padding-left: 20px; margin: 0; display: flex; flex-direction: column; gap: 8px;">
+                        <li><strong>Tarjeta de Crédito Física:</strong> La tarjeta MasterCard terminada en <strong>7801</strong> que se usó para la compra en la web. Es necesario introducirla físicamente en la ranura de la máquina expendedora.</li>
+                        <li><strong>Código PIN de 4 dígitos:</strong> El código PIN que creaste durante el proceso de compra online.</li>
+                        <li><strong>Localizadores de las Reservas:</strong>
+                            <br>• Reserva 1 (4 pax): <strong>41256</strong>
+                            <br>• Reserva 2 (4 pax): <strong>42023</strong>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="data-block" style="border: 1px solid rgba(16, 185, 129, 0.15); border-left: 4px solid var(--success); background: rgba(16, 185, 129, 0.02); padding: 15px; border-radius: 8px;">
+                    <div style="color: var(--success); font-weight: bold; font-size: 1.05rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-map-location-dot"></i> ¿Dónde se imprimen?
+                    </div>
+                    En las <strong>máquinas verdes de venta de billetes de JR West</strong> (las que tienen lector de pasaportes incorporado) o directamente en las taquillas oficiales (llamadas <strong>Midori-no-madoguchi</strong>) de la Estación de Kioto.
+                </div>
+
+                <div class="data-block" style="border: 1px solid rgba(249, 115, 22, 0.15); border-left: 4px solid var(--accent); background: rgba(249, 115, 22, 0.02); padding: 15px; border-radius: 8px;">
+                    <div style="color: var(--accent); font-weight: bold; font-size: 1.05rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-route"></i> Ruta desde el Hotel (Kyoto Tower Hotel Annex)
+                    </div>
+                    La Estación de Kioto se encuentra a tan solo <strong>3 minutos andando (250 metros)</strong> del hotel. Esta es la ruta exacta:
+                    <ol style="padding-left: 20px; margin: 10px 0 0 0; display: flex; flex-direction: column; gap: 8px;">
+                        <li>Sal de la puerta principal del hotel <strong>Kyoto Tower Hotel Annex</strong>.</li>
+                        <li>Gira a la izquierda y camina unos metros hacia el sur (dirección a la gran torre de Kioto).</li>
+                        <li>Cruza el paso de peatones al lado de la Torre y camina de frente.</li>
+                        <li>La entrada principal de la <strong>Estación de Kioto (Salida Central / Central Gate)</strong> estará justo delante de ti.</li>
+                        <li>Nada más cruzar las puertas al vestíbulo principal, a la izquierda verás la hilera de máquinas expendedoras JR verdes y la oficina de billetes JR.</li>
+                    </ol>
+                    <br>
+                    <a href="https://www.google.com/maps/dir/?api=1&origin=Kyoto+Tower+Hotel+Annex&destination=Kyoto+Station&travelmode=walking" target="_blank" class="tactical-btn" style="padding: 10px; font-size: 0.85rem; border-radius: 8px; text-decoration: none; background: rgba(249, 115, 22, 0.15); border: 1px solid var(--accent); color: var(--accent); font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.3s ease; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+                        <i class="fa-solid fa-map-location-dot"></i> VER RUTA EN GOOGLE MAPS
+                    </a>
+                </div>
+                
+            </div>
+            
+            <div style="margin-top:20px; border-top:1px solid rgba(255,255,255,0.08); padding-top:15px; display:flex; justify-content:flex-end;">
+                <button onclick="document.getElementById('print-ticket-modal').style.display='none'; document.body.style.overflow='auto';" 
+                        class="tactical-btn" style="padding:8px 20px; font-size:0.85rem; border-radius:6px; background:rgba(251, 191, 36, 0.15); border:1px solid var(--gold); color:var(--gold); font-weight:bold; cursor:pointer;">
+                    Entendido / OK
+                </button>
+            </div>
+        </div>
+    `;
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+};
+
 // Función auxiliar para obtener la mejor infografía disponible para un día
 window.getBestDayInfographic = function(data) {
     const infos = [];
@@ -1878,7 +1984,13 @@ function renderRightPanel(data) {
             if (item.type === 'point') {
                 html += '<div class="transport-point" style="display:flex; align-items:center; margin-bottom:10px;"><span style="color:var(--neon-blue); font-weight:bold; min-width:55px; font-family:monospace;">' + item.time + '</span><div style="background:rgba(255,255,255,0.1); padding:8px 12px; border-radius:8px; display:flex; align-items:center; flex:1;"><i class="' + item.icon + '" style="color:var(--gold); margin-right:10px;"></i><span style="color:#f0f0f0;">' + item.title + '</span></div></div>';
             } else if (item.type === 'transit') {
-                html += '<div class="transport-transit" style="margin-left:75px; padding:10px 0; border-left:2px dashed rgba(255,255,255,0.2); position:relative; margin-bottom:15px;"><i class="fa-solid fa-arrow-down" style="position:absolute; left:-7px; top:40%; font-size:0.8rem; color:rgba(255,255,255,0.3);"></i><div style="padding-left:15px;"><div style="color:var(--accent); font-size:0.9rem; font-weight:bold; margin-bottom:5px;">' + window.decorateTransitTitle(item.title) + '</div><div style="display:flex; gap:15px; align-items:center; margin-bottom:10px;"><div style="color:var(--gold); font-size:0.85rem; font-weight:bold; display:inline-flex; align-items:center; gap:5px;">' + window.getPayMethodBadge(item) + '<span>' + item.price + '</span></div>' + (item.timeLabel ? '<div style="color:rgba(255,255,255,0.5); font-size:0.8rem; font-style:italic;">' + item.timeLabel + '</div>' : '') + '</div><div style="display:flex; gap:8px;">' + (item.link ? '<a href="' + item.link + '" target="_blank" class="tactical-btn" style="flex:1; text-align:center; padding:5px; font-size:0.7rem; border-radius:4px; text-decoration:none; background:rgba(0,243,255,0.1); border:1px solid var(--neon-blue); color:var(--neon-blue); font-weight:bold; display:flex; align-items:center; justify-content:center; gap:5px;"><i class="fa-solid fa-map-location-dot"></i> GOOGLE MAPS</a>' : '') + (item.tacticalGuideId ? '<button onclick="renderTacticalMission(\'' + item.tacticalGuideId + '\', ' + dayIndex + ')" class="tactical-btn" style="flex:1.5; text-align:center; padding:8px 5px; font-size:0.75rem; border-radius:4px; background:rgba(249,115,22,0.15); border:1px solid var(--accent); color:var(--accent); font-weight:bold; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:5px;"><i class="fa-solid fa-file-contract"></i> ' + (item.tacticalBtnText || 'GUÍA TÁCTICA') + '</button>' : '') + '</div></div></div>';
+                let ticketButtonsHTML = '';
+                if (item.ticketLinks && Array.isArray(item.ticketLinks)) {
+                    item.ticketLinks.forEach(ticket => {
+                        ticketButtonsHTML += '<a href="' + ticket.url + '" target="_blank" class="tactical-btn" style="flex:1; text-align:center; padding:5px; font-size:0.7rem; border-radius:4px; text-decoration:none; background:rgba(251,191,36,0.1); border:1px solid var(--gold); color:var(--gold); font-weight:bold; display:flex; align-items:center; justify-content:center; gap:5px;"><i class="fa-solid fa-ticket"></i> ' + ticket.name + '</a>';
+                    });
+                }
+                html += '<div class="transport-transit" style="margin-left:75px; padding:10px 0; border-left:2px dashed rgba(255,255,255,0.2); position:relative; margin-bottom:15px;"><i class="fa-solid fa-arrow-down" style="position:absolute; left:-7px; top:40%; font-size:0.8rem; color:rgba(255,255,255,0.3);"></i><div style="padding-left:15px;"><div style="color:var(--accent); font-size:0.9rem; font-weight:bold; margin-bottom:5px;">' + window.decorateTransitTitle(item.title) + '</div><div style="display:flex; gap:15px; align-items:center; margin-bottom:10px;"><div style="color:var(--gold); font-size:0.85rem; font-weight:bold; display:inline-flex; align-items:center; gap:5px;">' + window.getPayMethodBadge(item) + '<span>' + item.price + '</span></div>' + (item.timeLabel ? '<div style="color:rgba(255,255,255,0.5); font-size:0.8rem; font-style:italic;">' + item.timeLabel + '</div>' : '') + '</div><div style="display:flex; gap:8px; flex-wrap:wrap;">' + (item.link ? '<a href="' + item.link + '" target="_blank" class="tactical-btn" style="flex:1; text-align:center; padding:5px; font-size:0.7rem; border-radius:4px; text-decoration:none; background:rgba(0,243,255,0.1); border:1px solid var(--neon-blue); color:var(--neon-blue); font-weight:bold; display:flex; align-items:center; justify-content:center; gap:5px;"><i class="fa-solid fa-map-location-dot"></i> GOOGLE MAPS</a>' : '') + ticketButtonsHTML + (item.tacticalGuideId ? '<button onclick="renderTacticalMission(\'' + item.tacticalGuideId + '\', ' + dayIndex + ')" class="tactical-btn" style="flex:1.5; text-align:center; padding:8px 5px; font-size:0.75rem; border-radius:4px; background:rgba(249,115,22,0.15); border:1px solid var(--accent); color:var(--accent); font-weight:bold; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:5px;"><i class="fa-solid fa-file-contract"></i> ' + (item.tacticalBtnText || 'GUÍA TÁCTICA') + '</button>' : '') + '</div></div></div>';
             }
             const fullLabel = (item.time || '') + (item.timeLabel || '');
             const isLunchTime = fullLabel.includes('12:') || fullLabel.includes('13:') || fullLabel.includes('14:');
@@ -2059,8 +2171,18 @@ function renderCenterVisual(data, mode, optData = null) {
     } else if (data.day === 23) {
         taxiIconHTML = '<div class="gastro-radar-wrapper" style="margin-left: 20px;"><button class="gastro-radar-btn pulse-accent" style="background: rgba(249, 115, 22, 0.15); border: 2px solid var(--accent); color: var(--accent); box-shadow: 0 0 15px rgba(249, 115, 22, 0.4);" onclick="openTaxiInstructionsModal(23)" title="Instrucciones Taxi"><i class="fa-solid fa-taxi"></i></button><span class="gastro-radar-label" style="color:var(--accent);">Info Taxi</span></div>';
     }
+
+        let printTicketIconHTML = '';
+    if (data.day === 6 || data.day === 7) {
+        printTicketIconHTML = '<div class="gastro-radar-wrapper" style="margin-left: 20px;"><button class="gastro-radar-btn pulse-gold" style="background: rgba(251, 191, 36, 0.15); border: 2px solid var(--gold); color: var(--gold); box-shadow: 0 0 15px rgba(251, 191, 36, 0.4);" onclick="openPrintTicketModal()" title="Recordatorio: Imprimir Billetes JR"><i class="fa-solid fa-print"></i></button><span class="gastro-radar-label" style="color:var(--gold);">Imprimir JR</span></div>';
+    }
     
-    const iconsGroupHTML = '<div style="display:flex; justify-content:center; align-items:flex-start; margin-top:10px;">' + gastroRadarHTML + icCardIconHTML + flightIconHTML + taxiIconHTML + '</div>';
+    let karaokeIconHTML = '';
+    if (data.day === 16 || data.day === 18) {
+        karaokeIconHTML = '<div class="gastro-radar-wrapper" style="margin-left: 20px;"><button class="gastro-radar-btn pulse-cyan" style="background: rgba(0, 243, 255, 0.15); border: 2px solid var(--neon-blue); color: var(--neon-blue); box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);" onclick="renderTacticalMission(\'mode_karaoke\', ' + dayIdx + ')" title="Modo Karaoke"><i class="fa-solid fa-microphone"></i></button><span class="gastro-radar-label" style="color:var(--neon-blue);">Modo Karaoke</span></div>';
+    }
+    
+    const iconsGroupHTML = '<div style="display:flex; justify-content:center; align-items:flex-start; margin-top:10px;">' + gastroRadarHTML + icCardIconHTML + flightIconHTML + taxiIconHTML + printTicketIconHTML + karaokeIconHTML + '</div>';
 
     const unifiedHeaderHTML = '<div class="excursion-page-header"><div class="header-infog-left">' + regionInfographicHTML + '</div><div class="header-title-container">' + headerTitleHTML + iconsGroupHTML + '</div><div class="header-infog-right">' + dayInfographicHTML + '</div><div class="header-hotel-container">' + hotelHTML + '</div><div class="header-icons-container">' + mapsSectionHTML + '</div></div>';
 
@@ -2074,10 +2196,36 @@ function renderCenterVisual(data, mode, optData = null) {
             if (data.base && data.base.events) {
                 data.base.events.forEach(event => {
                     let eventImg = event.image ? '<img src="' + event.image + '" class="base-event-thumb" onerror="this.style.display=\'none\'">' : '';
+                    let customNodeHTML = '<div class="timeline-node"><i class="' + getEventIcon(event.title, event.id) + '"></i></div>';
+                    let badgesHTML = '<div class="event-badges-container">' + getEventBadges(event.title, event.id, data.day) + '</div>';
+                    
                     if (event.id) {
-                        baseEventsHTML += '<button class="timeline-item base-event-item clickable-event" onclick="selectExcursionFromCard(' + dayIdx + ', \'' + event.id + '\', this)" style="display:flex; align-items:flex-start; margin-bottom:20px; width:100%; text-align:left; border:none; background:transparent; color:inherit; font-family:inherit; cursor:pointer;"><div class="time-tag" style="min-width:60px;">' + event.time + '</div><div class="base-event-content" style="display:flex; flex:1;">' + eventImg + '<div class="base-event-text"><strong class="timeline-title" style="display:block; font-size:1.1rem; margin-bottom:5px; text-decoration:underline; text-decoration-color:var(--accent);">' + event.title + ' <i class="fa-solid fa-circle-info" style="font-size:0.8em; color:var(--accent); margin-left:5px;"></i></strong><div class="timeline-desc" style="color:#f0f0f0; display:flex; align-items:flex-start;"><i class="fa-solid fa-circle-info" style="color:var(--accent); font-size:0.8rem; margin-top:4px; margin-right:8px;"></i><span>' + event.description + '</span></div>' + (event.booking ? renderBookingBadge(event.booking, dayIdx) : '') + '</div></div></button>';
+                        baseEventsHTML += '<button class="timeline-item base-event-item clickable-event has-custom-node" onclick="selectExcursionFromCard(' + dayIdx + ', \'' + event.id + '\', this)">' +
+                            customNodeHTML +
+                            '<div class="time-tag">' + event.time + '</div>' +
+                            '<div class="base-event-content">' +
+                                eventImg +
+                                '<div class="base-event-text">' +
+                                    '<strong class="timeline-title">' + event.title + ' <i class="fa-solid fa-chevron-right" style="font-size:0.8em; color:var(--accent); margin-left:5px;"></i></strong>' +
+                                    badgesHTML +
+                                    '<div class="timeline-desc"><span>' + event.description + '</span></div>' +
+                                    (event.booking ? renderBookingBadge(event.booking, dayIdx) : '') +
+                                '</div>' +
+                            '</div>' +
+                        '</button>';
                     } else {
-                        baseEventsHTML += '<div class="timeline-item base-event-item" style="display:flex; align-items:flex-start; margin-bottom:20px;"><div class="time-tag" style="min-width:60px;">' + event.time + '</div><div class="base-event-content" style="display:flex; flex:1;">' + eventImg + '<div class="base-event-text"><strong class="timeline-title" style="display:block; font-size:1.1rem; margin-bottom:5px;">' + event.title + '</strong><div class="timeline-desc" style="color:#cbd5e1;">' + event.description + '</div></div></div></div>';
+                        baseEventsHTML += '<div class="timeline-item base-event-item has-custom-node">' +
+                            customNodeHTML +
+                            '<div class="time-tag">' + event.time + '</div>' +
+                            '<div class="base-event-content">' +
+                                eventImg +
+                                '<div class="base-event-text">' +
+                                    '<strong class="timeline-title">' + event.title + '</strong>' +
+                                    badgesHTML +
+                                    '<div class="timeline-desc">' + event.description + '</div>' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>';
                     }
                 });
             }
@@ -2092,17 +2240,17 @@ function renderCenterVisual(data, mode, optData = null) {
                 addExcursionsHTML = `
                     <div class="additional-excursions-gateway" style="margin-top:40px;">
                         <h3 style="color:var(--accent); margin-bottom:20px; border-bottom:1px solid rgba(249, 115, 22, 0.3); padding-bottom:10px;">
-                            <i class="fa-solid fa-map-location-dot"></i> Excursiones Adicionales
+                            <i class="fa-solid fa-map-location-dot"></i> ${data.additionalExcursionsTitle || 'Excursiones Adicionales'}
                         </h3>
-                        <p style="color:#94a3b8; margin-bottom:20px;">Explora más opciones para este día si prefieres desviarte de la ruta principal:</p>
+                        <p style="color:#94a3b8; margin-bottom:20px;">${data.additionalExcursionsSub || 'Explora más opciones para este día si prefieres desviarte de la ruta principal:'}</p>
                         
                         <button class="excursion-card additional-gateway-card" 
                                 onclick="renderCenterVisual(travelData[${dayIdx}], 'additional-excursions-list')"
                                 style="width: 100%; max-width: 500px; display: block; margin: 0; position: relative; overflow: hidden; border: 1px solid rgba(0,243,255,0.3); box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
                             ${imgHTML}
                             <div class="excursion-card-content" style="position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(to top, rgba(15,23,42,1) 30%, transparent 100%); padding-top: 50px;">
-                                <div class="excursion-id" style="background:var(--neon-blue); display:inline-block; font-size:0.7rem; padding:2px 8px; border-radius:4px; margin-bottom:8px; color:black; font-weight:bold;"><i class="fa-solid fa-plus"></i> ${data.additionalExcursions.length} OPCIONES</div>
-                                <h3 class="excursion-title" style="font-size:1.3rem; color:white;">Ver Excursiones Adicionales</h3>
+                                <div class="excursion-id" style="background:var(--neon-blue); display:inline-block; font-size:0.7rem; padding:2px 8px; border-radius:4px; margin-bottom:8px; color:black; font-weight:bold;"><i class="fa-solid fa-plus"></i> ${data.additionalExcursions.length} ${data.additionalExcursionsLabel ? data.additionalExcursionsLabel.toUpperCase() : 'OPCIONES'}</div>
+                                <h3 class="excursion-title" style="font-size:1.3rem; color:white;">${data.additionalExcursionsBtn || 'Ver Excursiones Adicionales'}</h3>
                             </div>
                         </button>
                     </div>
@@ -2135,7 +2283,7 @@ function renderCenterVisual(data, mode, optData = null) {
                         onclick="selectExcursionFromCard(${dayIdx}, '${exc.id}', this)">
                     ${imgHTML}
                     <div class="excursion-card-content">
-                        <div class="excursion-id" style="background:var(--neon-blue); color:black; font-weight:bold; display:inline-block; font-size:0.7rem; padding:2px 8px; border-radius:4px; margin-bottom:8px;">ADICIONAL</div>
+                        <div class="excursion-id" style="background:var(--neon-blue); color:black; font-weight:bold; display:inline-block; font-size:0.7rem; padding:2px 8px; border-radius:4px; margin-bottom:8px;">${data.additionalExcursionsLabel || 'ADICIONAL'}</div>
                         <h3 class="excursion-title" style="font-size:1.1rem; color:white;">${exc.title}</h3>
                         <div class="complement-meta" style="margin-top:10px; font-size:0.9rem; color:#cbd5e1; display:flex; justify-content:space-between; align-items:center;">
                             <span><i class="fa-regular fa-clock"></i> ${exc.time || 'Flexible'}</span>
@@ -2325,6 +2473,77 @@ function renderCenterVisual(data, mode, optData = null) {
     if (mode === 'static') {
         card.innerHTML = unifiedHeaderHTML + '<div class="timeline-container">' + (data.timeline || []).map(t => '<div class="timeline-item"><div class="time-tag">' + t.time + '</div><div class="timeline-content"><strong class="timeline-title">' + t.title + '</strong><div class="timeline-desc">' + t.desc + '</div></div></div>').join('') + '</div>';
     }
+}
+
+function getEventIcon(title, id) {
+    const t = (title || "").toLowerCase();
+    const i = (id || "").toLowerCase();
+    
+    if (t.includes("templo") || t.includes("senso-ji") || t.includes("santuario") || t.includes("jinja") || t.includes("temple") || t.includes("kaminarimon") || t.includes("pagoda") || t.includes("torii")) {
+        return "fa-solid fa-torii-gate";
+    }
+    if (t.includes("skytree") || t.includes("torre") || t.includes("tower") || t.includes("tokyo tower") || t.includes("mirador") || t.includes("observatorio") || t.includes("sky")) {
+        return "fa-solid fa-tower-broadcast";
+    }
+    if (t.includes("akihabara") || t.includes("game") || t.includes("otaku") || t.includes("retro") || t.includes("frikismo") || t.includes("maid") || t.includes("gaming") || t.includes("nintendo") || t.includes("shibuya crossing") || t.includes("gi-go") || t.includes("gigo") || t.includes("gundam")) {
+        return "fa-solid fa-gamepad";
+    }
+    if (t.includes("hotel") || t.includes("alojamiento") || t.includes("check-in") || t.includes("regreso") || t.includes("dormir") || t.includes("llegada hotel") || t.includes("check in")) {
+        return "fa-solid fa-hotel";
+    }
+    if (t.includes("rio") || t.includes("crucero") || t.includes("barco") || t.includes("fluvial") || t.includes("water bus") || t.includes("hotaluna") || t.includes("sumida") || t.includes("embarcadero")) {
+        return "fa-solid fa-ship";
+    }
+    if (t.includes("metro") || t.includes("tren") || t.includes("shinkansen") || t.includes("linea") || t.includes("transit") || t.includes("transbordo") || t.includes("estación") || t.includes("vuelo") || t.includes("avión")) {
+        return "fa-solid fa-train-subway";
+    }
+    if (t.includes("comida") || t.includes("cena") || t.includes("almuerzo") || t.includes("restaurante") || t.includes("gastro") || t.includes("kappabashi") || t.includes("sushi") || t.includes("ramen") || t.includes("mercado") || t.includes("nishiki")) {
+        return "fa-solid fa-utensils";
+    }
+    if (t.includes("parque") || t.includes("jardín") || t.includes("bosque") || t.includes("naturaleza") || t.includes("lago") || t.includes("monte") || t.includes("fuji") || t.includes("bambú") || t.includes("ciervos") || t.includes("kamakura")) {
+        return "fa-solid fa-mountain-sun";
+    }
+    return "fa-solid fa-circle-dot";
+}
+
+function getEventBadges(title, id, day) {
+    const t = (title || "").toLowerCase();
+    const i = (id || "").toLowerCase();
+    let badges = [];
+    
+    // Mapeos específicos para el Día 17
+    if (day === 17) {
+        if (t.includes("senso-ji") || t.includes("nakamise")) {
+            badges.push('<span class="event-badge badge-orange"><i class="fa-solid fa-torii-gate"></i> Tradición</span>');
+            badges.push('<span class="event-badge badge-gold"><i class="fa-solid fa-star"></i> Imperdible</span>');
+        } else if (t.includes("ribera") || t.includes("sumida")) {
+            badges.push('<span class="event-badge badge-cyan"><i class="fa-solid fa-camera"></i> Foto Spot</span>');
+            badges.push('<span class="event-badge badge-green"><i class="fa-solid fa-water"></i> Río Sumida</span>');
+        } else if (t.includes("skytree")) {
+            badges.push('<span class="event-badge badge-cyan"><i class="fa-solid fa-eye"></i> Vistas 360°</span>');
+            badges.push('<span class="event-badge badge-purple"><i class="fa-solid fa-ruler-vertical"></i> 634 Metros</span>');
+        } else if (t.includes("akihabara")) {
+            badges.push('<span class="event-badge badge-purple"><i class="fa-solid fa-bolt"></i> Cultura Geek</span>');
+            badges.push('<span class="event-badge badge-cyan"><i class="fa-solid fa-gamepad"></i> Arcade & Figuras</span>');
+        }
+    }
+    
+    // Mapeos generales por defecto si no hay específicos
+    if (badges.length === 0) {
+        if (t.includes("templo") || t.includes("santuario") || t.includes("pagoda")) {
+            badges.push('<span class="event-badge badge-orange">Tradición</span>');
+        } else if (t.includes("vistas") || t.includes("mirador") || t.includes("observatorio")) {
+            badges.push('<span class="event-badge badge-cyan">Panorámica</span>');
+        } else if (t.includes("metro") || t.includes("tren") || t.includes("shinkansen")) {
+            badges.push('<span class="event-badge badge-cyan">Transporte</span>');
+        } else if (t.includes("cena") || t.includes("restaurante") || t.includes("gastronomía") || t.includes("ramen")) {
+            badges.push('<span class="event-badge badge-gold">Gastro</span>');
+        } else if (t.includes("opcional") || t.includes("libre")) {
+            badges.push('<span class="event-badge badge-purple">Flexible</span>');
+        }
+    }
+    
+    return badges.join("");
 }
 
 function selectExcursionFromCard(dayIndex, optionId, cardElement) {
@@ -2549,6 +2768,244 @@ window.tacticalMissions = {
                 <h4 style="color:var(--neon-purple); margin-top:0;"><i class="fa-solid fa-language"></i> Frases Útiles</h4>
                 <p style="font-size:0.85rem; color:white; margin-bottom:5px;"><strong>"Takkyubin o onegaishimasu"</strong> (Envío de equipaje, por favor).</p>
                 <p style="font-size:0.85rem; color:white; margin-bottom:0;"><strong>"Hotel Metropolitan Edmont Tokyo made"</strong> (Hacia el Hotel Edmont Tokio).</p>
+            </div>
+        `
+    },
+            'mode_karaoke': {
+        title: "🎤 MODO KARAOKE: Guía de Canto en Japón",
+        subtitle: "Consejos y ubicaciones para cantar en cabinas privadas en Shinjuku y Shibuya",
+        steps: [
+            {
+                time: "DÍA 16",
+                title: "🎤 Día 16: Noche de llegada en Shinjuku (Opción Principal)",
+                content: `
+                    <p style="margin-bottom:12px; color:#cbd5e1; line-height:1.6;">Esta es vuestra primera noche en Tokio y la opción principal para estrenaros con el karaoke. Al alojaros en el Edmont, tenéis muy cerca la estación de Iidabashi y, a solo unas paradas de metro/tren, el bullicioso distrito de <strong>Shinjuku</strong>.</p>
+                    <ul style="font-size:0.85rem; color:#94a3b8; padding-left:20px; margin-bottom:15px; display:flex; flex-direction:column; gap:6px;">
+                        <li><strong>Dónde ir:</strong> En Shinjuku encontraréis las sucursales más gigantescas de cadenas populares como <em>Karaoke Kan</em> (famosa por la película Lost in Translation) o <em>Big Echo</em>.</li>
+                        <li><strong>Cabinas privadas:</strong> Los karaokes en Japón no son en salas abiertas, sino en habitaciones privadas insonorizadas equipadas con pantallas, micrófonos, tablets para elegir canciones (en inglés y español) y luces de colores. ¡Os va a flipar!</li>
+                        <li><strong>Servicio de bebidas:</strong> Podéis pedir refrescos, cervezas o snacks directamente desde el teléfono de la pared.</li>
+                    </ul>
+                `,
+                warning: "Consejo familiar: Si vais con peques, podéis hacer este plan en 'modo temprano' a partir de las 18:30. Es mucho más tranquilo, económico y familiar que a altas horas de la noche."
+            },
+            {
+                time: "DÍA 18",
+                title: "🎤 Día 18: Noche en Shibuya (Opción de Repuesto)",
+                content: `
+                    <p style="margin-bottom:12px; color:#cbd5e1; line-height:1.6;">Si el primer día no os dio tiempo o queréis repetir, la noche del Día 18 en Shibuya es la oportunidad perfecta. Ese día estaréis explorando Harajuku y el famoso cruce de Shibuya.</p>
+                    <ul style="font-size:0.85rem; color:#94a3b8; padding-left:20px; margin-bottom:15px; display:flex; flex-direction:column; gap:6px;">
+                        <li><strong>Momento ideal:</strong> La opción de ir de karaoke es ideal justo después de bajar del espectacular mirador <strong>Shibuya Sky</strong> al atardecer o por la noche.</li>
+                        <li><strong>Ubicación:</strong> A escasos metros del cruce de Shibuya hay rascacielos enteros dedicados al karaoke con vistas espectaculares a las calles iluminadas desde los ventanales de las cabinas.</li>
+                    </ul>
+                `,
+                warning: "Nota de reserva: Los fines de semana o por la noche en Shibuya se llenan rápido. Podéis entrar a preguntar en cualquier recepción de Karaoke Kan o Big Echo; al ser 8 personas, os asignarán una sala mediana/grande al instante."
+            }
+        ],
+        footer: `
+            <div style="background:rgba(0, 243, 255, 0.1); border:1px solid var(--neon-blue); border-radius:12px; padding:15px; margin-top:20px;">
+                <h4 style="color:var(--neon-blue); margin-top:0; display:flex; align-items:center; gap:8px; font-size:1rem;"><i class="fa-solid fa-microphone"></i> Tarifa y Funcionamiento</h4>
+                <p style="font-size:0.85rem; color:white; margin-bottom:0; line-height:1.5;">Al entrar, se indica el número de personas (8) y el tiempo (ej. 1 hora). Os darán una ficha con el número de sala. Al terminar, vais a recepción con la ficha para pagar. El precio se calcula por persona en bloques de 30 minutos, e incluye una consumición mínima (Drink Order) obligatoria en la mayoría de cadenas.</p>
+            </div>
+        `
+    },
+    'day16_activities_buffet': {
+        title: "Buffet de Actividades: Primera Noche",
+        subtitle: "Menú de alternativas recomendadas según vuestro nivel de energía y el clima",
+        steps: [
+            {
+                time: "🚶 10-15 min",
+                title: "🏮 Opción 1: Paseo Tradicional en Kagurazaka",
+                content: `
+                    <p style="margin-bottom:12px; color:#cbd5e1; line-height:1.6;">El barrio tradicional de <strong>Kagurazaka</strong> os sumergirá en una atmósfera completamente distinta, elegante y relajada, a unos 10-15 minutos caminando desde las puertas del hotel. Conocido históricamente como un antiguo distrito de geishas y apodado el "Pequeño París" de Tokio, sus laberínticas cuestas y callejones empedrados se iluminan de forma mágica con farolillos al caer la tarde, ofreciendo un paseo nocturno precioso.</p>
+                    <ul style="font-size:0.85rem; color:#94a3b8; padding-left:20px; margin-bottom:15px; display:flex; flex-direction:column; gap:6px;">
+                        <li><strong>Paseo escénico nocturno:</strong> Recorrer su avenida principal (Kagurazaka-dori) y adentrarse en callejones icónicos como Hyogo Yokocho permite descubrir una bonita arquitectura clásica de madera, templos escondidos y tiendas tradicionales.</li>
+                        <li><strong>Cena tradicional:</strong> La zona destaca por su vibrante oferta de tabernas japonesas y restaurantes.</li>
+                        <li><strong>Plan tranquilo:</strong> Es la alternativa perfecta si tras el viaje desde Fuji preferís un ritmo pausado, hacer fotos estéticas de noche y disfrutar de una cena relajada.</li>
+                    </ul>
+                    <img src="images/dia16-kagurazaka.jpg" style="width:100%; border-radius:10px; border:1px solid rgba(255,255,255,0.1); margin-top:5px;" />
+                    <div style="margin-top:15px;">
+                        <a href="https://www.google.com/maps/dir/?api=1&origin=Hotel+Metropolitan+Edmont+Tokyo&destination=Kagurazaka&travelmode=walking" target="_blank" class="tactical-btn" style="display:inline-flex; align-items:center; gap:6px; padding:6px 12px; font-size:0.75rem; border-radius:6px; background:rgba(0,243,255,0.1); border:1px solid var(--neon-blue); color:var(--neon-blue); text-decoration:none; font-weight:bold;"><i class="fa-solid fa-route"></i> VER RUTA A PIE</a>
+                    </div>
+                `,
+                warning: "Cena estilo Izakaya: La zona destaca por su vibrante oferta de tabernas japonesas y restaurantes; para vuestro grupo, lo ideal es buscar los locales de varios pisos de la avenida principal, ya que las tabernas de los callejones suelen ser extremadamente diminutas."
+            },
+            {
+                time: "🚶 5 min",
+                title: "🎢 Opción 2: Ocio y Luces en Tokyo Dome City",
+                content: `
+                    <p style="margin-bottom:12px; color:#cbd5e1; line-height:1.6;">El complejo <strong>Tokyo Dome City</strong> es la opción más práctica, vibrante y cercana para pasar vuestra primera tarde-noche en la ciudad. Situado a poco más de 5 minutos a pie de vuestro alojamiento, este enorme centro de ocio cuenta con una iluminación nocturna espectacular y múltiples zonas de restauración abiertas hasta tarde, lo que facilita enormemente el manejo de un grupo grande sin reserva.</p>
+                    <ul style="font-size:0.85rem; color:#94a3b8; padding-left:20px; margin-bottom:15px; display:flex; flex-direction:column; gap:6px;">
+                        <li><strong>Espacios gastronómicos ideales:</strong> Dispone de grandes áreas como el <em>Food Stadium Tokyo</em> (abierto hasta las 23:00) o el espacio de comida rápida <em>Go-Fun</em> (hasta las 22:30), perfectos para que cada uno de los 8 elija lo que más le apetezca cenar.</li>
+                        <li><strong>Centro comercial LaQua:</strong> La sección de tiendas de LaQua cierra a las 21:00 y los restaurantes a las 22:00, ofreciendo un ambiente climatizado excelente si el calor y la humedad de agosto en el exterior se vuelven muy sofocantes.</li>
+                        <li><strong>Ambiente y paseos:</strong> Pasear bajo sus estructuras iluminadas y ver de cerca el emblemático estadio Tokyo Dome os brindará una excelente y cómoda toma de contacto con el Tokio más moderno.</li>
+                    </ul>
+                    <img src="images/dia21-tokyo-dome.jpg" style="width:100%; border-radius:10px; border:1px solid rgba(255,255,255,0.1); margin-top:5px;" />
+                    <div style="margin-top:15px;">
+                        <a href="https://www.google.com/maps/search/?api=1&query=Tokyo+Dome+City" target="_blank" class="tactical-btn" style="display:inline-flex; align-items:center; gap:6px; padding:6px 12px; font-size:0.75rem; border-radius:6px; background:rgba(0,243,255,0.1); border:1px solid var(--neon-blue); color:var(--neon-blue); text-decoration:none; font-weight:bold;"><i class="fa-solid fa-map-location-dot"></i> VER EN MAPA</a>
+                    </div>
+                `
+            },
+            {
+                time: "🚶 5-7 min",
+                title: "☕ Opción 3: Terraza Fluvial en Canal Cafe",
+                content: `
+                    <p style="margin-bottom:12px; color:#cbd5e1; line-height:1.6;">El icónico <strong>Canal Cafe</strong> es un amplio restaurante y cafetería asentado junto al agua en el foso del antiguo Castillo de Edo, situado a solo 5-7 minutos a pie de vuestro hotel, justo al lado de la estación de Iidabashi. Su inmensa terraza descubierta junto al canal lo convierte en un rincón sumamente cotizado para disfrutar de la brisa del anochecer y desconectar del ajetreo urbano.</p>
+                    <ul style="font-size:0.85rem; color:#94a3b8; padding-left:20px; margin-bottom:15px; display:flex; flex-direction:column; gap:6px;">
+                        <li><strong>Mínimo esfuerzo físico:</strong> Al estar prácticamente al lado del hotel, os requerirá una caminata muy breve, algo que agradeceréis si el cansancio acumulado del viaje empieza a pasar factura.</li>
+                        <li><strong>Vistas del canal:</strong> Ofrece una estampa preciosa de los trenes locales pasando junto al agua y los reflejos de las luces de los rascacielos mientras tomáis algo refrescante.</li>
+                    </ul>
+                    <img src="images/dia16_canal_cafe.png" style="width:100%; border-radius:10px; border:1px solid rgba(255,255,255,0.1); margin-top:5px;" />
+                    <div style="margin-top:15px;">
+                        <a href="https://www.google.com/maps/search/?api=1&query=Canal+Cafe+Tokyo" target="_blank" class="tactical-btn" style="display:inline-flex; align-items:center; gap:6px; padding:6px 12px; font-size:0.75rem; border-radius:6px; background:rgba(0,243,255,0.1); border:1px solid var(--neon-blue); color:var(--neon-blue); text-decoration:none; font-weight:bold;"><i class="fa-solid fa-map-location-dot"></i> VER EN MAPA</a>
+                    </div>
+                `,
+                warning: "Cena informal: Cuenta con un menú italiano-japonés muy accesible (pizzas, pastas, ensaladas) y opera de forma continua hasta las 21:30 (los domingos hasta las 21:00), dándoos margen de sobra."
+            },
+            {
+                time: "🚇 15 min",
+                title: "🏙️ Opción 4: Mirador del Ayuntamiento (Tocho)",
+                content: `
+                    <p style="margin-bottom:12px; color:#cbd5e1; line-height:1.6;">El mirador del <strong>Gobierno Metropolitano de Tokio (Tocho)</strong> se encuentra en Shinjuku y ofrece una vista panorámica gratuita espectacular de 360 grados desde la planta 45, a 202 metros de altura.</p>
+                    <ul style="font-size:0.85rem; color:#94a3b8; padding-left:20px; margin-bottom:15px; display:flex; flex-direction:column; gap:6px;">
+                        <li><strong>Vistas inigualables:</strong> Ideal para contemplar el océano de luces infinitas de Tokio en vuestra primera noche.</li>
+                        <li><strong>Piano de Yayoi Kusama:</strong> Cuenta con un piano de cola diseñado por la famosa artista japonesa, el cual suele estar activo con músicos locales tocando en directo.</li>
+                    </ul>
+                    <img src="images/dia18-tocho.jpg" style="width:100%; border-radius:10px; border:1px solid rgba(255,255,255,0.1); margin-top:5px;" />
+                    <div style="margin-top:15px;">
+                        <a href="https://www.google.com/maps/dir/?api=1&origin=Iidabashi+Station&destination=Tokyo+Metropolitan+Government+Building+Observation+Decks&travelmode=transit" target="_blank" class="tactical-btn" style="display:inline-flex; align-items:center; gap:6px; padding:6px 12px; font-size:0.75rem; border-radius:6px; background:rgba(0,243,255,0.1); border:1px solid var(--neon-blue); color:var(--neon-blue); text-decoration:none; font-weight:bold;"><i class="fa-solid fa-route"></i> VER RUTA EN METRO</a>
+                    </div>
+                `
+            },
+            {
+                time: "🚇 15 min",
+                title: "🏙️ Opción 5: Shinjuku Completo (Neones, Mirador y Karaoke)",
+                content: `
+                    <p style="margin-bottom:12px; color:#cbd5e1; line-height:1.6;">Una inmersión total en el <strong>Tokio nocturno de Shinjuku</strong>. Damos una vuelta por el barrio para orientarnos y disfrutar del contraste entre los rascacielos y los callejones tradicionales.</p>
+                    <ul style="font-size:0.85rem; color:#94a3b8; padding-left:20px; margin-bottom:15px; display:flex; flex-direction:column; gap:8px;">
+                        <li><strong>Mirador del Ayuntamiento (Tocho):</strong> Subimos al mirador gratuito del Tokyo Metropolitan Government Building para ver la inmensidad de Tokio iluminada desde arriba (planta 45).</li>
+                        <li><strong>Neones y ambiente en Kabukicho:</strong> Pasamos por Kabukicho para ver el "Tokio de neones" clásico y la cabeza gigante de Godzilla.</li>
+                        <li><strong>Cena en callejones típicos:</strong> Vamos a Omoide Yokocho a cenar brochetas a la parrilla (Yakitori) en alguna izakaya pequeñita y con encanto.</li>
+                        <li><strong>Karaoke en Shinjuku:</strong> Una de las experiencias más divertidas. Son cabinas privadas insonorizadas con buffet de bebidas, ideal para familias.</li>
+                    </ul>
+                    <img src="images/shinjuku.png" style="width:100%; border-radius:10px; border:1px solid rgba(255,255,255,0.1); margin-top:5px;" />
+                    <div style="margin-top:15px;">
+                        <a href="https://www.google.com/maps/dir/?api=1&origin=Iidabashi+Station&destination=Shinjuku+Station&travelmode=transit" target="_blank" class="tactical-btn" style="display:inline-flex; align-items:center; gap:6px; padding:6px 12px; font-size:0.75rem; border-radius:6px; background:rgba(0,243,255,0.1); border:1px solid var(--neon-blue); color:var(--neon-blue); text-decoration:none; font-weight:bold;"><i class="fa-solid fa-route"></i> VER RUTA EN METRO</a>
+                    </div>
+                `,
+                warning: "Consejo familiar: Si vais con peques, se puede hacer este plan en 'modo temprano' a las 18:30 y estaréis listos para volver a descansar antes de las aglomeraciones tardías."
+            }
+        ],
+        footer: `
+            <div style="background:rgba(16,185,129,0.1); border:1px solid var(--success); border-radius:12px; padding:15px; margin-top:20px;">
+                <h4 style="color:var(--success); margin-top:0; display:flex; align-items:center; gap:8px; font-size:1rem;"><i class="fa-solid fa-thumbs-up"></i> Recomendación</h4>
+                <p style="font-size:0.85rem; color:white; margin-bottom:0; line-height:1.5;">Si el bochorno de agosto y el cansancio aprietan, las opciones de <strong>Canal Cafe</strong> o <strong>Tokyo Dome City</strong> os mantendrán a cubierto o al lado del agua reduciendo la caminata. Si os quedan fuerzas para una estampa nocturna de foto, <strong>Kagurazaka</strong> es mágica.</p>
+            </div>
+        `
+    },
+    'route_day16_shinjuku_to_hotel': {
+        title: "Transporte: Shinjuku ➔ Hotel Edmont",
+        subtitle: "Guía de traslado grupal (8 Pax) tras la llegada del Fuji Excursion",
+        steps: [
+            {
+                time: "Opción A",
+                title: "🚄 Opción 1: Instrucciones para el Tren (Línea JR Chūō-Sōbu)",
+                content: `
+                    <p style="margin-bottom:15px; color:#94a3b8; line-height:1.6;">Si decidís ir en tren, utilizaréis la red de la compañía JR (Japan Railways). Al llegar desde Fuji, lo más probable es que vuestro tren finalice en los andenes de JR Shinjuku, por lo que no tendréis que salir de los tornos de la estación para hacer el transbordo, lo cual os ahorrará tener que comprar billetes nuevos si usáis tarjetas IC (como Suica o Pasmo) o pases de transporte compatibles.</p>
+                    
+                    <div class="transit-card" style="margin-bottom:20px; background:rgba(0,0,0,0.2); border:1px solid rgba(255,255,255,0.05); padding:15px; border-radius:12px;">
+                        <div class="transit-header" style="margin-bottom:15px;">
+                            <span class="transit-badge" style="background:#ffd400; color:black; font-weight:800; padding:2px 8px; border-radius:4px; font-size:0.75rem;"><i class="fa-solid fa-train-subway"></i> LÍNEA JR LOCAL</span>
+                            <div class="transit-route-summary" style="margin-top:8px;">
+                                <h3 style="margin:0; color:white; font-size:1.1rem;">Shinjuku <i class="fa-solid fa-arrow-right" style="color:#ffd400;"></i> Iidabashi</h3>
+                                <span class="transit-time-total" style="font-size:0.8rem; color:#94a3b8;"><i class="fa-regular fa-clock"></i> 18-19 min • 6 paradas • Sin transbordos externos</span>
+                            </div>
+                        </div>
+                        
+                        <div class="transit-timeline" style="margin-top:15px; display:flex; flex-direction:column; gap:10px;">
+                            <!-- Nodo Origen -->
+                            <div class="timeline-node origin" style="display:flex; gap:15px; align-items:flex-start;">
+                                <div class="node-indicator" style="display:flex; flex-direction:column; align-items:center;">
+                                    <div class="station-icon-halo" style="--line-color: #ffd400; background:#ffd400; width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 0 10px rgba(255,212,0,0.4);">
+                                        <span class="station-code" style="color:black; font-weight:800; font-size:0.8rem;">JB10</span>
+                                    </div>
+                                </div>
+                                <div class="node-info" style="flex:1;">
+                                    <div class="station-header" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:5px;">
+                                        <span class="station-name" style="font-weight:bold; color:white;">Shinjuku (JR)</span>
+                                        <span class="badge-line" style="background-color: #ffd400; color:black; font-weight:bold; font-size:0.7rem; padding:1px 6px; border-radius:4px;">Chūō-Sōbu Line</span>
+                                    </div>
+                                    <div style="color:#cbd5e1; font-size:0.85rem; line-height:1.5;">
+                                        <div style="margin-bottom:8px;">
+                                            <i class="fa-solid fa-shuffle" style="color:#ffd400; margin-right:4px;"></i><strong>Transbordo interno:</strong> Al bajar de vuestro tren proveniente de Fuji, no busquéis las salidas de la calle (Exits). Buscad los paneles informativos elevados de color amarillo y seguid las indicaciones hacia la línea <strong>JR Chūō-Sōbu Line (Local)</strong> en dirección este (hacia Ochanomizu / Chiba).
+                                        </div>
+                                        <div class="station-meta-grid" style="display:flex; gap:10px; margin-top:8px;">
+                                            <div class="meta-item" style="border: 1px solid rgba(255,212,0,0.3); background: rgba(255,212,0,0.05); padding:4px 8px; border-radius:6px; font-size:0.8rem; display:inline-flex; align-items:center;">
+                                                <i class="fa-solid fa-arrow-pointer" style="color: #ffd400; margin-right: 6px;"></i>Andén <strong style="color: #ffd400; margin-left:3px;">13 (Platform 13)</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Conector -->
+                            <div class="timeline-connector" style="margin-left: 17px; border-left: 3px dashed #ffd400; padding:10px 0 10px 25px;">
+                                <span class="stops-count" style="font-size:0.78rem; color:#94a3b8; display:flex; align-items:center; gap:6px;"><i class="fa-solid fa-layer-group"></i> 6 paradas (Yoyogi, Sendagaya, Shinanomachi, Yotsuya, Ichigaya)</span>
+                            </div>
+                            
+                            <!-- Nodo Destino -->
+                            <div class="timeline-node destination" style="display:flex; gap:15px; align-items:flex-start;">
+                                <div class="node-indicator" style="display:flex; flex-direction:column; align-items:center;">
+                                    <div class="station-icon-halo" style="--line-color: #ffd400; background:#ffd400; width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 0 10px rgba(255,212,0,0.4);">
+                                        <span class="station-code" style="color:black; font-weight:800; font-size:0.8rem;">JB16</span>
+                                    </div>
+                                </div>
+                                <div class="node-info" style="flex:1;">
+                                    <div class="station-header" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:5px;">
+                                        <span class="station-name" style="font-weight:bold; color:white;">Iidabashi (JR)</span>
+                                        <span class="badge-line" style="background-color: #ffd400; color:black; font-weight:bold; font-size:0.7rem; padding:1px 6px; border-radius:4px;">Llegada</span>
+                                    </div>
+                                    <div style="color:#cbd5e1; font-size:0.85rem; line-height:1.5;">
+                                        <div>
+                                            <i class="fa-solid fa-door-open" style="color:#ffd400; margin-right:4px;"></i><strong>La Salida:</strong> Una vez en Iidabashi, buscad los letreros hacia la <strong>Salida Este (East Exit)</strong> de la línea JR.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.05); border-radius:12px; padding:15px; margin-top:15px; border-left:4px solid #ffd400;">
+                        <h4 style="color:#ffd400; margin:0 0 8px 0; display:flex; align-items:center; gap:8px; font-size:0.95rem;"><i class="fa-solid fa-person-walking"></i> 6. Caminata final al hotel (5 min)</h4>
+                        <p style="font-size:0.85rem; color:white; margin:0; line-height:1.5;">Desde la Salida Este de JR Iidabashi, el Hotel Metropolitan Edmont se encuentra a unos 5 minutos a pie (aproximadamente 400 metros) caminando en dirección sur por calles llanas y pavimentadas.</p>
+                    </div>
+                `,
+                warning: "Nota sobre el flujo: A las 16:00 de un día laborable de agosto, los vagones empezarán a llenarse progresivamente debido a la hora punta de salida de oficinas y escuelas. Mantener a 8 personas juntas con mochilas grandes requerirá dividirse bien en las puertas del tren."
+            },
+            {
+                time: "Opción B",
+                title: "🚕 Opción 2: Instrucciones detalladas para el Taxi",
+                content: `
+                    <div style="margin-bottom:20px; line-height:1.6;">
+                        <h4 style="color:var(--accent); margin:0 0 8px 0; font-size:1rem; display:flex; align-items:center; gap:8px;"><i class="fa-solid fa-circle-question"></i> ¿Es fácil coger taxi allí o es preferible llamar / usar app?</h4>
+                        <p style="font-size:0.88rem; color:#cbd5e1; margin:0;">En la Estación de Shinjuku es sumamente fácil coger un taxi directamente en sus paradas oficiales y <strong>no merece la pena llamar por teléfono ni utilizar aplicaciones (como Uber o Go)</strong> en ese instante. La estación dispone de paradas de taxi fijas (Taxi Stands) sumamente organizadas donde los coches hacen cola de forma continua las 24 horas. De hecho, por normativa, los taxis pedidos por app no pueden recoger pasajeros en las zonas de las paradas oficiales, por lo que usar una aplicación os obligaría a salir de la estación y buscar una zona de carga permitida en la calle, algo incómodo y caótico yendo con bultos grandes.</p>
+                    </div>
+                    
+                    <div style="background:rgba(249,115,22,0.04); border:1px solid rgba(249,115,22,0.15); border-radius:14px; padding:20px; border-left:4px solid var(--accent); line-height:1.6;">
+                        <h4 style="color:var(--accent); margin:0 0 10px 0; font-size:1rem; display:flex; align-items:center; gap:8px;"><i class="fa-solid fa-map-pin"></i> El mejor sitio de la estación para coger los taxis</h4>
+                        <p style="font-size:0.88rem; color:white; margin-bottom:12px;">Shinjuku es una estación colosal con varias paradas de taxi, pero para un grupo de 8 personas con equipaje grande, la mejor parada con diferencia es la de la <strong>Terminal de Autobuses y Transportes de Shinjuku (Busta Shinjuku)</strong>, ubicada en la <strong>3ª planta (3F)</strong>, accesible desde la zona sur de la estación:</p>
+                        <ul style="font-size:0.85rem; color:#cbd5e1; padding-left:20px; margin:0; display:flex; flex-direction:column; gap:10px;">
+                            <li><strong>Cómo llegar:</strong> Al bajar de vuestro tren, seguid los letreros internos que suben hacia la planta superior (2F) en dirección a la <strong>Salida Sur (South Exit)</strong> o <strong>New South Gate</strong>.</li>
+                            <li><strong>Subir a la terminal:</strong> Cruzando la calle o utilizando los ascensores amplios de esa zona moderna (el complejo NEWoMan / Busta Shinjuku), subid a la <strong>3ª planta (3F)</strong>. Esta zona es muy espaciosa, moderna y está completamente techada.</li>
+                            <li><strong>Tomar los vehículos:</strong> En la parada oficial de la 3ª planta veréis una fila ordenada de taxis. Al ser un área amplia y resguardada del sol y el bochorno de agosto, os permitirá coordinaros perfectamente para dividiros en dos taxis estándar (máximo 4 pasajeros por coche) y cargar las mochilas grandes en los maleteros con total tranquilidad, sin entorpecer el paso de los peatones ni sufrir las aglomeraciones de los estrechos pasillos subterráneos de la salida oeste.</li>
+                        </ul>
+                    </div>
+                `
+            }
+        ],
+        footer: `
+            <div style="background:rgba(16,185,129,0.1); border:1px solid var(--success); border-radius:12px; padding:15px; margin-top:20px;">
+                <h4 style="color:var(--success); margin-top:0; display:flex; align-items:center; gap:8px; font-size:1rem;"><i class="fa-solid fa-thumbs-up"></i> Recomendación Final</h4>
+                <p style="font-size:0.88rem; color:white; margin-bottom:0; line-height:1.5;">Teniendo en cuenta que viajáis en agosto a las 16:00 (momento de máxima humedad y calor en Tokio) y que vais cargados tras un viaje en tren, subir en ascensor hacia la parada de taxis de la 3ª planta de <strong>Busta Shinjuku</strong> y repartiros en dos coches os garantizará empezar vuestra estancia en la capital de la forma más cómoda, directa y sin sufrir el desgaste físico de arrastrar mochilas por los andenes.</p>
             </div>
         `
     }

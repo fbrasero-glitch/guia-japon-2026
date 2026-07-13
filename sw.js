@@ -126,6 +126,8 @@ const ASSETS_TO_CACHE = [
     "images/dia15-ryugatake.jpg",
     "images/dia16-coche.jpg",
     "images/dia16-kagurazaka.jpg",
+    "images/dia16_canal_cafe.png",
+    "images/dia16_fuji_excursion.png",
     "images/dia17-asakusa.jpg",
     "images/dia17-bandai.jpg",
     "images/dia17-calle-kappabashi-cocineros.jpg",

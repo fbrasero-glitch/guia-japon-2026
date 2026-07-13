@@ -111,7 +111,7 @@ const travelData_17_24 = [
                     gpsWarning: "Ignora el GPS. La estación de Tobu Asakusa se encuentra dentro del centro comercial Ekimise."
                 }
             },
-            { time: "13:30", type: "point", title: "Tokyo Skytree y Solamachi", icon: "fa-solid fa-tower-broadcast" },
+            { time: "13:30", type: "point", title: "Tokyo Skytree y Solamachi [HORARIO: 24 horas]", icon: "fa-solid fa-tower-broadcast" },
             {
                 time: "16:00",
                 type: "transit",
@@ -155,7 +155,7 @@ const travelData_17_24 = [
                     gpsWarning: "En Akihabara es crucial salir por la 'Electric Town Exit' (Salida del Barrio Eléctrico) para estar en la zona comercial principal."
                 }
             },
-            { time: "16:30", type: "point", title: "Locura Akihabara (Electric Town)", icon: "fa-solid fa-gamepad" },
+            { time: "16:30", type: "point", title: "Locura Akihabara (Electric Town) [HORARIO: 11:00 - 20:00]", icon: "fa-solid fa-gamepad" },
             {
                 time: "20:30",
                 type: "transit",
@@ -195,10 +195,10 @@ const travelData_17_24 = [
         ],
 
         timeline: [
-            { time: "09:30", title: "Senso-ji", desc: "Templo antiguo y linterna roja Kaminarimon. (Base)" },
-            { time: "11:30", title: "Río Sumida", desc: "Paseo fluvial con vistas al skyline. (Base)" },
-            { time: "13:30", title: "Tokyo Skytree", desc: "Mirador de 634m o centro comercial Solamachi. (Base)" },
-            { time: "16:30", title: "Akihabara", desc: "Neon, anime, retro-gaming y compras otakus. (Base)" },
+            { time: "09:30", title: "Senso-ji [HORARIO: 06:00 - 17:00]", desc: "Templo antiguo y linterna roja Kaminarimon. (Base)" },
+            { time: "11:30", title: "Río Sumida [HORARIO: 10:00 - 20:00]", desc: "Paseo fluvial con vistas al skyline. (Base)" },
+            { time: "13:30", title: "Tokyo Skytree [HORARIO: 10:00 - 21:00]", desc: "Mirador de 634m o centro comercial Solamachi. (Base)" },
+            { time: "16:30", title: "Akihabara [HORARIO: 11:00 - 20:00]", desc: "Neon, anime, retro-gaming y compras otakus. (Base)" },
             { time: "20:30", title: "Regreso al Hotel", desc: "Tren directo JR Sobu Line desde Akihabara a Iidabashi / Suidobashi y vuelta a pie. (Base)" }
         ],
 
@@ -215,7 +215,7 @@ const travelData_17_24 = [
                 {
                     id: "b1",
                     time: "09:30",
-                    title: "Templo Senso-ji y Calle Nakamise",
+                    title: "Templo Senso-ji y Calle Nakamise [HORARIO: 06:00 - 17:00]",
                     description: "El templo budista más antiguo e importante de Tokio. Famoso por su gigantesca linterna roja.",
                     image: "images/dia17-sensoji.jpg",
                     price: "Gratis",
@@ -247,7 +247,7 @@ const travelData_17_24 = [
                 {
                     id: "b3",
                     time: "13:30",
-                    title: "Tokyo Skytree",
+                    title: "Tokyo Skytree [HORARIO: 10:00 - 21:00]",
                     booking: { id: "bk_skytree", timeframe: "1 mes antes", required: true, link: "https://www.tokyo-skytree.jp/en/ticket/" },
                     description: "La estructura más alta de Japón (634m). Vistas que demuestran que Tokio no tiene fin.",
                     image: "images/dia17-skytree.jpg",
@@ -263,7 +263,7 @@ const travelData_17_24 = [
                 {
                     id: "b4",
                     time: "16:30",
-                    title: "Akihabara: Electric Town",
+                    title: "Akihabara: Electric Town [HORARIO: 11:00 - 20:00]",
                     description: "El paraíso geek. Edificios enteros de neón dedicados a un solo tema: cartas, robótica, retro-gaming o figuritas.",
                     image: "images/dia19-akihabara.jpg",
                     price: "Gratis / Gastos compras",
@@ -315,7 +315,7 @@ const travelData_17_24 = [
         additionalExcursions: [
             {
                 id: "add_hotaluna",
-                title: "Crucero Fluvial Hotaluna",
+                title: "Crucero Fluvial Hotaluna [HORARIO: Salidas]",
                 image: "images/add-hotaluna.jpg",
                 description: "Trayecto en barco futurista desde Asakusa hasta Odaiba.",
                 time: "12:00 – 13:00",
@@ -331,7 +331,7 @@ const travelData_17_24 = [
             },
             {
                 id: "add_sumida_aquarium",
-                title: "Sumida Aquarium",
+                title: "Sumida Aquarium [HORARIO: 10:00 - 20:00]",
                 image: "images/add-sumida-aquarium.jpg",
                 description: "Acuario de diseño moderno y artístico dentro del complejo Skytree.",
                 time: "15:00 – 16:30",
@@ -384,7 +384,7 @@ const travelData_17_24 = [
         ],
 
         transportTimeline: [
-            { time: "09:00", type: "point", title: "Salida Hotel Edmont", icon: "fa-solid fa-hotel" },
+            { time: "09:30", type: "point", title: "Salida Hotel Edmont", icon: "fa-solid fa-hotel" },
             {
                 time: "09:15",
                 type: "transit",
@@ -428,7 +428,7 @@ const travelData_17_24 = [
                     gpsWarning: "Sal exclusivamente por la 'Takeshita Exit' (Salida Takeshita) de la estación de Harajuku para entrar directo a la famosa calle Takeshita."
                 }
             },
-            { time: "09:45", type: "point", title: "Parque Yoyogi / Meiji Jingu", icon: "fa-solid fa-tree" },
+            { time: "09:45", type: "point", title: "Parque Yoyogi / Meiji Jingu [HORARIO: Amanecer-Ocaso]", icon: "fa-solid fa-tree" },
             {
                 time: "11:30",
                 type: "transit",
@@ -446,11 +446,11 @@ const travelData_17_24 = [
                 timeLabel: "25 min a pie (con tiendas)",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Harajuku&destination=Shibuya+Crossing&travelmode=walking"
             },
-            { time: "15:00", type: "point", title: "Cruce de Shibuya y Hachiko", icon: "fa-solid fa-people-arrows" },
+            { time: "15:00", type: "point", title: "Cruce de Shibuya y Hachiko [HORARIO: 24 horas]", icon: "fa-solid fa-people-arrows" },
             {
                 time: "17:30",
                 type: "transit",
-                title: "Subida a Shibuya Sky",
+                title: "Subida a Shibuya Sky [HORARIO: 24 horas]",
                 price: "~2.200 JPY",
                 timeLabel: "En hora de reserva",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Shibuya+Crossing&destination=Shibuya+Sky",
@@ -502,11 +502,12 @@ const travelData_17_24 = [
         ],
 
         timeline: [
-            { time: "09:45", title: "Santuario Meiji", desc: "El gran bosque sintoísta en medio de la ciudad. (Base)" },
+            { time: "09:45", title: "Santuario Meiji [HORARIO: Amanecer-Ocaso]", desc: "El gran bosque sintoísta en medio de la ciudad. (Base)" },
             { time: "11:30", title: "Harajuku opcional", desc: "Takeshita Dori: crepes y cultura kawai. (Complemento)" },
             { time: "15:00", title: "Shibuya Crossing", desc: "El legendario cruce a nivel del suelo. (Base)" },
-            { time: "17:30", title: "Shibuya Sky", desc: "Mirador espectacular abierto. (Complemento recomendado)" },
-            { time: "20:30", title: "Regreso al Hotel", desc: "Tren directo JR Yamanote + JR Sobu Line a Iidabashi y vuelta a pie. (Base)" }
+            { time: "17:30", title: "Shibuya Sky [HORARIO: 10:00 - 22:30]", desc: "Mirador espectacular abierto. (Complemento recomendado)" },
+            { time: "20:30", title: "Modo Karaoke 2", desc: "Cantar en cabinas privadas de Shibuya si no se hizo el primer día. (Opcional)" },
+            { time: "22:00", title: "Regreso al Hotel", desc: "Tren de vuelta a Iidabashi y descanso. (Base)" }
         ],
 
         prices: {
@@ -518,11 +519,10 @@ const travelData_17_24 = [
         base: {
             title: "Itinerario Base",
             description: "El corazón palpitante del oeste de Tokio. Un día de contrastes extremos: la paz del bosque imperial y los neones y cruces abarrotados.",
-            events: [
-                {
+            events: [{
                     id: "b1",
                     time: "09:45",
-                    title: "Santuario Meiji Jingu",
+                    title: "Santuario Meiji Jingu [HORARIO: Amanecer-Ocaso]",
                     description: "Santuario imperial camuflado en un bosque denso enorme y silencioso.",
                     image: "images/dia18-meiji.jpg",
                     price: "Gratis",
@@ -543,7 +543,7 @@ const travelData_17_24 = [
                 {
                     id: "b2",
                     time: "15:00",
-                    title: "El Cruce de Shibuya y Hachiko",
+                    title: "El Cruce de Shibuya y Hachiko [HORARIO: 24 horas]",
                     description: "El 'Times Square' nipón. El paso de peatones múltiple más concurrido del mundo.",
                     image: "images/dia18-shibuya.jpg",
                     price: "Gratis",
@@ -556,13 +556,37 @@ const travelData_17_24 = [
                         </ul>
                     `,
                     video: "https://www.youtube.com/watch?v=pZRHMKangVQ"
+                },
+                {
+                    id: "b3",
+                    time: "20:30",
+                    title: "🎤 MODO KARAOKE 2: Noche en Shibuya",
+                    description: "Opción de cerrar el día cantando en las cabinas privadas de Shibuya, tras bajar del mirador Shibuya Sky.",
+                    image: "images/akihabara.png",
+                    price: "Variable",
+                    fullDesc: `
+                        <div style="text-align:center; margin-bottom:25px;">
+                            <div class="gastro-radar-wrapper" style="display:inline-block; float:none; margin:0 auto; position:relative;">
+                                <button class="gastro-radar-btn pulse-cyan" style="background: rgba(0, 243, 255, 0.15); border: 2px solid var(--neon-blue); color: var(--neon-blue); box-shadow: 0 0 15px rgba(0, 243, 255, 0.4); width:60px; height:60px; font-size:1.5rem; border-radius:50%;" onclick="renderTacticalMission('mode_karaoke', 18)" title="Activar Modo Karaoke">
+                                    <i class="fa-solid fa-microphone"></i>
+                                </button>
+                                <div style="color:var(--neon-blue); font-weight:800; font-size:0.75rem; letter-spacing:1px; margin-top:8px; text-transform:uppercase; text-shadow:0 0 5px rgba(0,243,255,0.4);">Modo Karaoke 2</div>
+                            </div>
+                        </div>
+                        
+                        <h3><i class="fa-solid fa-microphone"></i> Karaoke de Noche en Shibuya</h3>
+                        <p>Tras disfrutar del atardecer o la noche en Shibuya Sky, podéis dirigiros a alguno de los enormes locales de karaoke de la zona (como Karaoke Kan o Big Echo) situados a escasos metros del cruce.</p>
+                        <ul>
+                            <li><strong>Ideal si no lo hicisteis el Día 16:</strong> Una excelente oportunidad de experimentar las cabinas privadas con buffet de bebidas en Shibuya.</li>
+                        </ul>
+                    `
                 }
-            ]
+                ]
         },
         complements: [
             {
                 id: "c1",
-                title: "Shibuya Sky",
+                title: "Shibuya Sky [HORARIO: 10:00 - 22:30]",
                 booking: { id: "bk_shibuya", timeframe: "Exactamente 4 semanas antes (00:00 Japón)", required: true, link: "https://www.shibuya-scramble-square.com/en/sky/ticket/" },
                 time: "17:30",
                 description: "El mirador que arrasa en Instagram. Azotea de helicópteros totalmente al aire libre.",
@@ -586,7 +610,7 @@ const travelData_17_24 = [
             },
             {
                 id: "c2",
-                title: "Harajuku (Takeshita Street)",
+                title: "Harajuku (Takeshita Street) [HORARIO: 24 horas]",
                 time: "11:30",
                 description: "El epicentro de la moda adolescente, locura kawaii y el azúcar concentrado.",
                 price: "Gratis",
@@ -599,7 +623,7 @@ const travelData_17_24 = [
             },
             {
                 id: "c3",
-                title: "Avenida Omotesando",
+                title: "Avenida Omotesando [HORARIO: 24 horas]",
                 time: "13:00",
                 description: "Arquitectura moderna de lujo y marcas exclusivas bordeando grandes árboles.",
                 price: "Gratis",
@@ -631,9 +655,9 @@ const travelData_17_24 = [
         ],
 
         transportTimeline: [
-            { time: "09:00", type: "point", title: "Salida Hotel Edmont", icon: "fa-solid fa-hotel" },
+            { time: "09:30", type: "point", title: "Salida Hotel Edmont", icon: "fa-solid fa-hotel" },
             {
-                time: "09:15",
+                time: "09:45",
                 type: "transit",
                 title: "Metro a Kamiyacho (Línea Hibiya)",
                 price: "Suica",
@@ -675,9 +699,9 @@ const travelData_17_24 = [
                     gpsWarning: "En Kamiyacho es fundamental usar la Salida 5. Te deja directamente dentro de los subterráneos de Azabudai Hills sin tener que subir a la calle."
                 }
             },
-            { time: "09:30", type: "point", title: "TeamLab Borderless (Azabudai Hills)", icon: "fa-solid fa-wand-magic-sparkles" },
+            { time: "10:00", type: "point", title: "TeamLab Borderless (Azabudai Hills) [HORARIO: 10:00 - 20:00]", icon: "fa-solid fa-wand-magic-sparkles" },
             {
-                time: "12:15",
+                time: "12:30",
                 type: "transit",
                 title: "Metro Hibiya (Kamiyacho → Ginza)",
                 price: "Suica",
@@ -712,7 +736,7 @@ const travelData_17_24 = [
                     gpsWarning: "En Ginza toma la Salida A13 para salir directo a Chuo-dori, la gran avenida peatonal peatonalizada los fines de semana."
                 }
             },
-            { time: "12:30", type: "point", title: "Ginza Luxury (Milla de Oro)", icon: "fa-solid fa-gem" },
+            { time: "12:45", type: "point", title: "Ginza Luxury (Milla de Oro)", icon: "fa-solid fa-gem" },
             {
                 time: "16:00",
                 type: "transit",
@@ -749,7 +773,7 @@ const travelData_17_24 = [
                     gpsWarning: "En Roppongi, usa la Salida 1C (Exit 1C). Tiene un pasaje subterráneo directo que entra a la plaza central de Roppongi Hills sin mojarse si llueve."
                 }
             },
-            { time: "16:15", type: "point", title: "Roppongi Hills y vistas Torre Tokyo", icon: "fa-solid fa-city" },
+            { time: "16:15", type: "point", title: "Roppongi Hills y vistas Torre Tokyo [HORARIO: 24 horas]", icon: "fa-solid fa-city" },
             {
                 time: "20:30",
                 type: "transit",
@@ -789,9 +813,9 @@ const travelData_17_24 = [
         ],
 
         timeline: [
-            { time: "09:30", title: "TeamLab Borderless", desc: "El MORI Building DIGITAL ART MUSEUM en Azabudai Hills. (Base)" },
-            { time: "12:30", title: "Ginza Luxury", desc: "Lujo, arquitectura y comida top. (Base)" },
-            { time: "16:15", title: "Roppongi Hills y vistas Torre Tokyo", desc: "Vida nocturna expat y la icónica Torre de Tokio roja. (Base)" },
+            { time: "10:00", title: "TeamLab Borderless [HORARIO: 10:00 - 20:00]", desc: "El MORI Building DIGITAL ART MUSEUM en Azabudai Hills. (Base)" },
+            { time: "12:45", title: "Ginza Luxury", desc: "Lujo, arquitectura y comida top. (Base)" },
+            { time: "16:15", title: "Roppongi Hills y vistas Torre Tokyo [HORARIO: 24 horas]", desc: "Vida nocturna expat, la icónica Torre de Tokio roja y subida a la Mori Tower. (Base)" },
             { time: "20:30", title: "Regreso al Hotel", desc: "Metro directo línea Oedo desde Roppongi a Iidabashi y vuelta a pie. (Base)" }
         ],
 
@@ -807,8 +831,8 @@ const travelData_17_24 = [
             events: [
                 {
                     id: "b1",
-                    time: "09:30",
-                    title: "TeamLab Borderless (Entradas y App dentro) 🎟️",
+                    time: "10:00",
+                    title: "TeamLab Borderless (Entradas y App dentro) 🎟️ [HORARIO: 10:00 - 20:00]",
                     description: "El MORI Building DIGITAL ART MUSEUM en Azabudai Hills. (Pulsa aquí para descargar tus entradas en PDF y la App oficial de TeamLab).",
                     image: "images/teamlab.png",
                     price: "4.200 JPY",
@@ -842,7 +866,7 @@ const travelData_17_24 = [
                 },
                 {
                     id: "b2",
-                    time: "12:30",
+                    time: "12:45",
                     title: "La Avenida Principal de Ginza (Chuo Dori)",
                     description: "La zona más elitista comercial de todo el país. Flagships imponentes, boutiques de diseño y restaurantes de estrellas michelin ocultos en rascacielos.",
                     image: "images/dia22-teatro-kabuki-za.jpg",
@@ -858,13 +882,24 @@ const travelData_17_24 = [
                     id: "b3",
                     time: "16:15",
                     title: "Roppongi Hills y Torre de Tokio",
-                    description: "El complejo futurista expat coronado con vistas a la torre de comunicaciones roja clásica.",
+                    description: "El complejo futurista expat coronado con vistas a la torre de comunicaciones roja clásica. Subimos a Mori Tower (mirador brutal).",
                     image: "images/dia22-roppongi.jpg",
                     price: "Gratis visual",
                     tacticalGuideId: "mission_roppongi_hills",
                     fullDesc: `
                         <h3><i class="fa-solid fa-martini-glass"></i> Roppongi: Noches de Torre Roja</h3>
                         <p>Roppongi es un barrio transformado: del desenfreno militar al hub de arte y diseño de cristal con ambiente multicultural de millonarios expatriados. Caminar por el complejo **Roppongi Hills** cruzando con la gran escultura de la araña de Louise Bourgeois (Maman). Destaca acercarse caminando a la zona del templo Zojoji o la base de la Tokyo Tower, una increíble estructura de celosía naranja y blanca (copia modernizada de la torre Eiffel de Francia) que se enciende rotundamente al caer la noche destacando sobre los rascacielos sombríos.</p>
+                        
+                        <div style="background:rgba(0,243,255,0.05); border:1px solid var(--neon-blue); border-radius:12px; padding:15px; margin-top:20px;">
+                            <h4 style="color:var(--neon-blue); margin-top:0; display:flex; align-items:center; gap:8px;"><i class="fa-solid fa-tower-broadcast"></i> Subida a Mori Tower & Tokyo City View</h4>
+                            <p style="font-size:0.85rem; color:#cbd5e1; margin-bottom:10px; line-height:1.5;">La **Torre Mori** es el corazón de Roppongi Hills. Con sus 54 pisos de altura, alberga en su cima una de las mejores experiencias visuales de la capital:</p>
+                            <ul style="font-size:0.8rem; color:#cbd5e1; padding-left:20px; display:flex; flex-direction:column; gap:6px; margin-bottom:12px;">
+                                <li><strong>Tokyo City View (Planta 52):</strong> Mirador acristalado de 360 grados que ofrece, sin duda, la mejor perspectiva frontal para fotografiar la Torre de Tokio iluminada de noche, la bahía de Tokio e incluso el Monte Fuji en días despejados.</li>
+                                <li><strong>Sky Deck (Azotea):</strong> Plataforma de observación exterior al aire libre en el helipuerto del tejado (a 270 metros), donde sentiréis la brisa real de la ciudad con vistas despejadas (sujeto a clima y tarifa extra).</li>
+                                <li><strong>Mori Art Museum (Planta 53):</strong> Un prestigioso museo de arte moderno abierto hasta tarde (suele cerrar a las 22:00) cuyas exposiciones temporales suelen estar incluidas con la misma entrada del mirador.</li>
+                            </ul>
+                            <span style="font-size:0.75rem; color:#94a3b8; display:block;"><i class="fa-solid fa-ticket"></i> **Entrada:** Aprox. 1.800 - 2.200 JPY (recomendable comprar online o en taquilla para la hora del atardecer).</span>
+                        </div>
                     `
                 }
             ]
@@ -872,7 +907,7 @@ const travelData_17_24 = [
         complements: [
             {
                 id: "c1",
-                title: "Mercado Tsukiji (Exterior)",
+                title: "Mercado Tsukiji (Exterior) [HORARIO: 05:00 - 14:00]",
                 time: "Flexible Mediodía",
                 description: "Para los puristas. Si no queréis la modernidad de Toyosu, los callejones del antiguo mercado en Tsukiji siguen sirviendo marisco y wagyu increíble.",
                 price: "Variable",
@@ -884,7 +919,7 @@ const travelData_17_24 = [
             },
             {
                 id: "c2",
-                title: "Teatro Kabuki-za (Desde fuera)",
+                title: "Teatro Kabuki-za (Desde fuera) [HORARIO: Var�a]",
                 time: "15:00",
                 description: "La joya arquitectónica del teatro clásico sobreviviendo entre torres modernas de cristal en Ginza.",
                 price: "Gratis",
@@ -917,7 +952,7 @@ const travelData_17_24 = [
         ],
 
         transportTimeline: [
-            { time: "09:00", type: "point", title: "Salida Hotel Edmont", icon: "fa-solid fa-hotel" },
+            { time: "09:30", type: "point", title: "Salida Hotel Edmont", icon: "fa-solid fa-hotel" },
             {
                 time: "09:15",
                 type: "transit",
@@ -961,7 +996,7 @@ const travelData_17_24 = [
                     gpsWarning: "En Ueno, sal exclusivamente por la 'Shinobazu Gate' (Salida Shinobazu) para estar cruzando la calle directamente frente al parque y al estanque."
                 }
             },
-            { time: "09:30", type: "point", title: "Parque Ueno y Estanque Shinobazu", icon: "fa-solid fa-tree" },
+            { time: "09:30", type: "point", title: "Parque Ueno y Estanque Shinobazu [HORARIO: 05:00 - 23:00]", icon: "fa-solid fa-tree" },
             {
                 time: "11:00",
                 type: "transit",
@@ -1049,7 +1084,7 @@ const travelData_17_24 = [
                     gpsWarning: "En Nakano, cruza la North Exit (Salida Norte). Al salir verás de inmediato la entrada al Sun Mall (calle techada), síguela hasta el final para entrar en Nakano Broadway."
                 }
             },
-            { time: "15:30", type: "point", title: "Nakano Broadway", icon: "fa-solid fa-box-open" },
+            { time: "15:30", type: "point", title: "Nakano Broadway [HORARIO: 12:00 - 20:00]", icon: "fa-solid fa-box-open" },
             {
                 time: "20:00",
                 type: "transit",
@@ -1088,10 +1123,10 @@ const travelData_17_24 = [
         ],
 
         timeline: [
-            { time: "09:30", title: "Parque Ueno", desc: "El gran parque cultural y el templo flotante. (Base)" },
-            { time: "11:00", title: "Mercado Ameyoko", desc: "Mercado negro postguerra bullicioso. (Base)" },
-            { time: "13:00", title: "Yanaka Ginza", desc: "Barrio gato de la época Showa. Almuerzo callejero. (Base)" },
-            { time: "15:30", title: "Nakano Broadway", desc: "Coleccionismo retro y figuras. (Complemento recomendado)" },
+            { time: "09:30", title: "Parque Ueno [HORARIO: 05:00 - 23:00]", desc: "El gran parque cultural y el templo flotante. (Base)" },
+            { time: "11:00", title: "Mercado Ameyoko [HORARIO: 10:00 - 20:00]", desc: "Mercado negro postguerra bullicioso. (Base)" },
+            { time: "13:00", title: "Yanaka Ginza [HORARIO: 24 horas]", desc: "Barrio gato de la época Showa. Almuerzo callejero. (Base)" },
+            { time: "15:30", title: "Nakano Broadway [HORARIO: 12:00 - 20:00]", desc: "Coleccionismo retro y figuras. (Complemento recomendado)" },
             { time: "20:00", title: "Regreso al Hotel", desc: "Tren directo línea JR Chuo-Sobu desde Nakano a Iidabashi y vuelta a pie. (Base)" }
         ],
 
@@ -1108,7 +1143,7 @@ const travelData_17_24 = [
                 {
                     id: "b1",
                     time: "09:30",
-                    title: "Parque Ueno y Estanque Shinobazu",
+                    title: "Parque Ueno y Estanque Shinobazu [HORARIO: 05:00 - 23:00]",
                     description: "El parque público más popular, hogar de museos, un zoo y un estanque de lotos gigante.",
                     image: "images/dia20-itinerario-base-2.jpg",
                     price: "Gratis",
@@ -1123,7 +1158,7 @@ const travelData_17_24 = [
                 {
                     id: "b2",
                     time: "11:00",
-                    title: "Mercado Ameyoko",
+                    title: "Mercado Ameyoko [HORARIO: 10:00 - 20:00]",
                     description: "El ruido y el regateo en bruto bajo las vías del tren elevado.",
                     image: "images/dia20-itinerario-base-1.jpg",
                     price: "Gratis",
@@ -1136,7 +1171,7 @@ const travelData_17_24 = [
                 {
                     id: "b3",
                     time: "13:00",
-                    title: "Yanaka Ginza (Barrio Gato)",
+                    title: "Yanaka Ginza (Barrio Gato) [HORARIO: 24 horas]",
                     description: "Escapando de la guerra y los terremotos, este barrio mantiene la madera y escala de los años 50.",
                     image: "images/dia20-museo-nacional-tokio.jpg",
                     price: "Gratis",
@@ -1152,7 +1187,7 @@ const travelData_17_24 = [
         complements: [
             {
                 id: "c1",
-                title: "Nakano Broadway (Cultura Retro)",
+                title: "Nakano Broadway (Cultura Retro) [HORARIO: 12:00 - 20:00]",
                 time: "15:30",
                 description: "Edificio de hormigón plagado del imperio Mandarake. Tesoros otaku de pura cepa.",
                 price: "Gratis",
@@ -1174,7 +1209,7 @@ const travelData_17_24 = [
             },
             {
                 id: "c2",
-                title: "Museo Nacional de Tokio (Ueno)",
+                title: "Museo Nacional de Tokio (Ueno) [HORARIO: 09:30 - 17:00]",
                 time: "10:00",
                 description: "Si sois amantes de la historia de los Samuráis, Katanas y armaduras.",
                 price: "~1.000 JPY",
@@ -1249,7 +1284,7 @@ const travelData_17_24 = [
         timeline: [
             { time: "10:30", title: "Llegada a Nikko / Templos", desc: "Inicio de la ruta visitando primero el Puente sagrado Shinkyo y los templos Rinno-ji y Futarasan Jinja. (Base)" },
             { time: "12:30", title: "Almuerzo local temprano", desc: "Comer especialidades tradicionales en las callejuelas antes de que se llenen. (Base)" },
-            { time: "14:30", title: "Santuario Toshogu", desc: "Visita al mausoleo de Ieyasu Tokugawa a última hora para evitar colas de taquilla. (Base)" },
+            { time: "14:30", title: "Santuario Toshogu [HORARIO: 08:00 - 17:00]", desc: "Visita al mausoleo de Ieyasu Tokugawa a última hora para evitar colas de taquilla. (Base)" },
             { time: "19:00", title: "Regreso al Hotel", desc: "Regreso a Tokio (salida en tren desde Nikko a las 18:30). (Base)" }
         ],
 
@@ -1314,7 +1349,7 @@ const travelData_17_24 = [
             },
             {
                 id: "c2",
-                title: "Cascadas Kegon o Lago Chuzenji (Si elegís Nikko)",
+                title: "Cascadas Kegon o Lago Chuzenji (Si elegís Nikko) [HORARIO: 08:00 - 17:00]",
                 time: "14:00",
                 description: "Subir la montaña en autobús zigzagueante para ver la naturaleza brutal del parque nacional.",
                 price: "Bus ~1.500 JPY",
@@ -1328,7 +1363,7 @@ const travelData_17_24 = [
         additionalExcursions: [
             {
                 id: "add_engakuji",
-                title: "Templo Engaku-ji",
+                title: "Templo Engaku-ji [HORARIO: 08:00 - 16:30]",
                 image: "images/add-engakuji.jpg",
                 description: "Centro zen con atmósfera de quietud absoluta y arboledas de cedros en Kamakura.",
                 time: "10:00 – 11:30",
@@ -1356,7 +1391,7 @@ const travelData_17_24 = [
             },
             {
                 id: "add_kawagoe",
-                title: "Kawagoe (Little Edo)",
+                title: "Kawagoe (Little Edo) [HORARIO: 24 horas]",
                 image: "images/add-kawagoe.jpg",
                 description: "Ciudad que conserva almacenes de la época Edo con paredes de arcilla negra.",
                 time: "Día Completo",
@@ -1388,7 +1423,7 @@ const travelData_17_24 = [
             { title: "Transporte", text: "La conexión principal del día será el tren panorámico Yurikamome cruzando la bahía (No entra en el pase de metro regular)." },
             { title: "Navegación", text: "El tren Yurikamome se toma directamente desde la zona de Toyosu para conectar con la bahía y Odaiba." },
             { title: "Grupo (8 Pax)", text: "En Odaiba, los centros comerciales <em>Aqua City</em> y <em>DiverCity</em> tienen enormes zonas de comida (food courts) ideales para almorzar juntos sin esperas largas." },
-            { title: "Ropa (TeamLab Planets)", text: "En Planets entraréis descalzos y caminaréis sobre agua por la rodilla. Llevad pantalones que se puedan remangar fácilmente." }
+            { title: "Ropa (TeamLab Planets) [HORARIO: 09:00 - 22:00]", text: "En Planets entraréis descalzos y caminaréis sobre agua por la rodilla. Llevad pantalones que se puedan remangar fácilmente." }
         ],
 
         transportTimeline: [
@@ -1429,7 +1464,7 @@ const travelData_17_24 = [
                     gpsWarning: "En Toyosu, sal por la Salida 6 (Exit 6). Te deja a unos pasos del puente peatonal que conecta directamente con el mercado de Toyosu."
                 }
             },
-            { time: "08:45", type: "point", title: "Toyosu Market / Senkyaku Banrai", icon: "fa-solid fa-fish" },
+            { time: "08:45", type: "point", title: "Toyosu Market / Senkyaku Banrai [HORARIO: 10:00 - 22:00]", icon: "fa-solid fa-fish" },
             {
                 time: "11:30",
                 type: "transit",
@@ -1466,7 +1501,7 @@ const travelData_17_24 = [
                     gpsWarning: "Consejo VIP: El Yurikamome es un monorriel automático elevado sin conductor. Si te sientas en el primer vagón de la parte delantera, tendrás vistas de película cruzando el Rainbow Bridge."
                 }
             },
-            { time: "12:15", type: "point", title: "Odaiba Seaside: Estatua Libertad y Gundam", icon: "fa-solid fa-robot" },
+            { time: "12:15", type: "point", title: "Odaiba Seaside: Estatua Libertad y Gundam [HORARIO: 24 horas]", icon: "fa-solid fa-robot" },
             {
                 time: "21:00",
                 type: "transit",
@@ -1514,9 +1549,9 @@ const travelData_17_24 = [
         ],
 
         timeline: [
-            { time: "08:45", title: "Toyosu Market / Senkyaku Banrai", desc: "La nueva lonja de pescado y área de ocio de estilo tradicional. (Base)" },
+            { time: "08:45", title: "Toyosu Market / Senkyaku Banrai [HORARIO: 10:00 - 22:00]", desc: "La nueva lonja de pescado y área de ocio de estilo tradicional. (Base)" },
             { time: "11:30", title: "Tren Yurikamome hacia Odaiba", desc: "Vistas panorámicas cruzando la bahía de Tokio y el Rainbow Bridge. (Base)" },
-            { time: "12:15", title: "Odaiba Seaside: Estatua Libertad y Gundam", desc: "Paseo costero, centros comerciales y los grandes iconos de Odaiba. (Base)" },
+            { time: "12:15", title: "Odaiba Seaside: Estatua Libertad y Gundam [HORARIO: 24 horas]", desc: "Paseo costero, centros comerciales y los grandes iconos de Odaiba. (Base)" },
             { time: "21:00", title: "Regreso al Hotel", desc: "Yurikamome y metro de vuelta a Iidabashi. (Base)" }
         ],
 
@@ -1533,7 +1568,7 @@ const travelData_17_24 = [
                 {
                     id: "b1",
                     time: "08:45",
-                    title: "Toyosu Senkyaku Banrai",
+                    title: "Toyosu Senkyaku Banrai [HORARIO: 10:00 - 22:00]",
                     description: "El nuevo complejo comercial termal junto al mercado mayorista de atunes más grande del mundo.",
                     image: "images/dia22-toyosu.jpg",
                     price: "Gratis",
@@ -1581,7 +1616,7 @@ const travelData_17_24 = [
         complements: [
             {
                 id: "c1",
-                title: "TeamLab Planets TOKYO",
+                title: "TeamLab Planets TOKYO [HORARIO: 09:00 - 22:00]",
                 booking: { id: "bk_teamlab", timeframe: "Meses de antelación", required: true, link: "https://planets.teamlab.art/tokyo/es/tickets" },
                 time: "09:30",
                 description: "Una de las experiencias artísticas inmersivas más famosas del mundo. Agua, espejos y luces.",
@@ -1617,7 +1652,7 @@ const travelData_17_24 = [
             },
             {
                 id: "c3",
-                title: "Joypolis Tokyo",
+                title: "Joypolis Tokyo [HORARIO: 10:00 - 20:00]",
                 time: "16:00",
                 description: "Parque de atracciones totalmente indoor propiedad de SEGA. Montañas rusas simuladores bajo techo.",
                 price: "Pase diario ~5.000 JPY",

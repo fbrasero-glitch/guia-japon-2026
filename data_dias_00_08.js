@@ -553,12 +553,12 @@ const travelData_00_08 = [
         ],
 
         timeline: [
-            { time: "08:00", title: "Castillo de Osaka", desc: "Visita jardines y museo. (Base)" },
-            { time: "11:00", title: "Umeda Sky Building", desc: "Vistas panorámicas de la ciudad. (Base)" },
+            { time: "08:00", title: "Castillo de Osaka [HORARIO: 09:00 - 17:00]", desc: "Visita jardines y museo. (Base)" },
+            { time: "11:00", title: "Umeda Sky Building [HORARIO: 09:30 - 22:30]", desc: "Vistas panorámicas de la ciudad. (Base)" },
             { time: "12:30", title: "Almuerzo en Umeda", desc: "Recomendación: Callejón Takimi Koji (bajo el Umeda Sky)." },
-            { time: "14:30", title: "Shinsaibashi Parco", desc: "Cultura pop: Capcom, Godzilla y Lego Store." },
-            { time: "17:30", title: "Santuario Namba Yasaka", desc: "La icónica cabeza de león gigante." },
-            { time: "18:30", title: "Ebisubashisuji y Dotonbori", desc: "Paseo histórico hacia el canal." },
+            { time: "14:30", title: "Shinsaibashi Parco [HORARIO: 10:00 - 20:00]", desc: "Cultura pop: Capcom, Godzilla y Lego Store." },
+            { time: "16:15", title: "Santuario Namba Yasaka [HORARIO: 06:30 - 17:00]", desc: "La icónica cabeza de león gigante." },
+            { time: "17:00", title: "Ebisubashisuji y Dotonbori [HORARIO: 24 horas]", desc: "Paseo histórico hacia el canal." },
             { time: "20:00", title: "Cena en Dotonbori", desc: "Evento fijo de la ruta." }
         ],
 
@@ -679,7 +679,7 @@ const travelData_00_08 = [
                     gpsWarning: "La línea Midosuji es la principal arteria roja [M] de Osaka. Andenes muy amplios y concurridos. Sigue las señales rojas."
                 }
             },
-            { time: "14:30", type: "point", title: "Shinsaibashi Parco", icon: "fa-solid fa-gamepad" },
+            { time: "14:30", type: "point", title: "Shinsaibashi Parco [HORARIO: 10:00 - 20:00]", icon: "fa-solid fa-gamepad" },
             {
                 time: "",
                 type: "transit",
@@ -688,7 +688,7 @@ const travelData_00_08 = [
                 timeLabel: "~15-20 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Shinsaibashi+Parco&destination=Namba+Yasaka+Shrine&travelmode=transit"
             },
-            { time: "17:30", type: "point", title: "Santuario Namba Yasaka", icon: "fa-solid fa-mask" },
+            { time: "16:15", type: "point", title: "Santuario Namba Yasaka [HORARIO: 06:30 - 17:00]", icon: "fa-solid fa-mask" },
             {
                 time: "",
                 type: "transit",
@@ -697,7 +697,7 @@ const travelData_00_08 = [
                 timeLabel: "~10 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Namba+Yasaka+Shrine&destination=Ebisubashisuji+Shopping+Street&travelmode=walking"
             },
-            { time: "18:30", type: "point", title: "Ebisubashisuji y Dotonbori", icon: "fa-solid fa-person-walking-luggage" },
+            { time: "17:00", type: "point", title: "Ebisubashisuji y Dotonbori [HORARIO: 24 horas]", icon: "fa-solid fa-person-walking-luggage" },
             { time: "20:00", type: "point", title: "Cena en Dotonbori", icon: "fa-solid fa-utensils" },
             {
                 time: "",
@@ -745,7 +745,7 @@ const travelData_00_08 = [
                 {
                     id: "b1",
                     time: "08:00",
-                    title: "Castillo de Osaka",
+                    title: "Castillo de Osaka [HORARIO: 09:00 - 17:00]",
                     description: "Construido en 1583. Torres, murallas y museo histórico.",
                     image: "images/dia3-itinerario-base.jpg",
                     price: "600 JPY",
@@ -765,7 +765,7 @@ const travelData_00_08 = [
                 {
                     id: "b2",
                     time: "11:00",
-                    title: "Umeda Sky Building",
+                    title: "Umeda Sky Building [HORARIO: 09:30 - 22:30]",
                     description: "Edificio con observatorio flotante. Vistas espectaculares.",
                     image: "images/umeda.png",
                     price: "1.500 JPY",
@@ -785,7 +785,7 @@ const travelData_00_08 = [
                 {
                     id: "b3",
                     time: "14:30",
-                    title: "Shinsaibashi Parco",
+                    title: "Shinsaibashi Parco [HORARIO: 10:00 - 20:00]",
                     description: "Epicentro friki con las tiendas oficiales de Capcom, Godzilla y Lego.",
                     image: "images/shinsaibashi-parco.jpg",
                     price: "Entrada Gratis",
@@ -803,8 +803,8 @@ const travelData_00_08 = [
                 },
                 {
                     id: "b4",
-                    time: "17:30",
-                    title: "Santuario Namba Yasaka",
+                    time: "16:15",
+                    title: "Santuario Namba Yasaka [HORARIO: 06:30 - 17:00]",
                     description: "Famoso por su enorme edificio en forma de cabeza de león que 'traga' los malos espíritus.",
                     image: "images/add-namba-yasaka.jpg",
                     price: "Gratis",
@@ -822,7 +822,7 @@ const travelData_00_08 = [
                 },
                 {
                     id: "b5",
-                    time: "18:30",
+                    time: "17:00",
                     title: "Calle Ebisubashisuji",
                     description: "Galería comercial histórica que sirve de entrada triunfal a Dotonbori.",
                     image: "images/ebisubashi-suji.jpg",
@@ -869,7 +869,7 @@ const travelData_00_08 = [
         complements: [
             {
                 id: "c1",
-                title: "Barrio Shinsekai y Torre Tsūtenkaku",
+                title: "Barrio Shinsekai y Torre Tsūtenkaku [HORARIO: 10:00 - 20:00]",
                 time: "Flex: 12:00 / 19:00",
                 description: "Barrio retro, comida callejera (Kushikatsu).",
                 price: "~2.000 JPY",
@@ -916,7 +916,7 @@ const travelData_00_08 = [
         additionalExcursions: [
             {
                 id: "add_osaka_housing",
-                title: "Museo de la Vivienda y la Vida de Osaka",
+                title: "Museo de la Vivienda y la Vida de Osaka [HORARIO: 10:00 - 17:00]",
                 image: "images/add-osaka-housing.jpg",
                 description: "Inmersión total en el pasado de Osaka con una recreación a tamaño real de un barrio del periodo Edo.",
                 time: "10:00 – 12:00",
@@ -936,10 +936,10 @@ const travelData_00_08 = [
             },
             {
                 id: "add_namba_yasaka",
-                title: "✅ [Incluido en el Plan General] Santuario Namba Yasaka",
+                title: "✅ [Incluido en el Plan General] Santuario Namba Yasaka [HORARIO: 06:30 - 17:00]",
                 image: "images/add-namba-yasaka.jpg",
                 description: "Famoso por su enorme edificio en forma de cabeza de león que 'traga' los malos espíritus.",
-                time: "18:30 – 19:30",
+                time: "16:15 – 17:00",
                 price: "Gratis",
                 link: "https://www.google.com/maps/search/?api=1&query=Namba+Yasaka+Shrine",
                 tacticalGuideId: "mission_namba_yasaka",
@@ -955,10 +955,10 @@ const travelData_00_08 = [
             },
             {
                 id: "add_okawa_cruise",
-                title: "Cruceros por el río Okawa",
+                title: "Cruceros por el río Okawa [HORARIO: 10:00 - 16:00]",
                 image: "images/add-okawa-cruise.jpg",
                 description: "Relajado paseo en barco por la isla fluvial de Nakanoshima con vistas al skyline.",
-                time: "17:30 – 18:30",
+                time: "14:30 – 15:30",
                 price: "~1.500 JPY",
                 link: "https://www.google.com/maps/search/?api=1&query=Okawa+River+Cruise+Osaka",
                 tacticalGuideId: "mission_okawa_cruise",
@@ -1038,7 +1038,7 @@ const travelData_00_08 = [
                 timeLabel: "~10 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Tsutenkaku+Tower&destination=Nipponbashi+Den+Den+Town&travelmode=walking"
             },
-            { time: "14:30", type: "point", title: "Nipponbashi (Den Den Town)", icon: "fa-solid fa-robot" },
+            { time: "14:30", type: "point", title: "Nipponbashi (Den Den Town) [HORARIO: 11:00 - 20:00]", icon: "fa-solid fa-robot" },
             {
                 time: "",
                 type: "transit",
@@ -1047,7 +1047,7 @@ const travelData_00_08 = [
                 timeLabel: "~10 min",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Nipponbashi+Den+Den+Town&destination=Namba+Parks&travelmode=walking"
             },
-            { time: "17:00", type: "point", title: "Namba Parks", icon: "fa-solid fa-tree" },
+            { time: "17:00", type: "point", title: "Namba Parks [HORARIO: 11:00 - 21:00]", icon: "fa-solid fa-tree" },
             {
                 time: "",
                 type: "transit",
@@ -1072,8 +1072,8 @@ const travelData_00_08 = [
             { time: "09:00", title: "Sumiyoshi e Isshinji", desc: "Santuario clásico y el templo de las cenizas." },
             { time: "10:30", title: "Kuromon y Doguyasuji", desc: "Mercado gourmet y suministros de cocina." },
             { time: "13:00", title: "Shinsekai (Kushikatsu)", desc: "Encuentro de grupos y comida retro." },
-            { time: "14:30", title: "Den Den Town", desc: "Paraíso otaku y electrónica." },
-            { time: "17:00", title: "Namba Parks", desc: "Jardines colgantes al atardecer." },
+            { time: "14:30", title: "Den Den Town [HORARIO: 11:00 - 20:00]", desc: "Paraíso otaku y electrónica." },
+            { time: "17:00", title: "Namba Parks [HORARIO: 11:00 - 21:00]", desc: "Jardines colgantes al atardecer." },
             { time: "19:30", title: "Cena Carnaca", desc: "Yakiniku de alta calidad para el grupo." }
         ],
 
@@ -1146,7 +1146,7 @@ const travelData_00_08 = [
                 {
                     id: "b_denden",
                     time: "14:30",
-                    title: "Nipponbashi (Den Den Town)",
+                    title: "Nipponbashi (Den Den Town) [HORARIO: 11:00 - 20:00]",
                     description: "El barrio de la electrónica y el anime en Osaka.",
                     image: "images/den-den-town.jpg",
                     price: "Gratis",
@@ -1164,7 +1164,7 @@ const travelData_00_08 = [
                 {
                     id: "b_nambaparks",
                     time: "17:00",
-                    title: "Namba Parks",
+                    title: "Namba Parks [HORARIO: 11:00 - 21:00]",
                     description: "Centro comercial con jardines colgantes espectaculares.",
                     image: "images/namba-parks.jpg",
                     price: "Gratis",
@@ -1202,7 +1202,7 @@ const travelData_00_08 = [
         complements: [
             {
                 id: "c1",
-                title: "Acuario Kaiyukan",
+                title: "Acuario Kaiyukan [HORARIO: 10:00 - 20:00]",
                 booking: { id: "bk_kaiyukan", timeframe: "1-2 semanas antes", required: true, link: "https://www.kaiyukan.com/language/eng/" },
                 time: "10:00",
                 description: "OPCIONAL: Apertura 10:00. Estancia hasta 12:30.",
@@ -1269,7 +1269,7 @@ const travelData_00_08 = [
             },
             {
                 id: "c3",
-                title: "Shinsaibashi-suji",
+                title: "Shinsaibashi-suji [HORARIO: 11:00 - 20:00]",
                 time: "15:30",
                 description: "Galería comercial techada para compras.",
                 price: "Gratis",
@@ -1322,7 +1322,7 @@ const travelData_00_08 = [
             },
             {
                 id: "add_osaka_history",
-                title: "Museo de Historia de Osaka",
+                title: "Museo de Historia de Osaka [HORARIO: 09:30 - 17:00]",
                 image: "images/add-osaka-history.jpg",
                 description: "Vistas panorámicas del Castillo de Osaka y maquetas detalladas de la antigua Naniwa.",
                 time: "12:00 – 14:00",
@@ -1341,10 +1341,10 @@ const travelData_00_08 = [
             },
             {
                 id: "add_tsuruhashi",
-                title: "Tsuruhashi Koreatown",
+                title: "Tsuruhashi Koreatown [HORARIO: 10:00 - 18:00]",
                 image: "images/add-tsuruhashi.jpg",
                 description: "El corazón multicultural de Osaka con los mejores mercados y barbacoa coreana.",
-                time: "18:00 – 20:00",
+                time: "15:00 – 18:00",
                 price: "Variable",
                 link: "https://www.google.com/maps/search/?api=1&query=Tsuruhashi+Koreatown+Osaka",
                 tacticalGuideId: "mission_koreatown",
@@ -1361,7 +1361,7 @@ const travelData_00_08 = [
             },
             {
                 id: "add_okawa_cruise",
-                title: "Crucero por el río Okawa (Osaka)",
+                title: "Crucero por el río Okawa (Osaka) [HORARIO: 10:00 - 16:00]",
                 image: "images/add-okawa-cruise.jpg",
                 description: "Recorrido visual en 4K por los canales de Osaka.",
                 time: "17:00 – 18:00",
@@ -1483,7 +1483,7 @@ const travelData_00_08 = [
             {
                 time: "11:15",
                 type: "point",
-                title: "Santuario Kasuga Taisha",
+                title: "Santuario Kasuga Taisha [HORARIO: 06:30 - 17:30]",
                 icon: "fa-solid fa-torii-gate"
             },
             {
@@ -1495,7 +1495,7 @@ const travelData_00_08 = [
             {
                 time: "15:00",
                 type: "point",
-                title: "Templo Todai-ji (Gran Buda)",
+                title: "Templo Todai-ji (Gran Buda) [HORARIO: 07:30 - 17:30]",
                 icon: "fa-solid fa-gopuram"
             },
             {
@@ -1549,7 +1549,7 @@ const travelData_00_08 = [
                 {
                     id: "b2",
                     time: "11:15",
-                    title: "Kasuga Taisha",
+                    title: "Kasuga Taisha [HORARIO: 06:30 - 17:30]",
                     description: "Santuario famoso por sus miles de linternas colgantes.",
                     image: "images/dia4-nara.jpg",
                     price: "500 JPY",
@@ -1569,7 +1569,7 @@ const travelData_00_08 = [
                 {
                     id: "b1",
                     time: "15:00",
-                    title: "Templo Tōdai-ji",
+                    title: "Templo Tōdai-ji [HORARIO: 05:00 - 16:00]",
                     description: "El Gran Buda y el edificio de madera más grande del mundo.",
                     image: "images/dia4-buda.jpg",
                     price: "600 JPY",
@@ -1641,7 +1641,7 @@ const travelData_00_08 = [
         additionalExcursions: [
             {
                 id: "add_nara_deer",
-                title: "Nara Deer Experience",
+                title: "Nara Deer Experience [HORARIO: 09:30 - 17:00]",
                 image: "images/dia4-nara.jpg",
                 description: "Interacción inmersiva con los ciervos sagrados de Nara.",
                 time: "Flexible",
@@ -1661,7 +1661,7 @@ const travelData_00_08 = [
             },
             {
                 id: "add_wakakusa",
-                title: "Monte Wakakusa",
+                title: "Monte Wakakusa [HORARIO: 09:00 - 17:00]",
                 image: "images/add-wakakusa.jpg",
                 description: "Vistas panorámicas espectaculares de Nara al atardecer.",
                 time: "16:00 – 17:30",
@@ -1681,7 +1681,7 @@ const travelData_00_08 = [
             },
             {
                 id: "add_nara_museum",
-                title: "Museo Nacional de Nara",
+                title: "Museo Nacional de Nara [HORARIO: 09:30 - 17:00]",
                 image: "images/add-nara-museum.jpg",
                 description: "Una de las colecciones de arte budista más importantes del mundo.",
                 time: "Mediodía",
@@ -1700,7 +1700,7 @@ const travelData_00_08 = [
             },
             {
                 id: "add_isuien",
-                title: "Jardín Isuien",
+                title: "Jardín Isuien [HORARIO: 09:30 - 16:30]",
                 image: "images/add-isuien.jpg",
                 description: "Jardín zen extremadamente tranquilo con técnica de 'paisaje prestado'.",
                 time: "10:00 – 11:30",
@@ -1850,7 +1850,7 @@ const travelData_00_08 = [
             {
                 time: "11:30",
                 type: "point",
-                title: "Palacio Imperial de Kioto",
+                title: "Palacio Imperial de Kioto [HORARIO: 09:00 - 17:00]",
                 icon: "fa-solid fa-crown"
             },
             {
@@ -1863,7 +1863,7 @@ const travelData_00_08 = [
             {
                 time: "15:00",
                 type: "point",
-                title: "Castillo de Nijo",
+                title: "Castillo de Nijo [HORARIO: 08:45 - 17:00]",
                 icon: "fa-solid fa-fort-awesome"
             },
             {
@@ -1911,7 +1911,7 @@ const travelData_00_08 = [
             {
                 time: "17:30",
                 type: "point",
-                title: "Torre Kioto (Atardecer)",
+                title: "Torre Kioto (Atardecer) [HORARIO: 10:00 - 21:00]",
                 icon: "fa-solid fa-tower-observation"
             },
             {
@@ -1930,7 +1930,7 @@ const travelData_00_08 = [
         ],
 
         timeline: [
-            { time: "14:30", title: "Castillo de Nijo", desc: "Residencia de los Shoguns y suelos de ruiseñor. (Base)" },
+            { time: "14:30", title: "Castillo de Nijo [HORARIO: 08:45 - 17:00]", desc: "Residencia de los Shoguns y suelos de ruiseñor. (Base)" },
             { time: "18:00", title: "Cena Libra", desc: "Exploración gastronómica local." }
         ],
 
@@ -1943,7 +1943,7 @@ const travelData_00_08 = [
 
         isFlexible: true,
         base: {
-            title: "Despliegue: Capital Imperial",
+            title: "Despliegue: Capital Imperial [HORARIO: 09:00 - 17:00]",
             description: "Traslado táctico a Kioto y primera incursión en la historia samurái.",
             events: [
                 {
@@ -1967,7 +1967,7 @@ const travelData_00_08 = [
                 {
                     id: "b2",
                     time: "11:30",
-                    title: "Palacio Imperial de Kioto",
+                    title: "Palacio Imperial de Kioto [HORARIO: 09:00 - 17:00]",
                     description: "Residencia histórica de la familia imperial con jardines extensos. (Gratis)",
                     image: "images/palacio-imperial-kyoto.jpg",
                     price: "Gratis",
@@ -1986,7 +1986,7 @@ const travelData_00_08 = [
                 {
                     id: "b3",
                     time: "15:00",
-                    title: "Castillo de Nijo",
+                    title: "Castillo de Nijo [HORARIO: 08:45 - 17:00]",
                     description: "Fortaleza de los Shoguns con suelos 'ruiseñor' antininja.",
                     image: "images/dia6-despliegue-capital-imperial.jpg",
                     price: "800 JPY",
@@ -2006,7 +2006,7 @@ const travelData_00_08 = [
                 {
                     id: "b4",
                     time: "17:30",
-                    title: "Torre Kioto",
+                    title: "Torre Kioto [HORARIO: 10:00 - 21:00]",
                     description: "Vistas panorámicas desde el mirador justo frente a vuestro hotel.",
                     image: "images/kyoto_tower.png",
                     price: "~5€",
@@ -2024,7 +2024,7 @@ const travelData_00_08 = [
                 {
                     id: "b5",
                     time: "19:30",
-                    title: "Calle Comercial Kawaramachi",
+                    title: "Calle Comercial Kawaramachi [HORARIO: 11:00 - 21:00]",
                     description: "Paseo nocturno por la zona de tiendas y cena en los alrededores.",
                     image: "images/kawaramachi.jpg",
                     price: "Gratis",
@@ -2081,7 +2081,7 @@ const travelData_00_08 = [
         additionalExcursions: [
             {
                 id: "add_sanjusangendo",
-                title: "Templo Sanjūsangen-dō",
+                title: "Templo Sanjūsangen-dō [HORARIO: 05:00 - 16:00]",
                 image: "images/add-sanjusangendo.jpg",
                 description: "1.001 estatuas de la diosa Kannon cubiertas de pan de oro.",
                 time: "15:00 – 16:30",
@@ -2118,7 +2118,7 @@ const travelData_00_08 = [
             },
             {
                 id: "add_nishi_honganji",
-                title: "Templo Nishi Hongan-ji",
+                title: "Templo Nishi Hongan-ji [HORARIO: 05:30 - 17:00]",
                 image: "images/add-nishi-honganji.jpg",
                 description: "Enorme complejo Patrimonio de la Humanidad, gratuito y poco turístico.",
                 time: "11:00 – 12:00",
@@ -2136,7 +2136,7 @@ const travelData_00_08 = [
             },
             {
                 id: "add_imperial_palace",
-                title: "Palacio Imperial de Kioto",
+                title: "Palacio Imperial de Kioto [HORARIO: 09:00 - 17:00]",
                 booking: { id: "bk_imperial_palace", timeframe: "Fase 1 (Semanas antes)", required: true, link: "https://sankan.kunaicho.go.jp/english/index.html" },
                 image: "images/add-osaka-history.jpg",
                 description: "Residencial imperial histórica con jardines extensos.",
@@ -2181,12 +2181,12 @@ const travelData_00_08 = [
             {
                 time: "08:30",
                 type: "point",
-                title: "Templo Kiyomizu-dera",
+                title: "Templo Kiyomizu-dera [HORARIO: 06:00 - 18:00]",
                 icon: "fa-solid fa-mountain"
             },
             {
                 type: "transit",
-                title: "Descenso Sannenzaka / Ninenzaka",
+                title: "Descenso Sannenzaka / Ninenzaka [HORARIO: 24 horas]",
                 price: "0 JPY",
                 timeLabel: "Paseo",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Kiyomizu-dera&destination=Ninenzaka&travelmode=walking",
@@ -2221,7 +2221,7 @@ const travelData_00_08 = [
             {
                 time: "15:30",
                 type: "point",
-                title: "Heian Jingu (Torii Gigante)",
+                title: "Heian Jingu (Torii Gigante) [HORARIO: 06:00 - 17:30]",
                 icon: "fa-solid fa-torii-gate"
             },
             {
@@ -2234,7 +2234,7 @@ const travelData_00_08 = [
             {
                 time: "18:00",
                 type: "point",
-                title: "Barrio de Gion y Pontocho",
+                title: "Barrio de Gion y Pontocho [HORARIO: 24 horas]",
                 icon: "fa-solid fa-person-dress-fairy"
             },
             {
@@ -2246,8 +2246,8 @@ const travelData_00_08 = [
         ],
 
         timeline: [
-            { time: "08:30", title: "Kiyomizu-dera", desc: "El gran templo del agua pura. (Base)" },
-            { time: "18:00", title: "Gion & Pontocho", desc: "Exploración del Kioto tradicional. (Base)" }
+            { time: "08:30", title: "Kiyomizu-dera [HORARIO: 06:00 - 18:00]", desc: "El gran templo del agua pura. (Base)" },
+            { time: "18:00", title: "Gion & Pontocho [HORARIO: 24 horas]", desc: "Exploración del Kioto tradicional. (Base)" }
         ],
 
         prices: {
@@ -2265,7 +2265,7 @@ const travelData_00_08 = [
                 {
                     id: "b1",
                     time: "08:30",
-                    title: "Templo Kiyomizu-dera",
+                    title: "Templo Kiyomizu-dera [HORARIO: 06:00 - 18:00]",
                     description: "El templo del agua pura y su famosa terraza de madera.",
                     image: "images/dia7-kiyomizu.jpg",
                     price: "400 JPY",
@@ -2284,7 +2284,7 @@ const travelData_00_08 = [
                 {
                     id: "b2",
                     time: "10:30",
-                    title: "Sannenzaka y Ninenzaka",
+                    title: "Sannenzaka y Ninenzaka [HORARIO: 24 horas]",
                     description: "Descenso por las cuestas tradicionales más fotogénicas.",
                     image: "images/dia7-historico.jpg",
                     price: "Gratis",
@@ -2302,7 +2302,7 @@ const travelData_00_08 = [
                 {
                     id: "b3",
                     time: "12:30",
-                    title: "Santuario Yasaka y Parque Maruyama",
+                    title: "Santuario Yasaka y Parque Maruyama [HORARIO: 24 horas]",
                     description: "El 'Santuario de Gion' y su famosa puerta bermellón.",
                     image: "images/dia7-yasaka.jpg",
                     price: "Gratis",
@@ -2338,7 +2338,7 @@ const travelData_00_08 = [
                 {
                     id: "b5",
                     time: "18:00",
-                    title: "Barrio de Gion y Pontocho",
+                    title: "Barrio de Gion y Pontocho [HORARIO: 24 horas]",
                     description: "Búsqueda de Maikos en Hanamikoji y cena en los callejones junto al río Kamo.",
                     image: "images/dia7-gion.png",
                     price: "Gratis (Paseo)",
@@ -2416,7 +2416,7 @@ const travelData_00_08 = [
             },
             {
                 id: "add_samurai_museum",
-                title: "Museo de Samuráis y Ninjas de Kioto",
+                title: "Museo de Samuráis y Ninjas de Kioto [HORARIO: 10:00 - 19:00]",
                 booking: { id: "bk_samurai", timeframe: "Fase 3 (Semanas antes)", required: true, link: "https://mai-ko.com/culture/samurai-ninja-museum-kyoto/" },
                 image: "images/add-samurai-museum.jpg",
                 description: "Experiencia interactiva con armaduras, katanas y entrenamiento ninja.",
@@ -2435,7 +2435,7 @@ const travelData_00_08 = [
             },
             {
                 id: "add_gion_shirakawa",
-                title: "✅ [Incluido en el Plan General] Gion Shirakawa",
+                title: "✅ [Incluido en el Plan General] Gion Shirakawa [HORARIO: 24 horas]",
                 image: "images/add-gion-shirakawa.jpg",
                 description: "La zona más pintoresca de Gion con canales, sauces llorones y casas de té.",
                 time: "18:00 – 19:00",
@@ -2453,7 +2453,7 @@ const travelData_00_08 = [
             },
             {
                 id: "add_kenninji",
-                title: "Templo Kennin-ji",
+                title: "Templo Kennin-ji [HORARIO: 10:00 - 17:00]",
                 image: "images/add-kenninji.jpg",
                 description: "El templo zen más antiguo de Kioto con unos dragones gemelos en el techo impresionantes.",
                 time: "14:00 – 15:30",
@@ -2547,7 +2547,7 @@ const travelData_00_08 = [
             {
                 time: "11:00",
                 type: "point",
-                title: "Adashino Nembutsuji",
+                title: "Adashino Nembutsuji [HORARIO: 09:00 - 16:30]",
                 icon: "fa-solid fa-ghost"
             },
             {
@@ -2560,7 +2560,7 @@ const travelData_00_08 = [
             {
                 time: "12:00",
                 type: "point",
-                title: "Otagi Nembutsuji",
+                title: "Otagi Nembutsuji [HORARIO: 08:00 - 16:30]",
                 icon: "fa-solid fa-face-smile"
             },
             {
@@ -2571,9 +2571,9 @@ const travelData_00_08 = [
                 link: "https://www.google.com/maps/dir/?api=1&origin=Otagi+Nenbutsuji+Temple&destination=Togetsukyo+Bridge&travelmode=transit"
             },
             {
-                time: "14:30",
+                time: "13:00",
                 type: "point",
-                title: "Puente Togetsukyo / Almuerzo",
+                title: "Puente Togetsukyo / Almuerzo [HORARIO: 24 horas]",
                 icon: "fa-solid fa-bridge"
             },
             {
@@ -2584,18 +2584,18 @@ const travelData_00_08 = [
                 link: "https://www.google.com/maps/dir/?api=1&origin=Togetsukyo+Bridge&destination=Iwatayama+Monkey+Park&travelmode=walking"
             },
             {
-                time: "16:00",
+                time: "14:30",
                 type: "point",
-                title: "Parque de Monos Iwatayama",
+                title: "Parque de Monos Iwatayama [HORARIO: 09:00 - 16:00]",
                 icon: "fa-solid fa-mountain"
             }
         ],
 
         timeline: [
             { time: "08:30", title: "Bosque de Bambú", desc: "Inicio de la ruta. (Base)" },
-            { time: "10:00", title: "Tenryu-ji", desc: "Jardín zen y dragón celestial. (Base)" },
-            { time: "11:30", title: "Puente Togetsukyo", desc: "Icono de Arashiyama. (Base)" },
-            { time: "12:30", title: "Iwatayama", desc: "Vistas y macacos. (Base)" }
+            { time: "10:00", title: "Tenryu-ji [HORARIO: 08:30 - 17:00]", desc: "Jardín zen y dragón celestial. (Base)" },
+            { time: "13:00", title: "Puente Togetsukyo [HORARIO: 24 horas]", desc: "Icono de Arashiyama. (Base)" },
+            { time: "14:30", title: "Iwatayama [HORARIO: 09:00 - 16:00]", desc: "Vistas y macacos. (Base)" }
         ],
 
         prices: {
@@ -2631,7 +2631,7 @@ const travelData_00_08 = [
                 {
                     id: "b2",
                     time: "11:00",
-                    title: "Adashino Nembutsuji",
+                    title: "Adashino Nembutsuji [HORARIO: 09:00 - 16:30]",
                     description: "Templo con miles de figuras de piedra que honran a los fallecidos.",
                     image: "images/adashino-nembutsuji.jpg",
                     price: "500 JPY",
@@ -2649,7 +2649,7 @@ const travelData_00_08 = [
                 {
                     id: "b3",
                     time: "12:00",
-                    title: "Templo Otagi Nembutsuji",
+                    title: "Templo Otagi Nembutsuji [HORARIO: 08:00 - 16:30]",
                     description: "El templo de las 1.200 estatuas con expresiones curiosas.",
                     image: "images/otagi-nembutsuji.jpg",
                     price: "300 JPY",
@@ -2666,8 +2666,8 @@ const travelData_00_08 = [
                 },
                 {
                     id: "b4",
-                    time: "14:30",
-                    title: "Puente Togetsukyo",
+                    time: "13:00",
+                    title: "Puente Togetsukyo [HORARIO: 24 horas]",
                     description: "Paseo por el río y almuerzo en la zona de Arashiyama.",
                     image: "images/dia8-puente.png",
                     price: "Gratis",
@@ -2684,8 +2684,8 @@ const travelData_00_08 = [
                 },
                 {
                     id: "b5",
-                    time: "16:00",
-                    title: "Parque de Monos Iwatayama",
+                    time: "14:30",
+                    title: "Parque de Monos Iwatayama [HORARIO: 09:00 - 16:00]",
                     description: "Subida a la colina para ver a los macacos y disfrutar de vistas panorámicas.",
                     image: "images/dia8-monos.png",
                     price: "600 JPY",
@@ -2805,7 +2805,7 @@ const travelData_00_08 = [
             },
             {
                 id: "add_daikakuji",
-                title: "Templo Daikaku-ji",
+                title: "Templo Daikaku-ji [HORARIO: 09:00 - 17:00]",
                 image: "images/add-daikakuji.jpg",
                 description: "Antiguo palacio imperial con un gran estanque artificial y pasarelas de madera.",
                 time: "14:30 – 16:00",

@@ -81,9 +81,10 @@ Esta guía contiene toda la información de la página web extraída y formatead
 - **Estrategia de Sueño:** Vuelo VLC-IST: NO dormir (coincide con tarde/noche en España). Relajaros, cenad a bordo y estirad piernas en escala.
 
 ### ⏱️ Resumen del Día
-- **16:00** - Aeropuerto Valencia (VLC): Hora España. Recomendado llegar 3 horas antes. Facturación hasta destino final (KIX).
-- **18:55** - Salida Vuelo TK1314: Hora España / Local. Duración 3h 45m. Actividad: Cenar a bordo, ver películas y ¡no dormir!
-- **23:40** - Escala Estambul (22:40h Esp): Llegada hora local IST. Escala corta de 2h 45m. Seguir carteles 'International Transfers'. Caminad para estirar las piernas.
+- **16:00** - Aeropuerto de Valencia (VLC): Llegada al aeropuerto para facturación de maletas.<br><br>⏱️ **Husos Horarios:**<br>• 🇪🇸 España: **16:00**<br>• 🇹🇷 Turquía: **17:00**<br>• 🇯🇵 Japón: **23:00**<br><br>Recomendamos llegar 3 horas antes. Facturación de equipaje directa hasta el destino final (Osaka KIX).
+- **18:55** - 🛫 Salida Vuelo TK1314 (VLC ➔ IST): Despegue del primer vuelo desde Valencia.<br><br>⏱️ **Husos Horarios:**<br>• 🇪🇸 España: **18:55** (Salida)<br>• 🇹🇷 Turquía: **19:55**<br>• 🇯🇵 Japón: **01:55** *(día siguiente)*<br><br>Duración estimada: 3h 45m. Actividad a bordo: Cenar, ver películas y mantenerse despiertos.
+- **23:40** - 🛬 Llegada Escala Estambul (IST): Aterrizaje en Estambul para escala en tránsito.<br><br>⏱️ **Husos Horarios:**<br>• 🇹🇷 Turquía: **23:40** (Llegada)<br>• 🇪🇸 España: **22:40**<br>• 🇯🇵 Japón: **05:40** *(día siguiente)*<br><br>Escala de 2h 45m. Seguir las señales de 'International Transfers' y aprovechar para caminar y estirar las piernas.
+- **02:25** - 🛫 Salida Vuelo TK86 (IST ➔ KIX): Despegue del segundo vuelo hacia Japón.<br><br>⏱️ **Husos Horarios:**<br>• 🇹🇷 Turquía: **02:25** *(28-Jul - Salida)*<br>• 🇪🇸 España: **01:25** *(28-Jul)*<br>• 🇯🇵 Japón: **08:25** *(28-Jul)*<br><br>Duración estimada: 10h 40m. Recomendación: Intentar dormir las primeras 5-6 horas del vuelo (coincidiendo con la madrugada en España) para ir aclimatando el cuerpo.
 
 ---
 
@@ -133,12 +134,12 @@ Esta guía contiene toda la información de la página web extraída y formatead
 - **Total:** ~6.400 JPY (Base)
 
 ### ⏱️ Resumen del Día
-- **08:00** - Castillo de Osaka: Visita jardines y museo. (Base)
-- **11:00** - Umeda Sky Building: Vistas panorámicas de la ciudad. (Base)
+- **08:00** - Castillo de Osaka [HORARIO: 09:00 - 17:00]: Visita jardines y museo. (Base)
+- **11:00** - Umeda Sky Building [HORARIO: 09:30 - 22:30]: Vistas panorámicas de la ciudad. (Base)
 - **12:30** - Almuerzo en Umeda: Recomendación: Callejón Takimi Koji (bajo el Umeda Sky).
-- **14:30** - Shinsaibashi Parco: Cultura pop: Capcom, Godzilla y Lego Store.
-- **17:30** - Santuario Namba Yasaka: La icónica cabeza de león gigante.
-- **18:30** - Ebisubashisuji y Dotonbori: Paseo histórico hacia el canal.
+- **14:30** - Shinsaibashi Parco [HORARIO: 10:00 - 20:00]: Cultura pop: Capcom, Godzilla y Lego Store.
+- **16:15** - Santuario Namba Yasaka [HORARIO: 06:30 - 17:00]: La icónica cabeza de león gigante.
+- **17:00** - Ebisubashisuji y Dotonbori [HORARIO: 24 horas]: Paseo histórico hacia el canal.
 - **20:00** - Cena en Dotonbori: Evento fijo de la ruta.
 
 ### 🚆 Transporte Detallado
@@ -149,11 +150,11 @@ Esta guía contiene toda la información de la página web extraída y formatead
 - **11:00** **Llegada Umeda Sky**
 - **12:30** **Almuerzo en Umeda (Takimi Koji)**
 - **Línea Midosuji (Umeda → Shinsaibashi)** (~15 min) [240 JPY]
-- **14:30** **Shinsaibashi Parco**
+- **14:30** **Shinsaibashi Parco [HORARIO: 10:00 - 20:00]**
 - **Caminata o Metro a Namba Yasaka** (~15-20 min) [Gratis / 190 JPY]
-- **17:30** **Santuario Namba Yasaka**
+- **16:15** **Santuario Namba Yasaka [HORARIO: 06:30 - 17:00]**
 - **Caminata hacia Ebisubashi** (~10 min) [Gratis]
-- **18:30** **Ebisubashisuji y Dotonbori**
+- **17:00** **Ebisubashisuji y Dotonbori [HORARIO: 24 horas]**
 - **20:00** **Cena en Dotonbori**
 - **JR Yamatoji Line o caminar** (~15 min total) [170 JPY]
 - **22:00** **Retorno al Hotel**
@@ -161,35 +162,35 @@ Esta guía contiene toda la información de la página web extraída y formatead
 ### 🗺️ Itinerario Base (Ruta Central)
 _La ruta principal inamovible de hoy._
 
-#### 08:00 - Castillo de Osaka
+#### 08:00 - Castillo de Osaka [HORARIO: 09:00 - 17:00]
 Construido en 1583. Torres, murallas y museo histórico.
 
 *Detalle:* Castillo de Osaka Símbolo innegable de la ciudad. Originalmente construido en 1583 por el señor de la guerra Toyotomi Hideyoshi, fue diseñado para ser el centro de una nueva y unificada nación japonesa bajo su dominio. Aunque la imponente torre actual es una reconstrucción de 1931, se asienta sobre las formidables murallas y fosos de piedra originales de la era Tokugawa. El interior es un museo moderno de ocho plantas que narra la turbulenta historia de la unificación de Japón. Consejo Pro: Subid directamente en ascensor a la planta 8 para las vistas y bajad caminando para ver el museo sin agobios. Tiempo: 2-3 horas. Entrada: 600 JPY. Foto Clave: Desde los jardines Nishinomaru para el mejor encuadre del foso y la torre.
 
 - **Precio:** 600 JPY
 
-#### 11:00 - Umeda Sky Building
+#### 11:00 - Umeda Sky Building [HORARIO: 09:30 - 22:30]
 Edificio con observatorio flotante. Vistas espectaculares.
 
 *Detalle:* Umeda Sky Building Un espectáculo de la arquitectura futurista de los años 90. Consiste en dos torres gemelas de 40 pisos conectadas en la cima por el "Floating Garden Observatory" a 173 metros de altura. El ascenso final se realiza a través de escaleras mecánicas acristaladas suspendidas en el vacío, ofreciendo una experiencia casi de ciencia ficción. La azotea circular está completamente al aire libre, permitiendo sentir la brisa y escuchar la ciudad. Tiempo: 1-2 horas. Entrada: 1.500 JPY. Momento Épico: Atardecer (16:30-18:00) para ver cómo la ciudad se enciende gradualmente.
 
 - **Precio:** 1.500 JPY
 
-#### 14:30 - Shinsaibashi Parco
+#### 14:30 - Shinsaibashi Parco [HORARIO: 10:00 - 20:00]
 Epicentro friki con las tiendas oficiales de Capcom, Godzilla y Lego.
 
 *Detalle:* Shinsaibashi Parco (Cultura Pop) Inaugurado a finales de 2020, este centro comercial se ha convertido en una parada obligatoria para el "perfil friki". En su 6ª planta (Pop Culture Floor) encontraréis un despliegue sin igual de las marcas más icónicas de Japón. Aquí podréis ver la estatua gigante de Godzilla, visitar la Capcom Store con merchandising exclusivo de Street Fighter y Resident Evil, y maravillaros con las construcciones de Lego inspiradas en Osaka. Es el lugar perfecto para ver productos que difícilmente veréis fuera de Japón. Godzilla Store: Foto obligatoria con el rey de los monstruos. Capcom Store: El showroom oficial de la mítica desarrolladora. Lego Store: Arte en bloques con sabor local.
 
 - **Precio:** Entrada Gratis
 
-#### 17:30 - Santuario Namba Yasaka
+#### 16:15 - Santuario Namba Yasaka [HORARIO: 06:30 - 17:00]
 Famoso por su enorme edificio en forma de cabeza de león que 'traga' los malos espíritus.
 
 *Detalle:* Santuario Namba Yasaka Este santuario es famoso por su icónico edificio, el Ema-Den, que tiene la forma de una gigantesca cabeza de león (12 metros de altura y 11 metros de ancho). Su enorme boca abierta está diseñada para "tragar" los malos espíritus y la mala suerte, asegurando así el éxito en los negocios, el amor y los estudios. Es una visita rápida pero de alto impacto estético que encantará a todos por su originalidad. Además, se encuentra en una zona tranquila de Namba, ofreciendo un respiro visual antes de sumergirse en el caos de neones de Dotonbori. Horario ideal: Tarde (18:30 – 19:30), de camino a la cena en Dotonbori. Santuario Fotogénico: Uno de los puntos más fotografiados y singulares de todo Osaka. Misión: Dejar atrás las malas vibras antes de entrar en la fiesta de Dotonbori.
 
 - **Precio:** Gratis
 
-#### 18:30 - Calle Ebisubashisuji
+#### 17:00 - Calle Ebisubashisuji
 Galería comercial histórica que sirve de entrada triunfal a Dotonbori.
 
 *Detalle:* Calle Comercial Ebisubashisuji Con orígenes que se remontan al periodo Edo, esta calle techada de 600 metros es el cordón umbilical que conecta la zona de Namba con el canal de Dotonbori. Es donde el bullicio, los puestos de comida y los neones empiezan a fusionarse. Caminad por aquí para sentir la energía pura de Osaka. Veréis desde tiendas tradicionales de té hasta los puestos más modernos de dulces japoneses. Al final de la calle, apareceréis de repente ante el famoso puente Ebisubashi y el cartel de Glico. Entrada: Acceso directo al corazón de los neones. Dato: Ideal para pillar un snack rápido antes de la cena oficial.
@@ -209,7 +210,7 @@ Fin de la jornada. Descanso en el Cuartel General.
 - **Precio:** Gratis
 
 ### 🔄 Complementos / Alternativas
-#### Flex: 12:00 / 19:00 - Barrio Shinsekai y Torre Tsūtenkaku
+#### Flex: 12:00 / 19:00 - Barrio Shinsekai y Torre Tsūtenkaku [HORARIO: 10:00 - 20:00]
 Barrio retro, comida callejera (Kushikatsu).
 
 *Detalle:* Shinsekai y Tsutenkaku Creado en 1912 como el "Parque de Atracciones del Nuevo Mundo" (combinando mitades inspiradas en París y Coney Island), Shinsekai quedó estancado tras la Segunda Guerra Mundial, conservando una irresistible atmósfera retro (estilo Showa) y un aura ligeramente melancólica o decadente muy especial. En el centro se alza la torre Tsutenkaku ("la torre que llega al cielo"), su símbolo icónico. Actualmente, todo el barrio es famoso por estar saturado de vibrantes letreros luminosos vintage, estatuillas de Billiken (el dios de cabeza puntiaguda que da suerte al frotarle los pies) y docenas de izakayas especializadas en Kushikatsu: deliciosa carne, pescado y verduras rebozadas, fritas en aceite y untadas en una salsa especial (¡solo se permite untar una vez!). Tiempo: 2-3 horas. Regla de oro: Probar Kushikatsu (comer de pie en barras tradicionales). Ambiente: Excelente para fotos callejeras nocturnas, rebosa carácter retro-futurista.
@@ -217,21 +218,21 @@ Barrio retro, comida callejera (Kushikatsu).
 - **Precio:** ~2.000 JPY
 
 ### ✨ Excursiones Adicionales
-#### 10:00 – 12:00 - Museo de la Vivienda y la Vida de Osaka
+#### 10:00 – 12:00 - Museo de la Vivienda y la Vida de Osaka [HORARIO: 10:00 - 17:00]
 Inmersión total en el pasado de Osaka con una recreación a tamaño real de un barrio del periodo Edo.
 
 *Detalle:* Museo de la Vivienda y la Vida Una joya oculta que ofrece una inmersión total en el pasado de la ciudad. Lo más impresionante es su recreación a tamaño real de un barrio de Osaka durante el periodo Edo (siglo XIX). Podréis caminar por calles antiguas, entrar en casas tradicionales japonesas (machiya), tiendas y almacenes. Nota histórica: Durante el periodo Edo, Osaka era conocida como la "cocina de la nación" debido a su papel central en el comercio del arroz y otros bienes. Este museo captura fielmente la vida comerciante de esa época dorada. Horario ideal: Mañana (10:00 – 12:00), antes del calor intenso. Refugio: Interiores con aire acondicionado, ideal para el grupo y los mayores si el calor de julio es sofocante. Experiencia muy visual y poco cansada. Efecto: Todo se encuentra bajo una cúpula que simula el ciclo del día y la noche con efectos de luces y sonido.
 
 - **Precio:** ~600 JPY
 
-#### 18:30 – 19:30 - ✅ [Incluido en el Plan General] Santuario Namba Yasaka
+#### 16:15 – 17:00 - ✅ [Incluido en el Plan General] Santuario Namba Yasaka [HORARIO: 06:30 - 17:00]
 Famoso por su enorme edificio en forma de cabeza de león que 'traga' los malos espíritus.
 
 *Detalle:* Santuario Namba Yasaka Este santuario es famoso por su icónico edificio, el Ema-Den, que tiene la forma de una gigantesca cabeza de león (12 metros de altura y 11 metros de ancho). Su enorme boca abierta está diseñada para "tragar" los malos espíritus y la mala suerte, asegurando así el éxito en los negocios, el amor y los estudios. Es una visita rápida pero de alto impacto estético que encantará a todos por su originalidad. Además, se encuentra en una zona tranquila de Namba, ofreciendo un respiro visual antes de sumergires en el caos de neones de Dotonbori. Horario ideal: Tarde (18:30 – 19:30), de camino a la cena en Dotonbori. Santuario Fotogénico: Uno de los puntos más fotografiados y singulares de todo Osaka.
 
 - **Precio:** Gratis
 
-#### 17:30 – 18:30 - Cruceros por el río Okawa
+#### 14:30 – 15:30 - Cruceros por el río Okawa [HORARIO: 10:00 - 16:00]
 Relajado paseo en barco por la isla fluvial de Nakanoshima con vistas al skyline.
 
 *Detalle:* Crucero por el río Okawa Un relajado paseo en barco por la isla fluvial de Nakanoshima. Desde el agua, veréis el contraste arquitectónico entre los majestuosos edificios gubernamentales de estilo europeo (como el Ayuntamiento de Osaka y el Banco de Japón) y los rascacielos de cristal modernos. Es una actividad ideal para que los mayores del grupo descansen las piernas mientras disfrutan de la brisa del río y ven cómo se encienden gradualmente las luces de la ciudad al caer la noche. Horario ideal: Atardecer (17:30 – 18:30). Confort Máximo: Perspectiva única del skyline de Osaka sin esfuerzo físico.
@@ -258,8 +259,8 @@ Relajado paseo en barco por la isla fluvial de Nakanoshima con vistas al skyline
 - **09:00** - Sumiyoshi e Isshinji: Santuario clásico y el templo de las cenizas.
 - **10:30** - Kuromon y Doguyasuji: Mercado gourmet y suministros de cocina.
 - **13:00** - Shinsekai (Kushikatsu): Encuentro de grupos y comida retro.
-- **14:30** - Den Den Town: Paraíso otaku y electrónica.
-- **17:00** - Namba Parks: Jardines colgantes al atardecer.
+- **14:30** - Den Den Town [HORARIO: 11:00 - 20:00]: Paraíso otaku y electrónica.
+- **17:00** - Namba Parks [HORARIO: 11:00 - 21:00]: Jardines colgantes al atardecer.
 - **19:30** - Cena Carnaca: Yakiniku de alta calidad para el grupo.
 
 ### 🚆 Transporte Detallado
@@ -272,9 +273,9 @@ Relajado paseo en barco por la isla fluvial de Nakanoshima con vistas al skyline
 - **Caminata hacia Shinsekai** (~15 min) [Gratis]
 - **13:00** **Shinsekai (Punto de Encuentro)**
 - **Caminata (Hacia Den Den Town)** (~10 min) [Gratis]
-- **14:30** **Nipponbashi (Den Den Town)**
+- **14:30** **Nipponbashi (Den Den Town) [HORARIO: 11:00 - 20:00]**
 - **Caminata hacia Namba Parks** (~10 min) [Gratis]
-- **17:00** **Namba Parks**
+- **17:00** **Namba Parks [HORARIO: 11:00 - 21:00]**
 - **Caminata hacia Cena** (~10 min) [Gratis]
 - **19:30** **Cena Comilona de Carnaca**
 - **JR Yamatoji Line (JR Namba → Imamiya)** (~5 min) [140 JPY]
@@ -304,14 +305,14 @@ REUNIÓN DE GRUPOS. Comida de brochetas Kushikatsu y fotos retro.
 
 - **Precio:** ~1.500 JPY
 
-#### 14:30 - Nipponbashi (Den Den Town)
+#### 14:30 - Nipponbashi (Den Den Town) [HORARIO: 11:00 - 20:00]
 El barrio de la electrónica y el anime en Osaka.
 
 *Detalle:* Den Den Town: El Paraíso Otaku Conocido como el Akihabara de Osaka, este distrito es el centro neurálgico para los amantes de la tecnología, el anime y el manga en el oeste de Japón. Menos masificado que su contraparte de Tokio, pero igual de fascinante. Electrónica: Desde componentes de PC raros hasta gadgets de última generación en tiendas como Joshin o Sofmap. Cultura Pop: Tiendas inmensas de figuras (Jungle, Animate) y centros de gachapon gigantescos. Lawson Dragon Quest: Una tienda de conveniencia temática única que merece una foto rápida.
 
 - **Precio:** Gratis
 
-#### 17:00 - Namba Parks
+#### 17:00 - Namba Parks [HORARIO: 11:00 - 21:00]
 Centro comercial con jardines colgantes espectaculares.
 
 *Detalle:* Namba Parks: Un Cañón Urbano Construido sobre el antiguo estadio de béisbol de Osaka, este complejo rompe la rigidez del cemento con una arquitectura inspirada en un cañón natural esculpido por el viento y el agua. Jardín Colgante: 8 niveles de terrazas, cascadas y más de 70,000 plantas que crean un microclima fresco en plena ciudad. Exploración: Un laberinto de tiendas y restaurantes que se integran con la naturaleza en cada piso. Iluminación: Visita recomendada al atardecer para ver el jardín iluminado.
@@ -326,7 +327,7 @@ Gran cena de carne planificada para todo el grupo.
 - **Precio:** ~5.000 JPY
 
 ### 🔄 Complementos / Alternativas
-#### 10:00 - Acuario Kaiyukan
+#### 10:00 - Acuario Kaiyukan [HORARIO: 10:00 - 20:00]
 OPCIONAL: Apertura 10:00. Estancia hasta 12:30.
 
 *Detalle:* Acuario Kaiyukan: El Océano Pacífico Considerado uno de los mejores acuarios del mundo, el Kaiyukan recrea los ecosistemas del Anillo de Fuego del Pacífico con una fidelidad asombrosa. Tanque Central: Una colosal estructura de 9 metros de profundidad que alberga a "Kai" y "Yu", los tiburones ballena residentes. Recorrido Espiral: Empezaréis en el nivel superior y descenderéis rodeando el gran tanque central, viendo cómo cambian las especies según la profundidad. Zonas Destacadas: No os perdáis el Bosque de Japón con sus nutrias, ni la zona de pingüinos de la Antártida.
@@ -340,7 +341,7 @@ OPCIONAL: Apertura 10:00. Estancia hasta 12:30.
 
 - **Precio:** Variable
 
-#### 15:30 - Shinsaibashi-suji
+#### 15:30 - Shinsaibashi-suji [HORARIO: 11:00 - 20:00]
 Galería comercial techada para compras.
 
 *Detalle:* Shinsaibashi-suji Galería comercial cubierta de 600 metros. Desde moda hasta electrónica. Horario: 10:00-20:00 (varía por tienda). Compras: Ropa, cosméticos, souvenirs. Conexión: Conecta con Dotonbori.
@@ -355,21 +356,21 @@ Uno de los santuarios más antiguos de Japón con el icónico puente curvo Sorih
 
 - **Precio:** Gratis
 
-#### 12:00 – 14:00 - Museo de Historia de Osaka
+#### 12:00 – 14:00 - Museo de Historia de Osaka [HORARIO: 09:30 - 17:00]
 Vistas panorámicas del Castillo de Osaka y maquetas detalladas de la antigua Naniwa.
 
 *Detalle:* Museo de Historia de Osaka Este museo cuenta la historia de la ciudad de forma cronológica de arriba hacia abajo. En la planta superior os recibirán figuras a tamaño real en una recreación del antiguo Palacio Naniwa, mostrando cómo Osaka fue la primera capital de facto de Japón en el siglo VII antes que Nara o Kioto. Lo mejor no es solo el museo en sí: sus enormes ventanales panorámicos ofrecen la mejor vista aérea del impresionante Castillo de Osaka, permitiendo disfrutar de la estampa sin tener que subir a pie a la torre del castillo en el calor del verano. Horario ideal: Mediodía (12:00 – 14:00). Refugio Estratégico: Totalmente climatizado, con ascensores y zonas de descanso. Educativo y muy cómodo.
 
 - **Precio:** ~600 JPY
 
-#### 18:00 – 20:00 - Tsuruhashi Koreatown
+#### 15:00 – 18:00 - Tsuruhashi Koreatown [HORARIO: 10:00 - 18:00]
 El corazón multicultural de Osaka con los mejores mercados y barbacoa coreana.
 
 *Detalle:* Tsuruhashi Koreatown El corazón de la vibrante comunidad coreana de Osaka (los Zainichi). Originado tras la Segunda Guerra Mundial, este extenso laberinto de callejuelas está lleno de puestos de kimchi, prendas tradicionales y decenas de restaurantes de Yakiniku (barbacoa coreana). Es una alternativa fantástica si queréis probar sabores intensos y ver una cara de Osaka mucho más multicultural, frenética y auténtica que las zonas puramente turísticas, con el olor a carne asada inundando el aire desde la propia salida de la estación del tren. Horario ideal: Tarde/Cena (18:00 – 20:00). Ambiente: Multicultural, ruidoso y lleno de energía. Una experiencia completamente distinta al resto del día.
 
 - **Precio:** Variable
 
-#### 17:00 – 18:00 - Crucero por el río Okawa (Osaka)
+#### 17:00 – 18:00 - Crucero por el río Okawa (Osaka) [HORARIO: 10:00 - 16:00]
 Recorrido visual en 4K por los canales de Osaka.
 
 *Detalle:* Crucero Fluvial Okawa Un excelente recorrido visual para que veáis la ciudad desde otra perspectiva. El río Okawa ha sido el eje vital de Osaka durante siglos, conectando sus castillos con los distritos comerciales. Skylines: Disfrutad de las vistas de los rascacielos de Nakanoshima y el parque del castillo desde el agua. Atardecer: La luz dorada reflejada en los edificios de cristal crea un ambiente único. Comodidad: Una forma relajada de descansar las piernas tras caminar por Osaka.
@@ -401,9 +402,9 @@ Recorrido visual en 4K por los canales de Osaka.
 - **09:50** **Estación JR Nara (Caminar/Bus a Parque)**
 - **Caminar a Nara Park o Bus a Kasuga Taisha** (15-20 min) [Gratis / 220 JPY]
 - **10:30** **Llegada Nara Park / Ciervos**
-- **11:15** **Santuario Kasuga Taisha**
+- **11:15** **Santuario Kasuga Taisha [HORARIO: 06:30 - 17:30]**
 - **13:00** **Almuerzo en Naramachi**
-- **15:00** **Templo Todai-ji (Gran Buda)**
+- **15:00** **Templo Todai-ji (Gran Buda) [HORARIO: 07:30 - 17:30]**
 - **17:30** **Regreso a Osaka** (50 min) [820 JPY]
 - **18:30** **Extracción al Hotel**
 
@@ -417,14 +418,14 @@ Enviamos las 8 maletas grandes por Yu-Pack al Kyoto Tower Hotel Annex.
 
 - **Precio:** 115€-140€
 
-#### 11:15 - Kasuga Taisha
+#### 11:15 - Kasuga Taisha [HORARIO: 06:30 - 17:30]
 Santuario famoso por sus miles de linternas colgantes.
 
 *Detalle:* Kasuga Taisha Fundado en el año 768 y dedicado a las deidades que protegen la ciudad de Nara, este santuario es el mausoleo espiritual del poderoso clan Fujiwara. El camino hacia el santuario atraviesa un bosque místico habitado por ciervos salvajes (mensajeros divinos en la mitología sintoísta). El complejo es famoso por su arquitectura bermellón brillante y, sobre todo, por sus más de 3.000 linternas. Unas 2.000 son linternas de piedra que bordean los senderos y otras 1.000 son linternas de bronce que cuelgan del propio santuario. Solo se encienden todas dos veces al año (Mantōrō), creando una imagen mágica de otro mundo. Tiempo: 1-1.5 horas. Entrada: 500 JPY. Vibe: Profundo silencio y espiritualidad antigua en el bosque.
 
 - **Precio:** 500 JPY
 
-#### 15:00 - Templo Tōdai-ji
+#### 15:00 - Templo Tōdai-ji [HORARIO: 05:00 - 16:00]
 El Gran Buda y el edificio de madera más grande del mundo.
 
 *Detalle:* Templo Tōdai-ji ⚠️ Para evitar colas: Hemos pospuesto la visita a las 15:00 PM para evitar la masificación de los autobuses turísticos que llegan a mediodía, reduciendo el tiempo de espera en taquilla a menos de 5 minutos y disfrutando del Gran Buda con mucha más tranquilidad. Construido originalmente en el año 752 por decreto del Emperador Shomu, este templo no es solo un edificio religioso, sino que fue concebido como la pieza central de una red nacional de templos para proteger a Japón. Su sala principal, la Daibutsuden, es mundialmente famosa por ser la estructura de madera más grande del mundo, a pesar de que la versión actual (reconstruida en 1709 tras incendios sufridos en guerras civiles) es sorprendentemente un 30% más pequeña que la original. En su interior se encuentra el Daibutsu (Gran Buda) de bronce fundido, una de las estatuas más grandes de su tipo en el mundo, que pesa más de 500 toneladas. Detrás de la estatua, buscad el pilar con un agujero en su base: la leyenda dice que quien logre pasar por él (tiene el mismo tamaño que la fosa nasal del Gran Buda) alcanzará la iluminación en su próxima vida. Tiempo: 1-2 horas. Entrada: 600 JPY. Hito: Esculturas guardianas Niō en la puerta Nandaimon.
@@ -440,28 +441,28 @@ OPCIONAL: Madrugar para ver las toriis antes que nadie de camino a Nara.
 - **Precio:** Gratis
 
 ### ✨ Excursiones Adicionales
-#### Flexible - Nara Deer Experience
+#### Flexible - Nara Deer Experience [HORARIO: 09:30 - 17:00]
 Interacción inmersiva con los ciervos sagrados de Nara.
 
 *Detalle:* Nara Park: Encuentro Sagrado Hogar de más de 1,200 ciervos Sika que campan a sus anchas, Nara Park es uno de los lugares más mágicos de Japón. Según la leyenda, los ciervos son mensajeros divinos del dios Takemikazuchi, quien llegó a Nara cabalgando un ciervo blanco hace 1,300 años. Shika Senbei: Comprad galletas especiales en los puestos (aprox. 200 JPY). ¡No les deis comida humana! El Saludo: Si les hacéis una reverencia, muchos ciervos os la devolverán antes de pedir su galleta. Cuidado: Son animales salvajes. Si os ven con comida, pueden ser insistentes. Mostrad las manos vacías para que os dejen tranquilos.
 
 - **Precio:** Gratis
 
-#### 16:00 – 17:30 - Monte Wakakusa
+#### 16:00 – 17:30 - Monte Wakakusa [HORARIO: 09:00 - 17:00]
 Vistas panorámicas espectaculares de Nara al atardecer.
 
 *Detalle:* Monte Wakakusa Una verde colina de 342 metros de altura situada justo detrás del parque y del Gran Santuario Kasuga Taisha. Su ladera está desprovista de árboles gruesos y cubierta completamente de suave hierba, lo que ofrece un sendero despejado ideal para caminar. La recompensa tras una caminata de unos 15-20 minutos hasta el primer nivel es una vista panorámica espectacular e ininterrumpida de toda la antigua capital de Nara. Es el mejor lugar para observar a los ciervos pastando en un entorno de montaña mucho más salvaje y natural, lejos del asfalto. Las fotos al atardecer desde aquí son absolutamente legendarias. Horario ideal: Tarde (16:00 – 17:30). Vistas: Panorámica total de Nara y ciervos en libertad.
 
 - **Precio:** ~150 JPY
 
-#### Mediodía - Museo Nacional de Nara
+#### Mediodía - Museo Nacional de Nara [HORARIO: 09:30 - 17:00]
 Una de las colecciones de arte budista más importantes del mundo.
 
 *Detalle:* Museo Nacional de Nara El edificio original, finalizado en 1894 y diseñado por Katayama Tokuma, es una obra maestra de la arquitectura del estilo renacentista francés de la era Meiji y está designado como Propiedad Cultural Importante. Alberga una de las colecciones de arte budista más importantes y antiguas del mundo. Entre sus galerías climatizadas encontraréis impresionantes estatuas originales de bronce y madera, mandalas elaborados y pergaminos históricos. Esta visita no solo ofrece un refugio vital contra el intenso calor de agosto, sino que es clave para entender la magnitud de Nara como el centro espiritual y político de Japón en el siglo VIII. Estrategia de escape: Visitar al mediodía para huir del sol picante. Valor Histórico: Contexto esencial sobre el origen del Budismo en Japón.
 
 - **Precio:** ~700 JPY
 
-#### 10:00 – 11:30 - Jardín Isuien
+#### 10:00 – 11:30 - Jardín Isuien [HORARIO: 09:30 - 16:30]
 Jardín zen extremadamente tranquilo con técnica de 'paisaje prestado'.
 
 *Detalle:* Jardín Isuien Uno de los jardines japoneses más exquisitos, construido durante el periodo Edo y Meiji. El Isuien utiliza de manera magistral la técnica del Shakkei o "paisaje prestado", integrando visualmente elementos lejanos (como el imponente techo del Templo Todai-ji y las verdes laderas del Monte Wakakusa) como si fueran parte de su propio trazado. A diferencia del ajetreo del Parque de Nara, es un recinto privado que respira un nivel zen superior. Caminar por sus senderos de piedra, admirar sus casas de té y cruzar los arroyos llenos de carpas koi ofrece una experiencia aristocrática, pacífica y visualmente deslumbrante que el grupo agradecerá. Horario ideal: Mañana (10:00 – 11:30), antes de que apriete el calor. Diseño Paisajístico: Pura maestría fotográfica en vivo.
@@ -486,7 +487,7 @@ Jardín zen extremadamente tranquilo con técnica de 'paisaje prestado'.
 - **Total:** ~6.600 JPY (Est.)
 
 ### ⏱️ Resumen del Día
-- **14:30** - Castillo de Nijo: Residencia de los Shoguns y suelos de ruiseñor. (Base)
+- **14:30** - Castillo de Nijo [HORARIO: 08:45 - 17:00]: Residencia de los Shoguns y suelos de ruiseñor. (Base)
 - **18:00** - Cena Libra: Exploración gastronómica local.
 
 ### 🚆 Transporte Detallado
@@ -498,11 +499,11 @@ Jardín zen extremadamente tranquilo con técnica de 'paisaje prestado'.
 - **Tren: JR Special Rapid Service (Tokaido Line)** (30 min) [580 JPY]
 - **10:30** **Check-in / Maletas (Kyoto Tower Annex)**
 - **Metro Karasuma Line (Hacia Marutamachi)** (10 min) [260 JPY]
-- **11:30** **Palacio Imperial de Kioto**
+- **11:30** **Palacio Imperial de Kioto [HORARIO: 09:00 - 17:00]**
 - **Paseo por el Parque Imperial** (20 min) [0 JPY]
-- **15:00** **Castillo de Nijo**
+- **15:00** **Castillo de Nijo [HORARIO: 08:45 - 17:00]**
 - **Bus 9 / 50 o Metro Karasuma** (15 min) [230 JPY]
-- **17:30** **Torre Kioto (Atardecer)**
+- **17:30** **Torre Kioto (Atardecer) [HORARIO: 10:00 - 21:00]**
 - **Paseo hacia el Centro de Tiendas** (15 min) [0 JPY]
 - **19:30** **Kawaramachi (Cena y Paseo)**
 
@@ -516,28 +517,28 @@ JR Special Rapid Service. Rápido, eficiente y sin reserva.
 
 - **Precio:** 580 JPY
 
-#### 11:30 - Palacio Imperial de Kioto
+#### 11:30 - Palacio Imperial de Kioto [HORARIO: 09:00 - 17:00]
 Residencia histórica de la familia imperial con jardines extensos. (Gratis)
 
 *Detalle:* Palacio Imperial de Kioto (Kyoto Gosho) Residencia oficial de la Familia Imperial hasta 1868. El recinto actual, aunque reconstruido en 1855, mantiene la elegancia del estilo Shinden-zukuri del periodo Heian. Shishinden: El salón de ceremonias más importante, donde se celebraron las entronizaciones de los emperadores Taisho y Showa. Jardín Oikeniwa: Un jardín de paseo clásico con un estanque que refleja la arquitectura palaciega. Arquitectura: Fijaos en los tejados de corteza de ciprés y las paredes de madera clara sin tratar.
 
 - **Precio:** Gratis
 
-#### 15:00 - Castillo de Nijo
+#### 15:00 - Castillo de Nijo [HORARIO: 08:45 - 17:00]
 Fortaleza de los Shoguns con suelos 'ruiseñor' antininja.
 
 *Detalle:* Castillo de Nijo-jo Construido en 1603 por Tokugawa Ieyasu, el primer shogun. Fue aquí donde, en 1867, el último shogun devolvió el poder al Emperador, cerrando 265 años de dominio militar. Suelos Ruiseñor: Los pasillos chirrían deliberadamente al caminar para alertar de la presencia de intrusos o ninjas. Palacio Ninomaru: Sus estancias están decoradas con pinturas de la escuela Kano sobre pan de oro, símbolo del poder del shogun. Jardín Ninomaru: Diseñado por el maestro Kobori Enshu, con rocas ornamentadas y pinos meticulosamente cuidados.
 
 - **Precio:** 800 JPY
 
-#### 17:30 - Torre Kioto
+#### 17:30 - Torre Kioto [HORARIO: 10:00 - 21:00]
 Vistas panorámicas desde el mirador justo frente a vuestro hotel.
 
 *Detalle:* Kyoto Tower Con 131 metros, es la estructura más alta de la ciudad. Su diseño minimalista y blanco está inspirado en una vela budista tradicional. Vistas 360°: La plataforma a 100 metros ofrece vistas de los templos de Higashiyama, Arashiyama y, en días claros, hasta Osaka. Kyoto Station: Una perspectiva única de la gigantesca y moderna estación de Kioto desde el aire. Atardecer: El momento ideal para ver cómo las luces de neón empiezan a salpicar el trazado milenario de la ciudad.
 
 - **Precio:** ~5€
 
-#### 19:30 - Calle Comercial Kawaramachi
+#### 19:30 - Calle Comercial Kawaramachi [HORARIO: 11:00 - 21:00]
 Paseo nocturno por la zona de tiendas y cena en los alrededores.
 
 *Detalle:* Kawaramachi El corazón comercial de Kioto, ideal para pasear y cenar. Sus galerías (como Teramachi) mezclan tiendas de última moda con pequeños templos y puestos de té tradicionales. Gastronomía: Cientos de opciones para todos los presupuestos en sus estrechos callejones. Compras: Desde grandes almacenes (Daimaru, Takashimaya) hasta souvenirs únicos. Energía: El lugar perfecto para sentir el pulso de la ciudad moderna.
@@ -553,7 +554,7 @@ La pagoda más alta de Japón. Paseo matutino desde el hotel.
 - **Precio:** 500 JPY
 
 ### ✨ Excursiones Adicionales
-#### 15:00 – 16:30 - Templo Sanjūsangen-dō
+#### 15:00 – 16:30 - Templo Sanjūsangen-dō [HORARIO: 05:00 - 16:00]
 1.001 estatuas de la diosa Kannon cubiertas de pan de oro.
 
 *Detalle:* Sanjūsangen-dō Salón de madera de 120 metros con un ejército místico de estatuas talladas a mano. Atmósfera sobrecogedora. Horario ideal: Tarde (15:00 – 16:30). Visual: Una de las vistas interiores más increíbles de Japón.
@@ -567,14 +568,14 @@ Paseo local y relajado junto al río para ver el Kioto costumbrista.
 
 - **Precio:** Gratis
 
-#### 11:00 – 12:00 - Templo Nishi Hongan-ji
+#### 11:00 – 12:00 - Templo Nishi Hongan-ji [HORARIO: 05:30 - 17:00]
 Enorme complejo Patrimonio de la Humanidad, gratuito y poco turístico.
 
 *Detalle:* Nishi Hongan-ji Salones de madera gigantescos y tallas doradas exquisitas. Ideal para observar rituales en silencio. Horario ideal: Mañana (11:00 – 12:00). Confort: Salones amplios con tatami para sentarse y descansar.
 
 - **Precio:** Gratis
 
-#### 14:00 – 15:30 - Palacio Imperial de Kioto
+#### 14:00 – 15:30 - Palacio Imperial de Kioto [HORARIO: 09:00 - 17:00]
 Residencial imperial histórica con jardines extensos.
 
 *Detalle:* Palacio Imperial de Kioto Antigua residencia de la familia imperial hasta 1868. Situado en el vasto Parque Imperial de Kioto.
@@ -598,40 +599,40 @@ Residencial imperial histórica con jardines extensos.
 - **Total:** ~4.400 JPY (Base)
 
 ### ⏱️ Resumen del Día
-- **08:30** - Kiyomizu-dera: El gran templo del agua pura. (Base)
-- **18:00** - Gion & Pontocho: Exploración del Kioto tradicional. (Base)
+- **08:30** - Kiyomizu-dera [HORARIO: 06:00 - 18:00]: El gran templo del agua pura. (Base)
+- **18:00** - Gion & Pontocho [HORARIO: 24 horas]: Exploración del Kioto tradicional. (Base)
 
 ### 🚆 Transporte Detallado
 - **08:15** **Bus 206 / 100 desde Estación** (20 min) [230 JPY]
-- **08:30** **Templo Kiyomizu-dera**
-- **Descenso Sannenzaka / Ninenzaka** (Paseo) [0 JPY]
+- **08:30** **Templo Kiyomizu-dera [HORARIO: 06:00 - 18:00]**
+- **Descenso Sannenzaka / Ninenzaka [HORARIO: 24 horas]** (Paseo) [0 JPY]
 - **10:30** **Paseo Sannenzaka / Ninenzaka**
 - **Caminata hacia Maruyama Park** (15 min) [0 JPY]
 - **12:30** **Santuario Yasaka / Almuerzo**
 - **Paseo al Norte o Bus 100** (20 min) [230 JPY]
-- **15:30** **Heian Jingu (Torii Gigante)**
+- **15:30** **Heian Jingu (Torii Gigante) [HORARIO: 06:00 - 17:30]**
 - **Bus 5 o Caminata a Gion** (15 min) [230 JPY]
-- **18:00** **Barrio de Gion y Pontocho**
+- **18:00** **Barrio de Gion y Pontocho [HORARIO: 24 horas]**
 - **20:00** **Cena Tradicional**
 
 ### 🗺️ Itinerario Base (Ruta Central)
 _De la terraza de madera de Kiyomizu al distrito de las Geishas._
 
-#### 08:30 - Templo Kiyomizu-dera
+#### 08:30 - Templo Kiyomizu-dera [HORARIO: 06:00 - 18:00]
 El templo del agua pura y su famosa terraza de madera.
 
 *Detalle:* Templo Kiyomizu-dera Uno de los templos más célebres de Japón, fundado en 778 en el lugar de la cascada Otowa. Su nombre significa "Templo del Agua Pura". La Terraza de Madera: Sostenida por pilares de 13 metros de altura ensamblados sin un solo clavo, ofrece vistas espectaculares de todo Kioto. Cascada Otowa: Beber de sus tres chorros supuestamente otorga longevidad, éxito escolar o suerte en el amor. (¡Elegid solo uno!) Santuario Jishu: Dedicado al amor. Si podéis caminar entre sus dos 'piedras del amor' con los ojos cerrados, encontraréis a vuestra alma gemela.
 
 - **Precio:** 400 JPY
 
-#### 10:30 - Sannenzaka y Ninenzaka
+#### 10:30 - Sannenzaka y Ninenzaka [HORARIO: 24 horas]
 Descenso por las cuestas tradicionales más fotogénicas.
 
 *Detalle:* Sannenzaka y Ninenzaka Estas cuestas empedradas bellamente conservadas son el alma del distrito de Higashiyama, repletas de edificios de madera tradicionales, tiendas de té y artesanía. Compras: Perfecto para comprar cerámica Kiyomizu-yaki, incienso, dulces tradicionales o alquilar un kimono. Starbucks Ninenzaka: Ubicado en una antigua casa de té de madera (machiya). Podéis tomaros un café sentados sobre tatami en la planta superior. Fotografía: Calles mágicas al amanecer, antes de que lleguen las multitudes, o al atardecer bajo la luz de las linternas calientes.
 
 - **Precio:** Gratis
 
-#### 12:30 - Santuario Yasaka y Parque Maruyama
+#### 12:30 - Santuario Yasaka y Parque Maruyama [HORARIO: 24 horas]
 El 'Santuario de Gion' y su famosa puerta bermellón.
 
 *Detalle:* Santuario Yasaka-jinja Estratégicamente situado entre los distritos de Gion y Higashiyama, este santuario es uno de los más populares de la ciudad. Su puerta bermellón de dos pisos (Nishi-ro-mon) en la calle Shijo es uno de los hitos más reconocibles de Kioto. Es conocido como el protector del distrito de geishas. Por la noche, sus cientos de linternas se iluminan, creando un ambiente místico. Si camináis un poco más hacia el interior, llegaréis al Parque Maruyama, el lugar favorito de los locales para el hanami (contemplación de los cerezos), donde destaca un enorme cerezo llorón central. Linternas: Veréis los nombres de los negocios locales donados en ellas. Atmósfera: Especialmente mágico al atardecer cuando se encienden las luces.
@@ -645,7 +646,7 @@ Visita a uno de los toriis más grandes de Japón.
 
 - **Precio:** Gratis (Recinto)
 
-#### 18:00 - Barrio de Gion y Pontocho
+#### 18:00 - Barrio de Gion y Pontocho [HORARIO: 24 horas]
 Búsqueda de Maikos en Hanamikoji y cena en los callejones junto al río Kamo.
 
 *Detalle:* Gion y Pontocho Los barrios de entretenimiento más afamados de Kioto. Gion es el dominio absoluto de las geishas (geiko) y maikos, mientras Pontocho es un estrecho callejón gastronómico pegado al río. Hanamikoji: La calle principal de Gion. Con suerte e inmenso respeto, podríais ver a una maiko apresurándose a su compromiso nocturno. Cena en Pontocho: Un largo y atmosférico callejón lleno de farolillos, escondiendo restaurantes de madera y terrazas sobre el agua (yuka). El Río Kamo: Separando Pontocho y Gion, ofreciendo una brisa ideal para un paseo relajado de noche.
@@ -668,21 +669,21 @@ Recorrido atmosférico por el callejón más famoso de Kioto de noche.
 
 - **Precio:** Gratis
 
-#### 11:30 – 13:30 - Museo de Samuráis y Ninjas de Kioto
+#### 11:30 – 13:30 - Museo de Samuráis y Ninjas de Kioto [HORARIO: 10:00 - 19:00]
 Experiencia interactiva con armaduras, katanas y entrenamiento ninja.
 
 *Detalle:* Museo Samurái y Ninja Situado cerca de Nishiki Market. Podréis ver armaduras reales, aprender sobre la historia y participar en una breve clase de entrenamiento. Horario ideal: Mediodía (11:30 – 13:30). Especial: Podéis probaros una armadura samurái para fotos.
 
 - **Precio:** ~2.500 JPY
 
-#### 18:00 – 19:00 - ✅ [Incluido en el Plan General] Gion Shirakawa
+#### 18:00 – 19:00 - ✅ [Incluido en el Plan General] Gion Shirakawa [HORARIO: 24 horas]
 La zona más pintoresca de Gion con canales, sauces llorones y casas de té.
 
 *Detalle:* Gion Shirakawa Zona mucho más tranquila que la calle Hanamikoji. Paseo idílico junto al canal Shirakawa. Horario ideal: Atardecer/Noche (18:00 – 19:00). Visual: Puentes de madera y fachadas tradicionales iluminadas.
 
 - **Precio:** Gratis
 
-#### 14:00 – 15:30 - Templo Kennin-ji
+#### 14:00 – 15:30 - Templo Kennin-ji [HORARIO: 10:00 - 17:00]
 El templo zen más antiguo de Kioto con unos dragones gemelos en el techo impresionantes.
 
 *Detalle:* Templo Kennin-ji Famoso por su pintura de los dragones gemelos en el techo del salón principal y sus jardines de arena zen. Horario ideal: Tarde (14:00 – 15:30). Ambiente: Zen absoluto en el centro de Gion.
@@ -708,22 +709,22 @@ El templo zen más antiguo de Kioto con unos dragones gemelos en el techo impres
 
 ### ⏱️ Resumen del Día
 - **08:30** - Bosque de Bambú: Inicio de la ruta. (Base)
-- **10:00** - Tenryu-ji: Jardín zen y dragón celestial. (Base)
-- **11:30** - Puente Togetsukyo: Icono de Arashiyama. (Base)
-- **12:30** - Iwatayama: Vistas y macacos. (Base)
+- **10:00** - Tenryu-ji [HORARIO: 08:30 - 17:00]: Jardín zen y dragón celestial. (Base)
+- **13:00** - Puente Togetsukyo [HORARIO: 24 horas]: Icono de Arashiyama. (Base)
+- **14:30** - Iwatayama [HORARIO: 09:00 - 16:00]: Vistas y macacos. (Base)
 
 ### 🚆 Transporte Detallado
 - **07:30** **Salida Kyoto Station (JR Sagano Line)**
 - **JR Sagano Line a Saga-Arashiyama** (20 min) [240 JPY]
 - **08:30** **Bosque de Bambú / Tenryu-ji**
 - **Paseo al Norte (Caminata Zen)** (25 min) [0 JPY]
-- **11:00** **Adashino Nembutsuji**
+- **11:00** **Adashino Nembutsuji [HORARIO: 09:00 - 16:30]**
 - **Subida por la calle tradicional** (10 min) [0 JPY]
-- **12:00** **Otagi Nembutsuji**
+- **12:00** **Otagi Nembutsuji [HORARIO: 08:00 - 16:30]**
 - **Bus de bajada o Caminata** (20 min) [230 JPY]
-- **14:30** **Puente Togetsukyo / Almuerzo**
+- **13:00** **Puente Togetsukyo / Almuerzo [HORARIO: 24 horas]**
 - **Paseo cruzando el río Katsura** (10 min) [0 JPY]
-- **16:00** **Parque de Monos Iwatayama**
+- **14:30** **Parque de Monos Iwatayama [HORARIO: 09:00 - 16:00]**
 
 ### 🗺️ Itinerario Base (Ruta Central)
 _Naturaleza y templos en el oeste de Kioto._
@@ -735,28 +736,28 @@ Imprescindible llegar temprano para evitar multitudes.
 
 - **Precio:** 500 JPY
 
-#### 11:00 - Adashino Nembutsuji
+#### 11:00 - Adashino Nembutsuji [HORARIO: 09:00 - 16:30]
 Templo con miles de figuras de piedra que honran a los fallecidos.
 
 *Detalle:* Adashino Nembutsuji Fundado hace más de 1200 años en un lugar donde antiguamente se dejaban los cuerpos de los fallecidos sin familiares a la intemperie. 8.000 Estatuas de Piedra: Representan las almas de los difuntos abandonados, reunidas y colocadas aquí hace un siglo por los locales. Su Propio Bosque: Tiene un pequeño pero espectacular bosque de bambú en su parte trasera, sin las multitudes del bosque principal. Sento Kuyo: En agosto se encienden miles de velas entre las estatuas, creando una atmósfera de otro mundo.
 
 - **Precio:** 500 JPY
 
-#### 12:00 - Templo Otagi Nembutsuji
+#### 12:00 - Templo Otagi Nembutsuji [HORARIO: 08:00 - 16:30]
 El templo de las 1.200 estatuas con expresiones curiosas.
 
 *Detalle:* Otagi Nembutsuji El templo más peculiar y entrañable de Arashiyama, reconstruido en los años 80 por un monje escultor que enseñó a cientos de aficionados a tallar piedra. 1.200 Rakan: Figuras budistas talladas por devotos comunes. Cada una es diferente: algunas ríen a carcajadas, otras beben sake, y ¡hasta hay alguna con cámara de fotos! Atmósfera: Ubicado en una ladera boscosa, cubierto de musgo verde brillante. Es increíblemente tranquilo. Juego: Intentad encontrar la estatua que más se parezca a vosotros.
 
 - **Precio:** 300 JPY
 
-#### 14:30 - Puente Togetsukyo
+#### 13:00 - Puente Togetsukyo [HORARIO: 24 horas]
 Paseo por el río y almuerzo en la zona de Arashiyama.
 
 *Detalle:* Puente Togetsukyo Su nombre romántico significa "Puente que cruza la luna". Su icónica silueta de madera sobre el río Katsura con las montañas de fondo es la postal clásica de Arashiyama. Pesca Ukai: En las noches de verano se puede ver la pesca tradicional con cormoranes desde pequeñas barcas iluminadas con fuego. Fotografía: Impresionante en otoño con los arces rojos, o en primavera con el cerezo llorón gigante en la orilla norte. Descanso: Comprad un helado de matcha o yuba y sentaos a la orilla del río a observar las barcas pasar.
 
 - **Precio:** Gratis
 
-#### 16:00 - Parque de Monos Iwatayama
+#### 14:30 - Parque de Monos Iwatayama [HORARIO: 09:00 - 16:00]
 Subida a la colina para ver a los macacos y disfrutar de vistas panorámicas.
 
 *Detalle:* Parque de Monos Iwatayama Una divertida excursión de naturaleza que requiere subir una cuesta boscosa de unos 20 minutos desde la orilla sur del río. Macacos Japoneses: Veréis a más de 120 monos de cara roja en libertad. Interacción Segura: Estáis en su territorio, pero podéis darles comida (cacahuetes o manzanas) desde dentro de una cabaña vallada (¡vosotros estáis en la jaula, ellos libres!). Vistas Panorámicas: El mirador ofrece una de las panorámicas más amplias y despejadas de toda la ciudad de Kioto.
@@ -793,7 +794,7 @@ Paseo por el bosque de bambú y los puentes vestido con la prenda tradicional.
 
 - **Precio:** ~3.500 JPY
 
-#### 14:30 – 16:00 - Templo Daikaku-ji
+#### 14:30 – 16:00 - Templo Daikaku-ji [HORARIO: 09:00 - 17:00]
 Antiguo palacio imperial con un gran estanque artificial y pasarelas de madera.
 
 *Detalle:* Templo Daikaku-ji Mucho menos concurrido que Tenryu-ji. Sus pasillos de madera conectan varios edificios sobre el agua del estanque Osawa. Horario ideal: Tarde (14:30 – 16:00). Paz: Un escondite perfecto de las multitudes del bosque de bambú.
@@ -817,13 +818,13 @@ Antiguo palacio imperial con un gran estanque artificial y pasarelas de madera.
 - **Total:** ~6.500 JPY (Est.)
 
 ### ⏱️ Resumen del Día
-- **08:00** - Fushimi Inari: Miles de toriis rojos. (Base)
-- **12:30** - Mercado Nishiki: Gastronomía local. (Base)
-- **15:30** - Kinkaku-ji: El pabellón de oro. (Base)
+- **08:00** - Fushimi Inari [HORARIO: 24 horas]: Miles de toriis rojos. (Base)
+- **12:30** - Mercado Nishiki [HORARIO: 09:30 - 18:00]: Gastronomía local. (Base)
+- **15:30** - Kinkaku-ji [HORARIO: 09:00 - 17:00]: El pabellón de oro. (Base)
 
 ### 🚆 Transporte Detallado
 - **07:45** **JR Nara Line a Inari** (5 min) [150 JPY]
-- **08:00** **Fushimi Inari (Toriis)**
+- **08:00** **Fushimi Inari (Toriis) [HORARIO: 24 horas]**
 - **JR Inari + Bus 203/204** (40 min) [150 + 230 JPY]
 - **12:30** **Paseo del Filósofo**
 - **Bus 102 / 204 / 205** (45 min) [230 JPY]
@@ -834,7 +835,7 @@ Antiguo palacio imperial con un gran estanque artificial y pasarelas de madera.
 ### 🗺️ Itinerario Base (Ruta Central)
 _De los senderos sagrados al bullicio del mercado y la paz del pabellón dorado._
 
-#### 08:00 - Fushimi Inari-taisha
+#### 08:00 - Fushimi Inari-taisha [HORARIO: 24 horas]
 El santuario de los mil toriis. Infiltración temprana para evitar las masas. (Gratis)
 
 *Detalle:* Fushimi Inari-taisha Dedicado a Inari, el dios Shinto del arroz y la prosperidad, este santuario es famoso por sus miles de toriis bermellón que forman túneles sobre la montaña sagrada. Ascenso: El camino completo hasta la cima lleva unas 2-3 horas, pero el tramo más denso de toriis (Senbon Torii) está justo al principio. Zorros Protectores: Veréis estatuas de zorros (kitsune) por todas partes, llevando la llave del granero en la boca o una joya sagrada. Fotografía: Llegar a las 08:00 AM os garantiza fotos limpias de los densos túneles rojos sin aglomeraciones.
@@ -848,7 +849,7 @@ Sendero zen junto al canal rodeado de templos y vegetación.
 
 - **Precio:** Gratis
 
-#### 15:30 - Kinkaku-ji
+#### 15:30 - Kinkaku-ji [HORARIO: 09:00 - 17:00]
 El Pabellón Dorado. Una reliquia de oro que brilla sobre un estanque espejo. (500 JPY)
 
 *Detalle:* Kinkaku-ji (Pabellón Dorado) Originalmente una villa de descanso del shogun Ashikaga Yoshimitsu, se convirtió en templo Zen tras su muerte. Sus dos pisos superiores están completamente recubiertos de pan de oro. El Reflejo: En días despejados, el edificio dorado se refleja perfectamente en el agua del lago Kyoko-chi. Historia: El actual pabellón es de 1955; el original fue quemado en 1950 por un monje novicio obsesionado, historia contada en la novela de Mishima. Jardín Strolling: Tras admirar el pabellón, caminaréis por su cuidado jardín de estilo Muromachi.
@@ -863,29 +864,29 @@ El Pabellón Dorado. Una reliquia de oro que brilla sobre un estanque espejo. (5
 - **Precio:** Variable
 
 ### 🔄 Complementos / Alternativas
-#### 16:45 - Templo Ryoan-ji
-El jardín seco más famoso del mundo. A 15 min de Kinkaku-ji. (500 JPY)
+#### 16:00 - Templo Ryoan-ji [HORARIO: 08:00 - 17:00]
+El jardín seco más famoso del mundo. A 15 min de Kinkaku-ji. (Si se visita, se recomienda adelantar Kinkaku-ji a las 14:45). (500 JPY)
 
 *Detalle:* Ryoan-ji A solo 15 min caminando desde Kinkaku-ji, este templo alberga el karesansui (jardín de roca seco) más icónico y enigmático de Japón. Las 15 Piedras: En el mar de grava blanca hay 15 rocas dispuestas en grupos. El diseño es tal que, te sientes donde te sientes, nunca podrás ver las 15 a la vez. Significado: Se cree que representa el infinito o islas en el mar, pero no tiene una explicación oficial única, invitando a la meditación. Tsukubai: Buscad la palangana de piedra para purificarse que tiene la inscripción zen oculta: "Solo sé lo que es suficiente".
 
 - **Precio:** 500 JPY
 
 ### ✨ Excursiones Adicionales
-#### 10:30 – 12:30 - Distrito del Sake de Fushimi
+#### 10:30 – 12:30 - Distrito del Sake de Fushimi [HORARIO: 10:00 - 17:00]
 Bodegas tradicionales de sake junto a canales con barcos de madera.
 
 *Detalle:* Fushimi Sake District Cerca de Fushimi Inari. Podéis visitar la fábrica Gekkeikan y pasear por los canales bordeados de sauces. Horario ideal: Mañana (10:30 – 12:30). Cata: Muchas bodegas ofrecen degustaciones por pocos yenes.
 
 - **Precio:** Variable
 
-#### 14:00 – 15:30 - Templo Ninna-ji
+#### 14:00 – 15:30 - Templo Ninna-ji [HORARIO: 09:00 - 17:00]
 Complejo imperial enorme con una pagoda de cinco pisos y jardines palaciegos.
 
 *Detalle:* Templo Ninna-ji Patrimonio de la Humanidad. Famoso por sus cerezos de floración tardía y sus elegantes edificios de estilo imperial. Horario ideal: Tarde (14:00 – 15:30). Espacio: Recinto muy amplio y tranquilo.
 
 - **Precio:** ~500 JPY
 
-#### 16:00 – 17:00 - Santuario Kitano Tenmangu
+#### 16:00 – 17:00 - Santuario Kitano Tenmangu [HORARIO: 05:00 - 18:00]
 El santuario del dios del estudio, famoso por sus ciruelos y sus estatuas de bueyes.
 
 *Detalle:* Kitano Tenmangu Un santuario vibrante cerca de la zona de Geishas de Kamigyo. Los estudiantes vienen aquí a pedir éxito en los exámenes. Tradición: Acariciad la nariz de los bueyes de bronce para tener buena suerte. Horario ideal: Tarde (16:00 – 17:00).
@@ -958,14 +959,14 @@ Jardines de musgo y estatuas Jizo. Al norte de Kioto. (700 JPY)
 
 - **Precio:** 700 JPY + 580 JPY (bus)
 
-#### 10:30 - Torre de Kioto
+#### 10:30 - Torre de Kioto [HORARIO: 10:00 - 21:00]
 Vistas panorámicas frente a la estación. (900 JPY)
 
 *Detalle:* Torre de Kioto Vistas de 360° de la ciudad desde 100 metros de altura. Perfecta para una última mirada panorámica de Kioto. Acceso: 5 min andando desde el hotel. Entrada: 900 JPY. Horario: 10:00-21:00.
 
 - **Precio:** 900 JPY
 
-#### 14:30 - Mercado Nishiki
+#### 14:30 - Mercado Nishiki [HORARIO: 09:30 - 18:00]
 Últimas compras gastronómicas. (Gratis)
 
 *Detalle:* Mercado Nishiki La despensa de Kioto. Ideal para compras gastronómicas de último momento: tsukemono, té, dulces tradicionales. Transporte: Metro Karasuma Line a Shijo (15 min, 230 JPY). Horario del mercado: 10:00-18:00.
@@ -973,21 +974,21 @@ Vistas panorámicas frente a la estación. (900 JPY)
 - **Precio:** Gratis (entrada)
 
 ### ✨ Excursiones Adicionales
-#### 11:00 – 12:30 - Santuario Heian
+#### 11:00 – 12:30 - Santuario Heian [HORARIO: 06:00 - 17:30]
 Famoso por su gigantesco Torii rojo y sus jardines imperiales con puentes de madera.
 
 *Detalle:* Santuario Heian Construido para celebrar el 1100 aniversario de Kioto. Su jardín trasero es uno de los más bellos para pasear sobre el agua. Horario ideal: Mañana (11:00 – 12:30). Visual: El puente Taihei-kaku es icónico.
 
 - **Precio:** Jardín ~600 JPY
 
-#### 14:30 – 16:00 - Templo Tōfuku-ji
+#### 14:30 – 16:00 - Templo Tōfuku-ji [HORARIO: 05:00 - 16:00]
 Templo zen con un puente que cruza un valle de arces y jardines de piedra modernos.
 
 *Detalle:* Tōfuku-ji Posee uno de los jardines zen más fotografiados (el de cuadrados de musgo y piedra). El puente Tsutenkyo ofrece vistas de bosque urbano. Horario ideal: Tarde (14:30 – 16:00). Diseño: Mezcla perfecta de tradición y vanguardia zen.
 
 - **Precio:** ~600 JPY
 
-#### 18:00 – 20:00 - Funaoka Onsen
+#### 18:00 – 20:00 - Funaoka Onsen [HORARIO: 15:00 - 01:00]
 Uno de los baños públicos más antiguos y bonitos de Kioto con tallas de madera históricas.
 
 *Detalle:* Funaoka Onsen No es un onsen natural de montaña, sino un Sentō (baño público) histórico. Impulsaos por su historia y sus azulejos decorativos. Horario ideal: Noche (18:00 – 20:00). Auténtico: Experiencia local 100% fuera de la ruta turística.
@@ -1001,9 +1002,10 @@ Uno de los baños públicos más antiguos y bonitos de Kioto con tallas de mader
 **🏨 Alojamiento:** Kazeya Ryokan
 
 ### ⚙️ Logística y Tips
-- **Billetes Shinkansen:** COMPRADO: Nozomi 2 (08:45 -> 09:19). ID Membresía: 18*****405. Reserva 20** (3 Ad + 1 Niño) y Reserva 20** (4 Ad). <strong>Los billetes finales y asientos se enviarán por email el 6 de Julio de 2026</strong> (1 mes antes de la salida).<br>Enlaces del servicio:<br>• <a href='https://shinkansen2.jr-central.co.jp/RSV_P/S_smart_en_index.htm' target='_blank' style='color:#38bdf8; text-decoration:underline;'>Gestión Reservas (Móvil)</a><br>• <a href='https://shinkansen2.jr-central.co.jp/RSV_P/smart_en_index.htm' target='_blank' style='color:#38bdf8; text-decoration:underline;'>Gestión Reservas (PC)</a><br>• <a href='https://smart-ex.jp/en/' target='_blank' style='color:#38bdf8; text-decoration:underline;'>Guía de Uso Smart EX</a><br>• <a href='https://smart-ex.jp/en/faq/index.php' target='_blank' style='color:#38bdf8; text-decoration:underline;'>Preguntas Frecuentes (FAQ)</a><br>• <a href='https://ec.travel.jr-central.co.jp/extraindp/ex?lang=en' target='_blank' style='color:#38bdf8; text-decoration:underline;'>Hoteles y Actividades JR-Central</a>
+- **Billetes Shinkansen:** COMPRADO: Nozomi 2 (08:45 -> 09:19). Asientos reservados en <strong>Vagón 16 (Filas 14 a 17, asientos D y E)</strong>. Los códigos QR individuales de acceso están vinculados en el panel de Documentos (Día 0) y en la Guía de Transporte de este día.
+- **Billetes Hida (Nagoya-Takayama):** COMPRADO: Hida 7 (10:00 -> 12:30). Localizadores <strong>41256</strong> (3 Ad + 1 Ch) y <strong>42023</strong> (4 Ad). Deben ser <strong>impresos físicamente</strong> en una máquina JR verde o ventanilla (ej. en Kioto) usando la tarjeta MasterCard terminada en <strong>7801</strong> y el PIN de 4 dígitos creado. Ver instrucciones completas en la Guía de Transporte.
 - **Equipaje:** Solo mochilas de mano. Las maletas grandes van por Takkyubin a Tokio o Kawaguchiko.
-- **Onsen:** Ducharse antes de entrar. Tatuajes: consultar política (o reservar privado).
+- **Onsen [HORARIO: 15:00 - 01:00]:** Ducharse antes de entrar. Tatuajes: consultar política (o reservar privado).
 
 ### 💰 Estimación de Precios
 - **Transporte:** ~14.000 JPY (Trenes y buses)
@@ -1017,9 +1019,9 @@ Uno de los baños públicos más antiguos y bonitos de Kioto con tallas de mader
 
 ### 🚆 Transporte Detallado
 - **08:15** **Salida hacia Estación de Kioto**
-- **08:45** **Shinkansen Nozomi a Nagoya (COMPRADO)** (34 min) [Billetes: 44.320 JPY (Total 8 pax)]
+- **08:45** **Shinkansen Nozomi a Nagoya (COMPRADO)** (34 min) [Asientos: Vagón 16, Filas 14-17 (D/E)]
 - **09:19** **⚠️ CRÍTICO: Transbordo en Nagoya**
-- **10:00** **Tren Wide View Hida a Takayama** (2h 30m) [~6.000 JPY / persona]
+- **10:00** **Tren Wide View Hida a Takayama (COMPRADO)** (2h 30m) [Localizadores: 41256 / 42023]
 - **12:30** **LLegada a Takayama / Almuerzo rápido**
 - **13:40** **Primer Bus Nohi hacia Okuhida** (1h 30m) [~2.200 JPY]
 - **15:10** **Check-in Kazeya Ryokan**
@@ -1045,7 +1047,7 @@ Festín de platos de temporada y Ternera de Hida.
 - **Precio:** Incluido
 
 ### 🔄 Complementos / Alternativas
-#### 16:30 - Shinhotaka-no-yu
+#### 16:30 - Shinhotaka-no-yu [HORARIO: 08:00 - 18:00]
 Baño mixto al aire libre junto al río. Experiencia salvaje (Baño público).
 
 *Detalle:* Onsen Salvaje junto al río Un baño rústico al aire libre literalmente pegado al río. Es mixto y los bañadores suelen estar prohibidos (usar toalla grande). Naturaleza Pura: El agua puede estar muy caliente, pero la brisa fresca del río y las vistas a la montaña compensan. Privacidad: Al ser mixto y público, requiere quitarse pudores y fundirse con la costumbre local en un entorno único.
@@ -1067,14 +1069,14 @@ La experiencia de ver el Monte Fuji desde el tren bala a 300km/h.
 
 - **Precio:** Incluido en billete
 
-#### 16:00 – 17:00 - Cascada Hirayu
+#### 16:00 – 17:00 - Cascada Hirayu [HORARIO: 24 horas]
 Impresionante caída de agua de 64 metros rodeada de naturaleza salvaje.
 
 *Detalle:* Cascada Hirayu Una de las mejores cascadas de Japón. El entorno es muy fresco y el sonido del agua cayendo entre las rocas volcánicas es revitalizante. Caminata Fácil: Un paseo pavimentado de 15 minutos desde la parada de autobús os dejará a sus pies.
 
 - **Precio:** Gratis
 
-#### 10:00 – 12:30 - Acuario Kaiyukan
+#### 10:00 – 12:30 - Acuario Kaiyukan [HORARIO: 10:00 - 20:00]
 Uno de los acuarios más grandes del mundo con un tiburón ballena espectacular.
 
 *Detalle:* Kaiyukan: El Océano en Osaka Ubicado en la bahía de Osaka, este acuario es famoso por su tanque central de 9 metros de profundidad que representa el Océano Pacífico, hogar de dos tiburones ballena. El recorrido es descendente, simulando una inmersión desde la superficie hasta el fondo marino.
@@ -1107,7 +1109,7 @@ Caminata mágica por el pueblo termal viendo el vapor de las alcantarillas bajo 
 ### ⏱️ Resumen del Día
 - **12:15** - Llegada Takayama: Regreso desde el Ryokan. (Base)
 - **12:30** - Almuerzo Hida Beef: La mejor carne de Japón. (Base)
-- **14:30** - Sanmachi Suji: Casco antiguo conservado. (Base)
+- **14:30** - Sanmachi Suji [HORARIO: 24 horas]: Casco antiguo conservado. (Base)
 - **16:00** - Tiempo Libre: Elegid complemento (Jinya, Museos). (Opcional)
 
 ### 🚆 Transporte Detallado
@@ -1129,7 +1131,7 @@ La joya gastronómica de la región (Yakiniku o Sushi de carne).
 
 - **Precio:** ~4.000-6.000 JPY
 
-#### 14:30 - Barrio Sanmachi Suji
+#### 14:30 - Barrio Sanmachi Suji [HORARIO: 24 horas]
 Corazón feudal de la ciudad con casas de madera negra.
 
 *Detalle:* Sanmachi Suji: El Corazón Edo Este distrito histórico es un viaje directo al periodo Edo (1603-1868). Sus tres calles principales están flanqueadas por casas de mercaderes excelentemente conservadas, con sus características fachadas de madera oscura y canales de agua cristalina que todavía corren por los lados de las calles. Buscad las Sugidama (grandes bolas de agujas de cedro) que cuelgan sobre las puertas de las bodegas de sake; si la bola es verde, el sake de la nueva temporada está listo. Es el lugar perfecto para perderse entre tiendas de artesanía, museos locales y destilerías centenarias. Misión Sake: Muchas bodegas ofrecen catas por unos 200-500 JPY. Elegid una, recibid vuestra tacita choko de cerámica y degustad la pureza del agua de los Alpes hecha licor.
@@ -1140,21 +1142,21 @@ Corazón feudal de la ciudad con casas de madera negra.
 Visitas a museos, templos o paseos relajados.
 
 ### 🔄 Complementos / Alternativas
-#### 15:30 - Takayama Jinya
+#### 15:30 - Takayama Jinya [HORARIO: 08:45 - 17:00]
 Antigua oficina del gobierno del Shogun. Salas de tatami e historia.
 
 *Detalle:* Takayama Jinya Única oficina del gobierno del periodo Edo que queda en pie, instalada directamente por el shogunato Tokugawa para administrar sus ricas tierras madereras. Justicia: Se puede ver la sala de interrogatorios de madera. Graneros de Arroz: Solían almacenar el impuesto de la región, que se cobraba en arroz en lugar de dinero.
 
 - **Precio:** 440 JPY
 
-#### 16:00 - Yatai Kaikan
+#### 16:00 - Yatai Kaikan [HORARIO: 09:00 - 17:00]
 Museo de las carrozas del festival de Takayama (Patrimonio UNESCO).
 
 *Detalle:* Exposición de Carrozas Muestra las espectaculares y gigantescas carrozas de madera adornadas que desfilan en los festivales de Takayama, considerados de los más bellos de Japón. Detalle Extremo: Apreciaréis de cerca las intrincadas tallas, trabajos de orfebrería y complejas marionetas mecánicas.
 
 - **Precio:** 1.000 JPY
 
-#### 16:30 - Higashiyama Walk
+#### 16:30 - Higashiyama Walk [HORARIO: 24 horas]
 Paseo por los templos de la colina. Silencio y musgo.
 
 *Detalle:* Ruta de Templos Un paseo tranquilo alejado de las rutas comerciales, diseñado en el siglo XVI para emular los templos de la zona de Higashiyama en Kioto. Paz Absoluta: Un sendero de varios km que serpentea por laderas boscosas y panteones centenarios llenos de musgo.
@@ -1162,21 +1164,21 @@ Paseo por los templos de la colina. Silencio y musgo.
 - **Precio:** Gratis
 
 ### ✨ Excursiones Adicionales
-#### 15:30 – 17:30 - Hida no Sato
+#### 15:30 – 17:30 - Hida no Sato [HORARIO: 08:30 - 17:00]
 Museo al aire libre con más de 30 casas tradicionales de techos de paja.
 
 *Detalle:* Aldea Folclórica de Hida Museo al aire libre. Podréis entrar en decenas de casas reales desmontadas de los alpes y reensambladas aquí, con sus enormes tejados de paja (estilo Gassho-zukuri). Vida Tradicional: En el interior de las casas aún encienden los hogares (irori) haciéndoos sentir en el Japón rural de hace siglos.
 
 - **Precio:** ~700 JPY
 
-#### 12:00 – 13:30 - Matsuri no Mori
+#### 12:00 – 13:30 - Matsuri no Mori [HORARIO: 09:00 - 17:00]
 Museo subterráneo con carrozas tecnológicas y tambores taiko gigantes.
 
 *Detalle:* Museo del Festival Subterráneo Alberga las carrozas más modernas con autómatas mecánicos (karakuri) que realizan demostraciones. Tambores Gigantes: Escondido en una cueva excavada en la montaña, encontraréis los tambores Taiko más grandes del mundo.
 
 - **Precio:** ~1.000 JPY
 
-#### 11:00 – 12:00 - Santuario Sakurayama Hachimangu
+#### 11:00 – 12:00 - Santuario Sakurayama Hachimangu [HORARIO: 24 horas]
 Protector del norte de la ciudad con una atmósfera señorial y cedros centenarios.
 
 *Detalle:* Sakurayama Hachimangu Un santuario que ofrece paz absoluta, guardián del norte de la ciudad. Es el lugar donde se celebra el espectacular festival de otoño de Takayama. Naturaleza: Su recinto está flanqueado por gigantescos cedros centenarios, creando una atmósfera de profundo misticismo.
@@ -1202,9 +1204,9 @@ Protector del norte de la ciudad con una atmósfera señorial y cedros centenari
 - **08:50** - LIMON Bus a Kawaguchiko: Trayecto de 6h con desvío por Hirayu y Matsumoto. (Base)
 - **15:05** - Recogida Coche: Alquiler listo para explorar la zona de los Cinco Lagos. (Base)
 - **15:45** - Check-in Hotel: Instalación en Toyoko Inn Fuji Kawaguchiko Ohashi. (Base)
-- **16:45** - Pagoda Chureito: La foto más icónica de Japón con luz de tarde/atardecer. (Base)
+- **16:45** - Pagoda Chureito [HORARIO: 24 horas]: La foto más icónica de Japón con luz de tarde/atardecer. (Base)
 - **18:45** - Paseo por el lago: Vistas y paz junto al agua. (Base)
-- **19:30** - Atardecer en Oishi Park: El momento mágico del día frente al Fuji. (Base)
+- **19:30** - Atardecer en Oishi Park [HORARIO: 24 horas]: El momento mágico del día frente al Fuji. (Base)
 
 ### 🚆 Transporte Detallado
 - **08:40** **Llegada a Estación de Takayama (10 min antes - CRÍTICO)**
@@ -1215,7 +1217,7 @@ Protector del norte de la ciudad con una atmósfera señorial y cedros centenari
 - **15:45** **Check-in Hotel Toyoko Inn**
 - **16:45** **Pagoda Chureito (Luz de tarde)**
 - **18:45** **Paseo por el lago**
-- **19:30** **Oishi Park (Atardecer)**
+- **19:30** **Oishi Park (Atardecer) [HORARIO: 24 horas]**
 
 ### 🗺️ Itinerario Base (Ruta Central)
 _Traslado a la región de los Cinco Lagos y primera toma de contacto con el coloso._
@@ -1239,10 +1241,10 @@ Instalación en el Toyoko Inn para organizar el equipaje y planificar la tarde.
 
 *Detalle:* Instalación en Kawaguchiko Dejad las maletas, refrescaos y preparad las cámaras. Aquí es donde empieza vuestra aventura real en la naturaleza japonesa. El Clima: El Fuji crea su propio microclima; revisad la cámara 'Fuji Live Cam' antes de salir.
 
-#### 16:30 - Pagoda Chureito
-Es el momento ideal por la luz de la tarde. Al tener coche, aparcaréis en la zona (aprox. 1.000 JPY) y subiréis los 398 escalones para la foto icónica del viaje.
+#### 16:30 - Pagoda Chureito [HORARIO: 24 horas] 📦
+Es el momento ideal por la luz de la tarde. Al tener coche, aparcaréis en la zona (aprox. 1.000 JPY) y subiréis los 398 escalones para la foto icónica del viaje. ¡Misión: comprar Himitsu-bako! 📦
 
-*Detalle:* La Pagoda de la Paz: Chureito Ubicada en el Parque Arakurayama Sengen, esta pagoda de cinco pisos es el símbolo visual de Japón por excelencia. Para llegar a la plataforma de observación, deberéis subir exactamente 398 escalones. Al llegar arriba, entenderéis por qué: la alineación perfecta de la pagoda bermellón con el Monte Fuji al fondo crea una composición que parece pintada.
+*Detalle:* La Pagoda de la Paz: Chureito Ubicada en el Parque Arakurayama Sengen, esta pagoda de cinco pisos es el símbolo visual de Japón por excelencia. Para llegar a la plataforma de observación, deberéis subir exactamente 398 escalones. Al llegar arriba, entenderéis por qué: la alineación perfecta de la pagoda bermellón con el Monte Fuji al fondo crea una composición que parece pintada. 📦 MISIÓN LOGÍSTICA: Comprar Himitsu-bako Aprovechad las tiendas locales en los alrededores o en Hakone para comprar las famosas cajas secretas rompecabezas tradicionales de madera japonesa. ¡Un souvenir mecánico artesanal e icónico!
 
 - **Precio:** Gratis (Parking ~1.000 JPY)
 
@@ -1253,7 +1255,7 @@ Disfrutad de la tranquilidad de las orillas del lago Kawaguchiko con el coloso d
 
 - **Precio:** Gratis
 
-#### 19:30 - Atardecer en Oishi Park
+#### 19:30 - Atardecer en Oishi Park [HORARIO: 24 horas]
 El momento mágico donde el cielo se tiñe de colores sobre el Monte Fuji.
 
 *Detalle:* Sunset en Oishi Park El Oishi Park ofrece una de las mejores vistas panorámicas, famoso por sus mantos de flores estacionales (lavanda, kochia). Momento Mágico: Veréis cómo el sol se oculta tras el Fuji, creando una silueta negra imponente contra un cielo encendido.
@@ -1261,7 +1263,7 @@ El momento mágico donde el cielo se tiñe de colores sobre el Monte Fuji.
 - **Precio:** Gratis
 
 ### ✨ Excursiones Adicionales
-#### 15:00 – 17:00 - Music Forest Museum
+#### 15:00 – 17:00 - Music Forest Museum [HORARIO: 10:00 - 17:00]
 Pequeño pueblo europeo dedicado a instrumentos musicales mecánicos.
 
 *Detalle:* Bosque de la Música Jardines con estética europea del siglo XIX y panorámicas espectaculares al Fuji. Cajas Mágicas: El museo exhibe impresionantes órganos mecánicos antiguos, algunos pensados originalmente para el Titanic.
@@ -1328,7 +1330,7 @@ Ascensión a la cima en 1 día por la Ruta Yoshida.
 
 ---
 
-## Día 15: 🏛️ Alrededores del Fuji (Lun, 10 Agosto)
+## Día 15: 🏛️ Alrededores del Fuji [HORARIO: 09:00 - 17:00] (Lun, 10 Agosto)
 
 **🏨 Alojamiento:** Toyoko Inn Fuji Kawaguchiko Ohashi
 
@@ -1342,7 +1344,7 @@ Ascensión a la cima en 1 día por la Ruta Yoshida.
 - **Total:** ~1.500 JPY +
 
 ### ⏱️ Resumen del Día
-- **09:15** - Santuario Sengen: Misticismo entre cedros milenarios. (Base)
+- **09:15** - Santuario Sengen [HORARIO: 24 horas]: Misticismo entre cedros milenarios. (Base)
 - **11:30** - Hoto Noodles: Almuerzo tradicional espeso de la zona. (Base)
 - **14:00** - Tarde en coche: Elegir entre cascadas o pueblos museo. (Opcional)
 
@@ -1365,8 +1367,8 @@ _Día de carretera para explorar la cultura y misticismo alrededor del volcán._
 **🏨 Alojamiento:** Hotel Metropolitan Edmont Tokyo
 
 ### ⚙️ Logística y Tips
-- **Coche:** Llenad depósito de gasolina y devolved en Budget Kawaguchiko Station (12:00 max). Guardad ticket.
-- **Transporte:** Tren Expreso Fuji Excursion directo a Shinjuku (RESERVA CRÍTICA 30 días antes). Alternativa: Highway Bus.
+- **Coche:** Llenad depósito de gasolina y devolved en Budget Kawaguchiko Station (12:30 max). Guardad ticket.
+- **Transporte:** Tren Expreso Fuji Excursion directo a Shinjuku (RESERVA REALIZADA para las 14:08). Alternativa: Highway Bus.
 - **Equipaje:** Maletas grandes enviadas desde Kioto u Osaka os estarán esperando en el lobby o habitación del hotel.
 
 ### 💰 Estimación de Precios
@@ -1374,23 +1376,22 @@ _Día de carretera para explorar la cultura y misticismo alrededor del volcán._
 - **Total:** ~6.130 JPY
 
 ### ⏱️ Resumen del Día
-- **11:30** - Gasolinera Kawaguchiko: Repostaje del coche de alquiler antes de devolverlo. (Base)
+- **11:30** - Gasolinera Kawaguchiko [HORARIO: 24 horas]: Repostaje del coche de alquiler antes de devolverlo. (Base)
 - **12:00** - Devolución Coche: Recepción en Budget Kawaguchiko. (Base)
-- **14:08** - Traslado a Tokio: Tren Directo Fuji Excursion a Shinjuku. (Base)
-- **16:06** - Llegada Shinjuku: Cruce de la estación más concurrida del mundo hacia Taxis. (Base)
-- **16:45** - Check-in Edmont: Recuperad maletas grandes y descanso brutal en el hotel. (Base)
-- **18:30** - Kagurazaka y Akagi: Paseo por el barrio tradicional de Kagurazaka y el moderno santuario Akagi. (Base)
-- **20:00** - Cena y Regreso: Cena en Kagurazaka o alrededores del hotel y regreso a pie. (Base)
+- **14:08** - Tren a Shinjuku (COMPRADO): Tren Directo Fuji Excursion a Shinjuku. (Base)
+- **16:06** - Llegada a Shinjuku: Traslado al hotel en taxi o metro local. (Base)
+- **16:45** - Check-in Edmont: Recuperad maletas grandes y descanso en el hotel. (Base)
+- **18:30** - Buffet de Actividades 🎤: Elección de plan: Kagurazaka, Tokyo Dome City, Canal Cafe, Ayuntamiento o Shinjuku. (Base)
 
 ### 🚆 Transporte Detallado
 - **11:30** **Repostaje en Gasolinera**
 - **12:00** **Devolución de Coches (Budget)**
-- **14:08** **Tren Express 'Fuji Excursion 32' a Tokio** (1h 58m) [Reserva ticketless confirmada.]
+- **14:08** **Tren Express 'Fuji Excursion 32' a Tokio (COMPRADO)** (1h 58m) [Reserva ticketless confirmada.]
 - **16:06** **Llegada al caos de Shinjuku (Tokio)**
-- **16:20** **Taxis a Iidabashi (x2 Vans)** (15 min) [~4.000 JPY total (2 taxis)]
+- **16:20** **TRANSPORTE AL HOTEL (Taxi o Metro)** (15-20 min) [Suica o ~2.000 JPY/taxi]
 - **16:45** **Check-in Edmont Tokyo / Descanso**
 - **18:30** **Paseo al Barrio Kagurazaka** (10 min a pie) [Gratis]
-- **18:45** **Sunset en Santuario Akagi**
+- **18:45** **Sunset en Santuario Akagi [HORARIO: 24 horas]**
 - **20:00** **Cena y Regreso al Hotel** (12 min a pie) [Gratis]
 
 ### 🗺️ Itinerario Base (Ruta Central)
@@ -1403,47 +1404,39 @@ En Kawaguchiko Station. Último trámite antes de subir al tren.
 
 - **Precio:** Llenar depósito
 
-#### 14:08 - Tren a Shinjuku (Tokio)
-Tren Expreso Especial que no requiere transbordos. Fin del descanso.
+#### 14:08 - Tren Express 'Fuji Excursion 32' a Shinjuku
+Traslado directo sin transbordos de Kawaguchiko a la estación de Shinjuku (14:08 - 16:06). Reserva ticketless confirmada.
 
-*Detalle:* Rumbo a la Capital Ciberpunk Traslado directo a la estación de Shinjuku mediante el Fuji Excursion. Entrar en Tokio por Shinjuku es un golpe frontal. Choque Cultural: Tras días de paz alpina, la multitud de Shinjuku, sus neones incesantes y el volumen general serán apabullantes.
+*Detalle:* Traslado Directo a la Capital Tras la entrega del coche de alquiler, tomamos el tren express directo a Shinjuku. Podéis descargar los billetes PDF directamente desde el botón en la línea superior de la ruta de transporte. Trayecto cómodo: Ideal para descansar o repasar las notas antes de adentrarse en la metrópolis.
 
-- **Precio:** Reserva ticketless confirmada
+- **Precio:** Incluido (Eki-Net)
 
-#### 16:45 - Check-in y Reencuentro con Equipaje
-Llegada al Hotel Metropolitan Edmont en el barrio de Iidabashi.
+#### 16:45 - Check-in en Hotel Metropolitan Edmont
+Llegada al hotel de Tokio, recuperación de las maletas enviadas por Takkyubin y un descanso merecido.
 
-#### 18:30 - El Barrio Geisha (Kagurazaka)
-Paseo por el barrio colindante de vuestro hotel para aclimataros a Tokio.
+#### 18:30 - Buffet de Actividades: Primera Noche en Tokio 🎤
+Menú interactivo de actividades recomendadas a pocos minutos del hotel o Shinjuku. ¡Abre el buffet pulsando el botón!
 
-*Detalle:* Kagurazaka: La Pequeña Francia de Kioto Kagurazaka es uno de los pocos lugares en Tokio que todavía emana la atmósfera del periodo Edo. Antiguamente fue un prestigioso distrito de Geishas (Hanamachi) fuera de los límites de la ciudad vieja. Sus callejones empedrados y sinuosos, como el famoso "Callejón Kakurenbo", esconden restaurantes de lujo y casas de té tradicionales tras discretas puertas de madera. Hoy es conocido como el barrio francés de Tokio por la alta concentración de residentes de esa nacionalidad y excelentes panaderías y bistrós. No os perdáis el Santuario Akagi, reconstruido recientemente por el afamado arquitecto Kengo Kuma, fusionando de forma brillante la madera tradicional con el cristal moderno.
+*Detalle:* Buffet de Actividades Elige tu plan para la primera noche Os hemos preparado un menú completo con 5 alternativas ideales según el cansancio, el calor o lo que más os apetezca: 1. Kagurazaka Paseo clásico y cena en tabernas tradicionales de varios pisos. 2. Tokyo Dome City Ocio, estadio iluminado y comida fácil sin reserva. 3. Canal Cafe Terraza italiana al aire libre sobre el foso de agua. 4. Mirador del Tocho Subida gratuita al Ayuntamiento en Shinjuku. 5. Shinjuku Completo (Neones, Mirador y Karaoke) Neones en Kabukicho, cena en Omoide Yokocho y Karaoke familiar. ABRIR MENÚ DE ACTIVIDADES Modo Karaoke 1
 
-- **Precio:** Gratis
+- **Precio:** Gratis / Variable
 
-### 🔄 Complementos / Alternativas
-#### 18:00 - Vistas Tocho (Ayuntamiento Tokio)
-Edificio del Gobierno Metropolitano en Shinjuku. Vistas gratis 360º desde la planta 45.
-
-*Detalle:* Ascensor a las Estrellas Subida hiperveloz gratuita al mirador del Edificio Metropolitano del Gobierno (observatorio Sur o Norte). Vistas Gratis: A diferencia de la Tokyo Skytree, la entrada es libre. En días despejados domina hasta el monte Fuji. Piano Público: Arriba suele haber un grandioso piano decorado por Yayoi Kusama.
-
-- **Precio:** Gratis
-
-### ✨ Excursiones Adicionales
-#### 20:00 – 21:30 - Samurai Restaurant Show
+### ✨ OTRAS ACTIVIDADES CERCA HOTEL (PARA MAÑANAS)
+#### 20:00 – 21:30 - Samurai Restaurant Show [HORARIO: 15:00 - 22:00]
 El nuevo espectáculo heredero del Robot Restaurant en Kabukicho.
 
 *Detalle:* Locura en Kabukicho Un espectáculo de luces, tambores Taiko y coreografías samurái modernas en el corazón del distrito rojo de Shinjuku. Kitsch de Neón: Es el heredero del mítico 'Robot Restaurant'. Muy turístico, escandaloso e increíblemente extravagante y divertido.
 
 - **Precio:** ~9.000 JPY
 
-#### 16:00 – 17:30 - Jardín Koishikawa Korakuen
+#### 16:00 – 17:30 - Jardín Koishikawa Korakuen [HORARIO: 09:00 - 17:00]
 Uno de los jardines japoneses más antiguos y hermosos de Tokio, junto al hotel.
 
 *Detalle:* Jardín Koishikawa Korakuen Construido en el periodo Edo por el clan Tokugawa, es uno de los pulmones verdes con más historia de la ciudad. Diseño Dual: Utiliza técnicas de paisajismo que reproducen famosos escenarios naturales chinos y japoneses en forma miniatura.
 
 - **Precio:** ~300 JPY
 
-#### 15:30 – 17:30 - Shinjuku Gyoen
+#### 15:30 – 17:30 - Shinjuku Gyoen [HORARIO: 09:00 - 16:30]
 Parque inmenso que combina jardines japoneses, franceses e ingleses.
 
 *Detalle:* Parque Imperial Shinjuku Gyoen Un inmenso parque en medio de los rascacielos. Ideal para caminar en grupo sin agobios y organizar un pícnic bajo los árboles. Tres Estilos: Combina un meticuloso jardín tradicional japonés, un geométrico jardín formal francés y un amplio paisaje paisajista inglés.
@@ -1467,10 +1460,10 @@ Parque inmenso que combina jardines japoneses, franceses e ingleses.
 - **Total:** Base +
 
 ### ⏱️ Resumen del Día
-- **09:30** - Senso-ji: Templo antiguo y linterna roja Kaminarimon. (Base)
-- **11:30** - Río Sumida: Paseo fluvial con vistas al skyline. (Base)
-- **13:30** - Tokyo Skytree: Mirador de 634m o centro comercial Solamachi. (Base)
-- **16:30** - Akihabara: Neon, anime, retro-gaming y compras otakus. (Base)
+- **09:30** - Senso-ji [HORARIO: 06:00 - 17:00]: Templo antiguo y linterna roja Kaminarimon. (Base)
+- **11:30** - Río Sumida [HORARIO: 10:00 - 20:00]: Paseo fluvial con vistas al skyline. (Base)
+- **13:30** - Tokyo Skytree [HORARIO: 10:00 - 21:00]: Mirador de 634m o centro comercial Solamachi. (Base)
+- **16:30** - Akihabara [HORARIO: 11:00 - 20:00]: Neon, anime, retro-gaming y compras otakus. (Base)
 - **20:30** - Regreso al Hotel: Tren directo JR Sobu Line desde Akihabara a Iidabashi / Suidobashi y vuelta a pie. (Base)
 
 ### 🚆 Transporte Detallado
@@ -1479,15 +1472,15 @@ Parque inmenso que combina jardines japoneses, franceses e ingleses.
 - **09:30** **Puerta Kaminarimon (Asakusa)**
 - **11:30** **Paseo a las orillas del Río Sumida** (15 min a pie) [Gratis]
 - **13:00** **Línea Tobu o Caminata al Skytree** (10 min) [Suica (~160 JPY)]
-- **13:30** **Tokyo Skytree y Solamachi**
+- **13:30** **Tokyo Skytree y Solamachi [HORARIO: 24 horas]**
 - **16:00** **Tren hacia Akihabara** (20 min) [Suica]
-- **16:30** **Locura Akihabara (Electric Town)**
+- **16:30** **Locura Akihabara (Electric Town) [HORARIO: 11:00 - 20:00]**
 - **20:30** **Tren JR Sobu de vuelta al Hotel** (15 min) [Suica (~170 JPY)]
 
 ### 🗺️ Itinerario Base (Ruta Central)
 _Día intensísimo que mezcla el Tokio más antiguo (Asakusa), cruza el río hacia el futuro de altura (Skytree) y termina en la capital mundial del frikismo japonés (Akihabara)._
 
-#### 09:30 - Templo Senso-ji y Calle Nakamise
+#### 09:30 - Templo Senso-ji y Calle Nakamise [HORARIO: 06:00 - 17:00]
 El templo budista más antiguo e importante de Tokio. Famoso por su gigantesca linterna roja.
 
 *Detalle:* Templo Senso-ji: El Origen de Edo Fundado en el año 645, es el templo más antiguo de Tokio y el corazón espiritual de Asakusa. Su historia se remonta a una leyenda de dos hermanos pescadores que hallaron una estatua dorada de Kannon (la diosa de la misericordia) en el río Sumida. Tras cruzar la imponente Kaminarimon (Puerta del Trueno) con su linterna de 700 kg, caminaréis por Nakamise-dori, una calle comercial que ha servido a los peregrinos con dulces y artesanía desde el periodo Edo. Ritual del Incienso: Frente al templo principal, atraed el humo del Jokoro hacia vosotros; se dice que purifica y concede sabiduría. Omikuji: Probad vuestra suerte extrayendo un palillo de la caja de madera por solo 100 yenes.
@@ -1501,14 +1494,14 @@ Paseo fotográfico espectacular contrastando barcos tradicionales y la torre Sky
 
 - **Precio:** Gratis
 
-#### 13:30 - Tokyo Skytree
+#### 13:30 - Tokyo Skytree [HORARIO: 10:00 - 21:00]
 La estructura más alta de Japón (634m). Vistas que demuestran que Tokio no tiene fin.
 
 *Detalle:* Tokyo Skytree: Superando las Nubes Con 634 metros, es la torre de comunicaciones más alta del mundo y un prodigio de la ingeniería antisísmica moderna. Su diseño exterior, de color "Blanco Skytree" (basado en el tinte tradicional japonés aijiro), fusiona la estética neofuturista con la belleza de las pagodas tradicionales de cinco pisos. Incluso si decidís no subir a sus observatorios a 350 o 450 metros, el complejo **Tokyo Solamachi** en su base es una ciudad en sí misma, con tiendas oficiales de Ghibli, Pokémon Center y una oferta gastronómica infinita que abarca desde sushi de cinta hasta postres temáticos.
 
 - **Precio:** Opcional 2.100 JPY
 
-#### 16:30 - Akihabara: Electric Town
+#### 16:30 - Akihabara: Electric Town [HORARIO: 11:00 - 20:00]
 El paraíso geek. Edificios enteros de neón dedicados a un solo tema: cartas, robótica, retro-gaming o figuritas.
 
 *Detalle:* Akihabara: Ciudad Eléctrica Antiguamente el epicentro de la tecnología de postguerra, Akihabara ha evolucionado hasta convertirse en la capital mundial de la cultura otaku (anime, manga y videojuegos). Es un laberinto vertical de neón donde cada edificio oculta tesoros impensables. Imprescindible visitar **Radio Kaikan** (10 plantas de figuras y coleccionismo), **Super Potato** para revivir la era de los 8 y 16 bits, y perderse en los infinitos pasillos de **Yodobashi Camera**. Misión para Iván y Fran: Entrad en un salón GiGO, subid a las plantas de juegos de ritmo y flipad con la destreza sobrehumana de los locales.
@@ -1531,14 +1524,14 @@ Cafeterías en Akihabara donde camareras disfrazadas os llaman 'amo' e infunden 
 - **Precio:** ~2.500 JPY
 
 ### ✨ Excursiones Adicionales
-#### 12:00 – 13:00 - Crucero Fluvial Hotaluna
+#### 12:00 – 13:00 - Crucero Fluvial Hotaluna [HORARIO: Salidas]
 Trayecto en barco futurista desde Asakusa hasta Odaiba.
 
 *Detalle:* Crucero Hotaluna Diseñado por Leiji Matsumoto. El barco parece una nave espacial de cristal. Vistas increíbles del skyline desde el río Sumida.
 
 - **Precio:** ~1.700 JPY
 
-#### 15:00 – 16:30 - Sumida Aquarium
+#### 15:00 – 16:30 - Sumida Aquarium [HORARIO: 10:00 - 20:00]
 Acuario de diseño moderno y artístico dentro del complejo Skytree.
 
 *Detalle:* Acuario de Sumida Destaca su zona de pingüinos y medusas. Un ambiente fresco y relajante tras bajar del Skytree.
@@ -1569,27 +1562,28 @@ El templo de los informáticos y el anime. Famoso por sus amuletos para disposit
 - **Total:** Base +
 
 ### ⏱️ Resumen del Día
-- **09:45** - Santuario Meiji: El gran bosque sintoísta en medio de la ciudad. (Base)
+- **09:45** - Santuario Meiji [HORARIO: Amanecer-Ocaso]: El gran bosque sintoísta en medio de la ciudad. (Base)
 - **11:30** - Harajuku opcional: Takeshita Dori: crepes y cultura kawai. (Complemento)
 - **15:00** - Shibuya Crossing: El legendario cruce a nivel del suelo. (Base)
-- **17:30** - Shibuya Sky: Mirador espectacular abierto. (Complemento recomendado)
-- **20:30** - Regreso al Hotel: Tren directo JR Yamanote + JR Sobu Line a Iidabashi y vuelta a pie. (Base)
+- **17:30** - Shibuya Sky [HORARIO: 10:00 - 22:30]: Mirador espectacular abierto. (Complemento recomendado)
+- **20:30** - Modo Karaoke 2: Cantar en cabinas privadas de Shibuya si no se hizo el primer día. (Opcional)
+- **22:00** - Regreso al Hotel: Tren de vuelta a Iidabashi y descanso. (Base)
 
 ### 🚆 Transporte Detallado
-- **09:00** **Salida Hotel Edmont**
+- **09:30** **Salida Hotel Edmont**
 - **09:15** **Tren JR Sobu/Yamanote a Harajuku** (25 min) [JR Pass o Suica (~250 JPY)]
-- **09:45** **Parque Yoyogi / Meiji Jingu**
+- **09:45** **Parque Yoyogi / Meiji Jingu [HORARIO: Amanecer-Ocaso]**
 - **11:30** **Caminar hacia Takeshita Dori** (10 min a pie) [Gratis]
 - **12:00** **Locura Harajuku / Almuerzo**
 - **14:30** **Caminar por Cat Street a Shibuya** (25 min a pie (con tiendas)) [Gratis]
-- **15:00** **Cruce de Shibuya y Hachiko**
-- **17:30** **Subida a Shibuya Sky** (En hora de reserva) [~2.200 JPY]
+- **15:00** **Cruce de Shibuya y Hachiko [HORARIO: 24 horas]**
+- **17:30** **Subida a Shibuya Sky [HORARIO: 24 horas]** (En hora de reserva) [~2.200 JPY]
 - **20:30** **Tren JR Yamanote/Sobu de vuelta al Hotel** (25 min) [Suica (~170 JPY)]
 
 ### 🗺️ Itinerario Base (Ruta Central)
 _El corazón palpitante del oeste de Tokio. Un día de contrastes extremos: la paz del bosque imperial y los neones y cruces abarrotados._
 
-#### 09:45 - Santuario Meiji Jingu
+#### 09:45 - Santuario Meiji Jingu [HORARIO: Amanecer-Ocaso]
 Santuario imperial camuflado en un bosque denso enorme y silencioso.
 
 *Detalle:* Meiji Jingu: Un Bosque Sagrado Dedicado a las almas del Emperador Meiji y la Emperatriz Shoken, este santuario es un remanso de paz absoluta en el corazón de la urbe. Tras cruzar los inmensos Torii de madera de cedro de 1.500 años de antigüedad, caminaréis por un bosque artificial de 70 hectáreas compuesto por 100.000 árboles donados por todo Japón cuando se fundó el santuario en 1920. No os perdáis los coloridos barriles de sake (kazaridaru) donados anualmente, enfrentados a los barriles de vino de Borgoña, reflejo del amor del emperador por la cultura internacional. Con suerte, podréis ver una procesión de boda tradicional (shinto) cruzando el patio principal.
@@ -1599,29 +1593,36 @@ Santuario imperial camuflado en un bosque denso enorme y silencioso.
 #### 12:00 - Pausa Almuerzo en Omotesando/Harajuku
 Recomendado buscar en calles paralelas a The Cat Street para restaurantes más relajados.
 
-#### 15:00 - El Cruce de Shibuya y Hachiko
+#### 15:00 - El Cruce de Shibuya y Hachiko [HORARIO: 24 horas]
 El 'Times Square' nipón. El paso de peatones múltiple más concurrido del mundo.
 
 *Detalle:* El Cruce de Shibuya: Caos en Armonía Cuando los semáforos se ponen en rojo para los coches, la marea humana se lanza al asfalto desde cinco direcciones distintas. Es el "Scramble Crossing" más famoso del mundo, un icono de la modernidad y la densidad de Tokio. Cruzarlo es un rito de iniciación obligatorio; observarlo desde lo alto (como el Starbucks del edificio QFRONT) es hipnótico. Hachiko: La Lealtad Eterna. Junto al cruce se encuentra la estatua de bronce de Hachiko, el perro de raza Akita que esperó a su dueño fallecido en este mismo punto durante casi 10 años. Es el concepto japonés de giri (deber y lealtad) hecho carne... o bronce. Consejo: Si buscáis una vista espectacular del cruce, el **Magnets by Shibuya 109** tiene una planta superior panorámica menos masificada.
 
 - **Precio:** Gratis
 
+#### 20:30 - 🎤 MODO KARAOKE 2: Noche en Shibuya
+Opción de cerrar el día cantando en las cabinas privadas de Shibuya, tras bajar del mirador Shibuya Sky.
+
+*Detalle:* Modo Karaoke 2 Karaoke de Noche en Shibuya Tras disfrutar del atardecer o la noche en Shibuya Sky, podéis dirigiros a alguno de los enormes locales de karaoke de la zona (como Karaoke Kan o Big Echo) situados a escasos metros del cruce. Ideal si no lo hicisteis el Día 16: Una excelente oportunidad de experimentar las cabinas privadas con buffet de bebidas en Shibuya.
+
+- **Precio:** Variable
+
 ### 🔄 Complementos / Alternativas
-#### 17:30 - Shibuya Sky
+#### 17:30 - Shibuya Sky [HORARIO: 10:00 - 22:30]
 El mirador que arrasa en Instagram. Azotea de helicópteros totalmente al aire libre.
 
 *Detalle:* Tokio bajo tus pies (literal) Subir al atardecer es una experiencia increíble; las paredes son de cristal bajo, dejando entrar la brisa y dando la sensación de volar sobre los rascacielos y el cruce. Además cuenta con hamacas tejidas e iluminación LED dinámica de noche. Solo pueden colarse cámaras pequeñas (mochilas prohibidas arriba por el viento).
 
 - **Precio:** ~2.200 JPY
 
-#### 11:30 - Harajuku (Takeshita Street)
+#### 11:30 - Harajuku (Takeshita Street) [HORARIO: 24 horas]
 El epicentro de la moda adolescente, locura kawaii y el azúcar concentrado.
 
 *Detalle:* Locura Estudiantil Pop Solo 400 metros de calle, pero extremadamente densa. Veréis tiendas que venden moda lolita gotica punk, enormes tiendas Daiso de todo a 100 yenes y colas larguísimas para probar crepes hiper calóricas dobladas a rebosar de fresas y nata o algodon de azúcar arcoíris tamaño XXL.
 
 - **Precio:** Gratis
 
-#### 13:00 - Avenida Omotesando
+#### 13:00 - Avenida Omotesando [HORARIO: 24 horas]
 Arquitectura moderna de lujo y marcas exclusivas bordeando grandes árboles.
 
 *Detalle:* Los Campos Elíseos Asiáticos El polo opuesto a la barata y loca calle Takeshita. Bajando la calle paralela entraréis en amplias aceras sombreadas rodeadas de flagships arquitectónicos espectaculares de Dior, Prada y marcas mundiales. Entrad al Tokyu Plaza Omotesando Harajuku para su mítica entrada de espejos poligonales.
@@ -1645,32 +1646,32 @@ Arquitectura moderna de lujo y marcas exclusivas bordeando grandes árboles.
 - **Total:** Base +
 
 ### ⏱️ Resumen del Día
-- **09:30** - TeamLab Borderless: El MORI Building DIGITAL ART MUSEUM en Azabudai Hills. (Base)
-- **12:30** - Ginza Luxury: Lujo, arquitectura y comida top. (Base)
-- **16:15** - Roppongi Hills y vistas Torre Tokyo: Vida nocturna expat y la icónica Torre de Tokio roja. (Base)
+- **10:00** - TeamLab Borderless [HORARIO: 10:00 - 20:00]: El MORI Building DIGITAL ART MUSEUM en Azabudai Hills. (Base)
+- **12:45** - Ginza Luxury: Lujo, arquitectura y comida top. (Base)
+- **16:15** - Roppongi Hills y vistas Torre Tokyo [HORARIO: 24 horas]: Vida nocturna expat, la icónica Torre de Tokio roja y subida a la Mori Tower. (Base)
 - **20:30** - Regreso al Hotel: Metro directo línea Oedo desde Roppongi a Iidabashi y vuelta a pie. (Base)
 
 ### 🚆 Transporte Detallado
-- **09:00** **Salida Hotel Edmont**
-- **09:15** **Metro a Kamiyacho (Línea Hibiya)** (15 min) [Suica]
-- **09:30** **TeamLab Borderless (Azabudai Hills)**
-- **12:15** **Metro Hibiya (Kamiyacho → Ginza)** (10 min) [Suica]
-- **12:30** **Ginza Luxury (Milla de Oro)**
+- **09:30** **Salida Hotel Edmont**
+- **09:45** **Metro a Kamiyacho (Línea Hibiya)** (15 min) [Suica]
+- **10:00** **TeamLab Borderless (Azabudai Hills) [HORARIO: 10:00 - 20:00]**
+- **12:30** **Metro Hibiya (Kamiyacho → Ginza)** (10 min) [Suica]
+- **12:45** **Ginza Luxury (Milla de Oro)**
 - **16:00** **Metro Hibiya/Oedo a Roppongi** (15 min) [Suica (~180 JPY)]
-- **16:15** **Roppongi Hills y vistas Torre Tokyo**
+- **16:15** **Roppongi Hills y vistas Torre Tokyo [HORARIO: 24 horas]**
 - **20:30** **Metro Oedo Line de vuelta al Hotel** (14 min) [Suica (~220 JPY)]
 
 ### 🗺️ Itinerario Base (Ruta Central)
 _Día de arte digital futurista e inmersión en los barrios más sofisticados de Tokio. Empezamos en Azabudai Hills, paseamos por las boutiques de Ginza y terminamos en Roppongi con vistas a la espectacular Torre de Tokio._
 
-#### 09:30 - TeamLab Borderless (Entradas y App dentro) 🎟️
+#### 10:00 - TeamLab Borderless (Entradas y App dentro) 🎟️ [HORARIO: 10:00 - 20:00]
 El MORI Building DIGITAL ART MUSEUM en Azabudai Hills. (Pulsa aquí para descargar tus entradas en PDF y la App oficial de TeamLab).
 
 *Detalle:* TeamLab Borderless Ubicado en el moderno complejo de Azabudai Hills, esta versión del famoso colectivo artístico digital no tiene fronteras: las obras de arte se mueven fuera de las salas, se comunican con otras obras, se influyen mutuamente y a veces se mezclan sin límites. Es una experiencia visualmente deslumbrante y tridimensional. A diferencia de Planets, aquí no hay agua, por lo que no es necesario remangar los pantalones. ENTRADAS DE ACCESO Ver Entrada 1 Ver Entrada 2 DESCARGAR APP OFICIAL App Store (iOS) Google Play (Android)
 
 - **Precio:** 4.200 JPY
 
-#### 12:30 - La Avenida Principal de Ginza (Chuo Dori)
+#### 12:45 - La Avenida Principal de Ginza (Chuo Dori)
 La zona más elitista comercial de todo el país. Flagships imponentes, boutiques de diseño y restaurantes de estrellas michelin ocultos en rascacielos.
 
 *Detalle:* Ginza: La Milla de Diamantes Elegancia pura extrema. Aparte de las flagship stores de alta costura, merece la pena entrar al macro complejo de marcas **Ginza Six** con sus espectaculares bóvedas artísticas interiores, o los showrooms experimentales de grandes marcas tecnológicas japonesas como Nissan Crossing o Sony. Los domingos y sábados al mediodía las grandes avenidas de Ginza cierran al tráfico para ser un gran paseo peatonal masivo. Al ser hoy un día laborable regular, el paseo se realiza por las aceras, pero el ambiente sigue siendo vibrante.
@@ -1678,21 +1679,21 @@ La zona más elitista comercial de todo el país. Flagships imponentes, boutique
 - **Precio:** Gratis
 
 #### 16:15 - Roppongi Hills y Torre de Tokio
-El complejo futurista expat coronado con vistas a la torre de comunicaciones roja clásica.
+El complejo futurista expat coronado con vistas a la torre de comunicaciones roja clásica. Subimos a Mori Tower (mirador brutal).
 
-*Detalle:* Roppongi: Noches de Torre Roja Roppongi es un barrio transformado: del desenfreno militar al hub de arte y diseño de cristal con ambiente multicultural de millonarios expatriados. Caminar por el complejo **Roppongi Hills** cruzando con la gran escultura de la araña de Louise Bourgeois (Maman). Destaca acercarse caminando a la zona del templo Zojoji o la base de la Tokyo Tower, una increíble estructura de celosía naranja y blanca (copia modernizada de la torre Eiffel de Francia) que se enciende rotundamente al caer la noche destacando sobre los rascacielos sombríos.
+*Detalle:* Roppongi: Noches de Torre Roja Roppongi es un barrio transformado: del desenfreno militar al hub de arte y diseño de cristal con ambiente multicultural de millonarios expatriados. Caminar por el complejo **Roppongi Hills** cruzando con la gran escultura de la araña de Louise Bourgeois (Maman). Destaca acercarse caminando a la zona del templo Zojoji o la base de la Tokyo Tower, una increíble estructura de celosía naranja y blanca (copia modernizada de la torre Eiffel de Francia) que se enciende rotundamente al caer la noche destacando sobre los rascacielos sombríos. Subida a Mori Tower & Tokyo City View La **Torre Mori** es el corazón de Roppongi Hills. Con sus 54 pisos de altura, alberga en su cima una de las mejores experiencias visuales de la capital: Tokyo City View (Planta 52): Mirador acristalado de 360 grados que ofrece, sin duda, la mejor perspectiva frontal para fotografiar la Torre de Tokio iluminada de noche, la bahía de Tokio e incluso el Monte Fuji en días despejados. Sky Deck (Azotea): Plataforma de observación exterior al aire libre en el helipuerto del tejado (a 270 metros), donde sentiréis la brisa real de la ciudad con vistas despejadas (sujeto a clima y tarifa extra). Mori Art Museum (Planta 53): Un prestigioso museo de arte moderno abierto hasta tarde (suele cerrar a las 22:00) cuyas exposiciones temporales suelen estar incluidas con la misma entrada del mirador. **Entrada:** Aprox. 1.800 - 2.200 JPY (recomendable comprar online o en taquilla para la hora del atardecer).
 
 - **Precio:** Gratis visual
 
 ### 🔄 Complementos / Alternativas
-#### Flexible Mediodía - Mercado Tsukiji (Exterior)
+#### Flexible Mediodía - Mercado Tsukiji (Exterior) [HORARIO: 05:00 - 14:00]
 Para los puristas. Si no queréis la modernidad de Toyosu, los callejones del antiguo mercado en Tsukiji siguen sirviendo marisco y wagyu increíble.
 
 *Detalle:* Las Parrillas Callejeras A pesar de que el mercado central se mudó a Toyosu, el 'Outer Market' de Tsukiji se niega a morir. Pinchos de salmón ahumándose en la vía, cangrejo real, tortilla dulce recién hecha y bares minúsculos atestados llenos de bullicio e inmersión sensorial absoluta para desayunar a base de pescados al carbón.
 
 - **Precio:** Variable
 
-#### 15:00 - Teatro Kabuki-za (Desde fuera)
+#### 15:00 - Teatro Kabuki-za (Desde fuera) [HORARIO: Var�a]
 La joya arquitectónica del teatro clásico sobreviviendo entre torres modernas de cristal en Ginza.
 
 *Detalle:* Reflejos Feudales Reconstruido varias veces, es el teatro principal donde se ejecuta hoy en día el arte dramático tradicional Kabuki de Japón (actuado sólo por varones y con elaborados sets giratorios). Su inmensa techumbre al uso de los castillos feudales es un spot fotográfico magnífico para constatar la dualidad de Ginza entre lo ultra-moderno y lo intocablemente clásico.
@@ -1716,41 +1717,41 @@ La joya arquitectónica del teatro clásico sobreviviendo entre torres modernas 
 - **Total:** Base +
 
 ### ⏱️ Resumen del Día
-- **09:30** - Parque Ueno: El gran parque cultural y el templo flotante. (Base)
-- **11:00** - Mercado Ameyoko: Mercado negro postguerra bullicioso. (Base)
-- **13:00** - Yanaka Ginza: Barrio gato de la época Showa. Almuerzo callejero. (Base)
-- **15:30** - Nakano Broadway: Coleccionismo retro y figuras. (Complemento recomendado)
+- **09:30** - Parque Ueno [HORARIO: 05:00 - 23:00]: El gran parque cultural y el templo flotante. (Base)
+- **11:00** - Mercado Ameyoko [HORARIO: 10:00 - 20:00]: Mercado negro postguerra bullicioso. (Base)
+- **13:00** - Yanaka Ginza [HORARIO: 24 horas]: Barrio gato de la época Showa. Almuerzo callejero. (Base)
+- **15:30** - Nakano Broadway [HORARIO: 12:00 - 20:00]: Coleccionismo retro y figuras. (Complemento recomendado)
 - **20:00** - Regreso al Hotel: Tren directo línea JR Chuo-Sobu desde Nakano a Iidabashi y vuelta a pie. (Base)
 
 ### 🚆 Transporte Detallado
-- **09:00** **Salida Hotel Edmont**
+- **09:30** **Salida Hotel Edmont**
 - **09:15** **Tren hacia Ueno (vía Akihabara/Ochanomizu)** (15 min) [Suica (~160 JPY)]
-- **09:30** **Parque Ueno y Estanque Shinobazu**
+- **09:30** **Parque Ueno y Estanque Shinobazu [HORARIO: 05:00 - 23:00]**
 - **11:00** **Caminar por mercado Ameyoko** (30 min) [Gratis]
 - **12:30** **Tren Yamanote a Nippori (Para Yanaka)** (10 min) [Suica (~150 JPY)]
 - **12:45** **Yanaka Ginza (Tokio Retro)**
 - **15:00** **Tren JR hacia Nakano (vía Shinjuku)** (25 min) [Suica (~220 JPY)]
-- **15:30** **Nakano Broadway**
+- **15:30** **Nakano Broadway [HORARIO: 12:00 - 20:00]**
 - **20:00** **Tren JR Chuo-Sobu de vuelta al Hotel** (16 min) [Suica (~180 JPY)]
 
 ### 🗺️ Itinerario Base (Ruta Central)
 _Un recorrido por el Tokio más nostálgico. Desde los vestigios del mercado negro en Ueno y la paz felina de Yanaka Ginza, hasta culminar la tarde escarbando reliquias en Nakano._
 
-#### 09:30 - Parque Ueno y Estanque Shinobazu
+#### 09:30 - Parque Ueno y Estanque Shinobazu [HORARIO: 05:00 - 23:00]
 El parque público más popular, hogar de museos, un zoo y un estanque de lotos gigante.
 
 *Detalle:* Parque Ueno: El Corazón Cultural Este inmenso parque fue antiguamente el recinto del templo Kan'ei-ji, uno de los más poderosos de la ciudad, destruido durante la guerra civil Boshin. Hoy es un epicentro cultural que alberga los mejores museos del país y el famoso zoológico de Ueno. No os perdáis el Estanque Shinobazu, un vasto humedal que en verano se cubre completamente de flores de loto gigantescas, ocultando el agua y creando un mar verde bajo los rascacielos. En su centro flota el templo Bentendo, dedicado a la diosa de la fortuna y el conocimiento.
 
 - **Precio:** Gratis
 
-#### 11:00 - Mercado Ameyoko
+#### 11:00 - Mercado Ameyoko [HORARIO: 10:00 - 20:00]
 El ruido y el regateo en bruto bajo las vías del tren elevado.
 
 *Detalle:* Ameyoko: El Mercado del Azúcar Ameya Yokocho ("Callejón de las tiendas de caramelos") nació como un bullicioso mercado negro tras la Segunda Guerra Mundial, donde se vendía azúcar y productos de los soldados estadounidenses. Hoy conserva esa energía cruda y caótica, con puestos bajo las vías del tren elevado. Es el lugar perfecto para ver el Tokio menos pulido: vendedores gritando ofertas de pescado fresco, especias, ropa vintage y zapatillas. Es una experiencia de asalto a los sentidos ineludible.
 
 - **Precio:** Gratis
 
-#### 13:00 - Yanaka Ginza (Barrio Gato)
+#### 13:00 - Yanaka Ginza (Barrio Gato) [HORARIO: 24 horas]
 Escapando de la guerra y los terremotos, este barrio mantiene la madera y escala de los años 50.
 
 *Detalle:* Yanaka Ginza: El Tokio de Ayer Yanaka es uno de los pocos barrios que sobrevivió a los bombardeos de la guerra y a los terremotos, manteniendo la escala y el encanto de la era Showa (mediados del siglo XX). Es conocido como el "Barrio de los Gatos" por la abundancia de felinos y figuritas decorativas de estos animales. El acceso por las escaleras **Yuyake Dandan** ofrece una de las vistas más nostálgicas de la ciudad al atardecer. Es ideal para comer croquetas caseras (korokke) recién hechas mientras paseáis entre pescaderías, teterías y tiendas de sellos tradicionales.
@@ -1758,14 +1759,14 @@ Escapando de la guerra y los terremotos, este barrio mantiene la madera y escala
 - **Precio:** Gratis
 
 ### 🔄 Complementos / Alternativas
-#### 15:30 - Nakano Broadway (Cultura Retro)
+#### 15:30 - Nakano Broadway (Cultura Retro) [HORARIO: 12:00 - 20:00]
 Edificio de hormigón plagado del imperio Mandarake. Tesoros otaku de pura cepa.
 
 *Detalle:* La Madriguera del Conejo Blanca Mientras os acercáis por el Sun Mall cubierto parece normal, pero al subir a los pisos superiores entraréis en celdas especializadas llenas de cels de Ghibli originales, cartuchos de SNES en caja y Godzilla vintage. Reto: Buscad en el sótano el helado de 8 pisos de Daily Chico.
 
 - **Precio:** Gratis
 
-#### 10:00 - Museo Nacional de Tokio (Ueno)
+#### 10:00 - Museo Nacional de Tokio (Ueno) [HORARIO: 09:30 - 17:00]
 Si sois amantes de la historia de los Samuráis, Katanas y armaduras.
 
 *Detalle:* El Legado del Imperio Ubicado dentro del inmenso parque Ueno, contiene la mayor colección de arte japonés del mundo. Las exposiciones de espadas históricas forjadas por los grandes maestros son formidables.
@@ -1792,7 +1793,7 @@ Si sois amantes de la historia de los Samuráis, Katanas y armaduras.
 ### ⏱️ Resumen del Día
 - **10:30** - Llegada a Nikko / Templos: Inicio de la ruta visitando primero el Puente sagrado Shinkyo y los templos Rinno-ji y Futarasan Jinja. (Base)
 - **12:30** - Almuerzo local temprano: Comer especialidades tradicionales en las callejuelas antes de que se llenen. (Base)
-- **14:30** - Santuario Toshogu: Visita al mausoleo de Ieyasu Tokugawa a última hora para evitar colas de taquilla. (Base)
+- **14:30** - Santuario Toshogu [HORARIO: 08:00 - 17:00]: Visita al mausoleo de Ieyasu Tokugawa a última hora para evitar colas de taquilla. (Base)
 - **19:00** - Regreso al Hotel: Regreso a Tokio (salida en tren desde Nikko a las 18:30). (Base)
 
 ### 🚆 Transporte Detallado
@@ -1827,7 +1828,7 @@ Tomar el tranvía Enoden a la isla de santuarios y cuevas marinas.
 
 - **Precio:** Tren (260 JPY)
 
-#### 14:00 - Cascadas Kegon o Lago Chuzenji (Si elegís Nikko)
+#### 14:00 - Cascadas Kegon o Lago Chuzenji (Si elegís Nikko) [HORARIO: 08:00 - 17:00]
 Subir la montaña en autobús zigzagueante para ver la naturaleza brutal del parque nacional.
 
 *Detalle:* Fuerzas Naturales Si el santuario Toshogu se os queda corto y no os importa el largo trayecto en bus de peaje subiendo puertos de montaña (cuidado mareos), la caída libre de 97 metros de la gran cascada Kegon partiendo del lago de cráter Chuzenji es sobrecogedora.
@@ -1835,7 +1836,7 @@ Subir la montaña en autobús zigzagueante para ver la naturaleza brutal del par
 - **Precio:** Bus ~1.500 JPY
 
 ### ✨ Excursiones Adicionales
-#### 10:00 – 11:30 - Templo Engaku-ji
+#### 10:00 – 11:30 - Templo Engaku-ji [HORARIO: 08:00 - 16:30]
 Centro zen con atmósfera de quietud absoluta y arboledas de cedros en Kamakura.
 
 *Detalle:* Templo Engaku-ji Uno de los centros zen más importantes. La introducción perfecta antes de las zonas más concurridas de Kamakura.
@@ -1849,7 +1850,7 @@ El famoso puente sagrado rojo sobre el río Daiya.
 
 - **Precio:** ~300 JPY
 
-#### Día Completo - Kawagoe (Little Edo)
+#### Día Completo - Kawagoe (Little Edo) [HORARIO: 24 horas]
 Ciudad que conserva almacenes de la época Edo con paredes de arcilla negra.
 
 *Detalle:* Kawagoe: El Pequeño Edo A solo 30 min de Tokio. Una opción excelente si el grupo prefiere algo histórico pero menos exigente físicamente que Nikko.
@@ -1866,30 +1867,30 @@ Ciudad que conserva almacenes de la época Edo con paredes de arcilla negra.
 - **Transporte:** La conexión principal del día será el tren panorámico Yurikamome cruzando la bahía (No entra en el pase de metro regular).
 - **Navegación:** El tren Yurikamome se toma directamente desde la zona de Toyosu para conectar con la bahía y Odaiba.
 - **Grupo (8 Pax):** En Odaiba, los centros comerciales <em>Aqua City</em> y <em>DiverCity</em> tienen enormes zonas de comida (food courts) ideales para almorzar juntos sin esperas largas.
-- **Ropa (TeamLab Planets):** En Planets entraréis descalzos y caminaréis sobre agua por la rodilla. Llevad pantalones que se puedan remangar fácilmente.
+- **Ropa (TeamLab Planets) [HORARIO: 09:00 - 22:00]:** En Planets entraréis descalzos y caminaréis sobre agua por la rodilla. Llevad pantalones que se puedan remangar fácilmente.
 
 ### 💰 Estimación de Precios
 - **Transporte:** ~1.000 JPY (Yurikamome es caro)
 - **Total:** Base +
 
 ### ⏱️ Resumen del Día
-- **08:45** - Toyosu Market / Senkyaku Banrai: La nueva lonja de pescado y área de ocio de estilo tradicional. (Base)
+- **08:45** - Toyosu Market / Senkyaku Banrai [HORARIO: 10:00 - 22:00]: La nueva lonja de pescado y área de ocio de estilo tradicional. (Base)
 - **11:30** - Tren Yurikamome hacia Odaiba: Vistas panorámicas cruzando la bahía de Tokio y el Rainbow Bridge. (Base)
-- **12:15** - Odaiba Seaside: Estatua Libertad y Gundam: Paseo costero, centros comerciales y los grandes iconos de Odaiba. (Base)
+- **12:15** - Odaiba Seaside: Estatua Libertad y Gundam [HORARIO: 24 horas]: Paseo costero, centros comerciales y los grandes iconos de Odaiba. (Base)
 - **21:00** - Regreso al Hotel: Yurikamome y metro de vuelta a Iidabashi. (Base)
 
 ### 🚆 Transporte Detallado
 - **08:00** **Salida Hotel Edmont**
 - **08:15** **Metro a Toyosu** (30 min) [Suica]
-- **08:45** **Toyosu Market / Senkyaku Banrai**
+- **08:45** **Toyosu Market / Senkyaku Banrai [HORARIO: 10:00 - 22:00]**
 - **11:30** **Tren Yurikamome hacia Odaiba** (10 min) [Suica]
-- **12:15** **Odaiba Seaside: Estatua Libertad y Gundam**
+- **12:15** **Odaiba Seaside: Estatua Libertad y Gundam [HORARIO: 24 horas]**
 - **21:00** **Yurikamome y Metro Oedo de vuelta al Hotel desde Odaiba** (35 min) [Suica (~550 JPY)]
 
 ### 🗺️ Itinerario Base (Ruta Central)
 _Adentrarse en la bahía de Tokio. Empezamos en Toyosu para degustar sushi fresco y visitar Senkyaku Banrai, para luego tomar el Yurikamome hacia la isla artificial de Odaiba con sus centros comerciales y vistas espectaculares._
 
-#### 08:45 - Toyosu Senkyaku Banrai
+#### 08:45 - Toyosu Senkyaku Banrai [HORARIO: 10:00 - 22:00]
 El nuevo complejo comercial termal junto al mercado mayorista de atunes más grande del mundo.
 
 *Detalle:* Toyosu: El Nuevo Legado del Mar Tras el cierre del icónico Tsukiji, Toyosu se ha convertido en la lonja de pescado más avanzada del mundo. Aunque el área mayorista es de acceso restringido y muy tecnológica, el nuevo complejo **Senkyaku Banrai** ("Mil Huéspedes") recrea un animado mercado del periodo Edo con arquitectura de madera tradicional. Es el lugar definitivo para desayunar el sushi mejor seleccionado de la madrugada. No os perdáis el **Manyo Club**, donde podréis disfrutar de un baño de pies (ashiyu) gratuito en la azotea con vistas panorámicas a la bahía de Tokio y al skyline.
@@ -1911,7 +1912,7 @@ Los dos iconos absurdos fotográficos de la isla artificial.
 - **Precio:** Gratis
 
 ### 🔄 Complementos / Alternativas
-#### 09:30 - TeamLab Planets TOKYO
+#### 09:30 - TeamLab Planets TOKYO [HORARIO: 09:00 - 22:00]
 Una de las experiencias artísticas inmersivas más famosas del mundo. Agua, espejos y luces.
 
 *Detalle:* Nadar en Luz Imprescindible reservar con semanas de antelación. Caminaréis descalzos por ríos de agua tibia donde se proyectan carpas koi virtuales, atravesaréis laberintos infinitos de cristales LED colgantes y os tumbaréis en cúpulas de orquídeas flotantes. Una experiencia alucinante (y muy "instagrameable").
@@ -1925,7 +1926,7 @@ Para los amantes de parques. El único parque Disney de temática marina del mun
 
 - **Precio:** ~9.000 JPY
 
-#### 16:00 - Joypolis Tokyo
+#### 16:00 - Joypolis Tokyo [HORARIO: 10:00 - 20:00]
 Parque de atracciones totalmente indoor propiedad de SEGA. Montañas rusas simuladores bajo techo.
 
 *Detalle:* La Locura SEGA Ideal si llueve o sois fans de Sonic y los salones arcades gigantescos repletos de japoneses adolescentes compitiendo en simuladores de derrape a lo Initial-D.
@@ -1939,71 +1940,57 @@ Parque de atracciones totalmente indoor propiedad de SEGA. Montañas rusas simul
 **🏨 Alojamiento:** Vuelo de regreso
 
 ### ⚙️ Logística y Tips
-- **Aeropuerto:** Vuelo TK199 desde Haneda (HND) a las 21:45. Hay que estar 4 horas antes por precaución (17:45).
-- **Reserva de Taxis:** <strong>CRÍTICO:</strong> Reservad dos taxis tipo furgoneta (Vans) en la recepción del hotel con 24h de antelación (el Día 22 por la mañana) para garantizar sitio para 8 personas y 8 maletas grandes a las 16:30.
-- **Equipaje:** Haced el Check-out a las 10:00 pero pedid en recepción que os guarden las maletas grandes hasta la tarde de forma gratuita.
+- **Traslado Reservado:** Traslado privado confirmado en Booking.com. Recogida en el hotel a las 16:30. Tiempo estimado: 29 minutos.
+- **Salida Vuelos:** <strong>Vuelo 1:</strong> TK199 despegue de Haneda (HND) a las 21:45. <strong>Vuelo 2:</strong> TK1313 despegue de Estambul (IST) a las 08:20 (19-Ago).
+- **Tiempos de Aeropuerto:** Llegada al Aeropuerto de Haneda a las 17:45 (4 horas antes para el check-in y facturación).
+- **Estrategia Jet Lag de Vuelta:** <strong>Vuelo TK199:</strong> NO dormir de 21:45 a 04:00 (hora JPN). Dormir de 04:00 a 10:15 (hora JPN). <strong>Vuelo TK1313:</strong> Prohibido dormir para forzar el cansancio por la noche en España.
 
 ### 💰 Estimación de Precios
-- **Transporte:** Taxis al aeropuerto (~8000 JPY/vehículo)
+- **Transporte:** Pagado (Traslado Booking.com)
 - **Total:** Base +
 
 ### ⏱️ Resumen del Día
-- **11:00** - Mañana Libre: Últimas compras de souvenirs o relax. (Base)
-- **13:00** - Almuerzo de Despedida: Último almuerzo japonés fuerte (Ramen/Sushi). Estrategia Anti-Jet Lag: Carga de energía.
-- **16:30** - Traslado a Haneda: Taxis desde el hotel directo a la terminal. (Base)
-- **17:45** - Cena en Edo Koji: Cena en la zona temática de Haneda. Hidratación máxima antes del vuelo.
-- **21:45** - Vuelo HND-IST: Despegue. Inicio Protocolo Anti-Jet Lag: Misión Despiertos.
-
-### 🚆 Transporte Detallado
-- **10:00** **Check-out Hotel Edmont**
-- **10:15** **Día Libre en Tokio**
-- **16:00** **Volver al Hotel / Recoger Maletas**
-- **16:30** **Taxis hacia Aeropuerto de Haneda (x2 Van reservadas)** (45 min) [Efectivo/Tarjeta (~8.000 JPY por taxi)]
-- **17:45** **Llegada a Terminal / Check-in**
-- **21:45** **Despegue Vuelo TK199 (Turkish)** (13h hacia Estambul) [Incluido]
+- **10:00** - Check-out Hotel Edmont: Hora de dejar las habitaciones. Podéis dejar las maletas grandes guardadas gratis en la recepción del hotel hasta la tarde.
+- **10:15** - Últimas compras por Tokio: Tiempo libre para hacer compras de última hora en Don Quijote, Akihabara o pasear por vuestros rincones favoritos.
+- **13:00** - Almuerzo de Despedida: Último almuerzo fuerte en Tokio (un buen Ramen o Sushi). Carga de energía recomendada para el largo viaje de vuelta.
+- **16:00** - Regreso al Hotel: Volver a la recepción para recoger las maletas grandes y preparar el traslado.
+- **16:30** - 🚖 Traslado a Haneda (Booking.com): Recogida de los 8 pasajeros en el lobby del Hotel Metropolitan Edmont en traslado privado.<br><br>⏱️ **Husos Horarios:**<br>• 🇯🇵 Japón: **16:30**<br>• 🇹🇷 Turquía: **10:30**<br>• 🇪🇸 España: **09:30**<br><br>Ruta rápida directa de unos 29 minutos hasta la Terminal 3 de Haneda.
+- **17:45** - ✈️ Llegada a Haneda y Check-in: Llegada con 4 horas de antelación para facturar con total tranquilidad y evitar imprevistos.<br><br>⏱️ **Husos Horarios:**<br>• 🇯🇵 Japón: **17:45**<br>• 🇹🇷 Turquía: **11:45**<br>• 🇪🇸 España: **10:45**<br><br>Podéis cenar y pasear por la zona temática 'Edo Koji' en la planta superior de la terminal.
+- **21:45** - 🛫 Despegue Vuelo TK199 (HND ➔ IST): Salida del primer vuelo de vuelta de Turkish Airlines.<br><br>⏱️ **Husos Horarios:**<br>• 🇯🇵 Japón: **21:45** (Salida)<br>• 🇹🇷 Turquía: **15:45**<br>• 🇪🇸 España: **14:45**<br><br>Duración estimada: 13h 30m.<br><br>🛌 **ESTRATEGIA DE SUEÑO (Anti-Jet Lag):**<br>• **21:45 - 04:00 JPN (14:45 - 21:00 ESP)**: 🚫 **NO DORMIR**. Ved películas, leed, manteneos despiertos.<br>• **04:00 - 10:15 JPN (21:00 - 03:15 ESP)**: 💤 **DORMIR**. Intentad dormir las últimas 6 horas del vuelo para adaptaros al descanso.
+- **05:15** - 🛬 Llegada a Estambul (IST) - Escala: Aterrizaje en Estambul para escala en tránsito.<br><br>⏱️ **Husos Horarios:**<br>• 🇹🇷 Turquía: **05:15** (Llegada del 19-Ago)<br>• 🇪🇸 España: **04:15** (19-Ago)<br>• 🇯🇵 Japón: **11:15** (19-Ago)<br><br>Tiempo de escala: 3 horas 5 minutos. Seguir conexiones y caminar por la terminal.
+- **08:20** - 🛫 Salida Vuelo TK1313 (IST ➔ VLC): Despegue del vuelo final hacia España.<br><br>⏱️ **Husos Horarios:**<br>• 🇹🇷 Turquía: **08:20** (19-Ago - Salida)<br>• 🇪🇸 España: **07:20** (19-Ago)<br>• 🇯🇵 Japón: **14:20** (19-Ago)<br><br>Duración estimada: 4h 10m.<br><br>🚫 **MISIÓN: DESPIERTOS**. Prohibido dormir en este vuelo para poder acostaros en España por la noche y sincronizar el sueño.
+- **11:30** - 🏠 Llegada a Valencia (VLC): Aterrizaje en Valencia. Fin de la expedición.<br><br>⏱️ **Husos Horarios:**<br>• 🇪🇸 España: **11:30** (19-Ago - Llegada)<br>• 🇹🇷 Turquía: **12:30** (19-Ago)<br>• 🇯🇵 Japón: **18:30** (19-Ago)
 
 ### 🗺️ Itinerario Base (Ruta Central)
-_Es el momento de cerrar las maletas (probablemente sentándose encima) y aprovechar las últimas horas para despdirse de la ciudad antes del largo vuelo nocturno._
+_Es el momento de cerrar las maletas y aprovechar las últimas horas en Tokio antes del traslado al aeropuerto de Haneda para iniciar el regreso a casa._
 
 #### 11:00 - Compras Finales (Don Quijote o Akihabara)
 Comprar los últimos Kit-Kats raros, matcha o electrónica.
 
-*Detalle:* Don Quijote: El Paraíso de las Compras Tras dejar el equipaje en el lobby del hotel, tenéis el día libre. Es el momento clásico de ir a un "Mega Donki" (Don Quijote gigante) a comprar cajas de Kit-Kats de sabores, mochis y chucherías para la familia, o volver a vuestro barrio favorito de días anteriores para una última mirada. **Don Quijote** es una cadena de tiendas de descuento con todo tipo de productos, desde snacks y cosméticos hasta electrónica y disfraces. Es el lugar perfecto para encontrar souvenirs únicos y a buen precio.
+*Detalle:* Don Quijote: El Paraíso de las Compras Tras dejar el equipaje en el lobby del hotel, tenéis el día libre. Es el momento clásico de ir a un "Mega Donki" (Don Quijote gigante) a comprar cajas de Kit-Kats de sabores, mochis y chucherías para la familia, o volver a vuestro barrio favorito de días anteriores para una última mirada. **Don Quijote** es una cadena de tiendas de descuento con todo tipo de productos, desde snacks y cosméticos hasta electrónica and disfraces. Es el lugar perfecto para encontrar souvenirs únicos y a buen precio.
 
 - **Precio:** Libre
 
 #### 13:00 - Último Almuerzo Japonés
 Última oportunidad para sushi decente o un gran plato de ramen antes de la comida de avión.
 
-#### 16:30 - Operación Traslado: Taxis a Haneda
-Se recomiendan taxis furgoneta grandes para acomodar todo vuestro equipaje final.
+#### 16:30 - 🚖 Traslado Confirmado a Haneda (Booking.com)
+Traslado privado ya reservado y confirmado. Recogida a las 16:30 en el lobby del Hotel Metropolitan Edmont. Trayecto directo de unos 29 minutos hasta la Terminal 3 de Haneda. (Puedes consultar los detalles completos de la reserva pulsando el botón superior 'Info Taxi').
 
-*Detalle:* Ruta al Aeropuerto: Logística de Salida Proceso de Reserva: Debéis bajar a la recepción del Hotel Metropolitan Edmont la mañana anterior (Día 22) y solicitar la reserva de dos taxis tipo furgoneta (Van) para las 16:30 del Día 23. Indicad que sois 8 personas con equipaje voluminoso. Haneda está cerca de la ciudad (al sur, a diferencia de Narita que está lejísmos). Serán unos 45 minutos cómodos por autopista. Haneda: El aeropuerto de Haneda es excelente. Tiene un puente de madera estilo Edo en la planta superior y muchas opciones de comida y tiendas si llegáis con tiempo extra.
+#### 17:45 - ✈️ Llegada a Haneda y Check-in
+Llegada al Aeropuerto de Haneda para facturación con 4 horas de antelación.<br><br>⏱️ **Comparativa de Husos Horarios:**<br>• 🇯🇵 Japón: **17:45**<br>• 🇹🇷 Turquía: **11:45**<br>• 🇪🇸 España: **10:45**<br><br>Una vez facturado el equipaje directo a Valencia, podéis cenar y pasear por la zona comercial tematizada 'Edo Koji' en las plantas superiores (4 y 5) de la terminal antes de pasar el control de seguridad.
 
-- **Precio:** A dividir
+#### 21:45 - 🛫 Vuelo TK199 rumbo a Estambul
+Despegue del vuelo internacional nocturno de Turkish Airlines. Duración: 13h 30m.<br><br>⏱️ **Comparativa de Husos Horarios:**<br>• 🇯🇵 Japón: **21:45** (Salida el 18-Ago)<br>• 🇹🇷 Turquía: **15:45** (18-Ago)<br>• 🇪🇸 España: **14:45** (18-Ago)<br><br>🛌 **ESTRATEGIA DE SUEÑO (Anti-Jet Lag):**<br>• **21:45 - 04:00 JPN (14:45 - 21:00 ESP):** 🚫 **NO DORMIR**. Ved películas, leed, manteneos despiertos.<br>• **04:00 - 10:15 JPN (21:00 - 03:15 ESP):** 💤 **DORMIR**. Intentad dormir las últimas 6 horas del vuelo para adaptaros al descanso.
 
-### 🔄 Complementos / Alternativas
-#### 18:00 - Terminal 3 (Internacional) Haneda
-Edo Koji. Réplica de una calle del periodo Edo dentro del propio aeropuerto.
+#### 05:15 - 🛬 Tránsito / Escala en Estambul (IST)
+Aterrizaje en Estambul para escala en tránsito de 3h 5m.<br><br>⏱️ **Comparativa de Husos Horarios:**<br>• 🇹🇷 Turquía: **05:15** (Llegada del 19-Ago)<br>• 🇪🇸 España: **04:15** (19-Ago)<br>• 🇯🇵 Japón: **11:15** (19-Ago)<br><br>Seguid los carteles de conexiones internacionales ('International Connections') y caminad por la terminal.
 
-*Detalle:* Despedida Cultural Si llegáis pronto, subid a la planta 4 y 5 de la T3. Han reconstruido un puente japonés de madera enorme y calles comerciales preciosas. Buen sitio para la última cena antes de entrar a las aburridas puertas de embarque internacionales.
+#### 08:20 - 🛫 Vuelo TK1313 rumbo a Valencia
+Despegue del vuelo final hacia España. Duración: 4h 10m.<br><br>⏱️ **Comparativa de Husos Horarios:**<br>• 🇹🇷 Turquía: **08:20** (19-Ago - Salida)<br>• 🇪🇸 España: **07:20** (19-Ago)<br>• 🇯🇵 Japón: **14:20** (19-Ago)<br><br>🚫 **Estrategia:** **Misión: Mantenerse despiertos**. Prohibido dormir en este vuelo para forzar el cansancio por la noche en España y regular el sueño rápidamente al llegar.
 
-- **Precio:** Gratis
-
-### ✨ Excursiones Adicionales
-#### 16:30 – 17:30 - Santuario Anamori Inari
-Santuario con decenas de pequeños toris rojos muy cerca de Haneda.
-
-*Detalle:* Santuario Anamori Inari Despedida espiritual perfecta. Podéis recoger 'arena sagrada' para la protección en vuestro vuelo de regreso.
-
-- **Precio:** Gratis
-
-#### 17:00 – 18:00 - Jonanjima Seaside Park
-Parque costero para ver los aviones despegar a baja altura en Haneda.
-
-*Detalle:* Parque Costero Jonanjima Relax al atardecer sobre la bahía viendo de cerca los gigantes del aire antes de ser uno de ellos.
-
-- **Precio:** Gratis
+#### 11:30 - 🏠 Llegada a Valencia (VLC)
+Aterrizaje en Valencia y fin de la expedición a Japón.<br><br>⏱️ **Comparativa de Husos Horarios:**<br>• 🇪🇸 España: **11:30** (19-Ago - Llegada)<br>• 🇹🇷 Turquía: **12:30** (19-Ago)<br>• 🇯🇵 Japón: **18:30** (19-Ago)
 
 ---
 

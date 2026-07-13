@@ -1497,7 +1497,7 @@ body:not(.day-selected) .right-panel {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     text-align: left;
     width: 100%;
-    padding: 20px;
+    padding: 0; /* Cambiado a 0 para permitir imágenes full-width */
 }
 
 .excursion-card:hover {
@@ -3115,45 +3115,197 @@ body:not(.day-selected) .right-panel {
     margin-bottom: 20px;
 }
 
-/* Base Event Items */
+/* Base Event Items - Rediseño Premium de Tarjetas */
 .base-event-item {
-    background: rgba(15, 23, 42, 0.4);
-    padding: 15px;
-    border-radius: 10px;
-    border-left: 3px solid var(--neon-blue);
-    transition: transform 0.2s ease;
+    background: linear-gradient(135deg, rgba(23, 28, 41, 0.9), rgba(15, 20, 32, 0.95)) !important;
+    padding: 18px 22px !important;
+    border-radius: 14px !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-left: 4px solid var(--neon-blue) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
     display: flex;
-    /* Ensure flex layout */
-    align-items: flex-start;
-    margin-bottom: 20px;
+    align-items: center;
+    margin-bottom: 24px !important;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.base-event-item.clickable-event {
+    text-align: left;
+    font-family: inherit;
+    color: inherit;
+    cursor: pointer;
+    width: 100%;
 }
 
 .base-event-item:hover {
-    transform: translateX(5px);
-    background: rgba(15, 23, 42, 0.6);
+    transform: translateY(-3px) translateX(2px) !important;
+    background: linear-gradient(135deg, rgba(30, 37, 54, 0.95), rgba(20, 26, 41, 0.98)) !important;
+    border-color: rgba(0, 243, 255, 0.25) !important;
+    border-left-color: var(--accent) !important;
+    box-shadow: 0 10px 25px rgba(0, 243, 255, 0.15), 0 0 10px rgba(0, 243, 255, 0.1);
 }
 
 .base-event-thumb {
-    width: 80px;
-    height: 80px;
+    width: 150px !important;
+    height: 100px !important;
     object-fit: cover;
     border-radius: 8px;
-    margin-right: 15px;
+    margin-right: 20px !important;
+    flex-shrink: 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.base-event-item:hover .base-event-thumb {
+    transform: scale(1.02);
 }
 
 .base-event-content {
     flex: 1;
+    min-width: 0; /* Evita desbordamiento de texto */
 }
 
 .time-tag {
-    background: var(--bg-900);
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-family: monospace;
+    background: rgba(0, 243, 255, 0.1) !important;
+    border: 1px solid rgba(0, 243, 255, 0.25) !important;
+    padding: 4px 10px !important;
+    border-radius: 6px !important;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--neon-blue) !important;
+    font-weight: 800 !important;
+    font-size: 0.8rem !important;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    margin-right: 15px !important;
+    flex-shrink: 0;
+    text-align: center;
+    min-width: 60px !important;
+}
+
+/* Badges de eventos en la línea de tiempo */
+.event-badges-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 6px;
+    margin-top: 4px;
+}
+
+.event-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1;
+}
+
+.badge-orange {
+    background: rgba(249, 115, 22, 0.12);
+    border: 1px solid rgba(249, 115, 22, 0.3);
+    color: var(--accent);
+}
+
+.badge-cyan {
+    background: rgba(0, 243, 255, 0.12);
+    border: 1px solid rgba(0, 243, 255, 0.3);
     color: var(--neon-blue);
-    font-weight: bold;
-    min-width: 60px;
-    margin-right: 15px;
+}
+
+.badge-gold {
+    background: rgba(251, 191, 36, 0.12);
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    color: var(--gold);
+}
+
+.badge-purple {
+    background: rgba(168, 85, 247, 0.12);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    color: var(--neon-purple);
+}
+
+.badge-green {
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: var(--success);
+}
+
+/* Nodos personalizados en la línea de tiempo con iconos */
+.timeline-item.has-custom-node::before {
+    display: none !important;
+}
+
+.timeline-node {
+    position: absolute;
+    left: -33px;
+    top: 18px;
+    width: 26px;
+    height: 26px;
+    background: #0d1117;
+    border: 2px solid var(--neon-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--neon-blue);
+    font-size: 0.75rem;
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+    z-index: 5;
+    transition: all 0.3s ease;
+}
+
+.base-event-item:hover .timeline-node {
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: 0 0 15px rgba(249, 115, 22, 0.5);
+    transform: scale(1.12);
+}
+
+/* Adaptabilidad Móvil para Tarjetas */
+@media (max-width: 768px) {
+    .base-event-item {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        padding: 0 !important;
+        overflow: hidden;
+    }
+    
+    .base-event-item.clickable-event {
+        border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    }
+    
+    .base-event-thumb {
+        width: 100% !important;
+        height: 160px !important;
+        border-radius: 12px 12px 0 0 !important;
+        margin-right: 0 !important;
+        margin-bottom: 0 !important;
+        border: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .base-event-content {
+        padding: 20px !important;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .time-tag {
+        margin-bottom: 12px !important;
+        display: inline-block;
+        width: auto !important;
+    }
+    
+    .timeline-node {
+        left: -31px;
+        top: 25px; /* Ajuste para que quede centrado con la línea de tiempo */
+    }
 }
 
 .base-price {

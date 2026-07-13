@@ -58,7 +58,7 @@ const travelData_09_16 = [
             {
                 time: "08:00",
                 type: "point",
-                title: "Fushimi Inari (Toriis)",
+                title: "Fushimi Inari (Toriis) [HORARIO: 24 horas]",
                 icon: "fa-solid fa-torii-gate"
             },
             {
@@ -105,9 +105,9 @@ const travelData_09_16 = [
         ],
 
         timeline: [
-            { time: "08:00", title: "Fushimi Inari", desc: "Miles de toriis rojos. (Base)" },
-            { time: "12:30", title: "Mercado Nishiki", desc: "Gastronomía local. (Base)" },
-            { time: "15:30", title: "Kinkaku-ji", desc: "El pabellón de oro. (Base)" }
+            { time: "08:00", title: "Fushimi Inari [HORARIO: 24 horas]", desc: "Miles de toriis rojos. (Base)" },
+            { time: "12:30", title: "Mercado Nishiki [HORARIO: 09:30 - 18:00]", desc: "Gastronomía local. (Base)" },
+            { time: "15:30", title: "Kinkaku-ji [HORARIO: 09:00 - 17:00]", desc: "El pabellón de oro. (Base)" }
         ],
 
         prices: {
@@ -125,7 +125,7 @@ const travelData_09_16 = [
                 {
                     id: "b1",
                     time: "08:00",
-                    title: "Fushimi Inari-taisha",
+                    title: "Fushimi Inari-taisha [HORARIO: 24 horas]",
                     description: "El santuario de los mil toriis. Infiltración temprana para evitar las masas. (Gratis)",
                     image: "images/fushimi_inari.png",
                     price: "Gratis",
@@ -161,7 +161,7 @@ const travelData_09_16 = [
                 {
                     id: "b3",
                     time: "15:30",
-                    title: "Kinkaku-ji",
+                    title: "Kinkaku-ji [HORARIO: 09:00 - 17:00]",
                     description: "El Pabellón Dorado. Una reliquia de oro que brilla sobre un estanque espejo. (500 JPY)",
                     image: "images/kinkakuji.png",
                     price: "500 JPY",
@@ -191,9 +191,9 @@ const travelData_09_16 = [
         complements: [
             {
                 id: "c1",
-                title: "Templo Ryoan-ji",
-                time: "16:45",
-                description: "El jardín seco más famoso del mundo. A 15 min de Kinkaku-ji. (500 JPY)",
+                title: "Templo Ryoan-ji [HORARIO: 08:00 - 17:00]",
+                time: "16:00",
+                description: "El jardín seco más famoso del mundo. A 15 min de Kinkaku-ji. (Si se visita, se recomienda adelantar Kinkaku-ji a las 14:45). (500 JPY)",
                 price: "500 JPY",
                 image: "images/dia7-ginkakuji.jpg",
                 fullDesc: `
@@ -211,7 +211,7 @@ const travelData_09_16 = [
         additionalExcursions: [
             {
                 id: "add_fushimi_sake",
-                title: "Distrito del Sake de Fushimi",
+                title: "Distrito del Sake de Fushimi [HORARIO: 10:00 - 17:00]",
                 image: "images/add-fushimi-sake.jpg",
                 description: "Bodegas tradicionales de sake junto a canales con barcos de madera.",
                 time: "10:30 – 12:30",
@@ -229,7 +229,7 @@ const travelData_09_16 = [
             },
             {
                 id: "add_ninnaji",
-                title: "Templo Ninna-ji",
+                title: "Templo Ninna-ji [HORARIO: 09:00 - 17:00]",
                 image: "images/add-ninnaji.jpg",
                 description: "Complejo imperial enorme con una pagoda de cinco pisos y jardines palaciegos.",
                 time: "14:00 – 15:30",
@@ -247,7 +247,7 @@ const travelData_09_16 = [
             },
             {
                 id: "add_kitano",
-                title: "Santuario Kitano Tenmangu",
+                title: "Santuario Kitano Tenmangu [HORARIO: 05:00 - 18:00]",
                 image: "images/add-kitano.jpg",
                 description: "El santuario del dios del estudio, famoso por sus ciruelos y sus estatuas de bueyes.",
                 time: "16:00 – 17:00",
@@ -449,7 +449,7 @@ const travelData_09_16 = [
             },
             {
                 id: "c2",
-                title: "Torre de Kioto",
+                title: "Torre de Kioto [HORARIO: 10:00 - 21:00]",
                 time: "10:30",
                 description: "Vistas panorámicas frente a la estación. (900 JPY)",
                 price: "900 JPY",
@@ -480,7 +480,7 @@ const travelData_09_16 = [
             },
             {
                 id: "c3",
-                title: "Mercado Nishiki",
+                title: "Mercado Nishiki [HORARIO: 09:30 - 18:00]",
                 time: "14:30",
                 description: "Últimas compras gastronómicas. (Gratis)",
                 price: "Gratis (entrada)",
@@ -513,7 +513,7 @@ const travelData_09_16 = [
         additionalExcursions: [
             {
                 id: "add_heian",
-                title: "Santuario Heian",
+                title: "Santuario Heian [HORARIO: 06:00 - 17:30]",
                 image: "images/add-heian.jpg",
                 description: "Famoso por su gigantesco Torii rojo y sus jardines imperiales con puentes de madera.",
                 time: "11:00 – 12:30",
@@ -532,7 +532,7 @@ const travelData_09_16 = [
             },
             {
                 id: "add_tofukuji",
-                title: "Templo Tōfuku-ji",
+                title: "Templo Tōfuku-ji [HORARIO: 05:00 - 16:00]",
                 image: "images/add-tofukuji.jpg",
                 description: "Templo zen con un puente que cruza un valle de arces y jardines de piedra modernos.",
                 time: "14:30 – 16:00",
@@ -551,7 +551,7 @@ const travelData_09_16 = [
             },
             {
                 id: "add_funaoka",
-                title: "Funaoka Onsen",
+                title: "Funaoka Onsen [HORARIO: 15:00 - 01:00]",
                 image: "images/add-funaoka.jpg",
                 description: "Uno de los baños públicos más antiguos y bonitos de Kioto con tallas de madera históricas.",
                 time: "18:00 – 20:00",
@@ -586,7 +586,7 @@ const travelData_09_16 = [
             { title: "Billetes Shinkansen", text: "COMPRADO: Nozomi 2 (08:45 -> 09:19). Asientos reservados en <strong>Vagón 16 (Filas 14 a 17, asientos D y E)</strong>. Los códigos QR individuales de acceso están vinculados en el panel de Documentos (Día 0) y en la Guía de Transporte de este día." },
             { title: "Billetes Hida (Nagoya-Takayama)", text: "COMPRADO: Hida 7 (10:00 -> 12:30). Localizadores <strong>41256</strong> (3 Ad + 1 Ch) y <strong>42023</strong> (4 Ad). Deben ser <strong>impresos físicamente</strong> en una máquina JR verde o ventanilla (ej. en Kioto) usando la tarjeta MasterCard terminada en <strong>7801</strong> y el PIN de 4 dígitos creado. Ver instrucciones completas en la Guía de Transporte." },
             { title: "Equipaje", text: "Solo mochilas de mano. Las maletas grandes van por Takkyubin a Tokio o Kawaguchiko." },
-            { title: "Onsen", text: "Ducharse antes de entrar. Tatuajes: consultar política (o reservar privado)." }
+            { title: "Onsen [HORARIO: 15:00 - 01:00]", text: "Ducharse antes de entrar. Tatuajes: consultar política (o reservar privado)." }
         ],
 
         transportTimeline: [
@@ -691,7 +691,7 @@ const travelData_09_16 = [
         complements: [
             {
                 id: "c1",
-                title: "Shinhotaka-no-yu",
+                title: "Shinhotaka-no-yu [HORARIO: 08:00 - 18:00]",
                 time: "16:30",
                 description: "Baño mixto al aire libre junto al río. Experiencia salvaje (Baño público).",
                 price: "Donación",
@@ -764,7 +764,7 @@ const travelData_09_16 = [
             },
             {
                 id: "add_hirayu_waterfall",
-                title: "Cascada Hirayu",
+                title: "Cascada Hirayu [HORARIO: 24 horas]",
                 image: "images/add-hirayu-waterfall.jpg",
                 description: "Impresionante caída de agua de 64 metros rodeada de naturaleza salvaje.",
                 time: "16:00 – 17:00",
@@ -782,7 +782,7 @@ const travelData_09_16 = [
             },
             {
                 id: "add_kaiyukan",
-                title: "Acuario Kaiyukan",
+                title: "Acuario Kaiyukan [HORARIO: 10:00 - 20:00]",
                 image: "images/add-kaiyukan.jpg",
                 description: "Uno de los acuarios más grandes del mundo con un tiburón ballena espectacular.",
                 time: "10:00 – 12:30",
@@ -861,7 +861,7 @@ const travelData_09_16 = [
         timeline: [
             { time: "12:15", title: "Llegada Takayama", desc: "Regreso desde el Ryokan. (Base)" },
             { time: "12:30", title: "Almuerzo Hida Beef", desc: "La mejor carne de Japón. (Base)" },
-            { time: "14:30", title: "Sanmachi Suji", desc: "Casco antiguo conservado. (Base)" },
+            { time: "14:30", title: "Sanmachi Suji [HORARIO: 24 horas]", desc: "Casco antiguo conservado. (Base)" },
             { time: "16:00", title: "Tiempo Libre", desc: "Elegid complemento (Jinya, Museos). (Opcional)" }
         ],
 
@@ -893,7 +893,7 @@ const travelData_09_16 = [
                 {
                     id: "b2",
                     time: "14:30",
-                    title: "Barrio Sanmachi Suji",
+                    title: "Barrio Sanmachi Suji [HORARIO: 24 horas]",
                     description: "Corazón feudal de la ciudad con casas de madera negra.",
                     image: "images/takayama.png",
                     price: "Gratis",
@@ -920,7 +920,7 @@ const travelData_09_16 = [
         complements: [
             {
                 id: "c1",
-                title: "Takayama Jinya",
+                title: "Takayama Jinya [HORARIO: 08:45 - 17:00]",
                 time: "15:30",
                 description: "Antigua oficina del gobierno del Shogun. Salas de tatami e historia.",
                 price: "440 JPY",
@@ -947,7 +947,7 @@ const travelData_09_16 = [
             },
             {
                 id: "c2",
-                title: "Yatai Kaikan",
+                title: "Yatai Kaikan [HORARIO: 09:00 - 17:00]",
                 time: "16:00",
                 description: "Museo de las carrozas del festival de Takayama (Patrimonio UNESCO).",
                 price: "1.000 JPY",
@@ -963,7 +963,7 @@ const travelData_09_16 = [
             },
             {
                 id: "c3",
-                title: "Higashiyama Walk",
+                title: "Higashiyama Walk [HORARIO: 24 horas]",
                 time: "16:30",
                 description: "Paseo por los templos de la colina. Silencio y musgo.",
                 price: "Gratis",
@@ -981,7 +981,7 @@ const travelData_09_16 = [
         additionalExcursions: [
             {
                 id: "add_hida_no_sato",
-                title: "Hida no Sato",
+                title: "Hida no Sato [HORARIO: 08:30 - 17:00]",
                 image: "images/add-hida-no-sato.jpg",
                 description: "Museo al aire libre con más de 30 casas tradicionales de techos de paja.",
                 time: "15:30 – 17:30",
@@ -999,7 +999,7 @@ const travelData_09_16 = [
             },
             {
                 id: "add_matsuri_no_mori",
-                title: "Matsuri no Mori",
+                title: "Matsuri no Mori [HORARIO: 09:00 - 17:00]",
                 image: "images/add-matsuri-no-mori.jpg",
                 description: "Museo subterráneo con carrozas tecnológicas y tambores taiko gigantes.",
                 time: "12:00 – 13:30",
@@ -1018,7 +1018,7 @@ const travelData_09_16 = [
             },
             {
                 id: "add_sakurayama",
-                title: "Santuario Sakurayama Hachimangu",
+                title: "Santuario Sakurayama Hachimangu [HORARIO: 24 horas]",
                 image: "images/add-sakurayama.jpg",
                 description: "Protector del norte de la ciudad con una atmósfera señorial y cedros centenarios.",
                 time: "11:00 – 12:00",
@@ -1079,16 +1079,16 @@ const travelData_09_16 = [
             { time: "15:45", type: "point", title: "Check-in Hotel Toyoko Inn", icon: "fa-solid fa-bed" },
             { time: "16:45", type: "point", title: "Pagoda Chureito (Luz de tarde)", icon: "fa-solid fa-vihara" },
             { time: "18:45", type: "point", title: "Paseo por el lago", icon: "fa-solid fa-person-walking-zen" },
-            { time: "19:30", type: "point", title: "Oishi Park (Atardecer)", icon: "fa-solid fa-cloud-sun" }
+            { time: "19:30", type: "point", title: "Oishi Park (Atardecer) [HORARIO: 24 horas]", icon: "fa-solid fa-cloud-sun" }
         ],
 
         timeline: [
             { time: "08:50", title: "LIMON Bus a Kawaguchiko", desc: "Trayecto de 6h con desvío por Hirayu y Matsumoto. (Base)" },
             { time: "15:05", title: "Recogida Coche", desc: "Alquiler listo para explorar la zona de los Cinco Lagos. (Base)" },
             { time: "15:45", title: "Check-in Hotel", desc: "Instalación en Toyoko Inn Fuji Kawaguchiko Ohashi. (Base)" },
-            { time: "16:45", title: "Pagoda Chureito", desc: "La foto más icónica de Japón con luz de tarde/atardecer. (Base)" },
+            { time: "16:45", title: "Pagoda Chureito [HORARIO: 24 horas]", desc: "La foto más icónica de Japón con luz de tarde/atardecer. (Base)" },
             { time: "18:45", title: "Paseo por el lago", desc: "Vistas y paz junto al agua. (Base)" },
-            { time: "19:30", title: "Atardecer en Oishi Park", desc: "El momento mágico del día frente al Fuji. (Base)" }
+            { time: "19:30", title: "Atardecer en Oishi Park [HORARIO: 24 horas]", desc: "El momento mágico del día frente al Fuji. (Base)" }
         ],
 
         prices: {
@@ -1150,14 +1150,22 @@ const travelData_09_16 = [
                 {
                     id: "b4",
                     time: "16:30",
-                    title: "Pagoda Chureito",
-                    description: "Es el momento ideal por la luz de la tarde. Al tener coche, aparcaréis en la zona (aprox. 1.000 JPY) y subiréis los 398 escalones para la foto icónica del viaje.",
+                    title: "Pagoda Chureito [HORARIO: 24 horas] 📦",
+                    description: "Es el momento ideal por la luz de la tarde. Al tener coche, aparcaréis en la zona (aprox. 1.000 JPY) y subiréis los 398 escalones para la foto icónica del viaje. ¡Misión: comprar Himitsu-bako! 📦",
                     price: "Gratis (Parking ~1.000 JPY)",
                     image: "images/dia13-chureito.jpg",
                     fullDesc: `
                         <h3><i class="fa-solid fa-vihara"></i> La Pagoda de la Paz: Chureito</h3>
                         <p>Ubicada en el Parque Arakurayama Sengen, esta pagoda de cinco pisos es el símbolo visual de Japón por excelencia.</p>
                         <p><em>Para llegar a la plataforma de observación, deberéis subir exactamente 398 escalones. Al llegar arriba, entenderéis por qué: la alineación perfecta de la pagoda bermellón con el Monte Fuji al fondo crea una composición que parece pintada.</em></p>
+                        
+                        <div style="background:rgba(251,191,36,0.12); border:1px solid var(--gold); border-radius:10px; padding:12px; margin-top:15px; display:flex; align-items:center; gap:10px;">
+                            <i class="fa-solid fa-box" style="color:var(--gold); font-size:1.4rem;"></i>
+                            <div>
+                                <strong style="color:white; display:block;">📦 MISIÓN LOGÍSTICA: Comprar Himitsu-bako</strong>
+                                <span style="font-size:0.85rem; color:#cbd5e1;">Aprovechad las tiendas locales en los alrededores o en Hakone para comprar las famosas cajas secretas rompecabezas tradicionales de madera japonesa. ¡Un souvenir mecánico artesanal e icónico!</span>
+                            </div>
+                        </div>
                     `
                 },
                 {
@@ -1178,7 +1186,7 @@ const travelData_09_16 = [
                 {
                     id: "b6",
                     time: "19:30",
-                    title: "Atardecer en Oishi Park",
+                    title: "Atardecer en Oishi Park [HORARIO: 24 horas]",
                     description: "El momento mágico donde el cielo se tiñe de colores sobre el Monte Fuji.",
                     price: "Gratis",
                     image: "images/oishi_park_atardecer.jpg",
@@ -1196,7 +1204,7 @@ const travelData_09_16 = [
         additionalExcursions: [
             {
                 id: "add_music_forest",
-                title: "Music Forest Museum",
+                title: "Music Forest Museum [HORARIO: 10:00 - 17:00]",
                 image: "images/add-music-forest.jpg",
                 description: "Pequeño pueblo europeo dedicado a instrumentos musicales mecánicos.",
                 time: "15:00 – 17:00",
@@ -1652,7 +1660,7 @@ const travelData_09_16 = [
     // --- DÍA 15: PUEBLOS Y SANTUARIOS (BASE + COMPLEMENTOS) ---
     {
         day: 15, type: "stay",
-        date: "Lun, 10 Agosto", title: "🏛️ Alrededores del Fuji",
+        date: "Lun, 10 Agosto", title: "🏛️ Alrededores del Fuji [HORARIO: 09:00 - 17:00]",
         coords: [35.498, 138.768], zoom: 13,
         hotel: "Toyoko Inn Fuji Kawaguchiko Ohashi",
         hotelImage: "images/hotel-toyoko-kawaguchiko.jpg",
@@ -1698,7 +1706,7 @@ const travelData_09_16 = [
         ],
 
         timeline: [
-            { time: "09:15", title: "Santuario Sengen", desc: "Misticismo entre cedros milenarios. (Base)" },
+            { time: "09:15", title: "Santuario Sengen [HORARIO: 24 horas]", desc: "Misticismo entre cedros milenarios. (Base)" },
             { time: "11:30", title: "Hoto Noodles", desc: "Almuerzo tradicional espeso de la zona. (Base)" },
             { time: "14:00", title: "Tarde en coche", desc: "Elegir entre cascadas o pueblos museo. (Opcional)" }
         ],
@@ -1951,16 +1959,22 @@ const travelData_09_16 = [
                 timeLabel: "1h 58m",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Kawaguchiko+Station&destination=Shinjuku+Station&travelmode=transit",
                 tacticalGuideId: "mission_fuji_excursion",
-                tacticalBtnText: "🚀 GUÍA DE TREN (Vagón 2)"
+                tacticalBtnText: "🚀 GUÍA DE TREN (Vagón 2)",
+                ticketLinks: [
+                    { name: "Billete Parte 1", url: "https://drive.google.com/file/d/1HFaz2gxwdkVzRitXCiNwIAy0BRFEJlXh/view?usp=sharing" },
+                    { name: "Billete Parte 2", url: "https://drive.google.com/file/d/14M5-vIjEfonijUF7Soxm0dvJDNVkwkm2/view?usp=sharing" }
+                ]
             },
             { time: "16:06", type: "point", title: "Llegada al caos de Shinjuku (Tokio)", icon: "fa-solid fa-city" },
             {
                 time: "16:20",
                 type: "transit",
-                title: "Taxis a Iidabashi (x2 Vans)",
-                price: "~4.000 JPY total (2 taxis)",
-                timeLabel: "15 min",
-                link: "https://www.google.com/maps/dir/?api=1&origin=Shinjuku+Station&destination=Hotel+Metropolitan+Edmont+Tokyo"
+                title: "TRANSPORTE AL HOTEL (Taxi o Metro)",
+                price: "Suica o ~2.000 JPY/taxi",
+                timeLabel: "15-20 min",
+                link: "https://www.google.com/maps/dir/?api=1&origin=Shinjuku+Station&destination=Hotel+Metropolitan+Edmont+Tokyo",
+                tacticalGuideId: "route_day16_shinjuku_to_hotel",
+                tacticalBtnText: "TRANSPORTE A HOTEL"
             },
             { time: "16:45", type: "point", title: "Check-in Edmont Tokyo / Descanso", icon: "fa-solid fa-bed" },
             {
@@ -1971,7 +1985,7 @@ const travelData_09_16 = [
                 timeLabel: "10 min a pie",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Hotel+Metropolitan+Edmont+Tokyo&destination=Kagurazaka&travelmode=walking"
             },
-            { time: "18:45", type: "point", title: "Sunset en Santuario Akagi", icon: "fa-solid fa-torii-gate" },
+            { time: "18:45", type: "point", title: "Sunset en Santuario Akagi [HORARIO: 24 horas]", icon: "fa-solid fa-torii-gate" },
             {
                 time: "20:00",
                 type: "transit",
@@ -1983,13 +1997,12 @@ const travelData_09_16 = [
         ],
 
         timeline: [
-            { time: "11:30", title: "Gasolinera Kawaguchiko", desc: "Repostaje del coche de alquiler antes de devolverlo. (Base)" },
+            { time: "11:30", title: "Gasolinera Kawaguchiko [HORARIO: 24 horas]", desc: "Repostaje del coche de alquiler antes de devolverlo. (Base)" },
             { time: "12:00", title: "Devolución Coche", desc: "Recepción en Budget Kawaguchiko. (Base)" },
-            { time: "14:08", title: "Traslado a Tokio (COMPRADO)", desc: "Tren Directo Fuji Excursion a Shinjuku. (Base)" },
-            { time: "16:06", title: "Llegada Shinjuku", desc: "Cruce de la estación más concurrida del mundo hacia Taxis. (Base)" },
-            { time: "16:45", title: "Check-in Edmont", desc: "Recuperad maletas grandes y descanso brutal en el hotel. (Base)" },
-            { time: "18:30", title: "Kagurazaka y Akagi", desc: "Paseo por el barrio tradicional de Kagurazaka y el moderno santuario Akagi. (Base)" },
-            { time: "20:00", title: "Cena y Regreso", desc: "Cena en Kagurazaka o alrededores del hotel y regreso a pie. (Base)" }
+            { time: "14:08", title: "Tren a Shinjuku (COMPRADO)", desc: "Tren Directo Fuji Excursion a Shinjuku. (Base)" },
+            { time: "16:06", title: "Llegada a Shinjuku", desc: "Traslado al hotel en taxi o metro local. (Base)" },
+            { time: "16:45", title: "Check-in Edmont", desc: "Recuperad maletas grandes y descanso en el hotel. (Base)" },
+            { time: "18:30", title: "Buffet de Actividades 🎤", desc: "Elección de plan: Kagurazaka, Tokyo Dome City, Canal Cafe, Ayuntamiento o Shinjuku. (Base)" }
         ],
 
         prices: {
@@ -2008,82 +2021,96 @@ const travelData_09_16 = [
                     description: "En Kawaguchiko Station. Último trámite antes de subir al tren.",
                     image: "images/dia16-coche.jpg",
                     price: "Llenar depósito",
-                        fullDesc: `
-                            <h3><i class="fa-solid fa-gas-pump"></i> Operación Repostaje</h3>
-                            <p>Llenad el depósito en la gasolinera (ENEOS u otra) más cercana a la oficina de Budget en Kawaguchiko.</p>
-                            <ul>
-                                <li><i class="fa-solid fa-receipt"></i> <strong>Justificante:</strong> Guardad con mucho cuidado el ticket de compra de gasolina de la estación, los agentes de rent-a-car suelen exigirlo.</li>
-                            </ul>
-                        `
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-gas-pump"></i> Operación Repostaje</h3>
+                        <p>Llenad el depósito en la gasolinera (ENEOS u otra) más cercana a la oficina de Budget en Kawaguchiko.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-receipt"></i> <strong>Justificante:</strong> Guardad con mucho cuidado el ticket de compra de gasolina de la estación, los agentes de rent-a-car suelen exigirlo.</li>
+                        </ul>
+                    `
                 },
                 {
                     id: "b2",
                     time: "14:08",
-                    title: "Tren a Shinjuku (Tokio) [COMPRADO]",
-                    description: "Tren Expreso Especial que no requiere transbordos. Fin del descanso.",
-                    image: "images/tokio_skyline.png",
-                    price: "Reserva ticketless confirmada",
-                    booking: { id: "bk_fuji_excursion", timeframe: "COMPRADO", required: true, link: "https://www.eki-net.com/en/jreast-train-reservation/Top/Index" },
-                        fullDesc: `
-                            <h3><i class="fa-solid fa-train"></i> Rumbo a la Capital Ciberpunk</h3>
-                            <p>Traslado directo a la estación de Shinjuku mediante el Fuji Excursion. Entrar en Tokio por Shinjuku es un golpe frontal.</p>
-                            <ul>
-                                <li><i class="fa-solid fa-people-arrows"></i> <strong>Choque Cultural:</strong> Tras días de paz alpina, la multitud de Shinjuku, sus neones incesantes y el volumen general serán apabullantes.</li>
-                            </ul>
-                        `
+                    title: "Tren Express 'Fuji Excursion 32' a Shinjuku",
+                    description: "Traslado directo sin transbordos de Kawaguchiko a la estación de Shinjuku (14:08 - 16:06). Reserva ticketless confirmada.",
+                    image: "images/dia16_fuji_excursion.png",
+                    price: "Incluido (Eki-Net)",
+                    fullDesc: `
+                        <h3><i class="fa-solid fa-train"></i> Traslado Directo a la Capital</h3>
+                        <p>Tras la entrega del coche de alquiler, tomamos el tren express directo a Shinjuku. Podéis descargar los billetes PDF directamente desde el botón en la línea superior de la ruta de transporte.</p>
+                        <ul>
+                            <li><i class="fa-solid fa-train"></i> <strong>Trayecto cómodo:</strong> Ideal para descansar o repasar las notas antes de adentrarse en la metrópolis.</li>
+                        </ul>
+                    `
                 },
                 {
                     time: "16:45",
-                    title: "Check-in y Reencuentro con Equipaje",
-                    description: "Llegada al Hotel Metropolitan Edmont en el barrio de Iidabashi.",
+                    title: "Check-in en Hotel Metropolitan Edmont",
+                    description: "Llegada al hotel de Tokio, recuperación de las maletas enviadas por Takkyubin y un descanso merecido.",
                     type: "gap"
                 },
                 {
                     id: "b3",
                     time: "18:30",
-                    title: "El Barrio Geisha (Kagurazaka)",
-                    description: "Paseo por el barrio colindante de vuestro hotel para aclimataros a Tokio.",
-                    image: "images/dia16-kagurazaka.jpg",
-                    price: "Gratis",
+                    title: "Buffet de Actividades: Primera Noche en Tokio 🎤",
+                    description: "Menú interactivo de actividades recomendadas a pocos minutos del hotel o Shinjuku. ¡Abre el buffet pulsando el botón!",
+                    image: "images/tokio_skyline.png",
+                    price: "Gratis / Variable",
                     fullDesc: `
-                        <h3><i class="fa-solid fa-bridge"></i> Kagurazaka: La Pequeña Francia de Kioto</h3>
-                        <p>Kagurazaka es uno de los pocos lugares en Tokio que todavía emana la atmósfera del periodo Edo. Antiguamente fue un prestigioso distrito de Geishas (Hanamachi) fuera de los límites de la ciudad vieja. Sus callejones empedrados y sinuosos, como el famoso "Callejón Kakurenbo", esconden restaurantes de lujo y casas de té tradicionales tras discretas puertas de madera.</p>
-                        <p><em>Hoy es conocido como el barrio francés de Tokio por la alta concentración de residentes de esa nacionalidad y excelentes panaderías y bistrós. No os perdáis el <strong>Santuario Akagi</strong>, reconstruido recientemente por el afamado arquitecto Kengo Kuma, fusionando de forma brillante la madera tradicional con el cristal moderno.</em></p>
+                        <div style="text-align:center; margin-bottom:25px;">
+                            <div class="gastro-radar-wrapper" style="display:inline-block; float:none; margin:0 auto 10px auto; position:relative;">
+                                <button class="gastro-radar-btn pulse-accent" style="background: rgba(249, 115, 22, 0.2); border: 2px solid var(--accent); color: var(--accent); box-shadow: 0 0 15px rgba(249, 115, 22, 0.4); width:60px; height:60px; font-size:1.5rem;" onclick="renderTacticalMission('day16_activities_buffet', 16)" title="Abrir Buffet de Actividades">
+                                    <i class="fa-solid fa-list-check"></i>
+                                </button>
+                                <div style="color:var(--accent); font-weight:800; font-size:0.75rem; letter-spacing:1px; margin-top:8px; text-transform:uppercase; text-shadow:0 0 5px rgba(249,115,22,0.4);">Buffet de Actividades</div>
+                            </div>
+                        </div>
+                        
+                        <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Elige tu plan para la primera noche</h3>
+                        <p>Os hemos preparado un menú completo con 5 alternativas ideales según el cansancio, el calor o lo que más os apetezca:</p>
+                        
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:20px;">
+                            <button onclick="renderTacticalMission('day16_activities_buffet', 16)" class="tactical-btn" style="padding:12px; border-radius:10px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); color:white; text-align:left; cursor:pointer; font-family:inherit;">
+                                <strong style="color:var(--accent); display:block; margin-bottom:4px;"><i class="fa-solid fa-map-pin"></i> 1. Kagurazaka</strong> Paseo clásico y cena en tabernas tradicionales de varios pisos.
+                            </button>
+                            <button onclick="renderTacticalMission('day16_activities_buffet', 16)" class="tactical-btn" style="padding:12px; border-radius:10px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); color:white; text-align:left; cursor:pointer; font-family:inherit;">
+                                <strong style="color:var(--neon-blue); display:block; margin-bottom:4px;"><i class="fa-solid fa-gamepad"></i> 2. Tokyo Dome City</strong> Ocio, estadio iluminado y comida fácil sin reserva.
+                            </button>
+                            <button onclick="renderTacticalMission('day16_activities_buffet', 16)" class="tactical-btn" style="padding:12px; border-radius:10px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); color:white; text-align:left; cursor:pointer; font-family:inherit;">
+                                <strong style="color:var(--neon-purple); display:block; margin-bottom:4px;"><i class="fa-solid fa-mug-hot"></i> 3. Canal Cafe</strong> Terraza italiana al aire libre sobre el foso de agua.
+                            </button>
+                            <button onclick="renderTacticalMission('day16_activities_buffet', 16)" class="tactical-btn" style="padding:12px; border-radius:10px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); color:white; text-align:left; cursor:pointer; font-family:inherit;">
+                                <strong style="color:var(--gold); display:block; margin-bottom:4px;"><i class="fa-solid fa-building"></i> 4. Mirador del Tocho</strong> Subida gratuita al Ayuntamiento en Shinjuku.
+                            </button>
+                            <button onclick="renderTacticalMission('day16_activities_buffet', 16)" class="tactical-btn" style="grid-column: span 2; padding:12px; border-radius:10px; background:rgba(249, 115, 22, 0.05); border:1px solid rgba(249, 115, 22, 0.2); color:white; text-align:left; cursor:pointer; font-family:inherit;">
+                                <strong style="color:var(--accent); display:block; margin-bottom:4px;"><i class="fa-solid fa-wand-magic-sparkles"></i> 5. Shinjuku Completo (Neones, Mirador y Karaoke)</strong> Neones en Kabukicho, cena en Omoide Yokocho y Karaoke familiar.
+                            </button>
+                        </div>
+                        
+                        <div style="margin-top:20px; text-align:center; display:flex; justify-content:center; align-items:center; gap:15px; flex-wrap:wrap;">
+                            <button onclick="renderTacticalMission('day16_activities_buffet', 16)" class="action-btn" style="background:var(--accent); border:none; color:black; font-weight:800; padding:10px 20px; border-radius:30px; cursor:pointer; font-size:0.85rem; text-transform:uppercase; display:inline-flex; align-items:center; gap:8px; font-family:inherit;"><i class="fa-solid fa-book-open"></i> ABRIR MENÚ DE ACTIVIDADES</button>
+                            
+                            <div class="gastro-radar-wrapper" style="display:inline-block; float:none; margin:0; position:relative;">
+                                <button class="gastro-radar-btn pulse-cyan" style="background: rgba(0, 243, 255, 0.15); border: 2px solid var(--neon-blue); color: var(--neon-blue); box-shadow: 0 0 15px rgba(0, 243, 255, 0.4); width:45px; height:45px; font-size:1.1rem; border-radius:50%;" onclick="renderTacticalMission('mode_karaoke', 16)" title="Activar Modo Karaoke">
+                                    <i class="fa-solid fa-microphone"></i>
+                                </button>
+                                <div style="color:var(--neon-blue); font-weight:800; font-size:0.6rem; letter-spacing:1px; margin-top:4px; text-transform:uppercase; text-shadow:0 0 5px rgba(0,243,255,0.4);">Modo Karaoke 1</div>
+                            </div>
+                        </div>
                     `
                 }
             ]
         },
-        complements: [
-            {
-                id: "c1",
-                title: "Vistas Tocho (Ayuntamiento Tokio)",
-                time: "18:00",
-                description: "Edificio del Gobierno Metropolitano en Shinjuku. Vistas gratis 360º desde la planta 45.",
-                price: "Gratis",
-                image: "images/dia18-tocho.jpg",
-                    fullDesc: `
-                        <h3><i class="fa-solid fa-building"></i> Ascensor a las Estrellas</h3>
-                        <p>Subida hiperveloz gratuita al mirador del Edificio Metropolitano del Gobierno (observatorio Sur o Norte).</p>
-                        <ul>
-                            <li><i class="fa-solid fa-mountain"></i> <strong>Vistas Gratis:</strong> A diferencia de la Tokyo Skytree, la entrada es libre. En días despejados domina hasta el monte Fuji.</li>
-                            <li><i class="fa-solid fa-music"></i> <strong>Piano Público:</strong> Arriba suele haber un grandioso piano decorado por Yayoi Kusama.</li>
-                        </ul>
-                    `,
-                tacticalOptions: [
-                    {
-                        title: "MIRADOR EN SHINJUKU",
-                        time: "18:00 - 19:30",
-                        description: "Tomar la línea JR Chuo o línea de metro Tozai desde Iidabashi a Shinjuku.",
-                        link: "https://www.google.com/maps/dir/?api=1&origin=Iidabashi+Station&destination=Tokyo+Metropolitan+Government+Building+Observation+Decks&travelmode=transit",
-                        tacticalGuideId: "mission_tocho"
-                    }
-                ]
-            }
-        ],
+        complements: [],
+        additionalExcursionsTitle: "OTRAS ACTIVIDADES CERCA HOTEL (PARA MAÑANAS)",
+        additionalExcursionsSub: "Explora estas actividades y atracciones cercanas para aprovechar tu mañana en Tokio:",
+        additionalExcursionsBtn: "Ver Actividades de Mañana",
+        additionalExcursionsLabel: "MAÑANA",
         additionalExcursions: [
             {
                 id: "add_samurai_restaurant",
-                title: "Samurai Restaurant Show",
+                title: "Samurai Restaurant Show [HORARIO: 15:00 - 22:00]",
                 image: "images/dia16-kagurazaka.jpg",
                 description: "El nuevo espectáculo heredero del Robot Restaurant en Kabukicho.",
                 time: "20:00 – 21:30",
@@ -2101,7 +2128,7 @@ const travelData_09_16 = [
             },
             {
                 id: "add_koishikawa",
-                title: "Jardín Koishikawa Korakuen",
+                title: "Jardín Koishikawa Korakuen [HORARIO: 09:00 - 17:00]",
                 image: "images/add-koishikawa.jpg",
                 description: "Uno de los jardines japoneses más antiguos y hermosos de Tokio, junto al hotel.",
                 time: "16:00 – 17:30",
@@ -2119,7 +2146,7 @@ const travelData_09_16 = [
             },
             {
                 id: "add_shinjuku_gyoen",
-                title: "Shinjuku Gyoen",
+                title: "Shinjuku Gyoen [HORARIO: 09:00 - 16:30]",
                 image: "images/add-shinjuku-gyoen.jpg",
                 description: "Parque inmenso que combina jardines japoneses, franceses e ingleses.",
                 time: "15:30 – 17:30",

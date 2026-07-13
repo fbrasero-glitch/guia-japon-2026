@@ -123,7 +123,8 @@ allData.forEach(dayInfo => {
     }
 
     if (dayInfo.additionalExcursions && dayInfo.additionalExcursions.length > 0) {
-        md += `### ✨ Excursiones Adicionales\n`;
+        const aeTitle = dayInfo.additionalExcursionsTitle || "Excursiones Adicionales";
+        md += `### ✨ ${aeTitle}\n`;
         dayInfo.additionalExcursions.forEach(exc => {
             md += `#### ${exc.time || ''} - ${exc.title || ''}\n`;
             if (exc.description) md += `${exc.description}\n\n`;
