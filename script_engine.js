@@ -4499,7 +4499,10 @@ window.renderGuideCards = function(data) {
     
     container.innerHTML = data.map(item => {
         const isComprado = item.bookingId ? (window.getBookingStatus(item.bookingId) === 'comprado') : false;
-        const decision = Persistence.getItem('decision_' + item.id) || 'no_decidido';
+        let decision = Persistence.getItem('decision_' + item.id);
+        if (decision === null || decision === 'undefined') {
+            decision = isComprado ? 'comprar' : 'no_decidido';
+        }
         
         let cardBorder = 'rgba(255,255,255,0.06)';
         let cardBg = 'rgba(15,23,42,0.5)';
