@@ -4489,6 +4489,38 @@ window.toggleGuideBooking = function(bookingId) {
 window.renderGuideCards = function(data) {
     const container = document.getElementById('guide-cards-container');
     if (!container) return;
+
+    // Enriquecer dinámicamente cada atracción con sus plazos de apertura y canales de venta
+    data.forEach(item => {
+        const extraInfo = {
+            ex_borderless: { releaseInfo: "3 meses antes (los slots se liberan el primer día de cada mes para los 3 meses siguientes).", channels: "Web oficial y Klook." },
+            ex_shibuya_sky: { releaseInfo: "Exactamente 14 días antes a las 00:00 h Japón (medianoche del lunes 3 de agosto en Japón para tu visita).", channels: "Web oficial (Webket) y Klook (puede tener 2-5 min de retraso por API)." },
+            ex_palacio_imperial: { releaseInfo: "YA RESERVADO (Normalmente abre 2 meses antes en la web oficial de la Casa Imperial).", channels: "Solo Web oficial de la Casa Imperial (entrada nominal gratuita)." },
+            ex_skytree: { releaseInfo: "30 días antes a las 00:00 JST.", channels: "Web oficial y Klook (muy recomendado en Klook por ofertas o pases combinados)." },
+            ex_planets: { releaseInfo: "Aproximadamente 3 meses antes (conviene reservar pronto los mejores slots).", channels: "Web oficial y Klook." },
+            ex_kaiyukan: { releaseInfo: "30 días antes a las 00:00 JST en la web oficial.", channels: "Web oficial and Klook." },
+            ex_samurai_museum: { releaseInfo: "Abierto con 2-3 meses de antelación.", channels: "Web oficial y Klook / TripAdvisor." },
+            ex_romantico: { releaseInfo: "Exactamente 1 mes antes a las 10:00 h JST (03:00 AM en España).", channels: "Web oficial (JR West) obligatoria para asegurar el vagón abierto nº 5. También disponible en Klook." },
+            ex_barco_hozu: { releaseInfo: "Aproximadamente 1-2 meses antes.", channels: "Web oficial (recomendado) y Klook." },
+            ex_osaka_castle: { releaseInfo: "Sin antelación estricta (puedes comprarlo en el mismo día).", channels: "Klook (e-ticket con código QR) o Taquilla física (cola muy lenta)." },
+            ex_umeda_sky: { releaseInfo: "Sin antelación estricta. Disponible siempre online.", channels: "Klook (e-ticket directo) o Taquilla física." },
+            ex_tsutenkaku: { releaseInfo: "Se compra en el mismo día directamente allí (el tobogán Tower Slider se paga en taquilla).", channels: "Taquilla física." },
+            ex_castillo_nijo: { releaseInfo: "Sin antelación estricta.", channels: "Klook (e-ticket) o Taquilla física." },
+            ex_kiyomizudera: { releaseInfo: "No requiere reserva previa online. La cola fluye rápido.", channels: "Taquilla física en efectivo (el ticket de entrada es un talismán de papel)." },
+            ex_todaiji: { releaseInfo: "No requiere reserva online.", channels: "Taquilla física en efectivo." },
+            ex_kinkakuji: { releaseInfo: "No requiere reserva online.", channels: "Taquilla física en efectivo." },
+            ex_toshogu: { releaseInfo: "No requiere reserva online previa. Se puede comprar allí o usar el Nikko World Heritage Pass.", channels: "Taquilla física." },
+            ex_cuevas_fuji: { releaseInfo: "No existe reserva online previa.", channels: "Taquilla física el mismo día." },
+            ex_shinhotaka: { releaseInfo: "Sin antelación estricta.", channels: "Klook (e-ticket directo) o Taquilla física." },
+            ex_joypolis: { releaseInfo: "Sin antelación estricta.", channels: "Klook (con descuento de pulsera de pase de un día completo) o Taquilla física." },
+            ex_bus_fuji: { releaseInfo: "Exactamente 1 mes antes a las 09:00 JST (02:00 AM en España). YA COMPRADO.", channels: "Solo Web oficial (Highway Bus / Nohi Bus)." },
+            ex_coches_fuji: { releaseInfo: "2-3 meses antes.", channels: "Web oficial del proveedor de alquiler (Budget, Toyota Rent-a-Car, etc.)." }
+        }[item.id];
+        if (extraInfo) {
+            item.releaseInfo = extraInfo.releaseInfo;
+            item.channels = extraInfo.channels;
+        }
+    });
     
     if (data.length === 0) {
         container.innerHTML = `
@@ -4594,6 +4626,16 @@ window.renderGuideCards = function(data) {
                         <i class="fa-solid fa-tag" style="color: var(--gold);"></i>
                         <strong>Precio:</strong> <span style="color: var(--gold); font-weight: bold;">${item.price}</span>
                     </div>
+                    ${item.releaseInfo ? `
+                    <div style="font-size: 0.72rem; color: #e2e8f0; display: flex; align-items: flex-start; gap: 6px; margin-bottom: 4px; line-height: 1.35;">
+                        <i class="fa-solid fa-calendar-plus" style="color: #fbbf24; margin-top: 2px; flex-shrink: 0; font-size: 0.75rem;"></i>
+                        <span><strong>Apertura:</strong> ${item.releaseInfo}</span>
+                    </div>` : ''}
+                    ${item.channels ? `
+                    <div style="font-size: 0.72rem; color: #e2e8f0; display: flex; align-items: flex-start; gap: 6px; margin-bottom: 4px; line-height: 1.35;">
+                        <i class="fa-solid fa-store" style="color: #60a5fa; margin-top: 2px; flex-shrink: 0; font-size: 0.75rem;"></i>
+                        <span><strong>Canales:</strong> ${item.channels}</span>
+                    </div>` : ''}
                 </div>
                 
                 <!-- Decisión Familiar -->
