@@ -20,7 +20,7 @@ const travelData_00_08 = [
                     color: "var(--neon-purple)",
                     items: [
                         { id: "bk_teamlab", name: "TeamLab Borderless (Tokio) [COMPRADO]", status: "completed", date: "COMPRADO", link: "https://www.teamlab.art/e/borderless/" },
-                        { id: "bk_palacio", name: "Palacio Imperial de Kioto", status: "pending", date: "Exactamente 2 meses antes", link: "https://sankan.kunaicho.go.jp/english/index.html" }
+                        { id: "bk_palacio", name: "Palacio Imperial de Kioto [RESERVADO]", status: "completed", date: "RESERVADO", link: "https://sankan.kunaicho.go.jp/english/index.html" }
                     ]
                 },
                 {

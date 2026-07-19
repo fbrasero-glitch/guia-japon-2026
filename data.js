@@ -20,7 +20,7 @@ const travelData = [
                     items: [
                         { name: "Coches de Alquiler en Fuji (2 Honda Fit)", status: "pending", date: "2-3 meses antes" },
                         { name: "TeamLab Planets (Tokio)", status: "pending", date: "Exactamente 2 meses antes" },
-                        { name: "Palacio Imperial de Kioto", status: "pending", date: "Exactamente 2 meses antes" }
+                        { name: "Palacio Imperial de Kioto [RESERVADO]", status: "completed", date: "RESERVADO" }
                     ]
                 },
                 {

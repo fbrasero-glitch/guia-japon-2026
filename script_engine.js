@@ -4112,11 +4112,11 @@ const excursionsData = [
     category: "critica",
     price: "Gratis",
     queueTime: "Sin colas",
-    boothLocation: "Entrada principal del Palacio Imperial (reserva online gratuita obligatoria).",
-    bestTime: "Reservar exactamente 2 meses antes para asegurar plazas para 8.",
+    boothLocation: "Entrada principal del Palacio Imperial.",
+    bestTime: "Ya reservado (Ver PDF Reserva_Palacio_Kyoto.pdf).",
     link: "https://sankan.kunaicho.go.jp/english/index.html",
-    bookingId: "bk_imperial",
-    desc: "Residencia imperial histórica en Kioto. Acceso gratuito pero requiere permiso de visita de la Casa Imperial."
+    bookingId: "bk_palacio",
+    desc: "Residencia imperial histórica en Kioto. Acceso gratuito. YA RESERVADO (el de Kioto ya está gestionado, el de Tokio es el que requiere reserva de la Casa Imperial si se desea visitar)."
   },
   {
     id: "ex_skytree",
