@@ -17,7 +17,7 @@ BLOQUE 1: OSAKA Y NARA
 Día 2 (Llegada):
 Traslado al hotel: **[YA RESERVADO]** Reservados 2 taxis en Booking para los 8 pax. (No se requiere usar el Airport Limousine Bus ni trenes cargando maletas).
 Día 3 (Osaka):
-Castillo de Osaka / Umeda Sky: Se compran en taquilla.
+Castillo de Osaka / Umeda Sky: No comprar en taquilla física (colas de 45-60 min). Comprar e-ticket online en Klook o web oficial para entrar directo.
 Crucero río Okawa (Adicional): Se compra en el muelle el mismo día.
 Día 4 (Osaka):
 Acuario Kaiyukan (Opcional): Recomendado comprar online 1-2 semanas antes para evitar colas de 1 hora.
@@ -31,7 +31,7 @@ Palacio Imperial (Adicional): Requiere reserva online gratuita (Agencia de la Ca
 Día 7 (Higashiyama):
 Samurai & Ninja Museum (Adicional): Reserva online 2-3 semanas antes para garantizar el tour en grupo.
 Día 8 (Arashiyama):
-Tren Romántico de Sagano / Barco Hozu: Crítico. Comprar online exactamente 1 mes antes en la web de JR West. Se agotan en minutos.
+Tren Romántico de Sagano / Barco Hozu: Crítico. Tren Romántico comprar 1 mes antes en la web de JR West (para elegir vagón abierto). Barco Hozu precio oficial actualizado a 6.000 JPY; reservar online previamente por capacidad limitada.
 Día 9 (Fushimi/Oro):
 Kinkaku-ji: Se compra en taquilla.
 Destilería de Sake (Adicional): Si es Gekkeikan, reservad 2 semanas antes por su web.
@@ -57,5 +57,6 @@ Día 23 (Regreso):
 Traslado al aeropuerto (Haneda): **[YA RESERVADO]** Reservados 2 taxis en Booking para los 8 pax. (No se requiere usar Narita Express o Limousine Bus).
 💡 Consejos para los líderes:
 Apps Necesarias: Descargad SmartEX (para trenes bala) y tened las webs de Highwaybus y Klook/GetYourGuide en favoritos.
-Sincronización: Para las reservas de "1 mes antes", recordad que Japón va 7 u 8 horas por delante. Si algo sale a las 10:00 AM en Japón, debéis estar listos a las 02:00 o 03:00 AM en España.
+Sincronización: Para el viaje en agosto (horario de verano en España, diferencia +7h), las reservas a las 09:00 AM o 10:00 AM JST abren a las 02:00 AM o 03:00 AM en España. En horario de invierno (diferencia +8h), serían las 01:00 AM o 02:00 AM de España.
+Acceso Rápido Shinjuku Gyoen (Tokio): Pasar directamente con tarjeta IC (Suica/Pasmo/Apple Wallet) en los tornos de entrada para saltarse la cola de taquilla.
 Gestión de maletas (Takkyubin): No es una reserva, pero recordad gestionarlo en la recepción del hotel con 24 horas de antelación al traslado [Análisis previo].

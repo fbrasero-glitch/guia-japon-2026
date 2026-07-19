@@ -4188,13 +4188,13 @@ const excursionsData = [
     day: 8,
     title: "Barco del Río Hozugawa",
     category: "transporte",
-    price: "~4.100 JPY",
+    price: "6.000 JPY (Tarifa oficial actualizada)",
     queueTime: "Variable",
     boothLocation: "Muelle de Kameoka (traslado en bus desde la estación de Kameoka).",
     bestTime: "Reservar 1 mes antes coordinado con el Tren Romántico.",
     link: "https://www.hozugawakudari.jp/en",
     bookingId: "bk_hozu",
-    desc: "Descenso de 2 horas en barca de madera por los rápidos del río Hozu hasta Arashiyama."
+    desc: "Descenso de 2 horas en barca de madera por los rápidos del río Hozu hasta Arashiyama. Se requiere reserva online previa obligatoria."
   },
   {
     id: "ex_osaka_castle",
@@ -4202,12 +4202,12 @@ const excursionsData = [
     title: "Castillo de Osaka",
     category: "taquilla",
     price: "600 JPY",
-    queueTime: "15 - 45 min",
+    queueTime: "45 - 60 min (en taquilla física)",
     boothLocation: "En la explanada exterior de la base del castillo, frente al puente levadizo.",
-    bestTime: "09:00 AM (al abrir) o después de las 14:00. Se puede comprar por QR en cartel para saltar cola física.",
-    link: null,
+    bestTime: "Comprar online en Klook o e-ticket oficial previamente para entrar directo por el torno y evitar la cola de taquilla.",
+    link: "https://www.klook.com/es/activity/5915-osaka-castle-museum-ticket-osaka/",
     bookingId: null,
-    desc: "Icono de Osaka reconstruido en 1931, con museo de 8 pisos sobre Toyotomi Hideyoshi y vistas a la ciudad."
+    desc: "Icono de Osaka reconstruido en 1931, con museo de 8 pisos sobre Toyotomi Hideyoshi y vistas a la ciudad. Nota: Altamente recomendable comprar online previamente para saltar la cola."
   },
   {
     id: "ex_umeda_sky",
@@ -4216,9 +4216,9 @@ const excursionsData = [
     category: "taquilla",
     price: "1.500 JPY",
     queueTime: "15 - 30 min (Atardecer)",
-    boothLocation: "Planta 39, justo antes del mirador exterior circular de la planta 40.",
-    bestTime: "Entre las 11:00 y las 16:00 (evitar atardecer) o después de las 20:00 (cierra 22:30).",
-    link: null,
+    boothLocation: "Planta 39, justo antes del mirador circular de la planta 40.",
+    bestTime: "Entre las 11:00 y las 16:00 (evitar atardecer) o después de las 20:00. Se puede comprar por anticipado en Klook para saltarse la cola de billetes.",
+    link: "https://www.klook.com/es/activity/11624-umeda-sky-building-floating-garden-observatory-ticket-osaka/",
     bookingId: null,
     desc: "Rascacielos futurista formado por dos torres gemelas unidas por un mirador circular al aire libre."
   },
