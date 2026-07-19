@@ -223,7 +223,6 @@ window.toggleBookingStatus = function (id, dayIndex) {
         } else {
             loadDay(dayIndex); // fallback
         }
-    }
 };
 
 window.openDocument = function(name, filePath) {
