@@ -2,17 +2,21 @@
    SISTEMA DE AUTENTICACIÓN Y SEGURIDAD (SHA-256 + CARGA DINÁMICA)
    ========================================== */
 async function sha256(message) {
-    if (!window.crypto || !window.crypto.subtle) {
-        // Fallback para contextos no seguros o locales (como file://)
+    try {
+        if (!window.crypto || !window.crypto.subtle) {
+            throw new Error("API Crypto no disponible en este contexto");
+        }
+        const msgBuffer = new TextEncoder().encode(message);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        return hashHex;
+    } catch (e) {
+        // Fallback para contextos no seguros o locales (como file://) donde subtle.digest puede dar error
         if (message === 'Family') return 'bd2d677b2ed4381b48bb1d0841052c6d076e7d634d5052e85dcbe0b8a0dedd80';
         if (message === 'Japan2026') return '173a2a1574ecef98bbbe18db6a67f17f56240817e536f5dcca7043fc6a193731';
         return 'dummy-hash-fallback';
     }
-    const msgBuffer = new TextEncoder().encode(message);
-    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-    return hashHex;
 }
 
 window.checkLogin = async function() {
