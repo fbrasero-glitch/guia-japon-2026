@@ -48,7 +48,14 @@ Día 17 (Asakusa/Skytree):
 Tokyo Skytree: Comprar online 1 mes antes. Permite elegir la hora del atardecer y saltarse la cola de taquilla (que suele ser de 2 horas).
 Crucero Hotaluna (Adicional): Comprar online 1 mes antes en la web de Tokyo Mizube Cruise.
 Día 18 (Shibuya):
-Shibuya Sky: Crítico. Las entradas para el atardecer vuelan. Comprar online exactamente 4 semanas antes (a las 00:00 hora Japón).
+Shibuya Sky (Tokio - Día 18, Visita: Martes 18 de Agosto):
+    - Liberación de entradas (14 días antes): Martes 4 de Agosto a las 00:00 h JST (hora de Japón - medianoche del lunes 3 al martes 4).
+    - Alarma familiar (estando en Kioto): Lunes 3 de Agosto a las 23:55 h JST.
+    - Estrategia de Compra:
+      * Paso 1 (00:00 h JST): Intentar Web Oficial (Webket). Si la tarjeta española falla al pagar, ir al plan B.
+      * Paso 2 (00:02 h JST): Comprar en Klook (procesa pagos europeos y Apple Pay al instante; la fecha tarda de 2 a 5 min en cargarse en Klook tras la medianoche).
+      * Truco: Rellenar y guardar hoy los datos de los 8 pasajeros en tu perfil de la app de Klook para comprarlas con un par de clics.
+      * Coste y Franja: 17:30 - 18:00 (Peak hour para atardecer). Precio: 3.400 JPY/adulto (27.200 JPY total para 8 pax).
 Día 19 (Tokio Central):
 TeamLab Borderless: **[YA COMPRADO]**
 Día 21 (Nikko/Kamakura):

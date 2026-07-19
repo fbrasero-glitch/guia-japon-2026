@@ -4097,13 +4097,13 @@ const excursionsData = [
     day: 18,
     title: "Shibuya Sky (Tokio)",
     category: "critica",
-    price: "~2.200 JPY",
+    price: "3.400 JPY (Atardecer)",
     queueTime: "15 - 30 min (Pico de atardecer)",
     boothLocation: "Planta 14 (acceso) del edificio Scramble Square, mirador en planta 45 (azotea).",
-    bestTime: "Exactamente 4 semanas antes a las 00:00 hora Japón (17:00 en España) para asegurar el atardecer.",
+    bestTime: "Lunes 3 de Agosto a las 23:55 h (Hora de Japón) para el atardecer del 18/08.",
     link: "https://www.shibuya-scramble-square.com/en/sky/ticket/",
     bookingId: "bk_shibuya",
-    desc: "Mirador de cristal al aire libre a 229 metros sobre el cruce de Shibuya. Espectacular al atardecer."
+    desc: "Mirador 360° al aire libre a 229 m. ESTRATEGIA: Intentar Web Oficial (00:00 h JST del 4 de Agosto) y si la tarjeta falla, usar Klook (00:02 h JST). Guardar datos de los 8 pasajeros en la app de Klook hoy."
   },
   {
     id: "ex_palacio_imperial",
