@@ -981,9 +981,13 @@ window.getTimelineGastroSuggestion = function(city, contextLabel = '') {
             <img src="${rest.image}" class="timeline-gastro-thumb" onerror="this.src='images/placeholder-food.jpg'">
             <div class="timeline-gastro-info">
                 <h4>${rest.name}</h4>
-                <p><strong>${rest.category}</strong> · ${rest.area}</p>
-                <div style="margin-top:5px;">
-                    <a href="https://www.google.com/maps/search/?api=1&query=Google&query_place_id=${rest.google_maps_place_id}" target="_blank" 
+                <p style="margin-bottom:2px;"><strong>${rest.category}</strong> · ${rest.area}</p>
+                <div style="font-size:0.75rem; color:#cbd5e1; margin-bottom:4px; display:flex; align-items:center; gap:5px; flex-wrap:wrap;">
+                    ${rest.specialty ? `<span style="background:rgba(251, 191, 36, 0.1); color:#fef08a; padding:1px 4px; border-radius:3px; font-size:0.6rem; border:1px solid rgba(251, 191, 36, 0.15);"><i class="fa-solid fa-fire-flame-curved" style="font-size:0.55rem; color:#f59e0b;"></i> ${rest.specialty}</span>` : ''}
+                    <span style="color:#fbbf24; font-size:0.7rem; font-weight:bold;"><i class="fa-solid fa-star" style="font-size:0.65rem;"></i> ${rest.rating ? rest.rating.toFixed(1) : '4.5'}</span>
+                </div>
+                <div style="margin-top:2px;">
+                    <a href="${(rest.google_maps_place_id && rest.google_maps_place_id.startsWith('ChIJ')) ? `https://www.google.com/maps/search/?api=1&query=Google&query_place_id=${rest.google_maps_place_id}` : `https://maps.google.com/?cid=${rest.google_maps_place_id || ''}`}" target="_blank" 
                        style="font-size:0.65rem; color:var(--gastro-gold); text-decoration:none; font-weight:bold; text-transform:uppercase; letter-spacing:0.5px;">
                        GOOGLE MAPS <i class="fa-solid fa-external-link" style="font-size:0.6rem;"></i>
                     </a>
@@ -1016,8 +1020,12 @@ window.renderContextualRestaurants = function(data) {
                         <div style="flex:1;">
                             <div style="font-size:0.7rem; color:var(--gastro-gold); font-weight:bold; text-transform:uppercase;">${rest.category}</div>
                             <div style="font-size:0.95rem; color:white; font-weight:bold;">${rest.name}</div>
-                            <a href="https://www.google.com/maps/search/?api=1&query=Google&query_place_id=${rest.google_maps_place_id}" target="_blank" 
-                               style="font-size:0.75rem; color:var(--gastro-gold); text-decoration:none; display:flex; align-items:center; gap:5px; margin-top:3px;">
+                            <div style="font-size:0.75rem; color:#cbd5e1; margin-top:2px; display:flex; align-items:center; gap:5px; flex-wrap:wrap;">
+                                ${rest.specialty ? `<span style="background:rgba(251, 191, 36, 0.1); color:#fef08a; padding:1px 5px; border-radius:3px; font-size:0.65rem; border:1px solid rgba(251, 191, 36, 0.2);"><i class="fa-solid fa-fire-flame-curved" style="font-size:0.6rem; color:#f59e0b;"></i> ${rest.specialty}</span>` : ''}
+                                <span style="color:#fbbf24; font-size:0.75rem; font-weight:bold;"><i class="fa-solid fa-star" style="font-size:0.7rem;"></i> ${rest.rating ? rest.rating.toFixed(1) : '4.5'}</span>
+                            </div>
+                            <a href="${(rest.google_maps_place_id && rest.google_maps_place_id.startsWith('ChIJ')) ? `https://www.google.com/maps/search/?api=1&query=Google&query_place_id=${rest.google_maps_place_id}` : `https://maps.google.com/?cid=${rest.google_maps_place_id || ''}`}" target="_blank" 
+                               style="font-size:0.75rem; color:var(--gastro-gold); text-decoration:none; display:flex; align-items:center; gap:5px; margin-top:5px;">
                                Ver en Google Maps <i class="fa-solid fa-external-link" style="font-size:0.6rem;"></i>
                             </a>
                         </div>
@@ -1054,17 +1062,25 @@ window.renderRestaurantPanel = function(city, dayIndex) {
 
     restaurants.forEach(rest => {
         html += `
-            <div class="restaurant-card" style="border: 1px solid rgba(251, 191, 36, 0.3); border-radius:16px; overflow:hidden; background:rgba(255,255,255,0.02);">
+            <div class="restaurant-card" style="border: 1px solid rgba(251, 191, 36, 0.3); border-radius:16px; overflow:hidden; background:rgba(255,255,255,0.02); transition:transform 0.3s ease, box-shadow 0.3s ease; height:100%; display:flex; flex-direction:column;">
                 <img src="${rest.image}" style="width:100%; height:180px; object-fit:cover;" onerror="this.src='images/placeholder-food.jpg'">
-                <div style="padding:20px;">
-                    <span class="restaurant-badge" style="background:var(--gastro-gold); color:black; font-size:0.7rem; font-weight:bold; padding:2px 8px; border-radius:4px;">${rest.category}</span>
-                    <h3 style="color:white; margin:10px 0 5px 0; font-size:1.3rem;">${rest.name}</h3>
-                    <p style="color:#94a3b8; font-size:0.9rem; margin-bottom:15px; line-height:1.4;">${rest.description}</p>
-                    <div style="display:flex; justify-content:space-between; align-items:center;">
-                        <span style="color:#cbd5e1; font-size:0.8rem;"><i class="fa-solid fa-location-dot"></i> ${rest.area}</span>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Google&query_place_id=${rest.google_maps_place_id}" target="_blank" 
+                <div style="padding:20px; flex:1; display:flex; flex-direction:column; justify-content:space-between;">
+                    <div>
+                        <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px;">
+                            <span class="restaurant-badge" style="background:var(--gastro-gold); color:black; font-size:0.65rem; font-weight:bold; padding:2px 8px; border-radius:4px; text-transform:uppercase;">${rest.category}</span>
+                            ${rest.specialty ? `<span class="specialty-badge" style="background:rgba(251, 191, 36, 0.15); color:#fef08a; border: 1px solid rgba(251, 191, 36, 0.3); font-size:0.65rem; font-weight:bold; padding:2px 8px; border-radius:4px;"><i class="fa-solid fa-fire-flame-curved" style="color:#f59e0b;"></i> ${rest.specialty}</span>` : ''}
+                        </div>
+                        <h3 style="color:white; margin:0 0 5px 0; font-size:1.3rem;">${rest.name}</h3>
+                        <div style="display:flex; align-items:center; gap:6px; margin-bottom:10px; color:#fbbf24; font-size:0.85rem; font-weight:bold;">
+                            <i class="fa-solid fa-star"></i> ${rest.rating ? rest.rating.toFixed(1) : '4.5'} <span style="color:#64748b; font-weight:normal; font-size:0.75rem;">en Google Maps</span>
+                        </div>
+                        <p style="color:#94a3b8; font-size:0.9rem; margin-bottom:15px; line-height:1.4;">${rest.description}</p>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.05); padding-top:12px; margin-top:auto;">
+                        <span style="color:#cbd5e1; font-size:0.8rem;"><i class="fa-solid fa-location-dot" style="color:var(--accent);"></i> ${rest.area}</span>
+                        <a href="${(rest.google_maps_place_id && rest.google_maps_place_id.startsWith('ChIJ')) ? `https://www.google.com/maps/search/?api=1&query=Google&query_place_id=${rest.google_maps_place_id}` : `https://maps.google.com/?cid=${rest.google_maps_place_id || ''}`}" target="_blank" 
                            style="color:var(--gastro-gold); text-decoration:none; font-weight:bold; font-size:0.85rem;">
-                           Ver en Maps <i class="fa-solid fa-external-link"></i>
+                           Ver en Maps <i class="fa-solid fa-external-link" style="font-size:0.75rem;"></i>
                         </a>
                     </div>
                 </div>

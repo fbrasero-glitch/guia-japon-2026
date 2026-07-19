@@ -2,14 +2,14 @@ import os
 import re
 from icrawler.builtin import BingImageCrawler
 
-# Configuración de restaurantes
 restaurants = [
-    {"id": "my-neighbor", "name": "MY NEIGHBOR", "query": "MY NEIGHBOR restaurant Osaka food brunch"},
-    {"id": "yakiniku-kitan-minamisenba", "name": "Yakiniku KITAN Minamisenba", "query": "Yakiniku KITAN Minamisenba Osaka yakiniku wagyu"},
-    {"id": "nikugoro-amerikamura", "name": "Nikugoro Amerikamura", "query": "Nikugoro Amerikamura Osaka yakiniku food"},
-    {"id": "kitan-hibiki-yakiniku", "name": "KITAN HIBIKI YAKINIKU & STEAK", "query": "KITAN HIBIKI YAKINIKU & STEAK Osaka wagyu steak"},
-    {"id": "matsusakagyu-yakiniku-m-namba", "name": "Matsusakagyu Yakiniku M Namba", "query": "Matsusakagyu Yakiniku M Namba Branch Osaka matsusaka beef"},
-    {"id": "yakiniku-m-hozenji", "name": "Yakiniku M Hozenji Yokocho", "query": "Yakiniku M Hozenji Yokocho Osaka traditional yakiniku"}
+    {"id": "shinsaibashi-maruhana", "name": "Japanese Buffet Dining Shinsaibashi Maruhana", "query": "蟹寿司和牛食べ放題 蟹屋 丸花 心斎橋店"},
+    {"id": "unagiya-hanamichi-shinsaibashi", "name": "Unagiya Hanamichi Shinsaibashi", "query": "うなぎや花道 心斎橋店 うな丼"},
+    {"id": "yakiniku-rikimaru-dotonbori", "name": "Yakiniku Rikimaru Dotonbori", "query": "焼肉 力丸 道頓堀店 焼肉"},
+    {"id": "wagyu-seafood-ichiraku-dotonbori", "name": "Wagyu and Seafood Ichiraku Dotonbori", "query": "和牛海鮮一楽 道頓堀店"},
+    {"id": "wagyu-idaten-namba", "name": "Wagyu IDATEN", "query": "匠のお重 和牛 韋駄天 難波"},
+    {"id": "nikuya-dotonbori", "name": "Nikuya Dotonbori", "query": "肉ya 道頓堀店 焼肉"},
+    {"id": "dekasan-osaka", "name": "Dekasan Osaka", "query": "デカサン 大阪 サンドイッチ"}
 ]
 
 # Directorio de destino
