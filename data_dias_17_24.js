@@ -284,7 +284,7 @@ const travelData_17_24 = [
                 time: "Flexible Mañana",
                 description: "El barrio de suministros para restaurantes. Cuchillos forjados a mano y comida de plástico.",
                 price: "Gratis",
-                image: "images/dia17-calle-kappabashi-cocineros.jpg",
+                image: "images/dia17-calle-kappabashi-cocineros.png",
                 fullDesc: `
                     <h3><i class="fa-solid fa-kitchen-set"></i> Kappabashi Dogu-gai</h3>
                     <p>Una calle entera dedicada al 'hardware' culinario japonés muy cerca de Asakusa. Podréis comprar los mejores cuchillos del mundo (os los graban con vuestro nombre), palillos preciosos y admirar las increíbles réplicas hiperrealistas de comida en plástico que los restaurantes usan en sus escaparates.</p>
@@ -296,7 +296,7 @@ const travelData_17_24 = [
                 time: "Flexible Tarde",
                 description: "Cafeterías en Akihabara donde camareras disfrazadas os llaman 'amo' e infunden magia en los helados.",
                 price: "~2.500 JPY",
-                image: "images/dia19-maid.jpg",
+                image: "images/dia17-maid-cafe.png",
                 fullDesc: `
                     <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Surrealismo Kawaii Extremo</h3>
                     <p>Cadenas como "Maidreamin" u "At Home Café" ofrecen algo que no sabréis si amar o enterrar bajo tierra. Las maids os obligarán a hacer corazones con las manos para bendecir vuestro capuchino ("Moe Moe Kyun!"). Una inmersión en una moda nipona difícil de explicar a la abuela en España.</p>
@@ -310,6 +310,31 @@ const travelData_17_24 = [
                         tacticalGuideId: "mission_maid"
                     }
                 ]
+            },
+            {
+                id: "fukagawa_matsuri",
+                title: "🏮 Fukagawa Matsuri 2026 (Festival del Agua)",
+                time: "15:30 – 17:30 (Opción A)",
+                description: "Uno de los 'Tres Grandes Festivales Sintoístas de Edo'. ¡Tradición, mikoshis y cubos de agua volando!",
+                price: "Gratis",
+                image: "infografía/Guía_del_Fukagawa_Matsuri_2026.png",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-droplet"></i> El Festival del Agua (Fukagawa Matsuri)</h3>
+                    <p>El Fukagawa Matsuri es uno de los festivales sintoístas más antiguos y espectaculares de Tokio, con decenas de mikoshis (santuarios portátiles) recorriendo las calles del histórico barrio de Fukagawa. La particularidad de este festival es que <strong>los espectadores arrojan cubos de agua limpia</strong> a los portadores de los santuarios para refrescarlos del agobiante calor veraniego.</p>
+                    
+                    <div style="background:rgba(239, 68, 68, 0.1); border:1px solid rgba(239, 68, 68, 0.3); border-radius:10px; padding:15px; margin: 15px 0;">
+                        <h4 style="color:#fca5a5; margin:0 0 8px 0; display:flex; align-items:center; gap:6px;"><i class="fa-solid fa-circle-exclamation"></i> ADVERTENCIA PARA VIAJEROS</h4>
+                        <p style="margin:0; font-size:0.85rem; color:#cbd5e1; line-height:1.5;"><strong>¡Acabaréis empapados!</strong> Si planeáis estar en primera línea para ver los mikoshis pasar, es fundamental que guardéis y protejáis vuestros teléfonos móviles, cámaras de fotos y cualquier dispositivo electrónico en <strong>fundas impermeables estancas</strong>. ¡Los cubos y chorros de agua vuelan por todas partes!</p>
+                    </div>
+
+                    <h4>¿Cómo integrarlo hoy (Día 17)? - Opción A</h4>
+                    <p>Tras terminar la visita al **Tokyo Skytree y Solamachi** alrededor de las 15:30/16:00, en lugar de dirigiros de inmediato a Akihabara, tomáis el metro hacia el sur al barrio de Fukagawa (cerca del Santuario Tomioka Hachimangū). Viviréis el ambiente festivo, los primeros rituales y los clásicos puestos de comida (Yatai), y luego terminaréis la noche en Akihabara.</p>
+                    
+                    <div style="margin-top:20px; display:flex; gap:10px;">
+                        <a href="https://www.google.com/maps/dir/?api=1&origin=Tokyo+Skytree&destination=Tomioka+Hachiman+Shrine&travelmode=transit" target="_blank" class="tactical-btn" style="display:inline-flex; align-items:center; gap:6px; padding:8px 14px; font-size:0.8rem; border-radius:8px; background:rgba(0,243,255,0.1); border:1px solid var(--neon-blue); color:var(--neon-blue); text-decoration:none; font-weight:bold;"><i class="fa-solid fa-route"></i> VER RUTA EN METRO</a>
+                        <button onclick="openInfographic('infografía/Guía_del_Fukagawa_Matsuri_2026.png')" class="tactical-btn" style="display:inline-flex; align-items:center; gap:6px; padding:8px 14px; font-size:0.8rem; border-radius:8px; background:rgba(249,115,22,0.15); border:1px solid var(--accent); color:var(--accent); font-weight:bold; cursor:pointer;"><i class="fa-solid fa-image"></i> ABRIR INFOGRAFÍA</button>
+                    </div>
+                `
             }
         ],
         additionalExcursions: [
@@ -332,7 +357,7 @@ const travelData_17_24 = [
             {
                 id: "add_sumida_aquarium",
                 title: "Sumida Aquarium [HORARIO: 10:00 - 20:00]",
-                image: "images/add-sumida-aquarium.jpg",
+                image: "images/add-sumida-aquarium.png",
                 description: "Acuario de diseño moderno y artístico dentro del complejo Skytree.",
                 time: "15:00 – 16:30",
                 price: "~2.300 JPY",
@@ -346,7 +371,7 @@ const travelData_17_24 = [
             {
                 id: "add_kanda_myojin",
                 title: "Kanda Myōjin (Templo IT & Anime)",
-                image: "images/add-kanda-myojin.jpg",
+                image: "images/add-kanda-myojin.png",
                 description: "El templo de los informáticos y el anime. Famoso por sus amuletos para dispositivos electrónicos.",
                 time: "10:00 – 11:30",
                 price: "Gratis",
@@ -919,7 +944,7 @@ const travelData_17_24 = [
             },
             {
                 id: "c2",
-                title: "Teatro Kabuki-za (Desde fuera) [HORARIO: Var�a]",
+                title: "Teatro Kabuki-za (Desde fuera) [HORARIO: Varía]",
                 time: "15:00",
                 description: "La joya arquitectónica del teatro clásico sobreviviendo entre torres modernas de cristal en Ginza.",
                 price: "Gratis",
@@ -927,6 +952,31 @@ const travelData_17_24 = [
                 fullDesc: `
                     <h3><i class="fa-solid fa-masks-theater"></i> Reflejos Feudales</h3>
                     <p>Reconstruido varias veces, es el teatro principal donde se ejecuta hoy en día el arte dramático tradicional Kabuki de Japón (actuado sólo por varones y con elaborados sets giratorios). Su inmensa techumbre al uso de los castillos feudales es un spot fotográfico magnífico para constatar la dualidad de Ginza entre lo ultra-moderno y lo intocablemente clásico.</p>
+                `
+            },
+            {
+                id: "fukagawa_matsuri",
+                title: "🏮 Fukagawa Matsuri 2026 (Festival del Agua)",
+                time: "13:30 – 16:00 (Opción B)",
+                description: "Uno de los 'Tres Grandes Festivales Sintoístas de Edo'. ¡Tradición, mikoshis y cubos de agua volando!",
+                price: "Gratis",
+                image: "infografía/Guía_del_Fukagawa_Matsuri_2026.png",
+                fullDesc: `
+                    <h3><i class="fa-solid fa-droplet"></i> El Festival del Agua (Fukagawa Matsuri)</h3>
+                    <p>El Fukagawa Matsuri es uno de los festivales sintoístas más antiguos y espectaculares de Tokio, con decenas de mikoshis (santuarios portátiles) recorriendo las calles del histórico barrio de Fukagawa. La particularidad de este festival es que <strong>los espectadores arrojan cubos de agua limpia</strong> a los portadores de los santuarios para refrescarlos del agobiante calor veraniego.</p>
+                    
+                    <div style="background:rgba(239, 68, 68, 0.1); border:1px solid rgba(239, 68, 68, 0.3); border-radius:10px; padding:15px; margin: 15px 0;">
+                        <h4 style="color:#fca5a5; margin:0 0 8px 0; display:flex; align-items:center; gap:6px;"><i class="fa-solid fa-circle-exclamation"></i> ADVERTENCIA PARA VIAJEROS</h4>
+                        <p style="margin:0; font-size:0.85rem; color:#cbd5e1; line-height:1.5;"><strong>¡Acabaréis empapados!</strong> Si planeáis estar en primera línea para ver los mikoshis pasar, es fundamental que guardéis y protejáis vuestros teléfonos móviles, cámaras de fotos y cualquier dispositivo electrónico en <strong>fundas impermeables estancas</strong>. ¡Los cubos y chorros de agua vuelan por todas partes!</p>
+                    </div>
+
+                    <h4>¿Cómo integrarlo hoy (Día 19)? - Opción B</h4>
+                    <p>Tras pasear por **Ginza** al mediodía (12:30/13:30), cruzáis el río hacia el east al cercano barrio de Fukagawa (está literalmente al lado). Os mezclaréis con las multitudes ruidosas arrojando agua a los mikoshis. Después, a las 16:15, os dirigiréis a **Roppongi Hills** para ver la espectacular Torre de Tokio al atardecer. ¡Un contraste perfecto entre la modernidad elitista de Ginza y la tradición apasionada de Fukagawa!</p>
+                    
+                    <div style="margin-top:20px; display:flex; gap:10px;">
+                        <a href="https://www.google.com/maps/dir/?api=1&origin=Ginza+Station&destination=Tomioka+Hachiman+Shrine&travelmode=transit" target="_blank" class="tactical-btn" style="display:inline-flex; align-items:center; gap:6px; padding:8px 14px; font-size:0.8rem; border-radius:8px; background:rgba(0,243,255,0.1); border:1px solid var(--neon-blue); color:var(--neon-blue); text-decoration:none; font-weight:bold;"><i class="fa-solid fa-route"></i> VER RUTA EN METRO</a>
+                        <button onclick="openInfographic('infografía/Guía_del_Fukagawa_Matsuri_2026.png')" class="tactical-btn" style="display:inline-flex; align-items:center; gap:6px; padding:8px 14px; font-size:0.8rem; border-radius:8px; background:rgba(249,115,22,0.15); border:1px solid var(--accent); color:var(--accent); font-weight:bold; cursor:pointer;"><i class="fa-solid fa-image"></i> ABRIR INFOGRAFÍA</button>
+                    </div>
                 `
             }
         ]

@@ -847,8 +847,8 @@ window.openPrintTicketModal = function() {
                         <li><strong>Tarjeta de Crédito Física:</strong> La tarjeta MasterCard terminada en <strong>7801</strong> que se usó para la compra en la web. Es necesario introducirla físicamente en la ranura de la máquina expendedora.</li>
                         <li><strong>Código PIN de 4 dígitos:</strong> El código PIN que creaste durante el proceso de compra online.</li>
                         <li><strong>Localizadores de las Reservas:</strong>
-                            <br>• Reserva 1 (4 pax): <strong>41256</strong>
-                            <br>• Reserva 2 (4 pax): <strong>42023</strong>
+                            <br>• Reserva 1 (4 pax): <strong>[Ver PDF de Reservas]</strong>
+                            <br>• Reserva 2 (4 pax): <strong>[Ver PDF de Reservas]</strong>
                         </li>
                     </ul>
                 </div>
@@ -2366,50 +2366,59 @@ function renderCenterVisual(data, mode, optData = null) {
                     </div>
 
                     <div class="excursion-side-column">
-                        <div class="quick-stats-card">
-                            <h3 class="stats-title"><i class="fa-solid fa-bolt"></i> Datos de Misión</h3>
-                            <div class="stat-item">
-                                <i class="fa-solid fa-clock"></i>
-                                <div>
-                                    <span class="stat-label">Tiempo Est.</span>
-                                    <span class="stat-value">${optData.time || 'Flexible'}</span>
+                        ${optData.id === 'b3' && data.day === 16 ? `
+                            <div class="quick-stats-card" style="padding:0; overflow:hidden; position:relative; height: 260px; cursor:pointer; border:1px solid rgba(249, 115, 22, 0.3);" onclick="openInfographic('infografía/Festival_de_Verano_de_Ueno.png')" title="Ampliar Infografía de Ueno">
+                                <img src="infografía/Festival_de_Verano_de_Ueno.png" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;" />
+                                <div style="position:absolute; bottom:0; left:0; width:100%; padding:10px; background:linear-gradient(transparent, rgba(0,0,0,0.85)); color:white; font-size:0.75rem; text-align:center; font-weight:bold; box-sizing:border-box; display:flex; align-items:center; justify-content:center; gap:5px;">
+                                    <i class="fa-solid fa-expand" style="color:var(--accent);"></i> VER INFOGRAFÍA COMPLETA
                                 </div>
                             </div>
-                            ${optData.price && optData.price !== 'Gratis' ? `
+                        ` : `
+                            <div class="quick-stats-card">
+                                <h3 class="stats-title"><i class="fa-solid fa-bolt"></i> Datos de Misión</h3>
                                 <div class="stat-item">
-                                    <i class="fa-solid fa-yen-sign"></i>
+                                    <i class="fa-solid fa-clock"></i>
                                     <div>
-                                        <span class="stat-label">Gasto Previsto</span>
-                                        <span class="stat-value">${optData.price}</span>
+                                        <span class="stat-label">Tiempo Est.</span>
+                                        <span class="stat-value">${optData.time || 'Flexible'}</span>
                                     </div>
                                 </div>
-                            ` : `
-                                <div class="stat-item">
-                                    <i class="fa-solid fa-tag"></i>
-                                    <div>
-                                        <span class="stat-label">Coste</span>
-                                        <span class="stat-value" style="color:var(--neon-blue);">Gratis</span>
+                                ${optData.price && optData.price !== 'Gratis' ? `
+                                    <div class="stat-item">
+                                        <i class="fa-solid fa-yen-sign"></i>
+                                        <div>
+                                            <span class="stat-label">Gasto Previsto</span>
+                                            <span class="stat-value">${optData.price}</span>
+                                        </div>
                                     </div>
+                                ` : `
+                                    <div class="stat-item">
+                                        <i class="fa-solid fa-tag"></i>
+                                        <div>
+                                            <span class="stat-label">Coste</span>
+                                            <span class="stat-value" style="color:var(--neon-blue);">Gratis</span>
+                                        </div>
+                                    </div>
+                                `}
+                                <div class="stats-actions">
+                                    ${optData.link ? `
+                                        <a href="${optData.link}" target="_blank" class="action-btn maps-btn">
+                                            <i class="fa-solid fa-map-location-dot"></i> NAVEGAR MAPS
+                                        </a>
+                                    ` : ''}
+                                    ${optData.tacticalGuideId ? `
+                                        <button onclick="renderTacticalMission('${optData.tacticalGuideId}', ${dayIdx})" class="action-btn tactical-guide-btn">
+                                            <i class="fa-solid fa-file-contract"></i> GUÍA TÁCTICA
+                                        </button>
+                                    ` : ''}
+                                    ${optData.video ? `
+                                        <a href="${optData.video}" target="_blank" class="action-btn video-btn">
+                                            <i class="fa-brands fa-youtube"></i> VER RECONOCIMIENTO
+                                        </a>
+                                    ` : ''}
                                 </div>
-                            `}
-                            <div class="stats-actions">
-                                ${optData.link ? `
-                                    <a href="${optData.link}" target="_blank" class="action-btn maps-btn">
-                                        <i class="fa-solid fa-map-location-dot"></i> NAVEGAR MAPS
-                                    </a>
-                                ` : ''}
-                                ${optData.tacticalGuideId ? `
-                                    <button onclick="renderTacticalMission('${optData.tacticalGuideId}', ${dayIdx})" class="action-btn tactical-guide-btn">
-                                        <i class="fa-solid fa-file-contract"></i> GUÍA TÁCTICA
-                                    </button>
-                                ` : ''}
-                                ${optData.video ? `
-                                    <a href="${optData.video}" target="_blank" class="action-btn video-btn">
-                                        <i class="fa-brands fa-youtube"></i> VER RECONOCIMIENTO
-                                    </a>
-                                ` : ''}
                             </div>
-                        </div>
+                        `}
 
                         ${optData.photoSpot ? `
                             <div class="photo-objective-card">
@@ -2608,6 +2617,8 @@ window.tacticalMissions = {
     'mission_kyoto_to_okuhida': {
         title: "Guía Transporte: Kyoto ➔ Onsen",
         subtitle: "Rumbo a los Alpes Japoneses (Okuhida)",
+        infographicSrc: "infografía/Guía_logística_Kioto_a_Okuhida.png",
+        infographicSrc: "infografía/Guía_logística_Kioto_a_Okuhida.png",
         steps: [
             {
                 time: "07:00",
@@ -2649,8 +2660,8 @@ window.tacticalMissions = {
                                 <br>• La <strong>tarjeta de crédito física</strong> utilizada (MasterCard terminada en <strong>7801</strong>) para insertarla en la ranura.
                                 <br>• Tu <strong>código PIN de 4 dígitos</strong> (creado durante la compra).
                                 <br>• Los <strong>dos números de reserva</strong>:
-                                    <br>&nbsp;&nbsp;&nbsp;- Reserva 1: <strong style="color:var(--gold);">41256</strong> (3 adultos + 1 niño)
-                                    <br>&nbsp;&nbsp;&nbsp;- Reserva 2: <strong style="color:var(--gold);">42023</strong> (4 adultos)
+                                    <br>&nbsp;&nbsp;&nbsp;- Reserva 1: <strong style="color:var(--gold);">[Ver PDF]</strong> (3 adultos + 1 niño)
+                                    <br>&nbsp;&nbsp;&nbsp;- Reserva 2: <strong style="color:var(--gold);">[Ver PDF]</strong> (4 adultos)
                             </li>
                             <li><strong>¿Cómo usar los billetes?</strong> La máquina imprimirá un billete de tarifa básica (Basic Fare) y otro de tren exprés (Limited Express) por persona. <strong>Introduce ambos billetes juntos</strong> en la ranura del torno al entrar en Nagoya y no olvides recogerlos al pasar. Repite el proceso para salir en Takayama.</li>
                         </ol>
@@ -2808,13 +2819,66 @@ window.tacticalMissions = {
             </div>
         `
     },
+    'mode_karaoke': {
+        title: "🎤 MODO KARAOKE: Guía de Canto en Japón",
+        subtitle: "Consejos y ubicaciones para cantar en cabinas privadas en Shinjuku y Shibuya",
+        steps: [
+            {
+                time: "DÍA 16",
+                title: "🎤 Día 16: Noche de llegada en Shinjuku (Opción Principal)",
+                content: `
+                    <p style="margin-bottom:12px; color:#cbd5e1; line-height:1.6;">Esta es vuestra primera noche en Tokio y la opción principal para estrenaros con el karaoke. Al alojaros en el Edmont, tenéis muy cerca la estación de Iidabashi y, a solo unas paradas de metro/tren, el bullicioso distrito de <strong>Shinjuku</strong>.</p>
+                    <ul style="font-size:0.85rem; color:#94a3b8; padding-left:20px; margin-bottom:15px; display:flex; flex-direction:column; gap:6px;">
+                        <li><strong>Dónde ir:</strong> En Shinjuku encontraréis las sucursales más gigantescas de cadenas populares como <em>Karaoke Kan</em> (famosa por la película Lost in Translation) o <em>Big Echo</em>.</li>
+                        <li><strong>Cabinas privadas:</strong> Los karaokes en Japón no son en salas abiertas, sino en habitaciones privadas insonorizadas equipadas con pantallas, micrófonos, tablets para elegir canciones (en inglés y español) y luces de colores. ¡Os va a flipar!</li>
+                        <li><strong>Servicio de bebidas:</strong> Podéis pedir refrescos, cervezas o snacks directamente desde el teléfono de la pared.</li>
+                    </ul>
+                `,
+                warning: "Consejo familiar: Si vais con peques, podéis hacer este plan en 'modo temprano' a partir de las 18:30. Es mucho más tranquilo, económico y familiar que a altas horas de la noche."
+            },
+            {
+                time: "DÍA 18",
+                title: "🎤 Día 18: Noche en Shibuya (Opción de Repuesto)",
+                content: `
+                    <p style="margin-bottom:12px; color:#cbd5e1; line-height:1.6;">Si el primer día no os dio tiempo o queréis repetir, la noche del Día 18 en Shibuya es la oportunidad perfecta. Ese día estaréis explorando Harajuku y el famoso cruce de Shibuya.</p>
+                    <ul style="font-size:0.85rem; color:#94a3b8; padding-left:20px; margin-bottom:15px; display:flex; flex-direction:column; gap:6px;">
+                        <li><strong>Momento ideal:</strong> La opción de ir de karaoke es ideal justo después de bajar del espectacular mirador <strong>Shibuya Sky</strong> al atardecer o por la noche.</li>
+                        <li><strong>Ubicación:</strong> A escasos metros del cruce de Shibuya hay rascacielos enteros dedicados al karaoke con vistas espectaculares a las calles iluminadas desde los ventanales de las cabinas.</li>
+                    </ul>
+                `,
+                warning: "Nota de reserva: Los fines de semana o por la noche en Shibuya se llenan rápido. Podéis entrar a preguntar en cualquier recepción de Karaoke Kan o Big Echo; al ser 8 personas, os asignarán una sala mediana/grande al instante."
+            }
+        ],
+        footer: `
+            <div style="background:rgba(0, 243, 255, 0.1); border:1px solid var(--neon-blue); border-radius:12px; padding:15px; margin-top:20px;">
+                <h4 style="color:var(--neon-blue); margin-top:0; display:flex; align-items:center; gap:8px; font-size:1rem;"><i class="fa-solid fa-microphone"></i> Tarifa y Funcionamiento</h4>
+                <p style="font-size:0.85rem; color:white; margin-bottom:0; line-height:1.5;">Al entrar, se indica el número de personas (8) y el tiempo (ej. 1 hora). Os darán una ficha con el número de sala. Al terminar, vais a recepción con la ficha para pagar. El precio se calcula por persona en bloques de 30 minutos, e incluye una consumición mínima (Drink Order) obligatoria en la mayoría de cadenas.</p>
+            </div>
+        `
+    },
     'day16_activities_buffet': {
         title: "Buffet de Actividades: Primera Noche",
         subtitle: "Menú de alternativas recomendadas según vuestro nivel de energía y el clima",
         steps: [
             {
+                time: "🏮 DESTACADO - SÓLO HOY",
+                title: "🏮 ¡DESTACADO - SÓLO HOY! Opción 1: Ueno Summer Festival",
+                content: `
+                    <p style="margin-bottom:12px; color:#cbd5e1; line-height:1.6;">El <strong>Festival de Verano de Ueno (Ueno Natsu Matsuri)</strong> celebra hoy su última noche. Es una oportunidad única e irrepetible para vivir el Tokio más tradicional y festivo.</p>
+                    <ul style="font-size:0.85rem; color:#94a3b8; padding-left:20px; margin-bottom:15px; display:flex; flex-direction:column; gap:6px;">
+                        <li><strong>Toro Nagashi (Farolillos flotantes):</strong> Se lanzan cientos de farolillos de papel encendidos al estanque Shinobazu, creando una atmósfera mágica e inolvidable al anochecer.</li>
+                        <li><strong>Yatai (Comida callejera):</strong> Decenas de puestos tradicionales con yakitori, yakisoba, takoyaki, kakigori (hielo raspado) y cerveza fría.</li>
+                        <li><strong>Farolillos de Ueno:</strong> Todo el estanque Shinobazu se ilumina de forma espectacular con cientos de farolillos flotantes y colgantes.</li>
+                    </ul>
+                    <div style="margin-top:15px;">
+                        <a href="https://www.google.com/maps/dir/?api=1&origin=Hotel+Metropolitan+Edmont+Tokyo&destination=Shinobazu+Pond&travelmode=transit" target="_blank" class="tactical-btn" style="display:inline-flex; align-items:center; gap:6px; padding:6px 12px; font-size:0.75rem; border-radius:6px; background:rgba(0,243,255,0.1); border:1px solid var(--neon-blue); color:var(--neon-blue); text-decoration:none; font-weight:bold;"><i class="fa-solid fa-route"></i> VER RUTA EN METRO</a>
+                    </div>
+                `,
+                warning: "¡Último día de festival! No dejes pasar esta oportunidad si tienes energía, ya que no coincidirá con otros festivales tradicionales durante vuestro viaje."
+            },
+            {
                 time: "🚶 10-15 min",
-                title: "🏮 Opción 1: Paseo Tradicional en Kagurazaka",
+                title: "🏮 Opción 2: Paseo Tradicional en Kagurazaka",
                 content: `
                     <p style="margin-bottom:12px; color:#cbd5e1; line-height:1.6;">El barrio tradicional de <strong>Kagurazaka</strong> os sumergirá en una atmósfera completamente distinta, elegante y relajada, a unos 10-15 minutos caminando desde las puertas del hotel. Conocido históricamente como un antiguo distrito de geishas y apodado el "Pequeño París" de Tokio, sus laberínticas cuestas y callejones empedrados se iluminan de forma mágica con farolillos al caer la tarde, ofreciendo un paseo nocturno precioso.</p>
                     <ul style="font-size:0.85rem; color:#94a3b8; padding-left:20px; margin-bottom:15px; display:flex; flex-direction:column; gap:6px;">
@@ -2831,12 +2895,12 @@ window.tacticalMissions = {
             },
             {
                 time: "🚶 5 min",
-                title: "🎢 Opción 2: Ocio y Luces en Tokyo Dome City",
+                title: "🎢 Opción 3: Ocio y Luces en Tokyo Dome City",
                 content: `
                     <p style="margin-bottom:12px; color:#cbd5e1; line-height:1.6;">El complejo <strong>Tokyo Dome City</strong> es la opción más práctica, vibrante y cercana para pasar vuestra primera tarde-noche en la ciudad. Situado a poco más de 5 minutos a pie de vuestro alojamiento, este enorme centro de ocio cuenta con una iluminación nocturna espectacular y múltiples zonas de restauración abiertas hasta tarde, lo que facilita enormemente el manejo de un grupo grande sin reserva.</p>
                     <ul style="font-size:0.85rem; color:#94a3b8; padding-left:20px; margin-bottom:15px; display:flex; flex-direction:column; gap:6px;">
                         <li><strong>Espacios gastronómicos ideales:</strong> Dispone de grandes áreas como el <em>Food Stadium Tokyo</em> (abierto hasta las 23:00) o el espacio de comida rápida <em>Go-Fun</em> (hasta las 22:30), perfectos para que cada uno de los 8 elija lo que más le apetezca cenar.</li>
-                        <li><strong>Centro comercial LaQua:</strong> La sección de tiendas de LaQua cierra a las 21:00 y los restaurantes a las 22:00, ofreciendo un ambiente climatizado excelente si el calor y la humedad de agosto en el exterior se vuelven muy sofocantes.</li>
+                        <li><strong>Centro comercial LaQua:</strong> La precaución es que la sección de tiendas de LaQua cierra a las 21:00 y los restaurantes a las 22:00, ofreciendo un ambiente climatizado excelente si el calor y la humedad de agosto en el exterior se vuelven muy sofocantes.</li>
                         <li><strong>Ambiente y paseos:</strong> Pasear bajo sus estructuras iluminadas y ver de cerca el emblemático estadio Tokyo Dome os brindará una excelente y cómoda toma de contacto con el Tokio más moderno.</li>
                     </ul>
                     <img src="images/dia21-tokyo-dome.jpg" style="width:100%; border-radius:10px; border:1px solid rgba(255,255,255,0.1); margin-top:5px;" />
@@ -2847,7 +2911,7 @@ window.tacticalMissions = {
             },
             {
                 time: "🚶 5-7 min",
-                title: "☕ Opción 3: Terraza Fluvial en Canal Cafe",
+                title: "☕ Opción 4: Terraza Fluvial en Canal Cafe",
                 content: `
                     <p style="margin-bottom:12px; color:#cbd5e1; line-height:1.6;">El icónico <strong>Canal Cafe</strong> es un amplio restaurante y cafetería asentado junto al agua en el foso del antiguo Castillo de Edo, situado a solo 5-7 minutos a pie de vuestro hotel, justo al lado de la estación de Iidabashi. Su inmensa terraza descubierta junto al canal lo convierte en un rincón sumamente cotizado para disfrutar de la brisa del anochecer y desconectar del ajetreo urbano.</p>
                     <ul style="font-size:0.85rem; color:#94a3b8; padding-left:20px; margin-bottom:15px; display:flex; flex-direction:column; gap:6px;">
@@ -2863,7 +2927,7 @@ window.tacticalMissions = {
             },
             {
                 time: "🚇 15 min",
-                title: "🏙️ Opción 4: Mirador del Ayuntamiento (Tocho)",
+                title: "🏙️ Opción 5: Mirador del Ayuntamiento (Tocho)",
                 content: `
                     <p style="margin-bottom:12px; color:#cbd5e1; line-height:1.6;">El mirador del <strong>Gobierno Metropolitano de Tokio (Tocho)</strong> se encuentra en Shinjuku y ofrece una vista panorámica gratuita espectacular de 360 grados desde la planta 45, a 202 metros de altura.</p>
                     <ul style="font-size:0.85rem; color:#94a3b8; padding-left:20px; margin-bottom:15px; display:flex; flex-direction:column; gap:6px;">
@@ -2878,7 +2942,7 @@ window.tacticalMissions = {
             },
             {
                 time: "🚇 15 min",
-                title: "🏙️ Opción 5: Shinjuku Completo (Neones, Mirador y Karaoke)",
+                title: "🏙️ Opción 6: Shinjuku Completo (Neones, Mirador y Karaoke)",
                 content: `
                     <p style="margin-bottom:12px; color:#cbd5e1; line-height:1.6;">Una inmersión total en el <strong>Tokio nocturno de Shinjuku</strong>. Damos una vuelta por el barrio para orientarnos y disfrutar del contraste entre los rascacielos y los callejones tradicionales.</p>
                     <ul style="font-size:0.85rem; color:#94a3b8; padding-left:20px; margin-bottom:15px; display:flex; flex-direction:column; gap:8px;">
@@ -2923,7 +2987,7 @@ window.tacticalMissions = {
                         
                         <div class="transit-timeline" style="margin-top:15px; display:flex; flex-direction:column; gap:10px;">
                             <!-- Nodo Origen -->
-                            <div class="timeline-node origin" style="display:flex; gap:15px; align-items:flex-start;">
+                            <div class="transit-node origin" style="display:flex; gap:15px; align-items:flex-start;">
                                 <div class="node-indicator" style="display:flex; flex-direction:column; align-items:center;">
                                     <div class="station-icon-halo" style="--line-color: #ffd400; background:#ffd400; width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 0 10px rgba(255,212,0,0.4);">
                                         <span class="station-code" style="color:black; font-weight:800; font-size:0.8rem;">JB10</span>
@@ -2948,12 +3012,12 @@ window.tacticalMissions = {
                             </div>
                             
                             <!-- Conector -->
-                            <div class="timeline-connector" style="margin-left: 17px; border-left: 3px dashed #ffd400; padding:10px 0 10px 25px;">
+                            <div class="transit-connector" style="margin-left: 17px; border-left: 3px dashed #ffd400; padding:10px 0 10px 25px;">
                                 <span class="stops-count" style="font-size:0.78rem; color:#94a3b8; display:flex; align-items:center; gap:6px;"><i class="fa-solid fa-layer-group"></i> 6 paradas (Yoyogi, Sendagaya, Shinanomachi, Yotsuya, Ichigaya)</span>
                             </div>
                             
                             <!-- Nodo Destino -->
-                            <div class="timeline-node destination" style="display:flex; gap:15px; align-items:flex-start;">
+                            <div class="transit-node destination" style="display:flex; gap:15px; align-items:flex-start;">
                                 <div class="node-indicator" style="display:flex; flex-direction:column; align-items:center;">
                                     <div class="station-icon-halo" style="--line-color: #ffd400; background:#ffd400; width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 0 10px rgba(255,212,0,0.4);">
                                         <span class="station-code" style="color:black; font-weight:800; font-size:0.8rem;">JB16</span>
@@ -3053,7 +3117,7 @@ function compileTransitWidgetHTML(details, routeId) {
         }
 
         stepsHTML += `
-            <div class="timeline-node ${nodeTypeClass} ${isCompletedClass}" data-step-index="${idx}">
+            <div class="transit-node ${nodeTypeClass} ${isCompletedClass}" data-step-index="${idx}">
                 <div class="node-indicator">
                     <input type="checkbox" id="chk-${routeId}-${idx}" class="transit-checkbox" 
                            onchange="handleTransitStepChange('${routeId}', ${idx}, this.checked, this)" ${isChecked}>
@@ -3074,7 +3138,7 @@ function compileTransitWidgetHTML(details, routeId) {
 
         if (idx < details.steps.length - 1) {
             stepsHTML += `
-                <div class="timeline-connector" style="background: ${step.lineColor};">
+                <div class="transit-connector" style="background: ${step.lineColor};">
                     <span class="stops-count"><i class="fa-solid fa-layer-group"></i> En tránsito</span>
                 </div>
             `;
@@ -3116,7 +3180,7 @@ function handleTransitStepChange(routeId, stepIdx, isChecked, element) {
     localStorage.setItem(storageKey, JSON.stringify(currentState));
     
     if (element) {
-        const node = element.closest('.timeline-node');
+        const node = element.closest('.transit-node');
         if (node) {
             if (isChecked) {
                 node.classList.add('completed');
@@ -3136,6 +3200,39 @@ function handleTransitStepChange(routeId, stepIdx, isChecked, element) {
 }
 
 function renderTacticalMission(missionId, dayIdx) {
+    // Generar misiones de buffet independientes si se solicitan de forma dinámica
+    if (missionId && missionId.startsWith('day16_') && missionId !== 'day16_activities_buffet') {
+        const indexMap = {
+            'day16_ueno_summer': { idx: 0, title: "Ueno Summer Festival", subtitle: "Plan destacado (Sólo Hoy)" },
+            'day16_kagurazaka': { idx: 1, title: "Kagurazaka", subtitle: "Paseo tradicional y cena" },
+            'day16_tokyo_dome': { idx: 2, title: "Tokyo Dome City", subtitle: "Ocio y restauración rápida" },
+            'day16_canal_cafe': { idx: 3, title: "Canal Cafe", subtitle: "Terraza fluvial" },
+            'day16_tocho': { idx: 4, title: "Mirador del Tocho", subtitle: "Vistas nocturnas gratuitas" },
+            'day16_shinjuku': { idx: 5, title: "Shinjuku Completo", subtitle: "Neones, Mirador y Karaoke" }
+        };
+        const mapping = indexMap[missionId];
+        const baseBuffet = window.tacticalMissions['day16_activities_buffet'];
+        if (mapping && baseBuffet && baseBuffet.steps[mapping.idx]) {
+            // Clean up the Option X prefix in title
+            let cleanTitle = baseBuffet.steps[mapping.idx].title;
+            cleanTitle = cleanTitle.replace(/^🏮\s*¡DESTACADO\s*-\s*SÓLO\s*HOY!\s*Opción\s*\d+:\s*/i, '');
+            cleanTitle = cleanTitle.replace(/^🏮\s*Opción\s*\d+:\s*/i, '');
+            cleanTitle = cleanTitle.replace(/^[☕🎢🏙️]\s*Opción\s*\d+:\s*/i, '');
+            cleanTitle = cleanTitle.replace(/^\d+\.\s*/, '');
+            
+            window.tacticalMissions[missionId] = {
+                title: mapping.title,
+                subtitle: mapping.subtitle,
+                steps: [
+                    {
+                        ...baseBuffet.steps[mapping.idx],
+                        title: cleanTitle
+                    }
+                ]
+            };
+        }
+    }
+
     // 0. Detectar si hay transitDetails dinámico en la ruta
     const dayData = typeof travelData !== 'undefined' ? travelData[dayIdx] : null;
     let foundTransitDetails = null;
@@ -3199,6 +3296,24 @@ function renderTacticalMission(missionId, dayIdx) {
             `;
         });
         
+        let infographicBannerHTML = '';
+        if (mission.infographicSrc) {
+            infographicBannerHTML = `
+                <div class="infographic-banner-card" style="margin: 0 0 20px 0; border: 1px dashed var(--neon-blue); border-radius: 12px; padding: 12px; background: rgba(0, 243, 255, 0.03); display: flex; align-items: center; gap: 15px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 0 10px rgba(0, 243, 255, 0.1);" onclick="openInfographic('${mission.infographicSrc}')" title="Ver Infografía Logística Completa" onmouseover="this.style.transform='scale(1.01) translateY(-2px)'; this.style.boxShadow='0 0 15px rgba(0, 243, 255, 0.3)'; this.style.background='rgba(0, 243, 255, 0.06)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 0 10px rgba(0, 243, 255, 0.1)'; this.style.background='rgba(0, 243, 255, 0.03)';">
+                    <div style="width: 70px; height: 70px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); flex-shrink: 0;">
+                        <img src="${mission.infographicSrc}" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" />
+                    </div>
+                    <div style="flex: 1; text-align: left;">
+                        <h4 style="margin: 0 0 4px 0; color: var(--neon-blue); font-size: 0.95rem; font-weight: bold;"><i class="fa-solid fa-map"></i> Infografía Logística Completa</h4>
+                        <p style="margin: 0; color: #cbd5e1; font-size: 0.8rem; line-height: 1.4;">Hemos diseñado un mapa visual detallado del traslado para que lo lleves en el móvil. ¡Pulsa aquí para abrirlo!</p>
+                    </div>
+                    <div style="color: var(--neon-blue); font-size: 1.2rem; padding-right: 5px;">
+                        <i class="fa-solid fa-expand"></i>
+                    </div>
+                </div>
+            `;
+        }
+
         modal.innerHTML = `
             <div class="tactical-modal-content">
                 <button class="close-tactical" onclick="closeTacticalMission()">
@@ -3209,6 +3324,7 @@ function renderTacticalMission(missionId, dayIdx) {
                     <h1 class="tactical-title">${mission.title}</h1>
                     <p class="tactical-subtitle">${mission.subtitle}</p>
                 </div>
+                ${infographicBannerHTML}
                 <div class="tactical-steps-container">
                     ${stepsHTML}
                 </div>
@@ -3532,7 +3648,7 @@ window.showToyokoMessage = function() {
             <div style="text-align:center; margin-bottom:20px; border-bottom: 1px solid rgba(249, 115, 22, 0.2); padding-bottom: 15px;">
                 <i class="fa-solid fa-hotel" style="font-size:3rem; color:var(--accent); margin-bottom:10px;"></i>
                 <h2 style="margin:0; font-size:1.6rem; color:var(--accent);">Toyoko Inn Fuji Kawaguchiko Ohashi</h2>
-                <p style="color:#9ca3af; margin:5px 0; font-size:0.9rem;">Titular: <strong>Felipe Brasero Moreno</strong></p>
+                <p style="color:#9ca3af; margin:5px 0; font-size:0.9rem;">Titular: <strong>Felipe</strong></p>
                 <div style="display:inline-block; background:rgba(249, 115, 22, 0.1); border:1px solid var(--accent); padding:5px 12px; border-radius:20px; font-weight:bold; font-size:0.85rem; color:var(--accent); margin-top:5px;">
                     Sáb, 8 Ago - Mar, 11 Ago, 2026 (3 Noches)
                 </div>
@@ -3612,7 +3728,7 @@ window.showResidenceMessage = function() {
             <div style="text-align:center; margin-bottom:20px; border-bottom: 1px solid rgba(212, 175, 55, 0.2); padding-bottom: 15px;">
                 <i class="fa-solid fa-hotel" style="font-size:3rem; color:var(--gold); margin-bottom:10px;"></i>
                 <h2 style="margin:0; font-size:1.6rem; color:var(--gold);">Residence Hotel Takayama Station</h2>
-                <p style="color:#9ca3af; margin:5px 0; font-size:0.9rem;">Titular: <strong>Felipe Brasero Moreno</strong></p>
+                <p style="color:#9ca3af; margin:5px 0; font-size:0.9rem;">Titular: <strong>Felipe</strong></p>
                 <div style="display:inline-block; background:rgba(212, 175, 55, 0.1); border:1px solid var(--gold); padding:5px 12px; border-radius:20px; font-weight:bold; font-size:0.85rem; color:var(--gold); margin-top:5px;">
                     Vie, 7 Ago - Sáb, 8 Ago, 2026 (1 Noche)
                 </div>
@@ -3688,7 +3804,7 @@ window.showKyotoTowerMessage = function() {
             <div style="text-align:center; margin-bottom:20px; border-bottom: 1px solid rgba(0, 243, 255, 0.2); padding-bottom: 15px;">
                 <i class="fa-solid fa-hotel" style="font-size:3rem; color:var(--neon-blue); margin-bottom:10px;"></i>
                 <h2 style="margin:0; font-size:1.6rem; color:var(--neon-blue);">Kyoto Tower Hotel Annex</h2>
-                <p style="color:#9ca3af; margin:5px 0; font-size:0.9rem;">Titular: <strong>Felipe Brasero Moreno</strong></p>
+                <p style="color:#9ca3af; margin:5px 0; font-size:0.9rem;">Titular: <strong>Felipe</strong></p>
                 <div style="display:inline-block; background:rgba(0, 243, 255, 0.1); border:1px solid var(--neon-blue); padding:5px 12px; border-radius:20px; font-weight:bold; font-size:0.85rem; color:var(--neon-blue); margin-top:5px;">
                     Sáb, 1 Ago - Jue, 6 Ago, 2026 (5 Noches)
                 </div>

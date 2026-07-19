@@ -584,7 +584,7 @@ const travelData_09_16 = [
 
         logistics: [
             { title: "Billetes Shinkansen", text: "COMPRADO: Nozomi 2 (08:45 -> 09:19). Asientos reservados en <strong>Vagón 16 (Filas 14 a 17, asientos D y E)</strong>. Los códigos QR individuales de acceso están vinculados en el panel de Documentos (Día 0) y en la Guía de Transporte de este día." },
-            { title: "Billetes Hida (Nagoya-Takayama)", text: "COMPRADO: Hida 7 (10:00 -> 12:30). Localizadores <strong>41256</strong> (3 Ad + 1 Ch) y <strong>42023</strong> (4 Ad). Deben ser <strong>impresos físicamente</strong> en una máquina JR verde o ventanilla (ej. en Kioto) usando la tarjeta MasterCard terminada en <strong>7801</strong> y el PIN de 4 dígitos creado. Ver instrucciones completas en la Guía de Transporte." },
+            { title: "Billetes Hida (Nagoya-Takayama)", text: "COMPRADO: Hida 7 (10:00 -> 12:30). Localizadores <strong>[Ver PDF]</strong> (3 Ad + 1 Ch) y <strong>[Ver PDF]</strong> (4 Ad). Deben ser <strong>impresos físicamente</strong> en una máquina JR verde o ventanilla (ej. en Kioto) usando la tarjeta MasterCard terminada en <strong>7801</strong> y el PIN de 4 dígitos creado. Ver instrucciones completas en la Guía de Transporte." },
             { title: "Equipaje", text: "Solo mochilas de mano. Las maletas grandes van por Takkyubin a Tokio o Kawaguchiko." },
             { title: "Onsen [HORARIO: 15:00 - 01:00]", text: "Ducharse antes de entrar. Tatuajes: consultar política (o reservar privado)." }
         ],
@@ -612,7 +612,7 @@ const travelData_09_16 = [
                 time: "10:00",
                 type: "transit",
                 title: "Tren Wide View Hida a Takayama (COMPRADO)",
-                price: "Localizadores: 41256 / 42023",
+                price: "Localizadores: [Ver PDF]",
                 timeLabel: "2h 30m",
                 link: "https://www.google.com/maps/dir/?api=1&origin=Nagoya+Station&destination=Takayama+Station&travelmode=transit",
                 tacticalGuideId: "mission_kyoto_to_okuhida",
@@ -2002,7 +2002,7 @@ const travelData_09_16 = [
             { time: "14:08", title: "Tren a Shinjuku (COMPRADO)", desc: "Tren Directo Fuji Excursion a Shinjuku. (Base)" },
             { time: "16:06", title: "Llegada a Shinjuku", desc: "Traslado al hotel en taxi o metro local. (Base)" },
             { time: "16:45", title: "Check-in Edmont", desc: "Recuperad maletas grandes y descanso en el hotel. (Base)" },
-            { time: "18:30", title: "Buffet de Actividades 🎤", desc: "Elección de plan: Kagurazaka, Tokyo Dome City, Canal Cafe, Ayuntamiento o Shinjuku. (Base)" }
+            { time: "18:30", title: "Buffet de Actividades 🎤", desc: "Elección de plan: Ueno Summer Festival (¡Último día!), Kagurazaka, Tokyo Dome City, Canal Cafe, Ayuntamiento o Shinjuku. (Base)" }
         ],
 
         prices: {
@@ -2068,23 +2068,27 @@ const travelData_09_16 = [
                         </div>
                         
                         <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Elige tu plan para la primera noche</h3>
-                        <p>Os hemos preparado un menú completo con 5 alternativas ideales según el cansancio, el calor o lo que más os apetezca:</p>
+                        <p>Os hemos preparado un menú completo con 6 alternativas ideales según el cansancio, el calor o lo que más os apetezca:</p>
                         
                         <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:20px;">
-                            <button onclick="renderTacticalMission('day16_activities_buffet', 16)" class="tactical-btn" style="padding:12px; border-radius:10px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); color:white; text-align:left; cursor:pointer; font-family:inherit;">
-                                <strong style="color:var(--accent); display:block; margin-bottom:4px;"><i class="fa-solid fa-map-pin"></i> 1. Kagurazaka</strong> Paseo clásico y cena en tabernas tradicionales de varios pisos.
+                            <button onclick="renderTacticalMission('day16_ueno_summer', 16)" class="tactical-btn pulse-accent" style="grid-column: span 2; padding:15px; border-radius:12px; background:rgba(239, 68, 68, 0.1); border:2px solid #ef4444; color:white; text-align:left; cursor:pointer; font-family:inherit; box-shadow: 0 0 15px rgba(239, 68, 68, 0.3);">
+                                <strong style="color:#ef4444; display:flex; align-items:center; gap:6px; margin-bottom:4px; font-size:0.95rem;"><i class="fa-solid fa-fire-flame-curved"></i> 🚨 ¡PLAN DESTACADO (SÓLO HOY)! 1. Ueno Summer Festival</strong>
+                                <span style="font-size:0.8rem; color:#cbd5e1; display:block; margin-top:2px;">Último día de festival en Tokio con farolillos flotantes y comida callejera. ¡Imperdible!</span>
                             </button>
-                            <button onclick="renderTacticalMission('day16_activities_buffet', 16)" class="tactical-btn" style="padding:12px; border-radius:10px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); color:white; text-align:left; cursor:pointer; font-family:inherit;">
-                                <strong style="color:var(--neon-blue); display:block; margin-bottom:4px;"><i class="fa-solid fa-gamepad"></i> 2. Tokyo Dome City</strong> Ocio, estadio iluminado y comida fácil sin reserva.
+                            <button onclick="renderTacticalMission('day16_kagurazaka', 16)" class="tactical-btn" style="padding:12px; border-radius:10px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); color:white; text-align:left; cursor:pointer; font-family:inherit;">
+                                <strong style="color:var(--accent); display:block; margin-bottom:4px;"><i class="fa-solid fa-map-pin"></i> 2. Kagurazaka</strong> Paseo clásico y cena en tabernas tradicionales de varios pisos.
                             </button>
-                            <button onclick="renderTacticalMission('day16_activities_buffet', 16)" class="tactical-btn" style="padding:12px; border-radius:10px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); color:white; text-align:left; cursor:pointer; font-family:inherit;">
-                                <strong style="color:var(--neon-purple); display:block; margin-bottom:4px;"><i class="fa-solid fa-mug-hot"></i> 3. Canal Cafe</strong> Terraza italiana al aire libre sobre el foso de agua.
+                            <button onclick="renderTacticalMission('day16_tokyo_dome', 16)" class="tactical-btn" style="padding:12px; border-radius:10px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); color:white; text-align:left; cursor:pointer; font-family:inherit;">
+                                <strong style="color:var(--neon-blue); display:block; margin-bottom:4px;"><i class="fa-solid fa-gamepad"></i> 3. Tokyo Dome City</strong> Ocio, estadio iluminado y comida fácil sin reserva.
                             </button>
-                            <button onclick="renderTacticalMission('day16_activities_buffet', 16)" class="tactical-btn" style="padding:12px; border-radius:10px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); color:white; text-align:left; cursor:pointer; font-family:inherit;">
-                                <strong style="color:var(--gold); display:block; margin-bottom:4px;"><i class="fa-solid fa-building"></i> 4. Mirador del Tocho</strong> Subida gratuita al Ayuntamiento en Shinjuku.
+                            <button onclick="renderTacticalMission('day16_canal_cafe', 16)" class="tactical-btn" style="padding:12px; border-radius:10px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); color:white; text-align:left; cursor:pointer; font-family:inherit;">
+                                <strong style="color:var(--neon-purple); display:block; margin-bottom:4px;"><i class="fa-solid fa-mug-hot"></i> 4. Canal Cafe</strong> Terraza italiana al aire libre sobre el foso de agua.
                             </button>
-                            <button onclick="renderTacticalMission('day16_activities_buffet', 16)" class="tactical-btn" style="grid-column: span 2; padding:12px; border-radius:10px; background:rgba(249, 115, 22, 0.05); border:1px solid rgba(249, 115, 22, 0.2); color:white; text-align:left; cursor:pointer; font-family:inherit;">
-                                <strong style="color:var(--accent); display:block; margin-bottom:4px;"><i class="fa-solid fa-wand-magic-sparkles"></i> 5. Shinjuku Completo (Neones, Mirador y Karaoke)</strong> Neones en Kabukicho, cena en Omoide Yokocho y Karaoke familiar.
+                            <button onclick="renderTacticalMission('day16_tocho', 16)" class="tactical-btn" style="padding:12px; border-radius:10px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); color:white; text-align:left; cursor:pointer; font-family:inherit;">
+                                <strong style="color:var(--gold); display:block; margin-bottom:4px;"><i class="fa-solid fa-building"></i> 5. Mirador del Tocho</strong> Subida gratuita al Ayuntamiento en Shinjuku.
+                            </button>
+                            <button onclick="renderTacticalMission('day16_shinjuku', 16)" class="tactical-btn" style="grid-column: span 2; padding:12px; border-radius:10px; background:rgba(249, 115, 22, 0.05); border:1px solid rgba(249, 115, 22, 0.2); color:white; text-align:left; cursor:pointer; font-family:inherit;">
+                                <strong style="color:var(--accent); display:block; margin-bottom:4px;"><i class="fa-solid fa-wand-magic-sparkles"></i> 6. Shinjuku Completo (Neones, Mirador y Karaoke)</strong> Neones en Kabukicho, cena en Omoide Yokocho y Karaoke familiar.
                             </button>
                         </div>
                         

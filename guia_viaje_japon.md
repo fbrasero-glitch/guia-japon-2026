@@ -1003,7 +1003,7 @@ Uno de los baños públicos más antiguos y bonitos de Kioto con tallas de mader
 
 ### ⚙️ Logística y Tips
 - **Billetes Shinkansen:** COMPRADO: Nozomi 2 (08:45 -> 09:19). Asientos reservados en <strong>Vagón 16 (Filas 14 a 17, asientos D y E)</strong>. Los códigos QR individuales de acceso están vinculados en el panel de Documentos (Día 0) y en la Guía de Transporte de este día.
-- **Billetes Hida (Nagoya-Takayama):** COMPRADO: Hida 7 (10:00 -> 12:30). Localizadores <strong>41256</strong> (3 Ad + 1 Ch) y <strong>42023</strong> (4 Ad). Deben ser <strong>impresos físicamente</strong> en una máquina JR verde o ventanilla (ej. en Kioto) usando la tarjeta MasterCard terminada en <strong>7801</strong> y el PIN de 4 dígitos creado. Ver instrucciones completas en la Guía de Transporte.
+- **Billetes Hida (Nagoya-Takayama):** COMPRADO: Hida 7 (10:00 -> 12:30). Localizadores <strong>[Ver PDF]</strong> (3 Ad + 1 Ch) y <strong>[Ver PDF]</strong> (4 Ad). Deben ser <strong>impresos físicamente</strong> en una máquina JR verde o ventanilla (ej. en Kioto) usando la tarjeta MasterCard terminada en <strong>7801</strong> y el PIN de 4 dígitos creado. Ver instrucciones completas en la Guía de Transporte.
 - **Equipaje:** Solo mochilas de mano. Las maletas grandes van por Takkyubin a Tokio o Kawaguchiko.
 - **Onsen [HORARIO: 15:00 - 01:00]:** Ducharse antes de entrar. Tatuajes: consultar política (o reservar privado).
 
@@ -1021,7 +1021,7 @@ Uno de los baños públicos más antiguos y bonitos de Kioto con tallas de mader
 - **08:15** **Salida hacia Estación de Kioto**
 - **08:45** **Shinkansen Nozomi a Nagoya (COMPRADO)** (34 min) [Asientos: Vagón 16, Filas 14-17 (D/E)]
 - **09:19** **⚠️ CRÍTICO: Transbordo en Nagoya**
-- **10:00** **Tren Wide View Hida a Takayama (COMPRADO)** (2h 30m) [Localizadores: 41256 / 42023]
+- **10:00** **Tren Wide View Hida a Takayama (COMPRADO)** (2h 30m) [Localizadores: [Ver PDF]]
 - **12:30** **LLegada a Takayama / Almuerzo rápido**
 - **13:40** **Primer Bus Nohi hacia Okuhida** (1h 30m) [~2.200 JPY]
 - **15:10** **Check-in Kazeya Ryokan**
@@ -1381,7 +1381,7 @@ _Día de carretera para explorar la cultura y misticismo alrededor del volcán._
 - **14:08** - Tren a Shinjuku (COMPRADO): Tren Directo Fuji Excursion a Shinjuku. (Base)
 - **16:06** - Llegada a Shinjuku: Traslado al hotel en taxi o metro local. (Base)
 - **16:45** - Check-in Edmont: Recuperad maletas grandes y descanso en el hotel. (Base)
-- **18:30** - Buffet de Actividades 🎤: Elección de plan: Kagurazaka, Tokyo Dome City, Canal Cafe, Ayuntamiento o Shinjuku. (Base)
+- **18:30** - Buffet de Actividades 🎤: Elección de plan: Ueno Summer Festival (¡Último día!), Kagurazaka, Tokyo Dome City, Canal Cafe, Ayuntamiento o Shinjuku. (Base)
 
 ### 🚆 Transporte Detallado
 - **11:30** **Repostaje en Gasolinera**
@@ -1417,7 +1417,7 @@ Llegada al hotel de Tokio, recuperación de las maletas enviadas por Takkyubin y
 #### 18:30 - Buffet de Actividades: Primera Noche en Tokio 🎤
 Menú interactivo de actividades recomendadas a pocos minutos del hotel o Shinjuku. ¡Abre el buffet pulsando el botón!
 
-*Detalle:* Buffet de Actividades Elige tu plan para la primera noche Os hemos preparado un menú completo con 5 alternativas ideales según el cansancio, el calor o lo que más os apetezca: 1. Kagurazaka Paseo clásico y cena en tabernas tradicionales de varios pisos. 2. Tokyo Dome City Ocio, estadio iluminado y comida fácil sin reserva. 3. Canal Cafe Terraza italiana al aire libre sobre el foso de agua. 4. Mirador del Tocho Subida gratuita al Ayuntamiento en Shinjuku. 5. Shinjuku Completo (Neones, Mirador y Karaoke) Neones en Kabukicho, cena en Omoide Yokocho y Karaoke familiar. ABRIR MENÚ DE ACTIVIDADES Modo Karaoke 1
+*Detalle:* Buffet de Actividades Elige tu plan para la primera noche Os hemos preparado un menú completo con 6 alternativas ideales según el cansancio, el calor o lo que más os apetezca: 🚨 ¡PLAN DESTACADO (SÓLO HOY)! 1. Ueno Summer Festival Último día de festival en Tokio con farolillos flotantes y comida callejera. ¡Imperdible! 2. Kagurazaka Paseo clásico y cena en tabernas tradicionales de varios pisos. 3. Tokyo Dome City Ocio, estadio iluminado y comida fácil sin reserva. 4. Canal Cafe Terraza italiana al aire libre sobre el foso de agua. 5. Mirador del Tocho Subida gratuita al Ayuntamiento en Shinjuku. 6. Shinjuku Completo (Neones, Mirador y Karaoke) Neones en Kabukicho, cena en Omoide Yokocho y Karaoke familiar. ABRIR MENÚ DE ACTIVIDADES Modo Karaoke 1
 
 - **Precio:** Gratis / Variable
 
@@ -1522,6 +1522,13 @@ Cafeterías en Akihabara donde camareras disfrazadas os llaman 'amo' e infunden 
 *Detalle:* Surrealismo Kawaii Extremo Cadenas como "Maidreamin" u "At Home Café" ofrecen algo que no sabréis si amar o enterrar bajo tierra. Las maids os obligarán a hacer corazones con las manos para bendecir vuestro capuchino ("Moe Moe Kyun!"). Una inmersión en una moda nipona difícil de explicar a la abuela en España.
 
 - **Precio:** ~2.500 JPY
+
+#### 15:30 – 17:30 (Opción A) - 🏮 Fukagawa Matsuri 2026 (Festival del Agua)
+Uno de los 'Tres Grandes Festivales Sintoístas de Edo'. ¡Tradición, mikoshis y cubos de agua volando!
+
+*Detalle:* El Festival del Agua (Fukagawa Matsuri) El Fukagawa Matsuri es uno de los festivales sintoístas más antiguos y espectaculares de Tokio, con decenas de mikoshis (santuarios portátiles) recorriendo las calles del histórico barrio de Fukagawa. La particularidad de este festival es que los espectadores arrojan cubos de agua limpia a los portadores de los santuarios para refrescarlos del agobiante calor veraniego. ADVERTENCIA PARA VIAJEROS ¡Acabaréis empapados! Si planeáis estar en primera línea para ver los mikoshis pasar, es fundamental que guardéis y protejáis vuestros teléfonos móviles, cámaras de fotos y cualquier dispositivo electrónico en fundas impermeables estancas. ¡Los cubos y chorros de agua vuelan por todas partes! ¿Cómo integrarlo hoy (Día 17)? - Opción A Tras terminar la visita al **Tokyo Skytree y Solamachi** alrededor de las 15:30/16:00, en lugar de dirigiros de inmediato a Akihabara, tomáis el metro hacia el sur al barrio de Fukagawa (cerca del Santuario Tomioka Hachimangū). Viviréis el ambiente festivo, los primeros rituales y los clásicos puestos de comida (Yatai), y luego terminaréis la noche en Akihabara. VER RUTA EN METRO ABRIR INFOGRAFÍA
+
+- **Precio:** Gratis
 
 ### ✨ Excursiones Adicionales
 #### 12:00 – 13:00 - Crucero Fluvial Hotaluna [HORARIO: Salidas]
@@ -1693,10 +1700,17 @@ Para los puristas. Si no queréis la modernidad de Toyosu, los callejones del an
 
 - **Precio:** Variable
 
-#### 15:00 - Teatro Kabuki-za (Desde fuera) [HORARIO: Var�a]
+#### 15:00 - Teatro Kabuki-za (Desde fuera) [HORARIO: Varía]
 La joya arquitectónica del teatro clásico sobreviviendo entre torres modernas de cristal en Ginza.
 
 *Detalle:* Reflejos Feudales Reconstruido varias veces, es el teatro principal donde se ejecuta hoy en día el arte dramático tradicional Kabuki de Japón (actuado sólo por varones y con elaborados sets giratorios). Su inmensa techumbre al uso de los castillos feudales es un spot fotográfico magnífico para constatar la dualidad de Ginza entre lo ultra-moderno y lo intocablemente clásico.
+
+- **Precio:** Gratis
+
+#### 13:30 – 16:00 (Opción B) - 🏮 Fukagawa Matsuri 2026 (Festival del Agua)
+Uno de los 'Tres Grandes Festivales Sintoístas de Edo'. ¡Tradición, mikoshis y cubos de agua volando!
+
+*Detalle:* El Festival del Agua (Fukagawa Matsuri) El Fukagawa Matsuri es uno de los festivales sintoístas más antiguos y espectaculares de Tokio, con decenas de mikoshis (santuarios portátiles) recorriendo las calles del histórico barrio de Fukagawa. La particularidad de este festival es que los espectadores arrojan cubos de agua limpia a los portadores de los santuarios para refrescarlos del agobiante calor veraniego. ADVERTENCIA PARA VIAJEROS ¡Acabaréis empapados! Si planeáis estar en primera línea para ver los mikoshis pasar, es fundamental que guardéis y protejáis vuestros teléfonos móviles, cámaras de fotos y cualquier dispositivo electrónico en fundas impermeables estancas. ¡Los cubos y chorros de agua vuelan por todas partes! ¿Cómo integrarlo hoy (Día 19)? - Opción B Tras pasear por **Ginza** al mediodía (12:30/13:30), cruzáis el río hacia el east al cercano barrio de Fukagawa (está literalmente al lado). Os mezclaréis con las multitudes ruidosas arrojando agua a los mikoshis. Después, a las 16:15, os dirigiréis a **Roppongi Hills** para ver la espectacular Torre de Tokio al atardecer. ¡Un contraste perfecto entre la modernidad elitista de Ginza y la tradición apasionada de Fukagawa! VER RUTA EN METRO ABRIR INFOGRAFÍA
 
 - **Precio:** Gratis
 

@@ -6212,7 +6212,7 @@ body.auth-hidden .update-toast {
     padding-left: 25px; /* Dejar espacio para los checkboxes colocados a la izquierda */
 }
 
-.timeline-connector {
+.transit-connector {
     margin-left: 20px;
     width: 4px;
     height: 45px;
@@ -6235,7 +6235,7 @@ body.auth-hidden .update-toast {
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.timeline-node {
+.transit-node {
     display: flex;
     align-items: flex-start;
     gap: 15px;
@@ -6295,8 +6295,8 @@ body.auth-hidden .update-toast {
     justify-content: center;
 }
 
-.timeline-node:has(.transit-checkbox:checked),
-.timeline-node.completed {
+.transit-node:has(.transit-checkbox:checked),
+.transit-node.completed {
     opacity: 0.4;
     filter: grayscale(50%);
 }

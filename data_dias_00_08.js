@@ -28,7 +28,7 @@ const travelData_00_08 = [
                     color: "var(--danger)",
                     items: [
                         { id: "bk_shinkansen", name: "Shinkansen Kioto-Nagoya (Nozomi 2, 08:45-09:19) [COMPRADO] - ID Membresía: 18*****405 | Reservas 20** y 20**. Asientos finales asignados el 6 de Julio.", status: "completed", date: "ENVIADO 6 JULIO", link: "https://shinkansen2.jr-central.co.jp/RSV_P/S_smart_en_index.htm" },
-                        { id: "bk_hida", name: "Wide View Hida (Nagoya-Takayama) [COMPRADO] - Localizadores: 41256 (3 Ad + 1 Ch) y 42023 (4 Ad). Canjear billetes físicos JR.", status: "completed", date: "COMPRADO", link: "https://www.westjr.co.jp/global/en/ticket/route_search/" },
+                        { id: "bk_hida", name: "Wide View Hida (Nagoya-Takayama) [COMPRADO] - Localizadores: [Ver PDF] (3 Ad + 1 Ch) y [Ver PDF] (4 Ad). Canjear billetes físicos JR.", status: "completed", date: "COMPRADO", link: "https://www.westjr.co.jp/global/en/ticket/route_search/" },
                         { id: "bk_fuji_excursion", name: "Tren Fuji Excursion (Regreso Tokio) [COMPRADO]", status: "completed", date: "COMPRADO", link: "https://www.eki-net.com/en/jreast-train-reservation/Top/Index" },
                         { id: "bk_bus_takayama_fuji", name: "LIMON Bus Takayama-Fuji (08:50) - 8 pax [80.000¥]", status: "completed", date: "COMPRADO", link: "https://www.nouhibus.co.jp/english/" },
                         { id: "bk_bus_nohi", name: "Bus Nohi (Shirakawa-go)", status: "pending", date: "1 mes antes", link: "https://www.nouhibus.co.jp/english/" }
@@ -1782,29 +1782,50 @@ const travelData_00_08 = [
                 tacticalGuideId: "mission_osaka_to_kyoto",
                 tacticalBtnText: "RUTA METRO",
                 transitDetails: {
-                    origin: "Osaka Station",
-                    destination: "Kyoto Station",
-                    totalTime: "30 min",
+                    origin: "Hotel (Osaka) ➔ Kioto",
+                    destination: "Kyoto Station (Kioto)",
+                    totalTime: "1h 15 min",
                     steps: [
                         {
                             type: "origin",
-                            station: "Osaka",
-                            code: "JR-A47",
-                            line: "JR Special Rapid Service (Azul)",
+                            station: "Hotel (Dc桜の苑)",
+                            code: "WALK",
+                            line: "Caminar a Shin-Imamiya",
+                            lineColor: "#cbd5e1",
+                            instructions: "Sal del hotel y camina hacia el sur unos 8 minutos (~600 metros) hasta llegar a la estación JR Shin-Imamiya.",
+                            mapUrl: "https://www.google.com/maps/dir/?api=1&origin=Dc桜の苑-難波南店&destination=Shin-Imamiya+Station&travelmode=walking"
+                        },
+                        {
+                            type: "transfer",
+                            station: "Shin-Imamiya (JR)",
+                            code: "JR-O19",
+                            line: "JR Osaka Loop Line (Línea Circular Roja)",
+                            lineColor: "#e60012",
+                            platform: "3 (Inner Loop hacia Osaka Station)",
+                            car: "Cualquiera",
+                            instructions: "Entra por los tornos JR (puedes usar tu tarjeta IC). Toma la línea Osaka Loop Line en dirección a Tennōji / Osaka. Viaja 6 paradas hasta la Estación de Osaka (aprox. 15 minutos)."
+                        },
+                        {
+                            type: "transfer",
+                            station: "Estación de Osaka (JR)",
+                            code: "JR-O09",
+                            line: "Transbordo Interno a JR Kyoto Line",
                             lineColor: "#0072bc",
-                            platform: "7 u 8 (dirección Kyoto/Kosei Line)",
-                            car: "Vagón 5, 6 u 8"
+                            platform: "7 u 8",
+                            car: "Vagón 5, 6 u 8",
+                            instructions: "Al bajar de la Loop Line, NO salgas de los tornos. Sigue las indicaciones amarillas elevadas hacia la **JR Kyoto Line** y sube al andén de las vías 7 u 8."
                         },
                         {
                             type: "destination",
-                            station: "Kyoto",
+                            station: "Kyoto Station (JR)",
                             code: "JR-A31",
-                            line: "JR Special Rapid Service (Azul)",
+                            line: "JR Special Rapid Service (Línea Azul)",
                             lineColor: "#0072bc",
-                            exit: "Central Gate (Salida Central, frente a Kyoto Tower)"
+                            exit: "Central Gate (Salida Central, frente a Kyoto Tower)",
+                            instructions: "Sube al tren **Special Rapid Service (新快速 - Shin-Kaisoku)**. Tarda 29 minutos directos a Kioto. Al llegar, sal por la Central Gate para estar frente a la Torre de Kioto."
                         }
                     ],
-                    gpsWarning: "Sube exclusivamente al tren 'Special Rapid Service' (新快速 - Shin-Kaisoku). Pasan cada 15 min. No confundir con el Local o Rapid que tardan casi el doble."
+                    gpsWarning: "Sube exclusivamente al tren 'Special Rapid Service' (新快速). Pasan cada 15 min. No confundir con el Local o Rapid que tardan casi el doble."
                 }
             },
             {

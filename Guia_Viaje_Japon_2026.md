@@ -223,7 +223,7 @@ Esta guía contiene toda la información detallada del viaje, estructurada para 
 ### DÍA 11: ⛰️ Alpes: Relax en el Ryokan
 *   **Fecha:** Jue, 6 Agosto
 *   **Hotel:** Kazeya Ryokan
-*   **Logística:** Billetes Shinkansen: COMPRADO: Nozomi 2 (08:45 -> 09:19). Asientos reservados en <strong>Vagón 16 (Filas 14 a 17, asientos D y E)</strong>. Los códigos QR individuales de acceso están vinculados en el panel de Documentos (Día 0) y en la Guía de Transporte de este día. | Billetes Hida (Nagoya-Takayama): COMPRADO: Hida 7 (10:00 -> 12:30). Localizadores <strong>41256</strong> (3 Ad + 1 Ch) y <strong>42023</strong> (4 Ad). Deben ser <strong>impresos físicamente</strong> en una máquina JR verde o ventanilla (ej. en Kioto) usando la tarjeta MasterCard terminada en <strong>7801</strong> y el PIN de 4 dígitos creado. Ver instrucciones completas en la Guía de Transporte. | Equipaje: Solo mochilas de mano. Las maletas grandes van por Takkyubin a Tokio o Kawaguchiko. | Onsen [HORARIO: 15:00 - 01:00]: Ducharse antes de entrar. Tatuajes: consultar política (o reservar privado).
+*   **Logística:** Billetes Shinkansen: COMPRADO: Nozomi 2 (08:45 -> 09:19). Asientos reservados en <strong>Vagón 16 (Filas 14 a 17, asientos D y E)</strong>. Los códigos QR individuales de acceso están vinculados en el panel de Documentos (Día 0) y en la Guía de Transporte de este día. | Billetes Hida (Nagoya-Takayama): COMPRADO: Hida 7 (10:00 -> 12:30). Localizadores <strong>[Ver PDF]</strong> (3 Ad + 1 Ch) y <strong>[Ver PDF]</strong> (4 Ad). Deben ser <strong>impresos físicamente</strong> en una máquina JR verde o ventanilla (ej. en Kioto) usando la tarjeta MasterCard terminada en <strong>7801</strong> y el PIN de 4 dígitos creado. Ver instrucciones completas en la Guía de Transporte. | Equipaje: Solo mochilas de mano. Las maletas grandes van por Takkyubin a Tokio o Kawaguchiko. | Onsen [HORARIO: 15:00 - 01:00]: Ducharse antes de entrar. Tatuajes: consultar política (o reservar privado).
 *   **Actividades:**
     *   **08:45 - Tren a Takayama:** Shinkansen a Nagoya y Wide View Hida. (Base)
     *   **15:10 - Check-in Ryokan:** Té verde, yukata y onsen. (Base)
@@ -307,7 +307,7 @@ Esta guía contiene toda la información detallada del viaje, estructurada para 
     *   **14:08 - Tren a Shinjuku (COMPRADO):** Tren Directo Fuji Excursion a Shinjuku. (Base)
     *   **16:06 - Llegada a Shinjuku:** Traslado al hotel en taxi o metro local. (Base)
     *   **16:45 - Check-in Edmont:** Recuperad maletas grandes y descanso en el hotel. (Base)
-    *   **18:30 - Buffet de Actividades 🎤:** Elección de plan: Kagurazaka, Tokyo Dome City, Canal Cafe, Ayuntamiento o Shinjuku. (Base)
+    *   **18:30 - Buffet de Actividades 🎤:** Elección de plan: Ueno Summer Festival (¡Último día!), Kagurazaka, Tokyo Dome City, Canal Cafe, Ayuntamiento o Shinjuku. (Base)
 *   **OTRAS ACTIVIDADES CERCA HOTEL (PARA MAÑANAS):**
     *   **Samurai Restaurant Show [HORARIO: 15:00 - 22:00] (20:00 – 21:30):** El nuevo espectáculo heredero del Robot Restaurant en Kabukicho.
     *   **Jardín Koishikawa Korakuen [HORARIO: 09:00 - 17:00] (16:00 – 17:30):** Uno de los jardines japoneses más antiguos y hermosos de Tokio, junto al hotel.
@@ -328,6 +328,7 @@ Esta guía contiene toda la información detallada del viaje, estructurada para 
 *   **Excursiones Alternativas / Complementos:**
     *   **Calle Kappabashi (Cocineros) (Flexible Mañana):** El barrio de suministros para restaurantes. Cuchillos forjados a mano y comida de plástico.
     *   **Experiencia Maid Café (Akihabara) (Flexible Tarde):** Cafeterías en Akihabara donde camareras disfrazadas os llaman 'amo' e infunden magia en los helados.
+    *   **🏮 Fukagawa Matsuri 2026 (Festival del Agua) (15:30 – 17:30 (Opción A)):** Uno de los 'Tres Grandes Festivales Sintoístas de Edo'. ¡Tradición, mikoshis y cubos de agua volando!
 *   **Excursiones Adicionales:**
     *   **Crucero Fluvial Hotaluna [HORARIO: Salidas] (12:00 – 13:00):** Trayecto en barco futurista desde Asakusa hasta Odaiba.
     *   **Sumida Aquarium [HORARIO: 10:00 - 20:00] (15:00 – 16:30):** Acuario de diseño moderno y artístico dentro del complejo Skytree.
@@ -364,7 +365,8 @@ Esta guía contiene toda la información detallada del viaje, estructurada para 
     *   **20:30 - Regreso al Hotel:** Metro directo línea Oedo desde Roppongi a Iidabashi y vuelta a pie. (Base)
 *   **Excursiones Alternativas / Complementos:**
     *   **Mercado Tsukiji (Exterior) [HORARIO: 05:00 - 14:00] (Flexible Mediodía):** Para los puristas. Si no queréis la modernidad de Toyosu, los callejones del antiguo mercado en Tsukiji siguen sirviendo marisco y wagyu increíble.
-    *   **Teatro Kabuki-za (Desde fuera) [HORARIO: Var�a] (15:00):** La joya arquitectónica del teatro clásico sobreviviendo entre torres modernas de cristal en Ginza.
+    *   **Teatro Kabuki-za (Desde fuera) [HORARIO: Varía] (15:00):** La joya arquitectónica del teatro clásico sobreviviendo entre torres modernas de cristal en Ginza.
+    *   **🏮 Fukagawa Matsuri 2026 (Festival del Agua) (13:30 – 16:00 (Opción B)):** Uno de los 'Tres Grandes Festivales Sintoístas de Edo'. ¡Tradición, mikoshis y cubos de agua volando!
 
 ---
 
