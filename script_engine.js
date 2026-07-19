@@ -173,7 +173,7 @@ window.getBookingStatus = function (id) {
     return 'pendiente';
 };
 
-// --- SISTEMA DE RESERVAS (LOCALSTORAGE) ---
+// --- SISTEMA DE RESERVAS ---
 window.toggleBookingStatus = function (id, dayIndex) {
     const currentStatus = window.getBookingStatus(id);
     if (currentStatus === 'comprado') {
@@ -188,11 +188,14 @@ window.toggleBookingStatus = function (id, dayIndex) {
         return;
     }
 
-    // Forzar re-render de la vista actual (si estamos en una excursión, el modal ya está abierto, 
-    // pero lo más fácil es recargar el panel derecho o el visual card. En este caso recargamos la info estática para refrescar la UI)
-    const btn = document.querySelector('.day-btn.active');
-    if (btn) {
-        // Un pequeño truco para re-renderizar manteniendo la vista es volver a generar el HTML del ticket,
+    // Si la guía de entradas está activa, refrescar tarjetas en caliente sin redirigir
+    if (document.querySelector('.excursions-guide-container')) {
+        if (typeof window.applyGuideFilters === 'function') {
+            window.applyGuideFilters();
+        }
+        return;
+    }
+
         // pero como renderCenterVisual pisa todo, lo ideal es recargar el día, o simplemente cambiar el DOM interno.
         // Dado que recargar el día con loadDay cierra la excursión, haremos un update directo del DOM por simplicidad si se requiere, 
         // o re-pintar. Aquí recargamos la excursión llamando a click sobre optData si es posible, pero
