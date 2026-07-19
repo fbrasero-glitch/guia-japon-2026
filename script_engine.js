@@ -4499,6 +4499,17 @@ window.renderGuideCards = function(data) {
     
     container.innerHTML = data.map(item => {
         const isComprado = item.bookingId ? (window.getBookingStatus(item.bookingId) === 'comprado') : false;
+        const decision = Persistence.getItem('decision_' + item.id) || 'no_decidido';
+        
+        let cardBorder = 'rgba(255,255,255,0.06)';
+        let cardBg = 'rgba(15,23,42,0.5)';
+        if (decision === 'comprar') {
+            cardBorder = 'rgba(16, 185, 129, 0.4)';
+            cardBg = 'linear-gradient(135deg, rgba(15,23,42,0.6), rgba(16,185,129,0.05))';
+        } else if (decision === 'descartar') {
+            cardBorder = 'rgba(239, 68, 68, 0.4)';
+            cardBg = 'linear-gradient(135deg, rgba(15,23,42,0.6), rgba(239,68,68,0.05))';
+        }
         
         let headerBadgeBg = 'var(--gold)';
         let headerBadgeText = '🎟️ TAQUILLA';
@@ -4558,9 +4569,9 @@ window.renderGuideCards = function(data) {
         }
 
         return `
-            <div class="excursion-card" style="display: flex; flex-direction: column; justify-content: space-between; background: rgba(15,23,42,0.5); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: all 0.3s; min-height: 220px;"
+            <div class="excursion-card" style="display: flex; flex-direction: column; justify-content: space-between; background: ${cardBg}; border: 1px solid ${cardBorder}; border-radius: 12px; padding: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: all 0.3s; min-height: 250px;"
                  onmouseover="this.style.borderColor='rgba(251,191,36,0.3)'; this.style.boxShadow='0 4px 20px rgba(251,191,36,0.08)';"
-                 onmouseout="this.style.borderColor='rgba(255,255,255,0.06)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.3)';">
+                 onmouseout="this.style.borderColor='${cardBorder}'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.3)';">
                 <div>
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
                         <span style="background: ${item.category === 'critica' || item.category === 'transporte' ? headerBadgeBg : 'transparent'}; 
@@ -4578,10 +4589,49 @@ window.renderGuideCards = function(data) {
                         <strong>Precio:</strong> <span style="color: var(--gold); font-weight: bold;">${item.price}</span>
                     </div>
                 </div>
+                
+                <!-- Decisión Familiar -->
+                <div style="margin-top: 12px; border-top: 1px dashed rgba(255,255,255,0.15); padding-top: 10px; display: flex; flex-direction: column; gap: 6px;">
+                    <div style="font-size: 0.68rem; color: rgba(255,255,255,0.6); font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; display: flex; align-items: center; justify-content: space-between;">
+                        <span>👪 Decisión Familiar:</span>
+                        <span style="font-weight: 900; color: ${decision === 'comprar' ? '#10b981' : (decision === 'descartar' ? '#ef4444' : 'rgba(255,255,255,0.4)')}">
+                            ${decision === 'comprar' ? '✅ COMPRAR' : (decision === 'descartar' ? '❌ DESCARTADO' : '⏳ EN DEBATE')}
+                        </span>
+                    </div>
+                    <div style="display: flex; gap: 6px;">
+                        <button onclick="window.setDecision('${item.id}', 'no_decidido')" 
+                                style="background: ${decision === 'no_decidido' ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.3)'}; 
+                                       color: ${decision === 'no_decidido' ? 'white' : 'rgba(255,255,255,0.4)'}; 
+                                       border: 1px solid ${decision === 'no_decidido' ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.05)'}; 
+                                       padding: 4px 0; border-radius: 4px; font-size: 0.65rem; cursor: pointer; flex: 1; font-weight: bold; transition: all 0.2s; font-family: inherit;">
+                            ⏳ Debate
+                        </button>
+                        <button onclick="window.setDecision('${item.id}', 'comprar')" 
+                                style="background: ${decision === 'comprar' ? 'rgba(16, 185, 129, 0.25)' : 'rgba(0,0,0,0.3)'}; 
+                                       color: ${decision === 'comprar' ? '#34d399' : 'rgba(255,255,255,0.4)'}; 
+                                       border: 1px solid ${decision === 'comprar' ? '#10b981' : 'rgba(255,255,255,0.05)'}; 
+                                       padding: 4px 0; border-radius: 4px; font-size: 0.65rem; cursor: pointer; flex: 1; font-weight: bold; transition: all 0.2s; font-family: inherit;">
+                            ✅ Comprar
+                        </button>
+                        <button onclick="window.setDecision('${item.id}', 'descartar')" 
+                                style="background: ${decision === 'descartar' ? 'rgba(239, 68, 68, 0.25)' : 'rgba(0,0,0,0.3)'}; 
+                                       color: ${decision === 'descartar' ? '#fca5a5' : 'rgba(255,255,255,0.4)'}; 
+                                       border: 1px solid ${decision === 'descartar' ? '#ef4444' : 'rgba(255,255,255,0.05)'}; 
+                                       padding: 4px 0; border-radius: 4px; font-size: 0.65rem; cursor: pointer; flex: 1; font-weight: bold; transition: all 0.2s; font-family: inherit;">
+                            ❌ Descartar
+                        </button>
+                    </div>
+                </div>
+
                 ${actionHTML}
             </div>
         `;
     }).join('');
+};
+
+window.setDecision = function(itemId, decision) {
+    Persistence.setItem('decision_' + itemId, decision);
+    window.applyGuideFilters();
 };
 
 
