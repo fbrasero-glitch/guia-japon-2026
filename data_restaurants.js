@@ -16,7 +16,7 @@ const restaurantData = [
         rating: 4.7,
         specialty: "Tarta de Queso & Café de Especialidad",
         image: "images/restaurantes/my-neighbor.jpg",
-        nearTo: ["Castillo de Osaka"] // Áreas cercanas para recomendación
+        nearTo: ["Castillo de Osaka", "Museo de Historia de Osaka", "Parque del Castillo", "Nakanoshima", "Honmachi", "Umeda"] // Áreas cercanas para recomendación
     },
     {
         id: "yakiniku-kitan-minamisenba",
@@ -30,7 +30,7 @@ const restaurantData = [
         rating: 4,
         specialty: "Cortes Seleccionados de Wagyu A5",
         image: "images/restaurantes/yakiniku-kitan-minamisenba.jpg",
-        nearTo: ["Shinsaibashi Parco", "Umeda Sky Building"]
+        nearTo: ["Shinsaibashi", "Shinsaibashi Parco", "Minamisenba", "Amerikamura", "Shinsaibashi-suji", "Umeda Sky Building"]
     },
     {
         id: "nikugoro-amerikamura",
@@ -44,7 +44,7 @@ const restaurantData = [
         rating: 4.9,
         specialty: "Yakiniku (Barbacoa de Ternera)",
         image: "images/restaurantes/nikugoro-amerikamura.jpg",
-        nearTo: ["Shinsaibashi Parco", "Dotonbori"]
+        nearTo: ["Amerikamura", "Shinsaibashi", "Shinsaibashi Parco", "Shinsaibashi-suji", "Dotonbori", "Calle Ebisubashisuji"]
     },
     {
         id: "kitan-hibiki-yakiniku",
@@ -58,7 +58,7 @@ const restaurantData = [
         rating: 4.3,
         specialty: "Chuletón de Wagyu Madurado",
         image: "images/restaurantes/kitan-hibiki-yakiniku.jpg",
-        nearTo: ["Santuario Namba Yasaka", "Calle Ebisubashisuji", "Dotonbori"]
+        nearTo: ["Santuario Namba Yasaka", "Calle Ebisubashisuji", "Dotonbori", "Namba", "Hozenji Yokocho", "Nipponbashi", "Den Den Town", "Cena en Dotonbori"]
     },
     {
         id: "matsusakagyu-yakiniku-m-namba",
@@ -72,7 +72,7 @@ const restaurantData = [
         rating: 4.8,
         specialty: "Carne de Matsusaka a la Parrilla",
         image: "images/restaurantes/matsusakagyu-yakiniku-m-namba.jpg",
-        nearTo: ["Santuario Namba Yasaka", "Dotonbori"]
+        nearTo: ["Santuario Namba Yasaka", "Dotonbori", "Namba", "Ebisubashisuji", "Calle Ebisubashisuji", "Hozenji Yokocho", "Cena en Dotonbori"]
     },
     {
         id: "yakiniku-m-hozenji",
@@ -86,7 +86,7 @@ const restaurantData = [
         rating: 4.8,
         specialty: "Menú Degustación de Buey Matsusaka",
         image: "images/restaurantes/yakiniku-m-hozenji.jpg",
-        nearTo: ["Calle Ebisubashisuji", "Dotonbori"]
+        nearTo: ["Hozenji Yokocho", "Calle Ebisubashisuji", "Dotonbori", "Namba", "Ebisubashisuji", "Cena en Dotonbori"]
     },
         {
         id: "bek-shinsaibashi",
@@ -100,7 +100,7 @@ const restaurantData = [
         rating: 4.4,
         specialty: "Tacos de Ternera Fusión & Café",
         image: "images/restaurantes/bek-shinsaibashi.jpg",
-        nearTo: ["Dotonbori", "Shinsaibashi Parco"]
+        nearTo: ["Amerikamura", "Shinsaibashi", "Shinsaibashi Parco", "Dotonbori", "Shinsaibashi-suji"]
     },
     {
         id: "kobe-beef-miyabi-kitanosaka",
@@ -114,7 +114,7 @@ const restaurantData = [
         rating: 4.8,
         specialty: "Kobe Beef en Plancha Teppanyaki",
         image: "images/restaurantes/kobe-beef-miyabi-kitanosaka.jpg",
-        nearTo: ["Puerto de Kobe", "Harborland"]
+        nearTo: ["Kobe", "Sannomiya", "Kitanosaka", "Puerto de Kobe", "Harborland", "Excursión a Kobe"]
     },
     {
         id: "moeyo-mensuke-fukushima",
@@ -128,7 +128,7 @@ const restaurantData = [
         rating: 4.4,
         specialty: "Kamo Soba (Ramen de Pato Premium)",
         image: "images/restaurantes/moeyo-mensuke-fukushima.jpg",
-        nearTo: ["Umeda Sky Building", "Nakanoshima"]
+        nearTo: ["Umeda Sky Building", "Nakanoshima", "Umeda", "Fukushima", "Estación de Osaka", "Almuerzo en Umeda", "Cruceros por el río Okawa"]
     },
     {
         id: "acai-bowl-blab-shinsaibashi",
@@ -142,7 +142,7 @@ const restaurantData = [
         rating: 4.6,
         specialty: "Acai Bowl con Frutas Frescas",
         image: "images/restaurantes/acai-bowl-blab-shinsaibashi.jpg",
-        nearTo: ["Shinsaibashi Parco", "Dotonbori"]
+        nearTo: ["Shinsaibashi Parco", "Dotonbori", "Shinsaibashi", "Higashi Shinsaibashi", "Shinsaibashi-suji"]
     },
     {
         id: "tenma-sakaba-sushikin",
@@ -156,7 +156,7 @@ const restaurantData = [
         rating: 4.2,
         specialty: "Nigiris de Salmón y Atún Rojo",
         image: "images/restaurantes/tenma-sakaba-sushikin.jpg",
-        nearTo: ["Calle Comercial Tenjinbashisuji", "Umeda Sky Building"]
+        nearTo: ["Tenma", "Calle Comercial Tenjinbashisuji", "Tenjinbashisuji", "Museo de la Vivienda y la Vida de Osaka", "Umeda Sky Building", "Umeda"]
     },
     {
         id: "shinsaibashi-maruhana",
@@ -170,7 +170,7 @@ const restaurantData = [
         rating: 4.5,
         specialty: "Buffet Libre de Cangrejo & Wagyu A5",
         image: "images/restaurantes/shinsaibashi-maruhana.jpg",
-        nearTo: ["Shinsaibashi Parco", "Dotonbori"]
+        nearTo: ["Shinsaibashi Parco", "Dotonbori", "Shinsaibashi", "Higashi Shinsaibashi", "Shinsaibashi-suji"]
     },
     {
         id: "unagi-nakasho-namba",
@@ -184,7 +184,7 @@ const restaurantData = [
         rating: 4.8,
         specialty: "Hitsumabushi (Anguila Tradicional)",
         image: "images/restaurantes/unagi-nakasho-namba.jpg",
-        nearTo: ["Dotonbori", "Namba Parks"]
+        nearTo: ["Dotonbori", "Namba Parks", "Namba", "Ebisubashisuji", "Den Den Town", "Doguyasuji"]
     },
     {
         id: "kobe-beef-amami",
@@ -198,7 +198,7 @@ const restaurantData = [
         rating: 4.9,
         specialty: "Solomillo de Kobe a la Plancha",
         image: "images/restaurantes/kobe-beef-amami.jpg",
-        nearTo: ["Puerto de Kobe", "Harborland"]
+        nearTo: ["Kobe", "Sannomiya", "Puerto de Kobe", "Harborland", "Excursión a Kobe"]
     },
     {
         id: "wagyu-idaten-namba",
@@ -212,7 +212,7 @@ const restaurantData = [
         rating: 4.7,
         specialty: "Wagyu Oju (Caja de Ternera en Laca)",
         image: "images/restaurantes/wagyu-idaten-namba.jpg",
-        nearTo: ["Dotonbori", "Santuario Namba Yasaka", "Calle Ebisubashisuji"]
+        nearTo: ["Dotonbori", "Santuario Namba Yasaka", "Calle Ebisubashisuji", "Namba", "Ebisubashisuji", "Cena en Dotonbori"]
     },
     // --- RESTAURANTES DE KIOTO ---
     {
@@ -227,7 +227,7 @@ const restaurantData = [
         rating: 4.9,
         specialty: "Gyukatsu (Ternera Empanada a la Piedra)", 
         image: "images/restaurantes/gyukatsu-motomura-kyoto.jpg",
-        nearTo: ["Calle Comercial Kawaramachi", "Paseo por el río Kamo", "Pontocho"]
+        nearTo: ["Calle Comercial Kawaramachi", "Paseo por el río Kamo", "Pontocho", "Kawaramachi", "Sanjo", "Teramachi", "Mercado Nishiki", "Paseo Nocturno Pontocho", "Museo de Samuráis y Ninjas de Kioto"]
     },
     {
         id: "chao-chao-gyoza-kiyamachi",
@@ -241,7 +241,7 @@ const restaurantData = [
         rating: 4.6,
         specialty: "Gyoza de Cerdo y Ajo Chao Chao",
         image: "images/restaurantes/chao-chao-gyoza-kiyamachi.jpg",
-        nearTo: ["Calle Comercial Kawaramachi", "Pontocho", "Gion"]
+        nearTo: ["Calle Comercial Kawaramachi", "Pontocho", "Gion", "Kiyamachi", "Sanjo", "Gion Shirakawa", "Mercado Nishiki", "Museo de Samuráis y Ninjas de Kioto"]
     },
     {
         id: "tempura-no-mise-gen",
@@ -255,7 +255,7 @@ const restaurantData = [
         rating: 4.9,
         specialty: "Tendon (Bol de Tempura Crujiente)",
         image: "images/restaurantes/tempura-no-mise-gen.jpg",
-        nearTo: ["Calle Comercial Kawaramachi", "Paseo por el río Kamo"]
+        nearTo: ["Calle Comercial Kawaramachi", "Paseo por el río Kamo", "Sanjo", "Kiyamachi", "Teramachi", "Mercado Nishiki"]
     },
     {
         id: "unagi-sumito",
@@ -269,7 +269,7 @@ const restaurantData = [
         rating: 5,
         specialty: "Unajyu (Anguila sobre Arroz en Caja)",
         image: "images/restaurantes/unagi-sumito.jpg",
-        nearTo: ["Higashiyama", "Kiyomizu-dera", "Santuario Yasaka", "Gion"]
+        nearTo: ["Higashiyama", "Kiyomizu-dera", "Santuario Yasaka", "Gion", "Ninenzaka", "Sannenzaka", "Gion Shirakawa", "Templo Kennin-ji", "Fushimi Inari"]
     },
         {
         id: "kyoto-engine-ramen",
@@ -283,7 +283,7 @@ const restaurantData = [
         rating: 4.5,
         specialty: "Ramen Engine (Caldo Denso y Sabroso)",
         image: "images/restaurantes/kyoto-engine-ramen.jpg",
-        nearTo: ["Calle Comercial Kawaramachi", "Pontocho", "Gion"]
+        nearTo: ["Calle Comercial Kawaramachi", "Pontocho", "Gion", "Mercado Nishiki", "Nishiki", "Teramachi", "Gion Shirakawa", "Castillo de Nijo", "Palacio Imperial de Kioto", "Torre de Kioto"]
     },
     {
         id: "kyoto-kani-gin",
@@ -297,7 +297,21 @@ const restaurantData = [
         rating: 4.5,
         specialty: "Tempura y Sashimi de Cangrejo Nevado",
         image: "images/restaurantes/kyoto-kani-gin.jpg",
-        nearTo: ["Calle Comercial Kawaramachi", "Pontocho"]
+        nearTo: ["Calle Comercial Kawaramachi", "Pontocho", "Gion", "Sanjo", "Mercado Nishiki", "Nishiki", "Gion Shirakawa"]
+    },
+        {
+        id: "sabo-kinkakuan-kyoto",
+        name: "Sabo Kinkaku-an (茶房 金閣庵)",
+        category: "Casa de Té & Dulces Tradicionales",
+        description: "Encantadora casa de té tradicional japonesa y repostería artesanal ubicada a pocos pasos del templo Kinkaku-ji. Un rincón mágico para disfrutar de té matcha de Uji y dulces japoneses frente a un idílico jardín zen.",
+        area: "Kinkaku-ji, Kioto",
+        city: "KYOTO",
+        address: "36-1 Kinugasanishi Goshonouchicho, Kita Ward, Kyoto, 603-8377, Japón",
+        google_maps_place_id: "ChIJl2JyBiCoAWARaV4-RLkUeGM",
+        rating: 4.8,
+        specialty: "Matcha Tradicional & Repostería Japonesa",
+        image: "images/restaurantes/sabo-kinkakuan-kyoto.jpg",
+        nearTo: ["Kinkaku-ji", "Templo del Pabellón Dorado", "Pabellón Dorado", "Ryoan-ji", "Opción Tarde: El Pabellón Dorado", "Ninna-ji", "Santuario Kitano Tenmangu", "Funaoka Onsen"]
     },
     // --- RESTAURANTES DE TOKIO ---
     {
@@ -312,7 +326,7 @@ const restaurantData = [
         rating: 4.4,
         specialty: "Hamburguesas Wagyu al Carbón", 
         image: "images/restaurantes/hikiniku-to-come-tokyo.jpg",
-        nearTo: ["Shibuya", "Harajuku", "Omotesando"]
+        nearTo: ["Shibuya", "Harajuku", "Omotesando", "Shibuya Crossing", "Shibuya Sky", "Avenida Omotesando", "Santuario Meiji", "Modo Karaoke"]
     },
     {
         id: "kanimamire-ikebukuro",
@@ -340,7 +354,7 @@ const restaurantData = [
         rating: 4.3,
         specialty: "Ramen Niboshi (Caldo de Anchoas Secas)", 
         image: "images/restaurantes/ramen-nagi-shinjuku.jpg",
-        nearTo: ["Shinjuku", "Kabukicho", "Golden Gai", "Gobierno Metropolitano"]
+        nearTo: ["Shinjuku", "Kabukicho", "Golden Gai", "Gobierno Metropolitano", "Omoide Yokocho", "Godzilla", "Tren a Shinjuku", "Llegada a Shinjuku", "Samurai Restaurant Show", "Shinjuku Gyoen"]
     },
     {
         id: "yakiniku-washino-shinjuku",
@@ -354,7 +368,7 @@ const restaurantData = [
         rating: 4.9,
         specialty: "Cortes Finos de Wagyu A5 al Carbón", 
         image: "images/restaurantes/yakiniku-washino-shinjuku.jpg",
-        nearTo: ["Shinjuku", "Kabukicho", "Godzilla", "Omoide Yokocho"]
+        nearTo: ["Shinjuku", "Kabukicho", "Godzilla", "Omoide Yokocho", "Shinjuku San-chome", "Samurai Restaurant Show", "Shinjuku Gyoen"]
     },
     {
         id: "pizza-marumo-tokyo",
@@ -368,7 +382,7 @@ const restaurantData = [
         rating: 4.4,
         specialty: "Pizza de Trufa y Champiñones", 
         image: "images/restaurantes/pizza-marumo-tokyo.jpg",
-        nearTo: ["Ebisu", "Shibuya", "Daikanyama", "Roppongi"]
+        nearTo: ["Ebisu", "Shibuya", "Daikanyama", "Roppongi", "Roppongi Hills"]
     },
     {
         id: "wagyu-burger-hirokiya",
@@ -382,7 +396,7 @@ const restaurantData = [
         rating: 4.8,
         specialty: "Wagyu Smash Burger", 
         image: "images/restaurantes/wagyu-burger-hirokiya.jpg",
-        nearTo: ["Ebisu", "Shibuya", "Daikanyama"]
+        nearTo: ["Ebisu", "Shibuya", "Daikanyama", "Roppongi", "Roppongi Hills"]
     },
     {
         id: "yakiniku-kappo-note",
@@ -396,7 +410,7 @@ const restaurantData = [
         rating: 4.8,
         specialty: "Menú Degustación Yakiniku Kappo", 
         image: "images/restaurantes/yakiniku-kappo-note.jpg",
-        nearTo: ["Ginza", "Tsukiji", "Palacio Imperial", "Marunouchi"]
+        nearTo: ["Ginza", "Tsukiji", "Palacio Imperial", "Marunouchi", "Azabujuban", "Mercado Tsukiji", "Teatro Kabuki-za"]
     },
     {
         id: "rare-tendon-mitsuyoshi",
@@ -410,7 +424,7 @@ const restaurantData = [
         rating: 4.4,
         specialty: "Tendon de Mariscos en Flor de Tempura", 
         image: "images/restaurantes/rare-tendon-mitsuyoshi.jpg",
-        nearTo: ["Ginza", "Tsukiji", "Tsukiji Outer Market", "Mercado de Pescado"]
+        nearTo: ["Ginza", "Tsukiji", "Tsukiji Outer Market", "Mercado de Pescado", "Mercado Tsukiji", "Teatro Kabuki-za", "Yurakucho", "Estación de Tokio", "Toyosu Market", "Senkyaku Banrai"]
     },
     {
         id: "ginza-kagari-ramen",
@@ -424,7 +438,7 @@ const restaurantData = [
         rating: 4.2,
         specialty: "Tori Paitan Ramen (Crema de Pollo)", 
         image: "images/restaurantes/ginza-kagari-ramen.jpg",
-        nearTo: ["Ginza", "Tsukiji", "Palacio Imperial", "Yurakucho", "Estación de Tokio"]
+        nearTo: ["Ginza", "Tsukiji", "Palacio Imperial", "Yurakucho", "Estación de Tokio", "Mercado Tsukiji", "Teatro Kabuki-za", "Marunouchi", "Toyosu Market", "Senkyaku Banrai"]
     },
     {
         id: "ginza-cafe-hanon",
@@ -438,7 +452,7 @@ const restaurantData = [
         rating: 4.2,
         specialty: "Fluffy Pancakes (Tortitas Esponjosas)", 
         image: "images/restaurantes/ginza-cafe-hanon.jpg",
-        nearTo: ["Ginza", "Tsukiji", "Marunouchi", "Estación de Tokio"]
+        nearTo: ["Ginza", "Tsukiji", "Marunouchi", "Estación de Tokio", "Mercado Tsukiji", "Teatro Kabuki-za", "Yurakucho", "Toyosu Market", "Senkyaku Banrai"]
     },
     {
         id: "400c-pizza-tokyo",
@@ -452,7 +466,7 @@ const restaurantData = [
         rating: 4.2,
         specialty: "Pizza Margherita Napolitana Premium",
         image: "images/restaurantes/400c-pizza-tokyo.jpg",
-        nearTo: ["Shinjuku", "Kabukicho"]
+        nearTo: ["Kagurazaka", "Iidabashi", "Hotel Edmont", "Check-in Edmont", "Jardín Koishikawa Korakuen", "Shinjuku", "Kabukicho"]
     },
     {
         id: "meat-eat-up-kichijoji",
@@ -466,7 +480,7 @@ const restaurantData = [
         rating: 4.3,
         specialty: "Ribeye Steak a la Parrilla",
         image: "images/restaurantes/meat-eat-up-kichijoji.jpg",
-        nearTo: ["Parque Inokashira", "Shibuya"]
+        nearTo: ["Parque Inokashira", "Shibuya", "Kichijoji", "Mitaka", "Museo Ghibli", "Nakano", "Nakano Broadway"]
     },
     {
         id: "pizza-strada-tokyo",
@@ -480,7 +494,7 @@ const restaurantData = [
         rating: 4.4,
         specialty: "Pizza Strada (Jamón, Rúcula y Huevo)",
         image: "images/restaurantes/pizza-strada-tokyo.jpg",
-        nearTo: ["Roppongi", "Torre de Tokio"]
+        nearTo: ["Azabujuban", "Roppongi", "Torre de Tokio", "Roppongi Hills", "TeamLab Borderless", "Azabudai Hills"]
     },
     {
         id: "shogun-pizza-shibuya",
@@ -494,7 +508,7 @@ const restaurantData = [
         rating: 4.7,
         specialty: "Pizza de Wagyu y Setas Shiitake",
         image: "images/restaurantes/shogun-pizza-shibuya.jpg",
-        nearTo: ["Shibuya Crossing", "Harajuku"]
+        nearTo: ["Shibuya Crossing", "Harajuku", "Shibuya", "Spain-zaka", "Takeshita Street", "Shibuya Sky"]
     },
     {
         id: "wagyu-brothers-asakusa",
@@ -508,7 +522,7 @@ const restaurantData = [
         rating: 4.9,
         specialty: "Wagyu Cheeseburger con Patatas",
         image: "images/restaurantes/wagyu-brothers-asakusa.jpg",
-        nearTo: ["Senso-ji", "Akihabara"]
+        nearTo: ["Senso-ji", "Akihabara", "Asakusa", "Nakamise", "Calle Nakamise", "Río Sumida", "Tokyo Skytree", "Skytree", "Calle Kappabashi", "Crucero Fluvial Hotaluna", "Experiencia Maid Café", "Últimas compras por Tokio"]
     },
     {
         id: "forno-nishiazabu",
@@ -522,7 +536,7 @@ const restaurantData = [
         rating: 4.5,
         specialty: "Chuletón Wagyu Asado al Carbón",
         image: "images/restaurantes/forno-nishiazabu.jpg",
-        nearTo: ["Roppongi", "Shibuya"]
+        nearTo: ["Nishiazabu", "Roppongi", "Roppongi Hills", "Shibuya"]
     },
     {
         id: "kikanbo-ramen-tokyo",
@@ -536,7 +550,7 @@ const restaurantData = [
         rating: 4.4,
         specialty: "Karashige Miso Ramen (Picante & Sichuan)",
         image: "images/restaurantes/kikanbo-ramen-tokyo.jpg",
-        nearTo: ["Akihabara", "Estación de Tokio"]
+        nearTo: ["Akihabara", "Estación de Tokio", "Kanda", "Kanda Myōjin", "Experiencia Maid Café", "Parque Ueno", "Mercado Ameyoko", "Ameyoko", "Últimas compras por Tokio"]
     },
     {
         id: "age3-harajuku",
@@ -550,7 +564,7 @@ const restaurantData = [
         rating: 4.8,
         specialty: "Age-pan (Sándwich Frito de Nata Fresca)",
         image: "images/restaurantes/age3-harajuku.jpg",
-        nearTo: ["Harajuku", "Takeshita Street", "Omotesando"]
+        nearTo: ["Harajuku", "Takeshita Street", "Omotesando", "Harajuku (Takeshita Street)", "Avenida Omotesando", "Santuario Meiji", "Shibuya"]
     },
     {
         id: "dolce-tacubo-tokyo",
@@ -578,7 +592,7 @@ const restaurantData = [
         rating: 4.9,
         specialty: "Gyukatsu (Ternera Empanada a la Piedra)",
         image: "images/restaurantes/gyukatsu-motomura-shibuya.jpg",
-        nearTo: ["Shibuya Crossing", "Shibuya Sky", "Harajuku"]
+        nearTo: ["Shibuya Crossing", "Shibuya Sky", "Harajuku", "Shibuya", "Modo Karaoke"]
     },
     {
         id: "hikiniku-to-kome-kichijoji",
@@ -592,7 +606,7 @@ const restaurantData = [
         rating: 4.4,
         specialty: "Hamburguesas de Wagyu con Huevo Crudo",
         image: "images/restaurantes/hikiniku-to-kome-kichijoji.jpg",
-        nearTo: ["Parque Inokashira", "Mitaka"]
+        nearTo: ["Parque Inokashira", "Mitaka", "Kichijoji", "Museo Ghibli", "Nakano", "Nakano Broadway"]
     },
     {
         id: "nihon-miyabi-asakusa",
@@ -606,7 +620,49 @@ const restaurantData = [
         rating: 5,
         specialty: "Vajillas Edo-kiriko y Abanicos Artesanales",
         image: "images/restaurantes/nihon-miyabi-asakusa.jpg",
-        nearTo: ["Senso-ji", "Calle Nakamise"]
+        nearTo: ["Senso-ji", "Calle Nakamise", "Asakusa", "Nakamise", "Calle Kappabashi"]
+    },
+    {
+        id: "sukemasa-coffee-tokyo",
+        name: "Sukemasa Coffee (スケマサ コーヒー)",
+        category: "Café & Repostería",
+        description: "Famosa cafetería en Asakusa servida por baristas vestidos con kimono tradicional, conocida por su café de especialidad, sus espectaculares sándwiches de fruta fresca (Fruit Sando) y repostería artesanal.",
+        area: "Asakusa, Tokio",
+        city: "TOKYO",
+        address: "Japón, 〒111-0032 Tokyo, Taito City, Asakusa, 2-chōme−29−２ 君塚ビル 102",
+        google_maps_place_id: "ChIJx0YfggGPGGARxC5wrIo3Gxk",
+        rating: 4.4,
+        specialty: "Fruit Sando & Café de Especialidad",
+        image: "images/restaurantes/sukemasa-coffee-tokyo.jpg",
+        nearTo: ["Senso-ji", "Asakusa", "Calle Nakamise", "Nakamise", "Calle Kappabashi", "Crucero Fluvial Hotaluna"]
+    },
+    {
+        id: "tonkatsu-maisen-aoyama",
+        name: "Tonkatsu Maisen Aoyama",
+        category: "Tonkatsu (Cerdo Empanado)",
+        description: "El templo definitivo del Tonkatsu en Tokio, ubicado en una antigua casa de baños pública convertida en restaurante. Su solomillo de cerdo Kurobuta empanado es tan increíblemente tierno que se puede cortar con los palillos.",
+        area: "Aoyama / Omotesando, Tokio",
+        city: "TOKYO",
+        address: "4-chōme-8-5 Jingūmae, Shibuya, Tokyo 150-0001, Japan",
+        google_maps_place_id: "ChIJa2mnui2NGGAR7z4tvWkl7HM",
+        rating: 4.4,
+        specialty: "Tonkatsu Kurobuta (Solomillo de Cerdo)",
+        image: "images/restaurantes/tonkatsu-maisen-aoyama.jpg",
+        nearTo: ["Omotesando", "Harajuku", "Shibuya", "Avenida Omotesando", "Aoyama", "Santuario Meiji"]
+    },
+    {
+        id: "crayon-shinchan-shop-tokyo",
+        name: "Crayon Shin-chan Official Shop",
+        category: "Tienda Oficial & Merchandising",
+        description: "La tienda oficial (Action Department Store) dedicada al icónico personaje de anime Shin-chan en Tokyo Character Street. Ideal para conseguir peluches exclusivos, figuras, souvenirs divertidos y productos artesanales.",
+        area: "Estación de Tokio (Tokyo Character Street), Tokio",
+        city: "TOKYO",
+        address: "Japón, 〒100-0005 Tokyo, Chiyoda City, Marunouchi, 1-chōme−9−１ Tokyo Character Street (Estación de Tokio)",
+        google_maps_place_id: "ChIJGeYlX_mLGGAR6zAbbFYf_7Q",
+        rating: 4.4,
+        specialty: "Merchandising Exclusivo de Shin-chan",
+        image: "images/restaurantes/crayon-shinchan-shop-tokyo.jpg",
+        nearTo: ["Estación de Tokio", "Tokyo Character Street", "Marunouchi", "Nihonbashi", "Ginza", "Ginza Luxury"]
     }
 ];
 

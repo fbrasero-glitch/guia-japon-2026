@@ -1,4 +1,4 @@
-const CACHE_NAME = 'japon-2026-v31';
+const CACHE_NAME = 'japon-2026-v34';
 
 // Esta lista será reemplazada automáticamente por el script de Python.
 const ASSETS_TO_CACHE = [
@@ -342,6 +342,7 @@ const ASSETS_TO_CACHE = [
     "images/restaurantes/age3-harajuku.jpg",
     "images/restaurantes/bek-shinsaibashi.jpg",
     "images/restaurantes/chao-chao-gyoza-kiyamachi.jpg",
+    "images/restaurantes/crayon-shinchan-shop-tokyo.jpg",
     "images/restaurantes/dekasan-osaka.jpg",
     "images/restaurantes/dolce-tacubo-tokyo.jpg",
     "images/restaurantes/forno-nishiazabu.jpg",
@@ -369,10 +370,13 @@ const ASSETS_TO_CACHE = [
     "images/restaurantes/pizza-strada-tokyo.jpg",
     "images/restaurantes/ramen-nagi-shinjuku.jpg",
     "images/restaurantes/rare-tendon-mitsuyoshi.jpg",
+    "images/restaurantes/sabo-kinkakuan-kyoto.jpg",
     "images/restaurantes/shinsaibashi-maruhana.jpg",
     "images/restaurantes/shogun-pizza-shibuya.jpg",
+    "images/restaurantes/sukemasa-coffee-tokyo.jpg",
     "images/restaurantes/tempura-no-mise-gen.jpg",
     "images/restaurantes/tenma-sakaba-sushikin.jpg",
+    "images/restaurantes/tonkatsu-maisen-aoyama.jpg",
     "images/restaurantes/unagi-nakasho-namba.jpg",
     "images/restaurantes/unagi-sumito.jpg",
     "images/restaurantes/unagiya-hanamichi-shinsaibashi.jpg",
