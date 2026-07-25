@@ -1227,39 +1227,108 @@ function init() {
         };
     }
 
-    // 3. Función para mostrar contador de días
-    function showCountdown() {
-        const targetDate = new Date('2026-07-27T00:00:00');
+    // 3. Cálculo de estado del viaje y contador adaptativo
+    function getCurrentTripState() {
+        const startOfTarget = new Date(2026, 6, 27); // 27 de Julio de 2026
         const now = new Date();
-        const diffTime = targetDate - now;
-        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+        const diffTime = startOfTarget - startOfToday;
+        const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+        
+        let tripDay = 0;
+        if (diffDays <= 0) {
+            tripDay = Math.abs(diffDays) + 1;
+        }
+
+        return { diffDays, tripDay };
+    }
+
+    function showCountdown() {
+        const { diffDays, tripDay } = getCurrentTripState();
 
         const container = document.getElementById('info-content');
         const visualCard = document.getElementById('visual-card');
 
         // En móvil, mostrar la cuenta atrás directamente en el visual-card
         const isMobile = window.innerWidth <= 767;
-        const targetContainer = isMobile ? visualCard : container;
 
-        const countdownHTML = `
-        <div class="countdown-container ${isMobile ? 'countdown-mobile' : ''}" >
-             <div class="countdown-title">
-                 <i class="fa-solid fa-rocket"></i>
-                 <h2>CUENTA ATRÁS</h2>
+        let countdownHTML = '';
+
+        if (diffDays > 0) {
+            // ESTADO A: Pre-viaje (Cuenta atrás decreciente)
+            countdownHTML = `
+            <div class="countdown-container ${isMobile ? 'countdown-mobile' : ''}" >
+                 <div class="countdown-title">
+                     <i class="fa-solid fa-rocket"></i>
+                     <h2>CUENTA ATRÁS</h2>
+                 </div>
+                 <div class="countdown-display">
+                     <div class="countdown-number">${diffDays}</div>
+                     <div class="countdown-label">DÍAS</div>
+                 </div>
+                 <div class="countdown-subtitle">
+                     <i class="fa-solid fa-calendar-days"></i>
+                     <span>Hasta el Gran Despegue</span>
+                 </div>
+                 <div class="countdown-date">
+                     27 de Julio, 2026
+                 </div>
              </div>
-             <div class="countdown-display">
-                 <div class="countdown-number">${diffDays > 0 ? diffDays : 0}</div>
-                 <div class="countdown-label">DÍAS</div>
+            `;
+        } else if (tripDay >= 1 && tripDay <= 24) {
+            // ESTADO B: Modo En Vivo (Durante el viaje Días 1 a 24)
+            const dayData = (window.travelData && window.travelData[tripDay]) ? window.travelData[tripDay] : null;
+            const currentTitle = dayData ? dayData.title : 'Aventura en Japón';
+            const currentDateStr = dayData ? dayData.date : '';
+
+            countdownHTML = `
+            <div class="countdown-container live-trip-mode ${isMobile ? 'countdown-mobile' : ''}" >
+                 <div class="live-badge-pulse">
+                     <span class="pulse-dot"></span> EN DIRECTO 🇯🇵
+                 </div>
+                 <div class="countdown-title" style="margin-top:12px;">
+                     <i class="fa-solid fa-plane-arrival" style="color:var(--neon-blue);"></i>
+                     <h2>EXPEDICIÓN EN MARCHA</h2>
+                 </div>
+                 <div class="countdown-display">
+                     <div class="countdown-number">${tripDay}</div>
+                     <div class="countdown-label">DÍA DE 24</div>
+                 </div>
+                 <div class="countdown-subtitle">
+                     <i class="fa-solid fa-location-dot" style="color:var(--gold);"></i>
+                     <span>${currentTitle}</span>
+                 </div>
+                 <div class="countdown-date">
+                     ${currentDateStr || 'Japón 2026'}
+                 </div>
+                 <button onclick="loadDay(${tripDay})" class="btn-live-day">
+                     <i class="fa-solid fa-compass"></i> IR AL ITINERARIO DE HOY (DÍA ${tripDay})
+                 </button>
              </div>
-             <div class="countdown-subtitle">
-                 <i class="fa-solid fa-calendar-days"></i>
-                 <span>Hasta el Gran Despegue</span>
+            `;
+        } else {
+            // ESTADO C: Post-viaje (Día > 24)
+            countdownHTML = `
+            <div class="countdown-container ${isMobile ? 'countdown-mobile' : ''}" >
+                 <div class="countdown-title">
+                     <i class="fa-solid fa-trophy" style="color:var(--gold);"></i>
+                     <h2>EXPEDICIÓN COMPLETADA</h2>
+                 </div>
+                 <div class="countdown-display">
+                     <div class="countdown-number">24</div>
+                     <div class="countdown-label">DÍAS DE AVENTURA</div>
+                 </div>
+                 <div class="countdown-subtitle">
+                     <i class="fa-solid fa-torii-gate" style="color:var(--neon-purple);"></i>
+                     <span>¡Recuerdos Inolvidables en Japón!</span>
+                 </div>
+                 <div class="countdown-date">
+                     27 Julio - 19 Agosto 2026
+                 </div>
              </div>
-             <div class="countdown-date">
-                 27 de Julio, 2026
-             </div>
-         </div>
-        `;
+            `;
+        }
 
         if (isMobile) {
             // En móvil, agregar al visual-card y limpiar el info-content
@@ -1271,17 +1340,16 @@ function init() {
             visualCard.innerHTML = '';
         }
 
-        // Actualizar cada día
-        if (diffDays > 0) {
-            setTimeout(() => {
-                if (introVideo && !introVideo.classList.contains('hidden')) {
-                    showCountdown();
-                }
-            }, 86400000); // Actualizar cada 24 horas
-        }
+        // Actualizar cada 24 horas si la app está abierta
+        setTimeout(() => {
+            if (introVideo && !introVideo.classList.contains('hidden')) {
+                showCountdown();
+            }
+        }, 86400000);
     }
 
-    // 3. Mapas eliminados por solicitud del usuario
+    // Exponer la función para consulta externa si fuese necesario
+    window.getCurrentTripState = getCurrentTripState;
 
     // 4. Botones con Lógica de Posición Dinámica
     const menu = document.getElementById('day-list');
@@ -1317,9 +1385,19 @@ function init() {
         menu.appendChild(btn);
     });
 
-    // NO cargar ningún día al inicio, dejar el video reproduciéndose como portada
-    // Mostrar contador en la portada
-    showCountdown();
+    // 5. Inicialización según fase del viaje
+    const tripState = getCurrentTripState();
+    if (tripState.tripDay >= 1 && tripState.tripDay <= 24 && typeof loadDay === 'function') {
+        console.log(`¡Modo Viaje En Vivo Activo! Cargando automáticamente el Día ${tripState.tripDay}...`);
+        if (introVideo) {
+            introVideo.classList.add('hidden');
+            introVideo.pause();
+        }
+        loadDay(tripState.tripDay);
+    } else {
+        // En pre-viaje o post-viaje, mostrar la portada con el contador adaptativo
+        showCountdown();
+    }
 
     // 4. Inicializar sincronización Cloud si está configurada
     if (window.Persistence && window.Persistence.initCloudSync) {
